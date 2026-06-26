@@ -206,5 +206,44 @@
     "rating": "watch",
     "sourceTweetUrl": "",
     "addedDate": "2026-06-25"
+  },
+  {
+    "ticker": "JBL",
+    "company": "Jabil Inc",
+    "category": "photonics",
+    "market": "US",
+    "exchange": "NYSE",
+    "whatTheyDo": "Electronics manufacturing services; builds 1.6T optical modules (LRO) for AI data centers.",
+    "whyNVDA": "Volume manufacturer of next-gen optical interconnects feeding NVDA GPU clusters.",
+    "marketCapTier": "Large",
+    "rating": "watch",
+    "sourceTweetUrl": "",
+    "addedDate": "2026-06-26"
+  },
+  {
+    "ticker": "POET",
+    "company": "POET Technologies",
+    "category": "photonics",
+    "market": "US",
+    "exchange": "NASDAQ",
+    "whatTheyDo": "Silicon-photonics optical interposer/engine platform for co-packaged optics (CPO).",
+    "whyNVDA": "CPO scale-out architectures that connect GPU clusters as copper hits its limit.",
+    "marketCapTier": "Small",
+    "rating": "watch",
+    "sourceTweetUrl": "",
+    "addedDate": "2026-06-26"
+  },
+  {
+    "ticker": "TSLA",
+    "company": "Tesla Inc",
+    "category": "robotics",
+    "market": "US",
+    "exchange": "NASDAQ",
+    "whatTheyDo": "EVs plus the Optimus humanoid robot program.",
+    "whyNVDA": "Humanoids are a new AI-compute demand vertical pulling on the same chip supply chain.",
+    "marketCapTier": "Mega",
+    "rating": "watch",
+    "sourceTweetUrl": "",
+    "addedDate": "2026-06-26"
   }
 ]

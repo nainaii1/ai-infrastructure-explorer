@@ -1,17 +1,35 @@
 {
   "meta": {
-    "version": "1.0",
+    "version": "1.2",
     "schemaVersion": 1,
-    "lastUpdated": null,
-    "source": "seed"
+    "lastUpdated": "2026-06-26T22:16:02Z",
+    "source": "ingest"
   },
   "countries": {
-    "US": { "flag": "🇺🇸", "label": "United States" },
-    "KR": { "flag": "🇰🇷", "label": "South Korea" },
-    "TW": { "flag": "🇹🇼", "label": "Taiwan" },
-    "SE": { "flag": "🇸🇪", "label": "Sweden" },
-    "FR": { "flag": "🇫🇷", "label": "France" },
-    "DE": { "flag": "🇩🇪", "label": "Germany" }
+    "US": {
+      "flag": "🇺🇸",
+      "label": "United States"
+    },
+    "KR": {
+      "flag": "🇰🇷",
+      "label": "South Korea"
+    },
+    "TW": {
+      "flag": "🇹🇼",
+      "label": "Taiwan"
+    },
+    "SE": {
+      "flag": "🇸🇪",
+      "label": "Sweden"
+    },
+    "FR": {
+      "flag": "🇫🇷",
+      "label": "France"
+    },
+    "DE": {
+      "flag": "🇩🇪",
+      "label": "Germany"
+    }
   },
   "categories": {
     "photonics": {
@@ -19,7 +37,7 @@
       "label": "Photonics",
       "subtitle": "Optical Interconnects",
       "color": "#3b82f6",
-      "layer": 3,
+      "layer": 4,
       "tooltip": "Light-based data transmission inside AI data centers. Copper cables cannot handle 100kW+ GPU rack bandwidth — optical interconnects replace them."
     },
     "memory": {
@@ -27,7 +45,7 @@
       "label": "AI Memory",
       "subtitle": "HBM & DRAM",
       "color": "#8b5cf6",
-      "layer": 2,
+      "layer": 3,
       "tooltip": "High-Bandwidth Memory (HBM) is physically stacked on top of NVDA GPUs. Every H100/B200 chip needs it. More AI training = more HBM demand."
     },
     "fabs": {
@@ -35,7 +53,7 @@
       "label": "Fabs & Foundries",
       "subtitle": "Chip Manufacturing",
       "color": "#f59e0b",
-      "layer": 4,
+      "layer": 5,
       "tooltip": "The factories that physically manufacture chips. NVDA designs GPUs but does not make them — TSMC and others do the actual fabrication."
     },
     "neoclouds": {
@@ -43,7 +61,7 @@
       "label": "Neoclouds",
       "subtitle": "GPU Cloud Providers",
       "color": "#22c55e",
-      "layer": 6,
+      "layer": 7,
       "tooltip": "New cloud companies built purely for AI GPU compute. They buy NVDA GPUs in bulk and rent compute time to AI startups and enterprises."
     },
     "materials": {
@@ -59,8 +77,24 @@
       "label": "Networking",
       "subtitle": "AI Cluster Connectivity",
       "color": "#14b8a6",
-      "layer": 5,
+      "layer": 6,
       "tooltip": "InfiniBand and Ethernet fabric connecting thousands of GPUs into one coherent cluster. Without this, individual GPUs cannot work together at scale."
+    },
+    "glass": {
+      "id": "glass",
+      "label": "Glass Substrates",
+      "subtitle": "Advanced Packaging Substrates",
+      "color": "#0ea5e9",
+      "layer": 2,
+      "tooltip": "Glass-core substrates for advanced chip packaging (SKC Absolics, TSMC CoPoS). A next-gen substrate layer ramping H2 2026 onward."
+    },
+    "robotics": {
+      "id": "robotics",
+      "label": "Robotics",
+      "subtitle": "Humanoids & Automation",
+      "color": "#e11d48",
+      "layer": 8,
+      "tooltip": "Humanoid robots and automation as a new AI-compute demand vertical (Tesla Optimus, Unitree). Early-stage but a major future driver."
     }
   },
   "center": {
