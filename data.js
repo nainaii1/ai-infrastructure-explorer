@@ -6,7 +6,7 @@
 
 window.AIE_DATA = {
   "meta": {
-    "version": "1.2",
+    "version": "1.3",
     "schemaVersion": 1,
     "lastUpdated": "2026-06-26T22:16:02Z",
     "source": "ingest"
@@ -67,7 +67,7 @@ window.AIE_DATA = {
       "label": "Neoclouds",
       "subtitle": "GPU Cloud Providers",
       "color": "#22c55e",
-      "layer": 7,
+      "layer": 8,
       "tooltip": "New cloud companies built purely for AI GPU compute. They buy NVDA GPUs in bulk and rent compute time to AI startups and enterprises."
     },
     "materials": {
@@ -83,7 +83,7 @@ window.AIE_DATA = {
       "label": "Networking",
       "subtitle": "AI Cluster Connectivity",
       "color": "#14b8a6",
-      "layer": 6,
+      "layer": 7,
       "tooltip": "InfiniBand and Ethernet fabric connecting thousands of GPUs into one coherent cluster. Without this, individual GPUs cannot work together at scale."
     },
     "glass": {
@@ -99,8 +99,16 @@ window.AIE_DATA = {
       "label": "Robotics",
       "subtitle": "Humanoids & Automation",
       "color": "#e11d48",
-      "layer": 8,
+      "layer": 9,
       "tooltip": "Humanoid robots and automation as a new AI-compute demand vertical (Tesla Optimus, Unitree). Early-stage but a major future driver."
+    },
+    "accelerators": {
+      "id": "accelerators",
+      "label": "Accelerators",
+      "subtitle": "GPU / AI Chip Designers",
+      "color": "#76b900",
+      "layer": 6,
+      "tooltip": "The GPU and AI-accelerator designers the whole supply chain feeds into. NVDA designs the chips; TSMC and others fabricate them."
     }
   },
   "center": {
@@ -122,7 +130,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-25",
       "priority": {
-        "score": 0.9902,
+        "score": 0.9894,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-26T17:30:47Z"
@@ -141,7 +149,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-25",
       "priority": {
-        "score": 0.9902,
+        "score": 0.9894,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-26T17:30:47Z"
@@ -160,7 +168,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-25",
       "priority": {
-        "score": 0.9902,
+        "score": 0.9894,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-26T17:30:47Z"
@@ -179,7 +187,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-25",
       "priority": {
-        "score": 0.9902,
+        "score": 0.9894,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-26T17:30:47Z"
@@ -198,7 +206,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-25",
       "priority": {
-        "score": 0.9902,
+        "score": 0.9894,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-26T17:30:47Z"
@@ -230,7 +238,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-25",
       "priority": {
-        "score": 0.9902,
+        "score": 0.9894,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-26T17:30:47Z"
@@ -239,7 +247,7 @@ window.AIE_DATA = {
     {
       "ticker": "NVDA",
       "company": "NVIDIA Corporation",
-      "category": "fabs",
+      "category": "accelerators",
       "market": "US",
       "exchange": "NASDAQ",
       "whatTheyDo": "Designs the world's most powerful AI GPUs (H100, H200, B200) and the CUDA software platform that runs all major AI models.",
@@ -288,7 +296,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-25",
       "priority": {
-        "score": 0.9902,
+        "score": 0.9894,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-26T17:30:47Z"
@@ -307,7 +315,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-25",
       "priority": {
-        "score": 0.9902,
+        "score": 0.9894,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-26T17:30:47Z"
@@ -365,7 +373,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-25",
       "priority": {
-        "score": 0.9902,
+        "score": 0.9894,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-26T17:30:47Z"
@@ -384,7 +392,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-26",
       "priority": {
-        "score": 0.9902,
+        "score": 0.9894,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-26T17:30:47Z"
@@ -403,7 +411,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-26",
       "priority": {
-        "score": 0.9902,
+        "score": 0.9894,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-26T17:30:47Z"
@@ -422,7 +430,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-26",
       "priority": {
-        "score": 0.9902,
+        "score": 0.9894,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-26T17:30:47Z"
@@ -471,84 +479,84 @@ window.AIE_DATA = {
   "priorities": [
     {
       "ticker": "AAOI",
-      "score": 0.9902,
+      "score": 0.9894,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-06-26T17:30:47Z"
     },
     {
       "ticker": "AXTI",
-      "score": 0.9902,
+      "score": 0.9894,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-06-26T17:30:47Z"
     },
     {
       "ticker": "COHR",
-      "score": 0.9902,
+      "score": 0.9894,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-06-26T17:30:47Z"
     },
     {
       "ticker": "JBL",
-      "score": 0.9902,
+      "score": 0.9894,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-06-26T17:30:47Z"
     },
     {
       "ticker": "LITE",
-      "score": 0.9902,
+      "score": 0.9894,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-06-26T17:30:47Z"
     },
     {
       "ticker": "LPK.DE",
-      "score": 0.9902,
+      "score": 0.9894,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-06-26T17:30:47Z"
     },
     {
       "ticker": "MU",
-      "score": 0.9902,
+      "score": 0.9894,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-06-26T17:30:47Z"
     },
     {
       "ticker": "NBIS",
-      "score": 0.9902,
+      "score": 0.9894,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-06-26T17:30:47Z"
     },
     {
       "ticker": "POET",
-      "score": 0.9902,
+      "score": 0.9894,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-06-26T17:30:47Z"
     },
     {
       "ticker": "SIVEF",
-      "score": 0.9902,
+      "score": 0.9894,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-06-26T17:30:47Z"
     },
     {
       "ticker": "TSLA",
-      "score": 0.9902,
+      "score": 0.9894,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-06-26T17:30:47Z"
     },
     {
       "ticker": "TSM",
-      "score": 0.9902,
+      "score": 0.9894,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-06-26T17:30:47Z"

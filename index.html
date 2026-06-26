@@ -763,16 +763,26 @@
           var seededVersion = settings && settings.version;
           var versionChanged = seededVersion !== dataVersion;
 
-          // tickers: seed on first run; merge new symbols on a version bump.
+          // tickers: seed on first run; on a version bump, refresh static fields
+          // from data.js (the source of truth) while preserving the user's
+          // per-ticker rating. Locally-added tickers not in data.js are kept.
           var tickers = readJSON(STORAGE_KEYS.tickers);
           if (tickers === null) {
             tickers = (DATA.tickers || []).slice();
           } else if (versionChanged) {
-            var have = {};
-            tickers.forEach(function (t) { have[t.ticker] = true; });
-            (DATA.tickers || []).forEach(function (t) {
-              if (!have[t.ticker]) tickers.push(t);
+            var ratingBy = {};
+            tickers.forEach(function (t) { if (t.rating) ratingBy[t.ticker] = t.rating; });
+            var refreshed = (DATA.tickers || []).map(function (d) {
+              if (!ratingBy[d.ticker]) return d;
+              var copy = {};
+              for (var k in d) { copy[k] = d[k]; }
+              copy.rating = ratingBy[d.ticker];   // keep only the user's rating
+              return copy;
             });
+            var known = {};
+            refreshed.forEach(function (t) { known[t.ticker] = true; });
+            tickers.forEach(function (t) { if (!known[t.ticker]) refreshed.push(t); });
+            tickers = refreshed;
           }
           localStorage.setItem(STORAGE_KEYS.tickers, JSON.stringify(tickers));
 
@@ -992,11 +1002,9 @@
         badges.appendChild(market);
 
         if (ticker.priority) {
-          var prio = el("span", "tk-badge tk-prio",
-            "▲ " + ticker.priority.mentions + (ticker.priority.mentions === 1 ? " mention" : " mentions"));
-          prio.title = "Priority score " + ticker.priority.score
-            + " · " + ticker.priority.mentions + " mentions"
-            + (ticker.priority.convictionHits ? " · " + ticker.priority.convictionHits + " high-conviction" : "");
+          var prio = el("span", "tk-badge tk-prio", ticker.priority.mentions + "× mentioned");
+          prio.title = "Mentioned " + ticker.priority.mentions + "× by @aleabitoreddit"
+            + (ticker.priority.convictionHits ? " · " + ticker.priority.convictionHits + " with high-conviction language" : "");
           badges.appendChild(prio);
         }
 
@@ -1082,10 +1090,12 @@
         }
         strip.innerHTML = "";
         strip.hidden = false;
-        strip.appendChild(el("span", "ps-label", "Prioritizes"));
-        pri.slice(0, 6).forEach(function (p, i) {
+        // Neutral "what the source raised" — NOT a ranked leaderboard. With thin
+        // signal (most names mentioned once) a rank would be misleading, so we
+        // show mention counts as tags for you to consider, sorted by emphasis.
+        strip.appendChild(el("span", "ps-label", "Mentioned by @aleabitoreddit"));
+        pri.slice(0, 10).forEach(function (p) {
           var chip = el("span", "ps-chip");
-          chip.appendChild(el("span", "ps-rank", "#" + (i + 1)));
           chip.appendChild(el("span", "ps-sym", p.ticker));
           chip.appendChild(el("span", "ps-meta", p.mentions + "×"));
           strip.appendChild(chip);

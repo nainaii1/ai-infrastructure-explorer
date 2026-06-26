@@ -93,7 +93,7 @@
   {
     "ticker": "NVDA",
     "company": "NVIDIA Corporation",
-    "category": "fabs",
+    "category": "accelerators",
     "market": "US",
     "exchange": "NASDAQ",
     "whatTheyDo": "Designs the world's most powerful AI GPUs (H100, H200, B200) and the CUDA software platform that runs all major AI models.",
