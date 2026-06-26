@@ -1,0 +1,79 @@
+{
+  "meta": {
+    "version": "1.0",
+    "schemaVersion": 1,
+    "lastUpdated": null,
+    "source": "seed"
+  },
+  "countries": {
+    "US": { "flag": "🇺🇸", "label": "United States" },
+    "KR": { "flag": "🇰🇷", "label": "South Korea" },
+    "TW": { "flag": "🇹🇼", "label": "Taiwan" },
+    "SE": { "flag": "🇸🇪", "label": "Sweden" },
+    "FR": { "flag": "🇫🇷", "label": "France" },
+    "DE": { "flag": "🇩🇪", "label": "Germany" }
+  },
+  "categories": {
+    "photonics": {
+      "id": "photonics",
+      "label": "Photonics",
+      "subtitle": "Optical Interconnects",
+      "color": "#3b82f6",
+      "layer": 3,
+      "tooltip": "Light-based data transmission inside AI data centers. Copper cables cannot handle 100kW+ GPU rack bandwidth — optical interconnects replace them."
+    },
+    "memory": {
+      "id": "memory",
+      "label": "AI Memory",
+      "subtitle": "HBM & DRAM",
+      "color": "#8b5cf6",
+      "layer": 2,
+      "tooltip": "High-Bandwidth Memory (HBM) is physically stacked on top of NVDA GPUs. Every H100/B200 chip needs it. More AI training = more HBM demand."
+    },
+    "fabs": {
+      "id": "fabs",
+      "label": "Fabs & Foundries",
+      "subtitle": "Chip Manufacturing",
+      "color": "#f59e0b",
+      "layer": 4,
+      "tooltip": "The factories that physically manufacture chips. NVDA designs GPUs but does not make them — TSMC and others do the actual fabrication."
+    },
+    "neoclouds": {
+      "id": "neoclouds",
+      "label": "Neoclouds",
+      "subtitle": "GPU Cloud Providers",
+      "color": "#22c55e",
+      "layer": 6,
+      "tooltip": "New cloud companies built purely for AI GPU compute. They buy NVDA GPUs in bulk and rent compute time to AI startups and enterprises."
+    },
+    "materials": {
+      "id": "materials",
+      "label": "Materials & Packaging",
+      "subtitle": "Substrates & Test",
+      "color": "#f97316",
+      "layer": 1,
+      "tooltip": "Specialty substrates, wafer materials, and laser tools needed to build and package chips. The often-overlooked picks-and-shovels of AI."
+    },
+    "networking": {
+      "id": "networking",
+      "label": "Networking",
+      "subtitle": "AI Cluster Connectivity",
+      "color": "#14b8a6",
+      "layer": 5,
+      "tooltip": "InfiniBand and Ethernet fabric connecting thousands of GPUs into one coherent cluster. Without this, individual GPUs cannot work together at scale."
+    }
+  },
+  "center": {
+    "title": "NVIDIA + Hyperscalers",
+    "subtitle": "GPU Designer & Buyers (MSFT, GOOGL, AMZN, META)",
+    "tooltip": "NVIDIA designs the GPUs that power all AI training and inference. Every company in this map either supplies into NVDA chips, connects to them, or runs on top of them."
+  },
+  "unsortedCategory": {
+    "id": "unsorted",
+    "label": "Unsorted",
+    "subtitle": "Awaiting classification",
+    "color": "#94a3b8",
+    "layer": 0,
+    "tooltip": "Auto-added tickers ingested from posts that have not been categorized yet — triage with review.py."
+  }
+}

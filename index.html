@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Infrastructure Explorer</title>
+
+  <!-- ⚡ favicon: inline SVG data URI (no external request, works on file://) -->
+  <link
+    rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M13 2 4.5 13.5H11l-1 8.5L19.5 10H13z' fill='%233b82f6'/%3E%3C/svg%3E"
+  />
+
+  <style>
+    /* ============================================================
+       Design system (from CLAUDE.md). Structural styling only.
+       Category/gradient colors come from data.js at runtime —
+       never hardcoded here (CLAUDE.md hard rule #4).
+       ============================================================ */
+    :root {
+      --bg:        #faf8f3;  /* warm cream */
+      --card:      #ffffff;
+      --border:    #e7e3da;  /* soft warm gray */
+      --text:      #1e293b;  /* dark slate */
+      --muted:     #64748b;
+      --line:      #d8d3c8;  /* default (unhovered) map connector line */
+      --ink:       #0f172a;  /* near-black for high-contrast type */
+      --ease:      250ms ease;
+      /* Distinctive data type — genuine system monospace, no CDN, offline-safe. */
+      --mono:      "SF Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, "Cascadia Code", "Roboto Mono", monospace;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Faint paper grain for atmosphere (inline SVG noise, no network). */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+    .app { position: relative; z-index: 1; } /* keep content above the grain */
+
+    /* 3px gradient top border across full app width.
+       Its background is injected by JS from AIE_DATA category colors. */
+    .gradient-border {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      z-index: 100;
+      background: var(--border); /* fallback until JS paints the gradient */
+    }
+
+    .app {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px 64px;
+    }
+
+    /* ---------- Header + tab nav ---------- */
+    header.app-header {
+      padding-top: 28px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .brand {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .brand .brand-bolt { font-size: 22px; line-height: 1; }
+
+    .brand .brand-sub {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    nav.tabs {
+      display: flex;
+      gap: 4px;
+    }
+
+    .tab-btn {
+      appearance: none;
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      color: var(--muted);
+      font: inherit;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 12px 16px;
+      cursor: pointer;
+      transition: color var(--ease), border-color var(--ease);
+    }
+
+    .tab-btn:hover { color: var(--text); }
+
+    /* Active tab: dark underline (visible on the cream theme) */
+    .tab-btn[aria-selected="true"] {
+      color: #0f172a;
+      border-bottom-color: #0f172a;
+    }
+
+    .tab-btn:focus-visible {
+      outline: 2px solid var(--muted);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+
+    /* ---------- Tab panels + fade transition ---------- */
+    main.app-main {
+      padding-top: 28px;
+    }
+
+    .tab-panel {
+      display: none;
+      opacity: 0;
+      transition: opacity var(--ease);
+    }
+
+    .tab-panel.active {
+      display: block;
+      opacity: 1;
+    }
+
+    /* ---------- Placeholder cards (Tabs 2 & 3) ---------- */
+    .placeholder-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 48px 32px;
+      text-align: center;
+    }
+
+    .placeholder-card h2 {
+      margin: 0 0 8px;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .placeholder-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* ---------- Supply chain map (Tab 1, Section A) ---------- */
+    .map-section {
+      position: relative; /* anchor for the floating tooltip overlay */
+    }
+
+    .map-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .map-header h2 {
+      margin: 0;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .map-show-all {
+      appearance: none;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--muted);
+      font: inherit;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 7px 14px;
+      cursor: pointer;
+      transition: color var(--ease), border-color var(--ease), background var(--ease);
+    }
+
+    .map-show-all:hover { color: var(--text); border-color: var(--muted); }
+    .map-show-all:focus-visible { outline: 2px solid var(--muted); outline-offset: 2px; }
+
+    /* ---------- Value-chain layer stack (replaces the SVG map) ---------- */
+    .layer-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    /* A layer band. Accent color is set inline from data.js (--accent). */
+    .layer-band {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 15px 18px 15px 22px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform var(--ease), box-shadow var(--ease),
+                  border-color var(--ease), background var(--ease);
+    }
+    /* Colored spine — the layer's category signature. */
+    .layer-band::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; bottom: 0;
+      width: 4px;
+      background: var(--accent);
+      transition: width var(--ease);
+    }
+    .layer-band:hover {
+      transform: translateX(2px);
+      border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+      background: color-mix(in srgb, var(--accent) 5%, var(--card));
+    }
+    .layer-band:hover::before { width: 7px; }
+    .layer-band.is-active {
+      border-color: color-mix(in srgb, var(--accent) 55%, var(--border));
+      background: color-mix(in srgb, var(--accent) 9%, var(--card));
+      box-shadow: 0 10px 24px -12px color-mix(in srgb, var(--accent) 50%, transparent);
+    }
+    .layer-band.is-active::before { width: 7px; }
+    .layer-band:focus-visible { outline: 2px solid var(--muted); outline-offset: 2px; }
+
+    .layer-index {
+      flex: 0 0 auto;
+      min-width: 38px;
+      text-align: center;
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: color-mix(in srgb, var(--accent) 70%, black);
+      background: color-mix(in srgb, var(--accent) 14%, white);
+      border-radius: 6px;
+      padding: 6px 8px;
+    }
+    .layer-main { flex: 1 1 auto; min-width: 0; }
+    .layer-title { font-size: 15px; font-weight: 700; color: var(--accent); }
+    .layer-sub { font-weight: 500; font-size: 12px; color: var(--muted); }
+    .layer-desc { margin: 4px 0 0; font-size: 12.5px; line-height: 1.5; color: var(--text); }
+    .layer-count {
+      flex: 0 0 auto;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+    .layer-count b { color: var(--ink); font-weight: 700; }
+
+    /* Demand hub band: dark, distinct, non-interactive. */
+    .layer-hub { cursor: default; background: var(--ink); border-color: var(--ink); }
+    .layer-hub::before { background: #475569; }
+    .layer-hub:hover { transform: none; background: var(--ink); border-color: var(--ink); }
+    .layer-hub:hover::before { width: 4px; }
+    .layer-hub .layer-index { color: #cbd5e1; background: rgba(255, 255, 255, 0.08); }
+    .layer-hub .layer-title { color: #ffffff; }
+    .layer-hub .layer-sub { color: #94a3b8; }
+    .layer-hub .layer-desc { color: #cbd5e1; }
+
+    /* ============================================================
+       Ticker cards (Tab 1, Section B) — research-dossier aesthetic.
+       Each card's accent color is set inline from data.js
+       (--accent), never hardcoded here (rule #4).
+       ============================================================ */
+    .cards-section { margin-top: 40px; }
+
+    /* Section ledger header: a hairline rule with a mono caption. */
+    .cards-ledger {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      padding-bottom: 10px;
+      margin-bottom: 22px;
+      border-bottom: 1px solid var(--border);
+    }
+    .cards-ledger .ledger-eyebrow {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .cards-ledger .ledger-scope {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      color: var(--ink);
+      margin-left: auto;
+    }
+    .cards-ledger .ledger-scope b { color: inherit; font-weight: 700; }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    /* The card. */
+    .tk-card {
+      position: relative;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 20px 18px 24px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      transition: transform var(--ease), box-shadow var(--ease), border-color var(--ease);
+      /* Entry animation, staggered via inline animation-delay per card. */
+      opacity: 0;
+      animation: tk-rise 320ms ease forwards;
+    }
+    @keyframes tk-rise {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .tk-card { animation: none; opacity: 1; }
+    }
+
+    /* Colored spine down the left edge — the card's category signature. */
+    .tk-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; bottom: 0;
+      width: 4px;
+      background: var(--accent);
+      transition: width var(--ease);
+    }
+    .tk-card:hover {
+      transform: translateY(-3px);
+      border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+      box-shadow: 0 12px 28px -10px color-mix(in srgb, var(--accent) 40%, transparent);
+    }
+    .tk-card:hover::before { width: 7px; }
+
+    /* Header: big mono ticker + muted company name. */
+    .tk-head { display: flex; flex-direction: column; gap: 3px; }
+    .tk-ticker {
+      font-family: var(--mono);
+      font-size: 27px;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      color: var(--accent);
+      word-break: break-word;
+    }
+    .tk-company {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted);
+    }
+
+    /* Badge row. */
+    .tk-badges { display: flex; flex-wrap: wrap; align-items: center; gap: 7px; }
+    .tk-badge {
+      font-size: 11px;
+      font-weight: 600;
+      line-height: 1;
+      padding: 5px 9px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+    /* Category pill: accent-tinted fill + accent text. */
+    .tk-cat {
+      background: color-mix(in srgb, var(--accent) 14%, white);
+      color: color-mix(in srgb, var(--accent) 72%, black);
+    }
+    /* Market pill: neutral, flag + exchange. */
+    .tk-market {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-family: var(--mono);
+      letter-spacing: 0.02em;
+    }
+    .tk-market .flag { margin-right: 5px; }
+
+    /* Market-cap tier as a 4-segment meter (Mega=4 … Small=1). */
+    .tk-tier { display: inline-flex; align-items: center; gap: 6px; margin-left: auto; }
+    .tk-tier-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .tk-meter { display: inline-flex; gap: 2px; }
+    .tk-meter i {
+      width: 4px; height: 11px; border-radius: 1px;
+      background: var(--border);
+    }
+    .tk-meter i.on { background: var(--accent); }
+
+    /* Body: labeled prose blocks with a hairline divider. */
+    .tk-body { margin: 0; }
+    .tk-body .row + .row {
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+    }
+    .tk-body dt {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: color-mix(in srgb, var(--accent) 60%, var(--muted));
+      margin-bottom: 4px;
+    }
+    .tk-body dd {
+      margin: 0;
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--text);
+    }
+
+    /* Empty state (e.g. Networking has zero tickers in v1). */
+    .cards-empty {
+      grid-column: 1 / -1;
+      border: 1px dashed color-mix(in srgb, var(--accent, var(--muted)) 40%, var(--border));
+      border-radius: 12px;
+      padding: 44px 24px;
+      text-align: center;
+      background: color-mix(in srgb, var(--accent, var(--muted)) 5%, var(--card));
+    }
+    .cards-empty h3 {
+      margin: 0 0 6px;
+      font-family: var(--mono);
+      font-size: 14px;
+      letter-spacing: 0.02em;
+      color: var(--ink);
+    }
+    .cards-empty p { margin: 0; font-size: 13px; color: var(--muted); }
+
+    /* "What they prioritize" strip — ranked chips from AIE_DATA.priorities. */
+    .priority-strip {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 18px;
+      padding: 12px 14px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+    .priority-strip .ps-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-right: 2px;
+    }
+    .ps-chip {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 6px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      font-family: var(--mono);
+      font-size: 12px;
+    }
+    .ps-chip .ps-rank { color: var(--muted); font-size: 10px; }
+    .ps-chip .ps-sym { font-weight: 700; color: var(--ink); }
+    .ps-chip .ps-meta { color: var(--muted); font-size: 10px; }
+
+    /* Priority badge on a card (shown when the ticker has ingest-derived priority). */
+    .tk-prio {
+      background: color-mix(in srgb, var(--accent) 16%, white);
+      color: color-mix(in srgb, var(--accent) 70%, black);
+      font-family: var(--mono);
+    }
+
+    /* ---------- Watchlist (Tab 2): sortable price table ---------- */
+    .wl-header {
+      display: flex; align-items: flex-end; justify-content: space-between;
+      gap: 12px; flex-wrap: wrap;
+      padding-bottom: 10px; margin-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+    .wl-ledger { display: flex; align-items: baseline; gap: 10px; }
+    .wl-actions { display: flex; align-items: center; gap: 12px; }
+    .wl-asof { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+    .wl-fetch {
+      appearance: none; background: var(--ink); color: #fff;
+      border: 1px solid var(--ink); border-radius: 8px;
+      font: inherit; font-size: 13px; font-weight: 600; padding: 8px 14px;
+      cursor: pointer; transition: opacity var(--ease);
+    }
+    .wl-fetch:hover { opacity: 0.88; }
+    .wl-fetch:disabled { opacity: 0.55; cursor: default; }
+    .wl-hint {
+      margin-bottom: 14px; padding: 10px 12px; border-radius: 8px;
+      background: color-mix(in srgb, #f59e0b 12%, var(--card));
+      border: 1px solid color-mix(in srgb, #f59e0b 40%, var(--border));
+      font-size: 12.5px; line-height: 1.5; color: var(--text);
+    }
+    .wl-hint code {
+      font-family: var(--mono); font-size: 12px;
+      background: rgba(15, 23, 42, 0.06); padding: 1px 5px; border-radius: 4px;
+    }
+    .wl-table-wrap {
+      overflow-x: auto; border: 1px solid var(--border);
+      border-radius: 12px; background: var(--card);
+    }
+    .wl-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .wl-table th, .wl-table td { padding: 11px 14px; text-align: left; white-space: nowrap; }
+    .wl-table thead th {
+      position: sticky; top: 0; background: var(--card);
+      font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--muted); font-weight: 700;
+      cursor: pointer; user-select: none; border-bottom: 1px solid var(--border);
+    }
+    .wl-table thead th:hover { color: var(--text); }
+    .wl-table thead th.num, .wl-table td.num { text-align: right; font-family: var(--mono); }
+    .wl-table thead th .arrow { margin-left: 4px; color: var(--ink); }
+    .wl-table tbody tr { border-top: 1px solid var(--border); transition: background var(--ease); }
+    .wl-table tbody tr:first-child { border-top: none; }
+    .wl-table tbody tr:hover { background: color-mix(in srgb, var(--accent, #94a3b8) 6%, var(--card)); }
+    .wl-cat { display: inline-flex; align-items: center; gap: 7px; }
+    .wl-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--accent, #94a3b8); flex: 0 0 auto; }
+    .wl-cat-label { color: var(--muted); }
+    .wl-sym { font-family: var(--mono); font-weight: 700; color: var(--accent, #1e293b); }
+    .wl-price { font-weight: 600; }
+    .wl-cur { color: var(--muted); font-size: 10px; margin-left: 3px; }
+    .wl-pos { color: #16a34a; }
+    .wl-neg { color: #dc2626; }
+    .wl-muted { color: var(--muted); }
+    .wl-rating {
+      appearance: none; font: inherit; font-size: 12px; color: var(--text);
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: 6px; padding: 4px 8px; cursor: pointer;
+    }
+
+    /* ---------- Responsive (mobile breakpoint 768px) ---------- */
+    @media (max-width: 1024px) {
+      .card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 768px) {
+      .app { padding: 0 16px 48px; }
+      .brand { flex-direction: column; gap: 4px; }
+      nav.tabs { overflow-x: auto; }
+      .tab-btn { padding: 12px 12px; white-space: nowrap; }
+      .placeholder-card { padding: 36px 20px; }
+      .card-grid { grid-template-columns: minmax(0, 1fr); }
+      .cards-section { margin-top: 28px; }
+      /* Layer bands: let content wrap; count drops below the title block. */
+      .layer-band { flex-wrap: wrap; align-items: flex-start; gap: 8px 14px; }
+      .layer-count { margin-left: 52px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="gradient-border" id="gradientBorder"></div>
+
+  <div class="app">
+    <header class="app-header">
+      <div class="brand">
+        <span class="brand-bolt" aria-hidden="true">⚡</span>
+        <h1>AI Infrastructure Explorer</h1>
+        <span class="brand-sub">Mapping the AI hardware supply chain</span>
+      </div>
+
+      <nav class="tabs" role="tablist" aria-label="Sections">
+        <button
+          class="tab-btn"
+          role="tab"
+          id="tab-btn-map"
+          aria-controls="tab-map"
+          aria-selected="true"
+          data-target="tab-map"
+        >Supply Chain Map</button>
+        <button
+          class="tab-btn"
+          role="tab"
+          id="tab-btn-watchlist"
+          aria-controls="tab-watchlist"
+          aria-selected="false"
+          data-target="tab-watchlist"
+        >Watchlist</button>
+        <button
+          class="tab-btn"
+          role="tab"
+          id="tab-btn-thesis"
+          aria-controls="tab-thesis"
+          aria-selected="false"
+          data-target="tab-thesis"
+        >Thesis</button>
+      </nav>
+    </header>
+
+    <main class="app-main">
+      <!-- Tab 1: Supply Chain Map. Section A (value-chain layers) is built
+           by renderLayers() from AIE_DATA. Section B (ticker cards) is T3. -->
+      <section
+        class="tab-panel active"
+        id="tab-map"
+        role="tabpanel"
+        aria-labelledby="tab-btn-map"
+      >
+        <div class="map-section">
+          <div class="map-header">
+            <h2>Supply Chain Map</h2>
+            <button type="button" class="map-show-all" id="mapShowAll">Show All</button>
+          </div>
+          <!-- Value-chain layers, built by renderLayers() from AIE_DATA.
+               Demand hub on top; category layers ordered bottom→top. -->
+          <div
+            class="layer-stack"
+            id="layerStack"
+            role="list"
+            aria-label="AI hardware value chain, demand at top to foundational inputs at bottom."
+          ></div>
+        </div>
+
+        <!-- Section B: ticker cards. Built by renderCards() from the
+             seeded localStorage tickers; filtered by map selection. -->
+        <div class="cards-section">
+          <!-- "What @aleabitoreddit prioritizes" — ranked from AIE_DATA.priorities
+               (populated by the ingest backend). Hidden until data exists. -->
+          <div class="priority-strip" id="priorityStrip" hidden></div>
+          <div class="cards-ledger">
+            <span class="ledger-eyebrow">Holdings</span>
+            <span class="ledger-scope" id="cardScope"></span>
+          </div>
+          <div class="card-grid" id="cardGrid" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section
+        class="tab-panel"
+        id="tab-watchlist"
+        role="tabpanel"
+        aria-labelledby="tab-btn-watchlist"
+        hidden
+      >
+        <div class="wl-section">
+          <div class="wl-header">
+            <div class="wl-ledger">
+              <span class="ledger-eyebrow">Watchlist</span>
+              <span class="ledger-scope" id="wlScope"></span>
+            </div>
+            <div class="wl-actions">
+              <span class="wl-asof" id="wlAsOf"></span>
+              <button type="button" class="wl-fetch" id="wlFetch">Fetch prices</button>
+            </div>
+          </div>
+          <div class="wl-hint" id="wlHint" hidden></div>
+          <div class="wl-table-wrap">
+            <table class="wl-table">
+              <thead>
+                <tr>
+                  <th data-key="category">Category</th>
+                  <th data-key="ticker">Ticker</th>
+                  <th data-key="company">Company</th>
+                  <th data-key="price" class="num">Price</th>
+                  <th data-key="chg7d" class="num">7D</th>
+                  <th data-key="chg1m" class="num">1M</th>
+                  <th data-key="marketCap" class="num">Mkt Cap</th>
+                  <th data-key="rating">Rating</th>
+                </tr>
+              </thead>
+              <tbody id="wlBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="tab-panel"
+        id="tab-thesis"
+        role="tabpanel"
+        aria-labelledby="tab-btn-thesis"
+        hidden
+      >
+        <div class="placeholder-card">
+          <h2>Thesis</h2>
+          <p>Coming soon — built in next step.</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- data.js MUST load first: defines window.AIE_DATA -->
+  <script src="data.js"></script>
+
+  <!-- App script (T1 scope: seeding + gradient + tab switching) -->
+  <script>
+    (function () {
+      "use strict";
+
+      var DATA = window.AIE_DATA;
+
+      /* ----------------------------------------------------------
+         localStorage seeding — version-aware so the backend ingest
+         pipeline (which regenerates data.js + bumps meta.version)
+         actually surfaces for returning users.
+         - tickers: seeded once; on a version bump, NEW tickers from
+           data.js are merged in (existing entries / edits preserved).
+         - theses: backend-owned — (re)seeded from data.js on a bump.
+         Static config (categories/center/countries/priorities) is read
+         directly from AIE_DATA, never persisted (CLAUDE.md rule #4).
+         ---------------------------------------------------------- */
+      var STORAGE_KEYS = {
+        tickers: "aie_tickers",
+        theses: "aie_theses",
+        settings: "aie_settings"
+      };
+
+      function readJSON(key) {
+        try {
+          var raw = localStorage.getItem(key);
+          return raw === null ? null : JSON.parse(raw);
+        } catch (err) {
+          return null;
+        }
+      }
+
+      function seedLocalStorage() {
+        if (!DATA) {
+          console.error("AIE_DATA missing — data.js failed to load before app script.");
+          return;
+        }
+        try {
+          var dataVersion = (DATA.meta && DATA.meta.version) || "1.0";
+          var settings = readJSON(STORAGE_KEYS.settings);
+          var firstRun = settings === null;
+          var seededVersion = settings && settings.version;
+          var versionChanged = seededVersion !== dataVersion;
+
+          // tickers: seed on first run; merge new symbols on a version bump.
+          var tickers = readJSON(STORAGE_KEYS.tickers);
+          if (tickers === null) {
+            tickers = (DATA.tickers || []).slice();
+          } else if (versionChanged) {
+            var have = {};
+            tickers.forEach(function (t) { have[t.ticker] = true; });
+            (DATA.tickers || []).forEach(function (t) {
+              if (!have[t.ticker]) tickers.push(t);
+            });
+          }
+          localStorage.setItem(STORAGE_KEYS.tickers, JSON.stringify(tickers));
+
+          // theses: backend-owned — (re)seed from data.js on first run or bump.
+          if (firstRun || versionChanged || readJSON(STORAGE_KEYS.theses) === null) {
+            localStorage.setItem(STORAGE_KEYS.theses, JSON.stringify(DATA.theses || []));
+          }
+
+          // settings: record the data.js version we have now seeded from.
+          localStorage.setItem(STORAGE_KEYS.settings, JSON.stringify({
+            version: dataVersion,
+            lastUpdated: (DATA.meta && DATA.meta.lastUpdated) || null
+          }));
+        } catch (err) {
+          // Some browsers restrict localStorage under file:// — fail gracefully.
+          console.warn("localStorage unavailable; seeding skipped.", err);
+        }
+      }
+
+      /* ----------------------------------------------------------
+         Paint the 3px gradient top border from category colors.
+         Colors are read from data.js — never hardcoded (rule #4).
+         ---------------------------------------------------------- */
+      function paintGradientBorder() {
+        var el = document.getElementById("gradientBorder");
+        if (!el || !DATA || !DATA.categories) return;
+
+        var colors = Object.keys(DATA.categories).map(function (id) {
+          return DATA.categories[id].color;
+        });
+        if (colors.length === 0) return;
+
+        el.style.background =
+          "linear-gradient(to right, " + colors.join(", ") + ")";
+      }
+
+      /* ----------------------------------------------------------
+         Tab switching with fade transition.
+         ---------------------------------------------------------- */
+      function initTabs() {
+        var buttons = Array.prototype.slice.call(
+          document.querySelectorAll(".tab-btn")
+        );
+
+        function activate(targetId) {
+          buttons.forEach(function (btn) {
+            var isActive = btn.getAttribute("data-target") === targetId;
+            btn.setAttribute("aria-selected", isActive ? "true" : "false");
+          });
+
+          document.querySelectorAll(".tab-panel").forEach(function (panel) {
+            var isActive = panel.id === targetId;
+            panel.classList.toggle("active", isActive);
+            if (isActive) {
+              panel.removeAttribute("hidden");
+            } else {
+              panel.setAttribute("hidden", "");
+            }
+          });
+        }
+
+        buttons.forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            activate(btn.getAttribute("data-target"));
+          });
+        });
+      }
+
+      /* ----------------------------------------------------------
+         Value-chain layers (Tab 1, Section A).
+         Built from AIE_DATA as a bottom→top stack of HTML bands —
+         no SVG. Colors/labels/tooltips come from data.js (rule #4);
+         ordering comes from each category's `layer` field.
+         Clicking a layer filters the ticker cards in Section B.
+         ---------------------------------------------------------- */
+      var mapState = { selectedId: null };
+
+      function getCategoryCounts() {
+        var counts = {};
+        getStoredTickers().forEach(function (t) {
+          counts[t.category] = (counts[t.category] || 0) + 1;
+        });
+        return counts;
+      }
+
+      function makeLayerBand(opts) {
+        // opts: { id, indexLabel, title, sub, desc, color, count, isHub }
+        var band = el("div", "layer-band" + (opts.isHub ? " layer-hub" : ""));
+        band.setAttribute("role", "listitem");
+        if (opts.color) band.style.setProperty("--accent", opts.color);
+        if (opts.id) band.dataset.cat = opts.id;
+
+        band.appendChild(el("span", "layer-index", opts.indexLabel));
+
+        var main = el("div", "layer-main");
+        var title = el("div", "layer-title");
+        title.appendChild(document.createTextNode(opts.title + " "));
+        if (opts.sub) title.appendChild(el("span", "layer-sub", "· " + opts.sub));
+        main.appendChild(title);
+        if (opts.desc) main.appendChild(el("p", "layer-desc", opts.desc));
+        band.appendChild(main);
+
+        if (!opts.isHub) {
+          var count = el("span", "layer-count");
+          count.appendChild(el("b", null, String(opts.count)));
+          count.appendChild(document.createTextNode(opts.count === 1 ? " co" : " cos"));
+          band.appendChild(count);
+        }
+        return band;
+      }
+
+      function renderLayers() {
+        var stack = document.getElementById("layerStack");
+        if (!stack || !DATA || !DATA.categories || !DATA.center) return;
+        stack.innerHTML = "";
+
+        // Demand hub pinned at the top (the buyer/demand, not a filter).
+        stack.appendChild(makeLayerBand({
+          isHub: true, indexLabel: "DEMAND",
+          title: DATA.center.title, sub: DATA.center.subtitle, desc: DATA.center.tooltip
+        }));
+
+        var counts = getCategoryCounts();
+        // Sort by `layer` descending so layer 1 (foundation) sits at the bottom.
+        var ids = Object.keys(DATA.categories).sort(function (a, b) {
+          return (DATA.categories[b].layer || 0) - (DATA.categories[a].layer || 0);
+        });
+
+        ids.forEach(function (id) {
+          var c = DATA.categories[id];
+          var band = makeLayerBand({
+            id: id,
+            indexLabel: "L" + (c.layer != null ? c.layer : "?"),
+            title: c.label, sub: c.subtitle, desc: c.tooltip,
+            color: c.color, count: counts[id] || 0
+          });
+          band.setAttribute("tabindex", "0");
+          band.setAttribute("aria-pressed", "false");
+          band.addEventListener("click", function () { setFilter(id); });
+          band.addEventListener("keydown", function (e) {
+            if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setFilter(id); }
+          });
+          stack.appendChild(band);
+        });
+
+        var showAll = document.getElementById("mapShowAll");
+        if (showAll) {
+          showAll.addEventListener("click", function () { setFilter(null, true); });
+        }
+      }
+
+      // Toggle the active layer and filter Section B accordingly.
+      function setFilter(id, forceClear) {
+        mapState.selectedId = forceClear
+          ? null
+          : (mapState.selectedId === id ? null : id);
+
+        document.querySelectorAll(".layer-band[data-cat]").forEach(function (b) {
+          var on = b.dataset.cat === mapState.selectedId;
+          b.classList.toggle("is-active", on);
+          b.setAttribute("aria-pressed", on ? "true" : "false");
+        });
+        renderCards(mapState.selectedId);
+      }
+
+      /* ----------------------------------------------------------
+         Ticker cards (Tab 1, Section B).
+         Reads tickers from localStorage (per the seeding
+         architecture) so user edits persist; reads category /
+         country config from AIE_DATA. Filtered by map selection.
+         ---------------------------------------------------------- */
+      var TIER_RANK = { Mega: 4, Large: 3, Mid: 2, Small: 1 };
+
+      function getStoredTickers() {
+        try {
+          var raw = localStorage.getItem(STORAGE_KEYS.tickers);
+          if (raw) return JSON.parse(raw);
+        } catch (err) {
+          console.warn("Could not read stored tickers; using AIE_DATA.", err);
+        }
+        return (DATA && DATA.tickers) || [];
+      }
+
+      function el(tag, className, text) {
+        var node = document.createElement(tag);
+        if (className) node.className = className;
+        if (text != null) node.textContent = text;
+        return node;
+      }
+
+      function makeCard(ticker, index) {
+        var cat = (DATA.categories && DATA.categories[ticker.category]) || null;
+        var country = (DATA.countries && DATA.countries[ticker.market]) || null;
+        var accent = cat ? cat.color : "#64748b";
+
+        var card = el("article", "tk-card");
+        card.style.setProperty("--accent", accent);
+        card.style.animationDelay = (index * 45) + "ms";
+
+        // Header: ticker + company
+        var head = el("div", "tk-head");
+        head.appendChild(el("div", "tk-ticker", ticker.ticker));
+        head.appendChild(el("div", "tk-company", ticker.company));
+        card.appendChild(head);
+
+        // Badges: category pill, market (flag + exchange), tier meter
+        var badges = el("div", "tk-badges");
+        if (cat) badges.appendChild(el("span", "tk-badge tk-cat", cat.label));
+
+        var market = el("span", "tk-badge tk-market");
+        if (country) {
+          var flag = el("span", "flag", country.flag);
+          flag.setAttribute("aria-hidden", "true");
+          market.appendChild(flag);
+        }
+        market.appendChild(document.createTextNode(ticker.exchange || ticker.market || ""));
+        badges.appendChild(market);
+
+        if (ticker.priority) {
+          var prio = el("span", "tk-badge tk-prio",
+            "▲ " + ticker.priority.mentions + (ticker.priority.mentions === 1 ? " mention" : " mentions"));
+          prio.title = "Priority score " + ticker.priority.score
+            + " · " + ticker.priority.mentions + " mentions"
+            + (ticker.priority.convictionHits ? " · " + ticker.priority.convictionHits + " high-conviction" : "");
+          badges.appendChild(prio);
+        }
+
+        var tier = el("span", "tk-tier");
+        tier.appendChild(el("span", "tk-tier-label", ticker.marketCapTier || "—"));
+        var meter = el("span", "tk-meter");
+        var rank = TIER_RANK[ticker.marketCapTier] || 0;
+        for (var s = 1; s <= 4; s++) meter.appendChild(el("i", s <= rank ? "on" : null));
+        tier.appendChild(meter);
+        badges.appendChild(tier);
+        card.appendChild(badges);
+
+        // Body: two labeled prose blocks
+        var body = el("dl", "tk-body");
+        function row(label, value) {
+          var r = el("div", "row");
+          r.appendChild(el("dt", null, label));
+          r.appendChild(el("dd", null, value));
+          return r;
+        }
+        body.appendChild(row("What they do", ticker.whatTheyDo || ""));
+        body.appendChild(row("Why NVDA needs them", ticker.whyNVDA || ""));
+        card.appendChild(body);
+
+        return card;
+      }
+
+      function renderCards(catId) {
+        var grid = document.getElementById("cardGrid");
+        var scope = document.getElementById("cardScope");
+        if (!grid || !DATA) return;
+
+        var all = getStoredTickers();
+        var list = catId ? all.filter(function (t) { return t.category === catId; }) : all;
+
+        // Scope caption (mono ledger line).
+        if (scope) {
+          if (catId && DATA.categories[catId]) {
+            scope.innerHTML = "";
+            scope.appendChild(document.createTextNode(DATA.categories[catId].label + " · "));
+            var n1 = el("b", null, String(list.length));
+            scope.appendChild(n1);
+            scope.appendChild(document.createTextNode(list.length === 1 ? " company" : " companies"));
+          } else {
+            scope.innerHTML = "";
+            scope.appendChild(document.createTextNode("All sectors · "));
+            scope.appendChild(el("b", null, String(list.length)));
+            scope.appendChild(document.createTextNode(list.length === 1 ? " company" : " companies"));
+          }
+        }
+
+        grid.innerHTML = "";
+
+        if (list.length === 0) {
+          // Empty state — e.g. Networking has zero tickers in v1.
+          var empty = el("div", "cards-empty");
+          if (catId && DATA.categories[catId]) {
+            empty.style.setProperty("--accent", DATA.categories[catId].color);
+          }
+          empty.appendChild(el("h3", null, "No tickers tracked yet"));
+          var note = catId && DATA.categories[catId]
+            ? "Nothing in " + DATA.categories[catId].label + " for now — coming in a future update."
+            : "No companies to show.";
+          empty.appendChild(el("p", null, note));
+          grid.appendChild(empty);
+          return;
+        }
+
+        list.forEach(function (ticker, i) {
+          grid.appendChild(makeCard(ticker, i));
+        });
+      }
+
+      /* "What @aleabitoreddit prioritizes" — ranked chips from AIE_DATA.priorities
+         (computed by the ingest backend). Hidden until there is data. */
+      function renderPriorityStrip() {
+        var strip = document.getElementById("priorityStrip");
+        if (!strip) return;
+        var pri = (DATA && DATA.priorities) || [];
+        if (!pri.length) {
+          strip.hidden = true;
+          return;
+        }
+        strip.innerHTML = "";
+        strip.hidden = false;
+        strip.appendChild(el("span", "ps-label", "Prioritizes"));
+        pri.slice(0, 6).forEach(function (p, i) {
+          var chip = el("span", "ps-chip");
+          chip.appendChild(el("span", "ps-rank", "#" + (i + 1)));
+          chip.appendChild(el("span", "ps-sym", p.ticker));
+          chip.appendChild(el("span", "ps-meta", p.mentions + "×"));
+          strip.appendChild(chip);
+        });
+      }
+
+      /* ----------------------------------------------------------
+         Watchlist (Tab 2) — sortable table of all tickers with the
+         weekly price snapshot (price / 7d% / 1M% / mkt cap) baked into
+         data.js by ingest/fetch_prices.py. Price fields are read from
+         AIE_DATA (authoritative/fresh); only the user's rating persists
+         to localStorage. "Fetch prices" calls the local serve.py.
+         ---------------------------------------------------------- */
+      var WL_RATINGS = ["watch", "owned", "passed"];
+      var wlState = { key: "category", dir: 1 };
+
+      function wlTickers() { return (DATA && DATA.tickers) ? DATA.tickers.slice() : []; }
+
+      function ratingFor(sym) {
+        var stored = getStoredTickers().filter(function (t) { return t.ticker === sym; })[0];
+        if (stored && stored.rating) return stored.rating;
+        var d = wlTickers().filter(function (t) { return t.ticker === sym; })[0];
+        return (d && d.rating) || "watch";
+      }
+      function setRating(sym, val) {
+        try {
+          var list = readJSON(STORAGE_KEYS.tickers) || [];
+          var row = list.filter(function (t) { return t.ticker === sym; })[0];
+          if (row) { row.rating = val; } else { list.push({ ticker: sym, rating: val }); }
+          localStorage.setItem(STORAGE_KEYS.tickers, JSON.stringify(list));
+        } catch (e) { /* storage may be unavailable on file:// */ }
+      }
+
+      function fmtNum(n, dp) {
+        return Number(n).toLocaleString(undefined, { minimumFractionDigits: dp, maximumFractionDigits: dp });
+      }
+      function fmtMcap(v) {
+        if (v == null) return null;
+        var abs = Math.abs(v), d = v, unit = "";
+        if (abs >= 1e12) { d = v / 1e12; unit = "T"; }
+        else if (abs >= 1e9) { d = v / 1e9; unit = "B"; }
+        else if (abs >= 1e6) { d = v / 1e6; unit = "M"; }
+        return "$" + fmtNum(d, d < 10 ? 1 : 0) + unit;
+      }
+
+      function wlCompare(a, b) {
+        var k = wlState.key;
+        var numeric = (k === "price" || k === "chg7d" || k === "chg1m" || k === "marketCap");
+        if (numeric) {
+          var anull = a[k] == null, bnull = b[k] == null;
+          if (anull !== bnull) return anull ? 1 : -1;   // missing values always last
+          if (!anull && a[k] !== b[k]) return (a[k] - b[k]) * wlState.dir;
+        } else {
+          var as = String(a[k] || "").toLowerCase(), bs = String(b[k] || "").toLowerCase();
+          if (as !== bs) return (as < bs ? -1 : 1) * wlState.dir;
+        }
+        return a.ticker < b.ticker ? -1 : 1;  // stable tiebreak
+      }
+
+      function pctCell(v) {
+        var td = el("td", "num");
+        if (v == null) { td.appendChild(el("span", "wl-muted", "—")); return td; }
+        var cls = v > 0 ? "wl-pos" : (v < 0 ? "wl-neg" : "wl-muted");
+        td.appendChild(el("span", cls, (v > 0 ? "+" : "") + v.toFixed(1) + "%"));
+        return td;
+      }
+
+      function renderWatchlist() {
+        var body = document.getElementById("wlBody");
+        if (!body || !DATA) return;
+        var rows = wlTickers().sort(wlCompare);
+
+        var scope = document.getElementById("wlScope");
+        if (scope) {
+          scope.innerHTML = "";
+          scope.appendChild(el("b", null, String(rows.length)));
+          scope.appendChild(document.createTextNode(rows.length === 1 ? " ticker" : " tickers"));
+        }
+        var asOf = rows.map(function (t) { return t.asOf; }).filter(Boolean).sort().slice(-1)[0];
+        var asOfEl = document.getElementById("wlAsOf");
+        if (asOfEl) asOfEl.textContent = asOf ? ("Prices as of " + asOf.slice(0, 10)) : "No prices yet";
+
+        body.innerHTML = "";
+        rows.forEach(function (t) {
+          var cat = DATA.categories[t.category];
+          var tr = document.createElement("tr");
+          tr.style.setProperty("--accent", cat ? cat.color : "#94a3b8");
+
+          var cTd = document.createElement("td");
+          var wrap = el("span", "wl-cat");
+          wrap.appendChild(el("span", "wl-dot"));
+          wrap.appendChild(el("span", "wl-cat-label", cat ? cat.label : (t.category || "—")));
+          cTd.appendChild(wrap); tr.appendChild(cTd);
+
+          var tTd = document.createElement("td"); tTd.appendChild(el("span", "wl-sym", t.ticker)); tr.appendChild(tTd);
+          tr.appendChild(el("td", null, t.company || "—"));
+
+          var pTd = el("td", "num");
+          if (t.price != null) {
+            pTd.appendChild(el("span", "wl-price", fmtNum(t.price, 2)));
+            if (t.currency) pTd.appendChild(el("span", "wl-cur", t.currency));
+          } else { pTd.appendChild(el("span", "wl-muted", "—")); }
+          tr.appendChild(pTd);
+
+          tr.appendChild(pctCell(t.chg7d));
+          tr.appendChild(pctCell(t.chg1m));
+
+          var mTd = el("td", "num");
+          var mc = fmtMcap(t.marketCap);
+          if (mc) { mTd.textContent = mc; }
+          else { mTd.appendChild(el("span", "wl-muted", t.marketCapTier || "—")); }
+          tr.appendChild(mTd);
+
+          var rTd = document.createElement("td");
+          var sel = document.createElement("select"); sel.className = "wl-rating";
+          WL_RATINGS.forEach(function (opt) {
+            var o = document.createElement("option"); o.value = opt; o.textContent = opt; sel.appendChild(o);
+          });
+          sel.value = ratingFor(t.ticker);
+          sel.addEventListener("change", function () { setRating(t.ticker, sel.value); });
+          rTd.appendChild(sel); tr.appendChild(rTd);
+
+          body.appendChild(tr);
+        });
+
+        // Sort-direction arrow on the active header.
+        document.querySelectorAll(".wl-table thead th .arrow").forEach(function (a) { a.remove(); });
+        var activeTh = document.querySelector('.wl-table thead th[data-key="' + wlState.key + '"]');
+        if (activeTh) activeTh.appendChild(el("span", "arrow", wlState.dir > 0 ? "▲" : "▼"));
+      }
+
+      function initWatchlistSort() {
+        document.querySelectorAll(".wl-table thead th[data-key]").forEach(function (th) {
+          th.addEventListener("click", function () {
+            var k = th.getAttribute("data-key");
+            if (wlState.key === k) { wlState.dir = -wlState.dir; }
+            else { wlState.key = k; wlState.dir = 1; }
+            renderWatchlist();
+          });
+        });
+      }
+
+      function initWatchlistFetch() {
+        var btn = document.getElementById("wlFetch");
+        var hint = document.getElementById("wlHint");
+        if (!btn) return;
+        btn.addEventListener("click", function () {
+          btn.disabled = true;
+          var label = btn.textContent;
+          btn.textContent = "Fetching…";
+          if (hint) hint.hidden = true;
+          fetch("api/fetch-prices", { method: "POST" })
+            .then(function (r) { if (!r.ok) throw new Error("status " + r.status); return r.json(); })
+            .then(function () { location.reload(); })
+            .catch(function () {
+              btn.disabled = false;
+              btn.textContent = label;
+              if (hint) {
+                hint.hidden = false;
+                hint.innerHTML = "";
+                hint.appendChild(document.createTextNode("Live fetch needs the local price server. Run "));
+                hint.appendChild(el("code", null, "python3 ingest/serve.py"));
+                hint.appendChild(document.createTextNode(" then open "));
+                hint.appendChild(el("code", null, "http://localhost:8765/"));
+                hint.appendChild(document.createTextNode(" and click Fetch prices again."));
+              }
+            });
+        });
+      }
+
+      // Boot
+      seedLocalStorage();
+      paintGradientBorder();
+      initTabs();
+      renderLayers();
+      renderCards(null);
+      renderPriorityStrip();
+      renderWatchlist();
+      initWatchlistSort();
+      initWatchlistFetch();
+    })();
+  </script>
+</body>
+</html>

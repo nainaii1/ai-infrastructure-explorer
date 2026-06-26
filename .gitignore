@@ -1,0 +1,16 @@
+# --- Secrets (never commit) ---
+.env
+ingest/.env
+
+# --- Local tooling / editor state ---
+.claude/
+.gstack/
+.DS_Store
+
+# --- Python ---
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# --- Bot runtime state ---
+ingest/store/.bot_offset

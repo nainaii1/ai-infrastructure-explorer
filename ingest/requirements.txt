@@ -1,0 +1,7 @@
+# Core pipeline (bot.py, parser.py, scorer.py, generate_data_js.py, review.py)
+# uses ONLY the Python 3 standard library (urllib, json, re, argparse).
+# Nothing to install for ingestion.
+
+# Optional: Claude-assisted enrichment in review.py (drafting whatTheyDo/whyNVDA).
+# Uncomment if you want it:
+# anthropic>=0.40
