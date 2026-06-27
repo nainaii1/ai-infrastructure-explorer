@@ -22,7 +22,7 @@ Go to **Watchlist → Fetch prices**. It pulls Yahoo server-side, computes 7D/1M
 Local Python tooling (standard library only — nothing to `pip install`) that **regenerates `data.js`**. It never ships to the browser.
 - **Telegram ingest** — forward an @aleabitoreddit post to your bot; it becomes a *thesis* (linked to the source), auto-adds clean `$CASHTAG` tickers (queues ambiguous ones), and updates the priority ranking.
 - **Price fetch** — `fetch_prices.py` / `serve.py` bake weekly Yahoo prices into `data.js`.
-- See [ingest/README.md](ingest/README.md) for setup (BotFather token in `ingest/.env`, etc.).
+- See [docs/TELEGRAM_SETUP.md](docs/TELEGRAM_SETUP.md) for setup (BotFather token in `ingest/.env`, etc.).
 
 ## Project structure
 ```

@@ -19,21 +19,68 @@ SECURITY
 import os
 import sys
 import json
+import re
 import time
 import argparse
 import pathlib
 import urllib.parse
 import urllib.request
+import ssl
+ssl._create_default_https_context = ssl._create_unverified_context
 from datetime import datetime, timezone
 
 import parser as msgparser
 import generate_data_js as gen
+import fetcher
 
 ING = pathlib.Path(__file__).resolve().parent
 STORE = ING / "store"
 OFFSET_FILE = STORE / ".bot_offset"
 MAX_TEXT_LEN = 4000
 API_URL = "https://api.telegram.org/bot{token}/{method}"
+_URL_ONLY_RE = re.compile(r"https?://\S+")
+
+
+def _is_url_only(text):
+    """True when the message is essentially just a URL with no meaningful text."""
+    stripped = (text or "").strip()
+    remainder = _URL_ONLY_RE.sub("", stripped).strip()
+    return bool(_URL_ONLY_RE.search(stripped)) and len(remainder) < 10
+
+
+def _resolve_text(text, posted_at=None):
+    """If text is URL-only, fetch tweet content via fxtwitter. Returns (text, posted_at)."""
+    if not _is_url_only(text):
+        return text, posted_at
+    url = _URL_ONLY_RE.search(text).group(0)
+    result = fetcher.fetch_tweet(url)
+    if result:
+        full_text = result["text"] + "\n" + url
+        resolved_at = posted_at or result.get("posted_at")
+        print("fetcher: resolved tweet text from fxtwitter")
+        return full_text, resolved_at
+    return text, posted_at  # fall through — ingest will store what it has
+
+
+def _format_reply(summary):
+    if "skipped" in summary:
+        reason = summary["skipped"]
+        return "⚠️ Skipped: {}{}".format(
+            reason, " ({})".format(summary.get("id", "")) if "id" in summary else ""
+        )
+    tickers = summary.get("tickers") or []
+    added = summary.get("added") or []
+    queued = summary.get("queued") or []
+    lines = ["✅ Ingested from @aleabitoreddit"]
+    if tickers:
+        lines.append("Tickers: " + ", ".join(tickers))
+    if added:
+        lines.append("Auto-added: " + ", ".join(added))
+    if queued:
+        lines.append("Queued for review: " + ", ".join(queued))
+    if not tickers and not added:
+        lines.append("(no tickers detected — saved as note)")
+    return "\n".join(lines)
 
 
 def _load(name):
@@ -61,10 +108,18 @@ def _bump_version():
     _save("base.json", base)
 
 
+def _is_stub(thesis):
+    """True when a stored thesis has no real content (URL-only capture)."""
+    text = (thesis.get("text") or "").strip()
+    return not thesis.get("tickers") and (not text or text.startswith("http"))
+
+
 def ingest_message(text, source_url="", posted_at=None):
     """Core pipeline: text -> thesis appended, tickers auto-added/queued,
     priorities recomputed, data.js regenerated. Returns a summary dict.
     Shared by live polling and the --text CLI."""
+    text, posted_at = _resolve_text(text, posted_at)
+
     tickers = _load("tickers.json")
     theses = _load("theses.json")
     pending = _load("pending_tickers.json")
@@ -75,10 +130,15 @@ def ingest_message(text, source_url="", posted_at=None):
 
     if not thesis["text"] and not thesis["tickers"]:
         return {"skipped": "empty"}
-    if any(t["id"] == thesis["id"] for t in theses):
-        return {"skipped": "duplicate", "id": thesis["id"]}
 
-    theses.append(thesis)
+    existing_idx = next((i for i, t in enumerate(theses) if t["id"] == thesis["id"]), None)
+    if existing_idx is not None:
+        if _is_stub(theses[existing_idx]):
+            theses[existing_idx] = thesis  # replace URL-only stub with real content
+        else:
+            return {"skipped": "duplicate", "id": thesis["id"]}
+    else:
+        theses.append(thesis)
 
     known_upper = {k.upper() for k in known}
     added = []
@@ -172,7 +232,7 @@ def run_bot():
             print("ingested:", summary)
             try:
                 _api(token, "sendMessage", chat_id=msg["chat"]["id"],
-                     text="Ingested: " + json.dumps(summary))
+                     text=_format_reply(summary))
             except Exception:
                 pass
 

@@ -6,9 +6,9 @@
 
 window.AIE_DATA = {
   "meta": {
-    "version": "1.3",
+    "version": "1.8",
     "schemaVersion": 1,
-    "lastUpdated": "2026-06-26T22:16:02Z",
+    "lastUpdated": "2026-06-27T10:44:51Z",
     "source": "ingest"
   },
   "countries": {
@@ -130,7 +130,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-25",
       "priority": {
-        "score": 0.9894,
+        "score": 0.9651,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-26T17:30:47Z"
@@ -149,7 +149,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-25",
       "priority": {
-        "score": 0.9894,
+        "score": 0.9651,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-26T17:30:47Z"
@@ -168,7 +168,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-25",
       "priority": {
-        "score": 0.9894,
+        "score": 0.9651,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-26T17:30:47Z"
@@ -187,7 +187,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-25",
       "priority": {
-        "score": 0.9894,
+        "score": 0.9651,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-26T17:30:47Z"
@@ -206,7 +206,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-25",
       "priority": {
-        "score": 0.9894,
+        "score": 0.9651,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-26T17:30:47Z"
@@ -238,7 +238,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-25",
       "priority": {
-        "score": 0.9894,
+        "score": 0.9651,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-26T17:30:47Z"
@@ -296,7 +296,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-25",
       "priority": {
-        "score": 0.9894,
+        "score": 0.9651,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-26T17:30:47Z"
@@ -315,7 +315,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-25",
       "priority": {
-        "score": 0.9894,
+        "score": 0.9651,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-26T17:30:47Z"
@@ -373,7 +373,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-25",
       "priority": {
-        "score": 0.9894,
+        "score": 0.9651,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-26T17:30:47Z"
@@ -392,7 +392,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-26",
       "priority": {
-        "score": 0.9894,
+        "score": 0.9651,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-26T17:30:47Z"
@@ -411,7 +411,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-26",
       "priority": {
-        "score": 0.9894,
+        "score": 0.9651,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-26T17:30:47Z"
@@ -430,7 +430,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-26",
       "priority": {
-        "score": 0.9894,
+        "score": 0.9651,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-26T17:30:47Z"
@@ -445,7 +445,7 @@ window.AIE_DATA = {
       "sourceUrl": "",
       "postedAt": "2026-06-26T17:30:47Z",
       "ingestedAt": "2026-06-26T17:30:47Z",
-      "text": "Just from my personal experiences:\n\nMy new heuristic is markets tend to price things in ~8 months in advance unless your theme is Space, Robotics/Quantum.\n\nFor themes I'm tracking:\n\nFor photonics:\n- Next-gen pluggables (1.6T) are right around now (ex. $LITE, $COHR, Innolight, etc.) then $AAOI, $JBL 1.6T LRO and other later bloomers H1 2027.\n- CPO Scale Out related stuff is late H2 2026 (ex. $POET, Shunsin, etc)\n- NPO stuff H2 2026/2027 prob as bridge architectures\n- CPO Scale Up H2 2027 (ex. Ayar, Celestial, etc).\n\nIf I use the 8 month rule like 4 months too early for CPO Scale Up Names.\n\nBut in hindsight, I wanted to be early this time around given I felt this was the most compelling architectural shift given GS tam projections + markets seem to disagree, which is why there's a selloff with Foci/MSScorp and others.\n\nMaybe it should start picking up again and start to be priced in December 2026 IG? idk we'll see.\n\nStuff like lasers, $AXTI (InP substrates) are used across all those themes. FAU/silicon photonics/PCB midplanes, etc. are more concentrated around different architectures.\n\nMemory theme is quite a massive bottleneck as you've been seeing:\n- HBM3e around now as you've seen with Micron, Samsung, Sk Hynix etc. and NAND with Sandisk.\n- HBM4 mass production right around now too with SK Hynix, Micron/Samsung.\n- HBF 2027?\n\nBut again these are the same Kioxia, Samsung, Sk Hynix, $MU, Kioxia players across different architectures, and we're seeing re-rating cause we're mid-bottleneck. So these are likely to keep compounding.\n\nGlass Substrates:\nH2 2026 start with SKC Absolics (probably just early stage ramp). H2 2027-2028 is where the fun begins, with 2028 TSM CoPoS, others like Samsung etc. 2027, and Intel later on.\n\nHumanoid Suppliers:\nVery early, but as I said with Space markets probably won't wait to price this in with Elon giving bullish $TSLA optimus projections and Chinese humanoid companies like Unitree/AGI Bot starting to ramp up.\n\nNeoclouds:\nI said this was probably the buildout period for many of the players and Q4 2026 earnings is when some of the leaders typically hit inflection. Maybe was a bit early focusing so hard H4 2025 last year. Like with $NBIS $7-9B ARR, that ARR proj should hit Q4 earnings. If we apply that ~8M rule, Jan/Feb was very depressing, but should have bought in March 2026 rather than Sept last year. But markets might be pricing in Feb 2027 window.\n\nSo I'm personally probably going to repositioning right now around: Memory, Neoclouds, Photonics, Robotics. Probably heavier when something is ~8m in advance or captures many different themes eg. $SIVE for pluggable, NPO, CPO, and all architectures. And just having exposure to mini-shifts in between like advanced packaging materials, hybrid bonding for memory, or random bottlenecks like MLCCs.\n\nI probably shouldn't have heavy exposure to something way out 12M+ if I rethink my decisions. Also something to note is machine suppliers in general hit revenue faster than the general volume ramp, since your main companies like Samsung, Absolics, etc. need machines to get going in the first place. Which is why I ended up getting $LPK positions personally.\n\nI should follow my personal 8 rule to the T myself since I probably was a little too early to many names. Those are just my own experiences tho I'm learning along the way.",
+      "text": "Just from my personal experiences:\n\nMy new heuristic is markets tend to price things in ~8 months in advance unless your theme is Space, Robotics/Quantum.\n\nFor themes I'm tracking:\n\nFor photonics:\n- Next-gen pluggables (1.6T) are right around now (ex. $LITE, $COHR, Innolight, etc.) then $AAOI, $JBL 1.6T LRO and other later bloomers H1 2027.\n- CPO Scale Out related stuff is late H2 2026 (ex. $POET, Shunsin, etc)\n- NPO stuff H2 2026/2027 prob as bridge architectures\n- CPO Scale Up H2 2027 (ex. Ayar, Celestial, etc).\n\nIf I use the 8 month rule like 4 months too early for CPO Scale Up Names.\n\nBut in hindsight, I wanted to be early this time around given I felt this was the most compelling architectural shift given GS tam projections + markets seem to disagree, which is why there's a selloff with Foci/MSScorp and others.\n\nMaybe it should start picking up again and start to be priced in December 2026 IG? idk we'll see.\n\nStuff like lasers, $AXTI (InP substrates) are used across all those themes. FAU/silicon photonics/PCB midplanes, etc. are more concentrated around different architectures.\n\nMemory theme is quite a massive bottleneck as you've been seeing:\n- HBM3e around now as you've seen with Micron, Samsung, Sk Hynix etc. and NAND with Sandisk.\n- HBM4 mass production right around now too with SK Hynix, Micron/Samsung.\n- HBF 2027?\n\nBut again these are the same Kioxia, Samsung, Sk Hynix, $MU, Kioxia players across different architectures, and we're seeing re-rating cause we're mid-bottleneck. So these are likely to keep compounding.\n\nGlass Substrates:\nH2 2026 start with SKC Absolics (probably just early stage ramp). H2 2027-2028 is where the fun begins, with 2028 TSM CoPoS, others like Samsung etc. 2027, and Intel later on.\n\nHumanoid Suppliers:\nVery early, but as I said with Space markets probably won't wait to price this in with Elon giving bullish $TSLA optimus projections and Chinese humanoid companies like Unitree/AGI Bot starting to ramp up.\n\nNeoclouds:\nI said this was probably the buildout period for many of the players and Q4 2026 earnings is when some of the leaders typically hit inflection. Maybe was a bit early focusing so hard H4 2025 last year. Like with $NBIS $7-9B ARR, that ARR proj should hit Q4 earnings. If we apply that ~8M rule, Jan/Feb was very depressing, but should have bought in March 2026 rather than Sept last year. But markets might be pricing in Feb 2027 window.\n\nSo I'm personally probably going to repositioning right now around: Memory, Neoclouds, Photonics, Robotics. Probably heavier when something is ~8m in advance or captures many different themes eg. $SIVE for pluggable, NPO, CPO, and all architectures. And just having exposure to mini-shifts in between like advanced packaging materials, hybrid bonding for memory, or random bottlenecks like MLCCs.\n\nI probably shouldn't have heavy exposure to something way out 12M+ if I rethink my decisions. Also something to note is machine suppliers in general hit revenue faster than the general volume ramp, with your main companies like Samsung, Absolics, etc. need machines to get going in the first place. Which is why I ended up getting $LPK positions personally.\n\nI should follow my personal 8 rule to the T myself since I probably was a little too early to many names. Those are just my own experiences tho I'm learning along the way.",
       "tickers": [
         "AAOI",
         "AXTI",
@@ -474,89 +474,101 @@ window.AIE_DATA = {
       "tickers": [],
       "conviction": "normal",
       "tags": []
+    },
+    {
+      "id": "x_2070731304241606694",
+      "source": "x",
+      "author": "aleabitoreddit",
+      "sourceUrl": "https://x.com/aleabitoreddit/status/2070731304241606694?s=20",
+      "postedAt": "2026-06-27T10:44:51Z",
+      "ingestedAt": "2026-06-27T10:44:51Z",
+      "text": "https://x.com/aleabitoreddit/status/2070731304241606694?s=20",
+      "tickers": [],
+      "conviction": "normal",
+      "tags": []
     }
   ],
   "priorities": [
     {
       "ticker": "AAOI",
-      "score": 0.9894,
+      "score": 0.9651,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-06-26T17:30:47Z"
     },
     {
       "ticker": "AXTI",
-      "score": 0.9894,
+      "score": 0.9651,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-06-26T17:30:47Z"
     },
     {
       "ticker": "COHR",
-      "score": 0.9894,
+      "score": 0.9651,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-06-26T17:30:47Z"
     },
     {
       "ticker": "JBL",
-      "score": 0.9894,
+      "score": 0.9651,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-06-26T17:30:47Z"
     },
     {
       "ticker": "LITE",
-      "score": 0.9894,
+      "score": 0.9651,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-06-26T17:30:47Z"
     },
     {
       "ticker": "LPK.DE",
-      "score": 0.9894,
+      "score": 0.9651,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-06-26T17:30:47Z"
     },
     {
       "ticker": "MU",
-      "score": 0.9894,
+      "score": 0.9651,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-06-26T17:30:47Z"
     },
     {
       "ticker": "NBIS",
-      "score": 0.9894,
+      "score": 0.9651,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-06-26T17:30:47Z"
     },
     {
       "ticker": "POET",
-      "score": 0.9894,
+      "score": 0.9651,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-06-26T17:30:47Z"
     },
     {
       "ticker": "SIVEF",
-      "score": 0.9894,
+      "score": 0.9651,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-06-26T17:30:47Z"
     },
     {
       "ticker": "TSLA",
-      "score": 0.9894,
+      "score": 0.9651,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-06-26T17:30:47Z"
     },
     {
       "ticker": "TSM",
-      "score": 0.9894,
+      "score": 0.9651,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-06-26T17:30:47Z"
