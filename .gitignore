@@ -14,3 +14,9 @@ __pycache__/
 
 # --- Bot runtime state ---
 ingest/store/.bot_offset
+
+# --- Session artifacts ---
+.playwright-mcp/
+*.jpeg
+*.jpg
+*.png

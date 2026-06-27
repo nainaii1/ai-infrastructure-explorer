@@ -506,6 +506,58 @@
       font-family: var(--mono);
     }
 
+    /* ---------- Thesis (Tab 3) ---------- */
+    .th-header {
+      display: flex; align-items: flex-end; justify-content: space-between;
+      gap: 12px; flex-wrap: wrap;
+      padding-bottom: 10px; margin-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    .th-count { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+    .th-empty {
+      padding: 56px 32px; text-align: center;
+      background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+    }
+    .th-empty-title { font-size: 16px; font-weight: 600; color: var(--text); margin: 0 0 6px; }
+    .th-empty-sub  { font-size: 13px; color: var(--muted); margin: 0; line-height: 1.6; }
+    .th-empty-sub code { font-family: var(--mono); font-size: 12px;
+      background: rgba(15,23,42,.06); padding: 1px 5px; border-radius: 4px; }
+    .th-feed { display: flex; flex-direction: column; gap: 14px; }
+    .th-card {
+      background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+      padding: 18px 20px; border-left: 4px solid var(--border);
+      transition: border-color var(--ease);
+    }
+    .th-card.high-conviction { border-left-color: #16a34a; }
+    .th-card-meta {
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 10px;
+    }
+    .th-date   { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+    .th-conviction {
+      font-family: var(--mono); font-size: 10px; letter-spacing: .06em;
+      text-transform: uppercase; font-weight: 700;
+      padding: 2px 7px; border-radius: 999px;
+    }
+    .th-conviction.high   { background: #dcfce7; color: #15803d; }
+    .th-conviction.normal { background: color-mix(in srgb,#94a3b8 12%,white); color: var(--muted); }
+    .th-source {
+      font-family: var(--mono); font-size: 11px; color: var(--muted);
+      text-decoration: none; margin-left: auto;
+    }
+    .th-source:hover { color: var(--ink); }
+    .th-text {
+      font-size: 13.5px; line-height: 1.65; color: var(--text);
+      white-space: pre-wrap; word-break: break-word; margin: 0 0 12px;
+    }
+    .th-tickers { display: flex; flex-wrap: wrap; gap: 6px; }
+    .th-ticker {
+      display: inline-flex; align-items: center;
+      font-family: var(--mono); font-size: 11px; font-weight: 700;
+      padding: 3px 8px; border-radius: 6px;
+      background: color-mix(in srgb, var(--t-color,#94a3b8) 14%, white);
+      color: color-mix(in srgb, var(--t-color,#94a3b8) 70%, black);
+    }
+
     /* ---------- Watchlist (Tab 2): sortable price table ---------- */
     .wl-header {
       display: flex; align-items: flex-end; justify-content: space-between;
@@ -708,10 +760,14 @@
         aria-labelledby="tab-btn-thesis"
         hidden
       >
-        <div class="placeholder-card">
-          <h2>Thesis</h2>
-          <p>Coming soon — built in next step.</p>
+        <div class="th-header">
+          <div class="wl-ledger">
+            <span class="ledger-eyebrow">Thesis</span>
+            <span class="ledger-scope" id="thScope"></span>
+          </div>
+          <span class="th-count" id="thCount"></span>
         </div>
+        <div id="thFeed"></div>
       </section>
     </main>
   </div>
@@ -1266,6 +1322,111 @@
         });
       }
 
+      /* ----------------------------------------------------------
+         Thesis tab (Tab 3) — feed of @aleabitoreddit ideas from aie_theses.
+         Each card shows: date · conviction badge · source link · full text ·
+         ticker chips (category-colored). Most-recent first.
+         Empty state when nothing ingested yet.
+         ---------------------------------------------------------- */
+      function getStoredTheses() {
+        return readJSON(STORAGE_KEYS.theses) || [];
+      }
+
+      function thesisCatColor(sym) {
+        var tk = (DATA && DATA.tickers || []).find(function (t) { return t.ticker === sym; });
+        if (!tk) return null;
+        var cat = DATA.categories && DATA.categories[tk.category];
+        return cat ? cat.color : null;
+      }
+
+      function renderTheses() {
+        var feed = document.getElementById("thFeed");
+        var scope = document.getElementById("thScope");
+        var count = document.getElementById("thCount");
+        if (!feed) return;
+
+        var theses = getStoredTheses().slice().sort(function (a, b) {
+          var da = a.postedAt || a.ingestedAt || "";
+          var db = b.postedAt || b.ingestedAt || "";
+          return db < da ? -1 : db > da ? 1 : 0;  // most recent first
+        });
+
+        if (scope) {
+          scope.innerHTML = "";
+          scope.appendChild(el("b", null, String(theses.length)));
+          scope.appendChild(document.createTextNode(
+            theses.length === 1 ? " idea captured" : " ideas captured"
+          ));
+        }
+        if (count) count.textContent = theses.length
+          ? ("from @aleabitoreddit")
+          : "";
+
+        feed.innerHTML = "";
+
+        if (!theses.length) {
+          var empty = document.createElement("div");
+          empty.className = "th-empty";
+          var t = document.createElement("p"); t.className = "th-empty-title";
+          t.textContent = "No theses ingested yet";
+          var s = document.createElement("p"); s.className = "th-empty-sub";
+          s.innerHTML = "Forward a post from @aleabitoreddit to your Telegram bot, or run<br>"
+            + "<code>python3 ingest/bot.py --text \"$AAOI is my top pick\"</code><br>"
+            + "to test the pipeline. Ideas will appear here automatically.";
+          empty.appendChild(t); empty.appendChild(s);
+          feed.appendChild(empty);
+          return;
+        }
+
+        var frag = document.createDocumentFragment();
+        theses.forEach(function (th) {
+          var card = document.createElement("div");
+          card.className = "th-card" + (th.conviction === "high" ? " high-conviction" : "");
+
+          // meta row: date · conviction · source link
+          var meta = document.createElement("div"); meta.className = "th-card-meta";
+
+          var dateStr = th.postedAt || th.ingestedAt || "";
+          if (dateStr) {
+            meta.appendChild(el("span", "th-date", dateStr.slice(0, 10)));
+          }
+
+          var cv = el("span", "th-conviction " + (th.conviction === "high" ? "high" : "normal"),
+            th.conviction === "high" ? "High conviction" : "Note");
+          meta.appendChild(cv);
+
+          if (th.sourceUrl) {
+            var link = document.createElement("a");
+            link.className = "th-source"; link.href = th.sourceUrl;
+            link.target = "_blank"; link.rel = "noopener noreferrer";
+            link.textContent = "View post ↗";
+            meta.appendChild(link);
+          }
+          card.appendChild(meta);
+
+          // full text
+          var txt = document.createElement("p"); txt.className = "th-text";
+          txt.textContent = th.text || "";
+          card.appendChild(txt);
+
+          // ticker chips
+          var tickers = th.tickers || [];
+          if (tickers.length) {
+            var chips = document.createElement("div"); chips.className = "th-tickers";
+            tickers.forEach(function (sym) {
+              var chip = el("span", "th-ticker", sym);
+              var color = thesisCatColor(sym);
+              if (color) chip.style.setProperty("--t-color", color);
+              chips.appendChild(chip);
+            });
+            card.appendChild(chips);
+          }
+
+          frag.appendChild(card);
+        });
+        feed.appendChild(frag);
+      }
+
       // Boot
       seedLocalStorage();
       paintGradientBorder();
@@ -1276,6 +1437,7 @@
       renderWatchlist();
       initWatchlistSort();
       initWatchlistFetch();
+      renderTheses();
     })();
   </script>
 </body>
