@@ -558,6 +558,43 @@
       color: color-mix(in srgb, var(--t-color,#94a3b8) 70%, black);
     }
 
+    /* ---------- Brain (Tab 4): synthesized theme digests ---------- */
+    .bd-card {
+      background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+      padding: 18px 20px; border-left: 4px solid var(--accent, var(--border));
+      transition: border-color var(--ease); margin-bottom: 14px;
+    }
+    .bd-head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; }
+    .bd-title { font-size: 16px; font-weight: 600; color: var(--ink); }
+    .bd-sub { font-size: 12px; color: var(--muted); }
+    .bd-conviction {
+      font-family: var(--mono); font-size: 10px; letter-spacing: .06em;
+      text-transform: uppercase; font-weight: 700;
+      padding: 2px 7px; border-radius: 999px; margin-left: auto;
+    }
+    .bd-conviction.high   { background: #dcfce7; color: #15803d; }
+    .bd-conviction.medium { background: #fef3c7; color: #b45309; }
+    .bd-conviction.low    { background: color-mix(in srgb,#94a3b8 12%,white); color: var(--muted); }
+    .bd-narrative {
+      font-size: 13.5px; line-height: 1.65; color: var(--text);
+      white-space: pre-wrap; word-break: break-word; margin: 0 0 10px;
+    }
+    .bd-points { margin: 0 0 4px; padding-left: 18px; }
+    .bd-points li { font-size: 13px; line-height: 1.55; color: var(--text); margin: 2px 0; }
+    .bd-tickers { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+    .bd-toggle {
+      appearance: none; font: inherit; font-family: var(--mono); font-size: 11px;
+      color: var(--muted); background: none; border: 1px solid var(--border);
+      border-radius: 999px; padding: 4px 11px; cursor: pointer; margin-top: 14px;
+      transition: color var(--ease), border-color var(--ease);
+    }
+    .bd-toggle:hover { color: var(--ink); border-color: var(--muted); }
+    .bd-sources { display: none; margin-top: 12px; padding-top: 4px; }
+    .bd-sources.open { display: block; }
+    .bd-sources .th-card { margin-bottom: 10px; }
+    .bd-sources .th-card:last-child { margin-bottom: 0; }
+    .th-card-compact { background: var(--bg); }
+
     /* ---------- Watchlist (Tab 2): sortable price table ---------- */
     .wl-header {
       display: flex; align-items: flex-end; justify-content: space-between;
@@ -673,6 +710,14 @@
           aria-selected="false"
           data-target="tab-thesis"
         >Thesis</button>
+        <button
+          class="tab-btn"
+          role="tab"
+          id="tab-btn-brain"
+          aria-controls="tab-brain"
+          aria-selected="false"
+          data-target="tab-brain"
+        >Brain</button>
       </nav>
     </header>
 
@@ -768,6 +813,26 @@
           <span class="th-count" id="thCount"></span>
         </div>
         <div id="thFeed"></div>
+      </section>
+
+      <!-- Tab 4: Brain. Synthesized per-theme digests, built by renderBrain()
+           from AIE_DATA.brain (produced by ingest/synthesize.py). Each digest
+           expands to reveal the raw source theses behind it. -->
+      <section
+        class="tab-panel"
+        id="tab-brain"
+        role="tabpanel"
+        aria-labelledby="tab-btn-brain"
+        hidden
+      >
+        <div class="th-header">
+          <div class="wl-ledger">
+            <span class="ledger-eyebrow">Brain</span>
+            <span class="ledger-scope" id="brainScope"></span>
+          </div>
+          <span class="th-count" id="brainMeta"></span>
+        </div>
+        <div id="brainFeed"></div>
       </section>
     </main>
   </div>
@@ -1379,47 +1444,161 @@
         }
 
         var frag = document.createDocumentFragment();
-        theses.forEach(function (th) {
-          var card = document.createElement("div");
-          card.className = "th-card" + (th.conviction === "high" ? " high-conviction" : "");
+        theses.forEach(function (th) { frag.appendChild(makeThesisCard(th)); });
+        feed.appendChild(frag);
+      }
 
-          // meta row: date · conviction · source link
-          var meta = document.createElement("div"); meta.className = "th-card-meta";
+      // Build one thesis card. Shared by the Thesis feed and the Brain tab's
+      // drill-down (compact clips the body to a snippet). textContent only.
+      function makeThesisCard(th, opts) {
+        opts = opts || {};
+        var card = document.createElement("div");
+        card.className = "th-card" + (th.conviction === "high" ? " high-conviction" : "")
+          + (opts.compact ? " th-card-compact" : "");
 
-          var dateStr = th.postedAt || th.ingestedAt || "";
-          if (dateStr) {
-            meta.appendChild(el("span", "th-date", dateStr.slice(0, 10)));
+        var meta = document.createElement("div"); meta.className = "th-card-meta";
+        var dateStr = th.postedAt || th.ingestedAt || "";
+        if (dateStr) meta.appendChild(el("span", "th-date", dateStr.slice(0, 10)));
+        meta.appendChild(el("span", "th-conviction " + (th.conviction === "high" ? "high" : "normal"),
+          th.conviction === "high" ? "High conviction" : "Note"));
+        if (th.sourceUrl) {
+          var link = document.createElement("a");
+          link.className = "th-source"; link.href = th.sourceUrl;
+          link.target = "_blank"; link.rel = "noopener noreferrer";
+          link.textContent = "View post ↗";
+          meta.appendChild(link);
+        }
+        card.appendChild(meta);
+
+        var body = th.text || "";
+        if (opts.compact && body.length > 280) body = body.slice(0, 280).trim() + "…";
+        card.appendChild(el("p", "th-text", body));
+
+        var tickers = th.tickers || [];
+        if (tickers.length) {
+          var chips = document.createElement("div"); chips.className = "th-tickers";
+          tickers.forEach(function (sym) {
+            var chip = el("span", "th-ticker", sym);
+            var color = thesisCatColor(sym);
+            if (color) chip.style.setProperty("--t-color", color);
+            chips.appendChild(chip);
+          });
+          card.appendChild(chips);
+        }
+        return card;
+      }
+
+      /* ----------------------------------------------------------
+         Brain tab (Tab 4) — synthesized theme digests from
+         AIE_DATA.brain (produced by ingest/synthesize.py). One card
+         per supply-chain category: narrative · conviction · key
+         points · ticker chips · drill-down to raw source theses.
+         Read straight from AIE_DATA (backend-owned), like priorities.
+         ---------------------------------------------------------- */
+      function renderBrain() {
+        var feed = document.getElementById("brainFeed");
+        var scope = document.getElementById("brainScope");
+        var metaEl = document.getElementById("brainMeta");
+        if (!feed || !DATA) return;
+
+        var brain = DATA.brain || {};
+        var digests = (brain.digests || []).filter(function (d) { return d.thesesCount > 0; });
+
+        if (scope) {
+          scope.innerHTML = "";
+          scope.appendChild(el("b", null, String(digests.length)));
+          scope.appendChild(document.createTextNode(
+            digests.length === 1 ? " theme synthesized" : " themes synthesized"
+          ));
+        }
+        if (metaEl) {
+          metaEl.textContent = (brain.meta && brain.meta.generatedAt)
+            ? ("synthesized " + brain.meta.generatedAt.slice(0, 10)
+               + (brain.meta.model ? " · " + brain.meta.model : ""))
+            : "";
+        }
+
+        feed.innerHTML = "";
+
+        if (!digests.length) {
+          var empty = document.createElement("div");
+          empty.className = "th-empty";
+          empty.appendChild(el("p", "th-empty-title", "No brain digests yet"));
+          var s = el("p", "th-empty-sub");
+          s.appendChild(document.createTextNode("Run "));
+          s.appendChild(el("code", null, "python3 ingest/synthesize.py"));
+          s.appendChild(document.createTextNode(
+            " to synthesize per-theme digests from the ideas you've captured."));
+          empty.appendChild(s);
+          feed.appendChild(empty);
+          return;
+        }
+
+        // Index theses by id for the drill-down (backend-owned theses preferred).
+        var byId = {};
+        ((DATA.theses) || getStoredTheses() || []).forEach(function (t) { byId[t.id] = t; });
+
+        var frag = document.createDocumentFragment();
+        digests.forEach(function (d) {
+          var cat = (DATA.categories && DATA.categories[d.category]) || null;
+          var card = el("article", "bd-card");
+          card.style.setProperty("--accent", cat ? cat.color : "#94a3b8");
+
+          var head = el("div", "bd-head");
+          head.appendChild(el("span", "bd-title", cat ? cat.label : d.category));
+          if (cat && cat.subtitle) head.appendChild(el("span", "bd-sub", cat.subtitle));
+          var cvl = (d.conviction === "high" || d.conviction === "medium" || d.conviction === "low")
+            ? d.conviction : "medium";
+          head.appendChild(el("span", "bd-conviction " + cvl, cvl + " conviction"));
+          card.appendChild(head);
+
+          if (d.narrative) card.appendChild(el("p", "bd-narrative", d.narrative));
+
+          var pts = d.keyPoints || [];
+          if (pts.length) {
+            var ul = el("ul", "bd-points");
+            pts.forEach(function (pt) { ul.appendChild(el("li", null, pt)); });
+            card.appendChild(ul);
           }
 
-          var cv = el("span", "th-conviction " + (th.conviction === "high" ? "high" : "normal"),
-            th.conviction === "high" ? "High conviction" : "Note");
-          meta.appendChild(cv);
-
-          if (th.sourceUrl) {
-            var link = document.createElement("a");
-            link.className = "th-source"; link.href = th.sourceUrl;
-            link.target = "_blank"; link.rel = "noopener noreferrer";
-            link.textContent = "View post ↗";
-            meta.appendChild(link);
-          }
-          card.appendChild(meta);
-
-          // full text
-          var txt = document.createElement("p"); txt.className = "th-text";
-          txt.textContent = th.text || "";
-          card.appendChild(txt);
-
-          // ticker chips
-          var tickers = th.tickers || [];
-          if (tickers.length) {
-            var chips = document.createElement("div"); chips.className = "th-tickers";
-            tickers.forEach(function (sym) {
+          var tks = d.tickers || [];
+          if (tks.length) {
+            var chips = el("div", "bd-tickers");
+            tks.forEach(function (sym) {
               var chip = el("span", "th-ticker", sym);
               var color = thesisCatColor(sym);
               if (color) chip.style.setProperty("--t-color", color);
               chips.appendChild(chip);
             });
             card.appendChild(chips);
+          }
+
+          // Drill-down: lazily reveal the raw source theses behind this digest.
+          var ids = d.sourceThesisIds || [];
+          if (ids.length) {
+            var sources = el("div", "bd-sources");
+            var built = false;
+            var n = ids.length;
+            var label = function (open) {
+              return (open ? "Hide " : "Show ") + n + (n === 1 ? " source thesis" : " source theses");
+            };
+            var toggle = el("button", "bd-toggle", label(false));
+            toggle.setAttribute("type", "button");
+            toggle.setAttribute("aria-expanded", "false");
+            toggle.addEventListener("click", function () {
+              var open = sources.classList.toggle("open");
+              toggle.setAttribute("aria-expanded", open ? "true" : "false");
+              toggle.textContent = label(open);
+              if (open && !built) {
+                ids.forEach(function (tid) {
+                  var th = byId[tid];
+                  if (th) sources.appendChild(makeThesisCard(th, { compact: true }));
+                });
+                built = true;
+              }
+            });
+            card.appendChild(toggle);
+            card.appendChild(sources);
           }
 
           frag.appendChild(card);
@@ -1438,6 +1617,7 @@
       initWatchlistSort();
       initWatchlistFetch();
       renderTheses();
+      renderBrain();
     })();
   </script>
 </body>

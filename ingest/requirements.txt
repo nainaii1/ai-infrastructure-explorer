@@ -2,6 +2,7 @@
 # uses ONLY the Python 3 standard library (urllib, json, re, argparse).
 # Nothing to install for ingestion.
 
-# Optional: Claude-assisted enrichment in review.py (drafting whatTheyDo/whyNVDA).
-# Uncomment if you want it:
-# anthropic>=0.40
+# Required ONLY by synthesize.py ("the brain") for Claude-powered theme digests.
+# The core pipeline still runs with zero dependencies; install this just to run
+# `python3 synthesize.py`:
+anthropic>=0.40
