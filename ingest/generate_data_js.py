@@ -48,6 +48,7 @@ def build_data():
     tickers = _load("tickers.json")
     theses = _load("theses.json")
     prices = _load_optional("prices.json", {})  # {ticker: {price, chg7d, chg1m, marketCap, asOf}}
+    brain = _load_optional("brain.json", {})    # {} until synthesize.py has run; {meta, digests} after
 
     # Merge weekly price snapshot (from fetch_prices.py) onto each ticker.
     for t in tickers:
@@ -81,6 +82,7 @@ def build_data():
         "tickers": tickers,
         "theses": theses,
         "priorities": priorities,
+        "brain": brain,
     }
 
 

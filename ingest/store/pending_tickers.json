@@ -1,1 +1,356 @@
-[]
+[
+  {
+    "candidate": "AP",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-27T15:37:23Z",
+    "count": 2
+  },
+  {
+    "candidate": "BMC",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-27T15:37:23Z",
+    "count": 1
+  },
+  {
+    "candidate": "CPV",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-27T15:37:23Z",
+    "count": 1
+  },
+  {
+    "candidate": "DOWA",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-27T15:37:23Z",
+    "count": 1
+  },
+  {
+    "candidate": "ITO",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-27T15:37:23Z",
+    "count": 1
+  },
+  {
+    "candidate": "JFE",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-27T15:37:23Z",
+    "count": 1
+  },
+  {
+    "candidate": "JX",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-27T15:37:23Z",
+    "count": 1
+  },
+  {
+    "candidate": "MC",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-27T15:37:23Z",
+    "count": 7
+  },
+  {
+    "candidate": "MF",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-27T15:37:23Z",
+    "count": 1
+  },
+  {
+    "candidate": "MLCC",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-27T15:37:23Z",
+    "count": 1
+  },
+  {
+    "candidate": "MOCVD",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-27T15:37:23Z",
+    "count": 1
+  },
+  {
+    "candidate": "MPS",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-27T15:37:23Z",
+    "count": 1
+  },
+  {
+    "candidate": "NXP",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-27T15:37:23Z",
+    "count": 1
+  },
+  {
+    "candidate": "PEDOT",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-27T15:37:23Z",
+    "count": 1
+  },
+  {
+    "candidate": "RPI",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-27T15:37:23Z",
+    "count": 1
+  },
+  {
+    "candidate": "SEMCO",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-27T15:37:23Z",
+    "count": 1
+  },
+  {
+    "candidate": "TI",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-27T15:37:23Z",
+    "count": 1
+  },
+  {
+    "candidate": "TV",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-27T15:37:23Z",
+    "count": 1
+  },
+  {
+    "candidate": "CSP",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-27T15:38:26Z",
+    "count": 1
+  },
+  {
+    "candidate": "IV",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-27T15:38:26Z",
+    "count": 1
+  },
+  {
+    "candidate": "NAV",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-27T15:39:18Z",
+    "count": 1
+  },
+  {
+    "candidate": "PCB",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-27T15:39:18Z",
+    "count": 1
+  },
+  {
+    "candidate": "TW",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-27T15:39:18Z",
+    "count": 1
+  },
+  {
+    "candidate": "WUS",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-27T15:39:18Z",
+    "count": 1
+  },
+  {
+    "candidate": "DB",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-27T15:39:49Z",
+    "count": 1
+  },
+  {
+    "candidate": "DRAM",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-27T15:39:49Z",
+    "count": 3
+  },
+  {
+    "candidate": "NAND",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-27T15:39:49Z",
+    "count": 3
+  },
+  {
+    "candidate": "OP",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-27T15:39:49Z",
+    "count": 1
+  },
+  {
+    "candidate": "SHA",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-27T15:39:49Z",
+    "count": 1
+  },
+  {
+    "candidate": "SK",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-27T15:39:49Z",
+    "count": 3
+  },
+  {
+    "candidate": "SMIC",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-27T15:39:49Z",
+    "count": 1
+  },
+  {
+    "candidate": "DISCO",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-27T15:40:26Z",
+    "count": 1
+  },
+  {
+    "candidate": "COUPE",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-27T15:41:05Z",
+    "count": 1
+  },
+  {
+    "candidate": "TSMC",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-27T15:41:05Z",
+    "count": 1
+  },
+  {
+    "candidate": "SV",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-27T15:41:34Z",
+    "count": 1
+  },
+  {
+    "candidate": "VDC",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-27T15:41:34Z",
+    "count": 1
+  },
+  {
+    "candidate": "EMIB",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-27T15:41:45Z",
+    "count": 1
+  },
+  {
+    "candidate": "GS",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-27T15:42:10Z",
+    "count": 1
+  },
+  {
+    "candidate": "PCL",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-27T15:42:32Z",
+    "count": 1
+  },
+  {
+    "candidate": "AUROS",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-27T15:42:40Z",
+    "count": 1
+  },
+  {
+    "candidate": "DYOR",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-27T15:42:40Z",
+    "count": 1
+  },
+  {
+    "candidate": "IR",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-27T15:42:40Z",
+    "count": 1
+  },
+  {
+    "candidate": "MR",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-27T15:42:40Z",
+    "count": 1
+  },
+  {
+    "candidate": "MUF",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-27T15:42:40Z",
+    "count": 1
+  },
+  {
+    "candidate": "NFA",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-27T15:42:40Z",
+    "count": 2
+  },
+  {
+    "candidate": "GAA",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-27T15:43:29Z",
+    "count": 1
+  },
+  {
+    "candidate": "BTO",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-27T15:44:22Z",
+    "count": 1
+  },
+  {
+    "candidate": "ELS",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-27T15:44:22Z",
+    "count": 1
+  },
+  {
+    "candidate": "EML",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-27T15:44:22Z",
+    "count": 1
+  },
+  {
+    "candidate": "QD",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-27T15:44:22Z",
+    "count": 1
+  },
+  {
+    "candidate": "MBE",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-27T15:44:33Z",
+    "count": 1
+  },
+  {
+    "candidate": "ASE",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-27T15:45:35Z",
+    "count": 1
+  },
+  {
+    "candidate": "ASIC",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-27T15:45:35Z",
+    "count": 1
+  },
+  {
+    "candidate": "LPO",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-27T15:45:35Z",
+    "count": 1
+  },
+  {
+    "candidate": "LRO",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-27T15:45:35Z",
+    "count": 1
+  },
+  {
+    "candidate": "TPU",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-27T15:45:35Z",
+    "count": 1
+  },
+  {
+    "candidate": "USDC",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-27T15:45:35Z",
+    "count": 1
+  },
+  {
+    "candidate": "DFB",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-27T15:54:29Z",
+    "count": 1
+  },
+  {
+    "candidate": "FMCW",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-27T15:54:29Z",
+    "count": 1
+  }
+]
