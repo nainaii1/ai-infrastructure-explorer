@@ -241,7 +241,9 @@
       transform: translateX(2px);
       border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
       background: color-mix(in srgb, var(--accent) 5%, var(--card));
+      box-shadow: 0 6px 18px -12px color-mix(in srgb, var(--accent) 50%, transparent);
     }
+    /* Connector glows in the category color on hover (revives the SVG-map intent). */
     .layer-band:hover::before { width: 7px; }
     .layer-band.is-active {
       border-color: color-mix(in srgb, var(--accent) 55%, var(--border));
@@ -281,12 +283,106 @@
     /* Demand hub band: dark, distinct, non-interactive. */
     .layer-hub { cursor: default; background: var(--ink); border-color: var(--ink); }
     .layer-hub::before { background: #475569; }
-    .layer-hub:hover { transform: none; background: var(--ink); border-color: var(--ink); }
+    .layer-hub:hover { transform: none; background: var(--ink); border-color: var(--ink); box-shadow: none; }
     .layer-hub:hover::before { width: 4px; }
     .layer-hub .layer-index { color: #cbd5e1; background: rgba(255, 255, 255, 0.08); }
     .layer-hub .layer-title { color: #ffffff; }
     .layer-hub .layer-sub { color: #94a3b8; }
     .layer-hub .layer-desc { color: #cbd5e1; }
+
+    /* ---------- Pipeline framing: intro, flow rail, zones, detail ---------- */
+    /* "How to read this map" line. Text injected from AIE_DATA.mapIntro. */
+    .map-intro {
+      margin: 0 0 16px;
+      font-size: 13px;
+      line-height: 1.55;
+      color: var(--muted);
+      max-width: 72ch;
+    }
+
+    /* The stack reads as a vertical pipeline: a flow rail runs down the left
+       gutter (brighter at the top = "flows up into NVIDIA"); bands sit to its right. */
+    .layer-stack { position: relative; padding-left: 26px; }
+    .layer-stack::before {
+      content: "";
+      position: absolute;
+      left: 9px;
+      top: 10px;
+      bottom: 10px;
+      width: 2px;
+      border-radius: 2px;
+      background: linear-gradient(
+        to top,
+        color-mix(in srgb, var(--ink) 16%, transparent),
+        color-mix(in srgb, var(--ink) 52%, transparent)
+      );
+    }
+
+    /* Zone divider: groups the pipeline (Demand / Chip / Supply). */
+    .zone-divider {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 8px 0 1px;
+      padding-left: 2px;
+    }
+    .zone-divider::after {
+      content: "";
+      flex: 1 1 auto;
+      height: 1px;
+      background: var(--border);
+    }
+    /* Upward flow marker sitting on the rail at each zone break. */
+    .zone-divider::before {
+      content: "\25B2";
+      position: absolute;
+      left: -20px;
+      font-size: 8px;
+      line-height: 1;
+      color: color-mix(in srgb, var(--ink) 55%, var(--muted));
+    }
+    .zone-label {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+    .zone-divider--muted .zone-label { color: color-mix(in srgb, var(--muted) 65%, transparent); }
+    .zone-divider--muted::before { content: ""; }
+
+    /* Investor angle — collapsed until the layer is selected (.is-active). */
+    .layer-detail {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      margin-top: 0;
+      transition: max-height var(--ease), opacity var(--ease), margin-top var(--ease);
+    }
+    .layer-band.is-active .layer-detail {
+      max-height: 200px;
+      opacity: 1;
+      margin-top: 9px;
+    }
+    .layer-detail-label {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: color-mix(in srgb, var(--accent) 75%, var(--muted));
+      margin-bottom: 3px;
+    }
+    .layer-detail-text {
+      margin: 0;
+      font-size: 12.5px;
+      line-height: 1.5;
+      color: var(--text);
+    }
 
     /* ============================================================
        Ticker cards (Tab 1, Section B) — research-dossier aesthetic.
@@ -735,8 +831,10 @@
             <h2>Supply Chain Map</h2>
             <button type="button" class="map-show-all" id="mapShowAll">Show All</button>
           </div>
-          <!-- Value-chain layers, built by renderLayers() from AIE_DATA.
-               Demand hub on top; category layers ordered bottom→top. -->
+          <!-- "How to read this map" — copy comes from AIE_DATA.mapIntro (rule #4). -->
+          <p class="map-intro" id="mapIntro"></p>
+          <!-- Value-chain layers, built by renderLayers() from AIE_DATA, grouped
+               into Demand / Chip / Supply zones. Demand hub on top; inputs below. -->
           <div
             class="layer-stack"
             id="layerStack"
@@ -1004,6 +1102,13 @@
         if (opts.sub) title.appendChild(el("span", "layer-sub", "· " + opts.sub));
         main.appendChild(title);
         if (opts.desc) main.appendChild(el("p", "layer-desc", opts.desc));
+        // Investor angle — revealed when the layer is selected (see .is-active CSS).
+        if (opts.angle) {
+          var detail = el("div", "layer-detail");
+          detail.appendChild(el("span", "layer-detail-label", "What to watch"));
+          detail.appendChild(el("p", "layer-detail-text", opts.angle));
+          main.appendChild(detail);
+        }
         band.appendChild(main);
 
         if (!opts.isHub) {
@@ -1015,10 +1120,22 @@
         return band;
       }
 
+      // A labeled break that chunks the pipeline into flow zones.
+      function makeZoneDivider(label, muted) {
+        var div = el("div", "zone-divider" + (muted ? " zone-divider--muted" : ""));
+        div.setAttribute("role", "presentation");
+        div.appendChild(el("span", "zone-label", label));
+        return div;
+      }
+
       function renderLayers() {
         var stack = document.getElementById("layerStack");
         if (!stack || !DATA || !DATA.categories || !DATA.center) return;
         stack.innerHTML = "";
+
+        // Intro line ("how to read this map") — copy lives in data.js (rule #4).
+        var intro = document.getElementById("mapIntro");
+        if (intro) intro.textContent = DATA.mapIntro || "";
 
         // Demand hub pinned at the top (the buyer/demand, not a filter).
         stack.appendChild(makeLayerBand({
@@ -1028,16 +1145,17 @@
 
         var counts = getCategoryCounts();
         // Sort by `layer` descending so layer 1 (foundation) sits at the bottom.
-        var ids = Object.keys(DATA.categories).sort(function (a, b) {
+        var byLayerDesc = function (a, b) {
           return (DATA.categories[b].layer || 0) - (DATA.categories[a].layer || 0);
-        });
+        };
 
-        ids.forEach(function (id) {
+        // Build one interactive, filterable layer band for a category id.
+        function appendLayer(id) {
           var c = DATA.categories[id];
           var band = makeLayerBand({
             id: id,
             indexLabel: "L" + (c.layer != null ? c.layer : "?"),
-            title: c.label, sub: c.subtitle, desc: c.tooltip,
+            title: c.label, sub: c.subtitle, desc: c.tooltip, angle: c.investorAngle,
             color: c.color, count: counts[id] || 0
           });
           band.setAttribute("tabindex", "0");
@@ -1047,7 +1165,30 @@
             if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setFilter(id); }
           });
           stack.appendChild(band);
+        }
+
+        // Group layers into flow zones (Demand → Chip → Supply), top to bottom.
+        var placed = {};
+        var zones = DATA.zones || [];
+        zones.forEach(function (zone) {
+          var ids = Object.keys(DATA.categories).filter(function (id) {
+            return DATA.categories[id].flowRole === zone.id;
+          }).sort(byLayerDesc);
+          if (!ids.length) return;
+          stack.appendChild(makeZoneDivider(zone.label));
+          ids.forEach(function (id) { placed[id] = true; appendLayer(id); });
         });
+
+        // Anything without a flowRole (e.g. unsorted) drops into a triage footer.
+        var leftover = Object.keys(DATA.categories)
+          .filter(function (id) { return !placed[id]; })
+          .sort(byLayerDesc);
+        if (leftover.length) {
+          if (zones.length) {
+            stack.appendChild(makeZoneDivider("Triage · awaiting classification", true));
+          }
+          leftover.forEach(appendLayer);
+        }
 
         var showAll = document.getElementById("mapShowAll");
         if (showAll) {
