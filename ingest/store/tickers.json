@@ -859,13 +859,13 @@
   },
   {
     "ticker": "CCXI",
-    "company": "",
-    "category": "unsorted",
-    "market": "",
-    "exchange": "",
-    "whatTheyDo": "",
-    "whyNVDA": "",
-    "marketCapTier": "",
+    "company": "Agility Robotics",
+    "category": "robotics",
+    "market": "US",
+    "exchange": "NASDAQ",
+    "whatTheyDo": "US pure-play humanoid maker (Digit) going public via de-SPAC (CCXI → AGLT). Application-specific humanoids for warehouse/delivery with $300M+ Digit v5 orders (GXO, Toyota, Mercado Libre).",
+    "whyNVDA": "Humanoids are an emerging physical-AI compute vertical; Agility is NVDA- and Amazon-backed, and each robot drives inference compute, HBM, and FMCW-LiDAR laser demand.",
+    "marketCapTier": "Mid",
     "rating": "watch",
     "sourceTweetUrl": "",
     "addedDate": "2026-06-30"
@@ -1025,5 +1025,57 @@
     "rating": "watch",
     "sourceTweetUrl": "",
     "addedDate": "2026-06-30"
+  },
+  {
+    "ticker": "ASX",
+    "company": "",
+    "category": "unsorted",
+    "market": "",
+    "exchange": "",
+    "whatTheyDo": "",
+    "whyNVDA": "",
+    "marketCapTier": "",
+    "rating": "watch",
+    "sourceTweetUrl": "",
+    "addedDate": "2026-07-01"
+  },
+  {
+    "ticker": "BE",
+    "company": "",
+    "category": "unsorted",
+    "market": "",
+    "exchange": "",
+    "whatTheyDo": "",
+    "whyNVDA": "",
+    "marketCapTier": "",
+    "rating": "watch",
+    "sourceTweetUrl": "",
+    "addedDate": "2026-07-01"
+  },
+  {
+    "ticker": "FCEL",
+    "company": "",
+    "category": "unsorted",
+    "market": "",
+    "exchange": "",
+    "whatTheyDo": "",
+    "whyNVDA": "",
+    "marketCapTier": "",
+    "rating": "watch",
+    "sourceTweetUrl": "",
+    "addedDate": "2026-07-01"
+  },
+  {
+    "ticker": "OUST",
+    "company": "",
+    "category": "unsorted",
+    "market": "",
+    "exchange": "",
+    "whatTheyDo": "",
+    "whyNVDA": "",
+    "marketCapTier": "",
+    "rating": "watch",
+    "sourceTweetUrl": "",
+    "addedDate": "2026-07-01"
   }
 ]
