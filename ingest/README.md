@@ -23,7 +23,12 @@ stays the two-file, offline, double-clickable `index.html` + `data.js`.
 - `scorer.py` — composite priority: `recency_weighted_mentions * (1 + 0.5 * conviction_hits)`.
 - `generate_data_js.py` — renders `../data.js` from the store via `json.dumps` (injection-safe).
 - `review.py` — triage CLI: classify auto-added `unsorted` tickers, approve/reject queued candidates.
-- `store/` — source of truth: `base.json`, `tickers.json`, `theses.json`, `pending_tickers.json`.
+- `synthesize.py` — the "Brain": groups theses by category, calls Claude for one narrative
+  digest per theme, writes `store/brain.json`. Needs `ANTHROPIC_API_KEY` in `.env`
+  (`pip install -r requirements.txt`). No key? Ask Claude Code to refresh the brain
+  manually — it authors the digests and runs them through `synthesize_all()` so the
+  output shape matches a real API run.
+- `store/` — source of truth: `base.json`, `tickers.json`, `theses.json`, `pending_tickers.json`, `brain.json`.
 - `tests/` — `unittest` suite (no pytest needed).
 
 ## Requirements

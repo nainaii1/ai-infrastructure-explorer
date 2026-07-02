@@ -111,6 +111,32 @@ Go to **Watchlist → Fetch prices**. It pulls Yahoo, computes 7D/1M %, and rewr
 
 ---
 
+## 5. Classify unsorted tickers
+
+When the bot sees a `$CASHTAG` it doesn't recognize, it auto-adds the ticker
+with `category: "unsorted"` and empty details — it shows in the app under
+"Unsorted" with a gray badge until you classify it. Check how many are
+waiting: **Supply Chain Map → Unsorted layer** (shows the count), or
+`python3 ingest/review.py list`.
+
+Classify one from the terminal:
+```bash
+python3 ingest/review.py classify CCXI \
+  --category robotics \
+  --company "Agility Robotics" \
+  --market US --exchange NASDAQ --tier Mid \
+  --what "What the company does." \
+  --why "Why it matters to the NVDA/AI supply chain."
+```
+`--category` must be one of the ids in `AIE_DATA.categories` (see `CLAUDE.md`
+for the current list). This rewrites `tickers.json` **and** regenerates
+`data.js` automatically — refresh the app to see it move out of Unsorted.
+
+Not interested in a symbol? `python3 ingest/review.py reject SYM` removes it
+from the store entirely.
+
+---
+
 ## FAQ / Troubleshooting
 
 ### "I sent a message to the bot and nothing replied."

@@ -16,8 +16,10 @@ neoclouds, materials, networking), with a sourced thesis feed and an AI-synthesi
 *"I messaged the bot and nothing replied."*
 
 ## What it does (4 tabs)
-- **Supply Chain Map** — value-chain layers (materials → memory → photonics → fabs
-  → networking → neoclouds → demand hub). Click a layer to filter the company cards.
+- **Supply Chain Map** — a vertical flow pipeline: **Supply** (materials, glass,
+  memory, photonics) → **Chip** (fabs, accelerators, networking) → **Demand**
+  (neoclouds, robotics) → NVIDIA + Hyperscalers hub. Click a layer to filter the
+  company cards and reveal a short "what to watch" investor note.
 - **Watchlist** — sortable table of every ticker: price, **7D / 1M %**, market cap,
   your rating. Prices refresh weekly from Yahoo (one-click, via a local helper).
 - **Thesis** — the raw feed of ideas captured from **@aleabitoreddit**.
@@ -66,10 +68,12 @@ ai-supply-desk/
 - Secrets live in a gitignored `ingest/.env` (never committed).
 
 ## Roadmap
-- **v1 — Supply Chain Map** ✅
-- **v2 — Watchlist + weekly Yahoo prices** ✅
-- **v3 — Telegram ingest → Thesis tab** ✅ · **Brain (AI theme digests)** ✅
-- Next: self-serve Brain refresh (Gemini/Anthropic backend) — see [docs/ROADMAP.md](docs/ROADMAP.md)
+- **v1 — Supply Chain Map** ✅ · **v2 — Watchlist + weekly Yahoo prices** ✅
+- **v3 — Telegram ingest → Thesis tab** ✅ · **v4 — Brain (AI theme digests)** ✅
+  (needs a paid `ANTHROPIC_API_KEY`, or refresh it manually — ask Claude Code)
+- Next: reduce the `unsorted` ticker backlog, `start_bot.sh` convenience
+  script, self-serve Brain backend without a paid key — see
+  [docs/ROADMAP.md](docs/ROADMAP.md) for the full list
 
 ## License
 All rights reserved. No open-source license is granted at this time.
