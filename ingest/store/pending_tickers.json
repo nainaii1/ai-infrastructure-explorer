@@ -796,5 +796,23 @@
     "sourceUrl": "",
     "firstSeen": "2026-07-01T20:01:22Z",
     "count": 1
+  },
+  {
+    "candidate": "FT",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-02T08:33:21Z",
+    "count": 1
+  },
+  {
+    "candidate": "WF",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-02T08:34:50Z",
+    "count": 1
+  },
+  {
+    "candidate": "ATM",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-02T09:30:58Z",
+    "count": 1
   }
 ]

@@ -1134,5 +1134,51 @@
     ],
     "conviction": "normal",
     "tags": []
+  },
+  {
+    "id": "h_98e389890a97f056",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-02T08:33:21Z",
+    "ingestedAt": "2026-07-02T08:33:21Z",
+    "text": "I feel like Trump is probably going to like this idea:\n\nOpenAI discussed giving the US gov a 5% stake in its company per FT.\n\nIf this turns into an \n$INTC\n type situation, would be interesting if the US government becomes a soft backstop for their $1T+ in future capex/obligations.",
+    "tickers": [
+      "INTC"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_0235e573a41f2c62",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-02T08:34:50Z",
+    "ingestedAt": "2026-07-02T08:34:50Z",
+    "text": "Wells Fargo: \n$META\n intent to sell excess compute is a positive signal around underlying demand and unit economics of AI.\n\n“Despite this shift, we don’t expect a pullback in Meta’s capex or that overall compute needs are lower”\n\nRegarding Neoclouds: WF thinks it validated the massive AI infra opportunity as well as acquisition opportunities. Despite any potential competition for Neoclouds. \n\nI’m inclined to agree with Wells Fargo here and say markets completely misunderstood Meta’s excess compute comment.\n\nMorgan Stanley for example is expecting an upward revision on AI capex from the \n$META\n announcement too…\n\nSo selloff on all AI names seems like a bit much.\n\nThis is pretty disgusting to see \n$MRVL\n down -11%, \n$AMAT\n down -11% to \n$NBIS\n down -18%\n\nOn the bright side a lot of the higher beta/smaller names like \n$AAOI\n frontran the drop.\n\nSo those are faring better",
+    "tickers": [
+      "AAOI",
+      "AMAT",
+      "META",
+      "MRVL",
+      "NBIS"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_c8e98deedf9ca558",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-02T09:30:58Z",
+    "ingestedAt": "2026-07-02T09:30:58Z",
+    "text": "$IREN\n founders award themselves $1.14B+ of stock based compensation.\n\nVesting over 4 years timeframe. This is amid their active $6,000,000,000 ATM.\n\nI’m not going to say anything but I think it speaks for itself.\n\nBearish view",
+    "tickers": [
+      "IREN"
+    ],
+    "conviction": "normal",
+    "tags": []
   }
 ]

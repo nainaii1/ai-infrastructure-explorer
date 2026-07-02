@@ -6,9 +6,9 @@
 
 window.AIE_DATA = {
   "meta": {
-    "version": "1.72",
+    "version": "1.75",
     "schemaVersion": 1,
-    "lastUpdated": "2026-07-01T20:02:16Z",
+    "lastUpdated": "2026-07-02T09:30:58Z",
     "source": "ingest"
   },
   "countries": {
@@ -171,10 +171,10 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-25",
       "priority": {
-        "score": 17.3881,
-        "mentions": 13,
+        "score": 18.408,
+        "mentions": 14,
         "convictionHits": 1,
-        "lastMentioned": "2026-07-01T20:02:16Z"
+        "lastMentioned": "2026-07-02T08:34:50Z"
       }
     },
     {
@@ -190,7 +190,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-25",
       "priority": {
-        "score": 16.0628,
+        "score": 15.6227,
         "mentions": 12,
         "convictionHits": 1,
         "lastMentioned": "2026-06-30T08:43:30Z"
@@ -209,7 +209,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-25",
       "priority": {
-        "score": 5.9978,
+        "score": 5.8335,
         "mentions": 7,
         "convictionHits": 0,
         "lastMentioned": "2026-06-30T08:43:30Z"
@@ -228,7 +228,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-25",
       "priority": {
-        "score": 0.7762,
+        "score": 0.7549,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-26T17:30:47Z"
@@ -247,7 +247,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-25",
       "priority": {
-        "score": 4.4858,
+        "score": 4.3629,
         "mentions": 5,
         "convictionHits": 0,
         "lastMentioned": "2026-06-30T07:50:05Z"
@@ -279,7 +279,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-25",
       "priority": {
-        "score": 11.6063,
+        "score": 11.2883,
         "mentions": 9,
         "convictionHits": 1,
         "lastMentioned": "2026-06-30T08:43:30Z"
@@ -298,7 +298,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-25",
       "priority": {
-        "score": 10.6884,
+        "score": 10.3956,
         "mentions": 12,
         "convictionHits": 0,
         "lastMentioned": "2026-07-01T20:01:22Z"
@@ -317,7 +317,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-25",
       "priority": {
-        "score": 5.918,
+        "score": 5.7559,
         "mentions": 7,
         "convictionHits": 0,
         "lastMentioned": "2026-06-30T07:52:04Z"
@@ -336,10 +336,10 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-25",
       "priority": {
-        "score": 8.532,
-        "mentions": 7,
+        "score": 9.7945,
+        "mentions": 8,
         "convictionHits": 1,
-        "lastMentioned": "2026-06-27T15:45:34Z"
+        "lastMentioned": "2026-07-02T08:33:21Z"
       }
     },
     {
@@ -355,7 +355,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-25",
       "priority": {
-        "score": 6.579,
+        "score": 6.3987,
         "mentions": 8,
         "convictionHits": 0,
         "lastMentioned": "2026-06-30T07:49:19Z"
@@ -374,10 +374,10 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-25",
       "priority": {
-        "score": 12.1336,
-        "mentions": 9,
+        "score": 13.2975,
+        "mentions": 10,
         "convictionHits": 1,
-        "lastMentioned": "2026-07-01T14:59:53Z"
+        "lastMentioned": "2026-07-02T08:34:50Z"
       }
     },
     {
@@ -393,7 +393,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-25",
       "priority": {
-        "score": 0.9891,
+        "score": 0.962,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-07-01T14:59:53Z"
@@ -412,7 +412,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-25",
       "priority": {
-        "score": 3.6565,
+        "score": 3.5564,
         "mentions": 3,
         "convictionHits": 1,
         "lastMentioned": "2026-06-27T15:45:34Z"
@@ -444,7 +444,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-25",
       "priority": {
-        "score": 0.7762,
+        "score": 0.7549,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-26T17:30:47Z"
@@ -463,7 +463,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-26",
       "priority": {
-        "score": 13.1676,
+        "score": 12.8068,
         "mentions": 10,
         "convictionHits": 1,
         "lastMentioned": "2026-06-30T07:53:56Z"
@@ -482,7 +482,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-26",
       "priority": {
-        "score": 13.4508,
+        "score": 13.0823,
         "mentions": 10,
         "convictionHits": 1,
         "lastMentioned": "2026-06-30T07:53:56Z"
@@ -501,7 +501,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-26",
       "priority": {
-        "score": 8.0561,
+        "score": 7.8354,
         "mentions": 6,
         "convictionHits": 1,
         "lastMentioned": "2026-07-01T20:01:22Z"
@@ -520,7 +520,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
       "priority": {
-        "score": 1.7395,
+        "score": 1.6919,
         "mentions": 2,
         "convictionHits": 0,
         "lastMentioned": "2026-06-30T07:36:16Z"
@@ -539,7 +539,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
       "priority": {
-        "score": 2.4377,
+        "score": 2.3709,
         "mentions": 2,
         "convictionHits": 1,
         "lastMentioned": "2026-06-27T15:45:34Z"
@@ -558,7 +558,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
       "priority": {
-        "score": 0.8125,
+        "score": 0.7902,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-27T15:38:26Z"
@@ -577,7 +577,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
       "priority": {
-        "score": 5.2199,
+        "score": 5.0769,
         "mentions": 4,
         "convictionHits": 1,
         "lastMentioned": "2026-06-30T07:47:41Z"
@@ -596,7 +596,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
       "priority": {
-        "score": 0.8125,
+        "score": 0.7902,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-27T15:38:26Z"
@@ -615,10 +615,10 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
       "priority": {
-        "score": 11.1535,
-        "mentions": 8,
+        "score": 12.3442,
+        "mentions": 9,
         "convictionHits": 1,
-        "lastMentioned": "2026-07-01T14:59:53Z"
+        "lastMentioned": "2026-07-02T08:34:50Z"
       }
     },
     {
@@ -634,10 +634,10 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
       "priority": {
-        "score": 10.4399,
-        "mentions": 6,
+        "score": 12.149,
+        "mentions": 7,
         "convictionHits": 2,
-        "lastMentioned": "2026-06-30T07:53:56Z"
+        "lastMentioned": "2026-07-02T08:34:50Z"
       }
     },
     {
@@ -653,7 +653,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
       "priority": {
-        "score": 2.4377,
+        "score": 2.3709,
         "mentions": 2,
         "convictionHits": 1,
         "lastMentioned": "2026-06-27T15:45:34Z"
@@ -672,7 +672,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
       "priority": {
-        "score": 0.8125,
+        "score": 0.7902,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-27T15:38:26Z"
@@ -691,7 +691,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
       "priority": {
-        "score": 2.4377,
+        "score": 2.3709,
         "mentions": 2,
         "convictionHits": 1,
         "lastMentioned": "2026-06-27T15:45:34Z"
@@ -710,7 +710,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
       "priority": {
-        "score": 0.8125,
+        "score": 0.7902,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-27T15:38:26Z"
@@ -729,7 +729,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
       "priority": {
-        "score": 2.4375,
+        "score": 2.3707,
         "mentions": 2,
         "convictionHits": 1,
         "lastMentioned": "2026-06-27T15:41:34Z"
@@ -748,7 +748,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
       "priority": {
-        "score": 3.8288,
+        "score": 3.7239,
         "mentions": 3,
         "convictionHits": 1,
         "lastMentioned": "2026-06-30T07:49:19Z"
@@ -767,7 +767,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
       "priority": {
-        "score": 3.8286,
+        "score": 3.7237,
         "mentions": 3,
         "convictionHits": 1,
         "lastMentioned": "2026-06-30T07:41:22Z"
@@ -786,7 +786,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
       "priority": {
-        "score": 26.4105,
+        "score": 25.687,
         "mentions": 19,
         "convictionHits": 1,
         "lastMentioned": "2026-07-01T20:02:16Z"
@@ -805,7 +805,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
       "priority": {
-        "score": 0.8125,
+        "score": 0.7903,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-27T15:40:47Z"
@@ -824,7 +824,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
       "priority": {
-        "score": 0.8125,
+        "score": 0.7903,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-27T15:41:13Z"
@@ -843,7 +843,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
       "priority": {
-        "score": 0.8125,
+        "score": 0.7903,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-27T15:41:13Z"
@@ -862,7 +862,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
       "priority": {
-        "score": 0.8125,
+        "score": 0.7903,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-27T15:41:13Z"
@@ -881,7 +881,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
       "priority": {
-        "score": 0.8125,
+        "score": 0.7903,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-27T15:41:13Z"
@@ -900,7 +900,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
       "priority": {
-        "score": 1.2188,
+        "score": 1.1854,
         "mentions": 1,
         "convictionHits": 1,
         "lastMentioned": "2026-06-27T15:41:34Z"
@@ -919,7 +919,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
       "priority": {
-        "score": 9.594,
+        "score": 9.3311,
         "mentions": 7,
         "convictionHits": 1,
         "lastMentioned": "2026-07-01T20:01:22Z"
@@ -938,7 +938,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
       "priority": {
-        "score": 1.6252,
+        "score": 1.5807,
         "mentions": 2,
         "convictionHits": 0,
         "lastMentioned": "2026-06-27T15:44:22Z"
@@ -957,10 +957,10 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
       "priority": {
-        "score": 2.4378,
-        "mentions": 3,
+        "score": 3.3685,
+        "mentions": 4,
         "convictionHits": 0,
-        "lastMentioned": "2026-06-27T15:44:22Z"
+        "lastMentioned": "2026-07-02T08:34:50Z"
       }
     },
     {
@@ -976,7 +976,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
       "priority": {
-        "score": 0.8126,
+        "score": 0.7903,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-27T15:42:39Z"
@@ -995,7 +995,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
       "priority": {
-        "score": 1.7398,
+        "score": 1.6921,
         "mentions": 2,
         "convictionHits": 0,
         "lastMentioned": "2026-06-30T07:39:56Z"
@@ -1014,7 +1014,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
       "priority": {
-        "score": 1.8015,
+        "score": 1.7522,
         "mentions": 2,
         "convictionHits": 0,
         "lastMentioned": "2026-07-01T14:55:33Z"
@@ -1033,7 +1033,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
       "priority": {
-        "score": 0.8126,
+        "score": 0.7903,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-27T15:43:29Z"
@@ -1052,7 +1052,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
       "priority": {
-        "score": 0.8126,
+        "score": 0.7903,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-27T15:43:29Z"
@@ -1071,7 +1071,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
       "priority": {
-        "score": 0.8126,
+        "score": 0.7904,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-27T15:44:22Z"
@@ -1090,7 +1090,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
       "priority": {
-        "score": 0.8126,
+        "score": 0.7904,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-27T15:44:22Z"
@@ -1109,7 +1109,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
       "priority": {
-        "score": 0.8126,
+        "score": 0.7904,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-27T15:44:22Z"
@@ -1128,7 +1128,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
       "priority": {
-        "score": 0.8126,
+        "score": 0.7904,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-27T15:44:33Z"
@@ -1147,7 +1147,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
       "priority": {
-        "score": 0.8126,
+        "score": 0.7904,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-27T15:45:14Z"
@@ -1166,7 +1166,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
       "priority": {
-        "score": 1.219,
+        "score": 1.1856,
         "mentions": 1,
         "convictionHits": 1,
         "lastMentioned": "2026-06-27T15:45:34Z"
@@ -1185,7 +1185,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
       "priority": {
-        "score": 13.1235,
+        "score": 12.7639,
         "mentions": 7,
         "convictionHits": 2,
         "lastMentioned": "2026-07-01T14:59:53Z"
@@ -1204,7 +1204,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
       "priority": {
-        "score": 1.219,
+        "score": 1.1856,
         "mentions": 1,
         "convictionHits": 1,
         "lastMentioned": "2026-06-27T15:45:34Z"
@@ -1223,7 +1223,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
       "priority": {
-        "score": 1.219,
+        "score": 1.1856,
         "mentions": 1,
         "convictionHits": 1,
         "lastMentioned": "2026-06-27T15:45:34Z"
@@ -1242,7 +1242,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-30",
       "priority": {
-        "score": 1.8543,
+        "score": 1.8035,
         "mentions": 2,
         "convictionHits": 0,
         "lastMentioned": "2026-06-30T07:41:22Z"
@@ -1261,7 +1261,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-30",
       "priority": {
-        "score": 2.8436,
+        "score": 2.7657,
         "mentions": 3,
         "convictionHits": 0,
         "lastMentioned": "2026-07-01T14:58:44Z"
@@ -1280,7 +1280,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-30",
       "priority": {
-        "score": 9.3351,
+        "score": 9.0794,
         "mentions": 10,
         "convictionHits": 0,
         "lastMentioned": "2026-07-01T14:55:33Z"
@@ -1299,7 +1299,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-30",
       "priority": {
-        "score": 0.9272,
+        "score": 0.9018,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-30T07:39:56Z"
@@ -1318,7 +1318,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-30",
       "priority": {
-        "score": 2.7821,
+        "score": 2.7059,
         "mentions": 3,
         "convictionHits": 0,
         "lastMentioned": "2026-06-30T07:50:05Z"
@@ -1337,7 +1337,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-30",
       "priority": {
-        "score": 0.9272,
+        "score": 0.9018,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-30T07:41:22Z"
@@ -1356,7 +1356,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-30",
       "priority": {
-        "score": 0.9273,
+        "score": 0.9019,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-30T07:44:18Z"
@@ -1375,7 +1375,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-30",
       "priority": {
-        "score": 2.8541,
+        "score": 2.7759,
         "mentions": 3,
         "convictionHits": 0,
         "lastMentioned": "2026-07-01T20:01:35Z"
@@ -1394,7 +1394,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-30",
       "priority": {
-        "score": 1.8547,
+        "score": 1.8039,
         "mentions": 2,
         "convictionHits": 0,
         "lastMentioned": "2026-06-30T07:45:27Z"
@@ -1413,7 +1413,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-30",
       "priority": {
-        "score": 5.8316,
+        "score": 5.6718,
         "mentions": 6,
         "convictionHits": 0,
         "lastMentioned": "2026-07-01T20:01:35Z"
@@ -1432,7 +1432,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-30",
       "priority": {
-        "score": 0.9273,
+        "score": 0.9019,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-30T07:44:51Z"
@@ -1451,7 +1451,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-30",
       "priority": {
-        "score": 0.9274,
+        "score": 0.9019,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-30T07:45:27Z"
@@ -1470,7 +1470,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-30",
       "priority": {
-        "score": 0.9274,
+        "score": 0.9019,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-30T07:45:27Z"
@@ -1489,7 +1489,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-30",
       "priority": {
-        "score": 0.9274,
+        "score": 0.9019,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-30T07:45:27Z"
@@ -1508,10 +1508,10 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-30",
       "priority": {
-        "score": 0.9274,
-        "mentions": 1,
+        "score": 1.9014,
+        "mentions": 2,
         "convictionHits": 0,
-        "lastMentioned": "2026-06-30T07:46:57Z"
+        "lastMentioned": "2026-07-02T09:30:58Z"
       }
     },
     {
@@ -1527,7 +1527,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-30",
       "priority": {
-        "score": 0.9274,
+        "score": 0.902,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-30T07:46:57Z"
@@ -1546,7 +1546,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-30",
       "priority": {
-        "score": 5.6572,
+        "score": 5.5022,
         "mentions": 4,
         "convictionHits": 1,
         "lastMentioned": "2026-07-01T14:56:30Z"
@@ -1565,7 +1565,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-30",
       "priority": {
-        "score": 0.9274,
+        "score": 0.902,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-30T07:47:41Z"
@@ -1584,7 +1584,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-30",
       "priority": {
-        "score": 1.855,
+        "score": 1.8042,
         "mentions": 2,
         "convictionHits": 0,
         "lastMentioned": "2026-06-30T07:52:04Z"
@@ -1603,7 +1603,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-30",
       "priority": {
-        "score": 0.9275,
+        "score": 0.9021,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-30T07:50:05Z"
@@ -1622,7 +1622,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-30",
       "priority": {
-        "score": 0.9275,
+        "score": 0.9021,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-30T07:50:19Z"
@@ -1641,7 +1641,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-30",
       "priority": {
-        "score": 0.9292,
+        "score": 0.9038,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-30T08:43:30Z"
@@ -1660,7 +1660,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-07-01",
       "priority": {
-        "score": 0.989,
+        "score": 0.9619,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-07-01T14:57:24Z"
@@ -1679,7 +1679,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-07-01",
       "priority": {
-        "score": 1.9781,
+        "score": 1.9239,
         "mentions": 2,
         "convictionHits": 0,
         "lastMentioned": "2026-07-01T14:58:44Z"
@@ -1698,7 +1698,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-07-01",
       "priority": {
-        "score": 0.989,
+        "score": 0.962,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-07-01T14:58:44Z"
@@ -1717,7 +1717,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-07-01",
       "priority": {
-        "score": 0.989,
+        "score": 0.962,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-07-01T14:58:44Z"
@@ -2860,572 +2860,618 @@ window.AIE_DATA = {
       ],
       "conviction": "normal",
       "tags": []
+    },
+    {
+      "id": "h_98e389890a97f056",
+      "source": "x",
+      "author": "aleabitoreddit",
+      "sourceUrl": "",
+      "postedAt": "2026-07-02T08:33:21Z",
+      "ingestedAt": "2026-07-02T08:33:21Z",
+      "text": "I feel like Trump is probably going to like this idea:\n\nOpenAI discussed giving the US gov a 5% stake in its company per FT.\n\nIf this turns into an \n$INTC\n type situation, would be interesting if the US government becomes a soft backstop for their $1T+ in future capex/obligations.",
+      "tickers": [
+        "INTC"
+      ],
+      "conviction": "normal",
+      "tags": []
+    },
+    {
+      "id": "h_0235e573a41f2c62",
+      "source": "x",
+      "author": "aleabitoreddit",
+      "sourceUrl": "",
+      "postedAt": "2026-07-02T08:34:50Z",
+      "ingestedAt": "2026-07-02T08:34:50Z",
+      "text": "Wells Fargo: \n$META\n intent to sell excess compute is a positive signal around underlying demand and unit economics of AI.\n\n\u201cDespite this shift, we don\u2019t expect a pullback in Meta\u2019s capex or that overall compute needs are lower\u201d\n\nRegarding Neoclouds: WF thinks it validated the massive AI infra opportunity as well as acquisition opportunities. Despite any potential competition for Neoclouds. \n\nI\u2019m inclined to agree with Wells Fargo here and say markets completely misunderstood Meta\u2019s excess compute comment.\n\nMorgan Stanley for example is expecting an upward revision on AI capex from the \n$META\n announcement too\u2026\n\nSo selloff on all AI names seems like a bit much.\n\nThis is pretty disgusting to see \n$MRVL\n down -11%, \n$AMAT\n down -11% to \n$NBIS\n down -18%\n\nOn the bright side a lot of the higher beta/smaller names like \n$AAOI\n frontran the drop.\n\nSo those are faring better",
+      "tickers": [
+        "AAOI",
+        "AMAT",
+        "META",
+        "MRVL",
+        "NBIS"
+      ],
+      "conviction": "normal",
+      "tags": []
+    },
+    {
+      "id": "h_c8e98deedf9ca558",
+      "source": "x",
+      "author": "aleabitoreddit",
+      "sourceUrl": "",
+      "postedAt": "2026-07-02T09:30:58Z",
+      "ingestedAt": "2026-07-02T09:30:58Z",
+      "text": "$IREN\n founders award themselves $1.14B+ of stock based compensation.\n\nVesting over 4 years timeframe. This is amid their active $6,000,000,000 ATM.\n\nI\u2019m not going to say anything but I think it speaks for itself.\n\nBearish view",
+      "tickers": [
+        "IREN"
+      ],
+      "conviction": "normal",
+      "tags": []
     }
   ],
   "priorities": [
     {
       "ticker": "SIVE",
-      "score": 26.4105,
+      "score": 25.687,
       "mentions": 19,
       "convictionHits": 1,
       "lastMentioned": "2026-07-01T20:02:16Z"
     },
     {
       "ticker": "AAOI",
-      "score": 17.3881,
-      "mentions": 13,
+      "score": 18.408,
+      "mentions": 14,
       "convictionHits": 1,
-      "lastMentioned": "2026-07-01T20:02:16Z"
+      "lastMentioned": "2026-07-02T08:34:50Z"
     },
     {
       "ticker": "LITE",
-      "score": 16.0628,
+      "score": 15.6227,
       "mentions": 12,
       "convictionHits": 1,
       "lastMentioned": "2026-06-30T08:43:30Z"
     },
     {
+      "ticker": "NBIS",
+      "score": 13.2975,
+      "mentions": 10,
+      "convictionHits": 1,
+      "lastMentioned": "2026-07-02T08:34:50Z"
+    },
+    {
       "ticker": "POET",
-      "score": 13.4508,
+      "score": 13.0823,
       "mentions": 10,
       "convictionHits": 1,
       "lastMentioned": "2026-06-30T07:53:56Z"
     },
     {
       "ticker": "JBL",
-      "score": 13.1676,
+      "score": 12.8068,
       "mentions": 10,
       "convictionHits": 1,
       "lastMentioned": "2026-06-30T07:53:56Z"
     },
     {
       "ticker": "GOOGL",
-      "score": 13.1235,
+      "score": 12.7639,
       "mentions": 7,
       "convictionHits": 2,
       "lastMentioned": "2026-07-01T14:59:53Z"
     },
     {
-      "ticker": "NBIS",
-      "score": 12.1336,
+      "ticker": "META",
+      "score": 12.3442,
       "mentions": 9,
       "convictionHits": 1,
-      "lastMentioned": "2026-07-01T14:59:53Z"
+      "lastMentioned": "2026-07-02T08:34:50Z"
+    },
+    {
+      "ticker": "MRVL",
+      "score": 12.149,
+      "mentions": 7,
+      "convictionHits": 2,
+      "lastMentioned": "2026-07-02T08:34:50Z"
     },
     {
       "ticker": "AXTI",
-      "score": 11.6063,
+      "score": 11.2883,
       "mentions": 9,
       "convictionHits": 1,
       "lastMentioned": "2026-06-30T08:43:30Z"
     },
     {
-      "ticker": "META",
-      "score": 11.1535,
-      "mentions": 8,
-      "convictionHits": 1,
-      "lastMentioned": "2026-07-01T14:59:53Z"
-    },
-    {
       "ticker": "NVDA",
-      "score": 10.6884,
+      "score": 10.3956,
       "mentions": 12,
       "convictionHits": 0,
       "lastMentioned": "2026-07-01T20:01:22Z"
     },
     {
-      "ticker": "MRVL",
-      "score": 10.4399,
-      "mentions": 6,
-      "convictionHits": 2,
-      "lastMentioned": "2026-06-30T07:53:56Z"
+      "ticker": "INTC",
+      "score": 9.7945,
+      "mentions": 8,
+      "convictionHits": 1,
+      "lastMentioned": "2026-07-02T08:33:21Z"
     },
     {
       "ticker": "AMZN",
-      "score": 9.594,
+      "score": 9.3311,
       "mentions": 7,
       "convictionHits": 1,
       "lastMentioned": "2026-07-01T20:01:22Z"
     },
     {
       "ticker": "AMD",
-      "score": 9.3351,
+      "score": 9.0794,
       "mentions": 10,
       "convictionHits": 0,
       "lastMentioned": "2026-07-01T14:55:33Z"
     },
     {
-      "ticker": "INTC",
-      "score": 8.532,
-      "mentions": 7,
-      "convictionHits": 1,
-      "lastMentioned": "2026-06-27T15:45:34Z"
-    },
-    {
       "ticker": "TSLA",
-      "score": 8.0561,
+      "score": 7.8354,
       "mentions": 6,
       "convictionHits": 1,
       "lastMentioned": "2026-07-01T20:01:22Z"
     },
     {
       "ticker": "TSM",
-      "score": 6.579,
+      "score": 6.3987,
       "mentions": 8,
       "convictionHits": 0,
       "lastMentioned": "2026-06-30T07:49:19Z"
     },
     {
       "ticker": "COHR",
-      "score": 5.9978,
+      "score": 5.8335,
       "mentions": 7,
       "convictionHits": 0,
       "lastMentioned": "2026-06-30T08:43:30Z"
     },
     {
       "ticker": "TSEM",
-      "score": 5.918,
+      "score": 5.7559,
       "mentions": 7,
       "convictionHits": 0,
       "lastMentioned": "2026-06-30T07:52:04Z"
     },
     {
       "ticker": "CCXI",
-      "score": 5.8316,
+      "score": 5.6718,
       "mentions": 6,
       "convictionHits": 0,
       "lastMentioned": "2026-07-01T20:01:35Z"
     },
     {
       "ticker": "GFS",
-      "score": 5.6572,
+      "score": 5.5022,
       "mentions": 4,
       "convictionHits": 1,
       "lastMentioned": "2026-07-01T14:56:30Z"
     },
     {
       "ticker": "EWY",
-      "score": 5.2199,
+      "score": 5.0769,
       "mentions": 4,
       "convictionHits": 1,
       "lastMentioned": "2026-06-30T07:47:41Z"
     },
     {
       "ticker": "MU",
-      "score": 4.4858,
+      "score": 4.3629,
       "mentions": 5,
       "convictionHits": 0,
       "lastMentioned": "2026-06-30T07:50:05Z"
     },
     {
       "ticker": "LPK",
-      "score": 3.8288,
+      "score": 3.7239,
       "mentions": 3,
       "convictionHits": 1,
       "lastMentioned": "2026-06-30T07:49:19Z"
     },
     {
       "ticker": "RKLB",
-      "score": 3.8286,
+      "score": 3.7237,
       "mentions": 3,
       "convictionHits": 1,
       "lastMentioned": "2026-06-30T07:41:22Z"
     },
     {
       "ticker": "AEHR",
-      "score": 3.6565,
+      "score": 3.5564,
       "mentions": 3,
       "convictionHits": 1,
       "lastMentioned": "2026-06-27T15:45:34Z"
     },
     {
+      "ticker": "AMAT",
+      "score": 3.3685,
+      "mentions": 4,
+      "convictionHits": 0,
+      "lastMentioned": "2026-07-02T08:34:50Z"
+    },
+    {
       "ticker": "AGLT",
-      "score": 2.8541,
+      "score": 2.7759,
       "mentions": 3,
       "convictionHits": 0,
       "lastMentioned": "2026-07-01T20:01:35Z"
     },
     {
       "ticker": "AEVA",
-      "score": 2.8436,
+      "score": 2.7657,
       "mentions": 3,
       "convictionHits": 0,
       "lastMentioned": "2026-07-01T14:58:44Z"
     },
     {
       "ticker": "SNDK",
-      "score": 2.7821,
+      "score": 2.7059,
       "mentions": 3,
       "convictionHits": 0,
       "lastMentioned": "2026-06-30T07:50:05Z"
     },
     {
-      "ticker": "AMAT",
-      "score": 2.4378,
-      "mentions": 3,
-      "convictionHits": 0,
-      "lastMentioned": "2026-06-27T15:44:22Z"
-    },
-    {
       "ticker": "CRCL",
-      "score": 2.4377,
+      "score": 2.3709,
       "mentions": 2,
       "convictionHits": 1,
       "lastMentioned": "2026-06-27T15:45:34Z"
     },
     {
       "ticker": "MSFT",
-      "score": 2.4377,
+      "score": 2.3709,
       "mentions": 2,
       "convictionHits": 1,
       "lastMentioned": "2026-06-27T15:45:34Z"
     },
     {
       "ticker": "RDDT",
-      "score": 2.4377,
+      "score": 2.3709,
       "mentions": 2,
       "convictionHits": 1,
       "lastMentioned": "2026-06-27T15:45:34Z"
     },
     {
       "ticker": "VPG",
-      "score": 2.4375,
+      "score": 2.3707,
       "mentions": 2,
       "convictionHits": 1,
       "lastMentioned": "2026-06-27T15:41:34Z"
     },
     {
       "ticker": "BE",
-      "score": 1.9781,
+      "score": 1.9239,
       "mentions": 2,
       "convictionHits": 0,
       "lastMentioned": "2026-07-01T14:58:44Z"
     },
     {
+      "ticker": "IREN",
+      "score": 1.9014,
+      "mentions": 2,
+      "convictionHits": 0,
+      "lastMentioned": "2026-07-02T09:30:58Z"
+    },
+    {
       "ticker": "SOI",
-      "score": 1.855,
+      "score": 1.8042,
       "mentions": 2,
       "convictionHits": 0,
       "lastMentioned": "2026-06-30T07:52:04Z"
     },
     {
       "ticker": "BRUN",
-      "score": 1.8547,
+      "score": 1.8039,
       "mentions": 2,
       "convictionHits": 0,
       "lastMentioned": "2026-06-30T07:45:27Z"
     },
     {
       "ticker": "SPCX",
-      "score": 1.8543,
+      "score": 1.8035,
       "mentions": 2,
       "convictionHits": 0,
       "lastMentioned": "2026-06-30T07:41:22Z"
     },
     {
       "ticker": "ASML",
-      "score": 1.8015,
+      "score": 1.7522,
       "mentions": 2,
       "convictionHits": 0,
       "lastMentioned": "2026-07-01T14:55:33Z"
     },
     {
       "ticker": "AAPL",
-      "score": 1.7398,
+      "score": 1.6921,
       "mentions": 2,
       "convictionHits": 0,
       "lastMentioned": "2026-06-30T07:39:56Z"
     },
     {
       "ticker": "ASTS",
-      "score": 1.7395,
+      "score": 1.6919,
       "mentions": 2,
       "convictionHits": 0,
       "lastMentioned": "2026-06-30T07:36:16Z"
     },
     {
       "ticker": "AVGO",
-      "score": 1.6252,
+      "score": 1.5807,
       "mentions": 2,
       "convictionHits": 0,
       "lastMentioned": "2026-06-27T15:44:22Z"
     },
     {
       "ticker": "ARM",
-      "score": 1.219,
+      "score": 1.1856,
       "mentions": 1,
       "convictionHits": 1,
       "lastMentioned": "2026-06-27T15:45:34Z"
     },
     {
       "ticker": "HOOD",
-      "score": 1.219,
+      "score": 1.1856,
       "mentions": 1,
       "convictionHits": 1,
       "lastMentioned": "2026-06-27T15:45:34Z"
     },
     {
       "ticker": "SMTC",
-      "score": 1.219,
+      "score": 1.1856,
       "mentions": 1,
       "convictionHits": 1,
       "lastMentioned": "2026-06-27T15:45:34Z"
     },
     {
       "ticker": "NVTS",
-      "score": 1.2188,
+      "score": 1.1854,
       "mentions": 1,
       "convictionHits": 1,
       "lastMentioned": "2026-06-27T15:41:34Z"
     },
     {
-      "ticker": "CRWV",
-      "score": 0.9891,
-      "mentions": 1,
-      "convictionHits": 0,
-      "lastMentioned": "2026-07-01T14:59:53Z"
-    },
-    {
-      "ticker": "ASX",
-      "score": 0.989,
-      "mentions": 1,
-      "convictionHits": 0,
-      "lastMentioned": "2026-07-01T14:57:24Z"
-    },
-    {
       "ticker": "FCEL",
-      "score": 0.989,
+      "score": 0.962,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-07-01T14:58:44Z"
     },
     {
       "ticker": "OUST",
-      "score": 0.989,
+      "score": 0.962,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-07-01T14:58:44Z"
     },
     {
+      "ticker": "CRWV",
+      "score": 0.962,
+      "mentions": 1,
+      "convictionHits": 0,
+      "lastMentioned": "2026-07-01T14:59:53Z"
+    },
+    {
+      "ticker": "ASX",
+      "score": 0.9619,
+      "mentions": 1,
+      "convictionHits": 0,
+      "lastMentioned": "2026-07-01T14:57:24Z"
+    },
+    {
       "ticker": "KLAC",
-      "score": 0.9292,
+      "score": 0.9038,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-06-30T08:43:30Z"
     },
     {
       "ticker": "DRAM",
-      "score": 0.9275,
+      "score": 0.9021,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-06-30T07:50:05Z"
     },
     {
       "ticker": "BABA",
-      "score": 0.9275,
+      "score": 0.9021,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-06-30T07:50:19Z"
     },
     {
-      "ticker": "BOT",
-      "score": 0.9274,
-      "mentions": 1,
-      "convictionHits": 0,
-      "lastMentioned": "2026-06-30T07:45:27Z"
-    },
-    {
-      "ticker": "BULL",
-      "score": 0.9274,
-      "mentions": 1,
-      "convictionHits": 0,
-      "lastMentioned": "2026-06-30T07:45:27Z"
-    },
-    {
-      "ticker": "DJT",
-      "score": 0.9274,
-      "mentions": 1,
-      "convictionHits": 0,
-      "lastMentioned": "2026-06-30T07:45:27Z"
-    },
-    {
-      "ticker": "IREN",
-      "score": 0.9274,
-      "mentions": 1,
-      "convictionHits": 0,
-      "lastMentioned": "2026-06-30T07:46:57Z"
-    },
-    {
       "ticker": "QQQ",
-      "score": 0.9274,
+      "score": 0.902,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-06-30T07:46:57Z"
     },
     {
       "ticker": "IQE",
-      "score": 0.9274,
+      "score": 0.902,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-06-30T07:47:41Z"
     },
     {
       "ticker": "CBRS",
-      "score": 0.9273,
+      "score": 0.9019,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-06-30T07:44:18Z"
     },
     {
       "ticker": "WLAC",
-      "score": 0.9273,
+      "score": 0.9019,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-06-30T07:44:51Z"
     },
     {
+      "ticker": "BOT",
+      "score": 0.9019,
+      "mentions": 1,
+      "convictionHits": 0,
+      "lastMentioned": "2026-06-30T07:45:27Z"
+    },
+    {
+      "ticker": "BULL",
+      "score": 0.9019,
+      "mentions": 1,
+      "convictionHits": 0,
+      "lastMentioned": "2026-06-30T07:45:27Z"
+    },
+    {
+      "ticker": "DJT",
+      "score": 0.9019,
+      "mentions": 1,
+      "convictionHits": 0,
+      "lastMentioned": "2026-06-30T07:45:27Z"
+    },
+    {
       "ticker": "MTSI",
-      "score": 0.9272,
+      "score": 0.9018,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-06-30T07:39:56Z"
     },
     {
       "ticker": "EOS",
-      "score": 0.9272,
+      "score": 0.9018,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-06-30T07:41:22Z"
     },
     {
-      "ticker": "KLA",
-      "score": 0.8126,
-      "mentions": 1,
-      "convictionHits": 0,
-      "lastMentioned": "2026-06-27T15:42:39Z"
-    },
-    {
-      "ticker": "LRCX",
-      "score": 0.8126,
-      "mentions": 1,
-      "convictionHits": 0,
-      "lastMentioned": "2026-06-27T15:43:29Z"
-    },
-    {
-      "ticker": "LWLG",
-      "score": 0.8126,
-      "mentions": 1,
-      "convictionHits": 0,
-      "lastMentioned": "2026-06-27T15:43:29Z"
-    },
-    {
       "ticker": "ALMU",
-      "score": 0.8126,
+      "score": 0.7904,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-06-27T15:44:22Z"
     },
     {
       "ticker": "SMHD",
-      "score": 0.8126,
+      "score": 0.7904,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-06-27T15:44:22Z"
     },
     {
       "ticker": "SMHMD",
-      "score": 0.8126,
+      "score": 0.7904,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-06-27T15:44:22Z"
     },
     {
       "ticker": "VECO",
-      "score": 0.8126,
+      "score": 0.7904,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-06-27T15:44:33Z"
     },
     {
       "ticker": "HIMX",
-      "score": 0.8126,
+      "score": 0.7904,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-06-27T15:45:14Z"
     },
     {
-      "ticker": "ETHA",
-      "score": 0.8125,
-      "mentions": 1,
-      "convictionHits": 0,
-      "lastMentioned": "2026-06-27T15:38:26Z"
-    },
-    {
-      "ticker": "IBIT",
-      "score": 0.8125,
-      "mentions": 1,
-      "convictionHits": 0,
-      "lastMentioned": "2026-06-27T15:38:26Z"
-    },
-    {
-      "ticker": "NFLX",
-      "score": 0.8125,
-      "mentions": 1,
-      "convictionHits": 0,
-      "lastMentioned": "2026-06-27T15:38:26Z"
-    },
-    {
-      "ticker": "UPWK",
-      "score": 0.8125,
-      "mentions": 1,
-      "convictionHits": 0,
-      "lastMentioned": "2026-06-27T15:38:26Z"
-    },
-    {
       "ticker": "XFAB",
-      "score": 0.8125,
+      "score": 0.7903,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-06-27T15:40:47Z"
     },
     {
       "ticker": "IBM",
-      "score": 0.8125,
+      "score": 0.7903,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-06-27T15:41:13Z"
     },
     {
       "ticker": "IONQ",
-      "score": 0.8125,
+      "score": 0.7903,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-06-27T15:41:13Z"
     },
     {
       "ticker": "QBTS",
-      "score": 0.8125,
+      "score": 0.7903,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-06-27T15:41:13Z"
     },
     {
       "ticker": "RGTI",
-      "score": 0.8125,
+      "score": 0.7903,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-06-27T15:41:13Z"
     },
     {
+      "ticker": "KLA",
+      "score": 0.7903,
+      "mentions": 1,
+      "convictionHits": 0,
+      "lastMentioned": "2026-06-27T15:42:39Z"
+    },
+    {
+      "ticker": "LRCX",
+      "score": 0.7903,
+      "mentions": 1,
+      "convictionHits": 0,
+      "lastMentioned": "2026-06-27T15:43:29Z"
+    },
+    {
+      "ticker": "LWLG",
+      "score": 0.7903,
+      "mentions": 1,
+      "convictionHits": 0,
+      "lastMentioned": "2026-06-27T15:43:29Z"
+    },
+    {
+      "ticker": "ETHA",
+      "score": 0.7902,
+      "mentions": 1,
+      "convictionHits": 0,
+      "lastMentioned": "2026-06-27T15:38:26Z"
+    },
+    {
+      "ticker": "IBIT",
+      "score": 0.7902,
+      "mentions": 1,
+      "convictionHits": 0,
+      "lastMentioned": "2026-06-27T15:38:26Z"
+    },
+    {
+      "ticker": "NFLX",
+      "score": 0.7902,
+      "mentions": 1,
+      "convictionHits": 0,
+      "lastMentioned": "2026-06-27T15:38:26Z"
+    },
+    {
+      "ticker": "UPWK",
+      "score": 0.7902,
+      "mentions": 1,
+      "convictionHits": 0,
+      "lastMentioned": "2026-06-27T15:38:26Z"
+    },
+    {
       "ticker": "LPK.DE",
-      "score": 0.7762,
+      "score": 0.7549,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-06-26T17:30:47Z"
     },
     {
       "ticker": "SIVEF",
-      "score": 0.7762,
+      "score": 0.7549,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-06-26T17:30:47Z"
