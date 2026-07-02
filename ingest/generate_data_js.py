@@ -79,6 +79,8 @@ def build_data():
         "countries": base["countries"],
         "categories": categories,
         "center": base["center"],
+        "mapIntro": base.get("mapIntro", ""),
+        "zones": base.get("zones", []),
         "tickers": tickers,
         "theses": theses,
         "priorities": priorities,

@@ -3,109 +3,109 @@
     "candidate": "AP",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:37:23Z",
-    "count": 2
+    "count": 3
   },
   {
     "candidate": "BMC",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:37:23Z",
-    "count": 1
+    "count": 2
   },
   {
     "candidate": "CPV",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:37:23Z",
-    "count": 1
+    "count": 2
   },
   {
     "candidate": "DOWA",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:37:23Z",
-    "count": 1
+    "count": 2
   },
   {
     "candidate": "ITO",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:37:23Z",
-    "count": 1
+    "count": 2
   },
   {
     "candidate": "JFE",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:37:23Z",
-    "count": 1
+    "count": 2
   },
   {
     "candidate": "JX",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:37:23Z",
-    "count": 1
+    "count": 2
   },
   {
     "candidate": "MC",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:37:23Z",
-    "count": 7
+    "count": 14
   },
   {
     "candidate": "MF",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:37:23Z",
-    "count": 1
+    "count": 2
   },
   {
     "candidate": "MLCC",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:37:23Z",
-    "count": 1
+    "count": 3
   },
   {
     "candidate": "MOCVD",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:37:23Z",
-    "count": 1
+    "count": 2
   },
   {
     "candidate": "MPS",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:37:23Z",
-    "count": 1
+    "count": 2
   },
   {
     "candidate": "NXP",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:37:23Z",
-    "count": 1
+    "count": 2
   },
   {
     "candidate": "PEDOT",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:37:23Z",
-    "count": 1
+    "count": 2
   },
   {
     "candidate": "RPI",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:37:23Z",
-    "count": 1
+    "count": 2
   },
   {
     "candidate": "SEMCO",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:37:23Z",
-    "count": 1
+    "count": 2
   },
   {
     "candidate": "TI",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:37:23Z",
-    "count": 1
+    "count": 2
   },
   {
     "candidate": "TV",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:37:23Z",
-    "count": 1
+    "count": 2
   },
   {
     "candidate": "CSP",
@@ -123,19 +123,19 @@
     "candidate": "NAV",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:39:18Z",
-    "count": 1
+    "count": 2
   },
   {
     "candidate": "PCB",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:39:18Z",
-    "count": 1
+    "count": 3
   },
   {
     "candidate": "TW",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:39:18Z",
-    "count": 1
+    "count": 2
   },
   {
     "candidate": "WUS",
@@ -159,7 +159,7 @@
     "candidate": "NAND",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:39:49Z",
-    "count": 3
+    "count": 4
   },
   {
     "candidate": "OP",
@@ -177,7 +177,7 @@
     "candidate": "SK",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:39:49Z",
-    "count": 3
+    "count": 6
   },
   {
     "candidate": "SMIC",
@@ -225,7 +225,7 @@
     "candidate": "GS",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:42:10Z",
-    "count": 1
+    "count": 5
   },
   {
     "candidate": "PCL",
@@ -267,7 +267,7 @@
     "candidate": "NFA",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:42:40Z",
-    "count": 2
+    "count": 3
   },
   {
     "candidate": "GAA",
@@ -285,13 +285,13 @@
     "candidate": "ELS",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:44:22Z",
-    "count": 1
+    "count": 7
   },
   {
     "candidate": "EML",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:44:22Z",
-    "count": 1
+    "count": 6
   },
   {
     "candidate": "QD",
@@ -315,7 +315,7 @@
     "candidate": "ASIC",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:45:35Z",
-    "count": 1
+    "count": 4
   },
   {
     "candidate": "LPO",
@@ -327,7 +327,7 @@
     "candidate": "LRO",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:45:35Z",
-    "count": 1
+    "count": 4
   },
   {
     "candidate": "TPU",
@@ -345,12 +345,474 @@
     "candidate": "DFB",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:54:29Z",
-    "count": 1
+    "count": 5
   },
   {
     "candidate": "FMCW",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:54:29Z",
+    "count": 1
+  },
+  {
+    "candidate": "AGM",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-30T07:19:13Z",
+    "count": 1
+  },
+  {
+    "candidate": "NRE",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-30T07:19:13Z",
+    "count": 1
+  },
+  {
+    "candidate": "OSINT",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-30T07:19:13Z",
+    "count": 4
+  },
+  {
+    "candidate": "PR",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-30T07:19:13Z",
+    "count": 2
+  },
+  {
+    "candidate": "BOM",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-30T07:36:46Z",
+    "count": 4
+  },
+  {
+    "candidate": "LEO",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-30T07:36:47Z",
+    "count": 1
+  },
+  {
+    "candidate": "ACT",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-30T07:39:56Z",
+    "count": 1
+  },
+  {
+    "candidate": "AG",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-30T07:39:56Z",
+    "count": 2
+  },
+  {
+    "candidate": "CHIPS",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-30T07:39:56Z",
+    "count": 2
+  },
+  {
+    "candidate": "CW",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-30T07:39:56Z",
+    "count": 10
+  },
+  {
+    "candidate": "ERIC",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-30T07:39:56Z",
+    "count": 1
+  },
+  {
+    "candidate": "GF",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-30T07:39:56Z",
+    "count": 1
+  },
+  {
+    "candidate": "GFS",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-30T07:39:56Z",
+    "count": 3
+  },
+  {
+    "candidate": "GUC",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-30T07:39:56Z",
+    "count": 2
+  },
+  {
+    "candidate": "HKG",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-30T07:39:56Z",
+    "count": 2
+  },
+  {
+    "candidate": "NOKIA",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-30T07:39:56Z",
+    "count": 1
+  },
+  {
+    "candidate": "NYSE",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-30T07:39:56Z",
+    "count": 1
+  },
+  {
+    "candidate": "PDF",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-30T07:39:56Z",
+    "count": 2
+  },
+  {
+    "candidate": "PIC",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-30T07:39:56Z",
+    "count": 1
+  },
+  {
+    "candidate": "RTX",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-30T07:39:56Z",
+    "count": 1
+  },
+  {
+    "candidate": "TFLN",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-30T07:39:56Z",
+    "count": 3
+  },
+  {
+    "candidate": "YSS",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-30T07:39:56Z",
+    "count": 1
+  },
+  {
+    "candidate": "CSCO",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-30T07:39:57Z",
+    "count": 1
+  },
+  {
+    "candidate": "NET",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-30T07:39:57Z",
+    "count": 1
+  },
+  {
+    "candidate": "SEC",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-30T07:39:57Z",
+    "count": 1
+  },
+  {
+    "candidate": "ZTE",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-30T07:39:57Z",
+    "count": 1
+  },
+  {
+    "candidate": "HTML",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-30T07:39:58Z",
+    "count": 1
+  },
+  {
+    "candidate": "IAG",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-30T07:39:58Z",
+    "count": 1
+  },
+  {
+    "candidate": "IP",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-30T07:39:58Z",
+    "count": 1
+  },
+  {
+    "candidate": "MSA",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-30T07:39:58Z",
+    "count": 1
+  },
+  {
+    "candidate": "RFQ",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-30T07:39:58Z",
+    "count": 1
+  },
+  {
+    "candidate": "SEK",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-30T07:39:58Z",
+    "count": 3
+  },
+  {
+    "candidate": "WDM",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-30T07:39:58Z",
+    "count": 1
+  },
+  {
+    "candidate": "NDA",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-30T07:39:59Z",
+    "count": 1
+  },
+  {
+    "candidate": "NOK",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-30T07:39:59Z",
+    "count": 1
+  },
+  {
+    "candidate": "ASI",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-30T07:41:22Z",
+    "count": 1
+  },
+  {
+    "candidate": "ASX",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-30T07:41:22Z",
+    "count": 1
+  },
+  {
+    "candidate": "GXO",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-30T07:44:51Z",
+    "count": 1
+  },
+  {
+    "candidate": "SPAC",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-30T07:44:51Z",
+    "count": 2
+  },
+  {
+    "candidate": "JP",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-30T07:46:58Z",
+    "count": 1
+  },
+  {
+    "candidate": "LNG",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-30T07:46:58Z",
+    "count": 1
+  },
+  {
+    "candidate": "OFC",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-30T07:46:58Z",
+    "count": 1
+  },
+  {
+    "candidate": "LIDAR",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-30T07:47:09Z",
+    "count": 1
+  },
+  {
+    "candidate": "LTA",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-30T07:47:58Z",
+    "count": 2
+  },
+  {
+    "candidate": "ARR",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-30T07:48:15Z",
+    "count": 2
+  },
+  {
+    "candidate": "BS",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-30T07:48:15Z",
+    "count": 1
+  },
+  {
+    "candidate": "AGI",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-30T07:49:19Z",
+    "count": 1
+  },
+  {
+    "candidate": "FAU",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-30T07:49:19Z",
+    "count": 1
+  },
+  {
+    "candidate": "HBF",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-30T07:49:19Z",
+    "count": 1
+  },
+  {
+    "candidate": "IG",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-30T07:49:19Z",
+    "count": 1
+  },
+  {
+    "candidate": "NPO",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-30T07:49:19Z",
+    "count": 3
+  },
+  {
+    "candidate": "SKC",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-30T07:49:19Z",
+    "count": 1
+  },
+  {
+    "candidate": "AWS",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-30T07:51:20Z",
+    "count": 2
+  },
+  {
+    "candidate": "LLM",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-30T07:51:20Z",
+    "count": 2
+  },
+  {
+    "candidate": "LG",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-30T07:51:53Z",
+    "count": 1
+  },
+  {
+    "candidate": "ASP",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-30T07:53:06Z",
+    "count": 1
+  },
+  {
+    "candidate": "RF",
+    "sourceUrl": "",
+    "firstSeen": "2026-06-30T08:43:30Z",
+    "count": 1
+  },
+  {
+    "candidate": "ASAP",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-01T14:55:33Z",
+    "count": 1
+  },
+  {
+    "candidate": "EDA",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-01T14:55:33Z",
+    "count": 1
+  },
+  {
+    "candidate": "EUV",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-01T14:55:33Z",
+    "count": 1
+  },
+  {
+    "candidate": "VWAP",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-01T14:56:31Z",
+    "count": 1
+  },
+  {
+    "candidate": "WIN",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-01T14:56:31Z",
+    "count": 1
+  },
+  {
+    "candidate": "HVM",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-01T14:56:53Z",
+    "count": 1
+  },
+  {
+    "candidate": "CWTC",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-01T14:57:24Z",
+    "count": 1
+  },
+  {
+    "candidate": "CXL",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-01T14:57:24Z",
+    "count": 1
+  },
+  {
+    "candidate": "IC",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-01T14:57:24Z",
+    "count": 1
+  },
+  {
+    "candidate": "KYEC",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-01T14:57:24Z",
+    "count": 1
+  },
+  {
+    "candidate": "MPI",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-01T14:57:24Z",
+    "count": 1
+  },
+  {
+    "candidate": "MS",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-01T14:57:24Z",
+    "count": 1
+  },
+  {
+    "candidate": "OSAT",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-01T14:57:24Z",
+    "count": 1
+  },
+  {
+    "candidate": "SDI",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-01T14:57:24Z",
+    "count": 1
+  },
+  {
+    "candidate": "ADHD",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-01T14:58:45Z",
+    "count": 1
+  },
+  {
+    "candidate": "GCP",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-01T14:59:23Z",
+    "count": 1
+  },
+  {
+    "candidate": "KR",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-01T20:01:22Z",
+    "count": 1
+  },
+  {
+    "candidate": "FT",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-02T08:33:21Z",
+    "count": 1
+  },
+  {
+    "candidate": "WF",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-02T08:34:50Z",
+    "count": 1
+  },
+  {
+    "candidate": "ATM",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-02T09:30:58Z",
     "count": 1
   }
 ]

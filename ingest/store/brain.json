@@ -1,50 +1,71 @@
 {
   "meta": {
-    "generatedAt": "2026-06-29T09:49:00Z",
+    "generatedAt": "2026-07-01T20:19:00Z",
     "model": "claude-opus-4-8",
-    "thesesConsidered": 24,
+    "thesesConsidered": 67,
     "categoriesSynthesized": 7,
     "schemaVersion": 1
   },
   "digests": [
     {
       "category": "photonics",
-      "narrative": "Photonics is his deepest-tracked, highest-conviction theme — he's actively repositioning into it. The organizing idea is an ~8-month pricing lead: next-gen 1.6T pluggables (LITE, COHR, Innolight) are inflecting now, with AAOI and JBL's 1.6T LRO as H1-2027 \"later bloomers,\" CPO scale-out in late H2 2026 (POET, Shunsin) and CPO scale-up out in H2 2027.\n\nHe calls AAOI around $150 \"super compelling\" and JBL around $370 \"very compelling,\" while leaning toward COHR as the core holding and debating adding JBL. He prefers names that span many architectures — SIVEF (pluggable + NPO + CPO) is a favorite. After a sharp run (AAOI $40->$150) he expects range-bound chop until next earnings, and is cautious on POET over US quantum-dot dilution.",
+      "narrative": "Photonics is his highest-conviction, highest-concentration theme. Core thesis: NVIDIA's move to 1.6T optics and co-packaged optics (CPO) is forcing an architectural shift from EML to continuous-wave (CW) lasers, creating a severe laser chokepoint. He believes Sivers ($SIVEF) is the under-recognized CW/DFB laser bottleneck feeding the whole hyperscaler CPO ecosystem — Ayar in NVDA's NVLink scale-up, POET for scale-out, Jabil for 1.6T pluggables, O-Net for ELS — at ~60% gross margins with large TAM optionality, and he holds a million-plus share position.\n\nAround it he tracks AAOI (CW-laser LTAs with AMD/CSPs, cites ~800%+ Y/Y potential), LITE and COHR (top-three laser suppliers 'completely sold out' into 2028-2029), JBL (1.6T LRO built around Sivers lasers) and POET (CPO scale-out, top-3 hyperscaler customer via Lumilens). His timing map: 1.6T pluggables now->H1 2027, CPO scale-out late 2026, CPO scale-up H2 2027 — Taiwan CPO names are early (and he's down on them) but he treats the recent selloff as noise vs. a ~$154B optical / ~$91B CPO TAM by 2028.",
       "conviction": "high",
       "keyPoints": [
-        "8-month pricing rule: 1.6T pluggables (LITE/COHR) now; AAOI/JBL 1.6T LRO H1 2027; CPO scale-up H2 2027.",
-        "AAOI ~$150 \"super compelling\" and JBL ~$370 \"very compelling\"; COHR is the core, weighing adding JBL.",
-        "Favors architecture-spanning names — SIVEF covers pluggable, NPO and CPO.",
-        "Expects range-bound chop until next earnings after the big run-up (AAOI $40->$150).",
-        "Cautious on POET due to US quantum-dot R&D dilution risk."
+        "CW laser chokepoint: NVDA's 1.6T/CPO shift forces EML->CW lasers; he sees Sivers ($SIVEF) as the hidden bottleneck feeding the whole hyperscaler ecosystem.",
+        "Sivers maps to Ayar (NVLink CPO scale-up), POET (scale-out), Jabil (1.6T pluggables) and O-Net (ELS) — ~60% gross margins, million-plus share personal position.",
+        "AAOI: CW-laser LTAs with AMD/CSPs; he cites ~800%+ Y/Y growth potential and rising ~$471M/month projections into 2028.",
+        "LITE/COHR: top-three laser suppliers 'completely sold out' into 2028-2029; Jabil's 1.6T LRO is built around Sivers lasers.",
+        "Timing map: 1.6T pluggables now->H1 2027, CPO scale-out late 2026, CPO scale-up H2 2027; Taiwan CPO names early (and down) but expected to recover.",
+        "Highest-concentration theme — treats the photonics selloff as short-term memory loss vs. a ~$154B optical / ~$91B CPO TAM by 2028."
       ],
       "tickers": [
+        "SIVEF",
         "AAOI",
+        "LITE",
         "COHR",
         "JBL",
-        "SIVEF",
-        "LITE"
+        "POET"
       ],
       "sourceThesisIds": [
+        "h_6602d43dfb4b625c",
+        "h_6f4609ddc5d7b259",
+        "h_7797b5894b3bb34e",
+        "h_7f5feac9a1b88083",
+        "h_e318f2d2d543b92a",
+        "h_9018322ed2470b53",
+        "h_238f8fac06bf85b9",
+        "h_6a7ca181b90245f8",
+        "h_2f93712c7f08d25e",
+        "h_a558ec6043c7fdd7",
+        "h_e4cc0612983c7052",
+        "h_5f7deacb158cae47",
+        "h_1c4fa0b1b24c9af4",
+        "h_7864cc0211dacb69",
+        "h_8660c845cb321357",
+        "h_bebbef0482f407da",
+        "h_d81fe21a14bdd892",
+        "h_7e5abea1e46217a6",
+        "h_13af0765b648b270",
         "h_29e60f0da3d1925a",
         "h_076a7bf5684e1f29",
         "h_fbc83c0f2773fa23",
         "h_fa1af2184880e3d2",
         "h_3351e475854eb59d"
       ],
-      "thesesCount": 5,
-      "lastSynthesized": "2026-06-29T09:49:00Z"
+      "thesesCount": 24,
+      "lastSynthesized": "2026-07-01T20:19:00Z"
     },
     {
       "category": "memory",
-      "narrative": "He frames memory as a \"massive bottleneck\" and one of his core repositioning themes. HBM3e is shipping now (Micron, Samsung, SK Hynix), HBM4 is entering mass production, and HBF is a 2027 story — all driven by the same oligopoly (MU, SK Hynix, Samsung, Kioxia) that he expects to \"keep compounding\" while the market re-rates them mid-bottleneck.\n\nHe's holding his Korea/memory exposure (EWY LEAPs up triple digits) rather than adding, and hunts the upstream chokepoints around it: AXTI (InP substrates), the tungsten/WF6 supply scare into DRAM/NAND, and indium/MLCC controls. The small-cap angle he's watching is Auros, an SK Hynix/Samsung HBM4 hybrid-bonding supplier qualifying in H2 for a 2027 ramp.",
-      "conviction": "high",
+      "narrative": "He treats memory as a rotational bottleneck theme within AI hardware: HBM/DRAM demand is structural (every GPU needs it), and this month the market rotated from NAND (SNDK) into DRAM ($MU) while photonics corrected — he expects the bottleneck-to-bottleneck rotation to continue and eventually swing back to optics.\n\nHe plays broad memory via SK Hynix ($000660.KS) and Micron ($MU), and flags upstream supply risk: a WF6 (tungsten-hexafluoride) precursor-gas bottleneck where China tungsten export controls threaten Japan/Korea DRAM/NAND supply from ~July 2026. He also tracks the next-gen HBM4/HBM4e shift to hybrid copper bonding (Korean metrology suppliers like Auros) and watches AXTI as an adjacent substrate/materials bottleneck that could re-rate hard if it becomes single-source.",
+      "conviction": "medium",
       "keyPoints": [
-        "Memory is a \"massive bottleneck\": HBM3e shipping, HBM4 ramping, HBF ~2027.",
-        "Same oligopoly (MU, SK Hynix/000660.KS, Samsung, Kioxia) re-rating mid-bottleneck -> keeps compounding.",
-        "Holding Korea/EWY memory exposure (triple-digit gains) but not adding more.",
-        "Upstream chokepoints: AXTI InP substrates, tungsten/WF6 and indium export controls.",
-        "Watching tiny HBM4 hybrid-bonding supplier Auros (H2 qualification -> 2027 ramp)."
+        "HBM/DRAM is a structural AI bottleneck; the market rotated SNDK->MU this month while optics corrected, and he expects continued rotation.",
+        "Broad memory exposure via SK Hynix ($000660.KS) and Micron ($MU); the DRAM ETF captures Hynix/Samsung/MU/SNDK.",
+        "Upstream risk: a WF6 precursor-gas bottleneck (China tungsten export controls -> Japan/Korea) could disrupt DRAM/NAND from ~July 2026.",
+        "Next-gen HBM4/HBM4e moves to hybrid copper bonding — he tracks metrology suppliers (e.g. Korea's Auros) as the volume-ramp play.",
+        "AXTI watched as an adjacent substrate/materials bottleneck that could re-rate sharply if it turns single-source."
       ],
       "tickers": [
         "MU",
@@ -52,32 +73,41 @@
         "AXTI"
       ],
       "sourceThesisIds": [
+        "h_6f4609ddc5d7b259",
+        "h_d2dbd17eb77d8d17",
+        "h_238f8fac06bf85b9",
+        "h_a558ec6043c7fdd7",
+        "h_28fc34dd3669682c",
+        "h_8660c845cb321357",
         "h_29e60f0da3d1925a",
         "h_ff584f5876b37737",
         "h_fa1af2184880e3d2",
         "h_4516f39dac864d62",
         "h_3351e475854eb59d"
       ],
-      "thesesCount": 5,
-      "lastSynthesized": "2026-06-29T09:49:00Z"
+      "thesesCount": 11,
+      "lastSynthesized": "2026-07-01T20:19:00Z"
     },
     {
       "category": "fabs",
-      "narrative": "Fabs are the backbone of nearly every note — more derisked compounders than explosive bets. TSM is the centerpiece: he sees it building a silicon-photonics empire (COUPE / CoPoS via subsidiaries Xintec and VisEra), with 2-3 year volumes implying 2028 and pilot lines already running, plus a \"sleeper\" margin story at ~$1.9T from roughly 2% uplift on price hikes.\n\nINTC remains a \"great hold\" on the made-in-America foundry thesis and EMIB advanced packaging, and TSEM has already re-rated hundreds of percent with more room — he'd \"pyramid\" winners rather than take short-term gains. INTC even makes his \"3 stocks to forget for 10 years\" list (with RKLB and SIVE).",
+      "narrative": "He is structurally bullish on TSMC ($TSM) as it vertically integrates into silicon photonics — building a SiPho 'empire' via its COUPE/CoPoS platform and subsidiaries Xintec (testing) and VisEra (optical foundry), with CoPoS pilot lines now and volume implied around 2028. He reads TSM's commentary on autonomous robots/vehicles as a new growth vector that cross-links to his robotics theme.\n\nTower ($TSEM) is a held pure-play he keeps pyramiding on the 1.6T/CPO ramp rather than trimming. On Intel ($INTC) he tracks EMIB advanced-packaging supply chains (e.g. AP Memory qualification) and lists it among a few long-term holds — more a packaging/turnaround angle than core conviction. Overall he prefers pure-play foundry/CPO exposure and rotating into it as volume ramps in H2.",
       "conviction": "medium",
       "keyPoints": [
-        "TSM building a silicon-photonics empire (COUPE/CoPoS via Xintec/VisEra); pilot lines now, volumes imply 2028.",
-        "TSM a \"sleeper\" at ~$1.9T on ~2% margin uplift from price hikes — derisked.",
-        "INTC a \"great hold\": made-in-America foundry + EMIB advanced packaging.",
-        "TSEM already re-rated hundreds of %; prefers to \"pyramid\" winners over taking short-term gains.",
-        "Backbone holds — more priced-in than photonics/memory, not the highest-upside bucket."
+        "TSM is building a silicon-photonics 'empire' (COUPE/CoPoS + Xintec/VisEra); pilot lines now, volume ~2028 — de-risking the CPO foundry layer.",
+        "TSM flags autonomous robots/vehicles as a growth vector — a cross-read into the robotics theme.",
+        "Tower ($TSEM) is a held pure-play on the 1.6T/CPO ramp that he keeps pyramiding rather than selling.",
+        "Intel ($INTC): tracks EMIB advanced-packaging supply chains (AP Memory qualification); names it a long-term hold.",
+        "Prefers pure-play foundry/CPO exposure and rotating in as volume ramps in H2."
       ],
       "tickers": [
         "TSM",
-        "INTC",
-        "TSEM"
+        "TSEM",
+        "INTC"
       ],
       "sourceThesisIds": [
+        "h_e318f2d2d543b92a",
+        "h_238f8fac06bf85b9",
+        "h_a558ec6043c7fdd7",
         "h_0624b30e04390f33",
         "h_29e60f0da3d1925a",
         "h_32a2c120602c0f6e",
@@ -93,44 +123,53 @@
         "h_fa1af2184880e3d2",
         "h_3351e475854eb59d"
       ],
-      "thesesCount": 14,
-      "lastSynthesized": "2026-06-29T09:49:00Z"
+      "thesesCount": 17,
+      "lastSynthesized": "2026-07-01T20:19:00Z"
     },
     {
       "category": "neoclouds",
-      "narrative": "Neoclouds is one of his four repositioning themes, but a timing-sensitive one. NBIS is the lead: he expects its $7-9B ARR projection to show up at Q4 2026 earnings — \"the big showtime\" — which is when neocloud leaders typically inflect.\n\nHe admits being early (focused too hard in H4 2025); by his 8-month rule the buy window was ~March 2026, and the market may not price the move until a Feb 2027 window. Still a buildout phase, so he treats it as accumulate-into-inflection rather than a chase.",
+      "narrative": "He reads the neocloud names ($CRWV, $NBIS) as leveraged plays on hyperscaler compute scarcity rather than overcapacity. His key data point: Google reportedly cut Meta's capacity allocations in March 2026 because Google Cloud was itself compute-constrained (backlog nearly doubled), forcing Meta to sign $48B+ take-or-pay contracts with CoreWeave ($CRWV) and Nebius ($NBIS).\n\nHe rebuts the 'Meta overbuilt / cutting capex' narrative — arguing capacity sits far below demand, hyperscalers can't rely on one another, and expects guided capex to rise. Meta launching a cloud business to resell excess AI compute (likely powered by neoclouds like $NBIS) is, in his view, a further tailwind for the AI-datacenter buildout, with take-or-pay structures de-risking neocloud revenue.",
       "conviction": "medium",
       "keyPoints": [
-        "One of four repositioning themes (Memory, Neoclouds, Photonics, Robotics).",
-        "NBIS the lead: $7-9B ARR should surface at Q4 2026 earnings (\"the big showtime\").",
-        "Admits being early (H4 2025); 8-month rule pointed to ~March 2026, market may price Feb 2027.",
-        "Still buildout phase — accumulate into the Q4 2026 inflection rather than chase."
+        "Neoclouds ($CRWV, $NBIS) are leveraged plays on hyperscaler compute scarcity, not overcapacity.",
+        "Google reportedly restricted Meta's capacity in March 2026 (its own backlog ~doubled), forcing Meta into $48B+ take-or-pay neocloud contracts.",
+        "He rejects the 'Meta overbuilt / cutting capex' narrative — sees capacity far below demand and expects guided capex to rise.",
+        "Meta launching a cloud business to resell excess AI compute is likely powered by neoclouds like $NBIS — a demand tailwind.",
+        "Take-or-pay contract structure de-risks neocloud revenue."
       ],
       "tickers": [
+        "CRWV",
         "NBIS"
       ],
       "sourceThesisIds": [
+        "h_c1ee65a16b4a3233",
+        "h_b0d92d200ffc6bd3",
+        "h_238f8fac06bf85b9",
+        "h_6a7ca181b90245f8",
+        "h_5f7deacb158cae47",
+        "h_06c1b1dfc8ba3b53",
         "h_29e60f0da3d1925a",
         "h_fa1af2184880e3d2",
         "h_3351e475854eb59d"
       ],
-      "thesesCount": 3,
-      "lastSynthesized": "2026-06-29T09:49:00Z"
+      "thesesCount": 9,
+      "lastSynthesized": "2026-07-01T20:19:00Z"
     },
     {
       "category": "materials",
-      "narrative": "His materials/packaging angle runs on one framework: equipment and machine suppliers hit revenue before the volume ramp does, because fabs need the machines first. That's why he took LPK positions. AEHR is the watch item — more priced-in after a 100% rally, but he expects volume orders soon to drive another ~30% leg.\n\nAround that he tracks the mini-shifts: advanced-packaging and hybrid-bonding materials for memory, MLCC and other upstream bottlenecks, and substrate dynamics (Soitec / SOI.PA) framed through monopoly and licensing lenses.",
+      "narrative": "This is his 'picks-and-shovels' layer — test, burn-in, substrates and specialty materials that sell into the AI buildout regardless of which chip or optics vendor wins. AEHR is his main name (test/burn-in exposure to HBM and photonics volume); after a ~100% rally he views it as more priced-in and expects choppiness until volume orders hit, then another leg up.\n\nHe tracks European/specialty suppliers — Soitec ($SOI.PA) and Laser Photonics ($LPK.DE) — as adjacent materials/tool plays, and points to under-covered upstream bottlenecks: next-gen HBM hybrid-bonding metrology (e.g. Korea's Auros) and the MLCC stack (BaTiO3/Ni powders, rare-earth dopants). His preference is to wait for volume-order catalysts rather than chase post-rally names.",
       "conviction": "medium",
       "keyPoints": [
-        "Framework: equipment/machine suppliers (LPK.DE) book revenue before the volume ramp — he's long LPK.",
-        "AEHR more priced-in after a 100% rally; expects volume orders soon -> another ~30% leg.",
-        "Plays mini-shifts: advanced-packaging / hybrid-bonding materials and MLCC chokepoints.",
-        "Substrate angle via Soitec (SOI.PA), framed through monopoly/licensing dynamics."
+        "Picks-and-shovels thesis: test, burn-in, substrates and specialty materials sell into the AI buildout regardless of the winner.",
+        "AEHR is the core name (HBM/photonics test & burn-in); more priced-in after a ~100% rally — he expects chop, then upside on volume orders.",
+        "Tracks European/specialty suppliers Soitec ($SOI.PA) and Laser Photonics ($LPK.DE) as adjacent materials/tool plays.",
+        "Under-covered upstream bottlenecks: HBM4 hybrid-bonding metrology (e.g. Auros) and the MLCC stack (BaTiO3/Ni powders, rare-earth dopants).",
+        "Prefers waiting for volume-order catalysts over chasing names that already rallied."
       ],
       "tickers": [
         "AEHR",
-        "LPK.DE",
-        "SOI.PA"
+        "SOI.PA",
+        "LPK.DE"
       ],
       "sourceThesisIds": [
         "h_29e60f0da3d1925a",
@@ -139,7 +178,7 @@
         "h_3351e475854eb59d"
       ],
       "thesesCount": 4,
-      "lastSynthesized": "2026-06-29T09:49:00Z"
+      "lastSynthesized": "2026-07-01T20:19:00Z"
     },
     {
       "category": "networking",
@@ -163,46 +202,66 @@
     },
     {
       "category": "robotics",
-      "narrative": "\"Robotics is next.\" He points to deal count and investment at all-time highs (a16z / PitchBook) and plays it early, mostly through proxies and cross-exposure rather than pure-plays — TSLA (Optimus) and large programs inside names like AMZN, since most pure humanoid names are still pre-IPO.\n\nHis angle: AI-datacenter exposure often carries humanoid cross-exposure (memory for inference, DFB lasers for FMCW LiDAR vision). Like Space, he expects the market to price it in early, with a global humanoid IPO wave H2 into 2027.",
+      "narrative": "Robotics is his hot new theme, driven by the first US pure-play humanoid coming public. He is a shareholder in Agility Robotics ($CCXI, changing to $AGLT on its ~September de-SPAC IPO) and frames it as application-specific (warehouse/delivery Digit) versus general-purpose Figure (~$39-49B), at a compelling ~$2.5-5.5B valuation, with $300M+ Digit v5 orders, a sub-$30K mass-production target, ~75% US-sourced parts, and NVDA/Amazon/SoftBank/Foxconn backing — he likens it to 'Anthropic for robotics' (Optimus as xAI, Figure as ChatGPT, Boston Dynamics as Gemini).\n\nHe sees humanoids as the next AI-compute demand vertical: Amazon automating its ~1.57M workforce is the clearest physical-AI path and TSLA Optimus the broad-use proxy. He still plays it largely through cross-exposure (memory for inference, DFB lasers for FMCW LiDAR) ahead of a global humanoid IPO wave H2 2026 into 2027, while flagging pre-IPO SPAC/de-SPAC timing and dilution risk.",
       "conviction": "medium",
       "keyPoints": [
-        "\"Robotics is next\" — deal count and investment at all-time highs (a16z/PitchBook).",
-        "Plays it early via proxies/cross-exposure (TSLA Optimus, AMZN programs); pure-plays still pre-IPO.",
-        "AI-DC names often carry humanoid cross-exposure (memory for inference, DFB lasers for LiDAR).",
-        "Like Space, expects early pricing-in; global humanoid IPO wave H2 -> 2027."
+        "Agility Robotics ($CCXI -> $AGLT, ~Sept de-SPAC) is his pure-play humanoid pick — the first US-listed pure humanoid, and he's a shareholder.",
+        "Bull case: application-specific (warehouse/delivery Digit) vs. general-purpose Figure; $300M+ Digit v5 orders, sub-$30K BOM target, ~75% US parts, NVDA/Amazon/SoftBank/Foxconn backing.",
+        "Frames Agility as 'Anthropic for robotics,' Optimus ($TSLA) as the broad-use proxy, Figure as 'ChatGPT,' Boston Dynamics as 'Gemini.'",
+        "Humanoids = next AI-compute demand vertical; Amazon automating its ~1.57M workforce is the clearest physical-AI path.",
+        "Plays it largely via cross-exposure (memory for inference, DFB lasers for FMCW LiDAR) ahead of a global humanoid IPO wave H2 2026->2027.",
+        "Flags risk: pre-IPO SPAC/de-SPAC timing, dilution, and early-stage valuations."
       ],
       "tickers": [
+        "CCXI",
         "TSLA"
       ],
       "sourceThesisIds": [
+        "h_fffac723ba054139",
+        "h_13f14b8b84f90bda",
+        "h_04b4ad3eeb7b2987",
+        "h_fba075fdb320e5e6",
+        "h_c3784b027db8669f",
+        "h_238f8fac06bf85b9",
+        "h_fa7a71df5dbdb81e",
+        "h_2e879b7947e4586e",
+        "h_7864cc0211dacb69",
         "h_1793f6bef2c43658",
         "h_3351e475854eb59d"
       ],
-      "thesesCount": 2,
-      "lastSynthesized": "2026-06-29T09:49:00Z"
+      "thesesCount": 11,
+      "lastSynthesized": "2026-07-01T20:19:00Z"
     },
     {
       "category": "accelerators",
-      "narrative": "He treats NVDA (and AVGO) less as the trade and more as a map to under-covered ecosystem suppliers. The method: read Goldman-style ecosystem notes and hunt the names NOT listed — the \"hidden gems\" where the highest returns hide — like MSSCorp (a near-monopoly in CPO inspection at ~$1.2B) and Nextronics (NVDA CPO connectors and cage thermal, still ~$200m).\n\nHe's rotating into purer-play ecosystem names ahead of the H2 volume ramp, and passes on those likely to be designed out later (e.g., HIMX).",
+      "narrative": "NVIDIA sits at the center of everything he tracks — the demand engine whose architectural decisions cascade down the supply chain. His recurring point: NVDA signing LTAs everywhere and driving the EML->CW-laser and 1.6T/CPO transitions is exactly what creates the downstream bottlenecks he invests in, so he treats NVDA as the ecosystem anchor more than a standalone trade.\n\nHe mines NVDA's CPO supplier web — Ayar in the NVLink ecosystem, connectors and cage-thermal (e.g. Nextronics), MSSCorps for inspection — and the broader NVDA+AVGO ecosystem, deliberately hunting the small 'hidden gems' that institutional reports (e.g. Goldman) leave out, since that's where he thinks the highest returns are. NVDA also anchors his robotics theme as an Agility backer.",
       "conviction": "medium",
       "keyPoints": [
-        "NVDA/AVGO used as a map to under-covered CPO ecosystem suppliers, not just the trade.",
-        "Method: scan Goldman ecosystem notes for names NOT listed — the \"hidden gems.\"",
-        "Examples: MSSCorp (~monopoly CPO inspection), Nextronics (NVDA CPO connectors/thermal).",
-        "Rotating into purer-play names ahead of H2 volume ramp; passes on likely design-outs (HIMX)."
+        "NVDA is the demand anchor: its LTAs and 1.6T/CPO architectural shifts create the downstream laser/optics bottlenecks he invests in.",
+        "He mines NVDA's CPO supplier web (Ayar/NVLink, connectors & cage-thermal like Nextronics, MSSCorps inspection) for under-covered small caps.",
+        "Strategy: look for names NOT in institutional reports (Goldman's NVDA/AVGO ecosystem notes) — the 'hidden gems' where returns are highest.",
+        "NVDA also backs Agility Robotics, tying the accelerator anchor to the emerging physical-AI/humanoid theme.",
+        "Treats NVDA as the ecosystem center of gravity rather than a standalone position."
       ],
       "tickers": [
         "NVDA"
       ],
       "sourceThesisIds": [
+        "h_13f14b8b84f90bda",
+        "h_04b4ad3eeb7b2987",
+        "h_e318f2d2d543b92a",
+        "h_6a7ca181b90245f8",
+        "h_e4cc0612983c7052",
+        "h_2e879b7947e4586e",
+        "h_d81fe21a14bdd892",
         "h_32a2c120602c0f6e",
         "h_4fad86fa05676490",
         "h_f153fe80a14e0404",
         "h_d2558834bea09c9f",
         "h_af8d7a1453dad76f"
       ],
-      "thesesCount": 5,
-      "lastSynthesized": "2026-06-29T09:49:00Z"
+      "thesesCount": 12,
+      "lastSynthesized": "2026-07-01T20:19:00Z"
     }
   ]
 }
