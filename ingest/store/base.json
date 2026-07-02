@@ -1,8 +1,8 @@
 {
   "meta": {
-    "version": "1.75",
+    "version": "1.78",
     "schemaVersion": 1,
-    "lastUpdated": "2026-07-02T09:30:58Z",
+    "lastUpdated": "2026-07-03T00:00:00Z",
     "source": "ingest"
   },
   "countries": {
@@ -121,6 +121,16 @@
       "tooltip": "The GPU and AI-accelerator designers the whole supply chain feeds into. NVDA designs the chips; TSMC and others fabricate them.",
       "flowRole": "chip",
       "investorAngle": "The chip everyone designs around — watch share between NVIDIA and challengers (AMD, custom silicon) and how fast hyperscalers build their own."
+    },
+    "hyperscalers": {
+      "id": "hyperscalers",
+      "label": "Hyperscalers",
+      "subtitle": "The compute buyers",
+      "color": "#6366f1",
+      "layer": 10,
+      "flowRole": "demand",
+      "tooltip": "Meta, Alphabet, Amazon, Microsoft — the capex engines that buy the GPUs and rent the neocloud capacity. Their spend IS the demand signal for everything below.",
+      "investorAngle": "Watch quarterly capex guidance and any 'compute constrained' language — hyperscaler budgets are the single input every supplier thesis depends on."
     }
   },
   "mapIntro": "Everything below NVIDIA feeds the AI chips it designs — suppliers at the bottom, the chip in the middle, the buyers on top. Click any layer to see what it does, what to watch as an investor, and the companies tracked there.",

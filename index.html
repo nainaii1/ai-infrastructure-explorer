@@ -631,6 +631,59 @@
       font-family: var(--mono);
     }
 
+    /* Conviction tier badge (core/watch/radar — computed by ingest/scorer.py). */
+    .tier-badge {
+      font-family: var(--mono); font-size: 9.5px; letter-spacing: .08em;
+      text-transform: uppercase; font-weight: 700;
+      padding: 2px 7px; border-radius: 999px;
+    }
+    .tier-badge.core  { background: #dcfce7; color: #15803d; }
+    .tier-badge.watch { background: #fef3c7; color: #b45309; }
+    .tier-badge.radar { background: color-mix(in srgb, #94a3b8 14%, white); color: var(--muted); }
+
+    /* Desk verdict — Claude's weekly stance on a Core name. */
+    .vd-stance {
+      font-family: var(--mono); font-size: 10px; letter-spacing: .06em;
+      text-transform: uppercase; font-weight: 700;
+      padding: 2px 8px; border-radius: 999px; white-space: nowrap;
+    }
+    .vd-stance.act        { background: #dcfce7; color: #15803d; }
+    .vd-stance.accumulate { background: #e0f2fe; color: #0369a1; }
+    .vd-stance.watch      { background: #fef3c7; color: #b45309; }
+    .vd-stance.pass       { background: color-mix(in srgb, #94a3b8 14%, white); color: var(--muted); }
+    .tk-verdict {
+      margin-top: 12px; padding: 12px 14px; border-radius: 10px;
+      background: color-mix(in srgb, var(--accent) 4%, var(--bg));
+      border: 1px dashed color-mix(in srgb, var(--accent) 35%, var(--border));
+    }
+    .tk-verdict-head {
+      display: flex; align-items: center; gap: 8px; margin-bottom: 8px;
+    }
+    .tk-verdict-label {
+      font-family: var(--mono); font-size: 9.5px; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--muted);
+    }
+    .tk-verdict p { margin: 0 0 8px; font-size: 12.5px; line-height: 1.6; color: var(--text); }
+    .tk-verdict p:last-child { margin-bottom: 0; }
+    .tk-verdict b {
+      font-family: var(--mono); font-size: 10px; letter-spacing: .08em;
+      text-transform: uppercase; color: var(--muted); font-weight: 700;
+      display: block; margin-bottom: 2px;
+    }
+
+    /* Radar visibility toggle on the map's card ledger. */
+    .tier-toggle {
+      margin-left: auto; padding: 5px 12px; border-radius: 999px;
+      border: 1px solid var(--border); background: var(--card);
+      font-family: var(--mono); font-size: 11px; color: var(--muted);
+      cursor: pointer; transition: color var(--ease), border-color var(--ease);
+    }
+    .tier-toggle:hover { color: var(--ink); border-color: var(--muted); }
+
+    /* Watchlist tier chips reuse .filter-chip; desk review meta line. */
+    .wl-tiers { display: flex; flex-wrap: wrap; gap: 6px; }
+    .wl-desk-meta { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+
     /* ---------- Thesis (Tab 3) ---------- */
     .th-header {
       display: flex; align-items: flex-end; justify-content: space-between;
@@ -938,6 +991,7 @@
           <div class="cards-ledger">
             <span class="ledger-eyebrow">Holdings</span>
             <span class="ledger-scope" id="cardScope"></span>
+            <button type="button" class="tier-toggle" id="cardTierToggle" hidden></button>
           </div>
           <div class="card-grid" id="cardGrid" aria-live="polite"></div>
         </div>
@@ -966,8 +1020,10 @@
               <button type="button" class="vt-btn" data-view="flat" aria-selected="true">Flat</button>
               <button type="button" class="vt-btn" data-view="grouped" aria-selected="false">Grouped</button>
             </div>
+            <div class="wl-tiers" id="wlTiers"></div>
             <div class="wl-filters" id="wlFilters"></div>
           </div>
+          <div class="wl-desk-meta" id="wlDeskMeta" hidden></div>
           <div class="wl-hint" id="wlHint" hidden></div>
           <div class="wl-table-wrap">
             <table class="wl-table">
@@ -981,6 +1037,7 @@
                   <th data-key="chg1m" class="num">1M</th>
                   <th data-key="marketCap" class="num">Mkt Cap</th>
                   <th class="wl-nosort">Trend (sample)</th>
+                  <th data-key="deskStance">Desk</th>
                   <th data-key="rating">Rating</th>
                 </tr>
               </thead>
@@ -1236,11 +1293,12 @@
          ordering comes from each category's `layer` field.
          Clicking a layer filters the ticker cards in Section B.
          ---------------------------------------------------------- */
-      var mapState = { selectedId: null, view: "pipeline" };
+      var mapState = { selectedId: null, view: "pipeline", showRadar: false };
 
       function getCategoryCounts() {
         var counts = {};
         getStoredTickers().forEach(function (t) {
+          if (!tierVisible(t, mapState.showRadar)) return;
           counts[t.category] = (counts[t.category] || 0) + 1;
         });
         return counts;
@@ -1471,6 +1529,13 @@
          ---------------------------------------------------------- */
       var TIER_RANK = { Mega: 4, Large: 3, Mid: 2, Small: 1 };
 
+      /* Conviction tiers (core/watch/radar) are computed by ingest/scorer.py
+         and stamped on each ticker; desk verdicts by the weekly Claude review.
+         Radar names (one-off mentions) are hidden by default everywhere. */
+      var STANCE_RANK = { act: 4, accumulate: 3, watch: 2, pass: 1 };
+      function tierOf(t) { return t.tier || "radar"; }
+      function tierVisible(t, showRadar) { return showRadar || tierOf(t) !== "radar"; }
+
       function getStoredTickers() {
         try {
           var raw = localStorage.getItem(STORAGE_KEYS.tickers);
@@ -1523,6 +1588,10 @@
           badges.appendChild(prio);
         }
 
+        var tierBadge = el("span", "tier-badge " + tierOf(ticker), tierOf(ticker));
+        tierBadge.title = "Conviction tier from mention frequency + conviction language (ingest/scorer.py)";
+        badges.appendChild(tierBadge);
+
         var tier = el("span", "tk-tier");
         tier.appendChild(el("span", "tk-tier-label", ticker.marketCapTier || "—"));
         var meter = el("span", "tk-meter");
@@ -1552,6 +1621,28 @@
         body.appendChild(row("Why NVDA needs them", ticker.whyNVDA || ""));
         card.appendChild(body);
 
+        // Claude's desk verdict — second opinion + execution note (Core names only).
+        if (ticker.verdict) {
+          var v = ticker.verdict;
+          var vd = el("div", "tk-verdict");
+          var vh = el("div", "tk-verdict-head");
+          vh.appendChild(el("span", "tk-verdict-label", "Claude's desk view"));
+          vh.appendChild(el("span", "vd-stance " + v.stance, v.stance));
+          if (v.updatedAt) vh.appendChild(el("span", "tk-verdict-label", v.updatedAt));
+          vd.appendChild(vh);
+          function vBlock(label, text) {
+            if (!text) return;
+            var p = el("p");
+            p.appendChild(el("b", null, label));
+            p.appendChild(document.createTextNode(text));
+            vd.appendChild(p);
+          }
+          vBlock("View", v.view);
+          vBlock("Execution", v.execution);
+          vBlock("What changes my mind", v.changesMind);
+          card.appendChild(vd);
+        }
+
         return card;
       }
 
@@ -1561,7 +1652,23 @@
         if (!grid || !DATA) return;
 
         var all = getStoredTickers();
-        var list = catId ? all.filter(function (t) { return t.category === catId; }) : all;
+        var visible = all.filter(function (t) { return tierVisible(t, mapState.showRadar); });
+        var list = catId ? visible.filter(function (t) { return t.category === catId; }) : visible;
+
+        // Radar toggle — one-off mentions are noise by default, one click away.
+        var toggle = document.getElementById("cardTierToggle");
+        if (toggle) {
+          var radarCount = all.length - all.filter(function (t) { return tierVisible(t, false); }).length;
+          toggle.hidden = radarCount === 0;
+          toggle.textContent = mapState.showRadar
+            ? "Hide " + radarCount + " radar names"
+            : "Show " + radarCount + " radar names";
+          toggle.onclick = function () {
+            mapState.showRadar = !mapState.showRadar;
+            renderMap();
+            renderCards(mapState.selectedId);
+          };
+        }
 
         // Scope caption (mono ledger line).
         if (scope) {
@@ -1633,14 +1740,29 @@
          to localStorage. "Fetch prices" calls the local serve.py.
          ---------------------------------------------------------- */
       var WL_RATINGS = ["watch", "owned", "passed"];
-      var wlState = { key: "category", dir: 1, view: "flat", categoryFilter: null };
+      var WL_TIER_CHIPS = [
+        { id: "signal", label: "Signal (Core + Watch)" },
+        { id: "core", label: "Core" },
+        { id: "watch", label: "Watch" },
+        { id: "radar", label: "Radar" },
+        { id: "all", label: "All" }
+      ];
+      var wlState = { key: "category", dir: 1, view: "flat", categoryFilter: null, tierFilter: "signal" };
 
       function wlTickers() { return (DATA && DATA.tickers) ? DATA.tickers.slice() : []; }
 
+      function wlTierMatches(t) {
+        var f = wlState.tierFilter;
+        if (f === "all") return true;
+        if (f === "signal") return tierOf(t) !== "radar";
+        return tierOf(t) === f;
+      }
+
       function wlFilteredTickers() {
-        var all = wlTickers();
-        if (!wlState.categoryFilter) return all;
-        return all.filter(function (t) { return t.category === wlState.categoryFilter; });
+        return wlTickers().filter(function (t) {
+          if (!wlTierMatches(t)) return false;
+          return !wlState.categoryFilter || t.category === wlState.categoryFilter;
+        });
       }
 
       // Categories ordered by their value-chain `layer` field (ascending).
@@ -1679,6 +1801,12 @@
 
       function wlCompare(a, b) {
         var k = wlState.key;
+        if (k === "deskStance") {
+          var av = (a.verdict && STANCE_RANK[a.verdict.stance]) || 0;
+          var bv = (b.verdict && STANCE_RANK[b.verdict.stance]) || 0;
+          if (av !== bv) return (bv - av) * wlState.dir;
+          return a.ticker < b.ticker ? -1 : 1;
+        }
         var numeric = (k === "price" || k === "chg7d" || k === "chg1m" || k === "marketCap");
         if (numeric) {
           var anull = a[k] == null, bnull = b[k] == null;
@@ -1736,6 +1864,18 @@
         trendTd.appendChild(sparkSVG(t.ticker, 60, 22));
         tr.appendChild(trendTd);
 
+        var dTd = document.createElement("td");
+        if (t.verdict) {
+          var vs = el("span", "vd-stance " + t.verdict.stance, t.verdict.stance);
+          vs.title = t.verdict.view
+            + (t.verdict.execution ? "\n\nExecution: " + t.verdict.execution : "")
+            + (t.verdict.changesMind ? "\n\nChanges my mind: " + t.verdict.changesMind : "");
+          dTd.appendChild(vs);
+        } else {
+          dTd.appendChild(el("span", "wl-muted", "—"));
+        }
+        tr.appendChild(dTd);
+
         var rTd = document.createElement("td");
         var sel = document.createElement("select"); sel.className = "wl-rating";
         WL_RATINGS.forEach(function (opt) {
@@ -1765,6 +1905,20 @@
         var asOfEl = document.getElementById("wlAsOf");
         if (asOfEl) asOfEl.textContent = asOf ? ("Prices as of " + asOf.slice(0, 10)) : "No prices yet";
 
+        // Desk review provenance line — who reviewed, when, and the disclaimer.
+        var deskMetaEl = document.getElementById("wlDeskMeta");
+        var deskMeta = DATA.desk && DATA.desk.meta;
+        if (deskMetaEl) {
+          if (deskMeta && deskMeta.reviewedAt) {
+            deskMetaEl.hidden = false;
+            deskMetaEl.textContent = "Desk verdicts reviewed " + deskMeta.reviewedAt.slice(0, 10)
+              + (deskMeta.coverage ? " · " + deskMeta.coverage : "")
+              + (deskMeta.disclaimer ? " · " + deskMeta.disclaimer : "");
+          } else {
+            deskMetaEl.hidden = true;
+          }
+        }
+
         body.innerHTML = "";
 
         if (wlState.view === "grouped") {
@@ -1782,7 +1936,7 @@
             subtotal.className = "wl-subtotal";
             subtotal.style.background = "color-mix(in srgb, " + cat.color + " 6%, white)";
             var td = document.createElement("td");
-            td.colSpan = 9;
+            td.colSpan = 10;
             td.appendChild(el("b", null, cat.label));
             td.appendChild(document.createTextNode(" · " + rows.length + (rows.length === 1 ? " ticker" : " tickers")));
             subtotal.appendChild(td);
@@ -1802,6 +1956,18 @@
       }
 
       function renderWatchlistFilterChips() {
+        // Tier chips — conviction filter, defaulting to Signal (Core + Watch).
+        var tiersWrap = document.getElementById("wlTiers");
+        if (tiersWrap) {
+          tiersWrap.innerHTML = "";
+          WL_TIER_CHIPS.forEach(function (tc) {
+            var chip = el("button", "filter-chip" + (wlState.tierFilter === tc.id ? " is-active" : ""), tc.label);
+            chip.type = "button";
+            chip.addEventListener("click", function () { wlState.tierFilter = tc.id; renderWatchlist(); });
+            tiersWrap.appendChild(chip);
+          });
+        }
+
         var wrap = document.getElementById("wlFilters");
         if (!wrap || !DATA) return;
         wrap.innerHTML = "";

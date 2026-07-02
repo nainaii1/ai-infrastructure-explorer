@@ -54,3 +54,49 @@ class TestPriority(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TestAssignTiers(unittest.TestCase):
+    def _tiers(self, theses, symbols):
+        priorities = scorer.compute_priorities(theses, now=NOW)
+        return scorer.assign_tiers(symbols, priorities)
+
+    def test_repeated_mentions_make_core(self):
+        theses = [thesis(["SIVE"], "2026-06-2%d T00:00:00Z".replace(" ", "") % d) for d in range(1, 6)]
+        tiers = self._tiers(theses, ["SIVE"])
+        self.assertEqual(tiers["SIVE"], "core")
+
+    def test_conviction_promotes_to_core_with_few_mentions(self):
+        theses = [
+            thesis(["POET"], "2026-06-20T00:00:00Z", conviction="high"),
+            thesis(["POET"], "2026-06-21T00:00:00Z", conviction="high"),
+        ]
+        tiers = self._tiers(theses, ["POET"])
+        self.assertEqual(tiers["POET"], "core")
+
+    def test_two_mentions_is_watch(self):
+        theses = [
+            thesis(["AMAT"], "2026-06-20T00:00:00Z"),
+            thesis(["AMAT"], "2026-06-21T00:00:00Z"),
+        ]
+        tiers = self._tiers(theses, ["AMAT"])
+        self.assertEqual(tiers["AMAT"], "watch")
+
+    def test_single_high_conviction_mention_is_watch(self):
+        theses = [thesis(["AMZN"], "2026-06-20T00:00:00Z", conviction="high")]
+        tiers = self._tiers(theses, ["AMZN"])
+        self.assertEqual(tiers["AMZN"], "watch")
+
+    def test_single_normal_mention_is_radar(self):
+        theses = [thesis(["ZZZZ"], "2026-06-20T00:00:00Z")]
+        tiers = self._tiers(theses, ["ZZZZ"])
+        self.assertEqual(tiers["ZZZZ"], "radar")
+
+    def test_never_mentioned_is_radar(self):
+        tiers = self._tiers([], ["GHOST"])
+        self.assertEqual(tiers["GHOST"], "radar")
+
+    def test_every_symbol_gets_a_tier(self):
+        theses = [thesis(["A"], "2026-06-20T00:00:00Z")]
+        tiers = self._tiers(theses, ["A", "B", "C"])
+        self.assertEqual(sorted(tiers.keys()), ["A", "B", "C"])

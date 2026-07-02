@@ -267,7 +267,7 @@
     "candidate": "NFA",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:42:40Z",
-    "count": 3
+    "count": 4
   },
   {
     "candidate": "GAA",
@@ -381,7 +381,7 @@
     "candidate": "BOM",
     "sourceUrl": "",
     "firstSeen": "2026-06-30T07:36:46Z",
-    "count": 4
+    "count": 5
   },
   {
     "candidate": "LEO",
@@ -813,6 +813,18 @@
     "candidate": "ATM",
     "sourceUrl": "",
     "firstSeen": "2026-07-02T09:30:58Z",
+    "count": 1
+  },
+  {
+    "candidate": "ISO",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-02T14:28:52Z",
+    "count": 1
+  },
+  {
+    "candidate": "YT",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-02T14:28:52Z",
     "count": 1
   }
 ]

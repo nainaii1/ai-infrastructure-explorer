@@ -49,6 +49,7 @@ def build_data():
     theses = _load("theses.json")
     prices = _load_optional("prices.json", {})  # {ticker: {price, chg7d, chg1m, marketCap, asOf}}
     brain = _load_optional("brain.json", {})    # {} until synthesize.py has run; {meta, digests} after
+    desk = _load_optional("verdicts.json", {})  # {} until the weekly desk review has run; {meta, verdicts} after
 
     # Merge weekly price snapshot (from fetch_prices.py) onto each ticker.
     for t in tickers:
@@ -70,6 +71,19 @@ def build_data():
                 "lastMentioned": p["lastMentioned"],
             }
 
+    # Conviction tier (core/watch/radar) — drives default filtering in the app.
+    tiers = scorer.assign_tiers([t["ticker"] for t in tickers], priorities)
+    for t in tickers:
+        t["tier"] = tiers[t["ticker"]]
+
+    # Desk verdicts (Claude's weekly view) — stamped onto matching tickers so
+    # the Watchlist/cards can render them without a join in the browser.
+    verdict_by_symbol = {v["ticker"]: v for v in desk.get("verdicts", [])}
+    for t in tickers:
+        v = verdict_by_symbol.get(t["ticker"])
+        if v:
+            t["verdict"] = v
+
     categories = dict(base["categories"])
     if any(t.get("category") == "unsorted" for t in tickers):
         categories["unsorted"] = base["unsortedCategory"]
@@ -85,6 +99,7 @@ def build_data():
         "theses": theses,
         "priorities": priorities,
         "brain": brain,
+        "desk": desk,
     }
 
 

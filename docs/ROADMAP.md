@@ -1,6 +1,6 @@
 # Roadmap & Status — AI Infrastructure Explorer
 
-_Last updated: 2026-07-02. Living document — update as things ship or change._
+_Last updated: 2026-07-03. Living document — update as things ship or change._
 
 ---
 
@@ -8,16 +8,31 @@ _Last updated: 2026-07-02. Living document — update as things ship or change._
 
 | | |
 |---|---|
-| Tickers tracked | ~83 (check `ingest/store/tickers.json` for exact) |
-| Categorized layers | 9 (`photonics, memory, fabs, neoclouds, materials, networking, glass, robotics, accelerators`) |
-| Unsorted (needs triage) | ~63 — see "Classify unsorted tickers" below |
-| Theses ingested | ~70 |
-| Brain digests | Synthesized for every category with theses (networking & glass are empty — no theses reference their tickers yet) |
+| Tickers tracked | ~83 — now tiered: **20 Core / 26 Watch / 37 Radar** (check `data.js` tiers for exact) |
+| Categorized layers | 10 (`photonics, memory, fabs, neoclouds, materials, networking, glass, robotics, accelerators, hyperscalers`) |
+| Unsorted (needs triage) | ~56 — but **all remaining unsorted are Watch/Radar tier** (every Core name is classified); Radar-tier triage is low priority by design |
+| Theses ingested | ~72 |
+| Brain digests | Per-theme, for every category with theses |
+| **Desk verdicts** | **13 Core names** with Claude's stance + execution note (`ingest/store/verdicts.json`, reviewed 2026-07-03) |
 | GitHub repo | Public — github.com/nainaii1/ai-infrastructure-explorer, branch `feat/brain-synthesis` |
 
-Counts drift constantly as posts get ingested — treat this table as
-"roughly here," and trust `ingest/store/*.json` / `git log` over this file
-when they disagree.
+Counts drift constantly as posts get ingested — trust `ingest/store/*.json` /
+`git log` over this file when they disagree.
+
+---
+
+## The operating loop (v5 — this is the product now)
+
+```
+He tweets → you forward to the Telegram bot (or backfill from signal bots)
+     → theses.json grows, tickers auto-added
+     → scorer tiers everything: Core / Watch / Radar   (noise ignored by default)
+     → weekly: "run the weekly review" in Claude Code
+         → prices refreshed, Brain digests updated,
+           Claude's desk verdict per Core name:
+           stance (act/accumulate/watch/pass) + execution + what-changes-my-mind
+     → you decide, using his conviction AND Claude's second opinion
+```
 
 ---
 
@@ -25,17 +40,18 @@ when they disagree.
 
 | Area | Status | Notes |
 |---|---|---|
-| Supply Chain Map — flow-pipeline layout | ✅ Done | 9 layers grouped into Demand/Chip/Supply zones with a flow rail; click-to-filter + expandable "what to watch" investor angle per layer |
-| Watchlist tab (sortable table, 7D/1M, rating) | ✅ Done | Ratings persist to localStorage |
-| Yahoo price fetcher (`fetch_prices.py`) | ✅ Done | Run via button in app or CLI |
-| Local server for price fetch (`serve.py`) | ✅ Done | `python3 ingest/serve.py` → port 8765 |
-| Telegram ingest bot (`bot.py`) | ✅ Done | Auto-fetches tweet text from URL-only messages |
-| fxtwitter auto-fetch (`fetcher.py`) | ✅ Done | Resolves x.com URLs → full tweet text, no API key |
-| Thesis tab (feed of ingested ideas) | ✅ Done | Date, conviction badge, source link, ticker chips |
-| **Brain tab (AI theme digests)** | ✅ Done | `synthesize.py` groups theses by category, one narrative digest per theme. **No live Anthropic API key currently** — refresh manually by asking Claude Code (see `docs/GUIDE.md` §3) |
-| Ticker triage CLI (`review.py`) | ✅ Done | `classify` / `approve` / `reject` for auto-added `unsorted` tickers — not yet documented in GUIDE.md (todo below) |
-| Telegram setup guide | ✅ Done | `docs/TELEGRAM_SETUP.md` → `docs/GUIDE.md` |
-| GitHub repo (public) | ✅ Done | github.com/nainaii1/ai-infrastructure-explorer |
+| Supply Chain Map — flow-pipeline layout | ✅ Done | 10 layers incl. new **Hyperscalers** demand layer; click-to-filter; investor angle per layer |
+| **Conviction tiers (Core/Watch/Radar)** | ✅ Done (2026-07-03) | `scorer.assign_tiers()` — mentions + conviction-language thresholds; stamped on every ticker; unit-tested |
+| **Map/Watchlist default to Signal (Core+Watch)** | ✅ Done (2026-07-03) | Radar (one-off mentions) hidden behind a "Show N radar names" toggle / Radar chip |
+| **Desk verdicts (Claude's weekly view)** | ✅ Done (2026-07-03) | `store/verdicts.json` → `AIE_DATA.desk`, stamped per ticker; Watchlist "Desk" column + full verdict block on Core ticker cards |
+| **`/weekly-review` project skill** | ✅ Done (2026-07-03) | `.claude/skills/weekly-review/SKILL.md` — the whole weekly pass in one command, no API key needed |
+| Watchlist tab (sortable table, 7D/1M, rating) | ✅ Done | + tier chips, Desk column, review provenance line |
+| Yahoo price fetcher / local server | ✅ Done | `fetch_prices.py` / `serve.py` (port 8765) |
+| Telegram ingest bot + fxtwitter auto-fetch | ✅ Done | `bot.py` / `fetcher.py` |
+| Thesis tab | ✅ Done | Date, conviction badge, source link, ticker chips |
+| Brain tab (per-theme AI digests) | ✅ Done | `synthesize.py`; refreshed via the weekly review when no API key |
+| Ticker triage CLI (`review.py`) | ✅ Done | Documented in GUIDE.md §5 |
+| Backfill & auto-capture guide | ✅ Done (2026-07-03) | GUIDE.md §7 — forward from existing signal bots; Telethon watcher documented as the future automation path |
 
 ---
 
@@ -44,77 +60,60 @@ when they disagree.
 ### HIGH — affects daily use
 
 **1. Bot must be started from the project directory**
-Every terminal session requires `cd ~/Documents/Claude/ai-supply-desk` before
-running any Python script. Easy to forget.
-- Fix: Create a `start_bot.sh` convenience script (one file, runs everything). Still not built.
+Create a `start_bot.sh` convenience script (cd + env + launch). Still not built.
 
 **2. `ingest/.env` iCloud sync**
-If the project folder is under iCloud Drive sync, `.env` can occasionally
-show a sync conflict/error in Finder, which can make the bot fail to read
-the token.
-- Workaround: `export TELEGRAM_BOT_TOKEN=...` directly in the terminal session,
-  or move the project out of iCloud sync / mark it "not synced."
+`.env` can hit sync conflicts under iCloud Drive. Workaround: `export
+TELEGRAM_BOT_TOKEN=...` in-session, or exclude the folder from sync.
 
 ### MEDIUM — affects ingest quality
 
-**3. `review.py classify` isn't documented in `docs/GUIDE.md`**
-The triage CLI exists and works (`python3 ingest/review.py classify SYM
---category photonics --company "..." ...`), and ~63 tickers currently sit in
-`unsorted` waiting for it — but a fresh session/new operator has to find
-`ingest/README.md` to learn the command. Add a short section to
-`docs/GUIDE.md`. *(Addressed in this pass — see GUIDE.md §5.)*
+**3. SSL certificate verification globally disabled in `bot.py`**
+Swap the blanket `ssl._create_unverified_context` for the `_ssl_context()`
+pattern already in `fetch_prices.py`. Still open.
 
-**4. SSL certificate verification globally disabled in `bot.py`**
-`bot.py` has a blanket SSL bypass (`ssl._create_default_https_context =
-ssl._create_unverified_context`) added as a workaround for macOS Python
-3.14's missing CA bundle. Works but skips cert verification on all outbound
-requests.
-- Proper fix: reuse the `_ssl_context()` approach already in `fetch_prices.py`
-  (tries system CA → `/etc/ssl/cert.pem` → certifi in order). Still open.
-- Risk: Low for a personal local tool; worth fixing before sharing the machine.
+**4. Mention-count inflation from list-posts**
+The scorer counts a ticker named in a 10-ticker list-post the same as a
+dedicated thesis (this is why MRVL/TSLA reached Core; the desk verdicts
+push back manually). Idea: weight mentions by 1/√(tickers in post) in
+`scorer.py`. Not built.
 
 ### LOW — polish
 
-**5. Watchlist sticky table header has no z-index** — on some browsers, row
-content can bleed through the header on scroll.
+**5. Watchlist sticky header z-index** — rows can bleed through on scroll.
+**6. "Note" conviction badge is ambiguous** — rename to "Normal" or drop.
+**7. Desk verdict on watchlist is tooltip-only** — consider an expandable
+row so verdicts are readable without hovering (mobile especially).
 
-**6. Conviction badge label "Note" is ambiguous** — posts without
-high-conviction language show "Note." Could be clearer as "Normal" or left
-unlabeled.
+---
+
+## Next up (build order)
+
+1. **Backfill via signal-bot forwarding** — operator task, no code: forward
+   the existing @aleabitoreddit alert-bot history into the ingest bot
+   (GUIDE.md §7). Priority: most recent months first.
+2. **First real `/weekly-review` cycle** (next week) — proves the loop and
+   produces the first stance *changes*, which is where the value is.
+3. **`start_bot.sh`** + **SSL fix in `bot.py`** (issues 1 & 3).
+4. **List-post mention weighting** in `scorer.py` (issue 4) — makes tiers
+   trustworthy enough to stop second-guessing counts.
+5. **Telethon watcher (`ingest/watcher.py`)** — full auto-capture from the
+   signal-bot chats; build when manual forwarding becomes the bottleneck.
+6. **Radar-tier triage, gradually** — `review.py classify` a few per week;
+   no urgency since Radar is hidden by default.
+7. **Watchlist verdict expandable rows** (issue 7).
 
 ---
 
 ## Discussed but not yet built
 
-### 1. Self-serve Brain refresh without a paid API key
-
-Right now the Brain either needs `ANTHROPIC_API_KEY` in `ingest/.env`, or a
-manual pass (ask Claude Code to "refresh the brain," which reads
-`theses.json`, authors digests, and runs them through
-`synthesize.synthesize_all()` so the output shape matches a real API run).
-Worth exploring a cheaper/free backend (e.g. Gemini) as an alternative to
-requiring a paid Anthropic subscription for a fully automated refresh.
-
-### 2. Make.com auto-forward (optional alternative to manual forwarding)
-
-Make.com free tier (1,000 ops/month) can auto-post @aleabitoreddit tweets to
-your Telegram bot via Make.com's built-in X connection — no manual
-forwarding. Worth trying if X integration still works post-API changes.
-- Status: Not set up. User is doing manual forwarding for now.
-
-### 3. Historical backfill (last 6 months)
-
-User wants to capture @aleabitoreddit's posts going back ~6 months. Priority
-is recent posts first, then add older posts gradually over time.
-- Process: Same as current — send the x.com URL to the bot (auto-fetches
-  text), or paste text + URL together.
-- No time pressure. Add a few at a time as convenient.
-
-### 4. Design brief items not yet addressed
-
-From an earlier design review session:
-- Watchlist empty state (no prices yet → better first-use guidance)
-- Dim empty layer bands (layers with 0 tickers should look visually quieter)
+- **Self-serve Brain/verdict refresh via API key** — `synthesize.py` already
+  supports it; verdicts could get the same `call_fn` treatment for a
+  fully-unattended weekly cron once a paid key exists.
+- **Make.com auto-forward** — superseded in spirit by the Telethon watcher
+  plan (item 5 above); keep as fallback.
+- **Real price history sparklines** — replace the synthetic "Trend (sample)"
+  lines once `fetch_prices.py` stores dailies.
 
 ---
 
@@ -122,25 +121,12 @@ From an earlier design review session:
 
 | Guide | Location | Covers |
 |---|---|---|
-| Operating guide + FAQ | `docs/GUIDE.md` | Bot setup, Brain refresh, price fetch, troubleshooting, ticker triage |
-| Telegram bot setup | `docs/TELEGRAM_SETUP.md` | Pointer into GUIDE.md |
+| Operating guide + FAQ | `docs/GUIDE.md` | Bot setup, Brain refresh, prices, triage, **weekly review (§6)**, **backfill/auto-capture (§7)** |
+| Weekly review procedure | `.claude/skills/weekly-review/SKILL.md` | The exact steps Claude Code runs each week |
 | Product requirements | `docs/PRD.md` | Problem, jobs, success criteria, architecture, data model |
-| Design system reference | `docs/DESIGN.md` | Color tokens, type scale, spacing, full component inventory + states, known inconsistencies — hand this to a redesign session |
-| Engineering rules + current status | `CLAUDE.md` | Build constraints, design system, data schema — **read this first in a new session** |
-| Ingest backend reference | `ingest/README.md` | Pipeline file-by-file, triage commands, security notes |
-
----
-
-## Build order (recommended, next up first)
-
-1. **Create `start_bot.sh`** — one script: cd + export + launch bot.
-2. **Fix SSL bypass in `bot.py`** — swap the global patch for the
-   `_ssl_context()` pattern already in `fetch_prices.py`.
-3. **Reduce the `unsorted` backlog** — triage with `review.py classify`
-   (~63 tickers currently waiting).
-4. **Evaluate a self-serve Brain backend** that doesn't need a paid API key.
-5. **Make.com setup** — when manual forwarding becomes a chore.
-6. **Watchlist/empty-state polish** — items 5–6 above under "Current issues" and item 4 under "Discussed but not yet built."
+| Design system reference | `docs/DESIGN.md` | Tokens, components, states |
+| Engineering rules + status | `CLAUDE.md` | **Read first in a new session** |
+| Ingest backend reference | `ingest/README.md` | Pipeline file-by-file |
 
 ---
 
@@ -152,20 +138,23 @@ You open index.html (file://, no server needed)
 data.js loaded first (window.AIE_DATA — single source of truth)
        ↓
 App reads tickers / theses / settings from localStorage
+(tiers + desk verdicts arrive stamped on tickers, radar hidden by default)
 
 ─── Ingest pipeline (runs separately, locally) ──────────────────
-  Telegram bot  →  bot.py
+  Telegram bot  →  bot.py → fetcher.py → parser.py
                       ↓
-                  fetcher.py  (fxtwitter, URL-only messages)
+                  store/*.json  (theses, tickers, pending)
                       ↓
-                  parser.py  (extract tickers, conviction)
-                      ↓
-                  store/*.json  (theses, tickers, priorities)
+                  scorer.py  (priorities + Core/Watch/Radar tiers)
                       ↓          ↘
-                      ↓        synthesize.py (Brain — needs API key or manual run)
+                      ↓        synthesize.py  (Brain — per-theme digests)
+                      ↓        verdicts.json  (Desk — Claude's weekly per-name view)
                       ↓          ↙
                   generate_data_js.py  →  data.js
 ─────────────────────────────────────────────────────────────────
        ↓
 Hard refresh app → data.js re-seeded into localStorage → UI updates
+
+Weekly: open Claude Code → "run the weekly review" → the right side of
+this diagram executes end-to-end.
 ```

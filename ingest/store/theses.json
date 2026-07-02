@@ -1180,5 +1180,36 @@
     ],
     "conviction": "normal",
     "tags": []
+  },
+  {
+    "id": "h_5f5562877c6dc64a",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-02T14:28:52Z",
+    "ingestedAt": "2026-07-02T14:28:52Z",
+    "text": "I just realized Boston Dynamics CEO shared the same sentiment:\n\n“Robotics is next. America’s next 250 years will be built by robots”.\n\nHowever, currently China accounts for 54%+ of all global robotics deployments.\n\n- calls for Internet scaleable database of physical world (kinda got reminded of Niantic that has a huge dataset from Pokemon Go)\n\n- dedicated National robotics strategy to compete against China’s leadership in this space\n\n-  ISO + regulation for robotics safety \n\nThis is all high level:\n\nBut my prioritize thought process is how do we support and scale a Made in USA supply chain for robotics/humanoids?\n\nI’ve been hammering home rare earths for the longest time, that the US isn’t doing enough to subsidize or scale this industry.\n\nBut another thing to take note is subsidies for components, forcing \n$TSLA\n and others to use Chinese suppliers over Western ones, even if assembly is done in USA… to keep costs down.\n\nWhich is why I’ve liked Agility Robotics \n$CCXI\n since they source 75% of parts from the US, despite higher BOM to start out with.\n\nRegardless it’s pretty clear this Robotics is coming and becoming a national security priority:\n\nFrom the days of backflipping humanoid YT videos.",
+    "tickers": [
+      "CCXI",
+      "TSLA"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_e0ec385e3e7eb3ef",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-02T14:29:58Z",
+    "ingestedAt": "2026-07-02T14:29:58Z",
+    "text": "Names like LeaderDrive are at all time highs? Depends on the company of course.\n\nLiquidity works a little differently in America, usually focuses on downstream frontier industries like space, robotics, AI, and such.\n\nIf we look at \n$RKLB\n for space as one example that has premiums relative to revenue.\n\nI’m personally long \n$CCXI\n and have highest concentration in Agility Robotics (NFA). It’s currently around a ~$4.9B valuation.\n\nFigure’s last round was $39B last year, and that was before the increasing interest in humanoids/robotics this year.\n\nThen a large part of \n$TSLA\n $1T+ valuations come from humanoids. \n\nI like companies like LeaderDrive… but usually the downstream players capture the most value in the end. \n\nAnd I find it rare to see one that has public exposure early on.",
+    "tickers": [
+      "CCXI",
+      "RKLB",
+      "TSLA"
+    ],
+    "conviction": "normal",
+    "tags": []
   }
 ]

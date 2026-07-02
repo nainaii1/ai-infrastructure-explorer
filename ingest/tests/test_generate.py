@@ -53,5 +53,28 @@ class TestRenderSafety(unittest.TestCase):
         self.assertEqual(parsed["theses"][0]["text"], hostile)
 
 
+class TestTiersAndDesk(unittest.TestCase):
+    def test_every_ticker_has_a_tier(self):
+        d = gen.build_data()
+        for t in d["tickers"]:
+            self.assertIn(t.get("tier"), ("core", "watch", "radar"), t["ticker"])
+
+    def test_desk_key_present(self):
+        # build_data always exposes a `desk` key; {} until verdicts.json exists.
+        d = gen.build_data()
+        self.assertIn("desk", d)
+        self.assertIsInstance(d["desk"], dict)
+
+    def test_desk_verdicts_stamped_onto_tickers(self):
+        d = gen.build_data()
+        verdicts = (d["desk"].get("verdicts") or [])
+        if not verdicts:
+            self.skipTest("no verdicts in store yet")
+        by_sym = {t["ticker"]: t for t in d["tickers"]}
+        for v in verdicts:
+            if v["ticker"] in by_sym:
+                self.assertEqual(by_sym[v["ticker"]].get("verdict"), v)
+
+
 if __name__ == "__main__":
     unittest.main()

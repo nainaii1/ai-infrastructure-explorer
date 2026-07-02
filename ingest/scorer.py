@@ -12,6 +12,14 @@ from datetime import datetime, timezone
 HALF_LIFE_DAYS = 14.0
 CONVICTION_WEIGHT = 0.5
 
+# Tier thresholds — signal, not price targets. A name is "core" when the
+# author keeps coming back to it (or pounds the table twice), "watch" when
+# there's some repeat/conviction signal, and "radar" for one-off name-drops.
+TIER_CORE_MIN_MENTIONS = 5
+TIER_CORE_MIN_CONVICTION_HITS = 2
+TIER_WATCH_MIN_MENTIONS = 2
+TIER_WATCH_MIN_CONVICTION_HITS = 1
+
 
 def _parse_dt(s):
     if not s:
@@ -61,3 +69,24 @@ def compute_priorities(theses, now=None, half_life_days=HALF_LIFE_DAYS):
 
     ranked.sort(key=lambda r: (r["score"], r["mentions"]), reverse=True)
     return ranked
+
+
+def assign_tiers(symbols, priorities):
+    """Map every symbol to a conviction tier: "core" | "watch" | "radar".
+
+    Pure function over compute_priorities() output. Symbols with no
+    priority row (never mentioned in a thesis) are "radar".
+    """
+    by_symbol = {p["ticker"]: p for p in priorities}
+    tiers = {}
+    for sym in symbols:
+        p = by_symbol.get(sym)
+        mentions = p["mentions"] if p else 0
+        hits = p["convictionHits"] if p else 0
+        if mentions >= TIER_CORE_MIN_MENTIONS or hits >= TIER_CORE_MIN_CONVICTION_HITS:
+            tiers[sym] = "core"
+        elif mentions >= TIER_WATCH_MIN_MENTIONS or hits >= TIER_WATCH_MIN_CONVICTION_HITS:
+            tiers[sym] = "watch"
+        else:
+            tiers[sym] = "radar"
+    return tiers
