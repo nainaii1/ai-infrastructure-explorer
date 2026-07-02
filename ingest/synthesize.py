@@ -174,6 +174,29 @@ def validate_digest(raw, cid, allowed_tickers):
     }
 
 
+def compute_daily_mentions(theses, digests):
+    """Attach a `dailyMentions: {days, counts}` trend series to each digest.
+
+    `days` is the sorted set of dates across ALL theses (not just this
+    category) so every digest's sparkline shares one x-axis. Returns a NEW
+    list of NEW digest dicts; never mutates the inputs. Pure/deterministic.
+    """
+    date_by_id = {th["id"]: (th.get("postedAt") or "")[:10] for th in theses}
+    days = sorted({d for d in date_by_id.values() if d})
+
+    result = []
+    for digest in digests:
+        counts = {}
+        for tid in digest.get("sourceThesisIds", []):
+            d = date_by_id.get(tid)
+            if d:
+                counts[d] = counts.get(d, 0) + 1
+        merged = dict(digest)
+        merged["dailyMentions"] = {"days": days, "counts": [counts.get(d, 0) for d in days]}
+        result.append(merged)
+    return result
+
+
 def empty_digest(cid):
     """A digest for a theme with no theses (e.g. glass/networking)."""
     return {
@@ -370,6 +393,7 @@ def run(dry_run=False, only=None, model=None):
 
     brain = synthesize_all(theses, tickers, categories, call_fn, model=model,
                            only=only, prev_digests=prev)
+    brain = dict(brain, digests=compute_daily_mentions(theses, brain["digests"]))
     _save("brain.json", brain)
     gen.write_data_js()
     print(json.dumps(brain["meta"], indent=2))
