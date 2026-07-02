@@ -17,7 +17,7 @@
       "MU",
       "NBIS",
       "POET",
-      "SIVEF",
+      "SIVE",
       "TSLA",
       "TSM"
     ],
@@ -134,7 +134,7 @@
     "text": "I'm trying a new research style going through trade records for fun, in case I find anything random. \n\neg. Starlink direct suppliers:\n\nEson Precision - ($585M, 5243)\nLite-On - (way too many times for power, $16B)\nMeiko - $4.94B\nLens Technology - 300433\nCompeq - $10.36B (I covered this awhile back for spacex)\nChicony Power Technology - $1.13B (never heard of this one)\nFoxconn Interconnect - $7.48B\nDISCO (6146) - oh hey\nE&R (8027) - $758.73M (was looking at this with $LPK)\n\nlot of noise, lot of names, but it's fun\n\n3 stocks to buy forget the next 10 years \n$rklb, $sive, $intc",
     "tickers": [
       "INTC",
-      "LPK",
+      "LPK.DE",
       "RKLB",
       "SIVE"
     ],
@@ -196,7 +196,7 @@
     "ingestedAt": "2026-06-27T15:41:34Z",
     "text": "Four critical themes for h2 2026 if you want long ideas:\n\n1. CPO, #1 #1 #1 #1 favorite theme. I cannot stress how much markets misunderstand this. \n\nEveryone I've talked in SV are privately funding optical startups right now and it's a big signal of what's to come. \n\n2. 800 VDC power semis. I think other analysts kinda convinced me on this. \n\nI was in \n$NVTS\n for a tiny bit, low concentration. But this almost doubled to my surprise. But after doing more research, it's a pretty seismic shift in terms of what players become important\n\n3. Physical AI Humanoids/Robotics. As you know \n$VPG\n basically tripled, and there's a lot of other players I've been trying to find longs on.\n\nMost downstream of interest are private sector... Then components are mainly in China/Japan. \n\n4. Maybe Glass Substrate / advanced packaging stuff still eg. $LPK. Memory got pushed down on the list given how much players have re-rated recently, lot of opportunity still with niche hbm4 players.",
     "tickers": [
-      "LPK",
+      "LPK.DE",
       "NVTS",
       "VPG"
     ],
@@ -765,7 +765,7 @@
       "COHR",
       "JBL",
       "LITE",
-      "LPK",
+      "LPK.DE",
       "MU",
       "NBIS",
       "POET",
@@ -1208,6 +1208,166 @@
       "CCXI",
       "RKLB",
       "TSLA"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_dd8a7c3f97835b36",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-02T20:29:15Z",
+    "ingestedAt": "2026-07-02T20:29:15Z",
+    "text": "I'm not sure if people remember this but $SIVE went up +70% in a day off \n$GFS\n news. And \n$AAOI\n has random +20-30% days. \n\nThey're also capable of doing the opposite. \n\nPhotonics sector are very volatile, but directionally they follow fundamentals in the long run.",
+    "tickers": [
+      "AAOI",
+      "GFS",
+      "SIVE"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_a842f7dae9f29970",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-02T20:30:12Z",
+    "ingestedAt": "2026-07-02T20:30:12Z",
+    "text": "Photonics is backed by actual revenue numbers and it's an architectural shift championed by \n$NVDA\n.\n\nQuantum barely has any revenue.\n\n$LITE\n is completely sold out for the next 2 years (per \n$POET\n AGM) likely starting into 2029. Lumentum is so strained that they buy CW lasers off competitors (earnings transcript)\n\n$COHR\n is bottlenecked, so they buy EML off Lumentum.\n\nThen, \n$AAOI\n is coming in with Made-in-America independent CW capacity, are projecting $1.4B/quarterly revenue ending H1 2027 of a stupid $9.3B MC today. \n\nSo all the CW capacity from independent players who have it now like \n$AAOI\n or $SIVE are likely to become scarce resources.\n\nMany other hyperscalers have already started LTA discussions (per Trendforce). And players like \n$AMD\n are currently talking with players such as \n$AAOI\n (Rosenblatt channel checks).\n\nThematically, next 2 years is 9x TAM to US$154B per GS reports, especially with 16x/45x dollar content increase in scale out/scale up.\n\nThen there's the overall thematic AI drop from \n$META\n, which is widely misunderstood because people conflate what \"excess capacity\" means. And as UBS mentioned, Meta planning a cloud offering is NOT NEW NEWS.\n\nBloomberg just has a tendency to publish information that causes doom drops across the semi sector like Nvidia export controls a few months back. \n\nBut I'm familiar with what I'm holding so I'm confident in these numbers playing out. \n\nEspecially when all the major players are sold out, the fundamentals catch up eventually.",
+    "tickers": [
+      "AAOI",
+      "AMD",
+      "COHR",
+      "LITE",
+      "META",
+      "NVDA",
+      "POET",
+      "SIVE"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_ce3d6e124a66f939",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-02T20:30:53Z",
+    "ingestedAt": "2026-07-02T20:30:53Z",
+    "text": "$SIVE just raised an emergency $70M for mass production likely for allocation from fabs. \n\nWith \n$JBL\n, \n$POET\n, \n$AEVA\n, and others volume ramping near term. \n\nThen \n$GFS\n, Ayar, and many other players are volume ramping later in 2027. \n\nSivers also confirmed intent to complete NASDAQ Listing in the next few quarters. \n\nIt's probably my highest conviction photonics long, everything seems to be coming into place.",
+    "tickers": [
+      "AEVA",
+      "GFS",
+      "JBL",
+      "POET",
+      "SIVE"
+    ],
+    "conviction": "high",
+    "tags": []
+  },
+  {
+    "id": "h_dfc7e2d10819371c",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-02T20:32:33Z",
+    "ingestedAt": "2026-07-02T20:32:33Z",
+    "text": "1. \n$JBL mass producing 1.6T LRO is revenue. \n2 O-Net mass producing ELS is revenue.\n3. $GFS using $SIVE as reference laser for the hyperscalers is revenue. \n4. Ayar joining $NVDA\n NVLink for CPO and using $SIVE for mass production is revenue. \n5. Other pluggable players, potentially Eoptolink/Innolight mass producing pluggables with $SIVE as lasers is revenue. \n6.  $POET entering volume production is revenue.",
+    "tickers": [
+      "GFS",
+      "JBL",
+      "NVDA",
+      "POET",
+      "SIVE"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_3b2f8931edf69462",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-02T20:33:03Z",
+    "ingestedAt": "2026-07-02T20:33:03Z",
+    "text": "After \n$AXTI\n went from $13 to $140, somewhere along the way up they had a massive float expansion along with dilution. \n\nWhich it got approved, so as I mentioned before, I wasn't as comfortable talking about it if there's excessive dilution on retail investors. \n\nBut I do think it's undervalued if they weaponize price hikes like \n$SNDK\n.",
+    "tickers": [
+      "AXTI",
+      "SNDK"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_8c7a27c3b2798b21",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-02T20:34:02Z",
+    "ingestedAt": "2026-07-02T20:34:02Z",
+    "text": "Recent US IPO models have been very stupid like \n$SPCX/ $CBRS\n hiking valuations to absurd numbers before going public.\n\nMore US listings should follow Unitree (which would likely command higher valuations) + China's IPOs like Lightelligence. \n\nThat allow retail access at the same valuations as private investors + access to these companies before they grow... \n\nSo glad \n$CCXI is doing the same. Also, maybe they see more momentum if they start out at lower valuations.",
+    "tickers": [
+      "CBRS",
+      "CCXI",
+      "SPCX"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_295de8df7cc671d3",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-02T20:35:04Z",
+    "ingestedAt": "2026-07-02T20:35:05Z",
+    "text": "Agility Robotics is literally the #1 humanoid player in the US in terms of commercialization today imo. \n\nPersonal Rankings:\n\n1. Agility Robotics via \n$CCXI\n \n2. \n$TSLA\n Optimus ($1T+ company)\n\n3. Figure at $39B from 2025, likely higher now.\n\nWith Tesla likely taking the lead a year from now. So at  $16, you have a ~$4B MC pre-money humanoid player.\n\nWhich is already inside \n$AMZN\n and \n$MELI\n (ideal use cases to start out, before step-functioning to general-use), with \n$AMZN, $NVDA, Softbank, Foxconn, and others as investors.\n\nNFA, but at those valuations... there's direct exposure for the first ever humanoid player today, that's likely further ahead than Figure for commercialization. \n\nNo hard feelings about Robostrategy, but it's over 4x+ NAV: \n\nWhich would value Figure at $156B...  \n\nWhile there's the #1 commercialized humanoid player with Agility at $4B today. \n\nSo my personal preference is \n$CCXI",
+    "tickers": [
+      "AMZN",
+      "CCXI",
+      "MELI",
+      "NVDA",
+      "TSLA"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_15c7a1a2cc1c7180",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-02T20:35:34Z",
+    "ingestedAt": "2026-07-02T20:35:34Z",
+    "text": "Always a fun time seeing semi markets crash from Bloomberg report framing once again…\n\nUBS analyst on \n$META\n report: “this is not new news”.\n\nRegardless:\n\n$AEHR\n down -18.3%\n$AAOI\n down -17.13%\n$SIVEF down -15.4%\n$SNDK\n down -14.8%\n$TER\n down -13.8%\n$GLW\n down -11.4%\n$MRVL\n down -11.2%\n$LITE\n down -10.2%\n$NBIS\n down -7.8%\n\nGetting PTSD from Bloombert’s previous misleading report on AMD/Nvidia global export controls earlier this year that crashed semi stocks.\n\nFYI: Meta doesn’t randomly buy $48B+ worth of neocoud contracts if they overbuilt capacity and can cut capex…\n\nMarkets are stupid sometimes.",
+    "tickers": [
+      "AAOI",
+      "AEHR",
+      "AMD",
+      "GLW",
+      "LITE",
+      "META",
+      "MRVL",
+      "NBIS",
+      "SIVE",
+      "SNDK",
+      "TER"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_775c672292594c21",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-02T20:35:45Z",
+    "ingestedAt": "2026-07-02T20:35:45Z",
+    "text": "Just this hour:\n\nBlueCrest Capital Management and its Billionaire Michael Platt crossed the threshold and disclosed a 5.6% stake in \n$CCXI\n.\n\nI knew Agility Robotics would be popular…",
+    "tickers": [
+      "CCXI"
     ],
     "conviction": "normal",
     "tags": []
