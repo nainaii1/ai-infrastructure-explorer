@@ -4,9 +4,12 @@
 An interactive, offline-first web tool mapping the **AI hardware supply chain** —
 how NVIDIA + the hyperscalers connect to the layers of suppliers beneath them
 (photonics, memory, fabs, neoclouds, materials, networking, glass, accelerators,
-robotics), plus a sourced thesis feed and an AI-synthesized "brain" digest of
-one analyst's (@aleabitoreddit) views. **Four tabs:** Supply Chain Map,
-Watchlist, Thesis, Brain.
+robotics, hyperscalers), plus a sourced thesis feed, an AI-synthesized "brain"
+digest of one analyst's (@aleabitoreddit) views, and a **Desk layer** — Claude's
+weekly second opinion + execution suggestion on the highest-conviction names.
+**Four tabs:** Supply Chain Map, Watchlist, Thesis, Brain. The signal chain is:
+analyst tweets → captured theses → conviction tiers → Claude's desk verdicts →
+operator decision.
 
 This is **not** related to any trading desk or market-brief project. Standalone
 personal research tool. Single-user, local-first. Not investment advice.
@@ -34,12 +37,23 @@ not throwaway config.
   `brain.json`. This keeps output byte-identical to a real API run
   (`sourceThesisIds`, `thesesCount`, ticker-universe filtering, `meta` are all
   stamped by the pipeline, not by hand).
+- **v5 — Conviction tiers + Desk verdicts** ✅ done (2026-07-03). Every ticker
+  gets a tier from `scorer.assign_tiers()` — `core` (repeat mentions or 2+
+  high-conviction hits) / `watch` / `radar` (one-off name-drops). The app
+  defaults to **Signal (Core+Watch)** everywhere; Radar hides behind a toggle.
+  On top sits the **Desk** layer: `ingest/store/verdicts.json` holds Claude's
+  weekly second opinion per Core name (stance `act|accumulate|watch|pass`,
+  view, execution suggestion, what-changes-my-mind, source thesis ids) —
+  rendered as a "Desk" column on the Watchlist and a full verdict block on
+  ticker cards. Refreshed weekly via the **`/weekly-review` project skill**
+  (`.claude/skills/weekly-review/SKILL.md`) in a Claude Code session — no
+  API key needed. Verdicts are capped at the top 12–15 Core names by design
+  (token budget).
 - **Live counts** (approximate, check `ingest/store/*.json` for current):
-  ~83 tickers tracked, ~9 categorized layers + a large `unsorted` triage
-  bucket (auto-added tickers awaiting classification via `review.py
-  classify`), ~70 ingested theses, brain digests synthesized for every
-  category that has theses (networking/glass currently empty — no theses
-  mention their tickers yet).
+  ~83 tickers tracked (20 core / 26 watch / 37 radar), 10 categorized layers
+  + an `unsorted` triage bucket (all Core names are classified; remaining
+  unsorted are Watch/Radar tier), ~72 ingested theses, 13 desk verdicts,
+  brain digests synthesized for every category that has theses.
 - **For full history / open issues / next steps:** see `docs/ROADMAP.md`
   (living doc, update it whenever status changes).
 - **For a full design-system reference** (color tokens, type scale, spacing,
@@ -75,9 +89,12 @@ not throwaway config.
 - Font: system UI stack; data/tickers use a genuine system monospace stack
   (`--mono`, e.g. SF Mono / ui-monospace) — no CDN fonts.
 - Category colors live in `data.js` (`categories[].color`) — see
-  `ingest/store/base.json` for the current 9: Photonics `#3b82f6`, Memory
+  `ingest/store/base.json` for the current 10: Photonics `#3b82f6`, Memory
   `#8b5cf6`, Fabs `#f59e0b`, Neoclouds `#22c55e`, Materials `#f97316`,
-  Networking `#14b8a6`, Glass `#0ea5e9`, Robotics `#e11d48`, Accelerators `#76b900`.
+  Networking `#14b8a6`, Glass `#0ea5e9`, Robotics `#e11d48`, Accelerators
+  `#76b900`, Hyperscalers `#6366f1`.
+- Tier badges: core `#dcfce7/#15803d`, watch `#fef3c7/#b45309`, radar muted.
+  Desk stances: act green, accumulate sky, watch amber, pass muted.
 - **3px gradient top border** spanning all category colors, left → right,
   across the full app width (`.gradient-border`).
 - ⚡ favicon via inline SVG data URI in `<head>` (no external request, `file://`-safe).
@@ -116,10 +133,14 @@ so newly-ingested tickers and theses surface. Categories / center / countries
   zones:      [ { id, label }, ... ],                 // ordered Demand -> Chip -> Supply groups
   tickers:    [ { ticker, company, category, market, exchange, whatTheyDo,
                   whyNVDA, marketCapTier, rating, sourceTweetUrl, addedDate,
+                  tier: "core"|"watch"|"radar",   // stamped from scorer.assign_tiers()
                   // optional, merged from prices.json:
                   price, currency, chg7d, chg1m, marketCap, asOf,
                   // optional, merged from scorer.py:
-                  priority: { score, mentions, convictionHits, lastMentioned } } ],
+                  priority: { score, mentions, convictionHits, lastMentioned },
+                  // optional, stamped from verdicts.json (Core names only):
+                  verdict: { ticker, stance, view, execution, changesMind,
+                             basedOnThesisIds[], updatedAt } } ],
   theses:     [ { id, source, author, sourceUrl, postedAt, ingestedAt, text,
                   tickers[], conviction, tags[] } ],
   priorities: [ { ticker, score, mentions, convictionHits, lastMentioned } ],
@@ -127,13 +148,23 @@ so newly-ingested tickers and theses surface. Categories / center / countries
                         categoriesSynthesized, schemaVersion, failures? },
                 digests: [ { category, narrative, conviction, keyPoints[],
                              tickers[], sourceThesisIds[], thesesCount,
-                             lastSynthesized } ] }
+                             lastSynthesized } ] },
+  desk:       { meta: { reviewedAt, reviewer, thesesConsidered, coverage,
+                        cadence, disclaimer },
+                verdicts: [ { ticker, stance: "act"|"accumulate"|"watch"|"pass",
+                              view, execution, changesMind,
+                              basedOnThesisIds[], updatedAt } ] }
 }
 ```
 - `category` → a key in `AIE_DATA.categories` (currently: `photonics | memory |
   fabs | neoclouds | materials | networking | glass | robotics | accelerators
-  | unsorted`). `unsorted` is a triage bucket, not a real theme — excluded
-  from Brain synthesis.
+  | hyperscalers | unsorted`). `unsorted` is a triage bucket, not a real
+  theme — excluded from Brain synthesis.
+- `tier` → conviction tier from `scorer.assign_tiers()`. The UI treats
+  `radar` as hidden-by-default (map card grid, watchlist "Signal" filter).
+- `desk` → Claude's weekly per-ticker verdicts (`store/verdicts.json`,
+  authored by the `/weekly-review` skill; the only store file authored
+  directly rather than through a pipeline script).
 - `market` → a key in `AIE_DATA.countries`; render the flag via
   `countries[market].flag`.
 - `marketCapTier` → `Mega | Large | Mid | Small`.
@@ -174,6 +205,7 @@ ai-supply-desk/
 ├── data.js                     window.AIE_DATA — GENERATED, never hand-edit
 ├── CLAUDE.md                   this file — build spec + current status
 ├── README.md                   quick start + project map
+├── .claude/skills/weekly-review/SKILL.md   the /weekly-review desk procedure
 ├── docs/
 │   ├── GUIDE.md                 how to run everything + FAQ / troubleshooting (read first if stuck)
 │   ├── PRD.md                   product requirements
@@ -187,7 +219,7 @@ ai-supply-desk/
     ├── fetch_prices.py          weekly Yahoo price fetch
     ├── serve.py                 tiny local server (Yahoo fetch needs http://, not file://)
     ├── parser.py / scorer.py / fetcher.py / review.py / generate_data_js.py
-    ├── store/*.json             source of truth (base, tickers, theses, brain, pending_tickers, prices)
+    ├── store/*.json             source of truth (base, tickers, theses, brain, verdicts, pending_tickers, prices)
     ├── tests/                   unittest suite — python3 -m unittest discover -s ingest/tests
     ├── .env.example              copy to .env, fill in tokens/keys (gitignored)
     └── requirements.txt

@@ -137,6 +137,60 @@ from the store entirely.
 
 ---
 
+## 6. The weekly desk review (tiers + Claude's verdicts)
+
+Once a week, open Claude Code in this project and say **"run the weekly
+review"** (it's a project skill: `.claude/skills/weekly-review/SKILL.md`).
+In one pass it refreshes prices, re-tiers every ticker
+(Core / Watch / Radar), refreshes Brain digests for themes with new theses,
+and rewrites **Claude's desk verdicts** — a second opinion on each Core name
+with a stance (`act / accumulate / watch / pass`), an execution suggestion,
+and "what changes my mind", each citing the source theses.
+
+Where it shows up in the app:
+- **Watchlist** — tier filter chips (defaults to *Signal = Core + Watch*),
+  a sortable **Desk** column, and a provenance line ("Desk verdicts reviewed
+  \<date\>").
+- **Supply Chain Map** — ticker cards get a tier badge and, for Core names,
+  the full "Claude's desk view" block; Radar names are hidden behind a
+  "Show N radar names" toggle.
+
+Verdicts live in `ingest/store/verdicts.json` (the only store file the
+review authors directly) and are capped at the **top 12–15 Core names** to
+keep each weekly session cheap. Everything is regenerated into `data.js`
+through the normal pipeline — never hand-edit `data.js`.
+
+## 7. Backfill & auto-capture (getting posts in with less manual work)
+
+**Backfill from your existing signal bots.** If you already follow
+@aleabitoreddit alert bots on Telegram, just **forward their messages to
+your ingest bot** — `bot.py` reads forwarded text exactly like a pasted
+tweet, and URL-only forwards get auto-fetched via fxtwitter. Work backwards
+through the signal bot's history a screen at a time; duplicates are cheap to
+ignore and the priority scorer is recency-weighted anyway.
+
+**Why your bot can't auto-read those alert bots:** Telegram's Bot API
+deliberately prevents bots from seeing other bots' messages, even in the
+same group. So "add my bot to the alert channel and let it ingest
+automatically" does not work. The two real options:
+
+1. **Keep forwarding (recommended for now).** Zero code, ~seconds per post,
+   and you stay the editorial filter for what enters the corpus.
+2. **A userbot watcher (`ingest/watcher.py`, not built yet).** A
+   [Telethon](https://docs.telethon.dev) script logged in as *your user
+   account* (not a bot) can read the alert-bot chats you subscribe to and
+   pipe new posts into the same ingest path. This is the true
+   automation path — roadmap item; ask Claude Code to build it when
+   forwarding becomes a chore. Caveats: needs a Telegram API id/hash from
+   my.telegram.org stored in `ingest/.env`, and account-level automation
+   sits in a greyer zone of Telegram's ToS than bots do.
+
+**Alerts when he tweets:** you already have this — your existing signal
+bots *are* the alert layer. Building our own watcher on X itself would need
+paid API access or scraping; not worth it while the signal bots work.
+
+---
+
 ## FAQ / Troubleshooting
 
 ### "I sent a message to the bot and nothing replied."
