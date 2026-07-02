@@ -42,6 +42,9 @@ not throwaway config.
   mention their tickers yet).
 - **For full history / open issues / next steps:** see `docs/ROADMAP.md`
   (living doc, update it whenever status changes).
+- **For a full design-system reference** (color tokens, type scale, spacing,
+  every component + its states, known inconsistencies) before doing any
+  visual redesign work: see `docs/DESIGN.md`.
 
 ## Hard rules (do not break these)
 1. **Vanilla HTML / CSS / JS only** in the app. No React, no Tailwind, no
@@ -142,21 +145,27 @@ so newly-ingested tickers and theses surface. Categories / center / countries
   `python3 ingest/review.py classify <SYM> --category <id> --company "..." ...`
   (regenerates `data.js` automatically).
 
-## Map rendering (current — NOT an SVG arc; that was the original v1 idea, superseded)
-The Supply Chain Map (Tab 1) renders as an HTML-div **vertical flow pipeline**,
-not SVG:
-- `renderLayers()` / `makeLayerBand()` / `makeZoneDivider()` in `index.html`
-  build the stack from `AIE_DATA.categories` + `AIE_DATA.zones`.
-- Layers are grouped into zones (Demand → Chip → Supply, top to bottom) by
-  `flowRole`, each layer band still ordered within its zone by `layer`
-  (descending). A left-hand "flow rail" with an upward `▲` marker at each zone
-  break visually reads as "flows up into NVIDIA." `unsorted` sits in a muted
-  "Triage" footer below all zones.
-- Click a band → `setFilter(id)` toggles `.is-active`, filters the ticker
-  cards below (`renderCards`), **and** expands a `.layer-detail` panel showing
-  `investorAngle` ("What to watch"). Hover glows the band's rail segment in
-  the category's accent color.
-- "Show All" clears the filter and collapses any open detail panel.
+## Map rendering (current — Pipeline / Cross Section toggle, NOT an SVG arc or
+## the original single vertical stack; both superseded)
+The Supply Chain Map (Tab 1) has two HTML-div views, toggled by a pill button
+(`mapState.view`, `"pipeline" | "cross"`) next to "Show All" — not SVG:
+- **Pipeline** (default) — `renderPipeline()` in `index.html` builds three
+  flex columns (Supply → Chip → Demand, left to right) from
+  `AIE_DATA.categories`, each a vertical stack of `.layer-band` cards (reusing
+  `makeLayerBand()`) sorted by `layer` descending within the column. A dashed
+  SVG arrow (`makeFlowArrow()`) sits between columns. The NVIDIA + Hyperscalers
+  hub renders as a centered dark card below the row. `unsorted` categories
+  (no `flowRole`) drop into a muted "Triage" footer below the hub (reusing
+  `makeZoneDivider()` for the footer label).
+- **Cross Section** — `renderCrossSection()` builds one flex row of bar divs
+  (`.mc-bar`) on a dark blueprint background, bar height proportional to
+  ticker count per category (`counts[id]/maxCount * 170px`).
+- Click a band or bar → `setFilter(id)` toggles `.is-active` (on both
+  `.layer-band[data-cat]` and `.mc-col[data-cat]`), filters the ticker cards
+  below (`renderCards`), and (Pipeline only) expands a `.layer-detail` panel
+  showing `investorAngle` ("What to watch").
+- "Show All" clears the filter. Switching the view toggle calls `renderMap()`,
+  which re-renders whichever view is active and keeps the intro line in sync.
 
 ## File structure
 ```
@@ -169,6 +178,7 @@ ai-supply-desk/
 │   ├── GUIDE.md                 how to run everything + FAQ / troubleshooting (read first if stuck)
 │   ├── PRD.md                   product requirements
 │   ├── ROADMAP.md               what's built / open issues / next steps (living doc)
+│   ├── DESIGN.md                design-system reference (tokens/components) for redesign work
 │   ├── TELEGRAM_SETUP.md        pointer into GUIDE.md
 │   └── images/
 └── ingest/                     THE BACKEND — Python tooling that regenerates data.js

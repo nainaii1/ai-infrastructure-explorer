@@ -226,6 +226,42 @@ class TestSynthesizeAll(unittest.TestCase):
         self.assertEqual(brain["meta"]["thesesConsidered"], 3)
 
 
+class TestComputeDailyMentions(unittest.TestCase):
+    def test_counts_by_day_for_source_theses(self):
+        theses = [
+            thesis("p1", ["AAOI"], posted_at="2026-06-20T00:00:00Z"),
+            thesis("p2", ["AAOI"], posted_at="2026-06-20T00:00:00Z"),
+            thesis("p3", ["AAOI"], posted_at="2026-06-21T00:00:00Z"),
+        ]
+        digests = [{"category": "photonics", "sourceThesisIds": ["p1", "p2", "p3"]}]
+        out = synthesize.compute_daily_mentions(theses, digests)
+        d = out[0]["dailyMentions"]
+        self.assertEqual(d["days"], ["2026-06-20", "2026-06-21"])
+        self.assertEqual(d["counts"], [2, 1])
+
+    def test_days_axis_shared_across_all_theses_not_just_category(self):
+        theses = [
+            thesis("p1", ["AAOI"], posted_at="2026-06-20T00:00:00Z"),
+            thesis("m1", ["MU"], posted_at="2026-06-25T00:00:00Z"),
+        ]
+        digests = [{"category": "photonics", "sourceThesisIds": ["p1"]}]
+        out = synthesize.compute_daily_mentions(theses, digests)
+        self.assertEqual(out[0]["dailyMentions"]["days"], ["2026-06-20", "2026-06-25"])
+        self.assertEqual(out[0]["dailyMentions"]["counts"], [1, 0])
+
+    def test_does_not_mutate_input_digests(self):
+        theses = [thesis("p1", ["AAOI"], posted_at="2026-06-20T00:00:00Z")]
+        digests = [{"category": "photonics", "sourceThesisIds": ["p1"]}]
+        synthesize.compute_daily_mentions(theses, digests)
+        self.assertNotIn("dailyMentions", digests[0])
+
+    def test_empty_digest_gets_zeroed_counts(self):
+        theses = [thesis("p1", ["AAOI"], posted_at="2026-06-20T00:00:00Z")]
+        digests = [{"category": "glass", "sourceThesisIds": []}]
+        out = synthesize.compute_daily_mentions(theses, digests)
+        self.assertEqual(out[0]["dailyMentions"]["counts"], [0])
+
+
 class TestParseDotenv(unittest.TestCase):
     def test_basic_pairs(self):
         self.assertEqual(synthesize._parse_dotenv("A=1\nB=two\n"), {"A": "1", "B": "two"})

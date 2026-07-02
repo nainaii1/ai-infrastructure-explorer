@@ -125,6 +125,7 @@ From an earlier design review session:
 | Operating guide + FAQ | `docs/GUIDE.md` | Bot setup, Brain refresh, price fetch, troubleshooting, ticker triage |
 | Telegram bot setup | `docs/TELEGRAM_SETUP.md` | Pointer into GUIDE.md |
 | Product requirements | `docs/PRD.md` | Problem, jobs, success criteria, architecture, data model |
+| Design system reference | `docs/DESIGN.md` | Color tokens, type scale, spacing, full component inventory + states, known inconsistencies — hand this to a redesign session |
 | Engineering rules + current status | `CLAUDE.md` | Build constraints, design system, data schema — **read this first in a new session** |
 | Ingest backend reference | `ingest/README.md` | Pipeline file-by-file, triage commands, security notes |
 

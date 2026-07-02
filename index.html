@@ -206,12 +206,21 @@
     .map-show-all:hover { color: var(--text); border-color: var(--muted); }
     .map-show-all:focus-visible { outline: 2px solid var(--muted); outline-offset: 2px; }
 
-    /* ---------- Value-chain layer stack (replaces the SVG map) ---------- */
-    .layer-stack {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
+    .map-header-actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+
+    /* ---------- Pipeline view: 3 flow columns (Supply -> Chip -> Demand) ---------- */
+    .map-pipeline { display: flex; flex-direction: column; gap: 18px; }
+    .map-pipeline[hidden] { display: none; }
+    .mp-columns { display: flex; align-items: flex-start; gap: 14px; }
+    .mp-col { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 10px; }
+    .mp-col-label {
+      font-family: var(--mono); font-size: 10.5px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+      margin-bottom: 2px;
     }
+    .mp-arrow { flex: 0 0 auto; align-self: center; padding-top: 46px; color: var(--muted); }
+    .mp-hub { display: flex; justify-content: center; }
+    .mp-hub .layer-hub { width: 100%; max-width: 420px; }
 
     /* A layer band. Accent color is set inline from data.js (--accent). */
     .layer-band {
@@ -300,25 +309,35 @@
       max-width: 72ch;
     }
 
-    /* The stack reads as a vertical pipeline: a flow rail runs down the left
-       gutter (brighter at the top = "flows up into NVIDIA"); bands sit to its right. */
-    .layer-stack { position: relative; padding-left: 26px; }
-    .layer-stack::before {
-      content: "";
-      position: absolute;
-      left: 9px;
-      top: 10px;
-      bottom: 10px;
-      width: 2px;
-      border-radius: 2px;
-      background: linear-gradient(
-        to top,
-        color-mix(in srgb, var(--ink) 16%, transparent),
-        color-mix(in srgb, var(--ink) 52%, transparent)
-      );
+    /* ---------- Cross Section view: blueprint-style bar chart ---------- */
+    .map-cross {
+      background: #0f1b2e;
+      border-radius: 12px;
+      padding: 24px 20px 18px;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+    .mc-bars { display: flex; align-items: flex-end; gap: 10px; height: 190px; }
+    .mc-col {
+      flex: 1 1 0; min-width: 0; height: 100%;
+      display: flex; flex-direction: column; align-items: center; justify-content: flex-end;
+      gap: 8px; cursor: pointer; border-radius: 6px;
+      transition: transform var(--ease);
+    }
+    .mc-col:hover { transform: translateY(-2px); }
+    .mc-col:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+    .mc-bar { width: 100%; min-height: 4px; border-radius: 4px 4px 0 0; transition: filter var(--ease), outline var(--ease); }
+    .mc-col:hover .mc-bar { filter: brightness(1.15); }
+    .mc-col.is-active .mc-bar { outline: 2px solid #fff; outline-offset: -2px; }
+    .mc-count { font-family: var(--mono); font-size: 11px; color: #e2e8f0; }
+    .mc-label {
+      font-family: var(--mono); font-size: 10px; letter-spacing: 0.05em;
+      color: #94a3b8; text-align: center; line-height: 1.3;
     }
 
-    /* Zone divider: groups the pipeline (Demand / Chip / Supply). */
+    /* Zone divider: groups the pipeline (Demand / Chip / Supply) or a date group. */
     .zone-divider {
       position: relative;
       display: flex;
@@ -542,6 +561,16 @@
       color: var(--text);
     }
 
+    /* Sparkline — deterministic per-seed synthetic trend (placeholder until
+       real daily price history lands). Shared by ticker cards, watchlist rows. */
+    .spark-svg { display: block; overflow: visible; }
+    .spark-path { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+    .tk-trend { display: flex; align-items: center; gap: 8px; color: var(--accent); }
+    .tk-trend-label {
+      font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--muted);
+    }
+
     /* Empty state (e.g. Networking has zero tickers in v1). */
     .cards-empty {
       grid-column: 1 / -1;
@@ -610,6 +639,7 @@
       border-bottom: 1px solid var(--border);
     }
     .th-count { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+    .th-filters { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
     .th-empty {
       padding: 56px 32px; text-align: center;
       background: var(--card); border: 1px solid var(--border); border-radius: 12px;
@@ -671,6 +701,12 @@
     .bd-conviction.high   { background: #dcfce7; color: #15803d; }
     .bd-conviction.medium { background: #fef3c7; color: #b45309; }
     .bd-conviction.low    { background: color-mix(in srgb,#94a3b8 12%,white); color: var(--muted); }
+    .bd-trend { display: flex; align-items: center; gap: 8px; margin: -2px 0 10px; }
+    .bd-trend-label {
+      font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--muted);
+    }
+    .bd-trend-arrow { font-family: var(--mono); font-size: 13px; font-weight: 700; }
     .bd-narrative {
       font-size: 13.5px; line-height: 1.65; color: var(--text);
       white-space: pre-wrap; word-break: break-word; margin: 0 0 10px;
@@ -719,6 +755,44 @@
       font-family: var(--mono); font-size: 12px;
       background: rgba(15, 23, 42, 0.06); padding: 1px 5px; border-radius: 4px;
     }
+    /* Generic view-toggle pill (Flat/Grouped, Pipeline/Cross Section) — same
+       aria-selected pattern as the tab nav. */
+    .view-toggle {
+      display: inline-flex; gap: 3px; background: var(--card);
+      border: 1px solid var(--border); border-radius: 8px; padding: 3px;
+    }
+    .vt-btn {
+      appearance: none; background: none; border: none; font: inherit;
+      font-size: 12.5px; font-weight: 600; color: var(--muted);
+      padding: 5px 12px; border-radius: 6px; cursor: pointer;
+      transition: background var(--ease), color var(--ease);
+    }
+    .vt-btn:hover { color: var(--text); }
+    .vt-btn[aria-selected="true"] { background: var(--ink); color: #fff; }
+    .vt-btn:focus-visible { outline: 2px solid var(--muted); outline-offset: 2px; }
+
+    /* Generic filter chip — category filters on Watchlist + Thesis. */
+    .filter-chip {
+      appearance: none; background: var(--card); border: 1px solid var(--border);
+      border-radius: 999px; color: var(--muted); font: inherit; font-size: 12px;
+      font-weight: 600; padding: 5px 12px; cursor: pointer;
+      transition: color var(--ease), border-color var(--ease), background var(--ease);
+    }
+    .filter-chip:hover { color: var(--text); border-color: var(--muted); }
+    .filter-chip.is-active {
+      color: #fff; background: var(--chip-accent, var(--ink));
+      border-color: var(--chip-accent, var(--ink));
+    }
+    .filter-chip:focus-visible { outline: 2px solid var(--muted); outline-offset: 2px; }
+
+    .wl-controls { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 14px; }
+    .wl-filters { display: flex; flex-wrap: wrap; gap: 6px; }
+    .wl-table thead th.wl-nosort { cursor: default; }
+    .wl-subtotal td {
+      font-family: var(--mono); font-size: 11.5px; color: var(--text);
+      padding-top: 8px; padding-bottom: 8px;
+    }
+
     .wl-table-wrap {
       overflow-x: auto; border: 1px solid var(--border);
       border-radius: 12px; background: var(--card);
@@ -767,6 +841,9 @@
       /* Layer bands: let content wrap; count drops below the title block. */
       .layer-band { flex-wrap: wrap; align-items: flex-start; gap: 8px 14px; }
       .layer-count { margin-left: 52px; }
+      /* Pipeline columns stack vertically; flow arrows rotate to point down. */
+      .mp-columns { flex-direction: column; }
+      .mp-arrow { align-self: flex-start; padding: 0 0 0 9px; transform: rotate(90deg); }
     }
   </style>
 </head>
@@ -829,18 +906,27 @@
         <div class="map-section">
           <div class="map-header">
             <h2>Supply Chain Map</h2>
-            <button type="button" class="map-show-all" id="mapShowAll">Show All</button>
+            <div class="map-header-actions">
+              <div class="view-toggle" id="mapViewToggle" role="tablist" aria-label="Map view">
+                <button type="button" class="vt-btn" data-view="pipeline" aria-selected="true">Pipeline</button>
+                <button type="button" class="vt-btn" data-view="cross" aria-selected="false">Cross Section</button>
+              </div>
+              <button type="button" class="map-show-all" id="mapShowAll">Show All</button>
+            </div>
           </div>
           <!-- "How to read this map" — copy comes from AIE_DATA.mapIntro (rule #4). -->
           <p class="map-intro" id="mapIntro"></p>
-          <!-- Value-chain layers, built by renderLayers() from AIE_DATA, grouped
-               into Demand / Chip / Supply zones. Demand hub on top; inputs below. -->
+          <!-- Pipeline view: three flow columns (Supply -> Chip -> Demand),
+               built by renderPipeline() from AIE_DATA. -->
           <div
-            class="layer-stack"
-            id="layerStack"
+            class="map-pipeline"
+            id="mapPipeline"
             role="list"
-            aria-label="AI hardware value chain, demand at top to foundational inputs at bottom."
+            aria-label="AI hardware value chain, grouped by flow role."
           ></div>
+          <!-- Cross Section view: a blueprint-style bar chart of ticker counts
+               per category, built by renderCrossSection() from AIE_DATA. -->
+          <div class="map-cross" id="mapCross" hidden></div>
         </div>
 
         <!-- Section B: ticker cards. Built by renderCards() from the
@@ -875,6 +961,13 @@
               <button type="button" class="wl-fetch" id="wlFetch">Fetch prices</button>
             </div>
           </div>
+          <div class="wl-controls">
+            <div class="view-toggle" id="wlViewToggle" role="tablist" aria-label="Watchlist view">
+              <button type="button" class="vt-btn" data-view="flat" aria-selected="true">Flat</button>
+              <button type="button" class="vt-btn" data-view="grouped" aria-selected="false">Grouped</button>
+            </div>
+            <div class="wl-filters" id="wlFilters"></div>
+          </div>
           <div class="wl-hint" id="wlHint" hidden></div>
           <div class="wl-table-wrap">
             <table class="wl-table">
@@ -887,6 +980,7 @@
                   <th data-key="chg7d" class="num">7D</th>
                   <th data-key="chg1m" class="num">1M</th>
                   <th data-key="marketCap" class="num">Mkt Cap</th>
+                  <th class="wl-nosort">Trend (sample)</th>
                   <th data-key="rating">Rating</th>
                 </tr>
               </thead>
@@ -910,7 +1004,8 @@
           </div>
           <span class="th-count" id="thCount"></span>
         </div>
-        <div id="thFeed"></div>
+        <div class="th-filters" id="thFilters"></div>
+        <div class="th-feed" id="thFeed"></div>
       </section>
 
       <!-- Tab 4: Brain. Synthesized per-theme digests, built by renderBrain()
@@ -1039,6 +1134,70 @@
       }
 
       /* ----------------------------------------------------------
+         Sparkline — deterministic per-seed synthetic trend line, used
+         as a "Trend (sample)" placeholder until real daily price/mention
+         history is wired in. Same seed always draws the same shape.
+         ---------------------------------------------------------- */
+      function mulberry32(seed) {
+        var t = seed >>> 0;
+        return function () {
+          t += 0x6D2B79F5;
+          var r = Math.imul(t ^ (t >>> 15), 1 | t);
+          r ^= r + Math.imul(r ^ (r >>> 7), 61 | r);
+          return ((r ^ (r >>> 14)) >>> 0) / 4294967296;
+        };
+      }
+      function hashStr(str) {
+        var h = 0;
+        for (var i = 0; i < str.length; i++) h = (Math.imul(31, h) + str.charCodeAt(i)) | 0;
+        return Math.abs(h);
+      }
+      function sparkValues(seedStr, n) {
+        var rng = mulberry32(hashStr(seedStr));
+        var v = 50, out = [];
+        for (var i = 0; i < n; i++) { v += (rng() - 0.48) * 14; v = Math.max(8, Math.min(92, v)); out.push(v); }
+        return out;
+      }
+      function sparkPath(values, w, h) {
+        var step = w / (values.length - 1);
+        return "M" + values.map(function (v, i) {
+          return (i * step).toFixed(1) + "," + (h - (v / 100) * h).toFixed(1);
+        }).join(" L");
+      }
+      // Build an inline <svg><path> sparkline seeded from `seedStr` (e.g. a ticker symbol).
+      function sparkSVG(seedStr, w, h) {
+        var ns = "http://www.w3.org/2000/svg";
+        var svg = document.createElementNS(ns, "svg");
+        svg.setAttribute("viewBox", "0 0 " + w + " " + h);
+        svg.setAttribute("width", w);
+        svg.setAttribute("height", h);
+        svg.setAttribute("aria-hidden", "true");
+        svg.classList.add("spark-svg");
+        var path = document.createElementNS(ns, "path");
+        path.setAttribute("d", sparkPath(sparkValues(seedStr, 16), w, h));
+        path.setAttribute("class", "spark-path");
+        svg.appendChild(path);
+        return svg;
+      }
+      // Scale small integer counts (e.g. daily mention counts) onto the same
+      // 8-92 visual range sparkValues() uses, so the line isn't flat-lined.
+      function countsToSparkPath(counts, w, h) {
+        var max = Math.max.apply(null, counts.concat([1]));
+        var scaled = counts.map(function (c) { return 8 + (c / max) * 84; });
+        return sparkPath(scaled, w, h);
+      }
+      // ↑/↓/→ by comparing the sum of the first half of a count series vs the second half.
+      function trendArrow(counts) {
+        if (!counts || counts.length < 2) return "→";
+        var mid = Math.floor(counts.length / 2);
+        var first = counts.slice(0, mid).reduce(function (a, b) { return a + b; }, 0);
+        var second = counts.slice(mid).reduce(function (a, b) { return a + b; }, 0);
+        if (second > first) return "↑";
+        if (second < first) return "↓";
+        return "→";
+      }
+
+      /* ----------------------------------------------------------
          Tab switching with fade transition.
          ---------------------------------------------------------- */
       function initTabs() {
@@ -1077,7 +1236,7 @@
          ordering comes from each category's `layer` field.
          Clicking a layer filters the ticker cards in Section B.
          ---------------------------------------------------------- */
-      var mapState = { selectedId: null };
+      var mapState = { selectedId: null, view: "pipeline" };
 
       function getCategoryCounts() {
         var counts = {};
@@ -1128,68 +1287,157 @@
         return div;
       }
 
-      function renderLayers() {
-        var stack = document.getElementById("layerStack");
-        if (!stack || !DATA || !DATA.categories || !DATA.center) return;
-        stack.innerHTML = "";
+      // A small dashed flow-arrow between pipeline columns.
+      function makeFlowArrow() {
+        var wrap = el("div", "mp-arrow");
+        wrap.innerHTML = '<svg width="28" height="16" viewBox="0 0 28 16" aria-hidden="true">'
+          + '<line x1="1" y1="8" x2="20" y2="8" stroke="currentColor" stroke-width="2" stroke-dasharray="3 3"/>'
+          + '<path d="M15 2 L23 8 L15 14" fill="none" stroke="currentColor" stroke-width="2" '
+          + 'stroke-linejoin="round" stroke-linecap="round"/></svg>';
+        return wrap;
+      }
 
-        // Intro line ("how to read this map") — copy lives in data.js (rule #4).
-        var intro = document.getElementById("mapIntro");
-        if (intro) intro.textContent = DATA.mapIntro || "";
+      // Build one interactive, filterable layer band for a category id, appended to `container`.
+      function appendLayerBand(container, id, counts) {
+        var c = DATA.categories[id];
+        var band = makeLayerBand({
+          id: id,
+          indexLabel: "L" + (c.layer != null ? c.layer : "?"),
+          title: c.label, sub: c.subtitle, desc: c.tooltip, angle: c.investorAngle,
+          color: c.color, count: counts[id] || 0
+        });
+        band.setAttribute("tabindex", "0");
+        band.setAttribute("aria-pressed", "false");
+        band.addEventListener("click", function () { setFilter(id); });
+        band.addEventListener("keydown", function (e) {
+          if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setFilter(id); }
+        });
+        container.appendChild(band);
+      }
 
-        // Demand hub pinned at the top (the buyer/demand, not a filter).
-        stack.appendChild(makeLayerBand({
-          isHub: true, indexLabel: "DEMAND",
-          title: DATA.center.title, sub: DATA.center.subtitle, desc: DATA.center.tooltip
-        }));
+      /* Pipeline view — three flex columns (Supply -> Chip -> Demand), each a
+         vertical stack of .layer-band cards sorted by `layer`; the NVIDIA +
+         Hyperscalers hub sits centered below the row. */
+      function renderPipeline() {
+        var root = document.getElementById("mapPipeline");
+        if (!root || !DATA || !DATA.categories || !DATA.center) return;
+        root.innerHTML = "";
 
         var counts = getCategoryCounts();
-        // Sort by `layer` descending so layer 1 (foundation) sits at the bottom.
         var byLayerDesc = function (a, b) {
           return (DATA.categories[b].layer || 0) - (DATA.categories[a].layer || 0);
         };
 
-        // Build one interactive, filterable layer band for a category id.
-        function appendLayer(id) {
-          var c = DATA.categories[id];
-          var band = makeLayerBand({
-            id: id,
-            indexLabel: "L" + (c.layer != null ? c.layer : "?"),
-            title: c.label, sub: c.subtitle, desc: c.tooltip, angle: c.investorAngle,
-            color: c.color, count: counts[id] || 0
-          });
-          band.setAttribute("tabindex", "0");
-          band.setAttribute("aria-pressed", "false");
-          band.addEventListener("click", function () { setFilter(id); });
-          band.addEventListener("keydown", function (e) {
-            if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setFilter(id); }
-          });
-          stack.appendChild(band);
-        }
-
-        // Group layers into flow zones (Demand → Chip → Supply), top to bottom.
+        var cols = el("div", "mp-columns");
+        var order = [
+          { role: "supply", label: "Supply" },
+          { role: "chip", label: "Chip" },
+          { role: "demand", label: "Demand" }
+        ];
         var placed = {};
-        var zones = DATA.zones || [];
-        zones.forEach(function (zone) {
+        order.forEach(function (o, i) {
+          if (i > 0) cols.appendChild(makeFlowArrow());
+          var col = el("div", "mp-col");
+          col.setAttribute("role", "list");
+          col.appendChild(el("span", "mp-col-label", o.label));
           var ids = Object.keys(DATA.categories).filter(function (id) {
-            return DATA.categories[id].flowRole === zone.id;
+            return DATA.categories[id].flowRole === o.role;
           }).sort(byLayerDesc);
-          if (!ids.length) return;
-          stack.appendChild(makeZoneDivider(zone.label));
-          ids.forEach(function (id) { placed[id] = true; appendLayer(id); });
+          ids.forEach(function (id) { placed[id] = true; appendLayerBand(col, id, counts); });
+          cols.appendChild(col);
         });
+        root.appendChild(cols);
+
+        var hubWrap = el("div", "mp-hub");
+        hubWrap.appendChild(makeLayerBand({
+          isHub: true, indexLabel: "DEMAND",
+          title: DATA.center.title, sub: DATA.center.subtitle, desc: DATA.center.tooltip
+        }));
+        root.appendChild(hubWrap);
 
         // Anything without a flowRole (e.g. unsorted) drops into a triage footer.
         var leftover = Object.keys(DATA.categories)
           .filter(function (id) { return !placed[id]; })
           .sort(byLayerDesc);
         if (leftover.length) {
-          if (zones.length) {
-            stack.appendChild(makeZoneDivider("Triage · awaiting classification", true));
-          }
-          leftover.forEach(appendLayer);
+          root.appendChild(makeZoneDivider("Triage · awaiting classification", true));
+          var footer = el("div", "mp-col");
+          leftover.forEach(function (id) { appendLayerBand(footer, id, counts); });
+          root.appendChild(footer);
         }
+      }
 
+      /* Cross Section view — one flex row of bar divs on a dark blueprint
+         background, height proportional to ticker count per category. */
+      function renderCrossSection() {
+        var root = document.getElementById("mapCross");
+        if (!root || !DATA || !DATA.categories) return;
+        root.innerHTML = "";
+
+        var counts = getCategoryCounts();
+        var byLayerDesc = function (a, b) {
+          return (DATA.categories[b].layer || 0) - (DATA.categories[a].layer || 0);
+        };
+        var ids = Object.keys(DATA.categories)
+          .filter(function (id) { return DATA.categories[id].flowRole; })
+          .sort(byLayerDesc);
+        var maxCount = Math.max.apply(null, ids.map(function (id) { return counts[id] || 0; }).concat([1]));
+
+        var bars = el("div", "mc-bars");
+        ids.forEach(function (id) {
+          var c = DATA.categories[id];
+          var n = counts[id] || 0;
+          var col = el("div", "mc-col");
+          col.dataset.cat = id;
+          col.setAttribute("tabindex", "0");
+          col.setAttribute("role", "button");
+          col.setAttribute("aria-pressed", "false");
+          col.title = c.label;
+
+          var bar = el("div", "mc-bar");
+          bar.style.height = Math.max(4, (n / maxCount) * 170) + "px";
+          bar.style.background = "color-mix(in srgb, " + c.color + " 55%, #0f1b2e)";
+          col.appendChild(bar);
+          col.appendChild(el("span", "mc-count", String(n)));
+          col.appendChild(el("span", "mc-label", c.label));
+
+          col.addEventListener("click", function () { setFilter(id); });
+          col.addEventListener("keydown", function (e) {
+            if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setFilter(id); }
+          });
+          bars.appendChild(col);
+        });
+        root.appendChild(bars);
+      }
+
+      // Dispatch to the active map view. Both views share the same intro line,
+      // and both wire clicks through setFilter()/renderCards().
+      function renderMap() {
+        var pipelineEl = document.getElementById("mapPipeline");
+        var crossEl = document.getElementById("mapCross");
+        if (!pipelineEl || !crossEl || !DATA) return;
+
+        var intro = document.getElementById("mapIntro");
+        if (intro) intro.textContent = DATA.mapIntro || "";
+
+        if (mapState.view === "cross") {
+          pipelineEl.hidden = true; crossEl.hidden = false;
+          renderCrossSection();
+        } else {
+          crossEl.hidden = true; pipelineEl.hidden = false;
+          renderPipeline();
+        }
+      }
+
+      function initMapViewToggle() {
+        var buttons = Array.prototype.slice.call(document.querySelectorAll("#mapViewToggle .vt-btn"));
+        buttons.forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            mapState.view = btn.getAttribute("data-view");
+            buttons.forEach(function (b) { b.setAttribute("aria-selected", b === btn ? "true" : "false"); });
+            renderMap();
+          });
+        });
         var showAll = document.getElementById("mapShowAll");
         if (showAll) {
           showAll.addEventListener("click", function () { setFilter(null, true); });
@@ -1203,6 +1451,11 @@
           : (mapState.selectedId === id ? null : id);
 
         document.querySelectorAll(".layer-band[data-cat]").forEach(function (b) {
+          var on = b.dataset.cat === mapState.selectedId;
+          b.classList.toggle("is-active", on);
+          b.setAttribute("aria-pressed", on ? "true" : "false");
+        });
+        document.querySelectorAll(".mc-col[data-cat]").forEach(function (b) {
           var on = b.dataset.cat === mapState.selectedId;
           b.classList.toggle("is-active", on);
           b.setAttribute("aria-pressed", on ? "true" : "false");
@@ -1278,6 +1531,14 @@
         tier.appendChild(meter);
         badges.appendChild(tier);
         card.appendChild(badges);
+
+        // Trend (sample) — synthetic sparkline placeholder until real daily
+        // price history lands; seeded from the ticker so it's stable per card.
+        var trend = el("div", "tk-trend");
+        trend.style.setProperty("color", accent);
+        trend.appendChild(el("span", "tk-trend-label", "Trend (sample)"));
+        trend.appendChild(sparkSVG(ticker.ticker, 70, 26));
+        card.appendChild(trend);
 
         // Body: two labeled prose blocks
         var body = el("dl", "tk-body");
@@ -1372,9 +1633,22 @@
          to localStorage. "Fetch prices" calls the local serve.py.
          ---------------------------------------------------------- */
       var WL_RATINGS = ["watch", "owned", "passed"];
-      var wlState = { key: "category", dir: 1 };
+      var wlState = { key: "category", dir: 1, view: "flat", categoryFilter: null };
 
       function wlTickers() { return (DATA && DATA.tickers) ? DATA.tickers.slice() : []; }
+
+      function wlFilteredTickers() {
+        var all = wlTickers();
+        if (!wlState.categoryFilter) return all;
+        return all.filter(function (t) { return t.category === wlState.categoryFilter; });
+      }
+
+      // Categories ordered by their value-chain `layer` field (ascending).
+      function categoriesByLayerAsc() {
+        return Object.keys(DATA.categories).sort(function (a, b) {
+          return (DATA.categories[a].layer || 0) - (DATA.categories[b].layer || 0);
+        });
+      }
 
       function ratingFor(sym) {
         var stored = getStoredTickers().filter(function (t) { return t.ticker === sym; })[0];
@@ -1425,68 +1699,126 @@
         return td;
       }
 
+      function makeWatchlistRow(t) {
+        var cat = DATA.categories[t.category];
+        var tr = document.createElement("tr");
+        tr.style.setProperty("--accent", cat ? cat.color : "#94a3b8");
+
+        var cTd = document.createElement("td");
+        var wrap = el("span", "wl-cat");
+        wrap.appendChild(el("span", "wl-dot"));
+        wrap.appendChild(el("span", "wl-cat-label", cat ? cat.label : (t.category || "—")));
+        cTd.appendChild(wrap); tr.appendChild(cTd);
+
+        var tTd = document.createElement("td"); tTd.appendChild(el("span", "wl-sym", t.ticker)); tr.appendChild(tTd);
+        tr.appendChild(el("td", null, t.company || "—"));
+
+        var pTd = el("td", "num");
+        if (t.price != null) {
+          pTd.appendChild(el("span", "wl-price", fmtNum(t.price, 2)));
+          if (t.currency) pTd.appendChild(el("span", "wl-cur", t.currency));
+        } else { pTd.appendChild(el("span", "wl-muted", "—")); }
+        tr.appendChild(pTd);
+
+        tr.appendChild(pctCell(t.chg7d));
+        tr.appendChild(pctCell(t.chg1m));
+
+        var mTd = el("td", "num");
+        var mc = fmtMcap(t.marketCap);
+        if (mc) { mTd.textContent = mc; }
+        else { mTd.appendChild(el("span", "wl-muted", t.marketCapTier || "—")); }
+        tr.appendChild(mTd);
+
+        // Trend (sample) — synthetic sparkline placeholder until real daily
+        // price history lands.
+        var trendTd = document.createElement("td");
+        trendTd.style.color = cat ? cat.color : "#94a3b8";
+        trendTd.appendChild(sparkSVG(t.ticker, 60, 22));
+        tr.appendChild(trendTd);
+
+        var rTd = document.createElement("td");
+        var sel = document.createElement("select"); sel.className = "wl-rating";
+        WL_RATINGS.forEach(function (opt) {
+          var o = document.createElement("option"); o.value = opt; o.textContent = opt; sel.appendChild(o);
+        });
+        sel.value = ratingFor(t.ticker);
+        sel.addEventListener("change", function () { setRating(t.ticker, sel.value); });
+        rTd.appendChild(sel); tr.appendChild(rTd);
+
+        return tr;
+      }
+
       function renderWatchlist() {
         var body = document.getElementById("wlBody");
         if (!body || !DATA) return;
-        var rows = wlTickers().sort(wlCompare);
+        renderWatchlistFilterChips();
+
+        var filtered = wlFilteredTickers();
 
         var scope = document.getElementById("wlScope");
         if (scope) {
           scope.innerHTML = "";
-          scope.appendChild(el("b", null, String(rows.length)));
-          scope.appendChild(document.createTextNode(rows.length === 1 ? " ticker" : " tickers"));
+          scope.appendChild(el("b", null, String(filtered.length)));
+          scope.appendChild(document.createTextNode(filtered.length === 1 ? " ticker" : " tickers"));
         }
-        var asOf = rows.map(function (t) { return t.asOf; }).filter(Boolean).sort().slice(-1)[0];
+        var asOf = filtered.map(function (t) { return t.asOf; }).filter(Boolean).sort().slice(-1)[0];
         var asOfEl = document.getElementById("wlAsOf");
         if (asOfEl) asOfEl.textContent = asOf ? ("Prices as of " + asOf.slice(0, 10)) : "No prices yet";
 
         body.innerHTML = "";
-        rows.forEach(function (t) {
-          var cat = DATA.categories[t.category];
-          var tr = document.createElement("tr");
-          tr.style.setProperty("--accent", cat ? cat.color : "#94a3b8");
 
-          var cTd = document.createElement("td");
-          var wrap = el("span", "wl-cat");
-          wrap.appendChild(el("span", "wl-dot"));
-          wrap.appendChild(el("span", "wl-cat-label", cat ? cat.label : (t.category || "—")));
-          cTd.appendChild(wrap); tr.appendChild(cTd);
-
-          var tTd = document.createElement("td"); tTd.appendChild(el("span", "wl-sym", t.ticker)); tr.appendChild(tTd);
-          tr.appendChild(el("td", null, t.company || "—"));
-
-          var pTd = el("td", "num");
-          if (t.price != null) {
-            pTd.appendChild(el("span", "wl-price", fmtNum(t.price, 2)));
-            if (t.currency) pTd.appendChild(el("span", "wl-cur", t.currency));
-          } else { pTd.appendChild(el("span", "wl-muted", "—")); }
-          tr.appendChild(pTd);
-
-          tr.appendChild(pctCell(t.chg7d));
-          tr.appendChild(pctCell(t.chg1m));
-
-          var mTd = el("td", "num");
-          var mc = fmtMcap(t.marketCap);
-          if (mc) { mTd.textContent = mc; }
-          else { mTd.appendChild(el("span", "wl-muted", t.marketCapTier || "—")); }
-          tr.appendChild(mTd);
-
-          var rTd = document.createElement("td");
-          var sel = document.createElement("select"); sel.className = "wl-rating";
-          WL_RATINGS.forEach(function (opt) {
-            var o = document.createElement("option"); o.value = opt; o.textContent = opt; sel.appendChild(o);
+        if (wlState.view === "grouped") {
+          categoriesByLayerAsc().forEach(function (catId) {
+            var rows = filtered.filter(function (t) { return t.category === catId; });
+            if (!rows.length) return;
+            var cat = DATA.categories[catId];
+            rows.sort(function (a, b) {
+              var am = (a.priority && a.priority.mentions) || 0;
+              var bm = (b.priority && b.priority.mentions) || 0;
+              if (am !== bm) return bm - am;
+              return a.ticker < b.ticker ? -1 : 1;
+            });
+            var subtotal = document.createElement("tr");
+            subtotal.className = "wl-subtotal";
+            subtotal.style.background = "color-mix(in srgb, " + cat.color + " 6%, white)";
+            var td = document.createElement("td");
+            td.colSpan = 9;
+            td.appendChild(el("b", null, cat.label));
+            td.appendChild(document.createTextNode(" · " + rows.length + (rows.length === 1 ? " ticker" : " tickers")));
+            subtotal.appendChild(td);
+            body.appendChild(subtotal);
+            rows.forEach(function (t) { body.appendChild(makeWatchlistRow(t)); });
           });
-          sel.value = ratingFor(t.ticker);
-          sel.addEventListener("change", function () { setRating(t.ticker, sel.value); });
-          rTd.appendChild(sel); tr.appendChild(rTd);
+        } else {
+          filtered.slice().sort(wlCompare).forEach(function (t) { body.appendChild(makeWatchlistRow(t)); });
+        }
 
-          body.appendChild(tr);
-        });
-
-        // Sort-direction arrow on the active header.
+        // Sort-direction arrow on the active header (flat view only).
         document.querySelectorAll(".wl-table thead th .arrow").forEach(function (a) { a.remove(); });
-        var activeTh = document.querySelector('.wl-table thead th[data-key="' + wlState.key + '"]');
-        if (activeTh) activeTh.appendChild(el("span", "arrow", wlState.dir > 0 ? "▲" : "▼"));
+        if (wlState.view === "flat") {
+          var activeTh = document.querySelector('.wl-table thead th[data-key="' + wlState.key + '"]');
+          if (activeTh) activeTh.appendChild(el("span", "arrow", wlState.dir > 0 ? "▲" : "▼"));
+        }
+      }
+
+      function renderWatchlistFilterChips() {
+        var wrap = document.getElementById("wlFilters");
+        if (!wrap || !DATA) return;
+        wrap.innerHTML = "";
+
+        var allChip = el("button", "filter-chip" + (!wlState.categoryFilter ? " is-active" : ""), "All");
+        allChip.type = "button";
+        allChip.addEventListener("click", function () { wlState.categoryFilter = null; renderWatchlist(); });
+        wrap.appendChild(allChip);
+
+        categoriesByLayerAsc().forEach(function (id) {
+          var c = DATA.categories[id];
+          var chip = el("button", "filter-chip" + (wlState.categoryFilter === id ? " is-active" : ""), c.label);
+          chip.type = "button";
+          chip.style.setProperty("--chip-accent", c.color);
+          chip.addEventListener("click", function () { wlState.categoryFilter = id; renderWatchlist(); });
+          wrap.appendChild(chip);
+        });
       }
 
       function initWatchlistSort() {
@@ -1495,6 +1827,17 @@
             var k = th.getAttribute("data-key");
             if (wlState.key === k) { wlState.dir = -wlState.dir; }
             else { wlState.key = k; wlState.dir = 1; }
+            renderWatchlist();
+          });
+        });
+      }
+
+      function initWatchlistViewToggle() {
+        var buttons = Array.prototype.slice.call(document.querySelectorAll("#wlViewToggle .vt-btn"));
+        buttons.forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            wlState.view = btn.getAttribute("data-view");
+            buttons.forEach(function (b) { b.setAttribute("aria-selected", b === btn ? "true" : "false"); });
             renderWatchlist();
           });
         });
@@ -1545,13 +1888,65 @@
         return cat ? cat.color : null;
       }
 
+      var thState = { categoryFilter: null, highConvictionOnly: false };
+
+      // ticker symbol -> category id, for resolving a thesis's tickers to categories.
+      function tickerCategoryMap() {
+        var map = {};
+        ((DATA && DATA.tickers) || []).forEach(function (t) { map[t.ticker] = t.category; });
+        return map;
+      }
+
+      function thesisMatchesCategory(th, catId, catMap) {
+        if (!catId) return true;
+        return (th.tickers || []).some(function (sym) { return catMap[sym] === catId; });
+      }
+
+      function renderThesisFilterChips() {
+        var wrap = document.getElementById("thFilters");
+        if (!wrap || !DATA) return;
+        wrap.innerHTML = "";
+
+        var allChip = el("button", "filter-chip" + (!thState.categoryFilter ? " is-active" : ""), "All");
+        allChip.type = "button";
+        allChip.addEventListener("click", function () { thState.categoryFilter = null; renderTheses(); });
+        wrap.appendChild(allChip);
+
+        Object.keys(DATA.categories).sort(function (a, b) {
+          return (DATA.categories[a].layer || 0) - (DATA.categories[b].layer || 0);
+        }).forEach(function (id) {
+          var c = DATA.categories[id];
+          var chip = el("button", "filter-chip" + (thState.categoryFilter === id ? " is-active" : ""), c.label);
+          chip.type = "button";
+          chip.style.setProperty("--chip-accent", c.color);
+          chip.addEventListener("click", function () { thState.categoryFilter = id; renderTheses(); });
+          wrap.appendChild(chip);
+        });
+
+        var hc = el("button", "filter-chip" + (thState.highConvictionOnly ? " is-active" : ""), "High conviction only");
+        hc.type = "button";
+        hc.style.setProperty("--chip-accent", "#16a34a");
+        hc.addEventListener("click", function () {
+          thState.highConvictionOnly = !thState.highConvictionOnly;
+          renderTheses();
+        });
+        wrap.appendChild(hc);
+      }
+
       function renderTheses() {
         var feed = document.getElementById("thFeed");
         var scope = document.getElementById("thScope");
         var count = document.getElementById("thCount");
         if (!feed) return;
 
-        var theses = getStoredTheses().slice().sort(function (a, b) {
+        renderThesisFilterChips();
+
+        var allTheses = getStoredTheses();
+        var catMap = tickerCategoryMap();
+        var theses = allTheses.filter(function (th) {
+          if (thState.highConvictionOnly && th.conviction !== "high") return false;
+          return thesisMatchesCategory(th, thState.categoryFilter, catMap);
+        }).sort(function (a, b) {
           var da = a.postedAt || a.ingestedAt || "";
           var db = b.postedAt || b.ingestedAt || "";
           return db < da ? -1 : db > da ? 1 : 0;  // most recent first
@@ -1573,19 +1968,33 @@
         if (!theses.length) {
           var empty = document.createElement("div");
           empty.className = "th-empty";
-          var t = document.createElement("p"); t.className = "th-empty-title";
-          t.textContent = "No theses ingested yet";
-          var s = document.createElement("p"); s.className = "th-empty-sub";
-          s.innerHTML = "Forward a post from @aleabitoreddit to your Telegram bot, or run<br>"
-            + "<code>python3 ingest/bot.py --text \"$AAOI is my top pick\"</code><br>"
-            + "to test the pipeline. Ideas will appear here automatically.";
-          empty.appendChild(t); empty.appendChild(s);
+          if (!allTheses.length) {
+            var t = document.createElement("p"); t.className = "th-empty-title";
+            t.textContent = "No theses ingested yet";
+            var s = document.createElement("p"); s.className = "th-empty-sub";
+            s.innerHTML = "Forward a post from @aleabitoreddit to your Telegram bot, or run<br>"
+              + "<code>python3 ingest/bot.py --text \"$AAOI is my top pick\"</code><br>"
+              + "to test the pipeline. Ideas will appear here automatically.";
+            empty.appendChild(t); empty.appendChild(s);
+          } else {
+            empty.appendChild(el("p", "th-empty-title", "No theses match these filters"));
+            empty.appendChild(el("p", "th-empty-sub", "Try clearing the category filter or the high-conviction toggle."));
+          }
           feed.appendChild(empty);
           return;
         }
 
+        // Group by posting day, inserting a zone-divider-style label before each new day.
         var frag = document.createDocumentFragment();
-        theses.forEach(function (th) { frag.appendChild(makeThesisCard(th)); });
+        var lastDay = null;
+        theses.forEach(function (th) {
+          var day = (th.postedAt || th.ingestedAt || "").slice(0, 10);
+          if (day && day !== lastDay) {
+            frag.appendChild(makeZoneDivider(day, true));
+            lastDay = day;
+          }
+          frag.appendChild(makeThesisCard(th));
+        });
         feed.appendChild(frag);
       }
 
@@ -1693,6 +2102,26 @@
           head.appendChild(el("span", "bd-conviction " + cvl, cvl + " conviction"));
           card.appendChild(head);
 
+          var counts = d.dailyMentions && d.dailyMentions.counts;
+          if (counts && counts.length) {
+            var trend = el("div", "bd-trend");
+            trend.style.color = cat ? cat.color : "#94a3b8";
+            var ns = "http://www.w3.org/2000/svg";
+            var svg = document.createElementNS(ns, "svg");
+            svg.setAttribute("viewBox", "0 0 90 26");
+            svg.setAttribute("width", "90"); svg.setAttribute("height", "26");
+            svg.setAttribute("aria-hidden", "true");
+            svg.classList.add("spark-svg");
+            var path = document.createElementNS(ns, "path");
+            path.setAttribute("d", countsToSparkPath(counts, 90, 26));
+            path.setAttribute("class", "spark-path");
+            svg.appendChild(path);
+            trend.appendChild(el("span", "bd-trend-label", "Mentions"));
+            trend.appendChild(svg);
+            trend.appendChild(el("span", "bd-trend-arrow", trendArrow(counts)));
+            card.appendChild(trend);
+          }
+
           if (d.narrative) card.appendChild(el("p", "bd-narrative", d.narrative));
 
           var pts = d.keyPoints || [];
@@ -1751,11 +2180,13 @@
       seedLocalStorage();
       paintGradientBorder();
       initTabs();
-      renderLayers();
+      initMapViewToggle();
+      renderMap();
       renderCards(null);
       renderPriorityStrip();
       renderWatchlist();
       initWatchlistSort();
+      initWatchlistViewToggle();
       initWatchlistFetch();
       renderTheses();
       renderBrain();

@@ -37,6 +37,7 @@ ai-supply-desk/
 │   ├── GUIDE.md        ⭐ how to run everything + FAQ / troubleshooting
 │   ├── PRD.md          product requirements
 │   ├── ROADMAP.md      what's built / what's next
+│   ├── DESIGN.md       current design system reference (for redesign work)
 │   ├── TELEGRAM_SETUP.md  → pointer into GUIDE.md
 │   └── images/         screenshots
 └── ingest/             THE BACKEND — local Python tooling that regenerates data.js
