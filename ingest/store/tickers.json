@@ -39,19 +39,6 @@
     "addedDate": "2026-06-25"
   },
   {
-    "ticker": "SIVEF",
-    "company": "Sivers Semiconductors AB",
-    "category": "photonics",
-    "market": "SE",
-    "exchange": "Stockholm (OTC: SIVEF)",
-    "whatTheyDo": "Swedish pure-play in silicon photonics, mmWave chips, and next-generation optical interconnects designed for AI data centers.",
-    "whyNVDA": "Next-gen Co-Packaged Optics (CPO) — integrating optical directly onto chip packages — depends on silicon photonics specialists like Sivers.",
-    "marketCapTier": "Small",
-    "rating": "watch",
-    "sourceTweetUrl": "",
-    "addedDate": "2026-06-25"
-  },
-  {
     "ticker": "MU",
     "company": "Micron Technology",
     "category": "memory",
@@ -403,19 +390,6 @@
     "addedDate": "2026-06-27"
   },
   {
-    "ticker": "LPK",
-    "company": "",
-    "category": "unsorted",
-    "market": "",
-    "exchange": "",
-    "whatTheyDo": "",
-    "whyNVDA": "",
-    "marketCapTier": "",
-    "rating": "watch",
-    "sourceTweetUrl": "",
-    "addedDate": "2026-06-27"
-  },
-  {
     "ticker": "RKLB",
     "company": "",
     "category": "unsorted",
@@ -439,7 +413,8 @@
     "marketCapTier": "Small",
     "rating": "watch",
     "sourceTweetUrl": "",
-    "addedDate": "2026-06-27"
+    "addedDate": "2026-06-27",
+    "yahooSymbol": "SIVE.ST"
   },
   {
     "ticker": "XFAB",
@@ -1077,5 +1052,44 @@
     "rating": "watch",
     "sourceTweetUrl": "",
     "addedDate": "2026-07-01"
+  },
+  {
+    "ticker": "MELI",
+    "company": "",
+    "category": "unsorted",
+    "market": "",
+    "exchange": "",
+    "whatTheyDo": "",
+    "whyNVDA": "",
+    "marketCapTier": "",
+    "rating": "watch",
+    "sourceTweetUrl": "",
+    "addedDate": "2026-07-02"
+  },
+  {
+    "ticker": "GLW",
+    "company": "",
+    "category": "unsorted",
+    "market": "",
+    "exchange": "",
+    "whatTheyDo": "",
+    "whyNVDA": "",
+    "marketCapTier": "",
+    "rating": "watch",
+    "sourceTweetUrl": "",
+    "addedDate": "2026-07-02"
+  },
+  {
+    "ticker": "TER",
+    "company": "",
+    "category": "unsorted",
+    "market": "",
+    "exchange": "",
+    "whatTheyDo": "",
+    "whyNVDA": "",
+    "marketCapTier": "",
+    "rating": "watch",
+    "sourceTweetUrl": "",
+    "addedDate": "2026-07-02"
   }
 ]
