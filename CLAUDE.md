@@ -42,6 +42,9 @@ not throwaway config.
   mention their tickers yet).
 - **For full history / open issues / next steps:** see `docs/ROADMAP.md`
   (living doc, update it whenever status changes).
+- **For a full design-system reference** (color tokens, type scale, spacing,
+  every component + its states, known inconsistencies) before doing any
+  visual redesign work: see `docs/DESIGN.md`.
 
 ## Hard rules (do not break these)
 1. **Vanilla HTML / CSS / JS only** in the app. No React, no Tailwind, no
@@ -169,6 +172,7 @@ ai-supply-desk/
 │   ├── GUIDE.md                 how to run everything + FAQ / troubleshooting (read first if stuck)
 │   ├── PRD.md                   product requirements
 │   ├── ROADMAP.md               what's built / open issues / next steps (living doc)
+│   ├── DESIGN.md                design-system reference (tokens/components) for redesign work
 │   ├── TELEGRAM_SETUP.md        pointer into GUIDE.md
 │   └── images/
 └── ingest/                     THE BACKEND — Python tooling that regenerates data.js
