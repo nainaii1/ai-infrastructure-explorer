@@ -34,6 +34,21 @@ everywhere by a floating pill-shaped nav bar so you can jump around:
   short summary per theme: what the story is, how confident, which stocks
   matter.
 
+## 📚 Which doc do I open?
+
+| I want to... | Open this |
+|---|---|
+| Just use the app | Nothing — double-click `index.html` |
+| Add a new idea, refresh prices, or fix "the bot isn't replying" | [docs/GUIDE.md](docs/GUIDE.md) |
+| Remember why this project exists and what it's supposed to do | [docs/PRD.md](docs/PRD.md) |
+| See what's built, what's coming next, and known issues | [docs/ROADMAP.md](docs/ROADMAP.md) |
+| Set up the Telegram bot for the first time | [docs/TELEGRAM_SETUP.md](docs/TELEGRAM_SETUP.md) |
+
+Everything else you'll see in this repo (`CLAUDE.md`, `docs/DESIGN.md`,
+`ingest/README.md`, `.claude/skills/*`, `docs/superpowers/specs/*`) is
+technical reference that Claude Code reads on its own when it works on the
+project — you don't need to open those unless you're curious.
+
 ## 🗺️ Where things live
 ```
 ai-supply-desk/
