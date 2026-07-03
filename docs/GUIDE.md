@@ -27,13 +27,16 @@ rewrites `data.js`, and the app reads `data.js` when you open/refresh it.
 ## 1. Just view the app
 
 Double-click **`index.html`**. It works fully offline (no server, no internet).
-Four tabs:
+It's one long scrolling page with a floating nav bar to jump between four
+chapters:
 
-- **Supply Chain Map** — click a layer to filter the company cards.
-- **Watchlist** — sortable table of every ticker (price, 7D/1M %, your rating).
-- **Thesis** — the raw feed of ideas captured from @aleabitoreddit.
-- **Brain** — AI-synthesized digest of those ideas, one per theme, with
-  drill-down to the source theses.
+- **01 · The Map** — click a layer to filter the company cards.
+- **02 · The Watchlist** — sortable table of every ticker (price, 7D/1M %,
+  your rating). Opens narrowed to the highest-conviction names.
+- **03 · The Evidence** — the raw feed of ideas captured from @aleabitoreddit.
+  Only the 10 most recent show by default; older ones are one click away.
+- **04 · The Synthesis** — AI-written digest of those ideas, one per theme,
+  with drill-down to the source posts.
 
 That's all you need for reading. The rest of this guide is about *updating* the data.
 
@@ -118,7 +121,7 @@ cd ~/Documents/Claude/ai-supply-desk
 python3 ingest/serve.py        # then open http://localhost:8765/
 ```
 Go to **http://localhost:8765/** in your browser (not a double-clicked
-`index.html`), open the **Watchlist** tab, and click **Fetch prices**. It
+`index.html`), scroll to **02 · The Watchlist**, and click **Fetch prices**. It
 rewrites `data.js` with price / market cap / currency (and 7D/1M % when
 available). Afterward, plain double-click shows the last-fetched prices.
 
@@ -293,8 +296,8 @@ only reads it on load. If the bot reply showed an error, check the terminal outp
 Prices need the local server — run `python3 ingest/serve.py` and use the app at
 `http://localhost:8765/` (not the double-clicked `file://` version) when fetching.
 
-### "The Brain tab says 'No brain digests yet.'"
-The Brain hasn't been generated. Ask Claude Code to "refresh the brain," or run
+### "The Synthesis chapter says 'No brain digests yet.'"
+The summaries haven't been generated. Ask Claude Code to "refresh the brain," or run
 `python3 ingest/synthesize.py` (needs an API key in `ingest/.env`).
 
 ### "Do I need to `pip install` anything?"

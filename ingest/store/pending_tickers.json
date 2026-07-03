@@ -1078,5 +1078,17 @@
     "sourceUrl": "",
     "firstSeen": "2026-07-03T13:26:32Z",
     "count": 1
+  },
+  {
+    "candidate": "AIGC",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-03T17:29:12Z",
+    "count": 1
+  },
+  {
+    "candidate": "VC",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-03T17:29:12Z",
+    "count": 1
   }
 ]
