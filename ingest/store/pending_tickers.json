@@ -267,7 +267,7 @@
     "candidate": "NFA",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:42:40Z",
-    "count": 5
+    "count": 6
   },
   {
     "candidate": "GAA",
@@ -315,7 +315,7 @@
     "candidate": "ASIC",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:45:35Z",
-    "count": 4
+    "count": 5
   },
   {
     "candidate": "LPO",
@@ -435,7 +435,7 @@
     "candidate": "GUC",
     "sourceUrl": "",
     "firstSeen": "2026-06-30T07:39:56Z",
-    "count": 2
+    "count": 3
   },
   {
     "candidate": "HKG",
@@ -843,6 +843,102 @@
     "candidate": "PTSD",
     "sourceUrl": "",
     "firstSeen": "2026-07-02T20:35:34Z",
+    "count": 1
+  },
+  {
+    "candidate": "AXT",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-03T10:07:17Z",
+    "count": 1
+  },
+  {
+    "candidate": "AGENT",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-03T10:08:17Z",
+    "count": 1
+  },
+  {
+    "candidate": "FOUR",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-03T10:08:17Z",
+    "count": 1
+  },
+  {
+    "candidate": "GPT",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-03T10:08:17Z",
+    "count": 1
+  },
+  {
+    "candidate": "HASN",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-03T10:08:17Z",
+    "count": 1
+  },
+  {
+    "candidate": "LAST",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-03T10:08:17Z",
+    "count": 1
+  },
+  {
+    "candidate": "OVER",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-03T10:08:17Z",
+    "count": 1
+  },
+  {
+    "candidate": "WAY",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-03T10:08:17Z",
+    "count": 1
+  },
+  {
+    "candidate": "WE",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-03T10:08:17Z",
+    "count": 1
+  },
+  {
+    "candidate": "STAR",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-03T10:08:32Z",
+    "count": 1
+  },
+  {
+    "candidate": "TBH",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-03T10:09:15Z",
+    "count": 1
+  },
+  {
+    "candidate": "JV",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-03T10:12:58Z",
+    "count": 1
+  },
+  {
+    "candidate": "KRW",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-03T10:12:58Z",
+    "count": 1
+  },
+  {
+    "candidate": "LIDE",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-03T10:12:58Z",
+    "count": 1
+  },
+  {
+    "candidate": "LPKF",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-03T10:12:58Z",
+    "count": 1
+  },
+  {
+    "candidate": "TGV",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-03T10:12:58Z",
     "count": 1
   }
 ]

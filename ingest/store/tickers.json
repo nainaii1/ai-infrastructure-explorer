@@ -1091,5 +1091,31 @@
     "rating": "watch",
     "sourceTweetUrl": "",
     "addedDate": "2026-07-02"
+  },
+  {
+    "ticker": "QCOM",
+    "company": "",
+    "category": "unsorted",
+    "market": "",
+    "exchange": "",
+    "whatTheyDo": "",
+    "whyNVDA": "",
+    "marketCapTier": "",
+    "rating": "watch",
+    "sourceTweetUrl": "",
+    "addedDate": "2026-07-03"
+  },
+  {
+    "ticker": "LPK",
+    "company": "",
+    "category": "unsorted",
+    "market": "",
+    "exchange": "",
+    "whatTheyDo": "",
+    "whyNVDA": "",
+    "marketCapTier": "",
+    "rating": "watch",
+    "sourceTweetUrl": "",
+    "addedDate": "2026-07-03"
   }
 ]

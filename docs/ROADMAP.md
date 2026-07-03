@@ -40,6 +40,7 @@ He tweets → you forward to the Telegram bot (or backfill from signal bots)
 
 | Area | Status | Notes |
 |---|---|---|
+| **v6 "Field Guide" redesign** | ✅ Done (2026-07-03) | Tabs → one chaptered scroll (hero prologue + 4 numbered chapters + colophon); frosted-glass capsule nav w/ sliding pill + scrollspy (bottom-floating on mobile); cool cleanroom palette; spring motion tokens; scroll reveals; unified drill-down animation; glossary strip (`AIE_DATA.glossary` from `base.json`); "New this week" strip; heat-aware cross-section legend; all DESIGN.md §7 inconsistencies resolved |
 | Supply Chain Map — flow-pipeline layout | ✅ Done | 10 layers incl. new **Hyperscalers** demand layer; click-to-filter; investor angle per layer |
 | **Conviction tiers (Core/Watch/Radar)** | ✅ Done (2026-07-03) | `scorer.assign_tiers()` — mentions + conviction-language thresholds; stamped on every ticker; unit-tested |
 | **Map/Watchlist default to Signal (Core+Watch)** | ✅ Done (2026-07-03) | Radar (one-off mentions) hidden behind a "Show N radar names" toggle / Radar chip |
@@ -106,6 +107,13 @@ row so verdicts are readable without hovering (mobile especially).
 ---
 
 ## Discussed but not yet built
+
+- **"Since mention" receipts** (from reviewing semiconstocks.com — the Serenity
+  tracker of the same analyst): stamp a baseline price in `bot.py` at
+  thesis-capture time so future theses can show % return since the call.
+  Impossible retroactively — the sooner it lands, the sooner receipts accrue.
+- **Rotation arc**: a "where the analyst's attention is moving" phase timeline
+  in the Synthesis chapter, driven by the Brain's mention-trend data.
 
 - **Self-serve Brain/verdict refresh via API key** — `synthesize.py` already
   supports it; verdicts could get the same `call_fn` treatment for a

@@ -7,9 +7,12 @@ how NVIDIA + the hyperscalers connect to the layers of suppliers beneath them
 robotics, hyperscalers), plus a sourced thesis feed, an AI-synthesized "brain"
 digest of one analyst's (@aleabitoreddit) views, and a **Desk layer** — Claude's
 weekly second opinion + execution suggestion on the highest-conviction names.
-**Four tabs:** Supply Chain Map, Watchlist, Thesis, Brain. The signal chain is:
-analyst tweets → captured theses → conviction tiers → Claude's desk verdicts →
-operator decision.
+**One continuous "Field Guide" page** (v6 redesign): a hero prologue (signal
+chain + live counts + latest thesis) then four chapters — 01 The Map, 02 The
+Watchlist, 03 The Evidence (thesis feed), 04 The Synthesis (Brain) — navigated
+by a floating frosted-glass capsule nav with a sliding pill (scrollspy;
+bottom-floating on mobile). The signal chain is: analyst tweets → captured
+theses → conviction tiers → Claude's desk verdicts → operator decision.
 
 This is **not** related to any trading desk or market-brief project. Standalone
 personal research tool. Single-user, local-first. Not investment advice.
@@ -49,6 +52,16 @@ not throwaway config.
   (`.claude/skills/weekly-review/SKILL.md`) in a Claude Code session — no
   API key needed. Verdicts are capped at the top 12–15 Core names by design
   (token budget).
+- **v6 — "Field Guide" redesign** ✅ done (2026-07-03). Tabs dissolved into one
+  chaptered scroll: hero prologue (signal-chain stat nodes with count-up,
+  Core/Watch/Radar barbell bar, "Latest signal" card), numbered chapter heads,
+  floating glass capsule nav (sliding pill, scrollspy, bottom-floating ≤768px),
+  cool "cleanroom" palette (see Design system), scroll-triggered staggered
+  reveals, one unified grid-rows drill-down animation (map detail + brain
+  sources), "Jargon, translated" glossary (`AIE_DATA.glossary`, sourced from
+  `base.json`), "New this week" strip on the Watchlist, heat-aware cross-section
+  legend, caveats colophon. All old tab classes (`.tab-panel`, `.tab-btn`,
+  `initTabs`) are gone — chapters render eagerly at boot.
 - **Live counts** (approximate, check `ingest/store/*.json` for current):
   ~83 tickers tracked (20 core / 26 watch / 37 radar), 10 categorized layers
   + an `unsorted` triage bucket (all Core names are classified; remaining
@@ -83,11 +96,15 @@ not throwaway config.
    the ingest pipeline grows both over time. Don't assume a specific count in
    code or docs; read it from the store.
 
-## Design system (current — light/cream theme, not the original v1 dark mock)
-- Background `#faf8f3` (warm cream) · Card `#ffffff` · Border `#e7e3da`
-- Primary text `#1e293b` (dark slate) · Muted text `#64748b` · Ink (high-contrast) `#0f172a`
-- Font: system UI stack; data/tickers use a genuine system monospace stack
-  (`--mono`, e.g. SF Mono / ui-monospace) — no CDN fonts.
+## Design system (current — v6 "cleanroom" light theme; supersedes the cream theme)
+- Background `#f5f5f7` (cool near-white) · Card `#ffffff` · Border `#e3e3e8`
+- Primary text `#333336` · Muted text `#86868b` · Ink (high-contrast) `#1d1d1f`
+- Shadows: two-layer tokens `--shadow-sm` / `--shadow-lg`. Card radius `--r-card: 16px`.
+- Motion: `--ease: 240ms ease` + `--spring: cubic-bezier(.32,.72,.28,1.15)`
+  (capsule pill, drill-downs, reveals). Reveals/count-up are entrance effects
+  gated on `prefers-reduced-motion`.
+- Font: Apple system stack (`-apple-system` → SF Pro on Macs); data/tickers use
+  a genuine system monospace stack (`--mono`, e.g. SF Mono) — no CDN fonts.
 - Category colors live in `data.js` (`categories[].color`) — see
   `ingest/store/base.json` for the current 10: Photonics `#3b82f6`, Memory
   `#8b5cf6`, Fabs `#f59e0b`, Neoclouds `#22c55e`, Materials `#f97316`,

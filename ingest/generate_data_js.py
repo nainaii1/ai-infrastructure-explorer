@@ -94,6 +94,7 @@ def build_data():
         "categories": categories,
         "center": base["center"],
         "mapIntro": base.get("mapIntro", ""),
+        "glossary": base.get("glossary", []),
         "zones": base.get("zones", []),
         "tickers": tickers,
         "theses": theses,
