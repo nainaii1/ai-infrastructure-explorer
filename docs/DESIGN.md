@@ -1,8 +1,30 @@
 # Design Reference — AI Infrastructure Explorer
 
-_Snapshot of the **current, shipped** design system, extracted directly from
-`index.html`'s `<style>` block (lines 14–771) and `ingest/store/base.json`.
-Last updated 2026-07-02._
+> **⚠️ Superseded (2026-07-03): the v6 "Field Guide" redesign shipped.**
+> The app is now one continuous chaptered scroll (hero prologue → 01 Map →
+> 02 Watchlist → 03 Evidence → 04 Synthesis) with a floating frosted-glass
+> capsule nav (sliding pill + scrollspy; bottom-floating ≤768px).
+> Key token changes: bg `#f5f5f7` / border `#e3e3e8` / text `#333336` /
+> muted `#86868b` / ink `#1d1d1f`; `--ease: 240ms ease`; `--spring:
+> cubic-bezier(.32,.72,.28,1.15)`; `--shadow-sm`/`--shadow-lg`; `--r-card:
+> 16px`; Apple system font stack; paper-grain removed. New components: hero
+> signal-chain stat nodes (count-up), conviction barbell, "Latest signal"
+> card, chapter heads, glossary strip (`AIE_DATA.glossary`), "New this week"
+> strip, cross-section heat legend, caveats colophon, scroll reveals
+> (`.reveal`/`.in-view`), unified JS-measured max-height drill-down (not
+> CSS `grid-template-rows: 0fr->1fr` — that silently collapses to 0 height
+> under `overflow`-constrained or flex-column ancestors; fixed 2026-07-03
+> alongside capping the Evidence feed to the 10 most recent theses).
+> Every "known
+> inconsistency" in §7 below was resolved (one `::before` spine everywhere,
+> one conviction-badge language, `--line`/`.placeholder-card` deleted,
+> documented spine-on-cards/dot-in-table split, watchlist sticky header now
+> functional via `max-height`). Sections below describe the **pre-v6 cream
+> theme** and remain as the historical baseline; trust `index.html` first.
+
+_Snapshot of the pre-v6 design system, extracted directly from
+`index.html`'s `<style>` block and `ingest/store/base.json`.
+Baseline dated 2026-07-02._
 
 **Purpose:** this is a *before* baseline, not a proposal. It documents what
 exists today so a redesign has an accurate starting point and doesn't

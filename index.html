@@ -18,14 +18,21 @@
        never hardcoded here (CLAUDE.md hard rule #4).
        ============================================================ */
     :root {
-      --bg:        #faf8f3;  /* warm cream */
+      /* "Cleanroom" palette — cool near-white, wafer-world neutrals. */
+      --bg:        #f5f5f7;
       --card:      #ffffff;
-      --border:    #e7e3da;  /* soft warm gray */
-      --text:      #1e293b;  /* dark slate */
-      --muted:     #64748b;
-      --line:      #d8d3c8;  /* default (unhovered) map connector line */
-      --ink:       #0f172a;  /* near-black for high-contrast type */
-      --ease:      250ms ease;
+      --border:    #e3e3e8;
+      --text:      #333336;
+      --muted:     #86868b;
+      --ink:       #1d1d1f;  /* near-black for display type / active states */
+      /* Motion: one calm ease + one spring. 240ms sits inside the 200-300ms rule. */
+      --dur:       240ms;
+      --ease:      240ms ease;
+      --spring:    cubic-bezier(0.32, 0.72, 0.28, 1.15);
+      /* Two-layer soft shadows: ambient + key. */
+      --shadow-sm: 0 1px 2px rgba(29, 29, 31, 0.04), 0 4px 14px rgba(29, 29, 31, 0.05);
+      --shadow-lg: 0 2px 6px rgba(29, 29, 31, 0.05), 0 18px 40px -18px rgba(29, 29, 31, 0.18);
+      --r-card:    16px;
       /* Distinctive data type — genuine system monospace, no CDN, offline-safe. */
       --mono:      "SF Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, "Cascadia Code", "Roboto Mono", monospace;
     }
@@ -37,21 +44,15 @@
       padding: 0;
       background: var(--bg);
       color: var(--text);
-      font-family: Inter, system-ui, sans-serif;
+      /* System stack as the iOS material — SF Pro on Apple hardware. */
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, "Segoe UI", Roboto, sans-serif;
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Faint paper grain for atmosphere (inline SVG noise, no network). */
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      z-index: 0;
-      pointer-events: none;
-      opacity: 0.035;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
     }
-    .app { position: relative; z-index: 1; } /* keep content above the grain */
 
     /* 3px gradient top border across full app width.
        Its background is injected by JS from AIE_DATA category colors. */
@@ -71,102 +72,255 @@
       padding: 0 24px 64px;
     }
 
-    /* ---------- Header + tab nav ---------- */
-    header.app-header {
-      padding-top: 28px;
-      border-bottom: 1px solid var(--border);
-    }
+    /* ============================================================
+       Prologue / hero — the educational frame. The signal chain
+       (posts → theses → tiers → verdicts) with live counts.
+       ============================================================ */
+    header.hero { padding: 44px 0 12px; }
 
     .brand {
       display: flex;
       align-items: baseline;
-      gap: 12px;
-      margin-bottom: 18px;
+      gap: 10px;
+      margin-bottom: 20px;
     }
-
+    .brand .brand-bolt { font-size: 15px; line-height: 1; }
     .brand h1 {
       margin: 0;
-      font-size: 22px;
+      font-family: var(--mono);
+      font-size: 12px;
       font-weight: 700;
-      letter-spacing: -0.01em;
-    }
-
-    .brand .brand-bolt { font-size: 22px; line-height: 1; }
-
-    .brand .brand-sub {
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
       color: var(--muted);
-      font-size: 13px;
     }
 
-    nav.tabs {
+    .hero-tagline {
+      margin: 0 0 10px;
+      font-size: clamp(30px, 5vw, 44px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.08;
+      color: var(--ink);
+      max-width: 21ch;
+    }
+    .hero-lede {
+      margin: 0 0 28px;
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--muted);
+      max-width: 62ch;
+    }
+
+    /* Signal chain: four stat nodes joined by dashed arrows. */
+    .signal-chain {
       display: flex;
-      gap: 4px;
+      align-items: stretch;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
     }
-
-    .tab-btn {
-      appearance: none;
-      background: none;
-      border: none;
-      border-bottom: 2px solid transparent;
-      color: var(--muted);
-      font: inherit;
-      font-size: 14px;
-      font-weight: 500;
-      padding: 12px 16px;
-      cursor: pointer;
-      transition: color var(--ease), border-color var(--ease);
-    }
-
-    .tab-btn:hover { color: var(--text); }
-
-    /* Active tab: dark underline (visible on the cream theme) */
-    .tab-btn[aria-selected="true"] {
-      color: #0f172a;
-      border-bottom-color: #0f172a;
-    }
-
-    .tab-btn:focus-visible {
-      outline: 2px solid var(--muted);
-      outline-offset: 2px;
-      border-radius: 4px;
-    }
-
-    /* ---------- Tab panels + fade transition ---------- */
-    main.app-main {
-      padding-top: 28px;
-    }
-
-    .tab-panel {
-      display: none;
-      opacity: 0;
-      transition: opacity var(--ease);
-    }
-
-    .tab-panel.active {
-      display: block;
-      opacity: 1;
-    }
-
-    /* ---------- Placeholder cards (Tabs 2 & 3) ---------- */
-    .placeholder-card {
+    .sc-node {
+      flex: 1 1 130px;
+      min-width: 120px;
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 48px 32px;
-      text-align: center;
+      border-radius: var(--r-card);
+      box-shadow: var(--shadow-sm);
+      padding: 16px 18px 14px;
     }
-
-    .placeholder-card h2 {
-      margin: 0 0 8px;
-      font-size: 18px;
-      font-weight: 600;
-      color: var(--text);
+    .sc-num {
+      font-family: var(--mono);
+      font-size: 30px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      color: var(--ink);
+      font-variant-numeric: tabular-nums;
     }
-
-    .placeholder-card p {
-      margin: 0;
+    .sc-label {
+      display: block;
+      margin-top: 7px;
+      font-family: var(--mono);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
       color: var(--muted);
-      font-size: 14px;
+    }
+    .sc-arrow { flex: 0 0 auto; align-self: center; color: var(--muted); }
+
+    /* Conviction barbell: one bar, three segments (core/watch/radar). */
+    .hero-barbell { margin-bottom: 14px; }
+    .hb-bar {
+      display: flex;
+      height: 10px;
+      border-radius: 999px;
+      overflow: hidden;
+      background: var(--border);
+    }
+    .hb-seg { transition: flex-grow 600ms var(--spring); }
+    .hb-legend {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+      font-family: var(--mono);
+      font-size: 10.5px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .hb-legend i {
+      display: inline-block;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      margin-right: 6px;
+    }
+    .hb-legend b { color: var(--ink); font-weight: 700; }
+
+    /* Latest signal — the newest captured thesis, featured. */
+    .hero-latest { margin-top: 22px; }
+    .hero-latest .th-card { box-shadow: var(--shadow-sm); }
+    .hl-eyebrow {
+      display: block;
+      font-family: var(--mono);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    /* ============================================================
+       Capsule nav — frosted glass, sliding pill, sticky on scroll.
+       The one bold element; everything around it stays quiet.
+       ============================================================ */
+    .capsule-wrap {
+      position: sticky;
+      top: 14px;
+      z-index: 90;
+      display: flex;
+      justify-content: center;
+      padding: 10px 0;
+      pointer-events: none; /* only the capsule itself is interactive */
+    }
+    .capsule-nav {
+      pointer-events: auto;
+      position: relative;
+      display: inline-flex;
+      gap: 2px;
+      padding: 4px;
+      border-radius: 999px;
+      border: 1px solid rgba(29, 29, 31, 0.08);
+      background: rgba(255, 255, 255, 0.92); /* fallback */
+      box-shadow: var(--shadow-lg);
+    }
+    @supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+      .capsule-nav {
+        background: rgba(255, 255, 255, 0.6);
+        -webkit-backdrop-filter: blur(20px) saturate(1.6);
+        backdrop-filter: blur(20px) saturate(1.6);
+      }
+    }
+    .capsule-pill {
+      position: absolute;
+      top: 4px;
+      left: 0;
+      height: calc(100% - 8px);
+      border-radius: 999px;
+      background: var(--ink);
+      transition: transform var(--dur) var(--spring), width var(--dur) var(--spring);
+      will-change: transform, width;
+      opacity: 0; /* shown once JS measures the active link */
+    }
+    .capsule-nav.is-ready .capsule-pill { opacity: 1; }
+    .capsule-link {
+      position: relative;
+      z-index: 1;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--muted);
+      text-decoration: none;
+      white-space: nowrap;
+      transition: color var(--ease);
+    }
+    .capsule-link .cl-index {
+      font-family: var(--mono);
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      opacity: 0.65;
+    }
+    .capsule-link:hover { color: var(--ink); }
+    .capsule-link.is-active { color: #fff; }
+    .capsule-link:focus-visible {
+      outline: 2px solid var(--muted);
+      outline-offset: 2px;
+    }
+
+    /* ============================================================
+       Chapters — always-visible sections in pedagogical order.
+       ============================================================ */
+    main.app-main { padding-top: 8px; }
+
+    .chapter {
+      padding: 44px 0 8px;
+      scroll-margin-top: 76px; /* clear the sticky capsule on anchor jumps */
+    }
+
+    .chapter-head { margin-bottom: 24px; }
+    .chapter-eyebrow {
+      display: block;
+      font-family: var(--mono);
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+    .chapter-title {
+      margin: 0 0 8px;
+      font-size: clamp(26px, 4vw, 36px);
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      line-height: 1.1;
+      color: var(--ink);
+    }
+    .chapter-lede {
+      margin: 0;
+      font-size: 14.5px;
+      line-height: 1.6;
+      color: var(--muted);
+      max-width: 62ch;
+    }
+
+    /* ============================================================
+       Colophon — the guide's honest ending: sourcing + caveats.
+       ============================================================ */
+    .colophon {
+      margin-top: 64px;
+      padding: 26px 0 8px;
+      border-top: 1px solid var(--border);
+      font-size: 12.5px;
+      line-height: 1.7;
+      color: var(--muted);
+      max-width: 70ch;
+    }
+    .colophon .cp-meta {
+      display: block;
+      margin-top: 10px;
+      font-family: var(--mono);
+      font-size: 10.5px;
+      letter-spacing: 0.06em;
     }
 
     /* ---------- Supply chain map (Tab 1, Section A) ---------- */
@@ -177,16 +331,9 @@
     .map-header {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: flex-end; /* controls only — the chapter head carries the title */
       gap: 12px;
       margin-bottom: 8px;
-    }
-
-    .map-header h2 {
-      margin: 0;
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--text);
     }
 
     .map-show-all {
@@ -230,7 +377,7 @@
       gap: 16px;
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 12px;
+      border-radius: var(--r-card);
       padding: 15px 18px 15px 22px;
       overflow: hidden;
       cursor: pointer;
@@ -312,7 +459,7 @@
     /* ---------- Cross Section view: blueprint-style bar chart ---------- */
     .map-cross {
       background: #0f1b2e;
-      border-radius: 12px;
+      border-radius: var(--r-card);
       padding: 24px 20px 18px;
       background-image:
         linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
@@ -335,6 +482,17 @@
     .mc-label {
       font-family: var(--mono); font-size: 10px; letter-spacing: 0.05em;
       color: #94a3b8; text-align: center; line-height: 1.3;
+    }
+    /* Heat readout: median 7-day price change per category (from the
+       weekly price snapshot merged into data.js). */
+    .mc-heat { font-family: var(--mono); font-size: 10px; font-weight: 700; }
+    .mc-heat.hot  { color: #4ade80; }
+    .mc-heat.cold { color: #f87171; }
+    .mc-heat.flat { color: #64748b; }
+    .mc-legend {
+      margin-top: 14px;
+      font-family: var(--mono); font-size: 10px; letter-spacing: 0.06em;
+      color: #64748b;
     }
 
     /* Zone divider: groups the pipeline (Demand / Chip / Supply) or a date group. */
@@ -373,16 +531,23 @@
     .zone-divider--muted .zone-label { color: color-mix(in srgb, var(--muted) 65%, transparent); }
     .zone-divider--muted::before { content: ""; }
 
-    /* Investor angle — collapsed until the layer is selected (.is-active). */
+    /* Investor angle — collapsed until the layer is selected (.is-active).
+       Unified drill-down: JS measures true content height and animates
+       max-height to it (see openDrilldown()/closeDrilldown()) — a plain
+       CSS grid-template-rows 0fr->1fr can't be used here because some
+       ancestors (overflow-constrained cards, flex columns) give the grid
+       track a bounded "available space" instead of letting it size to
+       content, so 1fr silently resolves to 0. max-height + a JS-measured
+       pixel target sidesteps that ambiguity entirely. */
     .layer-detail {
       max-height: 0;
       opacity: 0;
       overflow: hidden;
       margin-top: 0;
-      transition: max-height var(--ease), opacity var(--ease), margin-top var(--ease);
+      transition: max-height var(--dur) var(--spring),
+                  opacity var(--ease), margin-top var(--ease);
     }
     .layer-band.is-active .layer-detail {
-      max-height: 200px;
       opacity: 1;
       margin-top: 9px;
     }
@@ -446,23 +611,31 @@
       position: relative;
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 12px;
+      border-radius: var(--r-card);
+      box-shadow: var(--shadow-sm);
       padding: 20px 20px 18px 24px;
       overflow: hidden;
       display: flex;
       flex-direction: column;
       gap: 14px;
       transition: transform var(--ease), box-shadow var(--ease), border-color var(--ease);
-      /* Entry animation, staggered via inline animation-delay per card. */
-      opacity: 0;
-      animation: tk-rise 320ms ease forwards;
     }
-    @keyframes tk-rise {
-      from { opacity: 0; transform: translateY(10px); }
-      to   { opacity: 1; transform: translateY(0); }
+
+    /* Scroll-triggered reveal — shared by cards and chapter heads. JS adds
+       .reveal at build time and .in-view when the element enters the viewport
+       (IntersectionObserver). Stagger is set inline via transition-delay.
+       Under prefers-reduced-motion JS skips the observer entirely. */
+    .reveal {
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 280ms ease, transform 280ms var(--spring);
+    }
+    .reveal.in-view {
+      opacity: 1;
+      transform: translateY(0);
     }
     @media (prefers-reduced-motion: reduce) {
-      .tk-card { animation: none; opacity: 1; }
+      .reveal { opacity: 1; transform: none; transition: none; }
     }
 
     /* Colored spine down the left edge — the card's category signature. */
@@ -575,7 +748,7 @@
     .cards-empty {
       grid-column: 1 / -1;
       border: 1px dashed color-mix(in srgb, var(--accent, var(--muted)) 40%, var(--border));
-      border-radius: 12px;
+      border-radius: var(--r-card);
       padding: 44px 24px;
       text-align: center;
       background: color-mix(in srgb, var(--accent, var(--muted)) 5%, var(--card));
@@ -599,7 +772,7 @@
       padding: 12px 14px;
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 12px;
+      border-radius: var(--r-card);
     }
     .priority-strip .ps-label {
       font-family: var(--mono);
@@ -631,15 +804,23 @@
       font-family: var(--mono);
     }
 
-    /* Conviction tier badge (core/watch/radar — computed by ingest/scorer.py). */
-    .tier-badge {
-      font-family: var(--mono); font-size: 9.5px; letter-spacing: .08em;
+    /* Unified conviction vocabulary (audit fix #5): tier badges, thesis
+       conviction, and brain conviction share one visual language —
+       green = high/core, amber = medium/watch, neutral = low/radar/note. */
+    .tier-badge, .th-conviction, .bd-conviction {
+      font-family: var(--mono); font-size: 10px; letter-spacing: .07em;
       text-transform: uppercase; font-weight: 700;
-      padding: 2px 7px; border-radius: 999px;
+      padding: 2px 8px; border-radius: 999px;
     }
-    .tier-badge.core  { background: #dcfce7; color: #15803d; }
-    .tier-badge.watch { background: #fef3c7; color: #b45309; }
-    .tier-badge.radar { background: color-mix(in srgb, #94a3b8 14%, white); color: var(--muted); }
+    .tier-badge.core, .th-conviction.high, .bd-conviction.high {
+      background: #dcfce7; color: #15803d;
+    }
+    .tier-badge.watch, .bd-conviction.medium {
+      background: #fef3c7; color: #b45309;
+    }
+    .tier-badge.radar, .th-conviction.normal, .bd-conviction.low {
+      background: color-mix(in srgb, #94a3b8 14%, white); color: var(--muted);
+    }
 
     /* Desk verdict — Claude's weekly stance on a Core name. */
     .vd-stance {
@@ -671,6 +852,50 @@
       display: block; margin-bottom: 2px;
     }
 
+    /* "Jargon, translated" — inline glossary strip (terms from
+       AIE_DATA.glossary; rule #4 copy lives in the data layer). */
+    .glossary-strip {
+      margin-top: 22px;
+      padding: 16px 20px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-card);
+      box-shadow: var(--shadow-sm);
+    }
+    .gl-eyebrow {
+      display: block;
+      font-family: var(--mono); font-size: 10px; font-weight: 700;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 10px;
+    }
+    .gl-items { display: flex; flex-wrap: wrap; gap: 8px 22px; }
+    .gl-item { font-size: 12.5px; line-height: 1.55; color: var(--muted); }
+    .gl-item dfn {
+      font-style: normal; font-family: var(--mono); font-size: 11.5px;
+      font-weight: 700; color: var(--ink);
+      border-bottom: 1px dotted var(--muted);
+      margin-right: 6px;
+    }
+
+    /* "New this week" — recent-activity strip on the Watchlist chapter. */
+    .wl-recent {
+      display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
+      margin-bottom: 14px;
+    }
+    .wl-recent .wr-label {
+      font-family: var(--mono); font-size: 10px; font-weight: 700;
+      letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+    }
+    .wr-chip {
+      display: inline-flex; align-items: baseline; gap: 6px;
+      padding: 4px 10px; border-radius: 999px;
+      border: 1px solid color-mix(in srgb, var(--accent, #94a3b8) 40%, var(--border));
+      background: color-mix(in srgb, var(--accent, #94a3b8) 8%, var(--card));
+      font-family: var(--mono); font-size: 11.5px; font-weight: 700;
+      color: color-mix(in srgb, var(--accent, #94a3b8) 70%, black);
+    }
+    .wr-chip .wr-date { font-weight: 400; font-size: 10px; color: var(--muted); }
+
     /* Radar visibility toggle on the map's card ledger. */
     .tier-toggle {
       margin-left: auto; padding: 5px 12px; border-radius: 999px;
@@ -695,30 +920,38 @@
     .th-filters { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
     .th-empty {
       padding: 56px 32px; text-align: center;
-      background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+      background: var(--card); border: 1px solid var(--border); border-radius: var(--r-card);
     }
     .th-empty-title { font-size: 16px; font-weight: 600; color: var(--text); margin: 0 0 6px; }
     .th-empty-sub  { font-size: 13px; color: var(--muted); margin: 0; line-height: 1.6; }
     .th-empty-sub code { font-family: var(--mono); font-size: 12px;
       background: rgba(15,23,42,.06); padding: 1px 5px; border-radius: 4px; }
     .th-feed { display: flex; flex-direction: column; gap: 14px; }
+    /* One spine technique everywhere: an animatable ::before, same as
+       .tk-card / .layer-band (audit fix #1). --spine defaults to a neutral
+       hairline; high-conviction cards get the green spine. */
     .th-card {
-      background: var(--card); border: 1px solid var(--border); border-radius: 12px;
-      padding: 18px 20px; border-left: 4px solid var(--border);
-      transition: border-color var(--ease);
+      position: relative;
+      background: var(--card); border: 1px solid var(--border); border-radius: var(--r-card);
+      box-shadow: var(--shadow-sm);
+      padding: 18px 20px 18px 24px;
+      overflow: hidden;
+      transition: border-color var(--ease), box-shadow var(--ease);
     }
-    .th-card.high-conviction { border-left-color: #16a34a; }
+    .th-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; bottom: 0;
+      width: 4px;
+      background: var(--spine, var(--border));
+      transition: width var(--ease);
+    }
+    .th-card:hover::before { width: 7px; }
+    .th-card.high-conviction { --spine: #16a34a; }
     .th-card-meta {
       display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 10px;
     }
     .th-date   { font-family: var(--mono); font-size: 11px; color: var(--muted); }
-    .th-conviction {
-      font-family: var(--mono); font-size: 10px; letter-spacing: .06em;
-      text-transform: uppercase; font-weight: 700;
-      padding: 2px 7px; border-radius: 999px;
-    }
-    .th-conviction.high   { background: #dcfce7; color: #15803d; }
-    .th-conviction.normal { background: color-mix(in srgb,#94a3b8 12%,white); color: var(--muted); }
     .th-source {
       font-family: var(--mono); font-size: 11px; color: var(--muted);
       text-decoration: none; margin-left: auto;
@@ -737,23 +970,28 @@
       color: color-mix(in srgb, var(--t-color,#94a3b8) 70%, black);
     }
 
-    /* ---------- Brain (Tab 4): synthesized theme digests ---------- */
+    /* ---------- Chapter 04, The Synthesis: theme digests ---------- */
     .bd-card {
-      background: var(--card); border: 1px solid var(--border); border-radius: 12px;
-      padding: 18px 20px; border-left: 4px solid var(--accent, var(--border));
-      transition: border-color var(--ease); margin-bottom: 14px;
+      position: relative;
+      background: var(--card); border: 1px solid var(--border); border-radius: var(--r-card);
+      box-shadow: var(--shadow-sm);
+      padding: 18px 20px 18px 24px;
+      overflow: hidden;
+      transition: border-color var(--ease), box-shadow var(--ease); margin-bottom: 14px;
     }
+    .bd-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; bottom: 0;
+      width: 4px;
+      background: var(--accent, var(--border));
+      transition: width var(--ease);
+    }
+    .bd-card:hover::before { width: 7px; }
     .bd-head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; }
     .bd-title { font-size: 16px; font-weight: 600; color: var(--ink); }
     .bd-sub { font-size: 12px; color: var(--muted); }
-    .bd-conviction {
-      font-family: var(--mono); font-size: 10px; letter-spacing: .06em;
-      text-transform: uppercase; font-weight: 700;
-      padding: 2px 7px; border-radius: 999px; margin-left: auto;
-    }
-    .bd-conviction.high   { background: #dcfce7; color: #15803d; }
-    .bd-conviction.medium { background: #fef3c7; color: #b45309; }
-    .bd-conviction.low    { background: color-mix(in srgb,#94a3b8 12%,white); color: var(--muted); }
+    .bd-conviction { margin-left: auto; }
     .bd-trend { display: flex; align-items: center; gap: 8px; margin: -2px 0 10px; }
     .bd-trend-label {
       font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.1em;
@@ -774,8 +1012,23 @@
       transition: color var(--ease), border-color var(--ease);
     }
     .bd-toggle:hover { color: var(--ink); border-color: var(--muted); }
-    .bd-sources { display: none; margin-top: 12px; padding-top: 4px; }
-    .bd-sources.open { display: block; }
+    /* Same drill-down animation as .layer-detail (audit fix #7): JS-measured
+       max-height, not grid-template-rows — see the comment on .layer-detail
+       for why the grid 0fr->1fr trick doesn't hold up inside .bd-card's
+       overflow-constrained box. Reused for the Evidence chapter's
+       "N earlier theses" drill-down too. */
+    .bd-sources {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      margin-top: 0;
+      transition: max-height var(--dur) var(--spring),
+                  opacity var(--ease), margin-top var(--ease);
+    }
+    .bd-sources.open {
+      opacity: 1;
+      margin-top: 12px;
+    }
     .bd-sources .th-card { margin-bottom: 10px; }
     .bd-sources .th-card:last-child { margin-bottom: 0; }
     .th-card-compact { background: var(--bg); }
@@ -846,14 +1099,19 @@
       padding-top: 8px; padding-bottom: 8px;
     }
 
+    /* Natural page flow — no nested vertical scroll (the Watchlist opens
+       focused on Core, so the table is short by default; expanding to
+       Watch/Radar/All is a deliberate click and just lengthens the page). */
     .wl-table-wrap {
-      overflow-x: auto; border: 1px solid var(--border);
-      border-radius: 12px; background: var(--card);
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: var(--r-card); background: var(--card);
+      box-shadow: var(--shadow-sm);
     }
     .wl-table { width: 100%; border-collapse: collapse; font-size: 13px; }
     .wl-table th, .wl-table td { padding: 11px 14px; text-align: left; white-space: nowrap; }
     .wl-table thead th {
-      position: sticky; top: 0; background: var(--card);
+      background: var(--card);
       font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em;
       text-transform: uppercase; color: var(--muted); font-weight: 700;
       cursor: pointer; user-select: none; border-bottom: 1px solid var(--border);
@@ -865,6 +1123,8 @@
     .wl-table tbody tr:first-child { border-top: none; }
     .wl-table tbody tr:hover { background: color-mix(in srgb, var(--accent, #94a3b8) 6%, var(--card)); }
     .wl-cat { display: inline-flex; align-items: center; gap: 7px; }
+    /* Category identity, codified (audit fix #6): spine on cards,
+       dot in dense table rows — two deliberate forms of the same signal. */
     .wl-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--accent, #94a3b8); flex: 0 0 auto; }
     .wl-cat-label { color: var(--muted); }
     .wl-sym { font-family: var(--mono); font-weight: 700; color: var(--accent, #1e293b); }
@@ -884,11 +1144,26 @@
       .card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
     @media (max-width: 768px) {
-      .app { padding: 0 16px 48px; }
-      .brand { flex-direction: column; gap: 4px; }
-      nav.tabs { overflow-x: auto; }
-      .tab-btn { padding: 12px 12px; white-space: nowrap; }
-      .placeholder-card { padding: 36px 20px; }
+      /* Room for the bottom-floating capsule (iOS tab-bar position). */
+      .app { padding: 0 16px calc(96px + env(safe-area-inset-bottom)); }
+      header.hero { padding-top: 32px; }
+      .hero-tagline { max-width: none; }
+      .signal-chain { gap: 8px; }
+      .sc-arrow { display: none; } /* chain reads as a 2-up stat grid on small screens */
+      .sc-node { flex: 1 1 40%; }
+
+      /* Capsule nav relocates to the bottom — thumb-reachable. */
+      .capsule-wrap {
+        position: fixed;
+        top: auto;
+        bottom: calc(12px + env(safe-area-inset-bottom));
+        left: 0; right: 0;
+        padding: 0 12px;
+      }
+      .capsule-link { padding: 8px 12px; font-size: 12.5px; }
+      .capsule-link .cl-index { display: none; }
+      .chapter { padding-top: 32px; scroll-margin-top: 16px; }
+
       .card-grid { grid-template-columns: minmax(0, 1fr); }
       .cards-section { margin-top: 28px; }
       /* Layer bands: let content wrap; count drops below the title block. */
@@ -904,61 +1179,50 @@
   <div class="gradient-border" id="gradientBorder"></div>
 
   <div class="app">
-    <header class="app-header">
+    <!-- Prologue: what this guide is and how to read it. Live numbers are
+         rendered into the placeholders by renderHero() from AIE_DATA. -->
+    <header class="hero">
       <div class="brand">
         <span class="brand-bolt" aria-hidden="true">⚡</span>
         <h1>AI Infrastructure Explorer</h1>
-        <span class="brand-sub">Mapping the AI hardware supply chain</span>
       </div>
-
-      <nav class="tabs" role="tablist" aria-label="Sections">
-        <button
-          class="tab-btn"
-          role="tab"
-          id="tab-btn-map"
-          aria-controls="tab-map"
-          aria-selected="true"
-          data-target="tab-map"
-        >Supply Chain Map</button>
-        <button
-          class="tab-btn"
-          role="tab"
-          id="tab-btn-watchlist"
-          aria-controls="tab-watchlist"
-          aria-selected="false"
-          data-target="tab-watchlist"
-        >Watchlist</button>
-        <button
-          class="tab-btn"
-          role="tab"
-          id="tab-btn-thesis"
-          aria-controls="tab-thesis"
-          aria-selected="false"
-          data-target="tab-thesis"
-        >Thesis</button>
-        <button
-          class="tab-btn"
-          role="tab"
-          id="tab-btn-brain"
-          aria-controls="tab-brain"
-          aria-selected="false"
-          data-target="tab-brain"
-        >Brain</button>
-      </nav>
+      <p class="hero-tagline">Follow the signal chain, not the headlines.</p>
+      <p class="hero-lede">A field guide to the AI hardware supply chain — one analyst's
+        public calls, captured at the source, ranked by conviction, and challenged by a
+        weekly second opinion. Read it top to bottom: terrain, names, evidence, synthesis.</p>
+      <div class="signal-chain" id="signalChain" aria-label="Signal chain: posts to theses to tiers to verdicts"></div>
+      <div class="hero-barbell" id="heroBarbell"></div>
+      <div class="hero-latest" id="heroLatest" hidden>
+        <span class="hl-eyebrow">Latest signal</span>
+        <div id="heroLatestCard"></div>
+      </div>
     </header>
 
+    <!-- Floating capsule nav — anchors so hash navigation works even
+         without JS; the sliding pill + scrollspy are progressive. -->
+    <div class="capsule-wrap">
+      <nav class="capsule-nav" id="capsuleNav" aria-label="Chapters">
+        <span class="capsule-pill" id="capsulePill" aria-hidden="true"></span>
+        <a class="capsule-link" href="#chapter-map" data-target="chapter-map"><span class="cl-index">01</span>Map</a>
+        <a class="capsule-link" href="#chapter-watchlist" data-target="chapter-watchlist"><span class="cl-index">02</span>Watchlist</a>
+        <a class="capsule-link" href="#chapter-thesis" data-target="chapter-thesis"><span class="cl-index">03</span>Evidence</a>
+        <a class="capsule-link" href="#chapter-brain" data-target="chapter-brain"><span class="cl-index">04</span>Synthesis</a>
+      </nav>
+    </div>
+
     <main class="app-main">
-      <!-- Tab 1: Supply Chain Map. Section A (value-chain layers) is built
-           by renderLayers() from AIE_DATA. Section B (ticker cards) is T3. -->
-      <section
-        class="tab-panel active"
-        id="tab-map"
-        role="tabpanel"
-        aria-labelledby="tab-btn-map"
-      >
+      <!-- Chapter 01: The Map. Section A (value-chain layers) is built
+           by renderPipeline()/renderCrossSection() from AIE_DATA. -->
+      <section class="chapter" id="chapter-map">
+        <header class="chapter-head reveal">
+          <span class="chapter-eyebrow">Chapter 01 · Terrain</span>
+          <h2 class="chapter-title">The Map</h2>
+          <p class="chapter-lede">How a GPU gets made, and who gets paid along the way.
+            Trace the flow from raw supply to the demand hub — tap any layer to see
+            what to watch and who plays there.</p>
+        </header>
         <div class="map-section">
           <div class="map-header">
-            <h2>Supply Chain Map</h2>
             <div class="map-header-actions">
               <div class="view-toggle" id="mapViewToggle" role="tablist" aria-label="Map view">
                 <button type="button" class="vt-btn" data-view="pipeline" aria-selected="true">Pipeline</button>
@@ -995,16 +1259,23 @@
           </div>
           <div class="card-grid" id="cardGrid" aria-live="polite"></div>
         </div>
+
+        <!-- "Jargon, translated" — rendered by renderGlossary() from
+             AIE_DATA.glossary (hidden when the data layer has no entries). -->
+        <div class="glossary-strip" id="glossaryStrip" hidden></div>
       </section>
 
-      <section
-        class="tab-panel"
-        id="tab-watchlist"
-        role="tabpanel"
-        aria-labelledby="tab-btn-watchlist"
-        hidden
-      >
+      <!-- Chapter 02: The Watchlist. -->
+      <section class="chapter" id="chapter-watchlist">
+        <header class="chapter-head reveal">
+          <span class="chapter-eyebrow">Chapter 02 · Names</span>
+          <h2 class="chapter-title">The Watchlist</h2>
+          <p class="chapter-lede">Every tracked name with its weekly price snapshot,
+            conviction tier, and the desk's second opinion. Sort it, filter it,
+            rate it — your ratings persist.</p>
+        </header>
         <div class="wl-section">
+          <div class="wl-recent" id="wlRecent" hidden></div>
           <div class="wl-header">
             <div class="wl-ledger">
               <span class="ledger-eyebrow">Watchlist</span>
@@ -1047,13 +1318,15 @@
         </div>
       </section>
 
-      <section
-        class="tab-panel"
-        id="tab-thesis"
-        role="tabpanel"
-        aria-labelledby="tab-btn-thesis"
-        hidden
-      >
+      <!-- Chapter 03: The Evidence — the raw captured theses. -->
+      <section class="chapter" id="chapter-thesis">
+        <header class="chapter-head reveal">
+          <span class="chapter-eyebrow">Chapter 03 · Evidence</span>
+          <h2 class="chapter-title">The Evidence</h2>
+          <p class="chapter-lede">The source material: every captured call, verbatim
+            and linked to its original post. Conviction is scored from the language
+            used, not vibes.</p>
+        </header>
         <div class="th-header">
           <div class="wl-ledger">
             <span class="ledger-eyebrow">Thesis</span>
@@ -1065,16 +1338,17 @@
         <div class="th-feed" id="thFeed"></div>
       </section>
 
-      <!-- Tab 4: Brain. Synthesized per-theme digests, built by renderBrain()
+      <!-- Chapter 04: The Synthesis. Per-theme digests built by renderBrain()
            from AIE_DATA.brain (produced by ingest/synthesize.py). Each digest
            expands to reveal the raw source theses behind it. -->
-      <section
-        class="tab-panel"
-        id="tab-brain"
-        role="tabpanel"
-        aria-labelledby="tab-btn-brain"
-        hidden
-      >
+      <section class="chapter" id="chapter-brain">
+        <header class="chapter-head reveal">
+          <span class="chapter-eyebrow">Chapter 04 · Synthesis</span>
+          <h2 class="chapter-title">The Synthesis</h2>
+          <p class="chapter-lede">The Brain reads every thesis per theme and writes
+            one narrative digest — where the conviction is, what the key points are,
+            and the receipts behind each claim.</p>
+        </header>
         <div class="th-header">
           <div class="wl-ledger">
             <span class="ledger-eyebrow">Brain</span>
@@ -1085,6 +1359,16 @@
         <div id="brainFeed"></div>
       </section>
     </main>
+
+    <!-- Colophon: sourcing + caveats. Freshness stamps come from AIE_DATA
+         via renderColophon(). -->
+    <footer class="colophon" id="colophon">
+      <p>Every claim on this page traces back to a public post — captured at the
+        source, scored by language, and challenged weekly. Self-collected, unaudited,
+        and subject to survivorship bias. This is a personal research notebook,
+        not investment advice.</p>
+      <span class="cp-meta" id="colophonMeta"></span>
+    </footer>
   </div>
 
   <!-- data.js MUST load first: defines window.AIE_DATA -->
@@ -1255,35 +1539,258 @@
       }
 
       /* ----------------------------------------------------------
-         Tab switching with fade transition.
+         Motion utilities — scroll-triggered reveals shared by cards
+         and chapter heads. Everything collapses to "just visible"
+         under prefers-reduced-motion or without IntersectionObserver.
          ---------------------------------------------------------- */
-      function initTabs() {
-        var buttons = Array.prototype.slice.call(
-          document.querySelectorAll(".tab-btn")
-        );
+      var REDUCE = window.matchMedia
+        && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-        function activate(targetId) {
-          buttons.forEach(function (btn) {
-            var isActive = btn.getAttribute("data-target") === targetId;
-            btn.setAttribute("aria-selected", isActive ? "true" : "false");
-          });
+      var revealIO = (!REDUCE && "IntersectionObserver" in window)
+        ? new IntersectionObserver(function (entries) {
+            entries.forEach(function (en) {
+              if (en.isIntersecting) {
+                en.target.classList.add("in-view");
+                revealIO.unobserve(en.target);
+              }
+            });
+          }, { threshold: 0.08 })
+        : null;
 
-          document.querySelectorAll(".tab-panel").forEach(function (panel) {
-            var isActive = panel.id === targetId;
-            panel.classList.toggle("active", isActive);
-            if (isActive) {
-              panel.removeAttribute("hidden");
-            } else {
-              panel.setAttribute("hidden", "");
-            }
+      // Mark a node for staggered reveal (stagger capped at 8 steps so a
+      // long grid never queues a multi-second tail).
+      function revealify(node, i) {
+        if (!revealIO) { node.classList.add("in-view"); return; }
+        node.classList.add("reveal");
+        node.style.transitionDelay = ((i || 0) % 8) * 40 + "ms";
+        revealIO.observe(node);
+      }
+
+      /* Unified drill-down: JS-measured max-height, not CSS grid-template-rows
+         0fr->1fr — some ancestors (overflow-constrained cards, flex columns)
+         give the grid track a bounded "available space" instead of true
+         auto-sizing, silently resolving 1fr to 0. Measuring `inner.scrollHeight`
+         sidesteps that entirely. `container` toggles the opacity/margin-top
+         class; `inner` is the wrapper whose natural height we measure. */
+      var openDrilldowns = []; // {container, inner} pairs currently open, for resize re-measure
+      function setDrilldownOpen(container, inner, open, activeClass) {
+        if (activeClass) container.classList.toggle(activeClass, open);
+        container.style.maxHeight = open ? inner.scrollHeight + "px" : "0px";
+        var idx = openDrilldowns.findIndex(function (d) { return d.container === container; });
+        if (open && idx === -1) openDrilldowns.push({ container: container, inner: inner });
+        else if (!open && idx !== -1) openDrilldowns.splice(idx, 1);
+      }
+      window.addEventListener("resize", function () {
+        openDrilldowns.forEach(function (d) {
+          d.container.style.maxHeight = d.inner.scrollHeight + "px";
+        });
+      });
+
+      function initReveals() {
+        document.querySelectorAll(".reveal").forEach(function (n) {
+          if (revealIO) { revealIO.observe(n); }
+          else { n.classList.add("in-view"); }
+        });
+      }
+
+      // Count a number up inside `node` (entrance effect; longer than the
+      // 200-300ms hover/click rule on purpose — it's a one-time reveal).
+      function countUp(node, target) {
+        if (REDUCE || !target) { node.textContent = String(target); return; }
+        var t0 = null, DUR = 700;
+        function tick(ts) {
+          if (!t0) t0 = ts;
+          var p = Math.min(1, (ts - t0) / DUR);
+          var eased = 1 - Math.pow(1 - p, 3);
+          node.textContent = String(Math.round(target * eased));
+          if (p < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      }
+
+      /* ----------------------------------------------------------
+         Capsule nav — sliding pill + smooth scroll + scrollspy.
+         Anchors already work without JS; this layer adds the pill.
+         ---------------------------------------------------------- */
+      function initCapsuleNav() {
+        var nav = document.getElementById("capsuleNav");
+        var pill = document.getElementById("capsulePill");
+        if (!nav || !pill) return;
+        var links = Array.prototype.slice.call(nav.querySelectorAll(".capsule-link"));
+        var sections = links.map(function (l) {
+          return document.getElementById(l.getAttribute("data-target"));
+        });
+        var navLock = false, lockTimer = null, current = null;
+
+        function movePill(link) {
+          pill.style.width = link.offsetWidth + "px";
+          pill.style.transform = "translateX(" + link.offsetLeft + "px)";
+          nav.classList.add("is-ready");
+        }
+        function setActive(id) {
+          current = id;
+          links.forEach(function (l) {
+            var on = l.getAttribute("data-target") === id;
+            l.classList.toggle("is-active", on);
+            if (on) movePill(l);
           });
         }
 
-        buttons.forEach(function (btn) {
-          btn.addEventListener("click", function () {
-            activate(btn.getAttribute("data-target"));
+        links.forEach(function (link) {
+          link.addEventListener("click", function (e) {
+            var id = link.getAttribute("data-target");
+            var target = document.getElementById(id);
+            if (!target) return;
+            e.preventDefault();
+            // Lock the spy so the pill doesn't flicker through
+            // intermediate chapters during the smooth scroll.
+            navLock = true;
+            setActive(id);
+            target.scrollIntoView({ behavior: REDUCE ? "auto" : "smooth", block: "start" });
+            if (history.replaceState) history.replaceState(null, "", "#" + id);
+            clearTimeout(lockTimer);
+            lockTimer = setTimeout(function () { navLock = false; }, 900);
           });
         });
+        window.addEventListener("scrollend", function () { navLock = false; });
+
+        function spy() {
+          if (navLock) return;
+          var doc = document.documentElement;
+          var active = sections[0] ? sections[0].id : null;
+          if (window.innerHeight + window.scrollY >= doc.scrollHeight - 4) {
+            // Bottom of page: the last (possibly short) chapter wins.
+            active = sections[sections.length - 1].id;
+          } else {
+            var mid = window.innerHeight * 0.45;
+            sections.forEach(function (s) {
+              if (s && s.getBoundingClientRect().top <= mid) active = s.id;
+            });
+          }
+          if (active && active !== current) setActive(active);
+        }
+        window.addEventListener("scroll", spy, { passive: true });
+        window.addEventListener("resize", function () {
+          var act = links.filter(function (l) { return l.classList.contains("is-active"); })[0];
+          if (act) movePill(act);
+        });
+
+        var initial = (location.hash || "").slice(1);
+        setActive(sections.some(function (s) { return s && s.id === initial; })
+          ? initial : sections[0].id);
+        spy();
+      }
+
+      /* ----------------------------------------------------------
+         Prologue — signal chain counts, conviction barbell, and the
+         latest captured thesis. All numbers read live from AIE_DATA.
+         ---------------------------------------------------------- */
+      function renderHero() {
+        if (!DATA) return;
+        var tickers = DATA.tickers || [];
+        var theses = DATA.theses || [];
+        var tiers = { core: 0, watch: 0, radar: 0 };
+        tickers.forEach(function (t) { tiers[tierOf(t)] = (tiers[tierOf(t)] || 0) + 1; });
+        var verdictCount = tickers.filter(function (t) { return t.verdict; }).length;
+
+        var chain = document.getElementById("signalChain");
+        if (chain) {
+          chain.innerHTML = "";
+          var nodes = [
+            { n: theses.length, label: "theses captured" },
+            { n: tickers.length, label: "names tracked" },
+            { n: tiers.core, label: "core conviction" },
+            { n: verdictCount, label: "desk verdicts" }
+          ];
+          nodes.forEach(function (nd, i) {
+            if (i > 0) chain.appendChild(makeFlowArrow("sc-arrow"));
+            var node = el("div", "sc-node");
+            var num = el("span", "sc-num", REDUCE ? String(nd.n) : "0");
+            num.dataset.count = nd.n;
+            node.appendChild(num);
+            node.appendChild(el("span", "sc-label", nd.label));
+            chain.appendChild(node);
+          });
+          // Count up once, when the chain first enters the viewport.
+          if (!REDUCE && "IntersectionObserver" in window) {
+            var io = new IntersectionObserver(function (entries) {
+              entries.forEach(function (en) {
+                if (!en.isIntersecting) return;
+                io.disconnect();
+                chain.querySelectorAll(".sc-num").forEach(function (n) {
+                  countUp(n, Number(n.dataset.count));
+                });
+              });
+            }, { threshold: 0.4 });
+            io.observe(chain);
+          } else {
+            chain.querySelectorAll(".sc-num").forEach(function (n) {
+              n.textContent = n.dataset.count;
+            });
+          }
+        }
+
+        // Conviction barbell — Core / Watch / Radar split as one bar.
+        var bb = document.getElementById("heroBarbell");
+        if (bb) {
+          bb.innerHTML = "";
+          var segs = [
+            { id: "core", color: "#16a34a" },
+            { id: "watch", color: "#f59e0b" },
+            { id: "radar", color: "#c7c7cc" }
+          ];
+          var bar = el("div", "hb-bar");
+          var legend = el("div", "hb-legend");
+          segs.forEach(function (sg) {
+            var seg = el("span", "hb-seg");
+            seg.style.flexGrow = String(tiers[sg.id] || 0);
+            seg.style.background = sg.color;
+            bar.appendChild(seg);
+            var item = el("span", null);
+            var dot = el("i");
+            dot.style.background = sg.color;
+            item.appendChild(dot);
+            item.appendChild(el("b", null, String(tiers[sg.id] || 0)));
+            item.appendChild(document.createTextNode(" " + sg.id));
+            legend.appendChild(item);
+          });
+          bb.appendChild(bar);
+          bb.appendChild(legend);
+        }
+
+        // Latest signal — the newest captured thesis, featured.
+        var latestWrap = document.getElementById("heroLatest");
+        var latestCard = document.getElementById("heroLatestCard");
+        if (latestWrap && latestCard) {
+          var newest = theses.slice().sort(function (a, b) {
+            var da = a.postedAt || a.ingestedAt || "";
+            var db = b.postedAt || b.ingestedAt || "";
+            return db < da ? -1 : db > da ? 1 : 0;
+          })[0];
+          latestCard.innerHTML = "";
+          if (newest) {
+            latestWrap.hidden = false;
+            latestCard.appendChild(makeThesisCard(newest));
+          } else {
+            latestWrap.hidden = true;
+          }
+        }
+      }
+
+      /* Colophon freshness stamps — data version, prices as-of, desk review. */
+      function renderColophon() {
+        var meta = document.getElementById("colophonMeta");
+        if (!meta || !DATA) return;
+        var bits = [];
+        if (DATA.meta && DATA.meta.version) bits.push("data v" + DATA.meta.version);
+        if (DATA.meta && DATA.meta.lastUpdated) bits.push("updated " + String(DATA.meta.lastUpdated).slice(0, 10));
+        var asOf = (DATA.tickers || []).map(function (t) { return t.asOf; })
+          .filter(Boolean).sort().slice(-1)[0];
+        if (asOf) bits.push("prices as of " + asOf.slice(0, 10));
+        if (DATA.desk && DATA.desk.meta && DATA.desk.meta.reviewedAt) {
+          bits.push("desk reviewed " + DATA.desk.meta.reviewedAt.slice(0, 10));
+        }
+        meta.textContent = bits.join(" · ");
       }
 
       /* ----------------------------------------------------------
@@ -1320,10 +1827,13 @@
         main.appendChild(title);
         if (opts.desc) main.appendChild(el("p", "layer-desc", opts.desc));
         // Investor angle — revealed when the layer is selected (see .is-active CSS).
+        // Inner wrapper enables the grid-rows 0fr->1fr drill-down animation.
         if (opts.angle) {
           var detail = el("div", "layer-detail");
-          detail.appendChild(el("span", "layer-detail-label", "What to watch"));
-          detail.appendChild(el("p", "layer-detail-text", opts.angle));
+          var detailInner = el("div", "layer-detail-inner");
+          detailInner.appendChild(el("span", "layer-detail-label", "What to watch"));
+          detailInner.appendChild(el("p", "layer-detail-text", opts.angle));
+          detail.appendChild(detailInner);
           main.appendChild(detail);
         }
         band.appendChild(main);
@@ -1345,9 +1855,9 @@
         return div;
       }
 
-      // A small dashed flow-arrow between pipeline columns.
-      function makeFlowArrow() {
-        var wrap = el("div", "mp-arrow");
+      // A small dashed flow-arrow — pipeline columns and the hero signal chain.
+      function makeFlowArrow(cls) {
+        var wrap = el("div", cls || "mp-arrow");
         wrap.innerHTML = '<svg width="28" height="16" viewBox="0 0 28 16" aria-hidden="true">'
           + '<line x1="1" y1="8" x2="20" y2="8" stroke="currentColor" stroke-width="2" stroke-dasharray="3 3"/>'
           + '<path d="M15 2 L23 8 L15 14" fill="none" stroke="currentColor" stroke-width="2" '
@@ -1457,6 +1967,13 @@
           bar.style.background = "color-mix(in srgb, " + c.color + " 55%, #0f1b2e)";
           col.appendChild(bar);
           col.appendChild(el("span", "mc-count", String(n)));
+          // Heat: median 7-day move across this category's tickers.
+          var heat = medianChg7d(id);
+          if (heat != null) {
+            var hcls = heat > 0.5 ? "hot" : (heat < -0.5 ? "cold" : "flat");
+            col.appendChild(el("span", "mc-heat " + hcls,
+              (heat > 0 ? "+" : "") + heat.toFixed(1) + "%"));
+          }
           col.appendChild(el("span", "mc-label", c.label));
 
           col.addEventListener("click", function () { setFilter(id); });
@@ -1466,6 +1983,22 @@
           bars.appendChild(col);
         });
         root.appendChild(bars);
+        // Only promise heat data when at least one category has it.
+        var hasHeat = ids.some(function (id) { return medianChg7d(id) != null; });
+        root.appendChild(el("div", "mc-legend", hasHeat
+          ? "bar height = names tracked · % = median 7-day price move"
+          : "bar height = names tracked"));
+      }
+
+      // Median chg7d for a category (null when no ticker has price data yet).
+      function medianChg7d(catId) {
+        var vals = ((DATA && DATA.tickers) || [])
+          .filter(function (t) { return t.category === catId && t.chg7d != null; })
+          .map(function (t) { return t.chg7d; })
+          .sort(function (a, b) { return a - b; });
+        if (!vals.length) return null;
+        var mid = Math.floor(vals.length / 2);
+        return vals.length % 2 ? vals[mid] : (vals[mid - 1] + vals[mid]) / 2;
       }
 
       // Dispatch to the active map view. Both views share the same intro line,
@@ -1512,6 +2045,9 @@
           var on = b.dataset.cat === mapState.selectedId;
           b.classList.toggle("is-active", on);
           b.setAttribute("aria-pressed", on ? "true" : "false");
+          var detail = b.querySelector(".layer-detail");
+          var detailInner = b.querySelector(".layer-detail-inner");
+          if (detail && detailInner) setDrilldownOpen(detail, detailInner, on);
         });
         document.querySelectorAll(".mc-col[data-cat]").forEach(function (b) {
           var on = b.dataset.cat === mapState.selectedId;
@@ -1553,14 +2089,13 @@
         return node;
       }
 
-      function makeCard(ticker, index) {
+      function makeCard(ticker) {
         var cat = (DATA.categories && DATA.categories[ticker.category]) || null;
         var country = (DATA.countries && DATA.countries[ticker.market]) || null;
         var accent = cat ? cat.color : "#64748b";
 
         var card = el("article", "tk-card");
         card.style.setProperty("--accent", accent);
-        card.style.animationDelay = (index * 45) + "ms";
 
         // Header: ticker + company
         var head = el("div", "tk-head");
@@ -1704,7 +2239,50 @@
         }
 
         list.forEach(function (ticker, i) {
-          grid.appendChild(makeCard(ticker, i));
+          var card = makeCard(ticker);
+          revealify(card, i);
+          grid.appendChild(card);
+        });
+      }
+
+      /* "Jargon, translated" — inline glossary from AIE_DATA.glossary. */
+      function renderGlossary() {
+        var strip = document.getElementById("glossaryStrip");
+        if (!strip) return;
+        var items = (DATA && DATA.glossary) || [];
+        if (!items.length) { strip.hidden = true; return; }
+        strip.hidden = false;
+        strip.innerHTML = "";
+        strip.appendChild(el("span", "gl-eyebrow", "Jargon, translated"));
+        var wrap = el("div", "gl-items");
+        items.forEach(function (g) {
+          var item = el("span", "gl-item");
+          item.appendChild(el("dfn", null, g.term));
+          item.appendChild(document.createTextNode(g.def));
+          wrap.appendChild(item);
+        });
+        strip.appendChild(wrap);
+      }
+
+      /* "New this week" — tickers added within 7 days of today. */
+      function renderWlRecent() {
+        var row = document.getElementById("wlRecent");
+        if (!row || !DATA) return;
+        var cutoff = new Date(Date.now() - 7 * 86400000).toISOString().slice(0, 10);
+        var recent = (DATA.tickers || []).filter(function (t) {
+          return t.addedDate && t.addedDate >= cutoff;
+        }).sort(function (a, b) { return b.addedDate < a.addedDate ? -1 : 1; });
+        if (!recent.length) { row.hidden = true; return; }
+        row.hidden = false;
+        row.innerHTML = "";
+        row.appendChild(el("span", "wr-label", "New this week"));
+        recent.slice(0, 8).forEach(function (t) {
+          var cat = DATA.categories && DATA.categories[t.category];
+          var chip = el("span", "wr-chip");
+          if (cat) chip.style.setProperty("--accent", cat.color);
+          chip.appendChild(document.createTextNode(t.ticker));
+          chip.appendChild(el("span", "wr-date", t.addedDate));
+          row.appendChild(chip);
         });
       }
 
@@ -1747,7 +2325,9 @@
         { id: "radar", label: "Radar" },
         { id: "all", label: "All" }
       ];
-      var wlState = { key: "category", dir: 1, view: "flat", categoryFilter: null, tierFilter: "signal" };
+      // Watchlist opens focused on Core (highest-conviction names) so the
+      // table is short by default; Signal/Watch/Radar/All are one chip away.
+      var wlState = { key: "category", dir: 1, view: "flat", categoryFilter: null, tierFilter: "core" };
 
       function wlTickers() { return (DATA && DATA.tickers) ? DATA.tickers.slice() : []; }
 
@@ -2020,7 +2600,11 @@
           if (hint) hint.hidden = true;
           fetch("api/fetch-prices", { method: "POST" })
             .then(function (r) { if (!r.ok) throw new Error("status " + r.status); return r.json(); })
-            .then(function () { location.reload(); })
+            .then(function () {
+              // Come back to the same place after the refresh.
+              try { sessionStorage.setItem("aie_scroll", String(window.scrollY)); } catch (e) {}
+              location.reload();
+            })
             .catch(function () {
               btn.disabled = false;
               btn.textContent = label;
@@ -2150,18 +2734,60 @@
           return;
         }
 
-        // Group by posting day, inserting a zone-divider-style label before each new day.
+        // Group a slice into day-divided cards, continuing the running "last
+        // day" cursor across the visible/hidden boundary so no divider repeats.
+        function appendThesisGroup(container, list, startIndex, lastDayIn) {
+          var lastDay = lastDayIn;
+          list.forEach(function (th, i) {
+            var day = (th.postedAt || th.ingestedAt || "").slice(0, 10);
+            if (day && day !== lastDay) {
+              container.appendChild(makeZoneDivider(day, true));
+              lastDay = day;
+            }
+            var card = makeThesisCard(th);
+            revealify(card, startIndex + i);
+            container.appendChild(card);
+          });
+          return lastDay;
+        }
+
+        // Only the most recent theses render by default — a raw feed of every
+        // forwarded post gets enormous fast (154+ full-text cards after a
+        // backfill). Older ones stay one click away via the same grid
+        // drill-down used elsewhere, never deleted.
+        var VISIBLE_CAP = 10;
+        var visible = theses.slice(0, VISIBLE_CAP);
+        var rest = theses.slice(VISIBLE_CAP);
+
         var frag = document.createDocumentFragment();
-        var lastDay = null;
-        theses.forEach(function (th) {
-          var day = (th.postedAt || th.ingestedAt || "").slice(0, 10);
-          if (day && day !== lastDay) {
-            frag.appendChild(makeZoneDivider(day, true));
-            lastDay = day;
-          }
-          frag.appendChild(makeThesisCard(th));
-        });
+        var lastDay = appendThesisGroup(frag, visible, 0, null);
         feed.appendChild(frag);
+
+        if (rest.length) {
+          var older = el("div", "bd-sources");
+          var olderInner = el("div", "bd-sources-inner");
+          older.appendChild(olderInner);
+          var built = false;
+          var n = rest.length;
+          var label = function (open) {
+            return (open ? "Hide " : "Show ") + n + (n === 1 ? " earlier thesis" : " earlier theses");
+          };
+          var toggle = el("button", "bd-toggle", label(false));
+          toggle.setAttribute("type", "button");
+          toggle.setAttribute("aria-expanded", "false");
+          toggle.addEventListener("click", function () {
+            var open = !older.classList.contains("open");
+            toggle.setAttribute("aria-expanded", open ? "true" : "false");
+            toggle.textContent = label(open);
+            if (open && !built) {
+              appendThesisGroup(olderInner, rest, VISIBLE_CAP, lastDay);
+              built = true;
+            }
+            setDrilldownOpen(older, olderInner, open, "open");
+          });
+          feed.appendChild(toggle);
+          feed.appendChild(older);
+        }
       }
 
       // Build one thesis card. Shared by the Thesis feed and the Brain tab's
@@ -2255,10 +2881,11 @@
         ((DATA.theses) || getStoredTheses() || []).forEach(function (t) { byId[t.id] = t; });
 
         var frag = document.createDocumentFragment();
-        digests.forEach(function (d) {
+        digests.forEach(function (d, di) {
           var cat = (DATA.categories && DATA.categories[d.category]) || null;
           var card = el("article", "bd-card");
           card.style.setProperty("--accent", cat ? cat.color : "#94a3b8");
+          revealify(card, di);
 
           var head = el("div", "bd-head");
           head.appendChild(el("span", "bd-title", cat ? cat.label : d.category));
@@ -2313,6 +2940,8 @@
           var ids = d.sourceThesisIds || [];
           if (ids.length) {
             var sources = el("div", "bd-sources");
+            var sourcesInner = el("div", "bd-sources-inner");
+            sources.appendChild(sourcesInner);
             var built = false;
             var n = ids.length;
             var label = function (open) {
@@ -2322,16 +2951,17 @@
             toggle.setAttribute("type", "button");
             toggle.setAttribute("aria-expanded", "false");
             toggle.addEventListener("click", function () {
-              var open = sources.classList.toggle("open");
+              var open = !sources.classList.contains("open");
               toggle.setAttribute("aria-expanded", open ? "true" : "false");
               toggle.textContent = label(open);
               if (open && !built) {
                 ids.forEach(function (tid) {
                   var th = byId[tid];
-                  if (th) sources.appendChild(makeThesisCard(th, { compact: true }));
+                  if (th) sourcesInner.appendChild(makeThesisCard(th, { compact: true }));
                 });
                 built = true;
               }
+              setDrilldownOpen(sources, sourcesInner, open, "open");
             });
             card.appendChild(toggle);
             card.appendChild(sources);
@@ -2345,17 +2975,30 @@
       // Boot
       seedLocalStorage();
       paintGradientBorder();
-      initTabs();
+      renderHero();
+      initCapsuleNav();
       initMapViewToggle();
       renderMap();
       renderCards(null);
       renderPriorityStrip();
+      renderGlossary();
       renderWatchlist();
+      renderWlRecent();
       initWatchlistSort();
       initWatchlistViewToggle();
       initWatchlistFetch();
       renderTheses();
       renderBrain();
+      renderColophon();
+      initReveals();
+      // Restore the scroll position saved before a price-fetch reload.
+      try {
+        var savedScroll = sessionStorage.getItem("aie_scroll");
+        if (savedScroll != null) {
+          sessionStorage.removeItem("aie_scroll");
+          window.scrollTo(0, Number(savedScroll));
+        }
+      } catch (e) { /* storage may be unavailable on file:// */ }
     })();
   </script>
 </body>

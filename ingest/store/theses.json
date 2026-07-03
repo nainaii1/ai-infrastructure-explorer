@@ -259,7 +259,7 @@
       "AEHR",
       "AMAT",
       "INTC",
-      "KLA",
+      "KLAC",
       "SIVE"
     ],
     "conviction": "normal",
@@ -623,7 +623,6 @@
     "ingestedAt": "2026-06-30T07:44:51Z",
     "text": "I'm actually excited for the United States gets its first pure play Humanoid public company!\n\nAt a personally compelling valuation like Unitree's $6.5B (they're IPOing at $2.5B)\n\nThat I personally invested in Agility Robotics. Couple days ago when they first announced it. \n\n$CCXI\n is the current name -> ticker change $AGLT on IPO\n\nIt's IPOing ~September per news sources, so around 3M from now, so a lot of waiting time, but less so than $WLAC / \n$BRUN\n. \n\nAs a TLDR rundown of what I've found so far + my thoughts:\n\nIt's a very commercializable humanoid (eg. warehouses, delivery, etc),  compared to others like Figure (~$49B) that are general purpose.\n\nAnd I personally heavily favor application-specific ones for workforce automation, that can step-function into becoming general purpose.\n\nIPO valuation is ~$2.5B, but since it's trading as a holding company now and is up a decent amount, it's roughly ~$4.4B pro forma last I checked. \n\nIn terms of dilution, there's a 180 day lockup period, which is a very green flag for SPAC structures. \n\nIn terms of fundamentals:\n\n- \"Agility also says it has $300M+ of multi-year Digit v5 orders and a pipeline of 30+ customers\"\n- \"65,000+ operating hours\"\n- GXO, Schaeffler, Toyota Motor Manufacturing Canada, and Mercado Libre  as external customers, with Amazon and others testing it\n\nSo it’s definitely not vaporware/promises, and is actually commercializable. \n\nTheir investor list includes:\n$NVDA\n, Foxconn, \n$AMZN\n, Softbank + others.\n\nAs for warnings: current BOM is ~$125k+ since they claim 75% of components are sourced from US, but they're trying to get that down to $50K.\n\nSo there is US scarcity, compared to Optimus where large part of BOM is  China suppliers. \n\nThere's also a chance the SPAC gets canceled + filings get delayed past Nov.\n\nThat being said I'm just sharing the IPO news and personal thoughts. Probably going to do more research this weekend, but I'm very excited. \n\nIt kinda feels like ChatGPT when it first got announced (infancy), but the technology scaled up really fast over 2-3 years.",
     "tickers": [
-      "AGLT",
       "AMZN",
       "BRUN",
       "CCXI",
@@ -642,7 +641,6 @@
     "ingestedAt": "2026-06-30T07:45:28Z",
     "text": "My opinion is \n$BOT\n is heavily above NAV, latest published was $8.92/share as of June 22, while it's trading at $31.35. \n\nSo it's like buying Figure at $171B while it's valued at $49B. \n\nThen there's $2B active dilution on top. \n\nWhich is why I personally invested in \n$CCXI\n instead for pure play humanoid exposure with Agility.\n\nYes I own \n$CCXI\n when I say I'm an investor in Agility Robotics. \n\nWhen the IPO through de-SPAC typically happens, it's just typically a name change that happens to $AGLT. \n\n$DJT\n, \n$BULL\n, \n$BRUN\n were some of the more recent SPAC IPOs examples in memory.",
     "tickers": [
-      "AGLT",
       "BOT",
       "BRUN",
       "BULL",
@@ -709,7 +707,7 @@
       "MU",
       "SIVE",
       "SNDK",
-      "SOI",
+      "SOI.PA",
       "TSEM"
     ],
     "conviction": "normal",
@@ -747,31 +745,6 @@
       "NVDA",
       "POET",
       "SIVE"
-    ],
-    "conviction": "normal",
-    "tags": []
-  },
-  {
-    "id": "h_238f8fac06bf85b9",
-    "source": "x",
-    "author": "aleabitoreddit",
-    "sourceUrl": "",
-    "postedAt": "2026-06-30T07:49:19Z",
-    "ingestedAt": "2026-06-30T07:49:19Z",
-    "text": "Just from my personal experiences:\n\nMy new heuristic is markets tend to price things in ~8 months in advance unless your theme is Space, Robotics/Quantum.\n\nFor themes I'm tracking:\n\nFor photonics:\n- Next-gen pluggables (1.6T) are right around now (ex. \n$LITE\n, \n$COHR\n, Innolight, etc. then \n$AAOI\n, \n$JBL\n 1.6T LRO and other later bloomers H1 2027).\n- CPO Scale Out related stuff is late H2 2026 (ex. \n$POET\n, Shunsin, etc)\n- NPO stuff H2 2026/2027 prob as bridge architectures\n- CPO Scale Up H2 2027 (ex. Ayar, Celestial, etc).\n\nIf I use the 8 month rule like 4 months too early for CPO Scale Up Names.\n\nBut in hindsight, I wanted to be early this time around given I felt this was the most compelling architectural shift given GS tam projections + markets seem to disagree, which is why there's a selloff with Foci/MSScorp and others.\n\nMaybe it should start picking up again and start to be priced in December 2026 IG? idk we'll see. \n\nStuff like lasers, \n$AXTI\n (InP substrates) are used across all those themes. FAU/silicon photonics/PCB midplanes, etc. are more concentrated around different architectures.\n\nMemory theme is quite a massive bottleneck as you've been seeing:\n\n- HBM3e around now as you've seen with Micron, Samsung, Sk Hynix etc. and NAND with Sandisk.\n- HBM4 mass production right around now too with SK Hynix, Micron/Samsung.\n- HBF 2027?\n\nBut again these are the same Kioxia, Samsung, Sk Hynix, \n$MU\n, Kioxia players across different architectures, and we're seeing re-rating cause we're mid-bottleneck.\n\nSo these are likely to keep compounding. \n\nGlass Substrates:\nH2 2026 start with SKC Absolics (probably just early stage ramp).\nH2 2027 - 2028 is where the fun begins, with 2028 TSM CoPoS, others like Samsung etc. 2027. and Intel later on.\n\nHumanoid Suppliers:\nVery early, but as I said with Space markets probably won't wait to price this in with Elon giving bullish \n$TSLA\n optimus projections and Chinese humanoid companies like Unitree/AGI Bot starting to ramp up.\n\nNeoclouds:\nI said this was probably the buildout period for many of the players and Q4 2026 earnings is when some of the leaders typically hit inflection.\n\nMaybe was a bit early focusing so hard H4 2025 last year.\n\nLike with \n$NBIS\n $7-9B ARR, that ARR proj should hit Q4 earnings. If we apply that ~8M rule, Jan/Feb was very depressing, but should have bought in March 2026 rather than Sept last year. But as you've seen recently, markets might be pricing in Feb 2027 window.\n\nSo I'm personally probably going to repositioning right now around:\n- Memory\n- Neoclouds\n- Photonics\n- Robotics\n\nProbably heavier when something is ~8m in advance or captures many different themes eg. $SIVE for pluggable, NPO, CPO, and all architectures.\n\nAnd just having exposure to mini-shifts in between like advanced packaging materials, hybrid bonding for memory, or random bottlenecks like MLCCs.\n\nI probably shouldn't have heavy exposure to something way out 12M+ if I rethink my decisions.\n\nAlso something to note is machine suppliers in general hit revenue faster than the general volume ramp, since your main companies like Samsung, Absolics, etc. need machines to get going in the first place. Which is why I ended up getting $LPK positions personally.\n\nI should probably use follow my personal 8 rule to the T myself since I probably was a little too early to many names.\n\nThose are just my own experiences tho I'm learning along the way.\n\nMaybe you'll come up with your own rule of thumbs to make allocation/weighting decisions.",
-    "tickers": [
-      "AAOI",
-      "AXTI",
-      "COHR",
-      "JBL",
-      "LITE",
-      "LPK.DE",
-      "MU",
-      "NBIS",
-      "POET",
-      "SIVE",
-      "TSLA",
-      "TSM"
     ],
     "conviction": "normal",
     "tags": []
@@ -877,7 +850,7 @@
       "LITE",
       "NVDA",
       "SIVE",
-      "SOI",
+      "SOI.PA",
       "TSEM"
     ],
     "conviction": "normal",
@@ -1114,7 +1087,6 @@
     "ingestedAt": "2026-07-01T20:01:35Z",
     "text": "Sure so when they go public, it’s just a ticker change from \n$CCXI\n to $AGLT.\n\nAt $10 it was around ~$3.1B MC including est. cash/pipe. At current levels it’s around ~$5.5B.\n\nI personally benchmark it against Figure, which is last valued at ~$39B",
     "tickers": [
-      "AGLT",
       "CCXI"
     ],
     "conviction": "normal",
@@ -1368,6 +1340,1233 @@
     "text": "Just this hour:\n\nBlueCrest Capital Management and its Billionaire Michael Platt crossed the threshold and disclosed a 5.6% stake in \n$CCXI\n.\n\nI knew Agility Robotics would be popular…",
     "tickers": [
       "CCXI"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "x_2072930633811419601",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2072930633811419601?s=20",
+    "postedAt": "2026-07-03T09:59:57Z",
+    "ingestedAt": "2026-07-03T09:59:57Z",
+    "text": "https://x.com/aleabitoreddit/status/2072930633811419601?s=20",
+    "tickers": [],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_fd9505c4ad92bce4",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-03T10:01:48Z",
+    "ingestedAt": "2026-07-03T10:01:48Z",
+    "text": "Does anyone else have this annoying seed planted in their mind too?\n\nWhenever I see \n$MRVL\n drop, I get reminded of Jensen’s comment “The next $1T company”.",
+    "tickers": [
+      "MRVL"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_9c524f6339fbbee1",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-03T10:07:17Z",
+    "ingestedAt": "2026-07-03T10:07:17Z",
+    "text": "$AXTI signs 3-year wafer deal with \n$COHR\n\n\"Coherent will make a prepayment of $22,288,500 to AXT-Tongmei in exchange for a committed supply capacity.\"",
+    "tickers": [
+      "AXTI",
+      "COHR"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_faf7862f8409c216",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-03T10:08:17Z",
+    "ingestedAt": "2026-07-03T10:08:17Z",
+    "text": "$META upcoming AI model “Watermelon”  has caught up to OpenAI’s GPT 5.5.\n\nWang noted it uses an \"order of magnitude\" more compute than its predecessor “Avocado”.\n\nWho said they were out of the AI race again? But market narratives were saying Meta would drop out of the AI race, stop capex, and sell excess compute!!\n\nCan’t believe that caused everything to crash. Lot of misinformation recently about \n$META\nRecently major journals have been stating \n\n“AI AGENT DEVELOPMENT OVER THE LAST FOUR MONTHS HASN'T 'ACCELERATED IN THE WAY WE EXPECTED”\n\nTo push some narrative about Meta dropping out of the race or lowered capex:\n\nAs Wang clarified: Zuckerberg was talking about the industry as a whole.\n\n\nSemiAnalysis on $META\n “overcapacity” and market reactions with $NBIS and others:\n\n“We believe Meta’s datacenter and compute will accelerate”.\n\n“Capex in 2027 will be shockingly high”.\n\nRecent global crash, especially in the photonics sector was stupid… Off misleading narratives of Meta dropping out of AI race to sell excess compute…\n\nWhen in fact things are likely to accelerate from Meta catching up to GPT5.5.\n\nI’m personally expecting a sharp V recovery, especially with the names that crashed 50%+ from this narrative.\n\nwhen global and US markets crash off misinformation and out of context quotes from \n$META I probably want to clear that up?\n\nThat thing said, $AAOI, $SIVE, and  $CCXI do make up large concentration in my portfolio.",
+    "tickers": [
+      "AAOI",
+      "CCXI",
+      "META",
+      "NBIS",
+      "SIVE"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_559e35fdea272a74",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-03T10:08:32Z",
+    "ingestedAt": "2026-07-03T10:08:32Z",
+    "text": "LeaderDrive (688017) is now at all time highs after hitting a 20% limit up today. Called at jun5 at 321 and today is 495\n\nLooks like robotics sector excitement is palpable…\n\nLargely driven by US and China’s frontier humanoid companies with $CCXI\n / Agility Robotics\n\nAs well as Unitree (STAR listing approved today) both going public.",
+    "tickers": [
+      "CCXI"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_65385721915ebae2",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-03T10:09:14Z",
+    "ingestedAt": "2026-07-03T10:09:15Z",
+    "text": "This is a conspiracy theory of mine: but Jensen hates $AVGO\n. \n\nFeels like all of $NVDA allied ASIC challengers…\n\n \n$MRVL, Mediatek, AlChip, GUC (nvlink) and others are all slowly chipping away Broadcom’s ASIC share.\n\nThis is done discretely with Nvidia support.\n\nJust like Neoclouds offerings last year as a defacto extension to place create moat against CSPs custom ASICs with Nvidia’s ecosystem. \n\nObviously overall ASIC market goes up, but many of these challengers feel like they’re taking on more hyperscaler-adjacent projects. Probably supported by Nvidia.. \n\nNFA think this would be an interesting 2 year trade opportunity, but IMO past 2030, I’d expect many like Google to bring design in house.\n\nNvidia clearly is the kingmaker… so anything they kinda touch gets brought up such as that next Marvell $1T company comment.\n\nTBH my prediction is $NVDA will take a stake in $QCOM\n next if they’re legally allowed to next.\n\nAnd then make Qualcomm’s ASIC offerings more Nvidia ecosystem aligned as well.\n\n\nNo strong opinion there lol. But regardless, feels like Nvidia is aggressively defending its moat against $AVGO though aligning ASIC players with Nvidia’s ecosystem.\n\nAnd that brings up their equity value of these smaller companies.\n\nSame thing with the Neocloud trade last year with $NBIS\n and the others against hyperscaler dominance.\n\nFeels like Jensen is playing chess",
+    "tickers": [
+      "AVGO",
+      "MRVL",
+      "NBIS",
+      "NVDA",
+      "QCOM"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_3dbecf550235afcf",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-03T10:11:43Z",
+    "ingestedAt": "2026-07-03T10:11:43Z",
+    "text": "Be SemiAnalysis:\n\n- Post a scathing piece on CPO delays + optical company valuations, causing a crash.\n\nWhich \n$NVDA\n, analyst desks, and major optical companies refuted\n\n- Launch an institutional photonics ETF after optical names dropped 40-60%.\n\nOn temaetf, \n\nDisgusting that they’re able to say \n$LITE and $HIMX are overvalued.\n\nThis institution literally said $LITE $HIMX and other names were overvalued. And posted misleading statements on CPO delays causing an optical sector crash.\n\nThen launched a photonics ETF… including Himax that crashed 40%+.\n\nHow is this even allowed without disclosures? \n\nRegardless I’m expecting a recovery now that there’s increased institutional demand and photonics way oversold selloff imo.\n\nBut glad they included $SIVE into it at least.\n\nI personally heavily added to some of my optical positions today. \n\nImmaterial selloff off false meta capex cuts and false CPO delays.\n\nI can’t give advice on what others should do though.",
+    "tickers": [
+      "HIMX",
+      "LITE",
+      "NVDA",
+      "SIVE"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_5602bfef722355a2",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-03T10:12:58Z",
+    "ingestedAt": "2026-07-03T10:12:58Z",
+    "text": "So positive readthrough on the upstream glass substrate supply chain:\n\n- Sumitomo Chemical and Samsung Electro-Mechanics formally establish JV in Korea within the year to handle the glass core substrate business (GlaSSEM).\n\nMain thing was timeline/funding was finalized:  \"full scale commercialization targeted H2 2027\" for the Samsung/Dongwoo JV / KRW 482.1B planned capital.\n\nThink the \"full scale commercialization\" is the word to highlight, since that would imply timeline moving faster than expected than starting ramp or early production H2 2027.\n\nSo... TGV/LIDE with $LPK (that I own)/E&R  and Onto in terms of yields are just some examples of possible sector beneficiaries. \n\nSince companies like $LPK stated in the past: “80% of customers among major global players have selected LPKF equipment” and targeted \"70% of LIDE market share target for TGV in the glass-core ramp\".  \n\nThese players also typically have revenue pulled forward, since equipment orders during capex cycle hit before actual ramp. \n\nRegardless, just an update on developments.",
+    "tickers": [
+      "LPK.DE"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_115b61d4fc0a904a",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-06-02T11:35:42Z",
+    "ingestedAt": "2026-07-03T12:50:46Z",
+    "text": "Serenity Monitor | Key X Posts | 2026-06-02 04:00–08:00 UTC\n\nOver the last 4 hours Serenity focused on SIVE's groundbreaking collaboration with GFS, viewing it as the most consequential event for the company that embeds its lasers as the default in silicon photonics reference designs and could drive a 2-3x market cap increase. She also highlighted Jensen's bullish comment on MRVL as the next $1T company while confirming her position, with an overall strongly bullish tone on SIVE/GFS and cautiously optimistic on MRVL.\n\n• SIVE\nSIVE's integration into GFS silicon photonics reference designs makes its lasers the default for CPO/pluggables/SiPH; Serenity views this as the most groundbreaking news in company history and expects a 2-3x market cap lift.\n\n• GFS\nGFS collaboration embeds SIVE lasers as default in silicon photonics reference designs; Serenity sees this as structurally massive for the platform.\n\n• MRVL\nJensen highlighted MRVL as the next $1T company; Serenity holds shares but questions conviction in a 5x from current levels.\n\n• NVDA\nJensen publicly endorsed MRVL as the next trillion-dollar company, which Serenity cites as a bullish signal.",
+    "tickers": [
+      "GFS",
+      "MRVL",
+      "NVDA",
+      "SIVE"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_7a3e79c6e49009a9",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-06-02T14:26:53Z",
+    "ingestedAt": "2026-07-03T12:51:00Z",
+    "text": "Serenity Monitor | Key X Posts | 2026-06-02 10:19–14:19 UTC\n\nIn the last 4 hours, Serenity focused on photonics and semiconductor supply chain names. Key positive views on $SIVE's major catalyst from GFS strategic collaboration expected to drive 2-3x valuation; $XFAB seen as undervalued Europe photonics leader akin to early $TSEM; $LITE cited as optical growth benchmark; $SOI position up 250%. Tone is constructive with emphasis on specific company catalysts.\n\n• SIVE\nSerenity views the $SIVE + GFS SiPH reference laser news as the most consequential event in the company's history, embedding Sivers as the default laser for CPO/pluggables/SiPH used by $NVDA, $AVGO, $AMD, $MRVL etc., likely to 2-3x market cap medium-term.\n\n• XFAB\nSerenity is bullish on $XFAB's <$2B valuation given its pre-commercial silicon photonics foundry validated by $NVDA/$NOK, CHIPS Act support, and leadership in Europe's photonics supply chain—feels like early $TSEM.\n\n• LITE\nSerenity highlights $LITE as the benchmark for the first optical wave, growing from $3B to $75B in 2 years via EML/pluggables, serving as the model for $SIVE.\n\n• SOI\nSerenity notes personal 250% gains on $SOI and surprise at market oversight.",
+    "tickers": [
+      "AMD",
+      "AVGO",
+      "GFS",
+      "LITE",
+      "MRVL",
+      "NOK",
+      "NVDA",
+      "SIVE",
+      "SOI.PA",
+      "TSEM",
+      "XFAB"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_659f631bfc95b4c6",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-06-02T20:34:22Z",
+    "ingestedAt": "2026-07-03T12:51:10Z",
+    "text": "Serenity Monitor | Key X Posts | 2026-06-02 10:30–14:30 UTC\n\nIn the last 4 hours, Serenity focused on photonics supply chain names. $SIVE is highlighted as a major winner via GFS reference design news with potential to replicate $LITE's growth. $XFAB is likened to early $TSEM with strong valuation appeal. $SOI position is up sharply.\n\n• SIVE\nSerenity is bullish on $SIVE replicating $LITE's growth by becoming the default laser for CPO/pluggables via GFS SiPH reference designs; today's news is a major milestone.\n\n• XFAB\nSerenity believes $XFAB is undervalued with NVDA/NOK validation, CHIPS subsidies, Europe photonics leadership, and power semi assets for free.\n\n• SOI\nSerenity is up 250% on $SOI position and surprised markets missed the opportunity.\n\n• LITE\nSerenity uses $LITE's $3B-to-$75B growth as the benchmark case for $SIVE.",
+    "tickers": [
+      "GFS",
+      "LITE",
+      "NOK",
+      "NVDA",
+      "SIVE",
+      "SOI.PA",
+      "TSEM",
+      "XFAB"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_5efa675a4b2c7f1d",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-06-02T22:20:36Z",
+    "ingestedAt": "2026-07-03T12:51:16Z",
+    "text": "Serenity Monitor | Key X Posts | 2026-06-02 17:30–21:30 UTC\n\nIn the last 4 hours, Serenity focused on MRVL, which surged 35% after Jensen Huang's direct $1T target comment. She disclosed a position in MRVL, noting possible short-term overextension but seeing 4x upside potential. NVDA is referenced indirectly via Jensen, with an overall constructive tone.\n\n• MRVL\nSerenity holds MRVL and is constructive on Jensen's direct $1T target, seeing meaningful upside despite potential short-term overextension from the comment-driven move.\n\n• NVDA\nSerenity cites Jensen's comment on MRVL and continues to trust his judgment without expressing any negative view.",
+    "tickers": [
+      "MRVL",
+      "NVDA"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_6a7f2dbbb3fadc49",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-06-03T02:20:44Z",
+    "ingestedAt": "2026-07-03T12:51:21Z",
+    "text": "Serenity Monitor | Key X Posts | 2026-06-02 23:00–03:00 UTC\n\nSerenity updated today on her Taiwan CPO longs starting to move, with Shunsin, Foci and Xintec +10% while awaiting Win Semi, Msscorp and Nextronics. She highlighted $SIVE as laser supplier to $NVDA NVLink Fusion as major positive news akin to Marvell. Tone remains constructive with focus on specific names and catalysts.\n\n• SIVE\nSerenity is bullish on $SIVE as laser supplier to $NVDA NVLink Fusion ecosystem, calling it big news with potential similar to Marvell's market cap gains.\n\n• WIN SEMI\nSerenity has high confidence in Win Semi as a future major laser bottleneck not yet widely recognized, with strong outlook for next year.",
+    "tickers": [
+      "NVDA",
+      "SIVE"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_94ee2d029c8f4715",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-06-03T06:20:44Z",
+    "ingestedAt": "2026-07-03T12:51:28Z",
+    "text": "Serenity Monitor | Key X Posts | 2026-06-03 01:44–05:44 UTC\n\nSerenity highlighted Europe's Tech Sovereignty Package released today, including CHIPS ACT 2.0 with photonics priority. SIVE and XFAB are explicitly positioned as key beneficiaries via AI datacenter laser scaling and SiPH HVM evaluation. Tone is constructive on these structural supply-chain tailwinds.\n\n• SIVE\nSIVE, Europe's leader for lasers in AI datacenters scaling to mass production in 2027, stands to benefit from structural tailwinds via the EU CHIPS ACT 2.0 and photonics policy incentives; tone is bullish.\n\n• XFAB\nXFAB, leading Europe's SiPH value chain with Nokia and Nvidia evaluating for photonics HVM, is positioned to benefit from EU CHIPS ACT 2.0 priorities; tone is bullish.",
+    "tickers": [
+      "SIVE",
+      "XFAB"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_58275c6f41828d55",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-06-03T10:20:28Z",
+    "ingestedAt": "2026-07-03T12:51:35Z",
+    "text": "Serenity Monitor | Key X Posts | 2026-06-03 06:30–10:30 UTC\n\nIn the last 4 hours Serenity focused on $NBIS and $SIVE. $NBIS is reaffirmed as the highest-conviction Neocloud name with thesis now validated. $SIVE is positioned as the key laser supplier to Nvidia's CPO ecosystem with compelling valuation. Tone remains constructive and supply-chain focused.\n\n• NBIS\nSerenity maintains highest conviction in Nebius ($NBIS) as the purest Neocloud with execution certainty delivering asymmetric upside; early thesis now market-validated.\n\n• SIVE\nSerenity is strongly bullish on Sivers ($SIVE) as the laser chokepoint supplier to Nvidia's entire NVLink CPO ecosystem; current valuations are very undervalued with more catalysts expected.",
+    "tickers": [
+      "NBIS",
+      "SIVE"
+    ],
+    "conviction": "high",
+    "tags": []
+  },
+  {
+    "id": "h_f3245eb0da2a90aa",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-06-03T18:20:36Z",
+    "ingestedAt": "2026-07-03T12:51:43Z",
+    "text": "Serenity Monitor | Key X Posts | 2026-06-03 14:00–18:00 UTC\n\nSerenity focuses on the EU Chips Act 2.0 adding photonics as a new structural policy element, creating long-term tailwinds for the EU photonics sector. $SOI, $SIVE, and $XFAB are directly referenced or linked with policy support. Tone is positive and constructive, highlighting their critical roles in AI data center interconnects and supply chains. No macro-only chatter.\n\n• SOI\nEU policy explicitly highlights $SOI's strong global position in SOI wafers as a key European chokepoint player receiving structural policy support.\n\n• SIVE\nEU policy focus on CPO/interconnects for AI data centers directly benefits $SIVE as a leading EU photonics player with structural tailwind.\n\n• XFAB\nEU Chips Act 2.0 explicitly mentions $XFAB's leadership in the European silicon photonics value chain, with policy support for its role in supply chains.",
+    "tickers": [
+      "SIVE",
+      "SOI.PA",
+      "XFAB"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_d779848e9f1599ff",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-06-03T22:20:48Z",
+    "ingestedAt": "2026-07-03T12:51:50Z",
+    "text": "Serenity Monitor | Key X Posts | 2026-06-03 10:40–14:40 UTC\n\nSerenity focuses on EU Chips Act 2.0 incorporating photonics into policy, creating structural tailwinds for Europe's photonic supply chain. Key beneficiaries include SOI, SIVE and XFAB, with emphasis on long-term policy support rather than short-term hype. XFAB receives repeated positive mentions due to direct citations and valuation appeal. Overall tone is bullish, centered on AI data center CPO and advanced packaging.\n\n• SOI\nSerenity views SOI as a core beneficiary of EU photonics policy with structural long-term tailwinds.\n\n• SIVE\nSerenity is bullish on SIVE for policy-driven growth in AI data center CPO applications.\n\n• XFAB\nSerenity highlights XFAB's leadership in Europe's silicon photonics value chain with positive policy mentions as catalyst.\n\n• POET\nSerenity's comparison shows POET at higher valuation while favoring XFAB on fundamentals.",
+    "tickers": [
+      "POET",
+      "SIVE",
+      "SOI.PA",
+      "XFAB"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_fcd45933513f0e59",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-06-04T02:21:11Z",
+    "ingestedAt": "2026-07-03T12:51:59Z",
+    "text": "Serenity Monitor | Key X Posts | 2026-06-03 22:12–02:12 UTC\n\nIn the last 4 hours, Serenity focused on swing-trading opportunities in Bitcoin ETFs and crypto brokers plus the strong AI networking outlook post-$AVGO earnings. Key mentions include short-term positions in $IBIT/$ETHA and pressure on $COIN/$HOOD, alongside bullish reads on $AVGO's networking visibility through 2028. Tone remains neutral-to-constructive, highlighting valuation appeal and demand curves.\n\n• IBIT\nBought $IBIT today at $62K as a swing trade, not a long-term hold.\n\n• ETHA\nBought $ETHA today at $1.75K as a swing trade, not a long-term hold.\n\n• COIN\nBank-lobbied bills pressure $COIN; valuations compelling again for swing trading.\n\n• HOOD\nBank-lobbied bills and falling crypto prices pressure $HOOD.\n\n• AVGO\nInsatiable AI networking demand with 2028 visibility; structurally bullish on $AVGO despite multi-sourcing.",
+    "tickers": [
+      "AVGO",
+      "COIN",
+      "ETHA",
+      "HOOD",
+      "IBIT"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_567c94bfa4623e9b",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-06-04T10:20:34Z",
+    "ingestedAt": "2026-07-03T12:52:10Z",
+    "text": "Serenity Monitor | Key X Posts | 2026-06-04 06:00–10:00 UTC\n\nIn the last 4 hours, @aleabitoreddit focused on NVDA and SIVE. On NVDA, the Jensen-Faker meeting is seen as a positive symbolic return to gaming roots. On SIVE, the bullish view on its laser bottleneck/chokepoint role in CPO was reaffirmed, with media coverage validating the analysis. Tone remains professional and supply-chain focused.\n\n• NVDA\nSerenity holds a neutral-to-bullish view on Nvidia, seeing the Faker meeting as a symbolic return to gaming roots.\n\n• SIVE\nSerenity maintains a bullish thesis on SIVE as both a bottleneck and chokepoint in the CPO laser supply chain, poised for scale in 2027.",
+    "tickers": [
+      "NVDA",
+      "SIVE"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_d3d4c995e28ca815",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-06-04T14:57:13Z",
+    "ingestedAt": "2026-07-03T12:52:19Z",
+    "text": "TSM | Serenity subscriber-only: advanced packaging may ramp earlier, while the auto semiconductor chain could be nearing a bottom\n\nIn Serenity’s subscriber-only note on June 4, 2026, TSM management pointed to two signals worth paying attention to.\n\nFirst, CoPoS / advanced packaging may be progressing faster than the market expects.\nTSM’s chairman said CoPoS could become very large within the next 2–3 years, and that pilot lines are already running. Serenity’s interpretation is that the market has been treating this as a story for much later, but if volumes begin ramping within the next few years, related opportunities may enter the market’s focus earlier than expected. She also noted that VisEra, a TSM subsidiary with relevant exposure, has already started to show signs of re-rating.\n\nSecond, autos and robotics could be the next growth inflection point.\nTSM highlighted autonomous robots and autonomous vehicles as future growth areas, and that caught Serenity’s attention. Auto semiconductors have been in a slump for the past two years, so if signals like this are starting to emerge now, the market may be underestimating the possibility of a bottoming process in the auto semiconductor chain.\n\nShe also briefly flagged XFAB.\nThe reason is that XFAB has meaningful exposure to the automotive segment. If autonomous driving and the broader auto supply chain do recover from this downturn, previously pressured names like XFAB could become worth revisiting.\n\nIn short, Serenity is not pointing to a short-term catalyst here, but to two earlier-stage industry signals: advanced packaging may begin scaling sooner than expected, and the auto semiconductor chain may also be approaching a bottom.",
+    "tickers": [
+      "TSM",
+      "XFAB"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_2cc94474dcb0c486",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-06-04T22:20:36Z",
+    "ingestedAt": "2026-07-03T12:52:38Z",
+    "text": "Serenity Monitor | Key X Posts | 2026-06-04 11:30–15:30 UTC\n\nIn the last 4 hours, @aleabitoreddit focused on $RDDT and $SIVE. $RDDT is viewed as significantly mispriced with robust profitability and growth; $SIVE remains a core long in the CPO supercycle with potential short-covering pressure. Overall bullish tone.\n\n• RDDT\nSerenity sees $RDDT as significantly mispriced. Net profit ~28% of revenue after stripping carry-forward losses, 69% Y/Y revenue growth, 91.5% gross margin, with substantial monetization upside ahead.\n\n• SIVE\nSerenity remains bullish on $SIVE as a core holding in the CPO supercycle; short positions may face forced covering and potential squeeze.",
+    "tickers": [
+      "RDDT",
+      "SIVE"
+    ],
+    "conviction": "high",
+    "tags": []
+  },
+  {
+    "id": "h_a69c07cf4c01a6bf",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-06-05T02:20:24Z",
+    "ingestedAt": "2026-07-03T12:52:44Z",
+    "text": "Serenity Monitor | Key X Posts | 2026-06-05 00:00–04:00 UTC\n\nIn the last 4 hours, @aleabitoreddit posted only one stock-related update, centered on continued accumulation in AAOI. No other tickers or non-stock chatter qualified.\n\n• AAOI\nSerenity is actively averaging up on AAOI, viewing its US capacity leadership and vertical integration in 800G/1.6T optics as positioned for 2-3x upside; sovereign/T2 AI DC demand plus potential ASP hikes from bottlenecks support margin expansion not fully modeled.",
+    "tickers": [
+      "AAOI"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_01d64175b48454fc",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-06-05T06:21:04Z",
+    "ingestedAt": "2026-07-03T12:52:49Z",
+    "text": "Serenity Monitor | Key X Posts | 2026-06-05 02:10–06:10 UTC\n\nIn the last 4 hours, @aleabitoreddit focused on LeaderDrive (688017) humanoid robot exposure. Serenity repeatedly highlighted its dominance in reducers and joint components, positioning it as a top Chinese play for the physical AI theme. Tone is constructive, emphasizing supply-chain leadership and mass-production upside.\n\n• 688017\nSerenity is bullish on LeaderDrive (688017) as the leading humanoid robot component supplier with high BOM exposure; views it as a directional long on physical AI scale-up.",
+    "tickers": [],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_be5b918a93b3e1ed",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-06-05T10:20:38Z",
+    "ingestedAt": "2026-07-03T12:52:55Z",
+    "text": "Serenity Monitor | Key X Posts | 2026-06-05 05:30–09:30 UTC\n\nIn the last 4 hours Serenity focused on US names AAOI, JBL, RPI and XFAB. She remains constructive on AAOI via averaging, bullish on JBL/XFAB AI supply-chain ramps, and points to RPI's results validating her thesis. Tone is constructive with emphasis on fundamentals and product cycles.\n\n• AAOI\nSerenity's current favorite US long; she is personally cost-averaging on dips to $150-170.\n\n• JBL\nSerenity expects JBL to perform really well once SIVE's 1.6T LRO enters mass production in H1 2027.\n\n• RPI\nSerenity highlights RPI's 247% gain since her thesis, with AI demand driving core profit well ahead of expectations.\n\n• XFAB\nSerenity sees XFAB as a heavily derisked precommercial long with silicon photonics scaling via NVDA/NOK in 2027-28, resembling next TSEM.",
+    "tickers": [
+      "AAOI",
+      "JBL",
+      "NOK",
+      "NVDA",
+      "SIVE",
+      "TSEM",
+      "XFAB"
+    ],
+    "conviction": "high",
+    "tags": []
+  },
+  {
+    "id": "h_efc6858d830133ef",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-06-05T14:20:31Z",
+    "ingestedAt": "2026-07-03T12:53:01Z",
+    "text": "Serenity Monitor | Key X Posts | 2026-06-05 09:30–13:30 UTC\n\nIn the last 4 hours, Serenity shared bullish views on $AAOI, $RPI, $XFAB, $JBL, and $SIVE. She continues averaging into $AAOI, highlighted $RPI’s strong gains, and emphasized $XFAB’s silicon photonics potential plus $SIVE/JBL production catalysts. Tone remains constructive, focused on AI supply-chain names.\n\n• AAOI\nSerenity views $AAOI as her current favorite US long and continues to average in on dips to the $150-170 range with a bullish stance.\n\n• RPI\nSerenity highlights that $RPI has risen 247% since her bullish thesis, with AI demand driving revenue and profits well ahead of expectations.\n\n• XFAB\nSerenity is bullish on $XFAB’s silicon photonics platform partnering with $NVDA and $NOK, seeing it as a heavily derisked pre-commercial long.\n\n• JBL\nSerenity expects $JBL to perform strongly once $SIVE’s 1.6T LRO enters mass production in H1 2027.\n\n• SIVE\nSerenity sees $SIVE’s 1.6T LRO mass production with $JBL in H1 2027 as a major positive catalyst.",
+    "tickers": [
+      "AAOI",
+      "JBL",
+      "NOK",
+      "NVDA",
+      "RPI",
+      "SIVE",
+      "XFAB"
+    ],
+    "conviction": "high",
+    "tags": []
+  },
+  {
+    "id": "h_26f3ade0e30ed4d3",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-06-05T18:20:33Z",
+    "ingestedAt": "2026-07-03T12:53:05Z",
+    "text": "Serenity Monitor | Key X Posts | 2026-06-05 12:30–16:30 UTC\n\nIn the last 4 hours Serenity highlighted preference for NVDA upstream chokepoints, strong CPO/photonics setups in SIVE and AAOI, and TSM-related vertical integration plays. Tone remains constructive on AI semi supply chain with emphasis on explosive growth in select CPO names, while noting NVDA's ASIC headwinds.\n\n• NVDA\nSerenity sees NVDA long-term growth slowing as hyperscalers shift to ASICs, but ownership stakes and non-hyperscaler revenue keep it fine; falling P/E reflects skepticism on perpetual high growth.\n\n• SIVE\nSerenity's top CPO/photonics pick; after GFS reference laser nod, TAM ramps from near-zero to $91B in 1.5 years starting H2 2026, major inflection ahead.\n\n• AAOI\nSerenity likes AAOI for pluggable/CPO exposure with strong H1 2027 revenue guidance; recommends holding through corrections.",
+    "tickers": [
+      "AAOI",
+      "GFS",
+      "NVDA",
+      "SIVE",
+      "TSM"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_80eba777adc7a6eb",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-06-06T02:20:30Z",
+    "ingestedAt": "2026-07-03T12:53:17Z",
+    "text": "Serenity Monitor | Key X Posts | 2026-06-06 00:00–02:00 UTC\n\nIn the last 4 hours, @aleabitoreddit focused on $SIVE: US institutions are actively accumulating, with JP Morgan ownership rising from 0.4% to 5%+. Swedish retail and hedge funds have been shaken out, transferring shares to institutions. Serenity reiterates bullish stance, underscoring photonics importance in the CPO cycle and advising against shorts.\n\n• SIVE\nSerenity maintains a bullish view on $SIVE, highlighting rapid US institutional accumulation with JP Morgan jumping to 5%+ ownership. Retail shakeouts are transferring shares to institutions; photonics role in the CPO supercycle underpins value.",
+    "tickers": [
+      "SIVE"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_2768d3e387e5fbad",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-06-06T06:20:34Z",
+    "ingestedAt": "2026-07-03T12:55:18Z",
+    "text": "Serenity Monitor | Key X Posts | 2026-06-06 00:58–04:58 UTC\n\nOver the last 4 hours, Serenity focused on $SIVE, highlighting heavy US institutional accumulation of the float and its importance in the CPO cycle with a clear bullish tone. Also recommended holding high-beta names like $AAOI and $MRVL. No macro-only or joke content.\n\n• SIVE\nUS institutions are aggressively accumulating the $SIVE float, underscoring its critical role in the CPO cycle. Strongly bullish; avoid shorts.\n\n• AAOI\nViews $AAOI as a high-beta quality name worth holding to capture directional upside.\n\n• MRVL\nViews $MRVL as a high-beta quality name worth holding to capture directional upside.",
+    "tickers": [
+      "AAOI",
+      "MRVL",
+      "SIVE"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_dfc0d64ac53edd6e",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-06-06T10:20:30Z",
+    "ingestedAt": "2026-07-03T12:55:19Z",
+    "text": "Serenity Monitor | Key X Posts | 2026-06-06 05:46–09:46 UTC\n\nIn the last 4 hours, @aleabitoreddit focused on $XFAB investment views, describing it as a de-risked silicon photonics foundry with upside from CPO, $NVDA/$NOK evaluations, and EU backing. No other tickers received specific commentary.\n\n• XFAB\nSerenity maintains a bullish view on $XFAB, seeing it as a de-risked CPO play with EU sovereign support and $NVDA/$NOK evaluations as key catalysts; the $1.4B market cap still offers compelling upside ahead of 2027/2028 volume ramps.",
+    "tickers": [
+      "NOK",
+      "NVDA",
+      "XFAB"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_af306a6b50b5ab8b",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-06-06T14:20:25Z",
+    "ingestedAt": "2026-07-03T13:20:21Z",
+    "text": "Serenity Monitor | Key X Posts | 2026-06-06 09:00–13:00 UTC\n\nIn the last 4 hours, Serenity shared views on two tickers: constructive on 688017 (LeaderDrive) for its leadership in humanoid robot components; bullish on XFAB for de-risked CPO silicon photonics upside potentially mirroring TSEM. Tone remains positive, centered on AI/robotics supply chain opportunities.\n\n• 688017\nSerenity maintains a bullish directional long view on LeaderDrive (688017) for its dominant position in humanoid robot supply chains and physical AI growth.\n\n• XFAB\nSerenity views XFAB as de-risked with strong CPO upside potential in 2027-2028 if MTP tech succeeds, positioning it like an early TSEM play.",
+    "tickers": [
+      "TSEM",
+      "XFAB"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_c63c8ae7b0dc07fe",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-06-07T19:16:34Z",
+    "ingestedAt": "2026-07-03T13:20:35Z",
+    "text": "📌 2026-06-07, Serenity Subscriber-Only Insight: A New AI Memory Battleground Around HBF Is Heating Up, and Packaging Equipment Names May Benefit First\n\nSerenity’s latest subscriber-only post suggests that the next wave of opportunity in the AI memory space may be expanding from HBM into HBF (High Bandwidth Flash). While it is still difficult to accurately estimate the ultimate market size of HBF, if the industry begins moving toward commercialization, the earliest beneficiaries may not be end products, but rather upstream advanced packaging equipment players.\n\nThe core logic she highlights is very clear: TC bonders (thermal compression bonding equipment) could become one of the earliest areas to see expectations start pricing in. These tools are mainly used to stack and connect memory chips under high heat and pressure. Once HBF moves closer to volume production, demand for this type of equipment could be among the first things the market begins to trade on.\n\nThe key companies Serenity mentioned include:\n\n• Hanmi Semiconductor: Seen as the strongest first mover at the moment and what she views as the leading name\n• Hanwha Semiconductor: Also considered a first mover and one of the most important equipment names to track closely\n• ASMPT\n• K&S\n\nAmong them, the first two look more like the core leadership names, while the latter two are more “entry” candidates that could also attract market attention if the HBF theme continues to broaden.\n\nThe key point of this subscriber-only insight is not that HBF has already fully arrived, but rather that when the market starts pre-positioning for HBF commercialization, equipment names are often the first group to move.\n\nIf you are also watching AI memory, advanced packaging, and semiconductor equipment, this is a theme worth tracking closely from here.",
+    "tickers": [],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_b62bd7bf456b2329",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-06-08T10:20:39Z",
+    "ingestedAt": "2026-07-03T13:20:43Z",
+    "text": "Serenity Monitor | Key X Posts | 2026-06-08 05:40–09:40 UTC\n\nIn the last 4 hours, @aleabitoreddit shared crowdsourced lists of 800V DC-related names (including multiple NVDA supply-chain tickers) but repeatedly noted these are follower recommendations, not her own. The only post with a clear personal view was on SIVE, flagging JPMorgan's stake increase as a bullish institutional signal. No other explicit position updates or deep research notes.\n\n• SIVE\nSerenity views JPMorgan's jump from 0.4% to 5%+ ownership in the last month as the first major institutional buying signal for SIVE; the modest 3.36% reaction suggests the move is underappreciated.",
+    "tickers": [
+      "NVDA",
+      "SIVE"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_d5723c00c401a2b2",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-06-08T14:20:34Z",
+    "ingestedAt": "2026-07-03T13:20:54Z",
+    "text": "Serenity Monitor | Key X Posts | 2026-06-08 10:00–14:30 UTC\n\nIn the last 4 hours, Serenity focused on SIVE's institutional buying signals and CPO thesis with a strongly bullish tone. She also reaffirmed positive views on MRVL and other US names from her prior list. No other new stock views.\n\n• SIVE\nSerenity is bullish on SIVE, emphasizing JPM's 5%+ institutional accumulation as a major signal likely to draw more institutions and trigger short covering, validating the CPO supercycle thesis.\n\n• MRVL\nSerenity remains positive on MRVL for its CPO and Maia ASIC exposure, reaffirming her earlier favorable view from the US stock list.",
+    "tickers": [
+      "MRVL",
+      "SIVE"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_321ee78965210fc8",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-06-08T18:20:34Z",
+    "ingestedAt": "2026-07-03T13:21:01Z",
+    "text": "Serenity Monitor | Key X Posts | 2026-06-08 10:34–14:34 UTC\n\nIn the last 4 hours, Serenity focused on institutional buying signals for $SIVE as validation of the CPO thesis, while reiterating bullish views on $XFAB and names like $AAOI. Tone remains constructive on semi supply chain opportunities.\n\n• SIVE\nSerenity sees JP Morgan's stake as a major validation signal for the CPO supercycle thesis and views $SIVE as a compelling long.\n\n• XFAB\nSerenity is explicitly bullish on $XFAB, believing the market is underappreciating it.\n\n• AAOI\nSerenity believes names like $AAOI still have a ton of room to go.",
+    "tickers": [
+      "AAOI",
+      "SIVE",
+      "XFAB"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_ec1748afad18f396",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-06-08T22:20:32Z",
+    "ingestedAt": "2026-07-03T13:21:07Z",
+    "text": "Serenity Monitor | Key X Posts | 2026-06-08 10:34–14:34 UTC\n\nIn the last 4 hours, Serenity focused on semiconductor and AI-related names. $XFAB is viewed as an overlooked European play; $MRVL and $ARM are highlighted for strong past gains with more upside; $AAOI is also favored. $SIVE receives positive commentary on the back of JP Morgan's stake increase, seen as a long-term opportunity. Tone remains constructive, centered on fundamentals and institutional signals.\n\n• XFAB\nSerenity is positive on $XFAB as a European semiconductor name being overlooked by markets.\n\n• MRVL\nSerenity notes strong past performance in $MRVL and remains constructive on further upside.\n\n• ARM\nSerenity sees substantial gains already in $ARM with significant room left to run.\n\n• AAOI\nSerenity believes $AAOI still has a ton of room to go higher.\n\n• SIVE\nSerenity sees $SIVE as a compelling long-term idea, with JP Morgan's stake as a key institutional validation signal.",
+    "tickers": [
+      "AAOI",
+      "ARM",
+      "MRVL",
+      "SIVE",
+      "XFAB"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_79658251353db0f2",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-06-09T10:20:39Z",
+    "ingestedAt": "2026-07-03T13:21:16Z",
+    "text": "Serenity Monitor | Key X Posts | 2026-06-09 06:00–10:05 UTC\n\nIn the last 4 hours, Serenity highlighted positive catalysts and valuation opportunities in $SIVE and $JBL. $SIVE is positioned as a key supply-chain chokepoint following its space/defense win; $JBL is viewed as undervalued with unpriced LRO upside. Tone remains bullish and research-driven on supply-chain themes.\n\n• SIVE\nSIVE secured a key $8.2M space/defense production order, solidifying its role as a chokepoint in both AI DC lasers and satellite comms supply chains; more volume ramps expected. Bullish on near-term catalysts.\n\n• JBL\nJBL appears undervalued at $38B market cap; its 1.6T LRO pluggable transceiver business is not yet priced in, with strong hyperscaler supply chains via SIVE and others supporting a bullish long thesis.",
+    "tickers": [
+      "JBL",
+      "SIVE"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_76d45ebf5a708dcc",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-06-09T14:20:38Z",
+    "ingestedAt": "2026-07-03T13:21:22Z",
+    "text": "Serenity Monitor | Key X Posts | 2026-06-09 10:30–14:30 UTC\n\nSerenity focused on AI supply-chain valuations and opportunities in the last 4 hours. NVDA's memory-shortage thesis was reiterated; the $EWY volatility-expansion trade was validated with strong returns; $XFAB was flagged as significantly undervalued. Multiple $10-100B AI-exposed names such as $GFS and $JBL remain attractive with room to run, maintaining an overall constructive tone.\n\n• NVDA\nSerenity reinforces NVDA CEO's multi-year memory shortage view combined with NAND/DRAM price hikes, expecting hyperscaler debt pressure and sustaining a bullish memory-cycle tone.\n\n• EWY\nSerenity validates the $EWY IV-expansion trade success driven by Samsung/SK Hynix memory concentration, with significant IV rise delivering high returns and bullish on the new volatility norm.\n\n• XFAB\nSerenity views $XFAB as significantly undervalued at $1.45B MC given its European silicon photonics leadership, calling current valuations a joke.\n\n• GFS\nSerenity is constructive on $GFS as an AI supply-chain name but notes it is now large with less triple potential, still viewing it as a quality holding.\n\n• JBL\nSerenity likes $JBL as an AI supply-chain name and would add if running a hedge fund, but personally prefers smaller ideas for higher returns.",
+    "tickers": [
+      "DRAM",
+      "EWY",
+      "GFS",
+      "JBL",
+      "NVDA",
+      "XFAB"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_1ad73a9ad63114ae",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-06-09T18:20:38Z",
+    "ingestedAt": "2026-07-03T13:21:27Z",
+    "text": "Serenity Monitor | Key X Posts | 2026-06-09 11:00–15:00 UTC\n\nSerenity focused in the last 4 hours on photonics and memory-related names in the AI supply chain. AAOI and LITE are seen as volatile but persistent beneficiaries; XFAB is viewed as undervalued; the EWY volatility arbitrage trade is highlighted as a past success. Overall tone remains constructive, emphasizing attractive risk/reward in $10-100B AI-exposed names.\n\n• AAOI\nSerenity maintains a constructive view on AAOI photonics, expecting it to persist despite high volatility.\n\n• LITE\nSerenity sees LITE photonics as enduring but volatile, remaining a beneficiary in the AI supply chain.\n\n• XFAB\nSerenity views XFAB as significantly undervalued given its leading European silicon photonics supply chain position.\n\n• EWY\nSerenity remains positive on the EWY volatility expansion trade as memory cycle drives underpriced underlying volatility.",
+    "tickers": [
+      "AAOI",
+      "EWY",
+      "LITE",
+      "XFAB"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_edf39cb9fef7f875",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-06-09T22:20:32Z",
+    "ingestedAt": "2026-07-03T13:21:32Z",
+    "text": "Serenity Monitor | Key X Posts | 2026-06-09 20:00–00:00 CEST\n\nOver the last 4 hours Serenity highlighted views on several AI and semi supply-chain names. Photonics stocks like AAOI and LITE are seen as durable yet extremely volatile; NVDA is flagged for ongoing multi-year memory shortages; the EWY options trade is praised as a winner on the memory supercycle; XFAB valuations are called a joke; a list of $10-100B AI-exposed names including ASX, JBL, TSEM and NBIS is presented as offering compelling ROI versus larger names. Tone is constructive with emphasis on specific positions and valuation opportunities.\n\n• AAOI\nSerenity is constructive on AAOI's photonics longevity but flags extreme volatility; also includes it among $10-100B AI-exposed names with attractive ROI.\n\n• LITE\nSerenity sees LITE photonics stocks as durable yet highly volatile; also lists it among AI-exposed names offering compelling ROI.\n\n• NVDA\nSerenity cites NVDA CEO on multi-year memory shortage, noting NAND/DRAM price hikes will increase hyperscaler debt burdens.\n\n• EWY\nSerenity is highly satisfied with the EWY options volatility-expansion trade, expecting gains from SK Hynix and Samsung-driven memory supercycle.\n\n• XFAB\nSerenity views XFAB's $1.45B market cap as a joke given its leadership in Europe's silicon photonics supply chain.",
+    "tickers": [
+      "AAOI",
+      "ASX",
+      "DRAM",
+      "EWY",
+      "JBL",
+      "LITE",
+      "NBIS",
+      "NVDA",
+      "TSEM",
+      "XFAB"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_82499b0f22fcced0",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-06-10T14:20:41Z",
+    "ingestedAt": "2026-07-03T13:21:46Z",
+    "text": "Serenity Monitor | Key X Posts | 2026-06-10 12:00–16:00 CEST\n\nOver the last 4 hours, Serenity focused on semis and optical supply chains. NVDA is seen as credible in denying delay reports with the CPO/800V selloff overdone. SIVE gains validation via institutional ownership in photonics, while LITE, AAOI and peers recover from stupid selloffs. European names SOI, XFAB and IQE are expected to follow the rebound. Tone is constructive, highlighting recovery potential in specific names.\n\n• NVDA\nSerenity trusts NVDA's denial of 800V DC and CPO delay reports, seeing the selloff as overdone with credible timelines.\n\n• SIVE\nSerenity is positive on SIVE gaining Blackrock passive and Fidelity active ownership, validating its photonics position.\n\n• LITE\nSerenity sees LITE and optical peers' selloff as stupid, with recovery underway.\n\n• AAOI\nSerenity sees AAOI and optical peers' selloff as stupid, with recovery underway.\n\n• SOI\nSerenity expects SOI and other European supply chain names to recover following leaders.\n\n• XFAB\nSerenity expects XFAB and other European supply chain names to recover following leaders.\n\n• IQE\nSerenity expects IQE and other European supply chain names to recover following leaders.",
+    "tickers": [
+      "AAOI",
+      "IQE",
+      "LITE",
+      "NVDA",
+      "SIVE",
+      "SOI.PA",
+      "XFAB"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_201941bd3fdcb3de",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-06-10T18:20:35Z",
+    "ingestedAt": "2026-07-03T13:21:57Z",
+    "text": "Serenity Monitor | Key X Posts | 2026-06-10 16:00–20:00 CEST\n\nIn the last 4 hours, Serenity focused on recovery in semis and optical supply chain names. $NVDA could reverse on geopolitical relief, $SOI/$XFAB/$IQE expected to follow peers higher, and $LITE/$AAOI/$SIVE already showing modest gains after an overdone selloff. She maintains $AXTI and references $ALRIB/$LPK. Tone is constructive with emphasis on company-specific fundamentals.\n\n• NVDA\nSerenity sees potential reversal in $NVDA downtrend tied to geopolitical noise and remains cautiously optimistic.\n\n• SOI\nSerenity expects $SOI and European supply chain names to recover in line with peers after recent selloff.\n\n• SIVE\nSerenity affirms $SIVE and optical names are recovering as expected after an irrational selloff.",
+    "tickers": [
+      "AAOI",
+      "ALRIB",
+      "AXTI",
+      "IQE",
+      "LITE",
+      "LPK.DE",
+      "NVDA",
+      "SIVE",
+      "SOI.PA",
+      "XFAB"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_2ef8c741889fbe18",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-06-10T22:20:33Z",
+    "ingestedAt": "2026-07-03T13:22:02Z",
+    "text": "Serenity Monitor | Key X Posts | 2026-06-10 20:00–00:00 CEST\n\nOver the last 4 hours, Serenity is cautiously optimistic on NVDA, seeing potential reversal if geopolitical tensions ease. Maintains AXTI position with dilution concerns noted. Positive on SOI, LITE and peers in European/optical supply chains, viewing recent selloffs as overdone. Emphasizes broader market pressure but specific holdings unchanged.\n\n• NVDA\nSerenity is cautiously optimistic on NVDA, suggesting its downtrend could reverse with easing geopolitical tensions.\n\n• AXTI\nSerenity maintains AXTI position but notes dilution concerns creating newer float structure risks.\n\n• SOI\nSerenity expects SOI to recover following the European supply chain leader after recent overdone selloff.\n\n• LITE\nSerenity views initial selloff in LITE and peers as stupid, with slight recovery underway.",
+    "tickers": [
+      "AXTI",
+      "LITE",
+      "NVDA",
+      "SOI.PA"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_e41be3ee7c892fb5",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-06-11T10:20:35Z",
+    "ingestedAt": "2026-07-03T13:22:15Z",
+    "text": "Serenity Monitor | Key X Posts | 2026-06-11 08:00–12:00 CEST\n\nIn the last 4 hours, Serenity shared views on three stocks: XFAB's silicon photonics foundry potential, LPK's SpaceX supplier relationship, and a positive stance on SIVE. No macro or duplicate content.\n\n• XFAB\nSerenity views XFAB as developing a silicon photonics foundry with Europe backing and NVDA evaluations; currently seen as a depressed automaker supplier but with meaningful long-term growth from 2027 production ramp.\n\n• LPK\nSerenity notes LPK as a newly identified SpaceX supplier relationship ahead of the IPO and holds a position.\n\n• SIVE\nSerenity is positive on SIVE.",
+    "tickers": [
+      "LPK.DE",
+      "NVDA",
+      "SIVE",
+      "XFAB"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_a26c800c0297efc9",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-06-11T14:20:39Z",
+    "ingestedAt": "2026-07-03T13:22:21Z",
+    "text": "Serenity Monitor | Key X Posts | 2026-06-11 12:00–16:00 CEST\n\nIn the last 4 hours, @aleabitoreddit primarily discussed the potential SpaceX ($SPCX) Mega-IPO and its implications for refinancing the US current-account deficit, with an excited tone. Another post shared WSB research on Reddit, emphasizing X as the source of alpha. No other clear stock views or position updates.\n\n• SPCX\nSerenity is positive on a SpaceX Mega-IPO, citing overseas demand potentially refinancing a notable portion of the US current-account deficit. Tone is excited and forward-looking.\n\n• RDDT\nSerenity references WSB research on Reddit, indirectly highlighting the value of Reddit as an information source, without a direct price view.",
+    "tickers": [
+      "RDDT",
+      "SPCX"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_7ae9f441b31fb36d",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-06-11T18:20:31Z",
+    "ingestedAt": "2026-07-03T13:22:26Z",
+    "text": "Serenity Monitor | Key X Posts | 2026-06-11 16:00–20:00 CEST\n\nSerenity focused on AI supply-chain themes in the last 4 hours. Bullish on US reshoring names like $AAOI and supportive of domestic champions; noted Anthropic news as a tailwind for Neocloud colo stocks such as $WULF and $CIFR.\n\n• AAOI\nBullish on $AAOI as a critical US AI infra supplier. Expects strong growth post-reshoring; markets should support rather than short it.\n\n• WULF\nAnthropic's data center lease news provides a potential tailwind for $WULF and other Neocloud colo names.",
+    "tickers": [
+      "AAOI",
+      "CIFR",
+      "WULF"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_61113b2db6cc052e",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-06-12T06:20:34Z",
+    "ingestedAt": "2026-07-03T13:22:33Z",
+    "text": "Serenity Monitor | Key X Posts | 2026-06-12 04:00–08:00 CEST\n\nIn the last 4 hours, Serenity discussed $AXTI's multi-month validation cycle, $NBIS's potential as the next hyperscaler, and the Nasdaq 100 additions of $ALAB and $RKLB. She remains pleased overall with 2025 holdings' performance but has reduced conviction on $ALAB. Tone is positive, emphasizing patience on AI supply chain ideas.\n\n• AXTI\nSerenity views $AXTI's InP substrate bottleneck as a multi-month theme that should not be judged on short timeframes. Tone is neutral-to-positive, stressing patience.\n\n• NBIS\nSerenity is bullish on $NBIS's growth as a potential next hyperscaler and celebrates its Nasdaq 100 inclusion. Tone is positive and excited.\n\n• ALAB\nSerenity acknowledges losing some conviction in $ALAB but remains pleased with its strong 2025 performance. Tone is mixed but overall positive in reflection.\n\n• RKLB\nSerenity celebrates $RKLB's Nasdaq 100 addition and its growth from a small company. Tone is positive.",
+    "tickers": [
+      "ALAB",
+      "AXTI",
+      "NBIS",
+      "RKLB"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_750a2b869b849232",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-06-12T10:20:49Z",
+    "ingestedAt": "2026-07-03T13:22:38Z",
+    "text": "Serenity Monitor | Key X Posts | 2026-06-12 08:00–12:00 CEST\n\nIn the last 4 hours, Serenity highlighted VPEC's epiwafer price hikes as positive for pricing power and demand at IQE and 3081, underscoring supply chain chokepoints and MTSI's investment in IQE capacity. IQE and XFAB noted as lesser-known but critical Western names with further upside ahead.\n\n• IQE\nVPEC price hikes confirm strong pricing power and demand for epiwafers; MTSI investment secures IQE capacity, highlighting its chokepoint status. Positions held.\n\n• MTSI\nMTSI's investment into IQE to secure capacity reflects focus on key epiwafer supply chain chokepoints.\n\n• XFAB\nLesser-known but critical Western supply chain names like XFAB still have a long way to go.\n\n• 3081\nVPEC price hikes signal positive pricing power and demand for Landmark (3081) epiwafers.",
+    "tickers": [
+      "IQE",
+      "MTSI",
+      "XFAB"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_1c23c5007eaecfae",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-06-12T14:20:38Z",
+    "ingestedAt": "2026-07-03T13:22:43Z",
+    "text": "Serenity Monitor | Key X Posts | 2026-06-12 12:00–16:00 CEST\n\nIn the last 4 hours, @aleabitoreddit posted only one stock-related update highlighting that SNDK shorts have gone extinct with the stock near $2000 and noting anticipation for the SPCX IPO. Tone is constructive on SNDK strength. No other qualifying stock views.\n\n• SNDK\nSNDK shorts have been largely wiped out with the stock surging toward $2000, reflecting strong fundamentals.\n\n• SPCX\nMarket attention is focused on the upcoming SPCX IPO as a potential near-term catalyst.",
+    "tickers": [
+      "SNDK",
+      "SPCX"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_e9991d77d7372b90",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-06-12T18:20:29Z",
+    "ingestedAt": "2026-07-03T13:22:50Z",
+    "text": "Serenity Monitor | Key X Posts | 2026-06-12 16:00–20:00 CEST\n\nIn the last 4 hours, Serenity highlighted $SPCX beginning to trade above $2.15T market cap, $SIVE appearing on CNBC, and $SNDK shorts being eliminated with the stock near $2000. Tone remains bullish on these AI/semi names with clear position updates.\n\n• SPCX\n$SPCX has started trading above $2.15T market cap. Strong market anticipation surrounds the upcoming IPO.\n\n• SIVE\n$SIVE gaining CNBC coverage signals positive visibility.\n\n• SNDK\n$SNDK shorts have been wiped out with the stock approaching $2000 on strong fundamentals.",
+    "tickers": [
+      "SIVE",
+      "SNDK",
+      "SPCX"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_e533dc2110717bbc",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-06-13T06:20:31Z",
+    "ingestedAt": "2026-07-03T13:23:01Z",
+    "text": "Serenity Monitor | Key X Posts | 2026-06-13 04:00–08:00 CEST\n\nIn the last 4 hours, @aleabitoreddit posted only one stock-related update, focusing on export controls and AI supply chain bottlenecks. Serenity highlights potential opportunities in names like $AXTI and takes a constructive, optimistic tone on US efforts to maintain dominance.\n\n• AXTI\nSerenity sees country export controls creating AI supply chain bottlenecks, with potential near-term opportunities in upstream names like $AXTI. She views steps to keep the most advanced models at home as helpful for preserving US dominance.",
+    "tickers": [
+      "AXTI"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_2f364039fceec9ce",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-06-13T18:20:31Z",
+    "ingestedAt": "2026-07-03T13:23:16Z",
+    "text": "Serenity Monitor | Key X Posts | 2026-06-13 16:00–20:00 CEST\n\nIn the last 4 hours, @aleabitoreddit posted one stock-related update highlighting Foosung (093370) as a key beneficiary of China’s export controls on Japanese tungsten. The view centers on a 25% WF₆ supply disruption hitting SK Hynix, Samsung, and TSM, boosting Foosung’s pricing power as the top pure-play outside China. Tone is constructive but notes no current position, presented purely as an idea.\n\n• 093370\nFoosung stands to benefit significantly from the China-Japan tungsten export control disrupting WF₆ supply, creating a major bottleneck for memory and foundry players. It is positioned as the best pure-play exposure outside China amid rising demand and pricing power.\n\n• TSM\nTSM faces a 25% supply hit to its WF₆ needs from the tungsten export control, underscoring upstream chokepoints from geopolitical export restrictions.",
+    "tickers": [
+      "TSM"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_9ef65856888e6e3c",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-06-14T18:20:27Z",
+    "ingestedAt": "2026-07-03T13:23:24Z",
+    "text": "Serenity Monitor | Key X Posts | 2026-06-14 16:00–20:00 CEST\n\nIn the last 4 hours, @aleabitoreddit posted only one stock-related update criticizing TA and highlighting fundamental drivers behind moves in SIVE, AXTI and similar names. Tone favors supply-chain research over chart patterns.\n\n• SIVE\nSerenity views SIVE positively as an important AI supply-chain name whose upside is driven by fundamentals and future revenue, not TA.\n\n• AXTI\nSerenity attributes AXTI's strong move to fundamentals including InP substrate, ASP hikes, and photonics demand.\n\n• IREN\nSerenity notes IREN's price targets must first absorb a $6B ATM, rendering TA irrelevant.",
+    "tickers": [
+      "AXTI",
+      "IREN",
+      "SIVE"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_05968d27cdabc404",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-06-15T02:20:44Z",
+    "ingestedAt": "2026-07-03T13:23:32Z",
+    "text": "Serenity Monitor | Key X Posts | 2026-06-15 00:00–04:00 CEST\n\nOver the last 4 hours Serenity highlighted positive supply-chain developments in photonics and power semis. China easing InP substrate exports directly supports capacity ramps at AXTI, IQE, AAOI, LITE, SIVE. Q3 pull-forward benefits NVTS, XFAB and peers, while NVDA/GOOGL 800V DC acceleration flags upside for VRT. Tone remains constructive, emphasizing production and shipment timing as revenue drivers.\n\n• AXTI\nEased InP substrate exports directly support capacity expansion; AXTI as substrate supplier positioned to benefit from photonics upside cycle.\n\n• IQE\nImproved InP substrate availability supports epiwafer operations; IQE stands to gain as photonics capacity ramps.\n\n• AAOI\nRelief in InP substrate bottleneck enables higher laser production; AAOI and peers positioned for revenue growth.\n\n• LITE\nEased InP substrate constraints support laser and module ramp; LITE benefits from broader photonics capacity expansion.\n\n• SIVE\nEased InP substrate exports support SIVE optical exposure; capacity relief expected to drive revenue upside.\n\n• NVTS\nQ3 pull-forward supports power semi names including NVTS, with disclosed position.\n\n• XFAB\nQ3 pull-forward supports power semi names including XFAB, with disclosed position.\n\n• NVDA\n800V DC ahead of schedule with Q3 small-volume shipments; NVDA leads next-gen AI data center power transition.\n\n• VRT\n800V DC acceleration benefits power infrastructure; VRT and peers positioned to gain from AI data center upgrades.",
+    "tickers": [
+      "AAOI",
+      "AXTI",
+      "GOOGL",
+      "IQE",
+      "LITE",
+      "NVDA",
+      "NVTS",
+      "SIVE",
+      "XFAB"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_afe08bb4b5c9fbca",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-06-15T06:20:38Z",
+    "ingestedAt": "2026-07-03T13:23:36Z",
+    "text": "Serenity Monitor | Key X Posts | 2026-06-15 04:00–08:00 CEST\n\nIn the last 4 hours, Serenity highlighted Foosung (093370) as a key beneficiary of supply chain bottlenecks, expressed positive views on WOLF and SIVE, and updated stances on Leaderdrive and POET. Tone is constructively bullish on semi and photonics supply chain themes.\n\n• 093370\nSerenity confirms Foosung as a major winner from the WF₆ supply chain bottleneck, with shares surging 21% intraday.\n\n• WOLF\nSerenity holds no position but is positive on WOLF as a key US supply chain player, expecting gains from subsidies and market support.\n\n• SIVE\nSerenity is super bullish on SIVE, citing InP easing and potential Nasdaq listing catalyst.\n\n• 688017\nSerenity maintains a positive long-term view on Leaderdrive.\n\n• POET\nSerenity remains cautious on POET despite strong cash position, with uncertainty around tech qualification.",
+    "tickers": [
+      "POET",
+      "SIVE"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_d95ac329013064d9",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-06-15T10:20:55Z",
+    "ingestedAt": "2026-07-03T13:23:49Z",
+    "text": "Serenity Monitor | Key X Posts | 2026-06-15 08:00–12:00 CEST\n\nIn the last 4 hours, Serenity focused on $SIVE, $IQE and $TSEM. $SIVE position awaits meeting catalyst while $IQE remains favored due to supply chain deals. Tone is constructive, centered on AI/optical supply chain easing.\n\n• SIVE\nSerenity holds a bullish $SIVE position and awaits the general meeting catalyst, supported by EU macro positives and InP supply chain easing.\n\n• IQE\nSerenity is bullish on $IQE as a key player in Western optical supply chains, with the recent multi-year deal with $TSEM reinforcing its importance.\n\n• TSEM\nSerenity notes the multi-year deal between $TSEM and $IQE as a positive signal for InP supply chain easing.",
+    "tickers": [
+      "IQE",
+      "SIVE",
+      "TSEM"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_674b5e5d749d0ca2",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-06-15T14:20:44Z",
+    "ingestedAt": "2026-07-03T13:23:55Z",
+    "text": "Serenity Monitor | Key X Posts | 2026-06-15 12:00–16:00 CEST\n\nIn the last 4 hours, Serenity focused primarily on $SIVE, highlighting its dominant position in hyperscaler and CPO supply chains with expected material revenue growth on volume ramp and attractive valuation. Additional mentions note $AAOI and $NBIS validating her early theses while $IREN lags due to selling pressure. Overall tone remains constructively bullish on AI-related semis and photonics names.\n\n• SIVE\nSerenity is strongly bullish on $SIVE as primary/sole laser supplier to multiple hyperscalers and CPO ecosystems; expects material revenue on volume ramp with attractive valuation.\n\n• AAOI\nSerenity notes $AAOI has validated her early Photonics thesis.\n\n• NBIS\nSerenity is positive on $NBIS hitting ATHs in line with her Neoclouds thesis.\n\n• IREN\nSerenity views $IREN as stagnant due to ongoing $6B ATM selling pressure.",
+    "tickers": [
+      "AAOI",
+      "IREN",
+      "NBIS",
+      "SIVE"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_f91c2bf26c05b1d7",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-06-15T18:20:38Z",
+    "ingestedAt": "2026-07-03T13:24:00Z",
+    "text": "Serenity Monitor | Key X Posts | 2026-06-15 16:00–20:00 CEST\n\nOver the last 4 hours Serenity focused on photonics supply-chain names, repeatedly highlighting SIVE as the primary laser source for multiple hyperscaler suppliers with strong volume-ramp visibility. IQE and LPK are viewed as still-undervalued monopolies with re-rating potential. Tone remains constructively bullish on the AI DC and photonics theme with emphasis on core holdings.\n\n• SIVE\nSIVE remains the primary/sole laser source for multiple hyperscaler suppliers with material revenue expected on 2027-28 ramps. Attractive valuation with M&A path to replicate LITE's growth trajectory.\n\n• IQE\nIQE is a critical epiwafer supplier to Western optical supply chains; new multi-year Tower Semi deal further de-risks the name with re-rating potential.\n\n• LPK\nLPK remains undervalued given its LIDE glass-core substrate monopoly, with >80% of major global players selecting its equipment for validation.",
+    "tickers": [
+      "IQE",
+      "LITE",
+      "LPK.DE",
+      "SIVE"
+    ],
+    "conviction": "high",
+    "tags": []
+  },
+  {
+    "id": "h_00a1d3192d4bb4eb",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-06-16T10:20:51Z",
+    "ingestedAt": "2026-07-03T13:24:11Z",
+    "text": "Serenity Monitor | Key X Posts | 2026-06-16 08:00–12:00 CEST\n\nOver the last 4 hours, Serenity focused on photonics and memory themes. $AXTI and $SIVE remain key holdings and bullish ideas, with $MU continuing as memory leader. $IREN drew criticism over financing. No macro-only chatter.\n\n• IREN\nSerenity holds a negative view on $IREN due to excessive ATM financing.\n\n• AXTI\nSerenity continues to hold $AXTI shares with confidence in the InP supply chain thesis.\n\n• SIVE\nSerenity is bullish on $SIVE optical theme, likely LTAs with $AMD, and sees it as next large-cap opportunity.\n\n• AMD\nSerenity expects $AMD to sign LTAs with $SIVE.\n\n• MU\nSerenity maintains bullish view on $MU as memory theme leader.\n\n• EWY\nSerenity's $EWY LEAPs have delivered significant gains.",
+    "tickers": [
+      "AMD",
+      "AXTI",
+      "EWY",
+      "IREN",
+      "MU",
+      "SIVE"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_e7720e250de56618",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-06-16T22:20:32Z",
+    "ingestedAt": "2026-07-03T13:24:35Z",
+    "text": "Serenity Monitor | Key X Posts | 2026-06-16 20:00–00:00 CEST\n\nIn the last 4 hours, Serenity posted twice with stock-relevant commentary. Key points center on her $MU gross-margin model being validated ahead of time and the AI capex cycle running through 2028, with bullish views on upstream semis like $NVDA, $AMD, and $MU; lukewarm on $META and iffy on $ORCL; and caution on debt-driven valuation risks such as $CRWV. Tone is constructive and long-term constructive.\n\n• MU\nSerenity maintains a positive view on $MU, citing her accurate gross-margin model that priced in DRAM/NAND hikes; AI demand should support further valuation upside.\n\n• NVDA\nSerenity is bullish on $NVDA as a core AI upstream beneficiary, expecting capex to accelerate through 2028 with no clear peak signals yet.",
+    "tickers": [
+      "AMD",
+      "CRWV",
+      "DRAM",
+      "META",
+      "MU",
+      "NVDA",
+      "ORCL"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_efc0e6324acf5656",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-06-17T14:20:39Z",
+    "ingestedAt": "2026-07-03T13:24:45Z",
+    "text": "Serenity Monitor | Key X Posts | 2026-06-17 12:00–16:00 CEST\n\nIn the last 4 hours, Serenity discussed XFAB, LeaderDrive (688017), LPK, and AMD/SIVE/AAOI AI supply chain names. Constructive curiosity on XFAB and LPK around sovereign AI and glass substrates; maintains positive stance on SIVE/AAOI as CW laser capacity plays. Neutral-to-bullish tone focused on specific catalysts.\n\n• XFAB\nSerenity is curious about XFAB's leading European silicon photonics position and potential sovereign AI beneficiary status; holds positions.\n\n• 688017\nSerenity is bullish on LeaderDrive (688017) as a clear winner in China's low-cost robotics ramp and would personally long it.\n\n• LPK\nSerenity stays constructive on LPK's glass substrate equipment with strong customer adoption and nearing HVM timelines; holds position.\n\n• AMD\nSerenity sees AMD actively securing CW laser supply as underscoring the strategic importance of this AI bottleneck.\n\n• SIVE\nSerenity views SIVE as a key beneficiary of remaining Western CW laser capacity and holds a position.\n\n• AAOI\nSerenity views AAOI as a key beneficiary of remaining Western CW laser capacity and holds a position.",
+    "tickers": [
+      "AAOI",
+      "AMD",
+      "LPK.DE",
+      "SIVE",
+      "XFAB"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_2e843bd16531f27a",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-06-17T18:20:32Z",
+    "ingestedAt": "2026-07-03T13:24:50Z",
+    "text": "Serenity Monitor | Key X Posts | 2026-06-17 16:00–20:00 CEST\n\nIn the last 4 hours, Serenity focused on several AI and semiconductor supply chain names. Key points include $AEHR securing silicon photonics orders, $AMD's CW laser procurement highlighting bottlenecks, and positive updates on $NBIS and $SIVE. Tone remains constructive, emphasizing opportunities from supply constraints.\n\n• AEHR\nSerenity views $AEHR positively, highlighting the follow-up silicon photonics order and strong YTD performance.\n\n• AMD\nSerenity sees $AMD's CW laser procurement as evidence of tightening supply chains benefiting upstream players.\n\n• NBIS\nSerenity reaffirms bullish stance on $NBIS, noting all-time highs and outperformance versus peers.\n\n• SIVE\nSerenity highlights $SIVE's key role in the CW laser chokepoint and discloses ownership.\n\n• AAOI\nSerenity positions $AAOI as an important beneficiary in the CW laser supply chain.\n\n• LPK\nSerenity is bullish on $LPK's glass substrate opportunity as HVM timelines approach.",
+    "tickers": [
+      "AAOI",
+      "AEHR",
+      "AMD",
+      "LPK.DE",
+      "NBIS",
+      "SIVE"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_192466279203c8e6",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-06-18T18:20:51Z",
+    "ingestedAt": "2026-07-03T13:25:02Z",
+    "text": "Serenity Monitor | Key X Posts | 2026-06-18 16:00–20:00 CEST\n\nOver the last 4 hours Serenity focused on NAV-discount AI-related names such as ACMR and memory/optics supply-chain opportunities. ACMR is highlighted for asset-backed derisking; SNDK, AAOI, and SIVEF continue to be favored as direct AI-demand beneficiaries. The tone remains constructive, emphasizing standalone growth and channel validation over macro noise.\n\n• ACMR\nSerenity views ACMR favorably due to its NAV discount and substantial China asset base providing some derisking, while highlighting the potential for standalone AI growth through US parent expansion in H2 2026.\n\n• SNDK\nSerenity notes that shorts in SNDK are likely underwater and continues to see the name as attractive on AI-driven memory demand.\n\n• AAOI\nSerenity sees AAOI as one of the most likely suppliers for AMD’s large CW laser purchase agreements, supported by channel checks and reference designs.\n\n• SIVEF\nSerenity flags SIVEF as another prime candidate for AMD’s large CW laser deals.\n\n• INTC\nSerenity views Trump’s Intel + Apple partnership announcement as a major positive catalyst for INTC, with the President effectively driving the stock’s momentum.",
+    "tickers": [
+      "AAOI",
+      "AMD",
+      "INTC",
+      "SNDK"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_c42176fc997d21c3",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-06-19T14:20:36Z",
+    "ingestedAt": "2026-07-03T13:25:19Z",
+    "text": "Serenity Monitor | Key X Posts | 2026-06-19 12:00–16:00 CEST\n\nIn the last 4 hours, Serenity focused on $LPK with highly optimistic commentary on meeting notes, citing market share targets, expanded TAM, and listing plans, viewing it as undervalued with positions held. Longer-term upside also highlighted for $XFAB in European photonics.\n\n• LPK\nSerenity holds a strongly bullish view on $LPK, citing high-volume production readiness, 70% market share target, and NASDAQ listing discussions as underappreciated, and explicitly owns positions.\n\n• XFAB\nSerenity sees significantly higher long-term upside for $XFAB if it leads European photonic supply chains and builds a $TSEM alternative.",
+    "tickers": [
+      "LPK.DE",
+      "TSEM",
+      "XFAB"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_fae917675b284691",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-06-20T06:20:39Z",
+    "ingestedAt": "2026-07-03T13:25:27Z",
+    "text": "Serenity Monitor | Key X Posts | 2026-06-20 04:00–08:00 CEST\n\nIn the last 4 hours, @aleabitoreddit focused on NAV discounts across Asian semi supply chain names. Positive on $ACMR and $WUS with plans to add concentration due to H-share listings and growth; neutral valuation notes on $CAMT; cautious on select Korean names due to governance. Emphasis remains on NAV unlocking opportunities.\n\n• CAMT\nSerenity views Priortech's 21% stake in $CAMT as roughly 1.35x its market cap, more of a holding company with a less clean NAV discount.\n\n• ACMR\nSerenity is bullish on $ACMR due to upcoming H-share subsidiary listing, large NAV discount, and independent growth, planning to add concentration.\n\n• WUS\nSerenity is bullish on $WUS due to upcoming H-share listing and activist involvement, significant NAV discount, planning to add concentration.",
+    "tickers": [
+      "ACMR",
+      "CAMT",
+      "WUS"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_76b06718fb16b539",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-06-20T18:20:47Z",
+    "ingestedAt": "2026-07-03T13:25:35Z",
+    "text": "Serenity Monitor | Key X Posts | 2026-06-20 16:00–20:00 CEST\n\nIn the last 4 hours, @aleabitoreddit posted only one stock-related update, defending past positions and stressing repeated market validation. Key mentions include XFAB’s long-term potential and successful validation of AXTI, SIVE and other AI/semi names. Tone is confident, underscoring that original theses have been repeatedly proven right.\n\n• XFAB\nSerenity sees XFAB with much higher long-term upside as a potential European photonic supply-chain leader building a TSEM alternative, though earlier in the process.\n\n• AXTI\nSerenity notes AXTI faced endless hate as a supposed scam but was later validated by Reuters, Epiwafer earnings and institutions; still cites it as a proven winner.\n\n• SIVE\nSerenity highlights SIVE as probably her most successful idea, validated by institutional buying from Fidelity and JP Morgan plus announced partnerships with JBL and GFS.",
+    "tickers": [
+      "AXTI",
+      "GFS",
+      "JBL",
+      "SIVE",
+      "TSEM",
+      "XFAB"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_b12bfe961725b517",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-06-21T10:20:45Z",
+    "ingestedAt": "2026-07-03T13:25:40Z",
+    "text": "Serenity Monitor | Key X Posts | 2026-06-21 08:00–12:00 CEST\n\nOver the last 4 hours Serenity focused on the EML/CW laser supply chain bottleneck, highlighting advantages for scarce players like COHR and LITE amid multi-year shortages, and the potential of OE Solutions (138080) as a Korean EML entrant. Nittobo (3110) flagged as an undervalued monopolist unwilling to hike prices. Tone leans constructive on AI optics hardware scarcity opportunities while noting capacity and customer risks.\n\n• COHR\nCOHR is purchasing EMLs from LITE due to its own shortages and supplying into the ecosystem; benefits from the multi-year EML/CW laser bottleneck as one of the few qualified players.\n\n• LITE\nLITE is buying EMLs from COHR and sourcing CW lasers externally to meet NVDA demand due to its own EML allocation constraints; maintains strong EML position amid ongoing shortages.\n\n• 138080\nOE Solutions (138080) advancing ELSFP sampling and volume ramp as a sovereign EML/CW player; attractive given EML shortage but carries customer/qualification risks.",
+    "tickers": [
+      "COHR",
+      "LITE",
+      "NVDA"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_ae4efa147b530bdb",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-06-21T22:20:32Z",
+    "ingestedAt": "2026-07-03T13:25:54Z",
+    "text": "Serenity Monitor | Key X Posts | 2026-06-21 20:00–00:00 CEST\n\nOver the last 4 hours, Serenity shared detailed bullish views on SIVE as the leading laser supplier across 1.6T pluggables and CPO with strong design-ins and moat; also referenced LITE's MC expansion and capacity constraints. Tone is professional and focused on optical supply-chain chokepoints.\n\n• SIVE\nSerenity is strongly bullish on SIVE as the laser supplier embedded across pluggable 1.6T, CPO architectures, and foundry references, citing its Jabil partnership, early design-ins with MRVL/Ayar/Lightmatter, and superior moat versus peers; calls it her favorite laser chokepoint long.\n\n• LITE\nSerenity references LITE's MC growth from $2.88B (2024) to $67B (2026) and notes it is EML/CW capacity-constrained, buying from competitors amid sold-out status into 2028.",
+    "tickers": [
+      "LITE",
+      "MRVL",
+      "SIVE"
+    ],
+    "conviction": "high",
+    "tags": []
+  },
+  {
+    "id": "h_bef629b08a552f00",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-06-22T08:24:43Z",
+    "ingestedAt": "2026-07-03T13:26:03Z",
+    "text": "📌 2026-06-21, Serenity Subscriber-Only Insight: Nvidia’s healthcare narrative may be spilling over, with organ-on-chip emerging as a new niche theme\n\nIn her latest subscriber-only post, Serenity said she recently started digging into the organ-on-chip space and followed a new thread from there: Darwin, a company previously associated more with display/module-related business, is now moving into biosensors, biochips, and biomedical testing. At the same time, the company is working with Anivance AI on bionic organ chips and other biomedical testing solutions.\n\nWhat makes this more interesting for the market is the narrative layer around it: Anivance AI is being framed with an “Nvidia backdrop.” That opens the door for investors to read this theme as: AI + Nvidia exposure + healthcare tech + organ-on-chip.\n\nSerenity’s real point is not that this industry has already entered a mature monetization phase. It is that this may be a very early-stage branch theme with room for narrative expansion. If Nvidia’s market narrative truly starts extending further into biomedical and healthcare applications, the first names to get attention may not be the most established leaders, but rather smaller edge names that get pulled into the concept trade first.\n\nThat said, there are clear reasons to stay cautious:\n\n• “Nvidia backdrop” does not mean a direct Nvidia partnership\n• Darwin still looks more like a cross-sector expansion story, with commercialization not yet fully proven\n• If these names move in the short term, the rally may be driven by narrative and sentiment first, not fundamentals\n\nIn short, this subscriber-only post is pointing to an early signal: Nvidia’s spillover into healthcare and biotech may be helping create a new speculative niche around organ-on-chip.",
+    "tickers": [],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_ef14e95a9674e72e",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-06-22T10:20:52Z",
+    "ingestedAt": "2026-07-03T13:26:09Z",
+    "text": "Serenity Monitor | Key X Posts | 2026-06-22 08:00–12:00 CEST\n\nIn the last 4 hours, @aleabitoreddit reaffirmed an unchanged bullish thesis on FOCI as a bottleneck in the NVDA/TSM COUPE ecosystem. Also reiterated a positive view on WUS TW as a NAV arbitrage plus AI growth trade, seeing activist pressure as a major catalyst. Tone remains constructive, focused on specific AI supply chain names.\n\n• FOCI\nSerenity maintains an unchanged bullish thesis on FOCI as a key bottleneck in the NVDA/TSM COUPE ecosystem. Positive on its supply chain positioning.\n\n• NVDA\nSerenity continues to highlight NVDA's COUPE scaling as a driver for bottleneck suppliers like FOCI.\n\n• TSM\nSerenity continues to highlight TSM's COUPE scaling as a driver for bottleneck suppliers like FOCI.\n\n• WUS TW\nSerenity is bullish on WUS TW's NAV arbitrage opportunity plus AI data center growth, viewing activist pressure as a catalyst to unlock value.",
+    "tickers": [
+      "NVDA",
+      "TSM",
+      "WUS"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_aed2d308335f083e",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-06-22T14:24:37Z",
+    "ingestedAt": "2026-07-03T13:26:17Z",
+    "text": "📌 2026-06-22 | Serenity Subscriber-Only: Among Taiwan’s high-growth integrated circuit (IC) companies, Etron is the first name that caught her attention\n\nSerenity recently shared a list of the top 10 fastest-growing integrated circuit (IC) companies in Taiwan for January–May 2026.\nAmong them, the one she currently thinks is most worth a deeper look is Etron.\n\nHer reasoning is pretty straightforward:\n\n• Etron is exposed to DRAM, DDR4, KGD/KGDM, and networking memory\n• The company posted 605.5% year-over-year growth\n• On a rough annualized earnings basis, it’s currently trading at around 12.5x PE\n\nHer point is not that this is already a stock to size into aggressively right now, but rather:\nEtron looks like the first name in this group of high-growth Taiwan chip companies that deserves deeper research.\n\nShe also mentioned two other names:\n\n• Phison is an older name she has followed for a while\n• AP Memory is also worth keeping on the radar; she sees it as a potentially promising long-term name, and noted that it had previously entered Intel’s EMIB supply chain\n\nThat said, the tone of this subscriber-only post was fairly measured.\nSerenity made it clear that she currently has no position in any of these names.\nSo this reads more like an updated watchlist than a high-conviction recommendation after already building a position.",
+    "tickers": [
+      "DRAM"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_2e0cb004d84f0180",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-06-22T22:20:43Z",
+    "ingestedAt": "2026-07-03T13:26:27Z",
+    "text": "Serenity Monitor | Key X Posts | 2026-06-22 20:00–00:00 CEST\n\nOver the last 4 hours, Serenity highlighted three US-equity names. $SPCX has seen a sharp pullback after Cramer's bullish call, making an inverse approach highly profitable in the short term. $AAOI is viewed as poised for >800% revenue growth with attractive valuation. $LPK is seen reaching a $3-5B fair value at volume ramp with asymmetric upside. Overall tone remains focused on fundamental, chokepoint-driven individual opportunities.\n\n• SPCX\nSerenity maintains a cautious stance on $SPCX, underscoring the sharp market-cap decline following Cramer's bullish call and the strong short-term performance of an inverse-Cramer approach.\n\n• AAOI\nSerenity is bullish on $AAOI, projecting exponential revenue growth with rising ASPs and margins, leaving the current valuation highly attractive.\n\n• LPK\nSerenity is bullish on $LPK, seeing a $3-5B fair value at full volume ramp for glass substrates with strong asymmetric upside from its market position.",
+    "tickers": [
+      "AAOI",
+      "LPK.DE",
+      "SPCX"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_2a293abababa4360",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-06-23T02:20:48Z",
+    "ingestedAt": "2026-07-03T13:26:32Z",
+    "text": "Serenity Monitor | Key X Posts | 2026-06-23 00:00–04:00 CEST\n\nIn the last 4 hours, Serenity shared an update on a TSM supplier acquisition and highlighted OE Solutions ($138080.KQ) as an attractive low-valuation acquisition target. She also contrasted IREN negatively against NBIS, reaffirming her preference for the latter in the AI supercycle. All commentary focuses on individual semi and AI supply chain names.\n\n• TSM\nSerenity's M&A ideas are validated as Apollo fully acquired one of the TSM Japanese suppliers she identified.\n\n• 138080.KQ\nSerenity is bullish on OE Solutions as an acquisition target due to its low ~$215M market cap and scarce EML/CW laser IP ideal for downstream vertical integration.\n\n• IREN\nSerenity holds a negative view on IREN, criticizing endless dilution and its GPU pivot from Colo.\n\n• NBIS\nSerenity views her switch to NBIS last year as the correct move, outperforming IREN in the AI supercycle.",
+    "tickers": [
+      "IREN",
+      "NBIS",
+      "TSM"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_0fc55eab6ec27b83",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-06-23T14:21:04Z",
+    "ingestedAt": "2026-07-03T13:26:39Z",
+    "text": "Serenity Monitor | Key X Posts | 2026-06-23 12:00–16:00 CEST\n\nIn the last 4 hours, Serenity focused on semi stock dips as buying opportunities amid questionable rate-hike narratives, explicitly bullish on $MU, $INTC, $TSM, $SIVE, and $XFAB due to lack of new macro data. She criticizes extreme bearish bank/media calls and highlights real benefits or undervalued potential in $CRCL and $NVDA supply chains. Tone leans constructive on dips with an AI/supply-chain focus.\n\n• CRCL\nSerenity sees $CRCL as one of the few names genuinely benefiting from rate hikes, yet it dropped recently anyway.\n\n• MU\nSerenity views the $MU dip as a buying opportunity fueled by unsubstantiated rate-hike narratives.\n\n• INTC\nSerenity sees the $INTC pullback as a clear buying opportunity amid questionable rate-hike hype.\n\n• TSM\nSerenity is constructive on $TSM as a buying opportunity and rejects bubble framing around its valuation and supply chain.\n\n• NVDA\nSerenity dismisses bubble claims on $NVDA upstream supply chain as stupid media narratives.\n\n• SIVE\nSerenity is strongly bullish on $SIVE for physical AI/robotics and potential Apple wearables optical modules as major revenue drivers.\n\n• XFAB\nSerenity remains bullish on $XFAB, believing its silicon photonics upside is underestimated despite the upgrade.",
+    "tickers": [
+      "CRCL",
+      "INTC",
+      "MU",
+      "NVDA",
+      "SIVE",
+      "TSM",
+      "XFAB"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_a50d2beceb05baea",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-06-23T18:20:53Z",
+    "ingestedAt": "2026-07-03T13:26:44Z",
+    "text": "Serenity Monitor | Key X Posts | 2026-06-23 16:00–20:00 CEST\n\nIn the last 4 hours, Serenity added to AAOI and called dips in MU, INTC, and TSM buying opportunities while pushing back on bubble narratives around TSM and NVDA. XFAB's EU Chips Act funding is viewed as a positive catalyst. Overall tone is constructive on semiconductor pullbacks.\n\n• AAOI\nSerenity added to AAOI today, showing a constructive stance.\n\n• XFAB\nSerenity sees XFAB's €127.4M EU Chips Act funding as a major positive catalyst.\n\n• MU\nSerenity sees the MU dip as a clear buying opportunity.\n\n• INTC\nSerenity sees the INTC dip as a clear buying opportunity.\n\n• TSM\nSerenity sees the TSM dip as a clear buying opportunity and rejects bubble claims.\n\n• NVDA\nSerenity rejects media framing of NVDA supply chain as a bubble.",
+    "tickers": [
+      "AAOI",
+      "INTC",
+      "MU",
+      "NVDA",
+      "TSM",
+      "XFAB"
     ],
     "conviction": "normal",
     "tags": []

@@ -1,4 +1,4 @@
-"""Tiny stdlib-only .env loader shared by synthesize.py and fetch_prices.py.
+"""Tiny stdlib-only .env loader shared by bot.py, synthesize.py, and fetch_prices.py.
 
 Kept as a standalone leaf module (no other ingest/*.py imports) so scripts
 that need it don't pull in synthesize.py's `anthropic` dependency just to
@@ -30,9 +30,12 @@ def _parse_dotenv(text):
 
 
 def _load_dotenv():
-    """Best-effort: load ingest/.env into os.environ for keys NOT already set, so
-    `python3 ingest/<script>.py` works right after you edit .env (no shell
-    sourcing needed). Existing/exported env vars always win; missing file is fine.
+    """Best-effort: load ingest/.env into os.environ for keys not already set to a
+    non-empty value, so `python3 ingest/<script>.py` works right after you edit
+    .env (no shell sourcing needed). A genuinely exported value always wins; an
+    empty/blank export (e.g. a stray `export FOO=` left over from a workaround)
+    is treated as unset so it doesn't permanently shadow the real .env value.
+    Missing file is fine.
     """
     path = ING / ".env"
     if not path.exists():
@@ -42,5 +45,5 @@ def _load_dotenv():
     except OSError:
         return
     for key, val in env.items():
-        if key not in os.environ:
+        if not os.environ.get(key):
             os.environ[key] = val
