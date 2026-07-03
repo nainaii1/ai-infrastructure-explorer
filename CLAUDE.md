@@ -62,11 +62,23 @@ not throwaway config.
   Core/Watch/Radar barbell bar, "Latest signal" card), numbered chapter heads,
   floating glass capsule nav (sliding pill, scrollspy, bottom-floating ≤768px),
   cool "cleanroom" palette (see Design system), scroll-triggered staggered
-  reveals, one unified grid-rows drill-down animation (map detail + brain
+  reveals, one unified JS-measured max-height drill-down animation (map detail + brain
   sources), "Jargon, translated" glossary (`AIE_DATA.glossary`, sourced from
   `base.json`), "New this week" strip on the Watchlist, heat-aware cross-section
   legend, caveats colophon. All old tab classes (`.tab-panel`, `.tab-btn`,
   `initTabs`) are gone — chapters render eagerly at boot.
+- **Evidence chapter cap** ✅ done (2026-07-03). The raw thesis feed shows only
+  the most recent 10 posts by default (a backfill can make this feed
+  100+ full-text cards — ~90,000px tall uncapped); the rest sit behind a
+  "Show N earlier theses" drill-down, never deleted. Fixing this surfaced a
+  real bug in the CSS `grid-template-rows: 0fr->1fr` drill-down technique:
+  it silently resolves to 0 height whenever an ancestor (`.bd-card`'s
+  `overflow: hidden`, `.th-feed`'s flex column) gives the grid track a
+  bounded "available space" instead of true content-based auto-sizing. All
+  three drill-downs (map layer detail, Brain sources, this new one) now use
+  a JS-measured `max-height` (see `setDrilldownOpen()` in `index.html`) —
+  robust regardless of ancestor layout, with a resize listener to
+  re-measure anything currently open.
 - **Live counts** (approximate, check `ingest/store/*.json` for current):
   ~93 tickers tracked (21 core / 23 watch / 49 radar after focus-weighting),
   10 categorized layers + an `unsorted` triage bucket (all Core names are

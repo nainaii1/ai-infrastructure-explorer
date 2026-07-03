@@ -532,19 +532,22 @@
     .zone-divider--muted::before { content: ""; }
 
     /* Investor angle — collapsed until the layer is selected (.is-active).
-       Unified drill-down: grid-template-rows 0fr -> 1fr (same technique as
-       the Brain's source reveal), springs open at true content height. */
+       Unified drill-down: JS measures true content height and animates
+       max-height to it (see openDrilldown()/closeDrilldown()) — a plain
+       CSS grid-template-rows 0fr->1fr can't be used here because some
+       ancestors (overflow-constrained cards, flex columns) give the grid
+       track a bounded "available space" instead of letting it size to
+       content, so 1fr silently resolves to 0. max-height + a JS-measured
+       pixel target sidesteps that ambiguity entirely. */
     .layer-detail {
-      display: grid;
-      grid-template-rows: 0fr;
+      max-height: 0;
       opacity: 0;
+      overflow: hidden;
       margin-top: 0;
-      transition: grid-template-rows var(--dur) var(--spring),
+      transition: max-height var(--dur) var(--spring),
                   opacity var(--ease), margin-top var(--ease);
     }
-    .layer-detail > .layer-detail-inner { min-height: 0; overflow: hidden; }
     .layer-band.is-active .layer-detail {
-      grid-template-rows: 1fr;
       opacity: 1;
       margin-top: 9px;
     }
@@ -1009,19 +1012,20 @@
       transition: color var(--ease), border-color var(--ease);
     }
     .bd-toggle:hover { color: var(--ink); border-color: var(--muted); }
-    /* Same drill-down animation as .layer-detail (audit fix #7):
-       grid rows spring from 0fr to 1fr at true content height. */
+    /* Same drill-down animation as .layer-detail (audit fix #7): JS-measured
+       max-height, not grid-template-rows — see the comment on .layer-detail
+       for why the grid 0fr->1fr trick doesn't hold up inside .bd-card's
+       overflow-constrained box. Reused for the Evidence chapter's
+       "N earlier theses" drill-down too. */
     .bd-sources {
-      display: grid;
-      grid-template-rows: 0fr;
+      max-height: 0;
       opacity: 0;
+      overflow: hidden;
       margin-top: 0;
-      transition: grid-template-rows var(--dur) var(--spring),
+      transition: max-height var(--dur) var(--spring),
                   opacity var(--ease), margin-top var(--ease);
     }
-    .bd-sources > .bd-sources-inner { min-height: 0; overflow: hidden; }
     .bd-sources.open {
-      grid-template-rows: 1fr;
       opacity: 1;
       margin-top: 12px;
     }
@@ -1562,6 +1566,26 @@
         revealIO.observe(node);
       }
 
+      /* Unified drill-down: JS-measured max-height, not CSS grid-template-rows
+         0fr->1fr — some ancestors (overflow-constrained cards, flex columns)
+         give the grid track a bounded "available space" instead of true
+         auto-sizing, silently resolving 1fr to 0. Measuring `inner.scrollHeight`
+         sidesteps that entirely. `container` toggles the opacity/margin-top
+         class; `inner` is the wrapper whose natural height we measure. */
+      var openDrilldowns = []; // {container, inner} pairs currently open, for resize re-measure
+      function setDrilldownOpen(container, inner, open, activeClass) {
+        if (activeClass) container.classList.toggle(activeClass, open);
+        container.style.maxHeight = open ? inner.scrollHeight + "px" : "0px";
+        var idx = openDrilldowns.findIndex(function (d) { return d.container === container; });
+        if (open && idx === -1) openDrilldowns.push({ container: container, inner: inner });
+        else if (!open && idx !== -1) openDrilldowns.splice(idx, 1);
+      }
+      window.addEventListener("resize", function () {
+        openDrilldowns.forEach(function (d) {
+          d.container.style.maxHeight = d.inner.scrollHeight + "px";
+        });
+      });
+
       function initReveals() {
         document.querySelectorAll(".reveal").forEach(function (n) {
           if (revealIO) { revealIO.observe(n); }
@@ -2021,6 +2045,9 @@
           var on = b.dataset.cat === mapState.selectedId;
           b.classList.toggle("is-active", on);
           b.setAttribute("aria-pressed", on ? "true" : "false");
+          var detail = b.querySelector(".layer-detail");
+          var detailInner = b.querySelector(".layer-detail-inner");
+          if (detail && detailInner) setDrilldownOpen(detail, detailInner, on);
         });
         document.querySelectorAll(".mc-col[data-cat]").forEach(function (b) {
           var on = b.dataset.cat === mapState.selectedId;
@@ -2707,20 +2734,60 @@
           return;
         }
 
-        // Group by posting day, inserting a zone-divider-style label before each new day.
+        // Group a slice into day-divided cards, continuing the running "last
+        // day" cursor across the visible/hidden boundary so no divider repeats.
+        function appendThesisGroup(container, list, startIndex, lastDayIn) {
+          var lastDay = lastDayIn;
+          list.forEach(function (th, i) {
+            var day = (th.postedAt || th.ingestedAt || "").slice(0, 10);
+            if (day && day !== lastDay) {
+              container.appendChild(makeZoneDivider(day, true));
+              lastDay = day;
+            }
+            var card = makeThesisCard(th);
+            revealify(card, startIndex + i);
+            container.appendChild(card);
+          });
+          return lastDay;
+        }
+
+        // Only the most recent theses render by default — a raw feed of every
+        // forwarded post gets enormous fast (154+ full-text cards after a
+        // backfill). Older ones stay one click away via the same grid
+        // drill-down used elsewhere, never deleted.
+        var VISIBLE_CAP = 10;
+        var visible = theses.slice(0, VISIBLE_CAP);
+        var rest = theses.slice(VISIBLE_CAP);
+
         var frag = document.createDocumentFragment();
-        var lastDay = null;
-        theses.forEach(function (th, i) {
-          var day = (th.postedAt || th.ingestedAt || "").slice(0, 10);
-          if (day && day !== lastDay) {
-            frag.appendChild(makeZoneDivider(day, true));
-            lastDay = day;
-          }
-          var card = makeThesisCard(th);
-          revealify(card, i);
-          frag.appendChild(card);
-        });
+        var lastDay = appendThesisGroup(frag, visible, 0, null);
         feed.appendChild(frag);
+
+        if (rest.length) {
+          var older = el("div", "bd-sources");
+          var olderInner = el("div", "bd-sources-inner");
+          older.appendChild(olderInner);
+          var built = false;
+          var n = rest.length;
+          var label = function (open) {
+            return (open ? "Hide " : "Show ") + n + (n === 1 ? " earlier thesis" : " earlier theses");
+          };
+          var toggle = el("button", "bd-toggle", label(false));
+          toggle.setAttribute("type", "button");
+          toggle.setAttribute("aria-expanded", "false");
+          toggle.addEventListener("click", function () {
+            var open = !older.classList.contains("open");
+            toggle.setAttribute("aria-expanded", open ? "true" : "false");
+            toggle.textContent = label(open);
+            if (open && !built) {
+              appendThesisGroup(olderInner, rest, VISIBLE_CAP, lastDay);
+              built = true;
+            }
+            setDrilldownOpen(older, olderInner, open, "open");
+          });
+          feed.appendChild(toggle);
+          feed.appendChild(older);
+        }
       }
 
       // Build one thesis card. Shared by the Thesis feed and the Brain tab's
@@ -2893,14 +2960,8 @@
                   if (th) sourcesInner.appendChild(makeThesisCard(th, { compact: true }));
                 });
                 built = true;
-                // Let the browser lay out the fresh content before the grid
-                // animation starts, so the very first open animates cleanly.
-                requestAnimationFrame(function () {
-                  requestAnimationFrame(function () { sources.classList.add("open"); });
-                });
-              } else {
-                sources.classList.toggle("open", open);
               }
+              setDrilldownOpen(sources, sourcesInner, open, "open");
             });
             card.appendChild(toggle);
             card.appendChild(sources);

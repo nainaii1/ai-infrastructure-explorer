@@ -11,7 +11,11 @@
 > signal-chain stat nodes (count-up), conviction barbell, "Latest signal"
 > card, chapter heads, glossary strip (`AIE_DATA.glossary`), "New this week"
 > strip, cross-section heat legend, caveats colophon, scroll reveals
-> (`.reveal`/`.in-view`), unified grid-rows drill-down. Every "known
+> (`.reveal`/`.in-view`), unified JS-measured max-height drill-down (not
+> CSS `grid-template-rows: 0fr->1fr` — that silently collapses to 0 height
+> under `overflow`-constrained or flex-column ancestors; fixed 2026-07-03
+> alongside capping the Evidence feed to the 10 most recent theses).
+> Every "known
 > inconsistency" in §7 below was resolved (one `::before` spine everywhere,
 > one conviction-badge language, `--line`/`.placeholder-card` deleted,
 > documented spine-on-cards/dot-in-table split, watchlist sticky header now
