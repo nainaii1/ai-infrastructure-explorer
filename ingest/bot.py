@@ -32,6 +32,7 @@ from datetime import datetime, timezone
 import parser as msgparser
 import generate_data_js as gen
 import fetcher
+from dotenv_util import _load_dotenv
 
 ING = pathlib.Path(__file__).resolve().parent
 STORE = ING / "store"
@@ -200,6 +201,7 @@ def _read_offset():
 
 
 def run_bot():
+    _load_dotenv()  # pick up TELEGRAM_BOT_TOKEN / ALLOWED_TELEGRAM_USER_ID from ingest/.env
     token = os.environ.get("TELEGRAM_BOT_TOKEN")
     allowed = os.environ.get("ALLOWED_TELEGRAM_USER_ID")
     if not token or not allowed:
@@ -228,7 +230,11 @@ def run_bot():
             posted = None
             if epoch:
                 posted = datetime.fromtimestamp(int(epoch), timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
-            summary = ingest_message(text, posted_at=posted)
+            try:
+                summary = ingest_message(text, posted_at=posted)
+            except Exception as exc:  # one bad message must never kill the poll loop
+                print("ingest error (update {}): {}".format(offset, exc))
+                summary = {"skipped": "ingest error: {}".format(exc)}
             print("ingested:", summary)
             try:
                 _api(token, "sendMessage", chat_id=msg["chat"]["id"],
