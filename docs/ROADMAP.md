@@ -8,11 +8,11 @@ _Last updated: 2026-07-03. Living document — update as things ship or change._
 
 | | |
 |---|---|
-| Tickers tracked | ~83 — now tiered: **20 Core / 26 Watch / 37 Radar** (check `data.js` tiers for exact) |
+| Tickers tracked | ~86 — now tiered: **22 Core / 26 Watch / 38 Radar** (check `data.js` tiers for exact) |
 | Categorized layers | 10 (`photonics, memory, fabs, neoclouds, materials, networking, glass, robotics, accelerators, hyperscalers`) |
-| Unsorted (needs triage) | ~56 — but **all remaining unsorted are Watch/Radar tier** (every Core name is classified); Radar-tier triage is low priority by design |
-| Theses ingested | ~72 |
-| Brain digests | Per-theme, for every category with theses |
+| Unsorted (needs triage) | ~59 — but **all remaining unsorted are Watch/Radar tier** (every Core name is classified); Radar-tier triage is low priority by design |
+| Theses ingested | ~89 |
+| Brain digests | 9 themes synthesized, refreshed 2026-07-03 (manual Claude Code pass, 22 new theses since prior run) |
 | **Desk verdicts** | **13 Core names** with Claude's stance + execution note (`ingest/store/verdicts.json`, reviewed 2026-07-03) |
 | GitHub repo | Public — github.com/nainaii1/ai-infrastructure-explorer, branch `feat/brain-synthesis` |
 
@@ -108,6 +108,18 @@ row so verdicts are readable without hovering (mobile especially).
 
 ## Discussed but not yet built
 
+- **Signal Digest** (full design spec, ready to plan+implement) — replaces the
+  raw thesis feed in the Evidence chapter with short, Claude-authored
+  per-ticker digests (AI Signal Watch style: one overview paragraph + one
+  stance line per ticker), generated on demand from theses ingested since the
+  last digest. Raw posts become an expandable "receipts" drill-down under
+  each ticker line, reusing the same grid animation as the Brain's source
+  reveal. Tweet discovery stays fully manual — Telegram bots can't read
+  other bots' channel messages, so forwarding is unchanged; only the
+  *authoring* step is new (mirrors the no-API-key `/weekly-review` pattern).
+  See `docs/superpowers/specs/2026-07-03-signal-digest-design.md` for the
+  full schema (`ingest/store/signal_digests.json`), the `ingest/digest.py`
+  module design, and the rendering plan.
 - **"Since mention" receipts** (from reviewing semiconstocks.com — the Serenity
   tracker of the same analyst): stamp a baseline price in `bot.py` at
   thesis-capture time so future theses can show % return since the call.

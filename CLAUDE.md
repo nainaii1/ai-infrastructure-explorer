@@ -63,10 +63,20 @@ not throwaway config.
   legend, caveats colophon. All old tab classes (`.tab-panel`, `.tab-btn`,
   `initTabs`) are gone — chapters render eagerly at boot.
 - **Live counts** (approximate, check `ingest/store/*.json` for current):
-  ~83 tickers tracked (20 core / 26 watch / 37 radar), 10 categorized layers
+  ~86 tickers tracked (22 core / 26 watch / 38 radar), 10 categorized layers
   + an `unsorted` triage bucket (all Core names are classified; remaining
-  unsorted are Watch/Radar tier), ~72 ingested theses, 13 desk verdicts,
-  brain digests synthesized for every category that has theses.
+  unsorted are Watch/Radar tier), ~89 ingested theses, 13 desk verdicts,
+  9 brain digests synthesized (one per category with theses; refreshed
+  2026-07-03 manually via Claude Code per the v4 workaround above).
+- **Signal Digest** 📋 designed, not built. A planned feature — periodic,
+  Claude-authored per-ticker digests (AI Signal Watch style: short overview +
+  one stance line per ticker) that will **replace** the raw thesis feed as
+  the primary Evidence-chapter content, with raw posts tucked underneath as
+  an expandable "receipts" drill-down. Full design (schema, generation
+  mechanism, rendering plan):
+  `docs/superpowers/specs/2026-07-03-signal-digest-design.md`. Tweet
+  discovery stays fully manual (Telegram bots can't read other bots'
+  messages) — only the *authoring* of the digest is new.
 - **For full history / open issues / next steps:** see `docs/ROADMAP.md`
   (living doc, update it whenever status changes).
 - **For a full design-system reference** (color tokens, type scale, spacing,

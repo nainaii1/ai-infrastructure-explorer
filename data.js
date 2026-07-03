@@ -215,7 +215,7 @@ window.AIE_DATA = {
       "marketCap": 9705362669,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 23.3767,
+        "score": 23.3538,
         "mentions": 18,
         "convictionHits": 1,
         "lastMentioned": "2026-07-03T10:08:17Z"
@@ -252,7 +252,7 @@ window.AIE_DATA = {
       "marketCap": 56663296000,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 19.2706,
+        "score": 19.2517,
         "mentions": 15,
         "convictionHits": 1,
         "lastMentioned": "2026-07-03T10:11:43Z"
@@ -289,7 +289,7 @@ window.AIE_DATA = {
       "marketCap": 52862601336,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 7.5183,
+        "score": 7.511,
         "mentions": 9,
         "convictionHits": 0,
         "lastMentioned": "2026-07-03T10:07:17Z"
@@ -313,7 +313,7 @@ window.AIE_DATA = {
       "marketCap": 1101787708400,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 4.1483,
+        "score": 4.1442,
         "mentions": 5,
         "convictionHits": 0,
         "lastMentioned": "2026-06-30T07:50:05Z"
@@ -355,7 +355,7 @@ window.AIE_DATA = {
       "marketCap": 2625492388,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 13.6909,
+        "score": 13.6775,
         "mentions": 11,
         "convictionHits": 1,
         "lastMentioned": "2026-07-03T10:07:17Z"
@@ -392,7 +392,7 @@ window.AIE_DATA = {
       "marketCap": 4718977430000,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 14.8004,
+        "score": 14.7859,
         "mentions": 17,
         "convictionHits": 0,
         "lastMentioned": "2026-07-03T10:11:43Z"
@@ -428,7 +428,7 @@ window.AIE_DATA = {
       "marketCap": 24480287611,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 5.4727,
+        "score": 5.4674,
         "mentions": 7,
         "convictionHits": 0,
         "lastMentioned": "2026-06-30T07:52:04Z"
@@ -452,7 +452,7 @@ window.AIE_DATA = {
       "marketCap": 604879100000,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 9.3126,
+        "score": 9.3035,
         "mentions": 8,
         "convictionHits": 1,
         "lastMentioned": "2026-07-02T08:33:21Z"
@@ -476,7 +476,7 @@ window.AIE_DATA = {
       "marketCap": 2251762156800,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 6.0839,
+        "score": 6.078,
         "mentions": 8,
         "convictionHits": 0,
         "lastMentioned": "2026-06-30T07:49:19Z"
@@ -500,7 +500,7 @@ window.AIE_DATA = {
       "marketCap": 51748800000,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 17.1012,
+        "score": 17.0844,
         "mentions": 13,
         "convictionHits": 1,
         "lastMentioned": "2026-07-03T10:09:14Z"
@@ -537,7 +537,7 @@ window.AIE_DATA = {
       "marketCap": 44597647525,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 0.9147,
+        "score": 0.9138,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-07-01T14:59:53Z"
@@ -561,7 +561,7 @@ window.AIE_DATA = {
       "marketCap": 2200469650,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 4.8398,
+        "score": 4.8351,
         "mentions": 4,
         "convictionHits": 1,
         "lastMentioned": "2026-07-02T20:35:34Z"
@@ -603,7 +603,7 @@ window.AIE_DATA = {
       "marketCap": 470333683,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 4.6174,
+        "score": 4.6129,
         "mentions": 4,
         "convictionHits": 1,
         "lastMentioned": "2026-06-30T07:49:19Z"
@@ -627,7 +627,7 @@ window.AIE_DATA = {
       "marketCap": 36008044889,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 20.1242,
+        "score": 20.1045,
         "mentions": 12,
         "convictionHits": 2,
         "lastMentioned": "2026-07-02T20:32:33Z"
@@ -663,7 +663,7 @@ window.AIE_DATA = {
       "marketCap": 1156431813,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 22.4177,
+        "score": 22.3957,
         "mentions": 13,
         "convictionHits": 2,
         "lastMentioned": "2026-07-02T20:32:33Z"
@@ -699,7 +699,7 @@ window.AIE_DATA = {
       "marketCap": 1477688034000,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 11.7886,
+        "score": 11.777,
         "mentions": 9,
         "convictionHits": 1,
         "lastMentioned": "2026-07-02T20:35:04Z"
@@ -735,7 +735,7 @@ window.AIE_DATA = {
       "marketCap": 34638720387,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 1.6086,
+        "score": 1.6071,
         "mentions": 2,
         "convictionHits": 0,
         "lastMentioned": "2026-06-30T07:36:16Z"
@@ -759,7 +759,7 @@ window.AIE_DATA = {
       "marketCap": 17272324711,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 2.2543,
+        "score": 2.2521,
         "mentions": 2,
         "convictionHits": 1,
         "lastMentioned": "2026-06-27T15:45:34Z"
@@ -783,7 +783,7 @@ window.AIE_DATA = {
       "marketCap": 7853961476,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 0.7513,
+        "score": 0.7506,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-27T15:38:26Z"
@@ -807,7 +807,7 @@ window.AIE_DATA = {
       "marketCap": 13618583099,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 4.8272,
+        "score": 4.8224,
         "mentions": 4,
         "convictionHits": 1,
         "lastMentioned": "2026-06-30T07:47:41Z"
@@ -831,7 +831,7 @@ window.AIE_DATA = {
       "marketCap": 59488368721,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 0.7513,
+        "score": 0.7506,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-27T15:38:26Z"
@@ -855,7 +855,7 @@ window.AIE_DATA = {
       "marketCap": 1479646938073,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 16.1532,
+        "score": 16.1373,
         "mentions": 12,
         "convictionHits": 1,
         "lastMentioned": "2026-07-03T10:08:17Z"
@@ -892,7 +892,7 @@ window.AIE_DATA = {
       "marketCap": 214579692000,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 17.4946,
+        "score": 17.4775,
         "mentions": 10,
         "convictionHits": 2,
         "lastMentioned": "2026-07-03T10:09:14Z"
@@ -928,7 +928,7 @@ window.AIE_DATA = {
       "marketCap": 2900727630700,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 2.2543,
+        "score": 2.2521,
         "mentions": 2,
         "convictionHits": 1,
         "lastMentioned": "2026-06-27T15:45:34Z"
@@ -952,7 +952,7 @@ window.AIE_DATA = {
       "marketCap": 326968620000,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 0.7513,
+        "score": 0.7506,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-27T15:38:26Z"
@@ -976,7 +976,7 @@ window.AIE_DATA = {
       "marketCap": 37458409003,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 2.2543,
+        "score": 2.2521,
         "mentions": 2,
         "convictionHits": 1,
         "lastMentioned": "2026-06-27T15:45:34Z"
@@ -1000,7 +1000,7 @@ window.AIE_DATA = {
       "marketCap": 1131426135,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 0.7513,
+        "score": 0.7506,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-27T15:38:26Z"
@@ -1024,7 +1024,7 @@ window.AIE_DATA = {
       "marketCap": 1614608269,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 2.2541,
+        "score": 2.2519,
         "mentions": 2,
         "convictionHits": 1,
         "lastMentioned": "2026-06-27T15:41:34Z"
@@ -1048,7 +1048,7 @@ window.AIE_DATA = {
       "marketCap": 58152978820,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 4.9807,
+        "score": 4.9758,
         "mentions": 4,
         "convictionHits": 1,
         "lastMentioned": "2026-07-02T14:29:58Z"
@@ -1073,7 +1073,7 @@ window.AIE_DATA = {
       "marketCap": 12445397398,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 47.7207,
+        "score": 47.674,
         "mentions": 27,
         "convictionHits": 2,
         "lastMentioned": "2026-07-03T10:11:43Z"
@@ -1108,7 +1108,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
       "priority": {
-        "score": 0.7514,
+        "score": 0.7507,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-27T15:40:47Z"
@@ -1132,7 +1132,7 @@ window.AIE_DATA = {
       "marketCap": 272115505200,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 0.7514,
+        "score": 0.7507,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-27T15:41:13Z"
@@ -1156,7 +1156,7 @@ window.AIE_DATA = {
       "marketCap": 18335019846,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 0.7514,
+        "score": 0.7507,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-27T15:41:13Z"
@@ -1180,7 +1180,7 @@ window.AIE_DATA = {
       "marketCap": 8276408583,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 0.7514,
+        "score": 0.7507,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-27T15:41:13Z"
@@ -1204,7 +1204,7 @@ window.AIE_DATA = {
       "marketCap": 5963234598,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 0.7514,
+        "score": 0.7507,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-27T15:41:13Z"
@@ -1228,7 +1228,7 @@ window.AIE_DATA = {
       "marketCap": 3521806948,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 1.1271,
+        "score": 1.126,
         "mentions": 1,
         "convictionHits": 1,
         "lastMentioned": "2026-06-27T15:41:34Z"
@@ -1252,7 +1252,7 @@ window.AIE_DATA = {
       "marketCap": 2610425457000,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 10.3305,
+        "score": 10.3203,
         "mentions": 8,
         "convictionHits": 1,
         "lastMentioned": "2026-07-02T20:35:04Z"
@@ -1276,7 +1276,7 @@ window.AIE_DATA = {
       "marketCap": 1714869711000,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 2.5028,
+        "score": 2.5003,
         "mentions": 3,
         "convictionHits": 0,
         "lastMentioned": "2026-07-03T10:09:14Z"
@@ -1300,7 +1300,7 @@ window.AIE_DATA = {
       "marketCap": 478789035360,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 3.2028,
+        "score": 3.1997,
         "mentions": 4,
         "convictionHits": 0,
         "lastMentioned": "2026-07-02T08:34:50Z"
@@ -1320,7 +1320,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
       "priority": {
-        "score": 0.7514,
+        "score": 0.7507,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-27T15:42:39Z"
@@ -1344,7 +1344,7 @@ window.AIE_DATA = {
       "marketCap": 4532958682280,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 1.6089,
+        "score": 1.6073,
         "mentions": 2,
         "convictionHits": 0,
         "lastMentioned": "2026-06-30T07:39:56Z"
@@ -1368,7 +1368,7 @@ window.AIE_DATA = {
       "marketCap": 681927759836,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 1.666,
+        "score": 1.6644,
         "mentions": 2,
         "convictionHits": 0,
         "lastMentioned": "2026-07-01T14:55:33Z"
@@ -1392,7 +1392,7 @@ window.AIE_DATA = {
       "marketCap": 439462803700,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 0.7515,
+        "score": 0.7507,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-27T15:43:29Z"
@@ -1416,7 +1416,7 @@ window.AIE_DATA = {
       "marketCap": 1134799200,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 0.7515,
+        "score": 0.7507,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-27T15:43:29Z"
@@ -1440,7 +1440,7 @@ window.AIE_DATA = {
       "marketCap": 267113605,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 0.7515,
+        "score": 0.7507,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-27T15:44:22Z"
@@ -1464,7 +1464,7 @@ window.AIE_DATA = {
       "marketCap": 28684928,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 0.7515,
+        "score": 0.7507,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-27T15:44:22Z"
@@ -1484,7 +1484,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
       "priority": {
-        "score": 0.7515,
+        "score": 0.7507,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-27T15:44:22Z"
@@ -1508,7 +1508,7 @@ window.AIE_DATA = {
       "marketCap": 3508815053,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 0.7515,
+        "score": 0.7508,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-27T15:44:33Z"
@@ -1532,7 +1532,7 @@ window.AIE_DATA = {
       "marketCap": 2293360000,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 1.7514,
+        "score": 1.7497,
         "mentions": 2,
         "convictionHits": 0,
         "lastMentioned": "2026-07-03T10:11:43Z"
@@ -1556,7 +1556,7 @@ window.AIE_DATA = {
       "marketCap": 335457920000,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 1.1273,
+        "score": 1.1262,
         "mentions": 1,
         "convictionHits": 1,
         "lastMentioned": "2026-06-27T15:45:34Z"
@@ -1580,7 +1580,7 @@ window.AIE_DATA = {
       "marketCap": 4353064767154,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 12.136,
+        "score": 12.1242,
         "mentions": 7,
         "convictionHits": 2,
         "lastMentioned": "2026-07-01T14:59:53Z"
@@ -1617,7 +1617,7 @@ window.AIE_DATA = {
       "marketCap": 101513943079,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 1.1273,
+        "score": 1.1262,
         "mentions": 1,
         "convictionHits": 1,
         "lastMentioned": "2026-06-27T15:45:34Z"
@@ -1641,7 +1641,7 @@ window.AIE_DATA = {
       "marketCap": 12600558495,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 1.1273,
+        "score": 1.1262,
         "mentions": 1,
         "convictionHits": 1,
         "lastMentioned": "2026-06-27T15:45:34Z"
@@ -1665,7 +1665,7 @@ window.AIE_DATA = {
       "marketCap": 2118290201604,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 2.687,
+        "score": 2.6843,
         "mentions": 3,
         "convictionHits": 0,
         "lastMentioned": "2026-07-02T20:34:02Z"
@@ -1689,7 +1689,7 @@ window.AIE_DATA = {
       "marketCap": 1511718384,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 5.4027,
+        "score": 5.3974,
         "mentions": 4,
         "convictionHits": 1,
         "lastMentioned": "2026-07-02T20:30:53Z"
@@ -1713,7 +1713,7 @@ window.AIE_DATA = {
       "marketCap": 844357292000,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 10.577,
+        "score": 10.5667,
         "mentions": 12,
         "convictionHits": 0,
         "lastMentioned": "2026-07-02T20:35:34Z"
@@ -1737,7 +1737,7 @@ window.AIE_DATA = {
       "marketCap": 24587076129,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 0.8574,
+        "score": 0.8566,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-30T07:39:56Z"
@@ -1761,7 +1761,7 @@ window.AIE_DATA = {
       "marketCap": 258416613750,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 4.5172,
+        "score": 4.5128,
         "mentions": 5,
         "convictionHits": 0,
         "lastMentioned": "2026-07-02T20:35:34Z"
@@ -1785,7 +1785,7 @@ window.AIE_DATA = {
       "marketCap": 1167834150,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 0.8575,
+        "score": 0.8566,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-30T07:41:22Z"
@@ -1809,7 +1809,7 @@ window.AIE_DATA = {
       "marketCap": 45653165312,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 1.8297,
+        "score": 1.828,
         "mentions": 2,
         "convictionHits": 0,
         "lastMentioned": "2026-07-02T20:34:02Z"
@@ -1833,7 +1833,7 @@ window.AIE_DATA = {
       "marketCap": 0,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 2.6393,
+        "score": 2.6368,
         "mentions": 3,
         "convictionHits": 0,
         "lastMentioned": "2026-07-01T20:01:35Z"
@@ -1857,7 +1857,7 @@ window.AIE_DATA = {
       "marketCap": 2565394817,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 1.7151,
+        "score": 1.7135,
         "mentions": 2,
         "convictionHits": 0,
         "lastMentioned": "2026-06-30T07:45:27Z"
@@ -1881,7 +1881,7 @@ window.AIE_DATA = {
       "marketCap": 800290000,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 12.2293,
+        "score": 12.2173,
         "mentions": 13,
         "convictionHits": 0,
         "lastMentioned": "2026-07-03T10:08:32Z"
@@ -1919,7 +1919,7 @@ window.AIE_DATA = {
       "marketCap": 238199500,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 0.8576,
+        "score": 0.8567,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-30T07:44:51Z"
@@ -1943,7 +1943,7 @@ window.AIE_DATA = {
       "marketCap": 722368606,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 0.8576,
+        "score": 0.8567,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-30T07:45:27Z"
@@ -1967,7 +1967,7 @@ window.AIE_DATA = {
       "marketCap": 3813139699,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 0.8576,
+        "score": 0.8567,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-30T07:45:27Z"
@@ -1991,7 +1991,7 @@ window.AIE_DATA = {
       "marketCap": 2365185691,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 0.8576,
+        "score": 0.8567,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-30T07:45:27Z"
@@ -2015,7 +2015,7 @@ window.AIE_DATA = {
       "marketCap": 13853206364,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 1.8079,
+        "score": 1.8061,
         "mentions": 2,
         "convictionHits": 0,
         "lastMentioned": "2026-07-02T09:30:58Z"
@@ -2039,7 +2039,7 @@ window.AIE_DATA = {
       "marketCap": 497007514727,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 0.8576,
+        "score": 0.8568,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-30T07:46:57Z"
@@ -2063,7 +2063,7 @@ window.AIE_DATA = {
       "marketCap": 38321263872,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 12.8079,
+        "score": 12.7954,
         "mentions": 7,
         "convictionHits": 2,
         "lastMentioned": "2026-07-02T20:32:33Z"
@@ -2083,7 +2083,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-30",
       "priority": {
-        "score": 0.8576,
+        "score": 0.8568,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-30T07:47:41Z"
@@ -2107,7 +2107,7 @@ window.AIE_DATA = {
       "marketCap": 498112794,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 1.7154,
+        "score": 1.7137,
         "mentions": 2,
         "convictionHits": 0,
         "lastMentioned": "2026-06-30T07:52:04Z"
@@ -2131,7 +2131,7 @@ window.AIE_DATA = {
       "marketCap": 2253360574,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 0.8577,
+        "score": 0.8569,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-30T07:50:05Z"
@@ -2155,7 +2155,7 @@ window.AIE_DATA = {
       "marketCap": 230785890507,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 0.8577,
+        "score": 0.8569,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-30T07:50:19Z"
@@ -2179,7 +2179,7 @@ window.AIE_DATA = {
       "marketCap": 307694254000,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 0.8593,
+        "score": 0.8585,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-30T08:43:30Z"
@@ -2203,7 +2203,7 @@ window.AIE_DATA = {
       "marketCap": 91860456215,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 0.9146,
+        "score": 0.9137,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-07-01T14:57:24Z"
@@ -2227,7 +2227,7 @@ window.AIE_DATA = {
       "marketCap": 77052999403,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 1.8292,
+        "score": 1.8274,
         "mentions": 2,
         "convictionHits": 0,
         "lastMentioned": "2026-07-01T14:58:44Z"
@@ -2251,7 +2251,7 @@ window.AIE_DATA = {
       "marketCap": 1489208769,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 0.9146,
+        "score": 0.9137,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-07-01T14:58:44Z"
@@ -2275,7 +2275,7 @@ window.AIE_DATA = {
       "marketCap": 3173462320,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 0.9146,
+        "score": 0.9137,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-07-01T14:58:44Z"
@@ -2299,7 +2299,7 @@ window.AIE_DATA = {
       "marketCap": 89397382852,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 0.9722,
+        "score": 0.9713,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-07-02T20:35:04Z"
@@ -2323,7 +2323,7 @@ window.AIE_DATA = {
       "marketCap": 169283191410,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 0.9723,
+        "score": 0.9713,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-07-02T20:35:34Z"
@@ -2347,7 +2347,7 @@ window.AIE_DATA = {
       "marketCap": 57778146573,
       "asOf": "2026-07-02T21:02:04Z",
       "priority": {
-        "score": 0.9723,
+        "score": 0.9713,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-07-02T20:35:34Z"
@@ -2367,7 +2367,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-07-03",
       "priority": {
-        "score": 0.9998,
+        "score": 0.9989,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-07-03T10:09:14Z"
@@ -2387,7 +2387,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-07-03",
       "priority": {
-        "score": 1.0,
+        "score": 0.999,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-07-03T10:12:58Z"
@@ -3895,588 +3895,588 @@ window.AIE_DATA = {
   "priorities": [
     {
       "ticker": "SIVE",
-      "score": 47.7207,
+      "score": 47.674,
       "mentions": 27,
       "convictionHits": 2,
       "lastMentioned": "2026-07-03T10:11:43Z"
     },
     {
       "ticker": "AAOI",
-      "score": 23.3767,
+      "score": 23.3538,
       "mentions": 18,
       "convictionHits": 1,
       "lastMentioned": "2026-07-03T10:08:17Z"
     },
     {
       "ticker": "POET",
-      "score": 22.4177,
+      "score": 22.3957,
       "mentions": 13,
       "convictionHits": 2,
       "lastMentioned": "2026-07-02T20:32:33Z"
     },
     {
       "ticker": "JBL",
-      "score": 20.1242,
+      "score": 20.1045,
       "mentions": 12,
       "convictionHits": 2,
       "lastMentioned": "2026-07-02T20:32:33Z"
     },
     {
       "ticker": "LITE",
-      "score": 19.2706,
+      "score": 19.2517,
       "mentions": 15,
       "convictionHits": 1,
       "lastMentioned": "2026-07-03T10:11:43Z"
     },
     {
       "ticker": "MRVL",
-      "score": 17.4946,
+      "score": 17.4775,
       "mentions": 10,
       "convictionHits": 2,
       "lastMentioned": "2026-07-03T10:09:14Z"
     },
     {
       "ticker": "NBIS",
-      "score": 17.1012,
+      "score": 17.0844,
       "mentions": 13,
       "convictionHits": 1,
       "lastMentioned": "2026-07-03T10:09:14Z"
     },
     {
       "ticker": "META",
-      "score": 16.1532,
+      "score": 16.1373,
       "mentions": 12,
       "convictionHits": 1,
       "lastMentioned": "2026-07-03T10:08:17Z"
     },
     {
       "ticker": "NVDA",
-      "score": 14.8004,
+      "score": 14.7859,
       "mentions": 17,
       "convictionHits": 0,
       "lastMentioned": "2026-07-03T10:11:43Z"
     },
     {
       "ticker": "AXTI",
-      "score": 13.6909,
+      "score": 13.6775,
       "mentions": 11,
       "convictionHits": 1,
       "lastMentioned": "2026-07-03T10:07:17Z"
     },
     {
       "ticker": "GFS",
-      "score": 12.8079,
+      "score": 12.7954,
       "mentions": 7,
       "convictionHits": 2,
       "lastMentioned": "2026-07-02T20:32:33Z"
     },
     {
       "ticker": "CCXI",
-      "score": 12.2293,
+      "score": 12.2173,
       "mentions": 13,
       "convictionHits": 0,
       "lastMentioned": "2026-07-03T10:08:32Z"
     },
     {
       "ticker": "GOOGL",
-      "score": 12.136,
+      "score": 12.1242,
       "mentions": 7,
       "convictionHits": 2,
       "lastMentioned": "2026-07-01T14:59:53Z"
     },
     {
       "ticker": "TSLA",
-      "score": 11.7886,
+      "score": 11.777,
       "mentions": 9,
       "convictionHits": 1,
       "lastMentioned": "2026-07-02T20:35:04Z"
     },
     {
       "ticker": "AMD",
-      "score": 10.577,
+      "score": 10.5667,
       "mentions": 12,
       "convictionHits": 0,
       "lastMentioned": "2026-07-02T20:35:34Z"
     },
     {
       "ticker": "AMZN",
-      "score": 10.3305,
+      "score": 10.3203,
       "mentions": 8,
       "convictionHits": 1,
       "lastMentioned": "2026-07-02T20:35:04Z"
     },
     {
       "ticker": "INTC",
-      "score": 9.3126,
+      "score": 9.3035,
       "mentions": 8,
       "convictionHits": 1,
       "lastMentioned": "2026-07-02T08:33:21Z"
     },
     {
       "ticker": "COHR",
-      "score": 7.5183,
+      "score": 7.511,
       "mentions": 9,
       "convictionHits": 0,
       "lastMentioned": "2026-07-03T10:07:17Z"
     },
     {
       "ticker": "TSM",
-      "score": 6.0839,
+      "score": 6.078,
       "mentions": 8,
       "convictionHits": 0,
       "lastMentioned": "2026-06-30T07:49:19Z"
     },
     {
       "ticker": "TSEM",
-      "score": 5.4727,
+      "score": 5.4674,
       "mentions": 7,
       "convictionHits": 0,
       "lastMentioned": "2026-06-30T07:52:04Z"
     },
     {
       "ticker": "AEVA",
-      "score": 5.4027,
+      "score": 5.3974,
       "mentions": 4,
       "convictionHits": 1,
       "lastMentioned": "2026-07-02T20:30:53Z"
     },
     {
       "ticker": "RKLB",
-      "score": 4.9807,
+      "score": 4.9758,
       "mentions": 4,
       "convictionHits": 1,
       "lastMentioned": "2026-07-02T14:29:58Z"
     },
     {
       "ticker": "AEHR",
-      "score": 4.8398,
+      "score": 4.8351,
       "mentions": 4,
       "convictionHits": 1,
       "lastMentioned": "2026-07-02T20:35:34Z"
     },
     {
       "ticker": "EWY",
-      "score": 4.8272,
+      "score": 4.8224,
       "mentions": 4,
       "convictionHits": 1,
       "lastMentioned": "2026-06-30T07:47:41Z"
     },
     {
       "ticker": "LPK.DE",
-      "score": 4.6174,
+      "score": 4.6129,
       "mentions": 4,
       "convictionHits": 1,
       "lastMentioned": "2026-06-30T07:49:19Z"
     },
     {
       "ticker": "SNDK",
-      "score": 4.5172,
+      "score": 4.5128,
       "mentions": 5,
       "convictionHits": 0,
       "lastMentioned": "2026-07-02T20:35:34Z"
     },
     {
       "ticker": "MU",
-      "score": 4.1483,
+      "score": 4.1442,
       "mentions": 5,
       "convictionHits": 0,
       "lastMentioned": "2026-06-30T07:50:05Z"
     },
     {
       "ticker": "AMAT",
-      "score": 3.2028,
+      "score": 3.1997,
       "mentions": 4,
       "convictionHits": 0,
       "lastMentioned": "2026-07-02T08:34:50Z"
     },
     {
       "ticker": "SPCX",
-      "score": 2.687,
+      "score": 2.6843,
       "mentions": 3,
       "convictionHits": 0,
       "lastMentioned": "2026-07-02T20:34:02Z"
     },
     {
       "ticker": "AGLT",
-      "score": 2.6393,
+      "score": 2.6368,
       "mentions": 3,
       "convictionHits": 0,
       "lastMentioned": "2026-07-01T20:01:35Z"
     },
     {
       "ticker": "AVGO",
-      "score": 2.5028,
+      "score": 2.5003,
       "mentions": 3,
       "convictionHits": 0,
       "lastMentioned": "2026-07-03T10:09:14Z"
     },
     {
       "ticker": "CRCL",
-      "score": 2.2543,
+      "score": 2.2521,
       "mentions": 2,
       "convictionHits": 1,
       "lastMentioned": "2026-06-27T15:45:34Z"
     },
     {
       "ticker": "MSFT",
-      "score": 2.2543,
+      "score": 2.2521,
       "mentions": 2,
       "convictionHits": 1,
       "lastMentioned": "2026-06-27T15:45:34Z"
     },
     {
       "ticker": "RDDT",
-      "score": 2.2543,
+      "score": 2.2521,
       "mentions": 2,
       "convictionHits": 1,
       "lastMentioned": "2026-06-27T15:45:34Z"
     },
     {
       "ticker": "VPG",
-      "score": 2.2541,
+      "score": 2.2519,
       "mentions": 2,
       "convictionHits": 1,
       "lastMentioned": "2026-06-27T15:41:34Z"
     },
     {
       "ticker": "CBRS",
-      "score": 1.8297,
+      "score": 1.828,
       "mentions": 2,
       "convictionHits": 0,
       "lastMentioned": "2026-07-02T20:34:02Z"
     },
     {
       "ticker": "BE",
-      "score": 1.8292,
+      "score": 1.8274,
       "mentions": 2,
       "convictionHits": 0,
       "lastMentioned": "2026-07-01T14:58:44Z"
     },
     {
       "ticker": "IREN",
-      "score": 1.8079,
+      "score": 1.8061,
       "mentions": 2,
       "convictionHits": 0,
       "lastMentioned": "2026-07-02T09:30:58Z"
     },
     {
       "ticker": "HIMX",
-      "score": 1.7514,
+      "score": 1.7497,
       "mentions": 2,
       "convictionHits": 0,
       "lastMentioned": "2026-07-03T10:11:43Z"
     },
     {
       "ticker": "SOI",
-      "score": 1.7154,
+      "score": 1.7137,
       "mentions": 2,
       "convictionHits": 0,
       "lastMentioned": "2026-06-30T07:52:04Z"
     },
     {
       "ticker": "BRUN",
-      "score": 1.7151,
+      "score": 1.7135,
       "mentions": 2,
       "convictionHits": 0,
       "lastMentioned": "2026-06-30T07:45:27Z"
     },
     {
       "ticker": "ASML",
-      "score": 1.666,
+      "score": 1.6644,
       "mentions": 2,
       "convictionHits": 0,
       "lastMentioned": "2026-07-01T14:55:33Z"
     },
     {
       "ticker": "AAPL",
-      "score": 1.6089,
+      "score": 1.6073,
       "mentions": 2,
       "convictionHits": 0,
       "lastMentioned": "2026-06-30T07:39:56Z"
     },
     {
       "ticker": "ASTS",
-      "score": 1.6086,
+      "score": 1.6071,
       "mentions": 2,
       "convictionHits": 0,
       "lastMentioned": "2026-06-30T07:36:16Z"
     },
     {
       "ticker": "ARM",
-      "score": 1.1273,
+      "score": 1.1262,
       "mentions": 1,
       "convictionHits": 1,
       "lastMentioned": "2026-06-27T15:45:34Z"
     },
     {
       "ticker": "HOOD",
-      "score": 1.1273,
+      "score": 1.1262,
       "mentions": 1,
       "convictionHits": 1,
       "lastMentioned": "2026-06-27T15:45:34Z"
     },
     {
       "ticker": "SMTC",
-      "score": 1.1273,
+      "score": 1.1262,
       "mentions": 1,
       "convictionHits": 1,
       "lastMentioned": "2026-06-27T15:45:34Z"
     },
     {
       "ticker": "NVTS",
-      "score": 1.1271,
+      "score": 1.126,
       "mentions": 1,
       "convictionHits": 1,
       "lastMentioned": "2026-06-27T15:41:34Z"
     },
     {
       "ticker": "LPK",
-      "score": 1.0,
+      "score": 0.999,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-07-03T10:12:58Z"
     },
     {
       "ticker": "QCOM",
-      "score": 0.9998,
+      "score": 0.9989,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-07-03T10:09:14Z"
     },
     {
+      "ticker": "MELI",
+      "score": 0.9713,
+      "mentions": 1,
+      "convictionHits": 0,
+      "lastMentioned": "2026-07-02T20:35:04Z"
+    },
+    {
       "ticker": "GLW",
-      "score": 0.9723,
+      "score": 0.9713,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-07-02T20:35:34Z"
     },
     {
       "ticker": "TER",
-      "score": 0.9723,
+      "score": 0.9713,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-07-02T20:35:34Z"
     },
     {
-      "ticker": "MELI",
-      "score": 0.9722,
-      "mentions": 1,
-      "convictionHits": 0,
-      "lastMentioned": "2026-07-02T20:35:04Z"
-    },
-    {
       "ticker": "CRWV",
-      "score": 0.9147,
+      "score": 0.9138,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-07-01T14:59:53Z"
     },
     {
       "ticker": "ASX",
-      "score": 0.9146,
+      "score": 0.9137,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-07-01T14:57:24Z"
     },
     {
       "ticker": "FCEL",
-      "score": 0.9146,
+      "score": 0.9137,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-07-01T14:58:44Z"
     },
     {
       "ticker": "OUST",
-      "score": 0.9146,
+      "score": 0.9137,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-07-01T14:58:44Z"
     },
     {
       "ticker": "KLAC",
-      "score": 0.8593,
+      "score": 0.8585,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-06-30T08:43:30Z"
     },
     {
       "ticker": "DRAM",
-      "score": 0.8577,
+      "score": 0.8569,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-06-30T07:50:05Z"
     },
     {
       "ticker": "BABA",
-      "score": 0.8577,
+      "score": 0.8569,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-06-30T07:50:19Z"
     },
     {
-      "ticker": "WLAC",
-      "score": 0.8576,
-      "mentions": 1,
-      "convictionHits": 0,
-      "lastMentioned": "2026-06-30T07:44:51Z"
-    },
-    {
-      "ticker": "BOT",
-      "score": 0.8576,
-      "mentions": 1,
-      "convictionHits": 0,
-      "lastMentioned": "2026-06-30T07:45:27Z"
-    },
-    {
-      "ticker": "BULL",
-      "score": 0.8576,
-      "mentions": 1,
-      "convictionHits": 0,
-      "lastMentioned": "2026-06-30T07:45:27Z"
-    },
-    {
-      "ticker": "DJT",
-      "score": 0.8576,
-      "mentions": 1,
-      "convictionHits": 0,
-      "lastMentioned": "2026-06-30T07:45:27Z"
-    },
-    {
       "ticker": "QQQ",
-      "score": 0.8576,
+      "score": 0.8568,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-06-30T07:46:57Z"
     },
     {
       "ticker": "IQE",
-      "score": 0.8576,
+      "score": 0.8568,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-06-30T07:47:41Z"
     },
     {
-      "ticker": "EOS",
-      "score": 0.8575,
+      "ticker": "WLAC",
+      "score": 0.8567,
       "mentions": 1,
       "convictionHits": 0,
-      "lastMentioned": "2026-06-30T07:41:22Z"
+      "lastMentioned": "2026-06-30T07:44:51Z"
+    },
+    {
+      "ticker": "BOT",
+      "score": 0.8567,
+      "mentions": 1,
+      "convictionHits": 0,
+      "lastMentioned": "2026-06-30T07:45:27Z"
+    },
+    {
+      "ticker": "BULL",
+      "score": 0.8567,
+      "mentions": 1,
+      "convictionHits": 0,
+      "lastMentioned": "2026-06-30T07:45:27Z"
+    },
+    {
+      "ticker": "DJT",
+      "score": 0.8567,
+      "mentions": 1,
+      "convictionHits": 0,
+      "lastMentioned": "2026-06-30T07:45:27Z"
     },
     {
       "ticker": "MTSI",
-      "score": 0.8574,
+      "score": 0.8566,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-06-30T07:39:56Z"
     },
     {
-      "ticker": "LRCX",
-      "score": 0.7515,
+      "ticker": "EOS",
+      "score": 0.8566,
       "mentions": 1,
       "convictionHits": 0,
-      "lastMentioned": "2026-06-27T15:43:29Z"
-    },
-    {
-      "ticker": "LWLG",
-      "score": 0.7515,
-      "mentions": 1,
-      "convictionHits": 0,
-      "lastMentioned": "2026-06-27T15:43:29Z"
-    },
-    {
-      "ticker": "ALMU",
-      "score": 0.7515,
-      "mentions": 1,
-      "convictionHits": 0,
-      "lastMentioned": "2026-06-27T15:44:22Z"
-    },
-    {
-      "ticker": "SMHD",
-      "score": 0.7515,
-      "mentions": 1,
-      "convictionHits": 0,
-      "lastMentioned": "2026-06-27T15:44:22Z"
-    },
-    {
-      "ticker": "SMHMD",
-      "score": 0.7515,
-      "mentions": 1,
-      "convictionHits": 0,
-      "lastMentioned": "2026-06-27T15:44:22Z"
+      "lastMentioned": "2026-06-30T07:41:22Z"
     },
     {
       "ticker": "VECO",
-      "score": 0.7515,
+      "score": 0.7508,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-06-27T15:44:33Z"
     },
     {
       "ticker": "XFAB",
-      "score": 0.7514,
+      "score": 0.7507,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-06-27T15:40:47Z"
     },
     {
       "ticker": "IBM",
-      "score": 0.7514,
+      "score": 0.7507,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-06-27T15:41:13Z"
     },
     {
       "ticker": "IONQ",
-      "score": 0.7514,
+      "score": 0.7507,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-06-27T15:41:13Z"
     },
     {
       "ticker": "QBTS",
-      "score": 0.7514,
+      "score": 0.7507,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-06-27T15:41:13Z"
     },
     {
       "ticker": "RGTI",
-      "score": 0.7514,
+      "score": 0.7507,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-06-27T15:41:13Z"
     },
     {
       "ticker": "KLA",
-      "score": 0.7514,
+      "score": 0.7507,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-06-27T15:42:39Z"
     },
     {
+      "ticker": "LRCX",
+      "score": 0.7507,
+      "mentions": 1,
+      "convictionHits": 0,
+      "lastMentioned": "2026-06-27T15:43:29Z"
+    },
+    {
+      "ticker": "LWLG",
+      "score": 0.7507,
+      "mentions": 1,
+      "convictionHits": 0,
+      "lastMentioned": "2026-06-27T15:43:29Z"
+    },
+    {
+      "ticker": "ALMU",
+      "score": 0.7507,
+      "mentions": 1,
+      "convictionHits": 0,
+      "lastMentioned": "2026-06-27T15:44:22Z"
+    },
+    {
+      "ticker": "SMHD",
+      "score": 0.7507,
+      "mentions": 1,
+      "convictionHits": 0,
+      "lastMentioned": "2026-06-27T15:44:22Z"
+    },
+    {
+      "ticker": "SMHMD",
+      "score": 0.7507,
+      "mentions": 1,
+      "convictionHits": 0,
+      "lastMentioned": "2026-06-27T15:44:22Z"
+    },
+    {
       "ticker": "ETHA",
-      "score": 0.7513,
+      "score": 0.7506,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-06-27T15:38:26Z"
     },
     {
       "ticker": "IBIT",
-      "score": 0.7513,
+      "score": 0.7506,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-06-27T15:38:26Z"
     },
     {
       "ticker": "NFLX",
-      "score": 0.7513,
+      "score": 0.7506,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-06-27T15:38:26Z"
     },
     {
       "ticker": "UPWK",
-      "score": 0.7513,
+      "score": 0.7506,
       "mentions": 1,
       "convictionHits": 0,
       "lastMentioned": "2026-06-27T15:38:26Z"
@@ -4484,39 +4484,52 @@ window.AIE_DATA = {
   ],
   "brain": {
     "meta": {
-      "generatedAt": "2026-07-01T20:19:00Z",
-      "model": "claude-opus-4-8",
-      "thesesConsidered": 67,
-      "categoriesSynthesized": 7,
+      "generatedAt": "2026-07-03T10:42:33Z",
+      "model": "claude-sonnet-5 (manual, no API key \u2014 see CLAUDE.md v4 workaround)",
+      "thesesConsidered": 89,
+      "categoriesSynthesized": 9,
       "schemaVersion": 1
     },
     "digests": [
       {
         "category": "photonics",
-        "narrative": "Photonics is his highest-conviction, highest-concentration theme. Core thesis: NVIDIA's move to 1.6T optics and co-packaged optics (CPO) is forcing an architectural shift from EML to continuous-wave (CW) lasers, creating a severe laser chokepoint. He believes Sivers ($SIVEF) is the under-recognized CW/DFB laser bottleneck feeding the whole hyperscaler CPO ecosystem \u2014 Ayar in NVDA's NVLink scale-up, POET for scale-out, Jabil for 1.6T pluggables, O-Net for ELS \u2014 at ~60% gross margins with large TAM optionality, and he holds a million-plus share position.\n\nAround it he tracks AAOI (CW-laser LTAs with AMD/CSPs, cites ~800%+ Y/Y potential), LITE and COHR (top-three laser suppliers 'completely sold out' into 2028-2029), JBL (1.6T LRO built around Sivers lasers) and POET (CPO scale-out, top-3 hyperscaler customer via Lumilens). His timing map: 1.6T pluggables now-\u003eH1 2027, CPO scale-out late 2026, CPO scale-up H2 2027 \u2014 Taiwan CPO names are early (and he's down on them) but he treats the recent selloff as noise vs. a ~$154B optical / ~$91B CPO TAM by 2028.",
+        "narrative": "His highest-conviction, highest-concentration theme. Core thesis: NVIDIA's move to 1.6T optics and co-packaged optics (CPO) is forcing an architectural shift from EML to continuous-wave (CW) lasers, creating a severe laser chokepoint. He believes Sivers ($SIVE) is the under-recognized CW/DFB laser bottleneck feeding the whole hyperscaler CPO ecosystem \u2014 Ayar in NVDA's NVLink scale-up, POET for scale-out, Jabil for 1.6T pluggables, O-Net for ELS \u2014 at ~60% gross margins with large TAM optionality. He holds a million-plus share position.\n\nAround it he tracks AAOI (CW-laser LTAs with AMD/CSPs, citing ~800%+ Y/Y potential), LITE and COHR (top-three laser suppliers 'completely sold out' into 2028-2029), JBL (1.6T LRO built around Sivers lasers) and POET (CPO scale-out, top-3 hyperscaler customer via Lumilens). His timing map: 1.6T pluggables now-\u003eH1 2027, CPO scale-up late 2026, CPO scale-up H2 2027 \u2014 Taiwan CPO names are early (and he's down on them) but he treats the recent selloff as noise vs. a ~$154B optical / ~$91B CPO TAM by 2028.",
         "conviction": "high",
         "keyPoints": [
-          "CW laser chokepoint: NVDA's 1.6T/CPO shift forces EML-\u003eCW lasers; he sees Sivers ($SIVEF) as the hidden bottleneck feeding the whole hyperscaler ecosystem.",
-          "Sivers maps to Ayar (NVLink CPO scale-up), POET (scale-out), Jabil (1.6T pluggables) and O-Net (ELS) \u2014 ~60% gross margins, million-plus share personal position.",
-          "AAOI: CW-laser LTAs with AMD/CSPs; he cites ~800%+ Y/Y growth potential and rising ~$471M/month projections into 2028.",
-          "LITE/COHR: top-three laser suppliers 'completely sold out' into 2028-2029; Jabil's 1.6T LRO is built around Sivers lasers.",
-          "Timing map: 1.6T pluggables now-\u003eH1 2027, CPO scale-out late 2026, CPO scale-up H2 2027; Taiwan CPO names early (and down) but expected to recover.",
-          "Highest-concentration theme \u2014 treats the photonics selloff as short-term memory loss vs. a ~$154B optical / ~$91B CPO TAM by 2028."
+          "CW laser chokepoint: NVDA's 1.6T/CPO shift forces EML-\u003eCW lasers; he sees Sivers ($SIVE) as the hidden bottleneck feeding the whole hyperscaler ecosystem.",
+          "Sivers maps to Ayar (NVLink CPO scale-up), POET (scale-out), Jabil (1.6T pluggables) and O-Net (ELS) \u2014 ~60% gross margins with large TAM optionality personal million-plus share position.",
+          "AAOI: CW-laser LTAs with AMD/CSPs, cites ~800%+ Y/Y growth potential and rising $471M/month projections into 2028.",
+          "LITE/COHR: top-three laser suppliers 'completely sold out' into 2028-2029; Jabil's 1.6T LRO built around Sivers lasers.",
+          "Timing map: 1.6T pluggables now-\u003eH1 2027, CPO scale-out late H2 2026, NPO H2 2026/2027, CPO scale-up H2 2027; Taiwan CPO names are early (and down) but expected to recover.",
+          "Highest-concentration theme \u2014 treats the recent photonics selloff as short-term memory loss vs. a ~$154B optical / ~$91B CPO TAM by 2028."
         ],
         "tickers": [
-          "SIVEF",
           "AAOI",
-          "LITE",
           "COHR",
           "JBL",
-          "POET"
+          "LITE",
+          "POET",
+          "SIVE"
         ],
         "sourceThesisIds": [
+          "h_3dbecf550235afcf",
+          "h_faf7862f8409c216",
+          "h_9c524f6339fbbee1",
+          "h_15c7a1a2cc1c7180",
+          "h_dfc7e2d10819371c",
+          "h_ce3d6e124a66f939",
+          "h_a842f7dae9f29970",
+          "h_dd8a7c3f97835b36",
+          "h_0235e573a41f2c62",
           "h_6602d43dfb4b625c",
+          "h_05e793cf1fdb6f1c",
+          "h_73fc29ca0e9c215c",
+          "h_c2b2a64111bd30cc",
           "h_6f4609ddc5d7b259",
           "h_7797b5894b3bb34e",
           "h_7f5feac9a1b88083",
           "h_e318f2d2d543b92a",
+          "h_3ef24f9a260a3eb6",
           "h_9018322ed2470b53",
           "h_238f8fac06bf85b9",
           "h_6a7ca181b90245f8",
@@ -4529,16 +4542,19 @@ window.AIE_DATA = {
           "h_8660c845cb321357",
           "h_bebbef0482f407da",
           "h_d81fe21a14bdd892",
+          "h_be0e37ed73e67418",
           "h_7e5abea1e46217a6",
           "h_13af0765b648b270",
           "h_29e60f0da3d1925a",
           "h_076a7bf5684e1f29",
           "h_fbc83c0f2773fa23",
+          "h_f88451f6908b5d92",
+          "h_1ced9183836b57b7",
           "h_fa1af2184880e3d2",
           "h_3351e475854eb59d"
         ],
-        "thesesCount": 24,
-        "lastSynthesized": "2026-07-01T20:19:00Z",
+        "thesesCount": 40,
+        "lastSynthesized": "2026-07-03T10:42:33Z",
         "dailyMentions": {
           "days": [
             "2026-06-26",
@@ -4546,35 +4562,37 @@ window.AIE_DATA = {
             "2026-06-29",
             "2026-06-30",
             "2026-07-01",
-            "2026-07-02"
+            "2026-07-02",
+            "2026-07-03"
           ],
           "counts": [
             1,
+            6,
+            1,
+            19,
             4,
-            1,
-            17,
-            1,
-            0
+            6,
+            3
           ]
         }
       },
       {
         "category": "memory",
-        "narrative": "He treats memory as a rotational bottleneck theme within AI hardware: HBM/DRAM demand is structural (every GPU needs it), and this month the market rotated from NAND (SNDK) into DRAM ($MU) while photonics corrected \u2014 he expects the bottleneck-to-bottleneck rotation to continue and eventually swing back to optics.\n\nHe plays broad memory via SK Hynix ($000660.KS) and Micron ($MU), and flags upstream supply risk: a WF6 (tungsten-hexafluoride) precursor-gas bottleneck where China tungsten export controls threaten Japan/Korea DRAM/NAND supply from ~July 2026. He also tracks the next-gen HBM4/HBM4e shift to hybrid copper bonding (Korean metrology suppliers like Auros) and watches AXTI as an adjacent substrate/materials bottleneck that could re-rate hard if it becomes single-source.",
+        "narrative": "Lighter conviction than photonics, more research-note in tone. AXTI signed a 3-year wafer supply deal with Coherent \u2014 a $22.29M prepayment for committed capacity \u2014 but its rapid re-rating ($13 -\u003e $140s) came with a float expansion and dilution he flags as a reason for some caution on retail-facing upside.\n\nHe sees this month's capital rotation moving from photonics into memory (MU, SNDK) as the market's main focus, expecting it to rotate back eventually since photonics remains his highest-conviction theme. A newer research thread traces a tungsten (WF6) export-control bottleneck out of China that could pressure Japan/Korea DRAM and NAND supply chains via suppliers like Kanto Denka and Peric Special Gases.",
         "conviction": "medium",
         "keyPoints": [
-          "HBM/DRAM is a structural AI bottleneck; the market rotated SNDK-\u003eMU this month while optics corrected, and he expects continued rotation.",
-          "Broad memory exposure via SK Hynix ($000660.KS) and Micron ($MU); the DRAM ETF captures Hynix/Samsung/MU/SNDK.",
-          "Upstream risk: a WF6 precursor-gas bottleneck (China tungsten export controls -\u003e Japan/Korea) could disrupt DRAM/NAND from ~July 2026.",
-          "Next-gen HBM4/HBM4e moves to hybrid copper bonding \u2014 he tracks metrology suppliers (e.g. Korea's Auros) as the volume-ramp play.",
-          "AXTI watched as an adjacent substrate/materials bottleneck that could re-rate sharply if it turns single-source."
+          "AXTI signed a 3-year wafer supply deal with Coherent \u2014 a $22.29M prepayment for committed capacity.",
+          "AXTI's rapid re-rating ($13 -\u003e $140s) came with float expansion and dilution, warranting some caution.",
+          "Capital rotated into memory (MU, SNDK) this month while photonics corrected \u2014 he expects rotation back into photonics eventually.",
+          "New bottleneck thread: Chinese tungsten (WF6) export controls could pressure Japan/Korea DRAM and NAND supply."
         ],
         "tickers": [
-          "MU",
-          "000660.KS",
-          "AXTI"
+          "AXTI",
+          "MU"
         ],
         "sourceThesisIds": [
+          "h_9c524f6339fbbee1",
+          "h_3b2f8931edf69462",
           "h_6f4609ddc5d7b259",
           "h_d2dbd17eb77d8d17",
           "h_238f8fac06bf85b9",
@@ -4587,8 +4605,8 @@ window.AIE_DATA = {
           "h_4516f39dac864d62",
           "h_3351e475854eb59d"
         ],
-        "thesesCount": 11,
-        "lastSynthesized": "2026-07-01T20:19:00Z",
+        "thesesCount": 13,
+        "lastSynthesized": "2026-07-03T10:42:33Z",
         "dailyMentions": {
           "days": [
             "2026-06-26",
@@ -4596,7 +4614,8 @@ window.AIE_DATA = {
             "2026-06-29",
             "2026-06-30",
             "2026-07-01",
-            "2026-07-02"
+            "2026-07-02",
+            "2026-07-03"
           ],
           "counts": [
             1,
@@ -4604,27 +4623,28 @@ window.AIE_DATA = {
             0,
             6,
             0,
-            0
+            1,
+            1
           ]
         }
       },
       {
         "category": "fabs",
-        "narrative": "He is structurally bullish on TSMC ($TSM) as it vertically integrates into silicon photonics \u2014 building a SiPho 'empire' via its COUPE/CoPoS platform and subsidiaries Xintec (testing) and VisEra (optical foundry), with CoPoS pilot lines now and volume implied around 2028. He reads TSM's commentary on autonomous robots/vehicles as a new growth vector that cross-links to his robotics theme.\n\nTower ($TSEM) is a held pure-play he keeps pyramiding on the 1.6T/CPO ramp rather than trimming. On Intel ($INTC) he tracks EMIB advanced-packaging supply chains (e.g. AP Memory qualification) and lists it among a few long-term holds \u2014 more a packaging/turnaround angle than core conviction. Overall he prefers pure-play foundry/CPO exposure and rotating into it as volume ramps in H2.",
+        "narrative": "TSM is read as aggressively building a silicon-photonics/CPO empire through its subsidiaries Xintec (testing) and VisEra (optical foundry), with the chairman confirming CoPoS pilot lines running now for volume in 2-3 years \u2014 a longer runway than the market's 'heavily delayed' narrative suggests. Reports also name TSM as a materials-analysis client for Intel, ASML, Applied Materials and others via a small supplier (MSSCORPS).\n\nSeparately, he flags that OpenAI's reported talks to give the US government a stake echo the Intel playbook \u2014 a potential soft government backstop for hyperscaler capex obligations. The recurring tungsten (WF6) export-control thread also touches fab-adjacent DRAM/NAND supply chains in Japan and Korea.",
         "conviction": "medium",
         "keyPoints": [
-          "TSM is building a silicon-photonics 'empire' (COUPE/CoPoS + Xintec/VisEra); pilot lines now, volume ~2028 \u2014 de-risking the CPO foundry layer.",
-          "TSM flags autonomous robots/vehicles as a growth vector \u2014 a cross-read into the robotics theme.",
-          "Tower ($TSEM) is a held pure-play on the 1.6T/CPO ramp that he keeps pyramiding rather than selling.",
-          "Intel ($INTC): tracks EMIB advanced-packaging supply chains (AP Memory qualification); names it a long-term hold.",
-          "Prefers pure-play foundry/CPO exposure and rotating in as volume ramps in H2."
+          "TSM is aggressively building a silicon-photonics/CPO empire via subsidiaries Xintec (testing) and VisEra (optical foundry); CoPoS pilot lines are running now for 2-3 year volume.",
+          "OpenAI's reported talks to give the US government a stake echo the Intel playbook \u2014 a potential soft government backstop for hyperscaler capex.",
+          "TSM named as a materials-analysis client for Intel, ASML, and Applied Materials via a small under-the-radar supplier.",
+          "The tungsten (WF6) export-control bottleneck out of China is a recurring watch item for Japan/Korea fab-adjacent supply chains."
         ],
         "tickers": [
-          "TSM",
+          "INTC",
           "TSEM",
-          "INTC"
+          "TSM"
         ],
         "sourceThesisIds": [
+          "h_98e389890a97f056",
           "h_e318f2d2d543b92a",
           "h_238f8fac06bf85b9",
           "h_a558ec6043c7fdd7",
@@ -4643,8 +4663,8 @@ window.AIE_DATA = {
           "h_fa1af2184880e3d2",
           "h_3351e475854eb59d"
         ],
-        "thesesCount": 17,
-        "lastSynthesized": "2026-07-01T20:19:00Z",
+        "thesesCount": 18,
+        "lastSynthesized": "2026-07-03T10:42:33Z",
         "dailyMentions": {
           "days": [
             "2026-06-26",
@@ -4652,7 +4672,8 @@ window.AIE_DATA = {
             "2026-06-29",
             "2026-06-30",
             "2026-07-01",
-            "2026-07-02"
+            "2026-07-02",
+            "2026-07-03"
           ],
           "counts": [
             1,
@@ -4660,26 +4681,30 @@ window.AIE_DATA = {
             0,
             3,
             0,
+            1,
             0
           ]
         }
       },
       {
         "category": "neoclouds",
-        "narrative": "He reads the neocloud names ($CRWV, $NBIS) as leveraged plays on hyperscaler compute scarcity rather than overcapacity. His key data point: Google reportedly cut Meta's capacity allocations in March 2026 because Google Cloud was itself compute-constrained (backlog nearly doubled), forcing Meta to sign $48B+ take-or-pay contracts with CoreWeave ($CRWV) and Nebius ($NBIS).\n\nHe rebuts the 'Meta overbuilt / cutting capex' narrative \u2014 arguing capacity sits far below demand, hyperscalers can't rely on one another, and expects guided capex to rise. Meta launching a cloud business to resell excess AI compute (likely powered by neoclouds like $NBIS) is, in his view, a further tailwind for the AI-datacenter buildout, with take-or-pay structures de-risking neocloud revenue.",
-        "conviction": "medium",
+        "narrative": "High conviction that the 'Meta is cutting capex' narrative is disinformation. His read: Google restricted Meta's internal compute allocation back in March because Meta's own usage was too high, forcing Meta to immediately sign $48B+ contracts with neoclouds like CoreWeave and Nebius \u2014 a demand-constraint story, not a demand-weakening one. Meta then announced plans to build its own compute-resale cloud business (stock up 6.65% premarket), which he reads as neoclouds like Nebius being the ones actually powering that offering.\n\nHe also treats a Bloomberg report that crashed semis 7-18% (UBS: 'this is not new news') as manufactured noise rather than a thesis break, and cites Wells Fargo's read that Meta's excess-compute plans validate rather than threaten the neocloud opportunity.",
+        "conviction": "high",
         "keyPoints": [
-          "Neoclouds ($CRWV, $NBIS) are leveraged plays on hyperscaler compute scarcity, not overcapacity.",
-          "Google reportedly restricted Meta's capacity in March 2026 (its own backlog ~doubled), forcing Meta into $48B+ take-or-pay neocloud contracts.",
-          "He rejects the 'Meta overbuilt / cutting capex' narrative \u2014 sees capacity far below demand and expects guided capex to rise.",
-          "Meta launching a cloud business to resell excess AI compute is likely powered by neoclouds like $NBIS \u2014 a demand tailwind.",
-          "Take-or-pay contract structure de-risks neocloud revenue."
+          "Google restricting Meta's internal compute allocation in March forced Meta's $48B+ neocloud contracts (CRWV, NBIS) \u2014 a demand-constraint story, not a 'cutting capex' story.",
+          "Meta's plan to resell excess compute (stock +6.65% premarket) is read as neoclouds like Nebius powering that offering.",
+          "Wells Fargo: Meta's excess-compute plans validate the AI-infra opportunity for neoclouds rather than threatening it.",
+          "A Bloomberg report crashed semis 7-18% on framing UBS called 'not new news' \u2014 treated as a buying window, not a thesis break."
         ],
         "tickers": [
           "CRWV",
           "NBIS"
         ],
         "sourceThesisIds": [
+          "h_65385721915ebae2",
+          "h_faf7862f8409c216",
+          "h_15c7a1a2cc1c7180",
+          "h_0235e573a41f2c62",
           "h_c1ee65a16b4a3233",
           "h_b0d92d200ffc6bd3",
           "h_238f8fac06bf85b9",
@@ -4690,8 +4715,8 @@ window.AIE_DATA = {
           "h_fa1af2184880e3d2",
           "h_3351e475854eb59d"
         ],
-        "thesesCount": 9,
-        "lastSynthesized": "2026-07-01T20:19:00Z",
+        "thesesCount": 13,
+        "lastSynthesized": "2026-07-03T10:42:33Z",
         "dailyMentions": {
           "days": [
             "2026-06-26",
@@ -4699,7 +4724,8 @@ window.AIE_DATA = {
             "2026-06-29",
             "2026-06-30",
             "2026-07-01",
-            "2026-07-02"
+            "2026-07-02",
+            "2026-07-03"
           ],
           "counts": [
             1,
@@ -4707,34 +4733,37 @@ window.AIE_DATA = {
             0,
             4,
             2,
-            0
+            2,
+            2
           ]
         }
       },
       {
         "category": "materials",
-        "narrative": "This is his 'picks-and-shovels' layer \u2014 test, burn-in, substrates and specialty materials that sell into the AI buildout regardless of which chip or optics vendor wins. AEHR is his main name (test/burn-in exposure to HBM and photonics volume); after a ~100% rally he views it as more priced-in and expects choppiness until volume orders hit, then another leg up.\n\nHe tracks European/specialty suppliers \u2014 Soitec ($SOI.PA) and Laser Photonics ($LPK.DE) \u2014 as adjacent materials/tool plays, and points to under-covered upstream bottlenecks: next-gen HBM hybrid-bonding metrology (e.g. Korea's Auros) and the MLCC stack (BaTiO3/Ni powders, rare-earth dopants). His preference is to wait for volume-order catalysts rather than chase post-rally names.",
+        "narrative": "Lighter-touch theme, mostly picks-and-shovels research rather than headline conviction. AEHR's ~100% rally is viewed as largely priced in, with limited near-term re-rating room absent a new catalyst. CPO remains flagged as his '#1 favorite theme' for H2 2026, with materials/substrate names positioned as classic picks-and-shovels exposure that sells into every chip regardless of who wins the CPO race.\n\nOngoing deep-dive research (trade-record digging into Starlink and other direct supplier chains) continues to surface obscure, under-the-radar materials names like LPK. The tungsten (WF6) export-control thread out of China is a recurring materials-bottleneck watch item feeding into DRAM/NAND supply chains.",
         "conviction": "medium",
         "keyPoints": [
-          "Picks-and-shovels thesis: test, burn-in, substrates and specialty materials sell into the AI buildout regardless of the winner.",
-          "AEHR is the core name (HBM/photonics test & burn-in); more priced-in after a ~100% rally \u2014 he expects chop, then upside on volume orders.",
-          "Tracks European/specialty suppliers Soitec ($SOI.PA) and Laser Photonics ($LPK.DE) as adjacent materials/tool plays.",
-          "Under-covered upstream bottlenecks: HBM4 hybrid-bonding metrology (e.g. Auros) and the MLCC stack (BaTiO3/Ni powders, rare-earth dopants).",
-          "Prefers waiting for volume-order catalysts over chasing names that already rallied."
+          "AEHR's ~100% rally is seen as mostly priced in \u2014 limited near-term re-rating room without a new catalyst.",
+          "CPO is flagged as his '#1 favorite theme' for H2 2026; materials/substrate names are classic picks-and-shovels exposure.",
+          "Ongoing trade-record research (e.g. Starlink supply chains) surfaces obscure materials names like LPK.",
+          "The China-\u003eJapan-\u003eKorea tungsten (WF6) export-control thread remains a recurring materials-bottleneck watch item."
         ],
         "tickers": [
           "AEHR",
-          "SOI.PA",
           "LPK.DE"
         ],
         "sourceThesisIds": [
+          "h_15c7a1a2cc1c7180",
+          "h_238f8fac06bf85b9",
           "h_29e60f0da3d1925a",
           "h_f88451f6908b5d92",
+          "h_12f8d9a81dd12747",
+          "h_1ced9183836b57b7",
           "h_fa1af2184880e3d2",
           "h_3351e475854eb59d"
         ],
-        "thesesCount": 4,
-        "lastSynthesized": "2026-07-01T20:19:00Z",
+        "thesesCount": 8,
+        "lastSynthesized": "2026-07-03T10:42:33Z",
         "dailyMentions": {
           "days": [
             "2026-06-26",
@@ -4742,27 +4771,46 @@ window.AIE_DATA = {
             "2026-06-29",
             "2026-06-30",
             "2026-07-01",
-            "2026-07-02"
+            "2026-07-02",
+            "2026-07-03"
           ],
           "counts": [
             1,
-            3,
+            5,
             0,
+            1,
             0,
-            0,
+            1,
             0
           ]
         }
       },
       {
         "category": "networking",
-        "narrative": "",
-        "conviction": "low",
-        "keyPoints": [],
-        "tickers": [],
-        "sourceThesisIds": [],
-        "thesesCount": 0,
-        "lastSynthesized": null,
+        "narrative": "Centers on a half-serious 'conspiracy theory' that Nvidia is discretely backing ASIC challengers \u2014 Marvell, MediaTek, AlChip, GUC (NVLink) \u2014 to chip away at Broadcom's custom-silicon share, the same way neocloud offerings created a moat against CSPs' custom ASICs last year. He notes the overall ASIC market grows regardless, but reads the challenger cohort as taking outsized share.\n\nJensen Huang's 'the next $1T company' comment continues to anchor sentiment through Marvell drawdowns. Marvell also sits inside the broader 1.6T/CPO supplier cluster (GFS, Jabil, Sivers) that underpins his core photonics thesis, and was part of the basket that sold off -11.2% on the recent Bloomberg-driven semis crash.",
+        "conviction": "medium",
+        "keyPoints": [
+          "Half-serious thesis: Nvidia is discretely backing ASIC challengers (Marvell, MediaTek, AlChip, GUC) to chip away at Broadcom's custom-silicon share.",
+          "Jensen Huang's 'the next $1T company' comment continues to anchor sentiment through MRVL drawdowns.",
+          "Marvell sits inside the same 1.6T/CPO supplier cluster (GFS, Jabil, Sivers) underpinning his core photonics thesis."
+        ],
+        "tickers": [
+          "MRVL"
+        ],
+        "sourceThesisIds": [
+          "h_65385721915ebae2",
+          "h_fd9505c4ad92bce4",
+          "h_15c7a1a2cc1c7180",
+          "h_0235e573a41f2c62",
+          "h_7797b5894b3bb34e",
+          "h_e4cc0612983c7052",
+          "h_bebbef0482f407da",
+          "h_29e60f0da3d1925a",
+          "h_076a7bf5684e1f29",
+          "h_fa1af2184880e3d2"
+        ],
+        "thesesCount": 10,
+        "lastSynthesized": "2026-07-03T10:42:33Z",
         "dailyMentions": {
           "days": [
             "2026-06-26",
@@ -4770,15 +4818,17 @@ window.AIE_DATA = {
             "2026-06-29",
             "2026-06-30",
             "2026-07-01",
-            "2026-07-02"
+            "2026-07-02",
+            "2026-07-03"
           ],
           "counts": [
             0,
+            3,
             0,
+            3,
             0,
-            0,
-            0,
-            0
+            2,
+            2
           ]
         }
       },
@@ -4798,9 +4848,11 @@ window.AIE_DATA = {
             "2026-06-29",
             "2026-06-30",
             "2026-07-01",
-            "2026-07-02"
+            "2026-07-02",
+            "2026-07-03"
           ],
           "counts": [
+            0,
             0,
             0,
             0,
@@ -4812,21 +4864,28 @@ window.AIE_DATA = {
       },
       {
         "category": "robotics",
-        "narrative": "Robotics is his hot new theme, driven by the first US pure-play humanoid coming public. He is a shareholder in Agility Robotics ($CCXI, changing to $AGLT on its ~September de-SPAC IPO) and frames it as application-specific (warehouse/delivery Digit) versus general-purpose Figure (~$39-49B), at a compelling ~$2.5-5.5B valuation, with $300M+ Digit v5 orders, a sub-$30K mass-production target, ~75% US-sourced parts, and NVDA/Amazon/SoftBank/Foxconn backing \u2014 he likens it to 'Anthropic for robotics' (Optimus as xAI, Figure as ChatGPT, Boston Dynamics as Gemini).\n\nHe sees humanoids as the next AI-compute demand vertical: Amazon automating its ~1.57M workforce is the clearest physical-AI path and TSLA Optimus the broad-use proxy. He still plays it largely through cross-exposure (memory for inference, DFB lasers for FMCW LiDAR) ahead of a global humanoid IPO wave H2 2026 into 2027, while flagging pre-IPO SPAC/de-SPAC timing and dilution risk.",
-        "conviction": "medium",
+        "narrative": "High conviction, and his largest position by his own account: Agility Robotics (ticker changing $CCXI -\u003e $AGLT on its ~September IPO) is 'literally the #1 humanoid player in the US in terms of commercialization today,' ranked ahead of Tesla Optimus and Figure ($39B last round). BlueCrest Capital / Michael Platt disclosed a 5.6% stake in CCXI \u2014 institutional validation he'd been expecting.\n\nHis bull case: ~75% US-sourced parts, a \u003c$30K bill-of-materials target (vs. a ~$145K sticker price people over-focus on), and 10,000-unit RoboFab capacity across Salem, Pittsburgh and Fremont, backed by Amazon, SoftBank, Foxconn and Nvidia. He frames the field via an LLM-era analogy \u2014 Agility is 'Anthropic for robotics,' Optimus is xAI, Figure is ChatGPT/Microsoft \u2014 and cites China's 54%+ share of global robotics deployments as the reason a 'national robotics strategy' narrative is building. He prefers CCXI's valuation discipline (~$4.9-5.5B) over richer peers like $BOT, which trades well above NAV.",
+        "conviction": "high",
         "keyPoints": [
-          "Agility Robotics ($CCXI -\u003e $AGLT, ~Sept de-SPAC) is his pure-play humanoid pick \u2014 the first US-listed pure humanoid, and he's a shareholder.",
-          "Bull case: application-specific (warehouse/delivery Digit) vs. general-purpose Figure; $300M+ Digit v5 orders, sub-$30K BOM target, ~75% US parts, NVDA/Amazon/SoftBank/Foxconn backing.",
-          "Frames Agility as 'Anthropic for robotics,' Optimus ($TSLA) as the broad-use proxy, Figure as 'ChatGPT,' Boston Dynamics as 'Gemini.'",
-          "Humanoids = next AI-compute demand vertical; Amazon automating its ~1.57M workforce is the clearest physical-AI path.",
-          "Plays it largely via cross-exposure (memory for inference, DFB lasers for FMCW LiDAR) ahead of a global humanoid IPO wave H2 2026-\u003e2027.",
-          "Flags risk: pre-IPO SPAC/de-SPAC timing, dilution, and early-stage valuations."
+          "Agility Robotics ($CCXI -\u003e $AGLT on IPO) is his largest position \u2014 'the #1 US humanoid player in commercialization today,' ranked ahead of Tesla Optimus and Figure.",
+          "BlueCrest Capital / Michael Platt disclosed a 5.6% stake in CCXI, an institutional validation signal.",
+          "Bull case: ~75% US-sourced parts, targeting a \u003c$30K BOM (vs. ~$145K sticker), and 10,000-unit RoboFab capacity across three US sites.",
+          "Frames the field via an LLM-era analogy: Agility is 'Anthropic for robotics,' Optimus is xAI, Figure is ChatGPT/Microsoft.",
+          "China's 54%+ share of global robotics deployments is driving a 'national robotics strategy' narrative in the US.",
+          "Prefers CCXI's valuation discipline (~$4.9-5.5B) over richer-valued peers like $BOT, which trades well above NAV."
         ],
         "tickers": [
           "CCXI",
           "TSLA"
         ],
         "sourceThesisIds": [
+          "h_559e35fdea272a74",
+          "h_faf7862f8409c216",
+          "h_775c672292594c21",
+          "h_295de8df7cc671d3",
+          "h_8c7a27c3b2798b21",
+          "h_e0ec385e3e7eb3ef",
+          "h_5f5562877c6dc64a",
           "h_fffac723ba054139",
           "h_13f14b8b84f90bda",
           "h_04b4ad3eeb7b2987",
@@ -4839,8 +4898,8 @@ window.AIE_DATA = {
           "h_1793f6bef2c43658",
           "h_3351e475854eb59d"
         ],
-        "thesesCount": 11,
-        "lastSynthesized": "2026-07-01T20:19:00Z",
+        "thesesCount": 18,
+        "lastSynthesized": "2026-07-03T10:42:33Z",
         "dailyMentions": {
           "days": [
             "2026-06-26",
@@ -4848,7 +4907,8 @@ window.AIE_DATA = {
             "2026-06-29",
             "2026-06-30",
             "2026-07-01",
-            "2026-07-02"
+            "2026-07-02",
+            "2026-07-03"
           ],
           "counts": [
             1,
@@ -4856,40 +4916,54 @@ window.AIE_DATA = {
             0,
             5,
             4,
-            0
+            5,
+            2
           ]
         }
       },
       {
         "category": "accelerators",
-        "narrative": "NVIDIA sits at the center of everything he tracks \u2014 the demand engine whose architectural decisions cascade down the supply chain. His recurring point: NVDA signing LTAs everywhere and driving the EML-\u003eCW-laser and 1.6T/CPO transitions is exactly what creates the downstream bottlenecks he invests in, so he treats NVDA as the ecosystem anchor more than a standalone trade.\n\nHe mines NVDA's CPO supplier web \u2014 Ayar in the NVLink ecosystem, connectors and cage-thermal (e.g. Nextronics), MSSCorps for inspection \u2014 and the broader NVDA+AVGO ecosystem, deliberately hunting the small 'hidden gems' that institutional reports (e.g. Goldman) leave out, since that's where he thinks the highest returns are. NVDA also anchors his robotics theme as an Agility backer.",
-        "conviction": "medium",
+        "narrative": "High conviction that the CW-laser chokepoint is an Nvidia-and-AMD-shared problem: both are hunting for long-term laser agreements as the top-three suppliers run sold out into 2028-2029. AAOI's 800%+ Y/Y growth case is explicitly tied to AMD's CW LTA activity and ~$471M/month demand scaling into 2028, with ASPs and margins expected to rise industry-wide as CSPs compete for remaining supply.\n\nHe treats a SemiAnalysis report framing CPO as delayed \u2014 paired with a rival optics ETF launch right after a 40-60% optical drawdown \u2014 as manufactured FUD that Nvidia and analyst desks refuted. He also reads Goldman's NVDA/AVGO ecosystem note as a map for finding 'hidden gem' small-cap suppliers (PCL, MSSCorp, Nextronics) institutions haven't priced in yet, and frames the broader AI compute race in explicitly geopolitical terms \u2014 a 'modern cold war' \u2014 as the reason a hyperscaler capex pullback is hard to imagine.",
+        "conviction": "high",
         "keyPoints": [
-          "NVDA is the demand anchor: its LTAs and 1.6T/CPO architectural shifts create the downstream laser/optics bottlenecks he invests in.",
-          "He mines NVDA's CPO supplier web (Ayar/NVLink, connectors & cage-thermal like Nextronics, MSSCorps inspection) for under-covered small caps.",
-          "Strategy: look for names NOT in institutional reports (Goldman's NVDA/AVGO ecosystem notes) \u2014 the 'hidden gems' where returns are highest.",
-          "NVDA also backs Agility Robotics, tying the accelerator anchor to the emerging physical-AI/humanoid theme.",
-          "Treats NVDA as the ecosystem center of gravity rather than a standalone position."
+          "AMD and Nvidia are both hunting for CW-laser long-term agreements as the top-three laser suppliers run sold out into 2028-2029.",
+          "AAOI's 800%+ Y/Y growth case is tied directly to AMD's CW LTA activity and ~$471M/month demand scaling into 2028.",
+          "A SemiAnalysis report framing CPO as delayed (paired with a rival ETF launch after a 40-60% optical drawdown) is read as manufactured FUD that Nvidia and analyst desks refuted.",
+          "Goldman's NVDA/AVGO ecosystem note is used as a map of 'hidden gem' small-cap suppliers institutions haven't priced in yet.",
+          "Frames the AI compute buildout as a 'modern cold war,' making a hyperscaler capex pullback hard to imagine."
         ],
         "tickers": [
+          "AMD",
           "NVDA"
         ],
         "sourceThesisIds": [
+          "h_3dbecf550235afcf",
+          "h_65385721915ebae2",
+          "h_15c7a1a2cc1c7180",
+          "h_295de8df7cc671d3",
+          "h_dfc7e2d10819371c",
+          "h_a842f7dae9f29970",
           "h_13f14b8b84f90bda",
           "h_04b4ad3eeb7b2987",
+          "h_635d80a7689d172f",
+          "h_7f5feac9a1b88083",
           "h_e318f2d2d543b92a",
           "h_6a7ca181b90245f8",
+          "h_2f93712c7f08d25e",
           "h_e4cc0612983c7052",
           "h_2e879b7947e4586e",
+          "h_bebbef0482f407da",
           "h_d81fe21a14bdd892",
+          "h_be0e37ed73e67418",
+          "h_7e5abea1e46217a6",
           "h_32a2c120602c0f6e",
           "h_4fad86fa05676490",
           "h_f153fe80a14e0404",
           "h_d2558834bea09c9f",
           "h_af8d7a1453dad76f"
         ],
-        "thesesCount": 12,
-        "lastSynthesized": "2026-07-01T20:19:00Z",
+        "thesesCount": 24,
+        "lastSynthesized": "2026-07-03T10:42:33Z",
         "dailyMentions": {
           "days": [
             "2026-06-26",
@@ -4897,15 +4971,76 @@ window.AIE_DATA = {
             "2026-06-29",
             "2026-06-30",
             "2026-07-01",
-            "2026-07-02"
+            "2026-07-02",
+            "2026-07-03"
           ],
           "counts": [
             0,
             5,
             0,
-            5,
-            2,
-            0
+            10,
+            3,
+            4,
+            2
+          ]
+        }
+      },
+      {
+        "category": "hyperscalers",
+        "narrative": "High conviction that hyperscaler capex holds, built on the same read as his neoclouds thesis: Google restricted Meta's internal compute allocation in March, forcing Meta's $48B+ neocloud contracts \u2014 a compute-constraint story, not a 'Meta cutting capex' story the market misread. Amazon is explicitly his favorite hyperscaler: ~1.57M headcount as an LLM-automation opportunity feeding into physical AI (self-driving delivery, warehouse robotics) on top of AWS's own Trainium compute buildout.\n\nHe also flags Meta's Vistara architecture (older DDR4 memory with CXL expansion) as active cost engineering under compute constraints, and leans on geopolitical framing \u2014 China's claimed 'AI cyber nuclear weapon' capability \u2014 to argue a broad hyperscaler capex pullback is very unlikely while the AI race is read as a modern cold war.",
+        "conviction": "high",
+        "keyPoints": [
+          "Google restricting Meta's internal compute allocation in March forced Meta's $48B+ neocloud contracts \u2014 a compute-constraint story, not a 'cutting capex' story.",
+          "Amazon is his favorite hyperscaler: ~1.57M headcount as an LLM-automation opportunity, feeding into physical AI (delivery, warehouse robotics) plus AWS Trainium buildout.",
+          "Meta's Vistara architecture (older DDR4 + CXL memory expansion) is read as active cost engineering under compute constraints.",
+          "Geopolitical AI-race framing (China's capability claims) is used to argue a hyperscaler capex pullback is unlikely."
+        ],
+        "tickers": [
+          "AMZN",
+          "GOOGL",
+          "META"
+        ],
+        "sourceThesisIds": [
+          "h_faf7862f8409c216",
+          "h_15c7a1a2cc1c7180",
+          "h_295de8df7cc671d3",
+          "h_a842f7dae9f29970",
+          "h_0235e573a41f2c62",
+          "h_13f14b8b84f90bda",
+          "h_c1ee65a16b4a3233",
+          "h_b0d92d200ffc6bd3",
+          "h_04b4ad3eeb7b2987",
+          "h_3fddbb3c1756349f",
+          "h_635d80a7689d172f",
+          "h_c3784b027db8669f",
+          "h_2e879b7947e4586e",
+          "h_06c1b1dfc8ba3b53",
+          "h_d81fe21a14bdd892",
+          "h_1793f6bef2c43658",
+          "h_29e60f0da3d1925a",
+          "h_af8d7a1453dad76f",
+          "h_fa1af2184880e3d2"
+        ],
+        "thesesCount": 19,
+        "lastSynthesized": "2026-07-03T10:42:33Z",
+        "dailyMentions": {
+          "days": [
+            "2026-06-26",
+            "2026-06-27",
+            "2026-06-29",
+            "2026-06-30",
+            "2026-07-01",
+            "2026-07-02",
+            "2026-07-03"
+          ],
+          "counts": [
+            0,
+            4,
+            0,
+            4,
+            6,
+            4,
+            1
           ]
         }
       }
