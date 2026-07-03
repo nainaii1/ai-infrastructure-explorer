@@ -1095,10 +1095,11 @@
       padding-top: 8px; padding-bottom: 8px;
     }
 
-    /* Capped height makes the sticky thead actually work inside the
-       long single page (audit fix: sticky was inert before). */
+    /* Natural page flow — no nested vertical scroll (the Watchlist opens
+       focused on Core, so the table is short by default; expanding to
+       Watch/Radar/All is a deliberate click and just lengthens the page). */
     .wl-table-wrap {
-      overflow: auto; max-height: 70vh;
+      overflow-x: auto;
       border: 1px solid var(--border);
       border-radius: var(--r-card); background: var(--card);
       box-shadow: var(--shadow-sm);
@@ -1106,7 +1107,7 @@
     .wl-table { width: 100%; border-collapse: collapse; font-size: 13px; }
     .wl-table th, .wl-table td { padding: 11px 14px; text-align: left; white-space: nowrap; }
     .wl-table thead th {
-      position: sticky; top: 0; background: var(--card);
+      background: var(--card);
       font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em;
       text-transform: uppercase; color: var(--muted); font-weight: 700;
       cursor: pointer; user-select: none; border-bottom: 1px solid var(--border);
@@ -2297,7 +2298,9 @@
         { id: "radar", label: "Radar" },
         { id: "all", label: "All" }
       ];
-      var wlState = { key: "category", dir: 1, view: "flat", categoryFilter: null, tierFilter: "signal" };
+      // Watchlist opens focused on Core (highest-conviction names) so the
+      // table is short by default; Signal/Watch/Radar/All are one chip away.
+      var wlState = { key: "category", dir: 1, view: "flat", categoryFilter: null, tierFilter: "core" };
 
       function wlTickers() { return (DATA && DATA.tickers) ? DATA.tickers.slice() : []; }
 

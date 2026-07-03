@@ -41,9 +41,14 @@ not throwaway config.
   (`sourceThesisIds`, `thesesCount`, ticker-universe filtering, `meta` are all
   stamped by the pipeline, not by hand).
 - **v5 — Conviction tiers + Desk verdicts** ✅ done (2026-07-03). Every ticker
-  gets a tier from `scorer.assign_tiers()` — `core` (repeat mentions or 2+
-  high-conviction hits) / `watch` / `radar` (one-off name-drops). The app
-  defaults to **Signal (Core+Watch)** everywhere; Radar hides behind a toggle.
+  gets a tier from `scorer.assign_tiers()` — `core` (repeat *focus-weighted*
+  mentions or 2+ high-conviction hits) / `watch` / `radar` (one-off
+  name-drops). Mentions are focus-weighted by `1/√(tickers-in-post)` so a name
+  buried in a 12-ticker digest dump can't inflate the tiers (ROADMAP issue #4,
+  fixed 2026-07-03). The **Map** defaults to **Signal (Core+Watch)**; the
+  **Watchlist** opens focused on **Core** only (it's the decision surface —
+  keeps the table short); Watch/Radar/All/Signal are one chip away everywhere,
+  Radar always hidden until asked for.
   On top sits the **Desk** layer: `ingest/store/verdicts.json` holds Claude's
   weekly second opinion per Core name (stance `act|accumulate|watch|pass`,
   view, execution suggestion, what-changes-my-mind, source thesis ids) —
@@ -63,11 +68,12 @@ not throwaway config.
   legend, caveats colophon. All old tab classes (`.tab-panel`, `.tab-btn`,
   `initTabs`) are gone — chapters render eagerly at boot.
 - **Live counts** (approximate, check `ingest/store/*.json` for current):
-  ~86 tickers tracked (22 core / 26 watch / 38 radar), 10 categorized layers
-  + an `unsorted` triage bucket (all Core names are classified; remaining
-  unsorted are Watch/Radar tier), ~89 ingested theses, 13 desk verdicts,
-  9 brain digests synthesized (one per category with theses; refreshed
-  2026-07-03 manually via Claude Code per the v4 workaround above).
+  ~93 tickers tracked (21 core / 23 watch / 49 radar after focus-weighting),
+  10 categorized layers + an `unsorted` triage bucket (all Core names are
+  classified; remaining unsorted are Watch/Radar tier), ~154 ingested theses
+  (after the June 2–Jul 3 Serenity-Monitor backfill + dedupe), 13 desk
+  verdicts, 10 brain digests synthesized (one per category with theses;
+  refreshed 2026-07-03 manually via Claude Code per the v4 workaround above).
 - **Signal Digest** 📋 designed, not built. A planned feature — periodic,
   Claude-authored per-ticker digests (AI Signal Watch style: short overview +
   one stance line per ticker) that will **replace** the raw thesis feed as

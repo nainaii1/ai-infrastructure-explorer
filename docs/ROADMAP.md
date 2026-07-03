@@ -73,18 +73,49 @@ TELEGRAM_BOT_TOKEN=...` in-session, or exclude the folder from sync.
 Swap the blanket `ssl._create_unverified_context` for the `_ssl_context()`
 pattern already in `fetch_prices.py`. Still open.
 
-**4. Mention-count inflation from list-posts**
-The scorer counts a ticker named in a 10-ticker list-post the same as a
-dedicated thesis (this is why MRVL/TSLA reached Core; the desk verdicts
-push back manually). Idea: weight mentions by 1/√(tickers in post) in
-`scorer.py`. Not built.
+**4. Mention-count inflation from list-posts** ✅ FIXED (2026-07-03)
+`scorer.py` now focus-weights each mention by `1/√(tickers-in-post)`, so a name
+in a 12-ticker digest dump counts ~0.29 vs. 1.0 for a dedicated post. Tiers are
+assigned on `weightedMentions`; raw `mentions` is kept for display. This
+dropped Core from an inflated 35 back to a meaningful 21 after the backfill.
+
+### NEW — biggest scroll problem (2026-07-03)
+
+**Evidence chapter (03) is ~90,000px tall.** After the June-July backfill the
+raw thesis feed is 154 full-text digest cards. This is the real "too long to
+scroll" surface (the Watchlist, chapter 02, is now a tidy ~1,500px). The proper
+fix is the **Signal Digest** feature (spec'd in
+`docs/superpowers/specs/2026-07-03-signal-digest-design.md`) — replace the raw
+feed with short per-ticker digests, raw posts behind a drill-down. Cheap
+interim option if Signal Digest isn't built soon: line-clamp each `.th-text` to
+~5 lines with a "show full" expander (reuses the grid drill-down).
 
 ### LOW — polish
 
-**5. Watchlist sticky header z-index** — rows can bleed through on scroll.
+**5. Watchlist sticky header z-index** ✅ RESOLVED (2026-07-03) — the Watchlist
+now opens on Core with natural page flow (no nested scroll / sticky header), so
+the bleed-through issue is gone.
 **6. "Note" conviction badge is ambiguous** — rename to "Normal" or drop.
 **7. Desk verdict on watchlist is tooltip-only** — consider an expandable
 row so verdicts are readable without hovering (mobile especially).
+
+### Decisions taken (2026-07-03) — deliberate non-actions
+
+**No "Power / 800V DC" category (yet).** Names like NVTS, BE, FCEL, EOS, VRT
+recur but mostly as *followers'* recommendations the analyst explicitly
+disclaims ("these are follower recommendations, not my own") — thin personal
+conviction. Adding an 11th map layer for a weak theme would dilute the map's
+honesty. Revisit if he posts dedicated 800V-DC conviction; the names stay
+radar/unsorted until then.
+
+**Foreign / numeric-symbol names are intentionally not tracked.** Recurring
+names like LeaderDrive (688017), Foosung (093370), Etron, Win Semi, Ayar,
+O-Net, Shunsin, VisEra live only in thesis prose. They're mostly
+untradeable-from-a-US-brokerage (Korea/Taiwan/China listings) or private
+companies — promoting them to tracked ticker cards would add noise to a
+US-retail Watchlist/Map without actionable value. The prose context is
+preserved in the theses; the `parser.py` cashtag regex stays letter-only by
+design.
 
 ---
 
