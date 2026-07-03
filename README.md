@@ -1,80 +1,85 @@
 # ⚡ AI Infrastructure Explorer
 
-An interactive, offline-first map of the **AI hardware supply chain** — how NVIDIA
-+ the hyperscalers connect to the layers beneath them (photonics, memory, fabs,
-neoclouds, materials, networking), with a sourced thesis feed and an AI-synthesized
-"brain" digest of an analyst's views.
+A personal research page that maps the **AI hardware supply chain** — who
+NVIDIA and the big tech companies actually depend on to build and run AI
+chips (laser makers, memory makers, chip factories, cloud providers, and so
+on). It also keeps a running, sourced log of one analyst's stock ideas, plus
+a weekly "second opinion" from Claude on the names that matter most.
 
-> Personal research tool. Single-user, local-first. Not investment advice.
+> Personal project, just for me. Not investment advice.
 
 ## 🚀 Quick start
-**Just open the app:** double-click **`index.html`**. Works fully offline over
-`file://` — no server, no build, no internet. All data lives in `data.js`.
+**Just open the app:** double-click **`index.html`**. It works completely
+offline — no internet, no server, nothing to install. Everything it shows
+lives in one file, `data.js`.
 
-**To update the data** (Telegram bot, prices, the Brain) → read
-**[docs/GUIDE.md](docs/GUIDE.md)**. It also answers the most common question:
-*"I messaged the bot and nothing replied."*
+**To add new ideas, refresh prices, or update the AI summaries** → read
+**[docs/GUIDE.md](docs/GUIDE.md)**. It also answers the #1 question people
+ask: *"I messaged the bot and nothing replied — why?"*
 
-## What it does (4 tabs)
-- **Supply Chain Map** — a vertical flow pipeline: **Supply** (materials, glass,
-  memory, photonics) → **Chip** (fabs, accelerators, networking) → **Demand**
-  (neoclouds, robotics) → NVIDIA + Hyperscalers hub. Click a layer to filter the
-  company cards and reveal a short "what to watch" investor note.
-- **Watchlist** — sortable table of every ticker: price, **7D / 1M %**, market cap,
-  your rating. Prices refresh weekly from Yahoo (one-click, via a local helper).
-- **Thesis** — the raw feed of ideas captured from **@aleabitoreddit**.
-- **Brain** — AI-synthesized digest, one per theme (narrative, conviction, key
-  tickers), with drill-down to the source theses.
+## What it does
+It's one long scrolling page, not a set of separate tabs. At the top: a
+quick summary (how many ideas captured, how many names tracked, the newest
+signal). Scroll down and you move through four chapters, followed
+everywhere by a floating pill-shaped nav bar so you can jump around:
+- **01 · The Map** — the supply chain laid out visually: who supplies →
+  what NVIDIA makes → who buys it. Click any piece to see what to watch and
+  which companies sit there.
+- **02 · The Watchlist** — a sortable table of every tracked stock: price,
+  how it moved this week/month, market cap, and your own rating. Opens
+  already narrowed to the highest-conviction names so it isn't overwhelming.
+- **03 · The Evidence** — the actual source posts, kept as receipts. Only
+  the 10 most recent show by default; older ones are one click away.
+- **04 · The Synthesis** — Claude reads all the evidence and writes one
+  short summary per theme: what the story is, how confident, which stocks
+  matter.
 
-## 🗺️ Project map
+## 🗺️ Where things live
 ```
 ai-supply-desk/
-├── index.html          THE APP — HTML + <style> + <script>, offline-first
-├── data.js             single data global (window.AIE_DATA) — GENERATED, don't hand-edit
-├── README.md           you are here (the map)
-├── CLAUDE.md           build spec / engineering rules
+├── index.html          THE APP — open this file to use it
+├── data.js             all the data the app shows — auto-generated, don't hand-edit
+├── README.md           you are here
+├── CLAUDE.md           technical build notes (for Claude Code — not needed for everyday use)
 ├── docs/
-│   ├── GUIDE.md        ⭐ how to run everything + FAQ / troubleshooting
-│   ├── PRD.md          product requirements
-│   ├── ROADMAP.md      what's built / what's next
-│   ├── DESIGN.md       current design system reference (for redesign work)
+│   ├── GUIDE.md         ⭐ how to run everything + troubleshooting
+│   ├── PRD.md           what this project is trying to do, and why
+│   ├── ROADMAP.md       what's done / what's next
+│   ├── DESIGN.md        the visual design reference
 │   ├── TELEGRAM_SETUP.md  → pointer into GUIDE.md
-│   └── images/         screenshots
-└── ingest/             THE BACKEND — local Python tooling that regenerates data.js
-    ├── bot.py          Telegram ingest (forward a post → thesis)
-    ├── synthesize.py   the "Brain" — Claude-synthesized theme digests
-    ├── fetch_prices.py / serve.py   weekly Yahoo prices + local server
+│   └── images/          screenshots
+└── ingest/              THE BACKEND — the tools that update data.js
+    ├── bot.py            the Telegram bot that captures new ideas
+    ├── synthesize.py     writes the "Synthesis" summaries
+    ├── fetch_prices.py / serve.py   weekly price updates + local server
     ├── parser.py  scorer.py  fetcher.py  review.py  generate_data_js.py
-    ├── store/*.json    source data (tickers, theses, brain, …) → data.js
-    ├── tests/          unit tests (python3 -m unittest discover -s ingest/tests)
-    ├── .env.example    copy to .env, add tokens/keys (gitignored)
+    ├── store/*.json      the actual saved data (tickers, ideas, summaries, …)
+    ├── tests/             automated checks (python3 -m unittest discover -s ingest/tests)
+    ├── .env.example       copy to .env, add your own keys (never shared/committed)
     └── requirements.txt
 ```
 
 ## How the two halves fit
-- **The app** (`index.html` + `data.js`) is what you look at — it runs in the
-  browser and is always available.
-- **The backend** (`ingest/*.py`) only runs **when you run it** in a terminal, and
-  its only job is to rewrite `data.js`. The Telegram bot is part of the backend —
-  it replies only while `python3 ingest/bot.py` is running. See
-  [docs/GUIDE.md](docs/GUIDE.md).
+- **The app** (`index.html` + `data.js`) is what you actually look at — it
+  opens in your browser and always works, just by opening the file.
+- **The backend** (everything in `ingest/`) is a set of small tools you run
+  yourself, only when you want to update something — capture a new idea,
+  refresh prices, or get a fresh AI summary. The Telegram bot only replies
+  while `python3 ingest/bot.py` is running in a terminal on your Mac. See
+  [docs/GUIDE.md](docs/GUIDE.md) for exactly how.
 
-## Tech & constraints
-- **Vanilla HTML / CSS / JS** — no frameworks, no CDN, no build step.
-- **Offline-first**: must work by double-clicking `index.html`; `data.js` loads via
-  `<script>` (no `fetch()` of local files). `index.html` + `data.js` stay at the root.
-- `data.js` is the **single source of truth**, regenerated by the Python tooling.
-- The core pipeline is **standard-library only**; only the Brain (`synthesize.py`)
-  needs `pip install -r ingest/requirements.txt` (`anthropic`).
-- Secrets live in a gitignored `ingest/.env` (never committed).
+## What it's built with
+- Plain HTML/CSS/JavaScript — no frameworks, no build tools, nothing to
+  install just to use it.
+- Works completely offline by double-clicking `index.html`.
+- Your keys/tokens live only in a private file (`ingest/.env`) that's never
+  shared or uploaded anywhere.
 
-## Roadmap
-- **v1 — Supply Chain Map** ✅ · **v2 — Watchlist + weekly Yahoo prices** ✅
-- **v3 — Telegram ingest → Thesis tab** ✅ · **v4 — Brain (AI theme digests)** ✅
-  (needs a paid `ANTHROPIC_API_KEY`, or refresh it manually — ask Claude Code)
-- Next: reduce the `unsorted` ticker backlog, `start_bot.sh` convenience
-  script, self-serve Brain backend without a paid key — see
-  [docs/ROADMAP.md](docs/ROADMAP.md) for the full list
+## Where things stand
+The map, watchlist, evidence feed, and AI synthesis are all built and
+working — redesigned as one continuous scrolling page. Currently tracking
+90+ companies and 150+ captured ideas. See [docs/ROADMAP.md](docs/ROADMAP.md)
+for the full history and what's next.
 
 ## License
 All rights reserved. No open-source license is granted at this time.

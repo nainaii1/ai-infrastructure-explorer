@@ -2570,5 +2570,19 @@
     ],
     "conviction": "normal",
     "tags": []
+  },
+  {
+    "id": "h_bbbe4405a26631b7",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-03T17:29:12Z",
+    "ingestedAt": "2026-07-03T17:29:12Z",
+    "text": "Just some public market read through from Chinese private VC markets:\n\nInstitutions are pouring funds into physical AI and world models. \n\n1. Large models / LLMs: ~$23.56B\n2. AI infrastructure + technical layer: ~$15.74B\n3. Embodied intelligence / physical AI: ~$13.36B\n4. AIGC applications: ~$8.79B\n5. Autonomous driving + other Top-20 cluster: ~$3.82B, but not apples-to-apples with the above.\n\nSome notes: \n- \"Early-stage pure foundation-model funding is basically closed\".  \nLooks like more funding is just being put into existing leaders and going into World Model companies. My guess is that we'll likely see the same in the US with Anthorpic/OpenAI consolidation. \n\n- \"World models have become the biggest consensus in early-stage investment.\"\n\nI said months ago 4D AI/World Models would be the most interesting moving forward, and called out \n$AEVA\n as potential exposure. But there's not exactly any pure play exposure.  But probably next we'll wait for the next IPOs here in this sector maybe H1 next year. \n\n- AIGC application sector is the most mature for AI technology commercialization\n\n\"Artificial Intelligence Generated Content commercialization is mature but no clear winner yet\". \n\nMakes sense. in the US there's stuff like Grok Imagine, Google Nano Banana, etc. no clear winner too. especially for video. \n\n_\n\nTLDR: Continued funding into AI infrastructure/semiconductor supply chains. Huge capital rotation influx into physical AI / embodied brain / humanoids + world models from capital inflow. \n\nConsolidation around leading frontier model companies. \n\nPersonally just validated what I've been focusing on with Agility Robotics and physical AI players (eg. leaderdrive, harmonic, etc) in public markets...\n\nAs new potential opportunities in terms of capital rotation. But sadly no world model pure play exposure yet.",
+    "tickers": [
+      "AEVA"
+    ],
+    "conviction": "normal",
+    "tags": []
   }
 ]

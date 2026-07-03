@@ -20,7 +20,9 @@ stays the two-file, offline, double-clickable `index.html` + `data.js`.
 ## Files
 - `bot.py` — Telegram long-poll listener + the shared `ingest_message()` core. Also a `--text` mode for local testing without Telegram.
 - `parser.py` — text → thesis + ticker detection (high-confidence `$CASHTAG`/known symbol vs low-confidence bareword).
-- `scorer.py` — composite priority: `recency_weighted_mentions * (1 + 0.5 * conviction_hits)`.
+- `scorer.py` — composite priority: `recency_and_focus_weighted_mentions * (1 + 0.5 * conviction_hits)`.
+  Each mention is also discounted by `1/√(tickers-in-post)`, so a name buried in a
+  12-ticker list post can't inflate its tier the way a dedicated post would.
 - `generate_data_js.py` — renders `../data.js` from the store via `json.dumps` (injection-safe).
 - `review.py` — triage CLI: classify auto-added `unsorted` tickers, approve/reject queued candidates.
 - `synthesize.py` — the "Brain": groups theses by category, calls Claude for one narrative
