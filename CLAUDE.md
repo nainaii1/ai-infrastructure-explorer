@@ -56,7 +56,7 @@ not throwaway config.
   ticker cards. Refreshed weekly via the **`/weekly-review` project skill**
   (`.claude/skills/weekly-review/SKILL.md`) in a Claude Code session — no
   API key needed. Verdicts are capped at the top 12–15 Core names by design
-  (token budget).
+  (token budget). Latest pass: 2026-07-06, 15 Core names covered.
 - **v6 — "Field Guide" redesign** ✅ done (2026-07-03). Tabs dissolved into one
   chaptered scroll: hero prologue (signal-chain stat nodes with count-up,
   Core/Watch/Radar barbell bar, "Latest signal" card), numbered chapter heads,
@@ -80,12 +80,13 @@ not throwaway config.
   robust regardless of ancestor layout, with a resize listener to
   re-measure anything currently open.
 - **Live counts** (approximate, check `ingest/store/*.json` for current):
-  ~93 tickers tracked (21 core / 23 watch / 49 radar after focus-weighting),
-  10 categorized layers + an `unsorted` triage bucket (all Core names are
-  classified; remaining unsorted are Watch/Radar tier), ~154 ingested theses
-  (after the June 2–Jul 3 Serenity-Monitor backfill + dedupe), 13 desk
-  verdicts, 10 brain digests synthesized (one per category with theses;
-  refreshed 2026-07-03 manually via Claude Code per the v4 workaround above).
+  ~109 tickers tracked (23 core / 21 watch / 65 radar after focus-weighting),
+  10 categorized layers + an `unsorted` triage bucket (one Core name, RDDT,
+  is still unsorted — it doesn't cleanly fit any of the 10 categories;
+  remaining unsorted are Watch/Radar tier), 170 ingested theses, 15 desk
+  verdicts (reviewed 2026-07-06), 10 brain digests synthesized (8
+  re-synthesized 2026-07-06 via Claude Code per the v4 workaround above;
+  materials/glass carried forward — no new theses that pass).
 - **Signal Digest** 📋 designed, not built. A planned feature — periodic,
   Claude-authored per-ticker digests (AI Signal Watch style: short overview +
   one stance line per ticker) that will **replace** the raw thesis feed as
