@@ -57,7 +57,7 @@
     "candidate": "MLCC",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:37:23Z",
-    "count": 3
+    "count": 4
   },
   {
     "candidate": "MOCVD",
@@ -159,7 +159,7 @@
     "candidate": "NAND",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:39:49Z",
-    "count": 7
+    "count": 8
   },
   {
     "candidate": "OP",
@@ -267,7 +267,7 @@
     "candidate": "NFA",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:42:40Z",
-    "count": 6
+    "count": 7
   },
   {
     "candidate": "GAA",
@@ -285,13 +285,13 @@
     "candidate": "ELS",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:44:22Z",
-    "count": 8
+    "count": 9
   },
   {
     "candidate": "EML",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:44:22Z",
-    "count": 11
+    "count": 12
   },
   {
     "candidate": "QD",
@@ -327,13 +327,13 @@
     "candidate": "LRO",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:45:35Z",
-    "count": 8
+    "count": 9
   },
   {
     "candidate": "TPU",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:45:35Z",
-    "count": 1
+    "count": 2
   },
   {
     "candidate": "USDC",
@@ -411,7 +411,7 @@
     "candidate": "CW",
     "sourceUrl": "",
     "firstSeen": "2026-06-30T07:39:56Z",
-    "count": 17
+    "count": 19
   },
   {
     "candidate": "ERIC",
@@ -435,7 +435,7 @@
     "candidate": "GUC",
     "sourceUrl": "",
     "firstSeen": "2026-06-30T07:39:56Z",
-    "count": 3
+    "count": 4
   },
   {
     "candidate": "HKG",
@@ -477,7 +477,7 @@
     "candidate": "TFLN",
     "sourceUrl": "",
     "firstSeen": "2026-06-30T07:39:56Z",
-    "count": 3
+    "count": 4
   },
   {
     "candidate": "YSS",
@@ -525,7 +525,7 @@
     "candidate": "IP",
     "sourceUrl": "",
     "firstSeen": "2026-06-30T07:39:58Z",
-    "count": 2
+    "count": 3
   },
   {
     "candidate": "MSA",
@@ -657,7 +657,7 @@
     "candidate": "NPO",
     "sourceUrl": "",
     "firstSeen": "2026-06-30T07:49:19Z",
-    "count": 3
+    "count": 4
   },
   {
     "candidate": "SKC",
@@ -681,13 +681,13 @@
     "candidate": "LG",
     "sourceUrl": "",
     "firstSeen": "2026-06-30T07:51:53Z",
-    "count": 1
+    "count": 3
   },
   {
     "candidate": "ASP",
     "sourceUrl": "",
     "firstSeen": "2026-06-30T07:53:06Z",
-    "count": 3
+    "count": 5
   },
   {
     "candidate": "RF",
@@ -729,7 +729,7 @@
     "candidate": "HVM",
     "sourceUrl": "",
     "firstSeen": "2026-07-01T14:56:53Z",
-    "count": 4
+    "count": 5
   },
   {
     "candidate": "CWTC",
@@ -765,7 +765,7 @@
     "candidate": "MS",
     "sourceUrl": "",
     "firstSeen": "2026-07-01T14:57:24Z",
-    "count": 1
+    "count": 2
   },
   {
     "candidate": "OSAT",
@@ -777,7 +777,7 @@
     "candidate": "SDI",
     "sourceUrl": "",
     "firstSeen": "2026-07-01T14:57:24Z",
-    "count": 1
+    "count": 2
   },
   {
     "candidate": "ADHD",
@@ -837,7 +837,7 @@
     "candidate": "UBS",
     "sourceUrl": "",
     "firstSeen": "2026-07-02T20:30:12Z",
-    "count": 2
+    "count": 3
   },
   {
     "candidate": "PTSD",
@@ -915,31 +915,31 @@
     "candidate": "JV",
     "sourceUrl": "",
     "firstSeen": "2026-07-03T10:12:58Z",
-    "count": 1
+    "count": 2
   },
   {
     "candidate": "KRW",
     "sourceUrl": "",
     "firstSeen": "2026-07-03T10:12:58Z",
-    "count": 1
+    "count": 2
   },
   {
     "candidate": "LIDE",
     "sourceUrl": "",
     "firstSeen": "2026-07-03T10:12:58Z",
-    "count": 2
+    "count": 3
   },
   {
     "candidate": "LPKF",
     "sourceUrl": "",
     "firstSeen": "2026-07-03T10:12:58Z",
-    "count": 1
+    "count": 2
   },
   {
     "candidate": "TGV",
     "sourceUrl": "",
     "firstSeen": "2026-07-03T10:12:58Z",
-    "count": 1
+    "count": 2
   },
   {
     "candidate": "UTC",
@@ -1077,7 +1077,7 @@
     "candidate": "KQ",
     "sourceUrl": "",
     "firstSeen": "2026-07-03T13:26:32Z",
-    "count": 1
+    "count": 2
   },
   {
     "candidate": "AIGC",
@@ -1089,6 +1089,114 @@
     "candidate": "VC",
     "sourceUrl": "",
     "firstSeen": "2026-07-03T17:29:12Z",
+    "count": 1
+  },
+  {
+    "candidate": "LAZR",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-05T07:37:20Z",
+    "count": 1
+  },
+  {
+    "candidate": "SGT",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-05T07:37:20Z",
+    "count": 2
+  },
+  {
+    "candidate": "UDN",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-05T07:37:20Z",
+    "count": 1
+  },
+  {
+    "candidate": "ABB",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-05T12:48:29Z",
+    "count": 1
+  },
+  {
+    "candidate": "ABBN",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-05T12:48:29Z",
+    "count": 1
+  },
+  {
+    "candidate": "BD",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-05T12:48:29Z",
+    "count": 1
+  },
+  {
+    "candidate": "HL",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-05T12:48:29Z",
+    "count": 1
+  },
+  {
+    "candidate": "KRX",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-05T12:48:29Z",
+    "count": 2
+  },
+  {
+    "candidate": "SL",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-05T12:48:29Z",
+    "count": 1
+  },
+  {
+    "candidate": "SOS",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-05T12:48:29Z",
+    "count": 1
+  },
+  {
+    "candidate": "SPAD",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-05T12:48:29Z",
+    "count": 1
+  },
+  {
+    "candidate": "SPG",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-05T12:48:29Z",
+    "count": 1
+  },
+  {
+    "candidate": "SWX",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-05T12:48:29Z",
+    "count": 1
+  },
+  {
+    "candidate": "BBU",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-05T15:17:31Z",
+    "count": 1
+  },
+  {
+    "candidate": "DDR",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-06T15:26:32Z",
+    "count": 1
+  },
+  {
+    "candidate": "SVRC",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-06T15:27:08Z",
+    "count": 1
+  },
+  {
+    "candidate": "SCALE",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-06T15:31:53Z",
+    "count": 1
+  },
+  {
+    "candidate": "EV",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-06T15:32:42Z",
     "count": 1
   }
 ]

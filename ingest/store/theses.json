@@ -2584,5 +2584,261 @@
     ],
     "conviction": "normal",
     "tags": []
+  },
+  {
+    "id": "h_ca1ce1cb5f43eec7",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-05T07:37:20Z",
+    "ingestedAt": "2026-07-05T07:37:20Z",
+    "text": "[4 Jul 2026 at 3:21:51 PM]:\n📊 Serenity latest | 2026-07-04 15:21 SGT\n\nNauticus Robotics / Floating Data Centers | $NBIS\nSerenity highlights the emerging concept of floating and ocean-based data centers, noting their advantages in free cooling and suitability for geographically constrained regions. She speculates that companies like $NBIS or Samsung could one day operate offshore AI data centers, imagining a future where cruise passengers sail past floating compute infrastructure. Serenity draws a broader parallel to orbital compute, questioning whether this could become a mainstream trend.\n\nSource: @aleabitoreddit\n\n\n[5 Jul 2026 at 2:04:26 AM]:\n📊 Serenity latest | 2026-07-05 02:04 SGT\n\nHimax Technologies, Lumentum Holdings | $HIMX, $LITE\nSerenity flags a UDN report alleging a potential conflict of interest by SemiAnalysis: the firm published a bearish photonics report in June citing CPO yield and delay concerns, which crashed the sector, then co-launched a photonics ETF (ticker: LAZR) with Tema. Notably, $HIMX and $LITE — stocks specifically targeted negatively in the report — were subsequently purchased in the ETF.\n\nSource: @aleabitoreddit\n\n\n5 Jul 2026 at 5:45:36 AM]:\n📊 Serenity latest | 2026-07-05 05:45 SGT\n\nJD.com, Amazon & Delivery Platforms | $JD, $AMZN, $DASH, $UBER, $MELI\nSerenity highlights JD.com CEO Liu Qiangdong's plan to replace 700,000 delivery workers with robots, with 120 schools contracted to retrain staff for robot maintenance roles. Serenity draws parallels to Amazon's strategy of avoiding 600,000 future hires via automation, and suggests platforms like DoorDash, Uber, and MercadoLibre may follow China's lead — pushing back on retail skepticism around humanoid and robotics commercialization....",
+    "tickers": [
+      "AMZN",
+      "DASH",
+      "HIMX",
+      "JD",
+      "LITE",
+      "MELI",
+      "NBIS",
+      "UBER"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_197ce850c998cd53",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-05T07:38:05Z",
+    "ingestedAt": "2026-07-05T07:38:05Z",
+    "text": "📊 Serenity latest | 2026-07-03 18:17 SGT\n\nSumitomo Chemical / Samsung Electro-Mechanics (GlaSSEM JV), LPKF Laser & Electronics | $LPK\nSerenity flags a positive readthrough for the glass substrate supply chain, highlighting the Samsung/Dongwoo JV (GlaSSEM) targeting full-scale commercialization in H2 2027 with KRW 482.1B in planned capital — faster than prior ramp expectations. She notes $LPK as a key beneficiary via LIDE/TGV equipment, citing LPKF's claimed 80% customer penetration among major players and 70% targeted LIDE market share, with equipment orders typically pulling revenue forward ahead of production ramp.",
+    "tickers": [
+      "LPK"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_6d5dbad8581d8139",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-05T12:40:49Z",
+    "ingestedAt": "2026-07-05T12:48:29Z",
+    "text": "Just high level Boston Dynamics + humanoid + automotive player directional thoughts: \n\nAs for their \"speculated suppliers\":\n\nSamsung Electro-Mechanics / $INTC\nLG Innotek vision sensing components into Atlas\nSamsung Electronics / Sk Hynix / $MU - Memory\n$NVDA - Jetson Thor compute\nGoogle DeepMind\nLG Energy Solution - reported BD Atlas battery supplier\n$CATL - Battery\nSPG Co / 에스피지 (058610.KQ) - Reducers / harmonic-drive-style robot gearing\nSL Corp / 에스엘 (005850.KRX) - leg-module supply contract with Boston Dynamics\nSOS Lab / 에스오에스랩 (464080.KQ) - Atlas LiDAR supplier expected\nSungwoo Hitech - Reported likely Atlas exterior-cover supplier\nHyundai Mobis - Atlas actuators; robot hand/gripper\nROBOTIS / 로보티즈 (108490.KQ) - Robot hand/gripper/robot actuators/servo modules\nHL Mando / HL만도 (204320.KRX) - Actuators / automotive motion-control parts\nABB (ABBN.SWX) - actuator supplier/ecosystem\nSamhyun / 삼현 (437730.KQ) - Smart actuators / motor-control auto parts\nSeoyon E-Hwa / 서연이화 (200880.KRX)~₩0.31T Auto interior/exterior parts; potential robot exterior \n\n- from some naver article that's getting passed around recently. \n\nAs for more Western names aside from the $GOOGl $NVDA / $MU types you have $AEVA  through LG innotek. \n\n$OUST was Velodyne legacy LiDAR agreement with BD Spot. Onsemi was SOS Lab LiDAR SPAD-array partner. \n\nAnd probably a few others since supply chain is large.\n_\n\nI'm actually not bullish on Boston Dynamics commercialization, even though I am for them technologically. \n\nSo personally speaking, if they're not mass producing 30K like unitree soon, going long on the upstream supply chain doesn't really make sense.\n\nGenerally speaking, auto players are very interesting to me for broad humanoid exposure. \n\nNames Schaeffler, which was working with ~45 humanoid makers, is probably in majority? But no confirmed proof yet. There's way too much robotics overlap with auto: eg. “70% of process and technology overlaps with cars”.\n\nAnd then have AI auto as another major growth vector per. $TSM chairmain (also for power semis too). \n\nSo feels like everything comes together for them auto players dragged down by downturns, so I would guess maybe 1 1/2 years, in 2028, things start to pick up for Western auto involved in humanoids. \n\nSince non-China supply chains (like Agibot/unitree) are first to market and already volume ramping compared to western counterparts.\n\nThere's other \"purer exposure\" component suppliers like $VPG and possibly $TSLA / Figure was my guess, but $150/robot that they revealed for mass production is a bit small considering you reach 50K mass production and that's around $7.5M revenue.\n\nSo upstream components for auto players for robotics doesn't move any needle unless you get to massive humanoid scale... \n\nwhich is why I've personally shifted to highest concentration for downstream players like Agility while valuations are relatively small. \n\nI still think we'll see an Anthropic/OpenAI type leader in the humanoid/robotics space soon before all the other physical ai suppliers in the sector get brought up beyond hype.   \n\nBut just informal personal thoughts I try and keep in mind moving forward with legacy auto players in a downturn + new growth vectors 2Y out",
+    "tickers": [
+      "AEVA",
+      "CATL",
+      "GOOGL",
+      "INTC",
+      "MU",
+      "NVDA",
+      "OUST",
+      "TSLA",
+      "TSM",
+      "VPG"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_67b7f17bf6d26992",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-05T15:08:40Z",
+    "ingestedAt": "2026-07-05T15:08:40Z",
+    "text": "No, it’s the same if not higher. Markets are closed and if there’s no new developments, then I have nothing new to add.\n\n$SIVE is personally one of my largest holdings and I’ve posted all my thoughts on their hyperscaler supplier relationships. So I’m just waiting for volume ramps and company execution and ignoring a lot of noise. \n\nThe convertible notes is not new information and was likely priced in for awhile. Having it executed now is not a positive thing like others are framing, since Bootstrap Europe is a venture debt fund.\n\nThere’s likely instituonal swaps happening given oversubscribed instituonal demand around these levels. $140m is not a big amount in terms of institutional flows.",
+    "tickers": [
+      "SIVE"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_36017b24779b163a",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-05T15:16:13Z",
+    "ingestedAt": "2026-07-05T15:16:13Z",
+    "text": "Leaked Anthropic docs show plans to secure 1.4GW capacity from Australia, amounting to ~$21.6B.\n\nRecently \n$IREN\n, \n$SHAZ\n, and other Neoclouds have been building sovereign DCs in Australia.\n\nGuess like a lot of things are stating to make more sense connection wise?\n\n(disclosure: no open positions in any of the above).",
+    "tickers": [
+      "IREN",
+      "SHAZ"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_d4707a13060368fd",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-05T15:17:30Z",
+    "ingestedAt": "2026-07-05T15:17:31Z",
+    "text": "Looks like there's a high power cylindrical cell / BBU cell shortage (aka: bottleneck):\n\n- Samsung SDI supplies the cells to Simplo, which assembles them into BBUs for $META to $AMZN\n\n- As demand from data centers has increased, production of Samsung SDI's cylindrical cells has also risen sharply.\n- Industry sources said Panasonic, Samsung are experiencing supply shortages for BBU cells.\n\nSo main beneficiaries imo look like:\n\n- Samsung SDI (KRX: 006400) / Panasonic Energy  as cleaneset winners\n- Murata (6981) / this keeps showing up everywhere with MLCC and others lol\n- LG Energy (KRX: 373220) / incoming\n\nThere's not really much direct US players? But adjacent read through like $VRT, $ETN\n or $BWA/ $ENS\nNot quite in my domain emphasis cup of tea though. \n\nI wouldn't conflate this as all shortages having a massive TAM, but there could be opportunities...",
+    "tickers": [
+      "AMZN",
+      "BWA",
+      "ENS",
+      "ETN",
+      "META",
+      "VRT"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_6619c85d86ae9ed8",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-06T15:26:32Z",
+    "ingestedAt": "2026-07-06T15:26:32Z",
+    "text": "Just some consolidated updates on memory: \n\n-  \n$MU\n leads new 1.5T Yen investment in Hiroshima ~$9.3B. (bullish read through for Disco, Advantest, Resonac, Towa) since capex is localized.\n\n- Morgan Stanley pointed out NAND will continue to be in short supply into 2027 so \n$SNDK\n / Kioxia type players are happy alongisde \n$SIMO\n and upstream.\n\n- MS remains especially positive on Macronix/Winbond\n\n- UBS expects the average price of DDR contracts in the Q3 2026 to increase 32% | 18% Q4, vs. 17% and 12% est. \n\n- UBS expects NAND flash to be raised 30% from prev quarter. \n\n- Samsung reportedly plans 20% DRAM hike Q3. TrendForce recently forecast DRAM contract prices to rise 13 to 18 percent in the third quarter from the previous quarter, so this hike beats expectations.\n\nSomething to note:\n\nLot people see 20%... and don't think it's a lot compared to the 70-80% from previous quarters. \n\nBut if you hike something by 100%, then hike something by 100%, then hike something by 30%, it's a lot more than people estimate since it's compounded. Similar to tracking inflation. \n\nI've already made projections going into 2028 from the start of the year on my memory names... \n\nI'm just sitting back and watching things play out through all the \"memory optimization\" and \"they can't keep price hiking like this!\" noise.",
+    "tickers": [
+      "DRAM",
+      "MU",
+      "SIMO",
+      "SNDK"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_1bf1783a9f9c83ad",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-06T15:27:08Z",
+    "ingestedAt": "2026-07-06T15:27:08Z",
+    "text": "Came across an interesting report from SVRC Research called \"State of Robotics 2026\", published in April. \n\nWhich listed:\n\n1. Figure AI \n2. Agility Robotics \n$CCXI\n\n3. Apptronik \n4. \n$TSLA\n \n5. Boston Dynamics\n6. Physical Intelligence \n7. 1X Technologies\n8. \n$AMZN\n Robotics\n9. Covariant\n10. Skild AI \n\nAs the National Champions of the United States robotics program. \n\n\"The United States leads the world in where robotics is heading: Fundation models, OpenAI-style scaling laws applied to action, autonomous vehicles. \n\nWhile losing the race on where robotics is shipping today.\" \n\nThen it frames:\n\n1. Rare Earths Exposure: from Neodymium for motors to samarium-cobalt for high-temp applications as a critical vulnerability.\n\n2. Actuator dependency. Series elastic actuators, quasi-direct-drive motors, and precision reducers overwhelmingly sourced from Japan, Germany, and China\n\nAs one of the main vulnerabilities alongside Manufacturing velocity/data collection cost/regulations. Then their take was: \n\n\"With at least six well-funded US humanoid companies competing for a market still in early formation, we expect at least two significant consolidation events (acquisition or merger) in 2027\". \n\nWith Logistics / E-commerce (like \n$AMZN\n / \n$FDX\n) and Automotive from \n$GM\n to $FORD as being the immediate top use cases for deployment.\n\nI think it's just interesting to see a lot of my points I've been talking about reiterated by research firms. Regardless, I do think it's going to be a major frontier race between the US and China. \n\nAgility Robotics (which I own), Tesla, Figure, and Apptronik as leaders representing the USA. Competing against Unitree, AGIbot, Ubtech, and others in China.",
+    "tickers": [
+      "AMZN",
+      "CCXI",
+      "FDX",
+      "FORD",
+      "GM",
+      "TSLA"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_85395dd0fa8acb89",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-06T15:27:45Z",
+    "ingestedAt": "2026-07-06T15:27:45Z",
+    "text": "Yep, \n$AMZN looks like the clear winner in physical AI shift. \n\nI think the Amazon ecosystem... is probably going to the catalyst for robotics players compared to others in the Google/Meta ecosystems. \n\nI kinda see parallels to the $GOOGL TPU effect on suppliers like $LITE or Mediatek, but for robotics... like Agility. Still early though.",
+    "tickers": [
+      "AMZN",
+      "GOOGL",
+      "LITE"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_10aa6c8479a57d03",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-06T15:29:52Z",
+    "ingestedAt": "2026-07-06T15:29:53Z",
+    "text": "Nomura’s report cites \n$AXTI\n and $IQE as the leading players. \n\nThen regarding ASP updates:\n\n- 2in InP substrate price hike 42-76%\n- 3in InP substrates price hike 78%\n- 2in EML Epiwafer price hike 50-75%\n- 3in CW Epiwafer price hike ~40%+\n- Prices lower domestically in China as expected.\n\nHyperscalers bottlenecking upstream photonics confirmation validation… on all fronts from pricing, demand, to supply shortages.\n\nMy personal expectation was that price hikes would keep going up like \n$SNDK\n given ramping optical demand. \n\nWe’ll see if this turns out right given another 2 years of the demand curve.",
+    "tickers": [
+      "AXTI",
+      "IQE",
+      "SNDK"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_0ecb33baa79a6b44",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-06T15:31:53Z",
+    "ingestedAt": "2026-07-06T15:31:53Z",
+    "text": "I personally think $SIVE can be the next $LITE\n. \n\nIn the past few months alone, we've seen:\n\n1. Partnerships with O-Net pushing ELS into mass production\n2. $JBL 1.6T LRO mass production signals with \"relatively dramatic moats\" for pluggables using Sivers.\n3. $GFS\n SCALE reference level laser for hyperscalers with pluggable, NPO, CPO.-> -> where  $AMD and others went to GFS for CPO.\n4. Ayar, which joined $NVDA\n NVLink for CPO\n-> -> which removed Lumentum/Macom from their website and likely made Sivers their primary laser supplier. \n-> -> AlChip likely Trainium win from Amazon price placement (Ayar's customer)\n-> -> GUC rack level design in with Ayar.\n-> -> Raised $500m for mass production by AMD, Alchip, Mediatek, and NVIDIA\n5.  ~  $AEVA starting HVM H2 2026.\n6. $POET starting HVM H2 2026 with hyperscaler suppliers like Lumilens (\"top 3 hyperscaler initial customer\")\n7. TFLN + $SIVE CW Lasers with Lightium\n8. Likely direct relationships with \n$MRVL Celestial and CPO players like Lightelligence/Lightmatter.\n9. Multiple new undisclosed relationships for pluggables following Jabil in their quarterly transcripts\n\nWith new Trendforce reports that \n$AMD\n and other hyperscalers are trying to source LTAs for CW laser sources, serving as a direct catalyst for independent CW sources.\n\nSo when hyperscaler suppliers from Jabil to O-Net are incentivized to mass produce as many as they can: That's very material for revenue for Sivers relative to current valuations, and it looks like just a waiting game. \n\nEven in the past week:\n\n- $SIVE raised an oversubscribed institutional round for volume ramp... This is very nuanced since Sivers is fab-lite so it's not going to in-house foundry capex to scale. Likely toward Win Semi and others (they mentioned other partners too), for laser scaling + foundry allocations. \n\nSo this is likely signaling material for revenue ramp is coming. \n\n- Sivers also mentioned NASDAQ listing completion targeted in the next few quarters (probably H2 2026 or Q1 2027 is my est. timeframe). \n\nThis would fund M&A efforts, since it's impossible with the fundraising environments in local Swedish markets. \n\nAs for becoming the next \n$LITE\n:\n\nM&A makes their lasers more valuable, so downstream IP acqusition -> into contract manufacturing like \n$FN\n, and others to make the full 1.6T pluggable or optical engines. Is how they get there, since laser array ASP scaling that people are modeling off of, wouldn't command a $60B+   valuations. \n\nThere's going to be a lot of bridge architectures like NPO/pluggables, etc and noise around certain architectural delays in the meantime. \n\nBut markets misunderstand laser companies like \n$LITE, $SIVE,  $AAOI\n and others are used across different architectures compared to if you just look at certain passive optical components. \n\nSo markets see \"CPO delay headlines\" algos sell off laser companies that benefit from other architectures. \n\nBeing included in the pluggable 1.6T ramp to CPO scale out (Which Sivers is included in), helps bridge revenue waiting gaps until scale up inflection point H2 2027.  \n\nI'm personally holding long term, since I haven't seen a ~$1.4B company mapping to this many hyperscalers before. \n\nTLDR:\n- Waiting on volume ramps from different architectures to play out across their hyperscaler supplier mapping\n-> 1.6T LRO/CPO scale out late H2 2026 start into high volume ramp 2027\n-> H2 2027 CPO scale up volume ramp\n- Waiting on NASDAQ listing likely H2 2026/Q1 2027 for M&A efforts to fully take off, unless Sivers get more creative with equity financing in the meantime.",
+    "tickers": [
+      "AAOI",
+      "AEVA",
+      "AMD",
+      "FN",
+      "GFS",
+      "JBL",
+      "LITE",
+      "MRVL",
+      "NVDA",
+      "POET",
+      "SIVE"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_36781819bfe0ee75",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-06T15:32:42Z",
+    "ingestedAt": "2026-07-06T15:32:42Z",
+    "text": "Kelper upgrades $XFAB to \"Buy\" citing:\n\n- Melexis demand strengthening “week-after-week, day-after-day” (their lead customer). \n- AI giving XFAB a structural growth leg with SiC, GaN, and photonics offsetting auto cyclicality. \n- Scarce Western speciality foundries like $SILEX commanding higher multiples. \n\n\"X-Fab remains the cheapest specialty foundry peer on every multiple, trading at 4.8x 2027 EV/EBITDA versus a peer median of 14.5x\" \n\nI treat this as good signal for the core fundamentals improving like auto players. \n\nBut in terms of unpriced long term growth vectors, I'm personally looking at XFAB from a different angle in terms of photonics growth with photonixfab. Given \n$NVDA\n as a potential key driver. \n\nBut it's hard for traditional firms to price these types of active developments into valuation models until there's volume contracts.",
+    "tickers": [
+      "NVDA",
+      "SILEX",
+      "XFAB"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_33e11a1efa657fa7",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-06T15:33:17Z",
+    "ingestedAt": "2026-07-06T15:33:17Z",
+    "text": "Retail: buys memory, optical, upstream semi names.\n\nMedia: “retail bubble drives AI meme stock bubble higher”.\n\nInstitutions that do the exact same thing, with the exact same names:\n\nMedia: “Institutions make record profits by betting on what goes inside AI Server Racks”.",
+    "tickers": [],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_ed35af2a69e57256",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-06T15:33:45Z",
+    "ingestedAt": "2026-07-06T15:33:45Z",
+    "text": "Wow, \n$WULF\n signs a $19B DC lease with Anthropic today. \n\nProbably a very positive tailwind for the Neocloud/Colo sector.",
+    "tickers": [
+      "WULF"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_34534f43456cd196",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-06T15:34:36Z",
+    "ingestedAt": "2026-07-06T15:34:37Z",
+    "text": "I’d like to give a special thank you to Bloomberg’s piece on \n$META\n compute.\n\nAs well as the 2 back to back bear posts on CPO delays.\n\nBut I believe thematically photonics, memory, energy, and physical AI will outperform in the long run.\n\nI suffer major drawdowns too, especially if markets think my thesis is early.\n\nBut I’m very confident that AI chokepoints/bottlenecks names outperform and get validated in the long run. So happy to sit through the drops in the meantime.\n\nJust sharing wins and losses along the way\n\nI have large concentration in $SIVE to \n$AAOI\n as well. Feels bad to suffer drawdowns from institutional photonics delay bear posts. \n\nJust for the same firm to include it in their ETFs at the bottom. \n\nNFA, but I’m especially confident about those two going forward despite the drop",
+    "tickers": [
+      "AAOI",
+      "META",
+      "SIVE"
+    ],
+    "conviction": "normal",
+    "tags": []
   }
 ]

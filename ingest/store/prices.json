@@ -1,357 +1,357 @@
 {
   "AAOI": {
-    "price": 120.95,
-    "marketCap": 9705362669,
+    "price": 128.825,
+    "marketCap": 10337274459,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "LITE": {
-    "price": 728.32,
-    "marketCap": 56663296000,
+    "price": 737.96,
+    "marketCap": 57413288000,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "COHR": {
-    "price": 333.36,
-    "marketCap": 52862601336,
+    "price": 347.19,
+    "marketCap": 55055695218,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "MU": {
-    "price": 975.56,
-    "marketCap": 1101787708400,
+    "price": 1009.95001,
+    "marketCap": 1140627444286,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "000660.KS": {
-    "price": 2187000,
-    "marketCap": 1549044786672000,
+    "price": 2343000,
+    "marketCap": 1659539065008000,
     "currency": "KRW",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "AXTI": {
-    "price": 56.62,
-    "marketCap": 2625492388,
+    "price": 67.215,
+    "marketCap": 3116786839,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "NVDA": {
-    "price": 194.83,
-    "marketCap": 4718977430000,
+    "price": 196.37,
+    "marketCap": 4756277770000,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "TSEM": {
-    "price": 219.05,
-    "marketCap": 24480287611,
+    "price": 222.00999,
+    "marketCap": 24811086592,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "INTC": {
-    "price": 120.35,
-    "marketCap": 604879100000,
+    "price": 124.9972,
+    "marketCap": 628235927200,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "TSM": {
-    "price": 434.16,
-    "marketCap": 2251762156800,
+    "price": 458.095,
+    "marketCap": 2375900555600,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "NBIS": {
-    "price": 215.62,
-    "marketCap": 51748800000,
+    "price": 221.94,
+    "marketCap": 53265600000,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "CRWV": {
-    "price": 81.745,
-    "marketCap": 44597647525,
+    "price": 86.7395,
+    "marketCap": 47322500588,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "AEHR": {
-    "price": 69.96,
-    "marketCap": 2200469650,
+    "price": 77.23,
+    "marketCap": 2429134806,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "SOI.PA": {
-    "price": 111.75,
-    "marketCap": 3991708659,
+    "price": 118.4,
+    "marketCap": 4229246634,
     "currency": "EUR",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "LPK.DE": {
-    "price": 19.2,
-    "marketCap": 470333683,
+    "price": 19.6,
+    "marketCap": 480132311,
     "currency": "EUR",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "JBL": {
-    "price": 341.3,
-    "marketCap": 36008044889,
+    "price": 346.94,
+    "marketCap": 36354832658,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "POET": {
-    "price": 8.76,
-    "marketCap": 1156431813,
+    "price": 9.16,
+    "marketCap": 1209236918,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "TSLA": {
-    "price": 393.45,
-    "marketCap": 1477688034000,
+    "price": 413.495,
+    "marketCap": 1552971423062,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "ASTS": {
-    "price": 85.13,
-    "marketCap": 34638720387,
+    "price": 81.645,
+    "marketCap": 33220701586,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "CRCL": {
-    "price": 64.62,
-    "marketCap": 17272324711,
+    "price": 69.42,
+    "marketCap": 18555319353,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "ETHA": {
-    "price": 12.86,
-    "marketCap": 7853961476,
+    "price": 13.47,
+    "marketCap": 8226505527,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "EWY": {
-    "price": 180.14,
-    "marketCap": 13618583099,
+    "price": 191.29,
+    "marketCap": 14461523044,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "IBIT": {
-    "price": 34.87,
-    "marketCap": 59488368721,
+    "price": 35.875,
+    "marketCap": 59821885985,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "META": {
-    "price": 582.9,
-    "marketCap": 1479646938073,
+    "price": 592.44,
+    "marketCap": 1503863537768,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "MRVL": {
-    "price": 245.29,
-    "marketCap": 214579692000,
+    "price": 255.65,
+    "marketCap": 223642620000,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "MSFT": {
-    "price": 390.49,
-    "marketCap": 2900727630700,
+    "price": 386.395,
+    "marketCap": 2870308209850,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "NFLX": {
-    "price": 77.65,
-    "marketCap": 326968620000,
+    "price": 76.2795,
+    "marketCap": 321197718600,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "RDDT": {
-    "price": 194.58,
-    "marketCap": 37458409003,
+    "price": 204.78,
+    "marketCap": 39421999543,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "UPWK": {
-    "price": 9.16,
-    "marketCap": 1131426135,
+    "price": 9.0483,
+    "marketCap": 1117629159,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "VPG": {
-    "price": 121.39,
-    "marketCap": 1614608269,
+    "price": 125.87,
+    "marketCap": 1674196744,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "RKLB": {
-    "price": 100.46,
-    "marketCap": 58152978820,
+    "price": 96.11,
+    "marketCap": 55634953022,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "SIVE": {
-    "price": 49,
-    "marketCap": 12445397398,
+    "price": 46.7,
+    "marketCap": 11861225877,
     "currency": "SEK",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "IBM": {
-    "price": 289.52,
-    "marketCap": 272115505200,
+    "price": 300.41,
+    "marketCap": 282350856292,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "IONQ": {
-    "price": 49.12,
-    "marketCap": 18335019846,
+    "price": 51.2,
+    "marketCap": 19111421338,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "QBTS": {
-    "price": 22.535,
-    "marketCap": 8276408583,
+    "price": 23.535,
+    "marketCap": 8643677657,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "RGTI": {
-    "price": 17.94,
-    "marketCap": 5963234598,
+    "price": 18.625,
+    "marketCap": 6190927780,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "NVTS": {
-    "price": 14.46,
-    "marketCap": 3521806948,
+    "price": 15.6303,
+    "marketCap": 3806839498,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "AMZN": {
-    "price": 242.67,
-    "marketCap": 2610425457000,
+    "price": 245.17,
+    "marketCap": 2637318207000,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "AVGO": {
-    "price": 360.45,
-    "marketCap": 1714869711000,
+    "price": 374.5019,
+    "marketCap": 1781722749402,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "AMAT": {
-    "price": 603.04,
-    "marketCap": 478789035360,
+    "price": 598.696,
+    "marketCap": 475340077464,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "AAPL": {
-    "price": 308.63,
-    "marketCap": 4532958682280,
+    "price": 313.81,
+    "marketCap": 4609039186360,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "ASML": {
-    "price": 1769.32,
-    "marketCap": 681927759836,
+    "price": 1857.5732,
+    "marketCap": 715942130879,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "LRCX": {
-    "price": 351.41,
-    "marketCap": 439462803700,
+    "price": 358.395,
+    "marketCap": 448198035150,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "LWLG": {
-    "price": 7.365,
-    "marketCap": 1134799200,
+    "price": 7.535,
+    "marketCap": 1160992800,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "ALMU": {
-    "price": 18.85,
-    "marketCap": 267113605,
+    "price": 19.53,
+    "marketCap": 276749533,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "SMHD": {
     "price": 2.37,
     "marketCap": 28684928,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "VECO": {
-    "price": 57.49,
-    "marketCap": 3508815053,
+    "price": 57.02,
+    "marketCap": 3480129315,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "HIMX": {
-    "price": 13.15,
-    "marketCap": 2293360000,
+    "price": 14.365,
+    "marketCap": 2505256000,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "ARM": {
-    "price": 315.28,
-    "marketCap": 335457920000,
+    "price": 327.59,
+    "marketCap": 348555760000,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "GOOGL": {
-    "price": 359.91,
-    "marketCap": 4353064767154,
+    "price": 363.47,
+    "marketCap": 4396122505396.9995,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "HOOD": {
-    "price": 112.73,
-    "marketCap": 101513943079,
+    "price": 118.085,
+    "marketCap": 106336150047,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "SMTC": {
-    "price": 135.27,
-    "marketCap": 12600558495,
+    "price": 144.1979,
+    "marketCap": 13432202808,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "SPCX": {
-    "price": 162,
-    "marketCap": 2118290201604,
+    "price": 160.525,
+    "marketCap": 2099003300077,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "AEVA": {
-    "price": 23.98,
-    "marketCap": 1511718384,
+    "price": 26.06,
+    "marketCap": 1759967208,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "AMD": {
-    "price": 517.82,
-    "marketCap": 844357292000,
+    "price": 566.525,
+    "marketCap": 923775665000,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "MTSI": {
-    "price": 322.26,
-    "marketCap": 24587076129,
+    "price": 336.72,
+    "marketCap": 25690313021,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "SNDK": {
-    "price": 1745,
-    "marketCap": 258416613750,
+    "price": 1814.1023,
+    "marketCap": 268649956081,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "EOS": {
-    "price": 22.05,
-    "marketCap": 1167834150,
+    "price": 22.09,
+    "marketCap": 1169952670,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "CBRS": {
-    "price": 204.86,
-    "marketCap": 45653165312,
+    "price": 195.37,
+    "marketCap": 43538312149,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "AGLT": {
     "price": 1,
@@ -360,58 +360,58 @@
     "asOf": "2026-07-02T21:02:04Z"
   },
   "BRUN": {
-    "price": 31.76,
-    "marketCap": 2565394817,
+    "price": 31.065,
+    "marketCap": 2509256655,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "CCXI": {
-    "price": 19.1,
-    "marketCap": 800290000,
+    "price": 18.6,
+    "marketCap": 779340016,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "WLAC": {
     "price": 18.83,
     "marketCap": 238199500,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "BOT": {
-    "price": 35.63,
-    "marketCap": 722368606,
+    "price": 39.83,
+    "marketCap": 807520111,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "BULL": {
-    "price": 7.17,
-    "marketCap": 3813139699,
+    "price": 7.165,
+    "marketCap": 3810480613,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "DJT": {
-    "price": 8.54,
-    "marketCap": 2365185691,
+    "price": 8.605,
+    "marketCap": 2383187690,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "IREN": {
-    "price": 38.82,
-    "marketCap": 13853206364,
+    "price": 44.4196,
+    "marketCap": 15851465364,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "QQQ": {
-    "price": 712.6,
-    "marketCap": 497007514727,
+    "price": 725.1,
+    "marketCap": 493980716000,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "GFS": {
-    "price": 69.84,
-    "marketCap": 38321263872,
+    "price": 71.1554,
+    "marketCap": 39043024904,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "SOI": {
     "price": 11.32,
@@ -420,63 +420,195 @@
     "asOf": "2026-07-02T21:02:04Z"
   },
   "DRAM": {
-    "price": 60.63,
-    "marketCap": 2253360574,
+    "price": 65.26,
+    "marketCap": 2425438085,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "BABA": {
-    "price": 96.14,
-    "marketCap": 230785890507,
+    "price": 97.62,
+    "marketCap": 234249606640,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "KLAC": {
-    "price": 235.55,
-    "marketCap": 307694254000,
+    "price": 236.6677,
+    "marketCap": 309154283156,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "ASX": {
-    "price": 41.87,
-    "marketCap": 91860456215,
+    "price": 44.04,
+    "marketCap": 96621315780,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "BE": {
-    "price": 270.89,
-    "marketCap": 77052999403,
+    "price": 295.52,
+    "marketCap": 84058851871,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "FCEL": {
-    "price": 28.11,
-    "marketCap": 1489208769,
+    "price": 30.7,
+    "marketCap": 1626421530,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "OUST": {
-    "price": 49.84,
-    "marketCap": 3173462320,
+    "price": 54.83,
+    "marketCap": 3491190590,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "MELI": {
-    "price": 1763.36,
-    "marketCap": 89397382852,
+    "price": 1798.08,
+    "marketCap": 91157589011,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "GLW": {
-    "price": 196.695,
-    "marketCap": 169283191410,
+    "price": 200.31,
+    "marketCap": 172394397780,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
   },
   "TER": {
-    "price": 369.09,
-    "marketCap": 57778146573,
+    "price": 392.3137,
+    "marketCap": 61413634780,
     "currency": "USD",
-    "asOf": "2026-07-02T21:02:04Z"
+    "asOf": "2026-07-06T15:50:01Z"
+  },
+  "QCOM": {
+    "price": 187.475,
+    "marketCap": 197598650000,
+    "currency": "USD",
+    "asOf": "2026-07-06T15:50:01Z"
+  },
+  "NOK": {
+    "price": 12.595,
+    "marketCap": 68024234740,
+    "currency": "USD",
+    "asOf": "2026-07-06T15:50:01Z"
+  },
+  "COIN": {
+    "price": 169.4374,
+    "marketCap": 44639891499,
+    "currency": "USD",
+    "asOf": "2026-07-06T15:50:01Z"
+  },
+  "CIFR": {
+    "price": 22.287,
+    "marketCap": 9116475331,
+    "currency": "USD",
+    "asOf": "2026-07-06T15:50:01Z"
+  },
+  "WULF": {
+    "price": 23.9501,
+    "marketCap": 11868056374,
+    "currency": "USD",
+    "asOf": "2026-07-06T15:50:01Z"
+  },
+  "ALAB": {
+    "price": 442.886,
+    "marketCap": 75914176472,
+    "currency": "USD",
+    "asOf": "2026-07-06T15:50:01Z"
+  },
+  "ORCL": {
+    "price": 142.48,
+    "marketCap": 410409365600,
+    "currency": "USD",
+    "asOf": "2026-07-06T15:50:01Z"
+  },
+  "ACMR": {
+    "price": 102.99,
+    "marketCap": 6603479760,
+    "currency": "USD",
+    "asOf": "2026-07-06T15:50:01Z"
+  },
+  "CAMT": {
+    "price": 142.7924,
+    "marketCap": 6662193611,
+    "currency": "USD",
+    "asOf": "2026-07-06T15:50:01Z"
+  },
+  "DASH": {
+    "price": 195.7,
+    "marketCap": 85270150177,
+    "currency": "USD",
+    "asOf": "2026-07-06T15:50:01Z"
+  },
+  "JD": {
+    "price": 26.805,
+    "marketCap": 36200152500,
+    "currency": "USD",
+    "asOf": "2026-07-06T15:50:01Z"
+  },
+  "UBER": {
+    "price": 73.37,
+    "marketCap": 149351899584,
+    "currency": "USD",
+    "asOf": "2026-07-06T15:50:01Z"
+  },
+  "SHAZ": {
+    "price": 79.46,
+    "marketCap": 778028052,
+    "currency": "USD",
+    "asOf": "2026-07-06T15:50:01Z"
+  },
+  "BWA": {
+    "price": 64.81,
+    "marketCap": 13293499326,
+    "currency": "USD",
+    "asOf": "2026-07-06T15:50:01Z"
+  },
+  "ENS": {
+    "price": 214.27,
+    "marketCap": 7824669006,
+    "currency": "USD",
+    "asOf": "2026-07-06T15:50:01Z"
+  },
+  "ETN": {
+    "price": 414.74,
+    "marketCap": 161043542000,
+    "currency": "USD",
+    "asOf": "2026-07-06T15:50:01Z"
+  },
+  "VRT": {
+    "price": 324.4,
+    "marketCap": 124604899910,
+    "currency": "USD",
+    "asOf": "2026-07-06T15:50:01Z"
+  },
+  "SIMO": {
+    "price": 331.5002,
+    "marketCap": 11123596286,
+    "currency": "USD",
+    "asOf": "2026-07-06T15:50:01Z"
+  },
+  "FDX": {
+    "price": 309.35,
+    "marketCap": 73812999969,
+    "currency": "USD",
+    "asOf": "2026-07-06T15:50:01Z"
+  },
+  "FORD": {
+    "price": 9.12,
+    "marketCap": 15673513,
+    "currency": "USD",
+    "asOf": "2026-07-06T15:50:01Z"
+  },
+  "GM": {
+    "price": 77.38,
+    "marketCap": 69770852789,
+    "currency": "USD",
+    "asOf": "2026-07-06T15:50:01Z"
+  },
+  "FN": {
+    "price": 518.67999,
+    "marketCap": 18584169281,
+    "currency": "USD",
+    "asOf": "2026-07-06T15:50:01Z"
   }
 }
