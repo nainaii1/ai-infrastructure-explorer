@@ -1,6 +1,12 @@
 # Roadmap & Status — AI Infrastructure Explorer
 
-_Last updated: 2026-07-03. Living document — update as things ship or change._
+_Last updated: 2026-07-06. Living document — update as things ship or change._
+
+> **Active build (2026-07-06):** the "Private Coverage" editorial upgrade —
+> multi-page split, memo-style coverage notes, Obsidian-style knowledge Vault +
+> graph, minimal performance hooks. Step-by-step prompt guide:
+> [EXECUTION.md](EXECUTION.md). (This supersedes the Signal Digest spec — memos
+> replace it.)
 
 ---
 
