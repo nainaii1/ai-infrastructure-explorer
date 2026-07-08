@@ -11,6 +11,12 @@
     href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M13 2 4.5 13.5H11l-1 8.5L19.5 10H13z' fill='%233b82f6'/%3E%3C/svg%3E"
   />
 
+  <!-- Shared editorial design tokens + components. Loaded BEFORE the inline
+       <style> so the page's current cleanroom tokens still win (P3 does the
+       warm retheme); only new tokens (--serif) and .aie-* nav classes are
+       additive here. -->
+  <link rel="stylesheet" href="shared/theme.css" />
+
   <style>
     /* ============================================================
        Design system (from CLAUDE.md). Structural styling only.
@@ -199,7 +205,7 @@
        ============================================================ */
     .capsule-wrap {
       position: sticky;
-      top: 14px;
+      top: 14px; /* masthead scrolls away; capsule pins near the top as before */
       z-index: 90;
       display: flex;
       justify-content: center;
@@ -1178,6 +1184,9 @@
 <body>
   <div class="gradient-border" id="gradientBorder"></div>
 
+  <!-- Shared top nav (theme.css). Rendered by AIE.renderNav('desk') at boot. -->
+  <div id="topNav"></div>
+
   <div class="app">
     <!-- Prologue: what this guide is and how to read it. Live numbers are
          rendered into the placeholders by renderHero() from AIE_DATA. -->
@@ -1374,105 +1383,27 @@
   <!-- data.js MUST load first: defines window.AIE_DATA -->
   <script src="data.js"></script>
 
-  <!-- App script (T1 scope: seeding + gradient + tab switching) -->
+  <!-- Shared AIE namespace (seeding, drill-down, formatters, nav). After data.js. -->
+  <script src="shared/common.js"></script>
+
+  <!-- Page script — field-guide chapters. Shared helpers come from window.AIE. -->
   <script>
     (function () {
       "use strict";
 
       var DATA = window.AIE_DATA;
+      var AIE = window.AIE;
 
-      /* ----------------------------------------------------------
-         localStorage seeding — version-aware so the backend ingest
-         pipeline (which regenerates data.js + bumps meta.version)
-         actually surfaces for returning users.
-         - tickers: seeded once; on a version bump, NEW tickers from
-           data.js are merged in (existing entries / edits preserved).
-         - theses: backend-owned — (re)seeded from data.js on a bump.
-         Static config (categories/center/countries/priorities) is read
-         directly from AIE_DATA, never persisted (CLAUDE.md rule #4).
-         ---------------------------------------------------------- */
-      var STORAGE_KEYS = {
-        tickers: "aie_tickers",
-        theses: "aie_theses",
-        settings: "aie_settings"
-      };
-
-      function readJSON(key) {
-        try {
-          var raw = localStorage.getItem(key);
-          return raw === null ? null : JSON.parse(raw);
-        } catch (err) {
-          return null;
-        }
-      }
-
-      function seedLocalStorage() {
-        if (!DATA) {
-          console.error("AIE_DATA missing — data.js failed to load before app script.");
-          return;
-        }
-        try {
-          var dataVersion = (DATA.meta && DATA.meta.version) || "1.0";
-          var settings = readJSON(STORAGE_KEYS.settings);
-          var firstRun = settings === null;
-          var seededVersion = settings && settings.version;
-          var versionChanged = seededVersion !== dataVersion;
-
-          // tickers: seed on first run; on a version bump, refresh static fields
-          // from data.js (the source of truth) while preserving the user's
-          // per-ticker rating. Locally-added tickers not in data.js are kept.
-          var tickers = readJSON(STORAGE_KEYS.tickers);
-          if (tickers === null) {
-            tickers = (DATA.tickers || []).slice();
-          } else if (versionChanged) {
-            var ratingBy = {};
-            tickers.forEach(function (t) { if (t.rating) ratingBy[t.ticker] = t.rating; });
-            var refreshed = (DATA.tickers || []).map(function (d) {
-              if (!ratingBy[d.ticker]) return d;
-              var copy = {};
-              for (var k in d) { copy[k] = d[k]; }
-              copy.rating = ratingBy[d.ticker];   // keep only the user's rating
-              return copy;
-            });
-            var known = {};
-            refreshed.forEach(function (t) { known[t.ticker] = true; });
-            tickers.forEach(function (t) { if (!known[t.ticker]) refreshed.push(t); });
-            tickers = refreshed;
-          }
-          localStorage.setItem(STORAGE_KEYS.tickers, JSON.stringify(tickers));
-
-          // theses: backend-owned — (re)seed from data.js on first run or bump.
-          if (firstRun || versionChanged || readJSON(STORAGE_KEYS.theses) === null) {
-            localStorage.setItem(STORAGE_KEYS.theses, JSON.stringify(DATA.theses || []));
-          }
-
-          // settings: record the data.js version we have now seeded from.
-          localStorage.setItem(STORAGE_KEYS.settings, JSON.stringify({
-            version: dataVersion,
-            lastUpdated: (DATA.meta && DATA.meta.lastUpdated) || null
-          }));
-        } catch (err) {
-          // Some browsers restrict localStorage under file:// — fail gracefully.
-          console.warn("localStorage unavailable; seeding skipped.", err);
-        }
-      }
-
-      /* ----------------------------------------------------------
-         Paint the 3px gradient top border from category colors.
-         Colors are read from data.js — never hardcoded (rule #4).
-         ---------------------------------------------------------- */
-      function paintGradientBorder() {
-        var el = document.getElementById("gradientBorder");
-        if (!el || !DATA || !DATA.categories) return;
-
-        var colors = Object.keys(DATA.categories).map(function (id) {
-          return DATA.categories[id].color;
-        });
-        if (colors.length === 0) return;
-
-        el.style.background =
-          "linear-gradient(to right, " + colors.join(", ") + ")";
-      }
+      /* Seeding, drill-down, formatters, category-color helpers and the top nav
+         now live in shared/common.js (window.AIE). Local aliases below keep the
+         existing call sites in this script unchanged. seedLocalStorage() and
+         paintGradientBorder() are called as AIE.seed()/AIE.paintGradientBorder()
+         from the boot sequence. */
+      var STORAGE_KEYS = AIE.STORAGE_KEYS;
+      var readJSON = AIE.readJSON;
+      var setDrilldownOpen = AIE.setDrilldownOpen;
+      var fmtNum = AIE.fmtNum;
+      var fmtMcap = AIE.fmtMcap;
 
       /* ----------------------------------------------------------
          Sparkline — deterministic per-seed synthetic trend line, used
@@ -1566,25 +1497,9 @@
         revealIO.observe(node);
       }
 
-      /* Unified drill-down: JS-measured max-height, not CSS grid-template-rows
-         0fr->1fr — some ancestors (overflow-constrained cards, flex columns)
-         give the grid track a bounded "available space" instead of true
-         auto-sizing, silently resolving 1fr to 0. Measuring `inner.scrollHeight`
-         sidesteps that entirely. `container` toggles the opacity/margin-top
-         class; `inner` is the wrapper whose natural height we measure. */
-      var openDrilldowns = []; // {container, inner} pairs currently open, for resize re-measure
-      function setDrilldownOpen(container, inner, open, activeClass) {
-        if (activeClass) container.classList.toggle(activeClass, open);
-        container.style.maxHeight = open ? inner.scrollHeight + "px" : "0px";
-        var idx = openDrilldowns.findIndex(function (d) { return d.container === container; });
-        if (open && idx === -1) openDrilldowns.push({ container: container, inner: inner });
-        else if (!open && idx !== -1) openDrilldowns.splice(idx, 1);
-      }
-      window.addEventListener("resize", function () {
-        openDrilldowns.forEach(function (d) {
-          d.container.style.maxHeight = d.inner.scrollHeight + "px";
-        });
-      });
+      /* setDrilldownOpen() (JS-measured max-height reveal) + its resize
+         re-measure now live in shared/common.js; aliased as setDrilldownOpen
+         near the top of this script. */
 
       function initReveals() {
         document.querySelectorAll(".reveal").forEach(function (n) {
@@ -1971,8 +1886,7 @@
           var heat = medianChg7d(id);
           if (heat != null) {
             var hcls = heat > 0.5 ? "hot" : (heat < -0.5 ? "cold" : "flat");
-            col.appendChild(el("span", "mc-heat " + hcls,
-              (heat > 0 ? "+" : "") + heat.toFixed(1) + "%"));
+            col.appendChild(el("span", "mc-heat " + hcls, AIE.fmtPct(heat)));
           }
           col.appendChild(el("span", "mc-label", c.label));
 
@@ -2367,17 +2281,8 @@
         } catch (e) { /* storage may be unavailable on file:// */ }
       }
 
-      function fmtNum(n, dp) {
-        return Number(n).toLocaleString(undefined, { minimumFractionDigits: dp, maximumFractionDigits: dp });
-      }
-      function fmtMcap(v) {
-        if (v == null) return null;
-        var abs = Math.abs(v), d = v, unit = "";
-        if (abs >= 1e12) { d = v / 1e12; unit = "T"; }
-        else if (abs >= 1e9) { d = v / 1e9; unit = "B"; }
-        else if (abs >= 1e6) { d = v / 1e6; unit = "M"; }
-        return "$" + fmtNum(d, d < 10 ? 1 : 0) + unit;
-      }
+      /* fmtNum() and fmtMcap() now live in shared/common.js; aliased near the
+         top of this script. */
 
       function wlCompare(a, b) {
         var k = wlState.key;
@@ -2403,7 +2308,7 @@
         var td = el("td", "num");
         if (v == null) { td.appendChild(el("span", "wl-muted", "—")); return td; }
         var cls = v > 0 ? "wl-pos" : (v < 0 ? "wl-neg" : "wl-muted");
-        td.appendChild(el("span", cls, (v > 0 ? "+" : "") + v.toFixed(1) + "%"));
+        td.appendChild(el("span", cls, AIE.fmtPct(v)));
         return td;
       }
 
@@ -2973,8 +2878,9 @@
       }
 
       // Boot
-      seedLocalStorage();
-      paintGradientBorder();
+      AIE.seed();
+      AIE.paintGradientBorder();
+      AIE.renderNav("desk");
       renderHero();
       initCapsuleNav();
       initMapViewToggle();
