@@ -1,0 +1,432 @@
+/* ============================================================================
+   theme.css — Editorial design tokens + shared components
+   "Private Coverage" multi-page upgrade (EXECUTION.md Phase 1, P1)
+
+   Loaded by every page (index / desk / memo / vault / performance) via a plain
+   <link>. Offline-first: no @import, no CDN fonts, file:// safe.
+
+   HARD RULES honoured here:
+   - Category colors are NEVER hardcoded. The 3px gradient top border and any
+     per-category accents are painted at runtime by JS from
+     AIE_DATA.categories[id].color. This file only ships the .gradient-border
+     shell + a neutral fallback.
+   - Motion stays inside the 200-300ms rule and is gated on
+     prefers-reduced-motion (see bottom of the Tokens block).
+
+   Warm editorial palette supersedes the cool "cleanroom" theme still living
+   inline in index.html — do NOT edit index.html for this prompt (P3/P4 wire
+   these tokens in).
+   ========================================================================== */
+
+/* ============================================================================
+   1. TOKENS
+   ========================================================================== */
+:root {
+  /* --- Warm paper palette ------------------------------------------------ */
+  --bg:        #faf7f2;   /* warm paper */
+  --card:      #fffdf9;   /* slightly warmer than the page, lifts on paper */
+  --border:    #e6e0d4;   /* soft warm hairline */
+  --ink:       #1a1712;   /* near-black display ink */
+  --text:      #33302a;   /* body text — ink softened for long reading */
+  --muted:     #8a8375;   /* captions, small-caps labels, secondary meta */
+
+  /* A couple of derived neutrals for fills/hovers on paper. */
+  --paper-sink: #f2ede4;  /* recessed rows / hover wash */
+  --paper-tint: #f6f1e8;  /* subtle zebra / header fill */
+
+  /* --- Typography -------------------------------------------------------- */
+  /* Display + body serif. ui-serif resolves to New York on Apple, then the
+     Georgia fallback everywhere else — no web font, offline-safe. */
+  --serif: ui-serif, "New York", Georgia, "Times New Roman", serif;
+  /* System sans for data-dense surfaces (tables, map bands) — set per page. */
+  --sans:  -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui,
+           "Segoe UI", Roboto, sans-serif;
+  /* Genuine system monospace for tickers / numbers / small-caps labels. */
+  --mono:  "SF Mono", ui-monospace, SFMono-Regular, Menlo, Monaco,
+           "Cascadia Code", "Roboto Mono", monospace;
+
+  /* --- Radii & shadows (warm-tinted) ------------------------------------ */
+  --r-card:    14px;
+  --r-chip:    999px;
+  --shadow-sm: 0 1px 2px rgba(60, 48, 30, 0.05),
+               0 4px 14px rgba(60, 48, 30, 0.05);
+  --shadow-lg: 0 2px 6px rgba(60, 48, 30, 0.06),
+               0 18px 40px -18px rgba(60, 48, 30, 0.20);
+
+  /* --- Motion (UNCHANGED — inside 200-300ms, spring for pill/drilldowns) - */
+  --dur:    240ms;
+  --ease:   240ms ease;
+  --spring: cubic-bezier(0.32, 0.72, 0.28, 1.15);
+
+  /* --- Semantic hue tokens (warm-tinted fills, same hue meaning) ---------
+     Green = act / core · Sky = accumulate · Amber = watch · Muted = pass /
+     radar. Fills are muted toward paper so badges sit on #faf7f2 without
+     glowing. Text keeps enough contrast to read. */
+  --sem-act-bg:        #e4ecd7;  --sem-act-fg:        #4d6a2b;  /* green  */
+  --sem-accumulate-bg: #dde8ef;  --sem-accumulate-fg: #2f6486;  /* sky    */
+  --sem-watch-bg:      #f4e7c8;  --sem-watch-fg:      #8a5a1a;  /* amber  */
+  --sem-pass-bg:       #ece7dd;  --sem-pass-fg:       #8a8375;  /* muted  */
+}
+
+/* Motion gating: entrance/decorative motion off when the user asks for less. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * , *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+html { scroll-behavior: smooth; }
+
+*, *::before, *::after { box-sizing: border-box; }
+
+/* Editorial base. Pages may override font-family on data-dense containers. */
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--serif);
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* ============================================================================
+   2. UTILITIES
+   ========================================================================== */
+
+/* Small-caps label — uppercase mono, 0.08em tracking, 11px. Reused by the
+   nav kicker, ledger headers, section eyebrows, colophon. */
+.aie-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* Constrained editorial column. */
+.aie-wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+/* Double hairline rule — two warm lines, the lower one lighter. Used under the
+   masthead and to close sections. */
+.aie-rule-double {
+  border: 0;
+  height: 3px;
+  margin: 0;
+  background:
+    linear-gradient(var(--ink),  var(--ink))  0 0   / 100% 1px no-repeat,
+    linear-gradient(var(--border), var(--border)) 0 3px / 100% 1px no-repeat;
+  opacity: 0.9;
+}
+
+/* ============================================================================
+   3. GRADIENT TOP BORDER
+   3px band across the full width. Background is painted at runtime by JS from
+   AIE_DATA category colors — do NOT hardcode a gradient here.
+   ========================================================================== */
+.gradient-border {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  z-index: 200;
+  background: var(--border); /* neutral fallback until JS paints it */
+}
+
+/* ============================================================================
+   4. TOP NAV / MASTHEAD
+   Serif wordmark left · PRIVATE COVERAGE small-caps · page links right.
+   ========================================================================== */
+.aie-nav {
+  position: sticky;
+  top: 3px;                 /* clears the gradient border */
+  z-index: 150;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  -webkit-backdrop-filter: saturate(1.2) blur(12px);
+  backdrop-filter: saturate(1.2) blur(12px);
+}
+.aie-nav-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 14px 24px 12px;
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+/* Wordmark — the serif brand, left. */
+.aie-wordmark {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  text-decoration: none;
+  line-height: 1;
+}
+
+/* Standing sub-label next to the wordmark. */
+.aie-nav .aie-kicker { flex: 0 0 auto; }
+.aie-kicker::before { content: "· "; color: var(--border); }
+
+/* Push the page links to the right edge. */
+.aie-nav-spacer { flex: 1 1 auto; }
+
+.aie-nav-links {
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.aie-nav-links a {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  padding-bottom: 3px;
+  border-bottom: 1.5px solid transparent;
+  transition: color var(--ease), border-color var(--ease);
+}
+.aie-nav-links a:hover { color: var(--ink); }
+.aie-nav-links a.is-active {
+  color: var(--ink);
+  border-bottom-color: var(--ink);
+}
+/* Performance stays greyed / non-interactive until it has ≥3 calls. */
+.aie-nav-links a.is-disabled {
+  color: color-mix(in srgb, var(--muted) 55%, transparent);
+  pointer-events: none;
+  cursor: default;
+}
+
+/* The masthead is the nav + its closing double rule. */
+.aie-masthead .aie-rule-double { margin-top: 0; }
+
+/* ============================================================================
+   5. LEDGER TABLE
+   The coverage-notes ledger (index.html) + any tabular list. Editorial: quiet
+   hairlines, small-caps header, serif titles, mono meta.
+   ========================================================================== */
+.aie-ledger {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--sans);
+  font-size: 14px;
+}
+.aie-ledger thead th {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: left;
+  padding: 0 14px 10px;
+  border-bottom: 1px solid var(--ink);
+}
+.aie-ledger tbody td {
+  padding: 13px 14px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: baseline;
+}
+.aie-ledger tbody tr { transition: background var(--ease); }
+.aie-ledger tbody tr:hover { background: var(--paper-sink); }
+/* Row links: whole row acts as a link without underlining everything. */
+.aie-ledger tbody tr.is-link { cursor: pointer; }
+/* The title cell carries the serif editorial voice. */
+.aie-ledger .aie-ledger-title {
+  font-family: var(--serif);
+  font-size: 16px;
+  color: var(--ink);
+}
+.aie-ledger .aie-ledger-date { font-family: var(--mono); color: var(--muted); }
+/* Muted "verdict only" rows (a desk verdict but no memo yet). */
+.aie-ledger tbody tr.is-stub td { color: var(--muted); }
+.aie-ledger tbody tr.is-stub .aie-ledger-title { color: var(--muted); }
+
+/* ============================================================================
+   6. CHIPS
+   Small warm pills — category tags, kind chips, filters, ticker chips. A
+   per-chip accent (category color) is set at runtime via --chip-accent; the
+   base is neutral so nothing is hardcoded.
+   ========================================================================== */
+.aie-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 3px 9px;
+  border-radius: var(--r-chip);
+  background: var(--paper-tint);
+  border: 1px solid var(--border);
+  color: var(--text);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background var(--ease), border-color var(--ease), color var(--ease);
+}
+a.aie-chip:hover { border-color: var(--muted); color: var(--ink); }
+
+/* Ticker chip: a small dot in the (runtime-supplied) category accent. */
+.aie-chip--ticker::before {
+  content: "";
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--chip-accent, var(--muted));
+}
+
+/* Filter chip toggle state. */
+.aie-chip.is-active {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--card);
+}
+
+/* ============================================================================
+   7. TIER + STANCE BADGES
+   Warm-tinted fills, SAME hue semantics as the cleanroom theme:
+   tier core = green, watch = amber, radar = muted;
+   stance act = green, accumulate = sky, watch = amber, pass = muted.
+   ========================================================================== */
+.aie-badge {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 6px;
+  line-height: 1;
+}
+
+/* Conviction tiers. */
+.aie-tier--core  { background: var(--sem-act-bg);   color: var(--sem-act-fg); }
+.aie-tier--watch { background: var(--sem-watch-bg); color: var(--sem-watch-fg); }
+.aie-tier--radar { background: var(--sem-pass-bg);  color: var(--sem-pass-fg); }
+
+/* Desk stances. */
+.aie-stance--act        { background: var(--sem-act-bg);        color: var(--sem-act-fg); }
+.aie-stance--accumulate { background: var(--sem-accumulate-bg); color: var(--sem-accumulate-fg); }
+.aie-stance--watch      { background: var(--sem-watch-bg);      color: var(--sem-watch-fg); }
+.aie-stance--pass       { background: var(--sem-pass-bg);       color: var(--sem-pass-fg); }
+
+/* ============================================================================
+   8. FOOTER COLOPHON
+   ========================================================================== */
+.aie-colophon {
+  max-width: 1120px;
+  margin: 64px auto 0;
+  padding: 24px;
+  border-top: 1px solid var(--border);
+  font-family: var(--mono);
+  font-size: 11px;
+  line-height: 1.7;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+}
+.aie-colophon strong { color: var(--text); font-weight: 600; }
+.aie-colophon a { color: var(--text); text-decoration: none; border-bottom: 1px solid var(--border); }
+.aie-colophon a:hover { color: var(--ink); border-bottom-color: var(--muted); }
+
+/* ============================================================================
+   9. RESPONSIVE — mobile breakpoint 768px
+   ========================================================================== */
+@media (max-width: 768px) {
+  body { font-size: 16px; }
+  .aie-nav-inner { padding: 12px 18px 10px; gap: 12px; }
+  .aie-wordmark { font-size: 19px; }
+  /* On narrow screens the kicker drops and links wrap under the wordmark. */
+  .aie-nav .aie-kicker { display: none; }
+  .aie-nav-spacer { flex-basis: 100%; height: 0; }
+  .aie-nav-links { gap: 14px; }
+  .aie-wrap, .aie-nav-inner, .aie-colophon { padding-left: 18px; padding-right: 18px; }
+  .aie-ledger thead { display: none; }         /* stack rows on mobile */
+  .aie-ledger tbody td { padding: 8px 4px; display: block; border: 0; }
+  .aie-ledger tbody tr { display: block; padding: 12px 4px; border-bottom: 1px solid var(--border); }
+}
+
+/* ============================================================================
+   VISUAL QA — static snippet (commented; not rendered)
+   Paste into a bare .html <body> that links this file to eyeball every
+   component. Category colors here are stand-ins for what JS paints at runtime.
+   ----------------------------------------------------------------------------
+   <div class="gradient-border"
+        style="background:linear-gradient(to right,#3b82f6,#8b5cf6,#f59e0b,#22c55e,#f97316,#14b8a6,#0ea5e9,#e11d48,#76b900,#6366f1)"></div>
+
+   <header class="aie-masthead">
+     <nav class="aie-nav"><div class="aie-nav-inner">
+       <a class="aie-wordmark" href="index.html">AI Supply Desk</a>
+       <span class="aie-label aie-kicker">Private Coverage · Not Advice</span>
+       <span class="aie-nav-spacer"></span>
+       <div class="aie-nav-links">
+         <a href="index.html" class="is-active">Coverage</a>
+         <a href="desk.html">Desk</a>
+         <a href="vault.html">Vault</a>
+         <a href="vault.html?view=graph">Graph</a>
+         <a class="is-disabled">Performance</a>
+       </div>
+     </div></nav>
+     <hr class="aie-rule-double">
+   </header>
+
+   <main class="aie-wrap" style="padding-top:28px">
+     <p class="aie-label">Coverage &amp; market notes</p>
+
+     <p style="margin:6px 0 20px">
+       Chips:
+       <span class="aie-chip">coverage</span>
+       <span class="aie-chip aie-chip--ticker" style="--chip-accent:#76b900">NVDA</span>
+       <a class="aie-chip" href="#">filter</a>
+       <span class="aie-chip is-active">act</span>
+     </p>
+
+     <p style="margin:6px 0 20px">
+       Tiers:
+       <span class="aie-badge aie-tier--core">core</span>
+       <span class="aie-badge aie-tier--watch">watch</span>
+       <span class="aie-badge aie-tier--radar">radar</span>
+       &nbsp;&nbsp;Stances:
+       <span class="aie-badge aie-stance--act">act</span>
+       <span class="aie-badge aie-stance--accumulate">accumulate</span>
+       <span class="aie-badge aie-stance--watch">watch</span>
+       <span class="aie-badge aie-stance--pass">pass</span>
+     </p>
+
+     <table class="aie-ledger">
+       <thead><tr><th>Date</th><th>Ticker</th><th>Kind</th><th>Title</th><th>Rating</th></tr></thead>
+       <tbody>
+         <tr class="is-link">
+           <td class="aie-ledger-date">06 Jul 2026</td>
+           <td><span class="aie-chip aie-chip--ticker" style="--chip-accent:#76b900">NVDA</span></td>
+           <td><span class="aie-chip">coverage</span></td>
+           <td class="aie-ledger-title">The compute toll booth still owns the road</td>
+           <td><span class="aie-badge aie-stance--act">act</span></td>
+         </tr>
+         <tr class="is-stub">
+           <td class="aie-ledger-date">—</td>
+           <td><span class="aie-chip aie-chip--ticker" style="--chip-accent:#8b5cf6">MU</span></td>
+           <td>—</td>
+           <td class="aie-ledger-title">Verdict only — memo pending</td>
+           <td><span class="aie-badge aie-stance--accumulate">accumulate</span></td>
+         </tr>
+       </tbody>
+     </table>
+   </main>
+
+   <footer class="aie-colophon">
+     <strong>AI Supply Desk</strong> — private research, not investment advice.
+     Prices are weekly snapshots. Verdicts are one operator's second opinion.
+     <a href="#">About this desk</a>
+   </footer>
+   ---------------------------------------------------------------------------- */
