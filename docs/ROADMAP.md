@@ -1,6 +1,19 @@
 # Roadmap & Status — AI Infrastructure Explorer
 
-_Last updated: 2026-07-03. Living document — update as things ship or change._
+_Last updated: 2026-07-08 (Private Coverage Phase 1 shipped). Living document — update as things ship or change._
+
+> **Active build:** the "Private Coverage" editorial upgrade — multi-page split,
+> memo-style coverage notes, Obsidian-style knowledge Vault + graph, minimal
+> performance hooks. The authoritative **phase table + step-by-step prompt guide
+> is [EXECUTION.md](EXECUTION.md)** — check the boxes there for live status.
+> - **Phase 1 ✅ done (2026-07-08)** — multi-page editorial foundation: `shared/theme.css`
+>   (warm editorial tokens + components), `shared/common.js` (`window.AIE`), the Field
+>   Guide moved `index.html` → `desk.html` + retokenized to the warm theme, and a new
+>   editorial `index.html` front page. Still vanilla + `file://`-safe.
+> - **Phases 2–5 ☐ next** — coverage memos, knowledge Vault + graph, site-wide
+>   cross-linking, performance hooks.
+>
+> (This upgrade supersedes the Signal Digest spec — coverage memos replace it.)
 
 ---
 
@@ -8,12 +21,12 @@ _Last updated: 2026-07-03. Living document — update as things ship or change._
 
 | | |
 |---|---|
-| Tickers tracked | ~86 — now tiered: **22 Core / 26 Watch / 38 Radar** (check `data.js` tiers for exact) |
+| Tickers tracked | ~109 — now tiered: **23 Core / 21 Watch / 65 Radar** (check `data.js` tiers for exact) |
 | Categorized layers | 10 (`photonics, memory, fabs, neoclouds, materials, networking, glass, robotics, accelerators, hyperscalers`) |
-| Unsorted (needs triage) | ~59 — but **all remaining unsorted are Watch/Radar tier** (every Core name is classified); Radar-tier triage is low priority by design |
-| Theses ingested | ~89 |
-| Brain digests | 9 themes synthesized, refreshed 2026-07-03 (manual Claude Code pass, 22 new theses since prior run) |
-| **Desk verdicts** | **13 Core names** with Claude's stance + execution note (`ingest/store/verdicts.json`, reviewed 2026-07-03) |
+| Unsorted (needs triage) | ~10 Watch-tier names (CRCL, EWY, VPG, RKLB, NVTS, HOOD, SMTC, SPCX, DRAM) **+ 1 Core-tier name (RDDT)** still unsorted — RDDT doesn't cleanly fit any of the 10 categories (Reddit/AI-training-data play), left in triage rather than misclassified |
+| Theses ingested | 170 |
+| Brain digests | 10 themes; 8 re-synthesized 2026-07-06 (manual Claude Code pass, 90 new theses since prior run), materials/glass carried forward unchanged (no new theses) |
+| **Desk verdicts** | **15 Core names** with Claude's stance + execution note (`ingest/store/verdicts.json`, reviewed 2026-07-06). Stance moves this pass: AAOI/LITE/AXTI watch→accumulate (SemiAnalysis photonics washout + Nomura InP price-hike confirmation), TSLA dropped out of Core (verdict removed), XFAB/AMZN/GFS added |
 | GitHub repo | Public — github.com/nainaii1/ai-infrastructure-explorer, branch `feat/brain-synthesis` |
 
 Counts drift constantly as posts get ingested — trust `ingest/store/*.json` /

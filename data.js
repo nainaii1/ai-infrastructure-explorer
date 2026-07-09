@@ -6,9 +6,9 @@
 
 window.AIE_DATA = {
   "meta": {
-    "version": "1.166",
+    "version": "1.201",
     "schemaVersion": 1,
-    "lastUpdated": "2026-07-03T17:29:12Z",
+    "lastUpdated": "2026-07-08T14:00:00Z",
     "source": "ingest"
   },
   "countries": {
@@ -210,29 +210,29 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-06-25",
-      "price": 120.95,
+      "price": 113.84,
       "currency": "USD",
-      "marketCap": 9705362669,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 9134836595,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 24.1773,
-        "mentions": 36,
+        "score": 19.6416,
+        "mentions": 38,
         "convictionHits": 3,
-        "lastMentioned": "2026-07-03T10:08:17Z"
+        "lastMentioned": "2026-07-06T15:34:36Z"
       },
       "tier": "core",
       "verdict": {
         "ticker": "AAOI",
-        "stance": "watch",
-        "view": "His own high-conviction post says photonics ran too much ($40 \u2192 $150) and expects range-bound chop until next earnings \u2014 take him at his word. The 800%+ Y/Y projection off $471M/month is extraordinary and needs one more confirming quarter before it's investable rather than narrative.",
-        "execution": "No chase. Enter only on an earnings print that confirms the monthly run-rate, or a washout back toward the pre-run range. Set the alert, keep the powder.",
-        "changesMind": "A reported quarter validating the $471M/month trajectory, or an AMD LTA expansion \u2014 either would flip this to accumulate.",
+        "stance": "accumulate",
+        "view": "Upgraded from watch because his own entry condition fired: last week's verdict said enter on 'a washout back toward the pre-run range,' and the SemiAnalysis CPO-delay pieces produced exactly that \u2014 a 40-60% optical drawdown he heavily bought. He remains heavily concentrated here (with SIVE) and openly suffering drawdowns, so the conviction is real but so is the book-talking; the 800%+ Y/Y run-rate story still needs an earnings print to be more than narrative.",
+        "execution": "Scale in on the washout rather than waiting for the earnings confirmation you'll pay up for \u2014 but keep half the intended size in reserve for the print. If the quarter validates the $471M/month trajectory, complete the position.",
+        "changesMind": "An earnings miss against the monthly run-rate narrative, or the AMD CW LTA relationship failing to expand \u2014 either sends this back to watch.",
         "basedOnThesisIds": [
           "h_29e60f0da3d1925a",
-          "h_7f5feac9a1b88083",
-          "h_2f93712c7f08d25e"
+          "h_3dbecf550235afcf",
+          "h_34534f43456cd196"
         ],
-        "updatedAt": "2026-07-03"
+        "updatedAt": "2026-07-06"
       }
     },
     {
@@ -247,29 +247,29 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-06-25",
-      "price": 728.32,
+      "price": 701.95,
       "currency": "USD",
-      "marketCap": 56663296000,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 54611710000,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 15.7403,
-        "mentions": 25,
-        "convictionHits": 3,
-        "lastMentioned": "2026-07-03T10:11:43Z"
+        "score": 22.9599,
+        "mentions": 33,
+        "convictionHits": 4,
+        "lastMentioned": "2026-07-08T13:15:30Z"
       },
       "tier": "core",
       "verdict": {
         "ticker": "LITE",
-        "stance": "watch",
-        "view": "The incumbent quality name \u2014 sold out into 2028 per its own CEO \u2014 but it already re-rated from $3B to $65B+, so the shortage is substantially priced. His note that Lumentum is buying CW lasers from competitors cuts both ways: it confirms the shortage and flags their capacity limits.",
-        "execution": "Buy macro-driven dips only; for new money the asymmetry now sits in the smaller pure plays (SIVE, AXTI) that feed the same shortage.",
-        "changesMind": "New LTAs at materially higher pricing, or a broad photonics correction resetting the multiple.",
+        "stance": "accumulate",
+        "view": "Thesis restated at higher pitch during the washout: laser bottlenecks 'last into 2029,' and his standing frame \u2014 if the CEO says anything they make gets bought, bear notes don't touch fundamentals \u2014 got another airing as LITE fell with everything else. A second-order kicker appeared: US scrutiny of Hesai (Chinese lidar, firmware kill-switch evidence) is bullish for western lidar players and, upstream, for their laser suppliers LITE and SIVE. Still the incumbent-quality, lower-asymmetry way to own the chokepoint.",
+        "execution": "The macro dip extended \u2014 continue building the lower-beta anchor of the photonics sleeve on red days, SIVE/AXTI still carry the torque. Nothing this week changes sizing.",
+        "changesMind": "Hyperscaler order pushouts substantiating the CPO-delay bear case, or share loss to the CW-laser entrants it currently buys from.",
         "basedOnThesisIds": [
-          "h_13af0765b648b270",
-          "h_e318f2d2d543b92a",
-          "h_d81fe21a14bdd892"
+          "h_d1316054ff13d830",
+          "h_ab043547a0a514ce",
+          "h_574cc87d7e028236"
         ],
-        "updatedAt": "2026-07-03"
+        "updatedAt": "2026-07-08T14:00:00Z"
       }
     },
     {
@@ -284,12 +284,12 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-06-25",
-      "price": 333.36,
+      "price": 313.12,
       "currency": "USD",
-      "marketCap": 52862601336,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 49653040948,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 2.9406,
+        "score": 2.1621,
         "mentions": 9,
         "convictionHits": 0,
         "lastMentioned": "2026-07-03T10:07:17Z"
@@ -308,17 +308,17 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-06-25",
-      "price": 975.56,
+      "price": 934.75,
       "currency": "USD",
-      "marketCap": 1101787708400,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 1055697302500,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 2.2611,
-        "mentions": 8,
+        "score": 3.4545,
+        "mentions": 13,
         "convictionHits": 0,
-        "lastMentioned": "2026-06-30T07:50:05Z"
+        "lastMentioned": "2026-07-08T13:01:43Z"
       },
-      "tier": "watch"
+      "tier": "core"
     },
     {
       "ticker": "000660.KS",
@@ -332,10 +332,10 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-06-25",
-      "price": 2187000,
+      "price": 2076000,
       "currency": "KRW",
-      "marketCap": 1549044786672000,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 1470423857856000,
+      "asOf": "2026-07-08T15:04:23Z",
       "tier": "radar"
     },
     {
@@ -350,29 +350,28 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-06-25",
-      "price": 56.62,
+      "price": 58.85,
       "currency": "USD",
-      "marketCap": 2625492388,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 2728898393,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 9.3815,
-        "mentions": 18,
+        "score": 8.3322,
+        "mentions": 20,
         "convictionHits": 1,
-        "lastMentioned": "2026-07-03T10:07:17Z"
+        "lastMentioned": "2026-07-08T13:04:04Z"
       },
       "tier": "core",
       "verdict": {
         "ticker": "AXTI",
         "stance": "watch",
-        "view": "The InP substrate feeder to the whole laser ramp \u2014 real chokepoint exposure one layer upstream of SIVE/LITE. But he flagged it himself in the high-conviction market post: it's one of the names that ran too much (his original idea was at $15), and photonics is chopping.",
-        "execution": "This is the pullback-list name: buy the photonics-theme washout, not the highs. Pair the entry with substrate pricing/capacity datapoints, not just price.",
-        "changesMind": "Evidence InP substrate supply is loosening, or a capacity announcement from a larger competitor.",
+        "view": "Downgraded from accumulate on price, not thesis. The Coherent 3-year InP deal with a $22.3M prepayment is confirmed (8-K, 25 Jun). But the fact-check reframes the price-hike leg: the substrate ASP spikes are largely a China export-control artifact \u2014 licenses began flowing in June 2026 and AXT is doubling capacity, so the hikes can normalize rather than compound like memory. His 'Nomura 42-78%' figure couldn't be sourced. And his own post describes the stock as gone 'from $1 to $60' \u2014 the venture-scale re-rating already happened (it actually peaked near $143), so the risk/reward is no longer the trade last week's plan sized for; his standing dilution warning is most dangerous exactly here.",
+        "execution": "Stop initiating; hold whatever was started on the earlier plan. Re-engage only on a real reset (a 30-40% retrace toward the run's base) with substrate ASPs still rising \u2014 the Nomura hike schedule remains the dashboard.",
+        "changesMind": "China export licenses and AXT's capacity additions normalizing InP ASPs, or another dilutive raise into strength (kills the case); a deep retrace (30-40% toward the run's base) with the Coherent-style committed-capacity deals still expanding (re-opens accumulation).",
         "basedOnThesisIds": [
-          "h_29e60f0da3d1925a",
-          "h_a558ec6043c7fdd7",
-          "h_3351e475854eb59d"
+          "h_47f3b5b1bfcce165",
+          "h_574cc87d7e028236"
         ],
-        "updatedAt": "2026-07-03"
+        "updatedAt": "2026-07-08T14:00:00Z"
       }
     },
     {
@@ -387,28 +386,28 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-06-25",
-      "price": 194.83,
+      "price": 198.55499,
       "currency": "USD",
-      "marketCap": 4718977430000,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 4809200477600,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 20.9444,
-        "mentions": 40,
+        "score": 20.9132,
+        "mentions": 46,
         "convictionHits": 2,
-        "lastMentioned": "2026-07-03T10:11:43Z"
+        "lastMentioned": "2026-07-08T13:02:54Z"
       },
       "tier": "core",
       "verdict": {
         "ticker": "NVDA",
         "stance": "watch",
-        "view": "In this corpus NVDA is context, not a pick \u2014 he uses it as the gravitational center whose architecture changes (EML bottlenecks, CPO transition) create the bottlenecks he actually trades. His edge, and this tool's entire premise, is in the layers beneath it.",
+        "view": "Unchanged as the gravitational center rather than a pick. This week it appears as collateral damage in the narrative war (SemiAnalysis supply-chain bear posts helped trigger the selloff) and in the Hesai lidar scrutiny story. His edge \u2014 and this tool's \u2014 remains the layers beneath it.",
         "execution": "Express the view through the suppliers this map surfaces; hold NVDA as a separate core-portfolio decision outside this workflow.",
         "changesMind": "N/A \u2014 re-rate if he starts publishing NVDA-specific supply/pricing work.",
         "basedOnThesisIds": [
-          "h_e318f2d2d543b92a",
-          "h_d2558834bea09c9f"
+          "h_73d38658dc26c0d9",
+          "h_ab043547a0a514ce"
         ],
-        "updatedAt": "2026-07-03"
+        "updatedAt": "2026-07-08T14:00:00Z"
       }
     },
     {
@@ -423,12 +422,12 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-06-25",
-      "price": 219.05,
+      "price": 209.3233,
       "currency": "USD",
-      "marketCap": 24480287611,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 23393264495,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 5.6746,
+        "score": 4.1722,
         "mentions": 15,
         "convictionHits": 1,
         "lastMentioned": "2026-06-30T07:52:04Z"
@@ -447,15 +446,15 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-06-25",
-      "price": 120.35,
+      "price": 106.08,
       "currency": "USD",
-      "marketCap": 604879100000,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 533158080000,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 5.9296,
-        "mentions": 11,
+        "score": 5.2351,
+        "mentions": 13,
         "convictionHits": 1,
-        "lastMentioned": "2026-07-02T08:33:21Z"
+        "lastMentioned": "2026-07-08T13:01:43Z"
       },
       "tier": "core"
     },
@@ -471,15 +470,15 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-06-25",
-      "price": 434.16,
+      "price": 432.97,
       "currency": "USD",
-      "marketCap": 2251762156800,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 2245590245600,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 4.6203,
-        "mentions": 14,
+        "score": 3.651,
+        "mentions": 15,
         "convictionHits": 0,
-        "lastMentioned": "2026-06-27T15:45:14Z"
+        "lastMentioned": "2026-07-05T12:40:49Z"
       },
       "tier": "core"
     },
@@ -495,29 +494,28 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-06-25",
-      "price": 215.62,
+      "price": 204.67,
       "currency": "USD",
-      "marketCap": 51748800000,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 49120800000,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 11.0034,
-        "mentions": 18,
+        "score": 9.3116,
+        "mentions": 20,
         "convictionHits": 2,
-        "lastMentioned": "2026-07-03T10:09:14Z"
+        "lastMentioned": "2026-07-08T13:01:43Z"
       },
       "tier": "core",
       "verdict": {
         "ticker": "NBIS",
         "stance": "accumulate",
-        "view": "The demand chain is corroborated from two directions: GOOGL is so compute-constrained it cut Meta's capacity, and META is building a cloud to sell compute it sources partly from neoclouds \u2014 NBIS sits in the middle of both flows, and Wells Fargo reads it the same way. Pushback: neocloud economics are financing-heavy and contract-concentrated, which the tweets gloss over.",
-        "execution": "Modest position now; add on each disclosed hyperscaler contract expansion. Watch the balance sheet \u2014 a big debt raise changes the risk math faster than the narrative does.",
-        "changesMind": "Hyperscaler capex guidance cuts, or META insourcing the capacity it currently rents.",
+        "view": "No new neocloud-specific thesis this week \u2014 NBIS simply led his indiscriminate-selloff list, which he reads as margin cascades. But the fact-check reframes the catalyst he waved off: the 1 Jul trigger was not 'Meta cutting capex' (Meta had raised 2026 guidance to $125-145B); it was Bloomberg reporting Meta will sell its excess compute \u2014 i.e. Meta becoming a neocloud competitor, which hit CoreWeave -14% and NBIS -17% specifically. That is a real structural threat to neocloud pricing power, not FUD. The financing-heavy, contract-concentrated caveat therefore matters more, not less.",
+        "execution": "Hold, but treat this as the most fundamentally-exposed name in the selloff, not a clean technical dip. Add only on disclosed hyperscaler contract expansions that reprice committed capacity (the TeraWulf/Anthropic comp), not on red days alone \u2014 and watch whether Meta's compute-selling ambitions actually land.",
+        "changesMind": "Hyperscaler capex guidance cuts, Meta (or another hyperscaler) materially undercutting neocloud pricing with resold compute, META insourcing rented capacity, or a debt raise that changes the risk math.",
         "basedOnThesisIds": [
-          "h_b0d92d200ffc6bd3",
-          "h_0235e573a41f2c62",
-          "h_06c1b1dfc8ba3b53"
+          "h_574cc87d7e028236",
+          "h_79f9aaff84f7f697"
         ],
-        "updatedAt": "2026-07-03"
+        "updatedAt": "2026-07-08T14:00:00Z"
       }
     },
     {
@@ -532,12 +530,12 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-06-25",
-      "price": 81.745,
+      "price": 85.77,
       "currency": "USD",
-      "marketCap": 44597647525,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 46793571664,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.6146,
+        "score": 0.4519,
         "mentions": 2,
         "convictionHits": 0,
         "lastMentioned": "2026-07-01T14:59:53Z"
@@ -556,15 +554,15 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-06-25",
-      "price": 69.96,
+      "price": 64.775,
       "currency": "USD",
-      "marketCap": 2200469650,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 2037384528,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 1.7123,
-        "mentions": 5,
+        "score": 1.9583,
+        "mentions": 6,
         "convictionHits": 1,
-        "lastMentioned": "2026-07-02T20:35:34Z"
+        "lastMentioned": "2026-07-08T13:04:04Z"
       },
       "tier": "watch"
     },
@@ -580,12 +578,12 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-06-25",
-      "price": 111.75,
+      "price": 98.36,
       "currency": "EUR",
-      "marketCap": 3991708659,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 3513418020,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 1.3555,
+        "score": 0.9966,
         "mentions": 9,
         "convictionHits": 0,
         "lastMentioned": "2026-06-30T07:52:04Z"
@@ -604,12 +602,12 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-06-25",
-      "price": 19.2,
+      "price": 16.65,
       "currency": "EUR",
-      "marketCap": 470333683,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 407867491,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 6.9363,
+        "score": 5.0999,
         "mentions": 11,
         "convictionHits": 2,
         "lastMentioned": "2026-07-03T10:12:58Z"
@@ -628,28 +626,28 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-06-26",
-      "price": 341.3,
+      "price": 318.77,
       "currency": "USD",
-      "marketCap": 36008044889,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 33402980361,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 13.2946,
-        "mentions": 17,
-        "convictionHits": 4,
-        "lastMentioned": "2026-07-02T20:32:33Z"
+        "score": 15.0923,
+        "mentions": 20,
+        "convictionHits": 5,
+        "lastMentioned": "2026-07-08T13:18:10Z"
       },
       "tier": "core",
       "verdict": {
         "ticker": "JBL",
         "stance": "accumulate",
-        "view": "The most conservative expression of the photonics ramp in his whole corpus: ~$28B market cap, ~22x forward, co-developing 1.6T optical transceivers with Sivers, and he openly frames a path to $45B. As a diversified manufacturer it survives even if individual laser suppliers get shuffled \u2014 the thesis risk is a fraction of SIVE's for a correlated payoff.",
-        "execution": "Starter position now is defensible; add when earnings start breaking out the optics/photonics contribution. Suits money you don't want in small-cap volatility.",
-        "changesMind": "Losing transceiver program share, or optics staying too small to move a $28B revenue base.",
+        "view": "The most concrete new datapoint of the week attaches here: per his relay of a JPM fireside chat, JBL's 1.6T LRO has a 'relatively dramatic moat' with qualification completing roughly Aug 2026\u2013Mar 2027, then mass production using Sivers lasers in pluggables. That turns the conservative-expression thesis into one with a dated catalyst window.",
+        "execution": "Starter position stands; the qualification window gives you a concrete thing to verify in the next two earnings calls \u2014 add if optics contribution starts getting broken out or the qual completes on schedule.",
+        "changesMind": "Qualification slipping past Q1 2027, losing transceiver program share, or optics staying too small to move a $28B revenue base.",
         "basedOnThesisIds": [
-          "h_fbc83c0f2773fa23",
-          "h_7797b5894b3bb34e"
+          "h_2c315427900a28ca",
+          "h_0dd22247c9538b67"
         ],
-        "updatedAt": "2026-07-03"
+        "updatedAt": "2026-07-08T14:00:00Z"
       }
     },
     {
@@ -664,28 +662,28 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-06-26",
-      "price": 8.76,
+      "price": 8.345,
       "currency": "USD",
-      "marketCap": 1156431813,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 1101646516,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 9.2875,
-        "mentions": 14,
-        "convictionHits": 2,
-        "lastMentioned": "2026-07-02T20:32:33Z"
+        "score": 11.1703,
+        "mentions": 17,
+        "convictionHits": 3,
+        "lastMentioned": "2026-07-08T13:18:10Z"
       },
       "tier": "core",
       "verdict": {
         "ticker": "POET",
         "stance": "watch",
-        "view": "A story name resting on an OSINT inference \u2014 a LinkedIn post suggesting POET/SIVE power a top-3 hyperscaler \u2014 plus real but early AGM datapoints about the laser shortage. That's a rumor-grade catalyst on a speculative cap structure; the shortage backdrop is real, the customer isn't confirmed.",
-        "execution": "Speculative sizing only, and only if you'd hold through a rumor unwinding. The disciplined play is to wait for the hyperscaler customer to be named.",
-        "changesMind": "A confirmed, named hyperscaler design win \u2014 that converts this from lottery ticket to thesis.",
+        "view": "Slightly firmer calendar (production starting H2 2026, more in H1 2027) but the same unnamed-customer problem. The sharpest new datapoint is relative: he flags that SIVE \u2014 which supplies lasers to POET among others \u2014 trades below POET, which is as much a POET-richness observation as a SIVE-cheapness one. The disciplined trigger is unchanged.",
+        "execution": "Unchanged: speculative sizing only. Trigger remains a named hyperscaler customer or actual HVM revenue in the H2 2026 prints. If you want the exposure, his own relative-value logic argues the supplier is the cheaper way in.",
+        "changesMind": "A confirmed, named hyperscaler customer (upgrades it), or H2 2026 passing without the promised HVM ramp (kills it).",
         "basedOnThesisIds": [
-          "h_13af0765b648b270",
-          "h_9018322ed2470b53"
+          "h_0dd22247c9538b67",
+          "h_2c315427900a28ca"
         ],
-        "updatedAt": "2026-07-03"
+        "updatedAt": "2026-07-08T14:00:00Z"
       }
     },
     {
@@ -700,28 +698,29 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-06-26",
-      "price": 393.45,
+      "price": 392.22501,
       "currency": "USD",
-      "marketCap": 1477688034000,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 1473087299923,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 5.5334,
-        "mentions": 8,
+        "score": 7.3434,
+        "mentions": 13,
         "convictionHits": 1,
-        "lastMentioned": "2026-07-02T20:35:04Z"
+        "lastMentioned": "2026-07-08T13:13:41Z"
       },
-      "tier": "watch",
+      "tier": "core",
       "verdict": {
         "ticker": "TSLA",
-        "stance": "pass",
-        "view": "Every TSLA mention here is theme-level ('robotics decade') \u2014 there is no Tesla-specific supply-chain thesis in the corpus, and his actual robotics money went to Agility (CCXI), which he analyzes in detail. Within this tool's scope, TSLA is noise wearing a Core badge.",
-        "execution": "No action from this signal. If you want his robotics exposure, CCXI is where his work actually is.",
-        "changesMind": "A dedicated Optimus supply-chain or production-rate thesis from him.",
+        "stance": "watch",
+        "view": "New to Core on the robotics rotation. His take is directional, not fundamental: Elon is the reason the US leads in space and EVs, so he 'can make US robotics #1 again' \u2014 and he notes TSLA's $1T+ valuation is itself anchored to the humanoid mission. Revealingly, he owns CCXI instead, calling Agility the purer mass-production play. When the analyst's own money picks the smaller name, TSLA is his theme index, not his idea.",
+        "execution": "No action from this signal \u2014 TSLA here is a robotics-sentiment gauge, and any Tesla position is a whole-company bet (autos, energy, FSD) far beyond this corpus. If you want his actual robotics idea, that's the CCXI verdict, venture-sized.",
+        "changesMind": "A dedicated Optimus production/economics thesis from him, or TSLA disclosures making humanoid economics separable from the auto business.",
         "basedOnThesisIds": [
-          "h_1793f6bef2c43658",
-          "h_7864cc0211dacb69"
+          "h_2909dadab30949b5",
+          "h_1550a3113d94d9da",
+          "h_3732049ff8aa171d"
         ],
-        "updatedAt": "2026-07-03"
+        "updatedAt": "2026-07-08T14:00:00Z"
       }
     },
     {
@@ -736,17 +735,17 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
-      "price": 85.13,
+      "price": 75.68,
       "currency": "USD",
-      "marketCap": 34638720387,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 30793590495,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.7544,
-        "mentions": 2,
+        "score": 2.1473,
+        "mentions": 4,
         "convictionHits": 0,
-        "lastMentioned": "2026-06-30T07:36:16Z"
+        "lastMentioned": "2026-07-08T13:18:55Z"
       },
-      "tier": "radar"
+      "tier": "watch"
     },
     {
       "ticker": "CRCL",
@@ -760,12 +759,12 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
-      "price": 64.62,
+      "price": 62.35,
       "currency": "USD",
-      "marketCap": 17272324711,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 16665574210,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.8487,
+        "score": 0.624,
         "mentions": 3,
         "convictionHits": 1,
         "lastMentioned": "2026-06-27T15:45:34Z"
@@ -784,12 +783,12 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
-      "price": 12.86,
+      "price": 13.026,
       "currency": "USD",
-      "marketCap": 7853961476,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 7955342316,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.2607,
+        "score": 0.1917,
         "mentions": 2,
         "convictionHits": 0,
         "lastMentioned": "2026-06-27T15:38:26Z"
@@ -808,12 +807,12 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
-      "price": 180.14,
+      "price": 176.79,
       "currency": "USD",
-      "marketCap": 13618583099,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 13365323116,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 2.2429,
+        "score": 1.6491,
         "mentions": 8,
         "convictionHits": 1,
         "lastMentioned": "2026-06-30T07:47:41Z"
@@ -832,12 +831,12 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
-      "price": 34.87,
+      "price": 34.995,
       "currency": "USD",
-      "marketCap": 59488368721,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 58354478050,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.2607,
+        "score": 0.1917,
         "mentions": 2,
         "convictionHits": 0,
         "lastMentioned": "2026-06-27T15:38:26Z"
@@ -856,29 +855,28 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
-      "price": 582.9,
+      "price": 603.29498,
       "currency": "USD",
-      "marketCap": 1479646938073,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 1531418080003,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 7.3119,
-        "mentions": 13,
+        "score": 8.5842,
+        "mentions": 17,
         "convictionHits": 1,
-        "lastMentioned": "2026-07-03T10:08:17Z"
+        "lastMentioned": "2026-07-08T13:14:42Z"
       },
       "tier": "core",
       "verdict": {
         "ticker": "META",
         "stance": "accumulate",
-        "view": "Selling excess compute is a demand-quality signal, not an overbuild confession \u2014 Wells Fargo explicitly expects no capex pullback, and the March NBIS agreements show Meta paying up for capacity. Pushback: standing up a cloud business against AWS/Azure/GCP is a decade-long execution problem the tweets treat as a done deal.",
-        "execution": "Accumulate on capex-confirming quarters. Treat the cloud-business news as sentiment fuel, not the thesis \u2014 the thesis is the capex line.",
-        "changesMind": "A guided capex cut, or the compute-resale effort quietly shelved.",
+        "view": "He pins the whole selloff on the Bloomberg 'Meta excess compute' framing plus SemiAnalysis bear posts, and cites a Meta spokesperson walkback confirming it's 'still hungry for more computing power' with deals inked with CoreWeave, Google and Oracle. Two corrections from the fact-check: (1) that spokesperson statement could not be independently verified this week \u2014 treat it as his paraphrase, not a confirmed press release; (2) the one confirmed Meta communication in the window was Zuckerberg's 2 Jul town hall saying AI-agent progress 'hasn't accelerated the way we expected' \u2014 which cuts against his bull case. The underlying capex commitments and named compute deals are real and previously reported; the demand-narrative crack is also real.",
+        "execution": "The dip was the accumulation window and partially closed with the clarification; from here add on capex-confirming quarters as planned rather than chasing the relief move.",
+        "changesMind": "A guided capex cut, the Zuckerberg 'agents haven't accelerated' concession hardening into slower buildout, or 'Watermelon' underdelivering enough to revive the retreat narrative.",
         "basedOnThesisIds": [
-          "h_b0d92d200ffc6bd3",
-          "h_0235e573a41f2c62",
-          "h_c1ee65a16b4a3233"
+          "h_73d38658dc26c0d9",
+          "h_79f9aaff84f7f697"
         ],
-        "updatedAt": "2026-07-03"
+        "updatedAt": "2026-07-08T14:00:00Z"
       }
     },
     {
@@ -893,28 +891,27 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
-      "price": 245.29,
+      "price": 231.56,
       "currency": "USD",
-      "marketCap": 214579692000,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 202568688000,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 12.047,
-        "mentions": 17,
+        "score": 10.3216,
+        "mentions": 19,
         "convictionHits": 3,
-        "lastMentioned": "2026-07-03T10:09:14Z"
+        "lastMentioned": "2026-07-08T13:01:43Z"
       },
       "tier": "core",
       "verdict": {
         "ticker": "MRVL",
         "stance": "watch",
-        "view": "Here I push back on the mention count: MRVL's seven mentions are nearly all passing references inside group lists \u2014 there is no standalone Marvell thesis anywhere in the corpus. The tiering math promotes it; reading the actual posts demotes it.",
-        "execution": "No action on this analyst's signal alone. Revisit if he writes an actual MRVL thesis or custom-XPU wins re-accelerate independently.",
-        "changesMind": "A dedicated post with a specific Marvell bottleneck or design-win claim.",
+        "view": "Still no standalone thesis \u2014 this week's only appearance is in the indiscriminate-selloff list. The NVDA-backed-ASIC-challenger frame from last week remains speculative and uncorroborated. The tiering math promotes it; the posts don't.",
+        "execution": "No action on this analyst's signal alone. Revisit on a dedicated MRVL bottleneck post or hard evidence of the NVDA-alliance theory.",
+        "changesMind": "A dedicated post with a specific Marvell design-win or bottleneck claim, or independent confirmation of the NVDA-backed ASIC-challenger pattern.",
         "basedOnThesisIds": [
-          "h_29e60f0da3d1925a",
-          "h_0235e573a41f2c62"
+          "h_574cc87d7e028236"
         ],
-        "updatedAt": "2026-07-03"
+        "updatedAt": "2026-07-08T14:00:00Z"
       }
     },
     {
@@ -929,12 +926,12 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
-      "price": 390.49,
+      "price": 382.87,
       "currency": "USD",
-      "marketCap": 2900727630700,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 2844122994100,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.5056,
+        "score": 0.3718,
         "mentions": 2,
         "convictionHits": 1,
         "lastMentioned": "2026-06-27T15:45:34Z"
@@ -953,12 +950,12 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
-      "price": 77.65,
+      "price": 75.32,
       "currency": "USD",
-      "marketCap": 326968620000,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 317157456000,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.1577,
+        "score": 0.1159,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-27T15:38:26Z"
@@ -977,15 +974,15 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
-      "price": 194.58,
+      "price": 193.315,
       "currency": "USD",
-      "marketCap": 37458409003,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 37214886118,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 1.4862,
-        "mentions": 4,
+        "score": 2.6608,
+        "mentions": 6,
         "convictionHits": 2,
-        "lastMentioned": "2026-06-27T15:45:34Z"
+        "lastMentioned": "2026-07-07T07:09:04Z"
       },
       "tier": "core"
     },
@@ -1001,12 +998,12 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
-      "price": 9.16,
+      "price": 8.665,
       "currency": "USD",
-      "marketCap": 1131426135,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 1070284657,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.1577,
+        "score": 0.1159,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-27T15:38:26Z"
@@ -1025,15 +1022,15 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
-      "price": 121.39,
+      "price": 108.23,
       "currency": "USD",
-      "marketCap": 1614608269,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 1439567122,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.8771,
-        "mentions": 2,
+        "score": 1.0258,
+        "mentions": 3,
         "convictionHits": 1,
-        "lastMentioned": "2026-06-27T15:41:34Z"
+        "lastMentioned": "2026-07-05T12:40:49Z"
       },
       "tier": "watch"
     },
@@ -1049,15 +1046,15 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
-      "price": 100.46,
+      "price": 82.345,
       "currency": "USD",
-      "marketCap": 58152978820,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 47666842229,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 2.4675,
-        "mentions": 5,
+        "score": 2.8037,
+        "mentions": 6,
         "convictionHits": 1,
-        "lastMentioned": "2026-07-02T14:29:58Z"
+        "lastMentioned": "2026-07-08T13:17:17Z"
       },
       "tier": "watch"
     },
@@ -1074,31 +1071,30 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
       "yahooSymbol": "SIVE.ST",
-      "price": 49,
+      "price": 39.72,
       "currency": "SEK",
-      "marketCap": 12445397398,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 10088391523,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 90.8371,
-        "mentions": 62,
-        "convictionHits": 8,
-        "lastMentioned": "2026-07-03T10:11:43Z"
+        "score": 93.3409,
+        "mentions": 70,
+        "convictionHits": 9,
+        "lastMentioned": "2026-07-08T13:18:10Z"
       },
       "tier": "core",
       "verdict": {
         "ticker": "SIVE",
         "stance": "accumulate",
-        "view": "The CW-laser chokepoint thesis is his best-evidenced idea: JBL 1.6T transceivers, a GlobalFoundries reference laser, Ayar/NVLink CPO scale-up and POET scale-out all triangulate to Sivers, and the 700M SEK raise was oversubscribed with a NASDAQ listing now formally intended. But be clear-eyed: he discloses a million-plus share position, so his 19 mentions are conviction AND book-talking, and this is a small-cap on a Swedish exchange that just diluted.",
-        "execution": "Staggered starter position sized for single-analyst concentration risk; add only when laser LTAs convert to reported revenue or the NASDAQ listing lands. Don't let it become your largest holding on his enthusiasm alone.",
-        "changesMind": "A design-out from the JBL/GFS programs, raise proceeds not converting to shipped capacity, or the CPO ramp slipping past 2028.",
+        "view": "His conviction peaked this week \u2014 'probably my favorite stock right now' \u2014 reiterated into a -4% to -10% sector-wide washout he calls indiscriminate margin-cascade selling. New substance, not just pounding the table: JBL's 1.6T LRO qualification window (Aug 2026\u2013Mar 2027 per a JPM fireside chat) then mass production with Sivers lasers in pluggables; AEVA HVM ~Q4 2026 and POET H2 2026 as staggered demand waves; a claimed oversubscribed funding round for the fabless laser ramp; NASDAQ listing 'next few quarters' then M&A for TAM expansion. He notes it trades below POET despite supplying half the ecosystem. The flags stand: it's his largest holding (structural book-talking), and the new lidar angle (Hesai scrutiny pushing western lidar to LITE/SIVE lasers) is second-order speculation, not orders.",
+        "execution": "Hold the staggered-accumulation plan and treat this selloff leg as one of the planned tranches \u2014 the margin-cascade dip is the entry his own framework calls for. Keep the single-analyst concentration cap; the next hard catalysts are the NASDAQ listing and JBL qualification completing inside the Aug 2026\u2013Mar 2027 window.",
+        "changesMind": "JBL qualification slipping past Q1 2027 or a design-out at JBL/GFS/Ayar; the NASDAQ listing not materializing within the promised quarters; the SEK 700M raise's auditor going-concern flag (and Ningi Research's short thesis) proving to signal real cash strain; or integrated-laser designs (OpenLight and similar, which need no external light source) removing the need for a discrete CW supplier.",
         "basedOnThesisIds": [
-          "h_bebbef0482f407da",
-          "h_7797b5894b3bb34e",
-          "h_73fc29ca0e9c215c",
-          "h_05e793cf1fdb6f1c",
-          "h_5f7deacb158cae47"
+          "h_0dd22247c9538b67",
+          "h_2c315427900a28ca",
+          "h_574cc87d7e028236",
+          "h_ab043547a0a514ce"
         ],
-        "updatedAt": "2026-07-03"
+        "updatedAt": "2026-07-08T14:00:00Z"
       }
     },
     {
@@ -1114,12 +1110,24 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
       "priority": {
-        "score": 8.6517,
-        "mentions": 26,
+        "score": 7.3414,
+        "mentions": 27,
         "convictionHits": 2,
-        "lastMentioned": "2026-06-27T15:40:47Z"
+        "lastMentioned": "2026-07-06T15:32:42Z"
       },
-      "tier": "core"
+      "tier": "core",
+      "verdict": {
+        "ticker": "XFAB",
+        "stance": "accumulate",
+        "view": "New to the verdict roster. Two theses stack here: a value floor \u2014 Kepler's upgrade calls it the cheapest specialty foundry at 4.8x 2027 EV/EBITDA versus a 14.5x peer median, with Melexis demand strengthening weekly \u2014 and a free option, the photonixfab silicon-photonics line he thinks the market can't price until volume contracts land (NVDA/Nokia evaluations, EU Chips Act backing). He's called it 'early TSEM' for months; the sell side just started agreeing on the boring half.",
+        "execution": "The value leg justifies a real (not speculative) starter position; the photonics leg is the free upside. European listing and specialty-foundry cyclicality argue for patience over chasing \u2014 accumulate on flat-to-red days.",
+        "changesMind": "Auto/industrial demand rolling back over (the Kepler leg breaking), or photonixfab losing the NVDA/Nokia evaluations.",
+        "basedOnThesisIds": [
+          "h_36781819bfe0ee75",
+          "h_76b06718fb16b539"
+        ],
+        "updatedAt": "2026-07-06"
+      }
     },
     {
       "ticker": "IBM",
@@ -1133,12 +1141,12 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
-      "price": 289.52,
+      "price": 301.84,
       "currency": "USD",
-      "marketCap": 272115505200,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 283694888400,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.3698,
+        "score": 0.2719,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-27T15:41:13Z"
@@ -1157,12 +1165,12 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
-      "price": 49.12,
+      "price": 44.85,
       "currency": "USD",
-      "marketCap": 18335019846,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 16741157168,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.3698,
+        "score": 0.2719,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-27T15:41:13Z"
@@ -1181,12 +1189,12 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
-      "price": 22.535,
+      "price": 20.6576,
       "currency": "USD",
-      "marketCap": 8276408583,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 7586897771,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.3698,
+        "score": 0.2719,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-27T15:41:13Z"
@@ -1205,12 +1213,12 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
-      "price": 17.94,
+      "price": 16.695,
       "currency": "USD",
-      "marketCap": 5963234598,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 5549398083,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.3698,
+        "score": 0.2719,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-27T15:41:13Z"
@@ -1229,12 +1237,12 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
-      "price": 14.46,
+      "price": 12.86,
       "currency": "USD",
-      "marketCap": 3521806948,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 3132118766,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.8392,
+        "score": 0.617,
         "mentions": 2,
         "convictionHits": 1,
         "lastMentioned": "2026-06-27T15:41:34Z"
@@ -1253,17 +1261,29 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
-      "price": 242.67,
+      "price": 241.31,
       "currency": "USD",
-      "marketCap": 2610425457000,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 2595795774738,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 5.3833,
-        "mentions": 8,
+        "score": 7.4119,
+        "mentions": 14,
         "convictionHits": 1,
-        "lastMentioned": "2026-07-02T20:35:04Z"
+        "lastMentioned": "2026-07-08T13:13:41Z"
       },
-      "tier": "watch"
+      "tier": "core",
+      "verdict": {
+        "ticker": "AMZN",
+        "stance": "accumulate",
+        "view": "The physical-AI-umbrella thesis gained a concrete edge: he frames Amazon (with MELI) as the deployment supply chain through which Agility commercializes \u2014 the demand-side anchor for his robotics book, replaying the GOOGL-TPU-catalyzes-suppliers pattern. Lowest-risk expression of a theme every smaller name here depends on.",
+        "execution": "Core-position logic, dollar-cost average \u2014 unchanged. Still the hedge against the CCXI-style venture bets: if the robotics rotation cools, this falls least.",
+        "changesMind": "The robotics/automation effort visibly stalling (deployment numbers, not narrative), or AWS capex guidance breaking the AI-demand story.",
+        "basedOnThesisIds": [
+          "h_2909dadab30949b5",
+          "h_1815078828b9f257"
+        ],
+        "updatedAt": "2026-07-08T14:00:00Z"
+      }
     },
     {
       "ticker": "AVGO",
@@ -1277,12 +1297,12 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
-      "price": 360.45,
+      "price": 387.985,
       "currency": "USD",
-      "marketCap": 1714869711000,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 1845869676300,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 1.3923,
+        "score": 1.0237,
         "mentions": 5,
         "convictionHits": 0,
         "lastMentioned": "2026-07-03T10:09:14Z"
@@ -1301,12 +1321,12 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
-      "price": 603.04,
+      "price": 561.745,
       "currency": "USD",
-      "marketCap": 478789035360,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 446002498455,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 1.2564,
+        "score": 0.9238,
         "mentions": 4,
         "convictionHits": 0,
         "lastMentioned": "2026-07-02T08:34:50Z"
@@ -1325,15 +1345,15 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
-      "price": 308.63,
+      "price": 310.21,
       "currency": "USD",
-      "marketCap": 4532958682280,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 4556164704760,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.5135,
-        "mentions": 2,
+        "score": 1.4177,
+        "mentions": 4,
         "convictionHits": 0,
-        "lastMentioned": "2026-06-30T07:39:56Z"
+        "lastMentioned": "2026-07-08T13:18:10Z"
       },
       "tier": "radar"
     },
@@ -1349,12 +1369,12 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
-      "price": 1769.32,
+      "price": 1750.14,
       "currency": "USD",
-      "marketCap": 681927759836,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 674535442769,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.6967,
+        "score": 0.5122,
         "mentions": 2,
         "convictionHits": 0,
         "lastMentioned": "2026-07-01T14:55:33Z"
@@ -1373,12 +1393,12 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
-      "price": 351.41,
+      "price": 329.61,
       "currency": "USD",
-      "marketCap": 439462803700,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 412200377700,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.2466,
+        "score": 0.1813,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-27T15:43:29Z"
@@ -1397,12 +1417,12 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
-      "price": 7.365,
+      "price": 6.645,
       "currency": "USD",
-      "marketCap": 1134799200,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 1023861600,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.2466,
+        "score": 0.1813,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-27T15:43:29Z"
@@ -1421,12 +1441,12 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
-      "price": 18.85,
+      "price": 17.68,
       "currency": "USD",
-      "marketCap": 267113605,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 250534139,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.2615,
+        "score": 0.1923,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-27T15:44:22Z"
@@ -1448,9 +1468,9 @@ window.AIE_DATA = {
       "price": 2.37,
       "currency": "USD",
       "marketCap": 28684928,
-      "asOf": "2026-07-02T21:02:04Z",
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.2615,
+        "score": 0.1923,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-27T15:44:22Z"
@@ -1470,7 +1490,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
       "priority": {
-        "score": 0.2615,
+        "score": 0.1923,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-27T15:44:22Z"
@@ -1489,12 +1509,12 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
-      "price": 57.49,
+      "price": 54.85,
       "currency": "USD",
-      "marketCap": 3508815053,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 3347686652,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.2796,
+        "score": 0.2056,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-27T15:44:33Z"
@@ -1513,15 +1533,15 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
-      "price": 13.15,
+      "price": 14.5,
       "currency": "USD",
-      "marketCap": 2293360000,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 2528800000,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.9192,
-        "mentions": 2,
+        "score": 0.9569,
+        "mentions": 3,
         "convictionHits": 0,
-        "lastMentioned": "2026-07-03T10:11:43Z"
+        "lastMentioned": "2026-07-05T07:37:20Z"
       },
       "tier": "radar"
     },
@@ -1537,12 +1557,12 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
-      "price": 315.28,
+      "price": 303.02499,
       "currency": "USD",
-      "marketCap": 335457920000,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 322418593506,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.4655,
+        "score": 0.3422,
         "mentions": 2,
         "convictionHits": 1,
         "lastMentioned": "2026-06-27T15:45:34Z"
@@ -1561,30 +1581,17 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
-      "price": 359.91,
+      "price": 361.1773,
       "currency": "USD",
-      "marketCap": 4353064767154,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 4368392596276,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 5.9633,
-        "mentions": 8,
+        "score": 5.8725,
+        "mentions": 10,
         "convictionHits": 2,
-        "lastMentioned": "2026-07-01T14:59:53Z"
+        "lastMentioned": "2026-07-06T15:27:45Z"
       },
-      "tier": "core",
-      "verdict": {
-        "ticker": "GOOGL",
-        "stance": "accumulate",
-        "view": "The corpus's cleanest demand-side fact: Google is compute-constrained enough to have cut Meta's Gemini capacity, which makes capex structurally sticky. This is the lowest-risk way to own the demand signal that every supplier thesis in this map depends on.",
-        "execution": "Core position, dollar-cost average \u2014 no timing edge needed or claimed. It also hedges your supplier bets: if capex disappoints, this falls least.",
-        "changesMind": "Explicit capex guidance cuts or 'demand normalization' language on an earnings call.",
-        "basedOnThesisIds": [
-          "h_06c1b1dfc8ba3b53",
-          "h_c1ee65a16b4a3233",
-          "h_635d80a7689d172f"
-        ],
-        "updatedAt": "2026-07-03"
-      }
+      "tier": "core"
     },
     {
       "ticker": "HOOD",
@@ -1598,15 +1605,15 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
-      "price": 112.73,
+      "price": 110.3915,
       "currency": "USD",
-      "marketCap": 101513943079,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 99408113714,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.4237,
-        "mentions": 2,
+        "score": 1.4876,
+        "mentions": 4,
         "convictionHits": 1,
-        "lastMentioned": "2026-06-27T15:45:34Z"
+        "lastMentioned": "2026-07-07T07:09:04Z"
       },
       "tier": "watch"
     },
@@ -1622,12 +1629,12 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
-      "price": 135.27,
+      "price": 126.18,
       "currency": "USD",
-      "marketCap": 12600558495,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 11753814378,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.2691,
+        "score": 0.1979,
         "mentions": 1,
         "convictionHits": 1,
         "lastMentioned": "2026-06-27T15:45:34Z"
@@ -1646,17 +1653,17 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-06-30",
-      "price": 162,
+      "price": 149.9858,
       "currency": "USD",
-      "marketCap": 2118290201604,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 1961194139011,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 2.5534,
-        "mentions": 7,
+        "score": 4.1713,
+        "mentions": 11,
         "convictionHits": 0,
-        "lastMentioned": "2026-07-02T20:34:02Z"
+        "lastMentioned": "2026-07-08T13:13:41Z"
       },
-      "tier": "watch"
+      "tier": "core"
     },
     {
       "ticker": "AEVA",
@@ -1670,15 +1677,15 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-06-30",
-      "price": 23.98,
+      "price": 20.87,
       "currency": "USD",
-      "marketCap": 1511718384,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 1409459541,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 3.5927,
-        "mentions": 5,
+        "score": 4.6773,
+        "mentions": 9,
         "convictionHits": 1,
-        "lastMentioned": "2026-07-03T17:29:12Z"
+        "lastMentioned": "2026-07-08T13:18:10Z"
       },
       "tier": "watch"
     },
@@ -1694,15 +1701,15 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-06-30",
-      "price": 517.82,
+      "price": 508.97,
       "currency": "USD",
-      "marketCap": 844357292000,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 829926482000,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 5.9091,
-        "mentions": 18,
+        "score": 4.9303,
+        "mentions": 20,
         "convictionHits": 0,
-        "lastMentioned": "2026-07-02T20:35:34Z"
+        "lastMentioned": "2026-07-08T13:01:43Z"
       },
       "tier": "core"
     },
@@ -1718,12 +1725,12 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-06-30",
-      "price": 322.26,
+      "price": 304.0531,
       "currency": "USD",
-      "marketCap": 24587076129,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 23197966602,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.4679,
+        "score": 0.344,
         "mentions": 2,
         "convictionHits": 0,
         "lastMentioned": "2026-06-30T07:39:56Z"
@@ -1742,17 +1749,17 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-06-30",
-      "price": 1745,
+      "price": 1655,
       "currency": "USD",
-      "marketCap": 258416613750,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 245088536250,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 2.8976,
-        "mentions": 8,
+        "score": 3.3745,
+        "mentions": 11,
         "convictionHits": 0,
-        "lastMentioned": "2026-07-02T20:35:34Z"
+        "lastMentioned": "2026-07-08T13:01:43Z"
       },
-      "tier": "watch"
+      "tier": "core"
     },
     {
       "ticker": "EOS",
@@ -1766,12 +1773,12 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-06-30",
-      "price": 22.05,
+      "price": 21.865,
       "currency": "USD",
-      "marketCap": 1167834150,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 1158035995,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.3775,
+        "score": 0.2775,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-30T07:41:22Z"
@@ -1790,12 +1797,12 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-06-30",
-      "price": 204.86,
+      "price": 182.508,
       "currency": "USD",
-      "marketCap": 45653165312,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 41344005738,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 1.1494,
+        "score": 0.8451,
         "mentions": 2,
         "convictionHits": 0,
         "lastMentioned": "2026-07-02T20:34:02Z"
@@ -1814,12 +1821,12 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-06-30",
-      "price": 31.76,
+      "price": 31.17,
       "currency": "USD",
-      "marketCap": 2565394817,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 2517737923,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.755,
+        "score": 0.5551,
         "mentions": 2,
         "convictionHits": 0,
         "lastMentioned": "2026-06-30T07:45:27Z"
@@ -1838,30 +1845,30 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-06-30",
-      "price": 19.1,
+      "price": 15.765,
       "currency": "USD",
-      "marketCap": 800290000,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 660553500,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 7.5482,
-        "mentions": 13,
+        "score": 7.9174,
+        "mentions": 18,
         "convictionHits": 0,
-        "lastMentioned": "2026-07-03T10:08:32Z"
+        "lastMentioned": "2026-07-08T13:13:41Z"
       },
       "tier": "core",
       "verdict": {
         "ticker": "CCXI",
         "stance": "watch",
-        "view": "His most detailed non-photonics work: first listed US pure-play humanoid, AMZN/NVDA-backed, 75% US-sourced parts, \u003c$30k BOM at volume, benchmarked cheap against Figure's $39B. Pushback: it re-rated from ~$3.1B to ~$5.5B in days on the ticker-change news, and pre-revenue humanoids are a sentiment asset class \u2014 his own 'ADHD goldfish market' framing applies to it too.",
-        "execution": "If entering, size it like venture, not like a position \u2014 small, with the expectation of 50% drawdowns. Better entries likely when the physical-AI rotation cools.",
-        "changesMind": "A funded, dated Amazon deployment contract (upgrades it), or dilution at the AGLT ticker change (downgrades it).",
+        "view": "The week's most active thread. His case has three legs: valuation anchoring, geopolitical urgency, and personal ownership as the purest US mass-production play via the AMZN/MELI supply chains. But the fact-check catches him overstating the anchor: he cites Agility at '~$4.3B pre-money,' while the actual Churchill Capital XI (CCXI, becoming AGLT) deal is $2.5B pre-money / ~$3.4B post \u2014 a ~70% overstatement, and his own posts are internally inconsistent on the figure. The China-100k humanoid number is a government output target, not verified demand (Morgan Stanley's shipment forecast is 50k), and the 'DHS committee' was a House Homeland Security subcommittee. Real theme, real personal conviction \u2014 but the specifics are inflated and the whole sector is re-rating on the anchoring psychology he himself calls 'peak market inefficiency.'",
+        "execution": "Unchanged: venture sizing, not position sizing. The anchoring argument says it's relatively cheap versus Figure \u2014 it does not say either is absolutely cheap. A funded, dated Amazon deployment contract is still the upgrade trigger; a Sputnik-moment US subsidy program would be a second.",
+        "changesMind": "A funded, dated Amazon deployment contract or US robotics subsidy program (upgrades it); dilution at the AGLT ticker change, the SPAC closing below the cited valuation, or China price-war spillover crushing unit economics (downgrades it).",
         "basedOnThesisIds": [
-          "h_2e879b7947e4586e",
-          "h_13f14b8b84f90bda",
-          "h_fffac723ba054139",
-          "h_fba075fdb320e5e6"
+          "h_1815078828b9f257",
+          "h_3732049ff8aa171d",
+          "h_1550a3113d94d9da",
+          "h_2909dadab30949b5"
         ],
-        "updatedAt": "2026-07-03"
+        "updatedAt": "2026-07-08T14:00:00Z"
       }
     },
     {
@@ -1879,9 +1886,9 @@ window.AIE_DATA = {
       "price": 18.83,
       "currency": "USD",
       "marketCap": 238199500,
-      "asOf": "2026-07-02T21:02:04Z",
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.3775,
+        "score": 0.2776,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-30T07:44:51Z"
@@ -1900,12 +1907,12 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-06-30",
-      "price": 35.63,
+      "price": 30.55,
       "currency": "USD",
-      "marketCap": 722368606,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 619375832,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.3775,
+        "score": 0.2776,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-30T07:45:27Z"
@@ -1924,12 +1931,12 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-06-30",
-      "price": 7.17,
+      "price": 7.09,
       "currency": "USD",
-      "marketCap": 3813139699,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 3770594321,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.3775,
+        "score": 0.2776,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-30T07:45:27Z"
@@ -1948,12 +1955,12 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-06-30",
-      "price": 8.54,
+      "price": 8.115,
       "currency": "USD",
-      "marketCap": 2365185691,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 2247480314,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.3775,
+        "score": 0.2776,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-30T07:45:27Z"
@@ -1972,15 +1979,15 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-06-30",
-      "price": 38.82,
+      "price": 41.11,
       "currency": "USD",
-      "marketCap": 13853206364,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 14670409934,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 2.2233,
-        "mentions": 6,
+        "score": 2.2056,
+        "mentions": 7,
         "convictionHits": 0,
-        "lastMentioned": "2026-07-02T09:30:58Z"
+        "lastMentioned": "2026-07-05T15:16:13Z"
       },
       "tier": "watch"
     },
@@ -1996,12 +2003,12 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-06-30",
-      "price": 712.6,
+      "price": 704.6,
       "currency": "USD",
-      "marketCap": 497007514727,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 487866691582,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.3446,
+        "score": 0.2534,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-30T07:46:57Z"
@@ -2020,17 +2027,29 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-06-30",
-      "price": 69.84,
+      "price": 66.4862,
       "currency": "USD",
-      "marketCap": 38321263872,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 36481032392,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 7.4342,
-        "mentions": 13,
-        "convictionHits": 2,
-        "lastMentioned": "2026-07-02T20:32:33Z"
+        "score": 9.467,
+        "mentions": 16,
+        "convictionHits": 3,
+        "lastMentioned": "2026-07-08T13:18:10Z"
       },
-      "tier": "core"
+      "tier": "core",
+      "verdict": {
+        "ticker": "GFS",
+        "stance": "watch",
+        "view": "Same shape as last week: the platform beneath the photonics thesis (SCALE reference laser, CPO timelines now sketched 'somewhere in 2027'), still mentioned only inside SIVE-centric posts, still no standalone valuation work. Deliberately at watch despite Core tier.",
+        "execution": "No dedicated action \u2014 SIVE/JBL positions already carry the GFS-platform exposure. Revisit on disclosed photonics revenue or a named hyperscaler CPO win.",
+        "changesMind": "A dedicated GFS thesis with numbers, or disclosed silicon-photonics revenue making the platform story investable on its own.",
+        "basedOnThesisIds": [
+          "h_0dd22247c9538b67",
+          "h_2c315427900a28ca"
+        ],
+        "updatedAt": "2026-07-08T14:00:00Z"
+      }
     },
     {
       "ticker": "IQE",
@@ -2045,10 +2064,10 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-30",
       "priority": {
-        "score": 1.8905,
-        "mentions": 7,
+        "score": 2.1251,
+        "mentions": 8,
         "convictionHits": 1,
-        "lastMentioned": "2026-06-30T07:47:41Z"
+        "lastMentioned": "2026-07-06T15:29:52Z"
       },
       "tier": "watch"
     },
@@ -2064,15 +2083,15 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-06-30",
-      "price": 60.63,
+      "price": 59.85,
       "currency": "USD",
-      "marketCap": 2253360574,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 2224371275,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 1.4486,
-        "mentions": 5,
+        "score": 1.9557,
+        "mentions": 7,
         "convictionHits": 0,
-        "lastMentioned": "2026-06-30T07:50:05Z"
+        "lastMentioned": "2026-07-08T13:04:04Z"
       },
       "tier": "watch"
     },
@@ -2088,12 +2107,12 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-06-30",
-      "price": 96.14,
+      "price": 108.55,
       "currency": "USD",
-      "marketCap": 230785890507,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 260477307936,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.8443,
+        "score": 0.6208,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-30T07:50:19Z"
@@ -2112,12 +2131,12 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-06-30",
-      "price": 235.55,
+      "price": 218.62,
       "currency": "USD",
-      "marketCap": 307694254000,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 285578933600,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.7537,
+        "score": 0.5542,
         "mentions": 2,
         "convictionHits": 0,
         "lastMentioned": "2026-06-30T08:43:30Z"
@@ -2136,12 +2155,12 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-07-01",
-      "price": 41.87,
+      "price": 39.68,
       "currency": "USD",
-      "marketCap": 91860456215,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 87055717760,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.617,
+        "score": 0.4537,
         "mentions": 2,
         "convictionHits": 0,
         "lastMentioned": "2026-07-01T14:57:24Z"
@@ -2160,12 +2179,12 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-07-01",
-      "price": 270.89,
+      "price": 247.5,
       "currency": "USD",
-      "marketCap": 77052999403,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 70399857330,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.9224,
+        "score": 0.6782,
         "mentions": 2,
         "convictionHits": 0,
         "lastMentioned": "2026-07-01T14:58:44Z"
@@ -2184,12 +2203,12 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-07-01",
-      "price": 28.11,
+      "price": 22.455,
       "currency": "USD",
-      "marketCap": 1489208769,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 1189618745,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.4026,
+        "score": 0.296,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-07-01T14:58:44Z"
@@ -2208,15 +2227,15 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-07-01",
-      "price": 49.84,
+      "price": 42.005,
       "currency": "USD",
-      "marketCap": 3173462320,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 2674584365,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.4026,
-        "mentions": 1,
+        "score": 1.0164,
+        "mentions": 3,
         "convictionHits": 0,
-        "lastMentioned": "2026-07-01T14:58:44Z"
+        "lastMentioned": "2026-07-08T13:15:30Z"
       },
       "tier": "radar"
     },
@@ -2232,15 +2251,15 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-07-02",
-      "price": 1763.36,
+      "price": 1778.885,
       "currency": "USD",
-      "marketCap": 89397382852,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 90184456602,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.428,
-        "mentions": 1,
+        "score": 1.0128,
+        "mentions": 3,
         "convictionHits": 0,
-        "lastMentioned": "2026-07-02T20:35:04Z"
+        "lastMentioned": "2026-07-08T13:13:41Z"
       },
       "tier": "radar"
     },
@@ -2256,12 +2275,12 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-07-02",
-      "price": 196.695,
+      "price": 183.54,
       "currency": "USD",
-      "marketCap": 169283191410,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 157961498520,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.2886,
+        "score": 0.2122,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-07-02T20:35:34Z"
@@ -2280,12 +2299,12 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-07-02",
-      "price": 369.09,
+      "price": 341.12,
       "currency": "USD",
-      "marketCap": 57778146573,
-      "asOf": "2026-07-02T21:02:04Z",
+      "marketCap": 53399662301,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.2886,
+        "score": 0.2122,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-07-02T20:35:34Z"
@@ -2304,8 +2323,12 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-07-03",
+      "price": 184.1934,
+      "currency": "USD",
+      "marketCap": 194139843600,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.4401,
+        "score": 0.3236,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-07-03T10:09:14Z"
@@ -2324,8 +2347,12 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-07-03",
+      "price": 11.68,
+      "currency": "USD",
+      "marketCap": 63082418560,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.9546,
+        "score": 0.7019,
         "mentions": 5,
         "convictionHits": 2,
         "lastMentioned": "2026-06-06T10:20:30Z"
@@ -2344,8 +2371,12 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-07-03",
+      "price": 157.61,
+      "currency": "USD",
+      "marketCap": 41523850692,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.103,
+        "score": 0.0758,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-04T02:21:11Z"
@@ -2365,7 +2396,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-07-03",
       "priority": {
-        "score": 0.1407,
+        "score": 0.1035,
         "mentions": 1,
         "convictionHits": 1,
         "lastMentioned": "2026-06-05T14:20:31Z"
@@ -2385,7 +2416,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-07-03",
       "priority": {
-        "score": 0.1014,
+        "score": 0.0745,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-10T18:20:35Z"
@@ -2404,8 +2435,12 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-07-03",
+      "price": 20.86,
+      "currency": "USD",
+      "marketCap": 8532762140,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.1945,
+        "score": 0.143,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-11T18:20:31Z"
@@ -2424,11 +2459,15 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-07-03",
+      "price": 22.165,
+      "currency": "USD",
+      "marketCap": 10983481076,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.1945,
-        "mentions": 1,
+        "score": 0.9919,
+        "mentions": 2,
         "convictionHits": 0,
-        "lastMentioned": "2026-06-11T18:20:31Z"
+        "lastMentioned": "2026-07-06T15:33:45Z"
       },
       "tier": "radar"
     },
@@ -2444,8 +2483,12 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-07-03",
+      "price": 386.695,
+      "currency": "USD",
+      "marketCap": 66282592972,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.1726,
+        "score": 0.1269,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-12T06:20:34Z"
@@ -2464,8 +2507,12 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-07-03",
+      "price": 138.38,
+      "currency": "USD",
+      "marketCap": 398599438600,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.1644,
+        "score": 0.1209,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-16T22:20:32Z"
@@ -2484,8 +2531,12 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-07-03",
+      "price": 95.08,
+      "currency": "USD",
+      "marketCap": 6096308919,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.2962,
+        "score": 0.2178,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-20T06:20:39Z"
@@ -2504,8 +2555,12 @@ window.AIE_DATA = {
       "rating": "watch",
       "sourceTweetUrl": "",
       "addedDate": "2026-07-03",
+      "price": 135.0137,
+      "currency": "USD",
+      "marketCap": 6299266694,
+      "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.2962,
+        "score": 0.2178,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-20T06:20:39Z"
@@ -2525,10 +2580,430 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-07-03",
       "priority": {
-        "score": 0.6259,
+        "score": 0.4602,
         "mentions": 2,
         "convictionHits": 0,
         "lastMentioned": "2026-06-22T10:20:52Z"
+      },
+      "tier": "radar"
+    },
+    {
+      "ticker": "DASH",
+      "company": "",
+      "category": "unsorted",
+      "market": "",
+      "exchange": "",
+      "whatTheyDo": "",
+      "whyNVDA": "",
+      "marketCapTier": "",
+      "rating": "watch",
+      "sourceTweetUrl": "",
+      "addedDate": "2026-07-05",
+      "price": 184.405,
+      "currency": "USD",
+      "marketCap": 80348707427,
+      "asOf": "2026-07-08T15:04:23Z",
+      "priority": {
+        "score": 0.281,
+        "mentions": 1,
+        "convictionHits": 0,
+        "lastMentioned": "2026-07-05T07:37:20Z"
+      },
+      "tier": "radar"
+    },
+    {
+      "ticker": "JD",
+      "company": "",
+      "category": "unsorted",
+      "market": "",
+      "exchange": "",
+      "whatTheyDo": "",
+      "whyNVDA": "",
+      "marketCapTier": "",
+      "rating": "watch",
+      "sourceTweetUrl": "",
+      "addedDate": "2026-07-05",
+      "price": 27.54,
+      "currency": "USD",
+      "marketCap": 37192770000,
+      "asOf": "2026-07-08T15:04:23Z",
+      "priority": {
+        "score": 0.281,
+        "mentions": 1,
+        "convictionHits": 0,
+        "lastMentioned": "2026-07-05T07:37:20Z"
+      },
+      "tier": "radar"
+    },
+    {
+      "ticker": "UBER",
+      "company": "",
+      "category": "unsorted",
+      "market": "",
+      "exchange": "",
+      "whatTheyDo": "",
+      "whyNVDA": "",
+      "marketCapTier": "",
+      "rating": "watch",
+      "sourceTweetUrl": "",
+      "addedDate": "2026-07-05",
+      "price": 72.93,
+      "currency": "USD",
+      "marketCap": 148456236018,
+      "asOf": "2026-07-08T15:04:23Z",
+      "priority": {
+        "score": 0.281,
+        "mentions": 1,
+        "convictionHits": 0,
+        "lastMentioned": "2026-07-05T07:37:20Z"
+      },
+      "tier": "radar"
+    },
+    {
+      "ticker": "LPK",
+      "company": "",
+      "category": "unsorted",
+      "market": "",
+      "exchange": "",
+      "whatTheyDo": "",
+      "whyNVDA": "",
+      "marketCapTier": "",
+      "rating": "watch",
+      "sourceTweetUrl": "",
+      "addedDate": "2026-07-05",
+      "priority": {
+        "score": 0.7948,
+        "mentions": 1,
+        "convictionHits": 0,
+        "lastMentioned": "2026-07-05T07:38:05Z"
+      },
+      "tier": "radar"
+    },
+    {
+      "ticker": "CATL",
+      "company": "",
+      "category": "unsorted",
+      "market": "",
+      "exchange": "",
+      "whatTheyDo": "",
+      "whyNVDA": "",
+      "marketCapTier": "",
+      "rating": "watch",
+      "sourceTweetUrl": "",
+      "addedDate": "2026-07-05",
+      "priority": {
+        "score": 0.254,
+        "mentions": 1,
+        "convictionHits": 0,
+        "lastMentioned": "2026-07-05T12:40:49Z"
+      },
+      "tier": "radar"
+    },
+    {
+      "ticker": "SHAZ",
+      "company": "",
+      "category": "unsorted",
+      "market": "",
+      "exchange": "",
+      "whatTheyDo": "",
+      "whyNVDA": "",
+      "marketCapTier": "",
+      "rating": "watch",
+      "sourceTweetUrl": "",
+      "addedDate": "2026-07-05",
+      "price": 69.745,
+      "currency": "USD",
+      "marketCap": 682904192,
+      "asOf": "2026-07-08T15:04:23Z",
+      "priority": {
+        "score": 0.5709,
+        "mentions": 1,
+        "convictionHits": 0,
+        "lastMentioned": "2026-07-05T15:16:13Z"
+      },
+      "tier": "radar"
+    },
+    {
+      "ticker": "BWA",
+      "company": "",
+      "category": "unsorted",
+      "market": "",
+      "exchange": "",
+      "whatTheyDo": "",
+      "whyNVDA": "",
+      "marketCapTier": "",
+      "rating": "watch",
+      "sourceTweetUrl": "",
+      "addedDate": "2026-07-05",
+      "price": 62.815,
+      "currency": "USD",
+      "marketCap": 12884294737,
+      "asOf": "2026-07-08T15:04:23Z",
+      "priority": {
+        "score": 0.3296,
+        "mentions": 1,
+        "convictionHits": 0,
+        "lastMentioned": "2026-07-05T15:17:30Z"
+      },
+      "tier": "radar"
+    },
+    {
+      "ticker": "ENS",
+      "company": "",
+      "category": "unsorted",
+      "market": "",
+      "exchange": "",
+      "whatTheyDo": "",
+      "whyNVDA": "",
+      "marketCapTier": "",
+      "rating": "watch",
+      "sourceTweetUrl": "",
+      "addedDate": "2026-07-05",
+      "price": 195.66,
+      "currency": "USD",
+      "marketCap": 7133005613,
+      "asOf": "2026-07-08T15:04:23Z",
+      "priority": {
+        "score": 0.3296,
+        "mentions": 1,
+        "convictionHits": 0,
+        "lastMentioned": "2026-07-05T15:17:30Z"
+      },
+      "tier": "radar"
+    },
+    {
+      "ticker": "ETN",
+      "company": "",
+      "category": "unsorted",
+      "market": "",
+      "exchange": "",
+      "whatTheyDo": "",
+      "whyNVDA": "",
+      "marketCapTier": "",
+      "rating": "watch",
+      "sourceTweetUrl": "",
+      "addedDate": "2026-07-05",
+      "price": 392.16,
+      "currency": "USD",
+      "marketCap": 152275728000,
+      "asOf": "2026-07-08T15:04:23Z",
+      "priority": {
+        "score": 0.3296,
+        "mentions": 1,
+        "convictionHits": 0,
+        "lastMentioned": "2026-07-05T15:17:30Z"
+      },
+      "tier": "radar"
+    },
+    {
+      "ticker": "VRT",
+      "company": "",
+      "category": "unsorted",
+      "market": "",
+      "exchange": "",
+      "whatTheyDo": "",
+      "whyNVDA": "",
+      "marketCapTier": "",
+      "rating": "watch",
+      "sourceTweetUrl": "",
+      "addedDate": "2026-07-05",
+      "price": 309.37,
+      "currency": "USD",
+      "marketCap": 118831744406,
+      "asOf": "2026-07-08T15:04:23Z",
+      "priority": {
+        "score": 0.3296,
+        "mentions": 1,
+        "convictionHits": 0,
+        "lastMentioned": "2026-07-05T15:17:30Z"
+      },
+      "tier": "radar"
+    },
+    {
+      "ticker": "SIMO",
+      "company": "",
+      "category": "unsorted",
+      "market": "",
+      "exchange": "",
+      "whatTheyDo": "",
+      "whyNVDA": "",
+      "marketCapTier": "",
+      "rating": "watch",
+      "sourceTweetUrl": "",
+      "addedDate": "2026-07-06",
+      "price": 303.355,
+      "currency": "USD",
+      "marketCap": 10179175009,
+      "asOf": "2026-07-08T15:04:23Z",
+      "priority": {
+        "score": 0.4244,
+        "mentions": 1,
+        "convictionHits": 0,
+        "lastMentioned": "2026-07-06T15:26:32Z"
+      },
+      "tier": "radar"
+    },
+    {
+      "ticker": "FDX",
+      "company": "",
+      "category": "unsorted",
+      "market": "",
+      "exchange": "",
+      "whatTheyDo": "",
+      "whyNVDA": "",
+      "marketCapTier": "",
+      "rating": "watch",
+      "sourceTweetUrl": "",
+      "addedDate": "2026-07-06",
+      "price": 307.42,
+      "currency": "USD",
+      "marketCap": 73352488930,
+      "asOf": "2026-07-08T15:04:23Z",
+      "priority": {
+        "score": 0.3465,
+        "mentions": 1,
+        "convictionHits": 0,
+        "lastMentioned": "2026-07-06T15:27:08Z"
+      },
+      "tier": "radar"
+    },
+    {
+      "ticker": "FORD",
+      "company": "",
+      "category": "unsorted",
+      "market": "",
+      "exchange": "",
+      "whatTheyDo": "",
+      "whyNVDA": "",
+      "marketCapTier": "",
+      "rating": "watch",
+      "sourceTweetUrl": "",
+      "addedDate": "2026-07-06",
+      "price": 9.12,
+      "currency": "USD",
+      "marketCap": 15673513,
+      "asOf": "2026-07-08T15:04:23Z",
+      "priority": {
+        "score": 0.3465,
+        "mentions": 1,
+        "convictionHits": 0,
+        "lastMentioned": "2026-07-06T15:27:08Z"
+      },
+      "tier": "radar"
+    },
+    {
+      "ticker": "GM",
+      "company": "",
+      "category": "unsorted",
+      "market": "",
+      "exchange": "",
+      "whatTheyDo": "",
+      "whyNVDA": "",
+      "marketCapTier": "",
+      "rating": "watch",
+      "sourceTweetUrl": "",
+      "addedDate": "2026-07-06",
+      "price": 75,
+      "currency": "USD",
+      "marketCap": 67624889625,
+      "asOf": "2026-07-08T15:04:23Z",
+      "priority": {
+        "score": 0.3465,
+        "mentions": 1,
+        "convictionHits": 0,
+        "lastMentioned": "2026-07-06T15:27:08Z"
+      },
+      "tier": "radar"
+    },
+    {
+      "ticker": "FN",
+      "company": "",
+      "category": "unsorted",
+      "market": "",
+      "exchange": "",
+      "whatTheyDo": "",
+      "whyNVDA": "",
+      "marketCapTier": "",
+      "rating": "watch",
+      "sourceTweetUrl": "",
+      "addedDate": "2026-07-06",
+      "price": 465.855,
+      "currency": "USD",
+      "marketCap": 16691463528,
+      "asOf": "2026-07-08T15:04:23Z",
+      "priority": {
+        "score": 0.2559,
+        "mentions": 1,
+        "convictionHits": 0,
+        "lastMentioned": "2026-07-06T15:31:53Z"
+      },
+      "tier": "radar"
+    },
+    {
+      "ticker": "SILEX",
+      "company": "",
+      "category": "unsorted",
+      "market": "",
+      "exchange": "",
+      "whatTheyDo": "",
+      "whyNVDA": "",
+      "marketCapTier": "",
+      "rating": "watch",
+      "sourceTweetUrl": "",
+      "addedDate": "2026-07-06",
+      "priority": {
+        "score": 0.4901,
+        "mentions": 1,
+        "convictionHits": 0,
+        "lastMentioned": "2026-07-06T15:32:42Z"
+      },
+      "tier": "radar"
+    },
+    {
+      "ticker": "HIMS",
+      "company": "",
+      "category": "unsorted",
+      "market": "",
+      "exchange": "",
+      "whatTheyDo": "",
+      "whyNVDA": "",
+      "marketCapTier": "",
+      "rating": "watch",
+      "sourceTweetUrl": "",
+      "addedDate": "2026-07-07",
+      "price": 34.43,
+      "currency": "USD",
+      "marketCap": 7680644400,
+      "asOf": "2026-07-08T15:04:23Z",
+      "priority": {
+        "score": 0.784,
+        "mentions": 2,
+        "convictionHits": 0,
+        "lastMentioned": "2026-07-07T07:09:04Z"
+      },
+      "tier": "radar"
+    },
+    {
+      "ticker": "CRVW",
+      "company": "",
+      "category": "unsorted",
+      "market": "",
+      "exchange": "",
+      "whatTheyDo": "",
+      "whyNVDA": "",
+      "marketCapTier": "",
+      "rating": "watch",
+      "sourceTweetUrl": "",
+      "addedDate": "2026-07-08",
+      "price": 0.05,
+      "currency": "USD",
+      "marketCap": 29194037,
+      "asOf": "2026-07-08T15:04:23Z",
+      "priority": {
+        "score": 0.6596,
+        "mentions": 1,
+        "convictionHits": 0,
+        "lastMentioned": "2026-07-08T13:14:42Z"
       },
       "tier": "radar"
     }
@@ -5119,292 +5594,906 @@ window.AIE_DATA = {
       ],
       "conviction": "normal",
       "tags": []
+    },
+    {
+      "id": "h_ca1ce1cb5f43eec7",
+      "source": "x",
+      "author": "aleabitoreddit",
+      "sourceUrl": "",
+      "postedAt": "2026-07-05T07:37:20Z",
+      "ingestedAt": "2026-07-05T07:37:20Z",
+      "text": "[4 Jul 2026 at 3:21:51\u202fPM]:\n\ud83d\udcca Serenity latest | 2026-07-04 15:21 SGT\n\nNauticus Robotics / Floating Data Centers | $NBIS\nSerenity highlights the emerging concept of floating and ocean-based data centers, noting their advantages in free cooling and suitability for geographically constrained regions. She speculates that companies like $NBIS or Samsung could one day operate offshore AI data centers, imagining a future where cruise passengers sail past floating compute infrastructure. Serenity draws a broader parallel to orbital compute, questioning whether this could become a mainstream trend.\n\nSource: @aleabitoreddit\n\n\n[5 Jul 2026 at 2:04:26\u202fAM]:\n\ud83d\udcca Serenity latest | 2026-07-05 02:04 SGT\n\nHimax Technologies, Lumentum Holdings | $HIMX, $LITE\nSerenity flags a UDN report alleging a potential conflict of interest by SemiAnalysis: the firm published a bearish photonics report in June citing CPO yield and delay concerns, which crashed the sector, then co-launched a photonics ETF (ticker: LAZR) with Tema. Notably, $HIMX and $LITE \u2014 stocks specifically targeted negatively in the report \u2014 were subsequently purchased in the ETF.\n\nSource: @aleabitoreddit\n\n\n5 Jul 2026 at 5:45:36\u202fAM]:\n\ud83d\udcca Serenity latest | 2026-07-05 05:45 SGT\n\nJD.com, Amazon & Delivery Platforms | $JD, $AMZN, $DASH, $UBER, $MELI\nSerenity highlights JD.com CEO Liu Qiangdong's plan to replace 700,000 delivery workers with robots, with 120 schools contracted to retrain staff for robot maintenance roles. Serenity draws parallels to Amazon's strategy of avoiding 600,000 future hires via automation, and suggests platforms like DoorDash, Uber, and MercadoLibre may follow China's lead \u2014 pushing back on retail skepticism around humanoid and robotics commercialization....",
+      "tickers": [
+        "AMZN",
+        "DASH",
+        "HIMX",
+        "JD",
+        "LITE",
+        "MELI",
+        "NBIS",
+        "UBER"
+      ],
+      "conviction": "normal",
+      "tags": []
+    },
+    {
+      "id": "h_197ce850c998cd53",
+      "source": "x",
+      "author": "aleabitoreddit",
+      "sourceUrl": "",
+      "postedAt": "2026-07-05T07:38:05Z",
+      "ingestedAt": "2026-07-05T07:38:05Z",
+      "text": "\ud83d\udcca Serenity latest | 2026-07-03 18:17 SGT\n\nSumitomo Chemical / Samsung Electro-Mechanics (GlaSSEM JV), LPKF Laser & Electronics | $LPK\nSerenity flags a positive readthrough for the glass substrate supply chain, highlighting the Samsung/Dongwoo JV (GlaSSEM) targeting full-scale commercialization in H2 2027 with KRW 482.1B in planned capital \u2014 faster than prior ramp expectations. She notes $LPK as a key beneficiary via LIDE/TGV equipment, citing LPKF's claimed 80% customer penetration among major players and 70% targeted LIDE market share, with equipment orders typically pulling revenue forward ahead of production ramp.",
+      "tickers": [
+        "LPK"
+      ],
+      "conviction": "normal",
+      "tags": []
+    },
+    {
+      "id": "h_6d5dbad8581d8139",
+      "source": "x",
+      "author": "aleabitoreddit",
+      "sourceUrl": "",
+      "postedAt": "2026-07-05T12:40:49Z",
+      "ingestedAt": "2026-07-05T12:48:29Z",
+      "text": "Just high level Boston Dynamics + humanoid + automotive player directional thoughts: \n\nAs for their \"speculated suppliers\":\n\nSamsung Electro-Mechanics / $INTC\nLG Innotek vision sensing components into Atlas\nSamsung Electronics / Sk Hynix / $MU - Memory\n$NVDA - Jetson Thor compute\nGoogle DeepMind\nLG Energy Solution - reported BD Atlas battery supplier\n$CATL - Battery\nSPG Co / \uc5d0\uc2a4\ud53c\uc9c0 (058610.KQ) - Reducers / harmonic-drive-style robot gearing\nSL Corp / \uc5d0\uc2a4\uc5d8 (005850.KRX) - leg-module supply contract with Boston Dynamics\nSOS Lab / \uc5d0\uc2a4\uc624\uc5d0\uc2a4\ub7a9 (464080.KQ) - Atlas LiDAR supplier expected\nSungwoo Hitech - Reported likely Atlas exterior-cover supplier\nHyundai Mobis - Atlas actuators; robot hand/gripper\nROBOTIS / \ub85c\ubcf4\ud2f0\uc988 (108490.KQ) - Robot hand/gripper/robot actuators/servo modules\nHL Mando / HL\ub9cc\ub3c4 (204320.KRX) - Actuators / automotive motion-control parts\nABB (ABBN.SWX) - actuator supplier/ecosystem\nSamhyun / \uc0bc\ud604 (437730.KQ) - Smart actuators / motor-control auto parts\nSeoyon E-Hwa / \uc11c\uc5f0\uc774\ud654 (200880.KRX)~\u20a90.31T Auto interior/exterior parts; potential robot exterior \n\n- from some naver article that's getting passed around recently. \n\nAs for more Western names aside from the $GOOGl $NVDA / $MU types you have $AEVA  through LG innotek. \n\n$OUST was Velodyne legacy LiDAR agreement with BD Spot. Onsemi was SOS Lab LiDAR SPAD-array partner. \n\nAnd probably a few others since supply chain is large.\n_\n\nI'm actually not bullish on Boston Dynamics commercialization, even though I am for them technologically. \n\nSo personally speaking, if they're not mass producing 30K like unitree soon, going long on the upstream supply chain doesn't really make sense.\n\nGenerally speaking, auto players are very interesting to me for broad humanoid exposure. \n\nNames Schaeffler, which was working with ~45 humanoid makers, is probably in majority? But no confirmed proof yet. There's way too much robotics overlap with auto: eg. \u201c70% of process and technology overlaps with cars\u201d.\n\nAnd then have AI auto as another major growth vector per. $TSM chairmain (also for power semis too). \n\nSo feels like everything comes together for them auto players dragged down by downturns, so I would guess maybe 1 1/2 years, in 2028, things start to pick up for Western auto involved in humanoids. \n\nSince non-China supply chains (like Agibot/unitree) are first to market and already volume ramping compared to western counterparts.\n\nThere's other \"purer exposure\" component suppliers like $VPG and possibly $TSLA / Figure was my guess, but $150/robot that they revealed for mass production is a bit small considering you reach 50K mass production and that's around $7.5M revenue.\n\nSo upstream components for auto players for robotics doesn't move any needle unless you get to massive humanoid scale... \n\nwhich is why I've personally shifted to highest concentration for downstream players like Agility while valuations are relatively small. \n\nI still think we'll see an Anthropic/OpenAI type leader in the humanoid/robotics space soon before all the other physical ai suppliers in the sector get brought up beyond hype.   \n\nBut just informal personal thoughts I try and keep in mind moving forward with legacy auto players in a downturn + new growth vectors 2Y out",
+      "tickers": [
+        "AEVA",
+        "CATL",
+        "GOOGL",
+        "INTC",
+        "MU",
+        "NVDA",
+        "OUST",
+        "TSLA",
+        "TSM",
+        "VPG"
+      ],
+      "conviction": "normal",
+      "tags": []
+    },
+    {
+      "id": "h_67b7f17bf6d26992",
+      "source": "x",
+      "author": "aleabitoreddit",
+      "sourceUrl": "",
+      "postedAt": "2026-07-05T15:08:40Z",
+      "ingestedAt": "2026-07-05T15:08:40Z",
+      "text": "No, it\u2019s the same if not higher. Markets are closed and if there\u2019s no new developments, then I have nothing new to add.\n\n$SIVE is personally one of my largest holdings and I\u2019ve posted all my thoughts on their hyperscaler supplier relationships. So I\u2019m just waiting for volume ramps and company execution and ignoring a lot of noise. \n\nThe convertible notes is not new information and was likely priced in for awhile. Having it executed now is not a positive thing like others are framing, since Bootstrap Europe is a venture debt fund.\n\nThere\u2019s likely instituonal swaps happening given oversubscribed instituonal demand around these levels. $140m is not a big amount in terms of institutional flows.",
+      "tickers": [
+        "SIVE"
+      ],
+      "conviction": "normal",
+      "tags": []
+    },
+    {
+      "id": "h_36017b24779b163a",
+      "source": "x",
+      "author": "aleabitoreddit",
+      "sourceUrl": "",
+      "postedAt": "2026-07-05T15:16:13Z",
+      "ingestedAt": "2026-07-05T15:16:13Z",
+      "text": "Leaked Anthropic docs show plans to secure 1.4GW capacity from Australia, amounting to ~$21.6B.\n\nRecently \n$IREN\n, \n$SHAZ\n, and other Neoclouds have been building sovereign DCs in Australia.\n\nGuess like a lot of things are stating to make more sense connection wise?\n\n(disclosure: no open positions in any of the above).",
+      "tickers": [
+        "IREN",
+        "SHAZ"
+      ],
+      "conviction": "normal",
+      "tags": []
+    },
+    {
+      "id": "h_d4707a13060368fd",
+      "source": "x",
+      "author": "aleabitoreddit",
+      "sourceUrl": "",
+      "postedAt": "2026-07-05T15:17:30Z",
+      "ingestedAt": "2026-07-05T15:17:31Z",
+      "text": "Looks like there's a high power cylindrical cell / BBU cell shortage (aka: bottleneck):\n\n- Samsung SDI supplies the cells to Simplo, which assembles them into BBUs for $META to $AMZN\n\n- As demand from data centers has increased, production of Samsung SDI's cylindrical cells has also risen sharply.\n- Industry sources said Panasonic, Samsung are experiencing supply shortages for BBU cells.\n\nSo main beneficiaries imo look like:\n\n- Samsung SDI (KRX: 006400) / Panasonic Energy  as cleaneset winners\n- Murata (6981) / this keeps showing up everywhere with MLCC and others lol\n- LG Energy (KRX: 373220) / incoming\n\nThere's not really much direct US players? But adjacent read through like $VRT, $ETN\n or $BWA/ $ENS\nNot quite in my domain emphasis cup of tea though. \n\nI wouldn't conflate this as all shortages having a massive TAM, but there could be opportunities...",
+      "tickers": [
+        "AMZN",
+        "BWA",
+        "ENS",
+        "ETN",
+        "META",
+        "VRT"
+      ],
+      "conviction": "normal",
+      "tags": []
+    },
+    {
+      "id": "h_6619c85d86ae9ed8",
+      "source": "x",
+      "author": "aleabitoreddit",
+      "sourceUrl": "",
+      "postedAt": "2026-07-06T15:26:32Z",
+      "ingestedAt": "2026-07-06T15:26:32Z",
+      "text": "Just some consolidated updates on memory: \n\n-  \n$MU\n leads new 1.5T Yen investment in Hiroshima ~$9.3B. (bullish read through for Disco, Advantest, Resonac, Towa) since capex is localized.\n\n- Morgan Stanley pointed out NAND will continue to be in short supply into 2027 so \n$SNDK\n / Kioxia type players are happy alongisde \n$SIMO\n and upstream.\n\n- MS remains especially positive on Macronix/Winbond\n\n- UBS expects the average price of DDR contracts in the Q3 2026 to increase 32% | 18% Q4, vs. 17% and 12% est. \n\n- UBS expects NAND flash to be raised 30% from prev quarter. \n\n- Samsung reportedly plans 20% DRAM hike Q3. TrendForce recently forecast DRAM contract prices to rise 13 to 18 percent in the third quarter from the previous quarter, so this hike beats expectations.\n\nSomething to note:\n\nLot people see 20%... and don't think it's a lot compared to the 70-80% from previous quarters. \n\nBut if you hike something by 100%, then hike something by 100%, then hike something by 30%, it's a lot more than people estimate since it's compounded. Similar to tracking inflation. \n\nI've already made projections going into 2028 from the start of the year on my memory names... \n\nI'm just sitting back and watching things play out through all the \"memory optimization\" and \"they can't keep price hiking like this!\" noise.",
+      "tickers": [
+        "DRAM",
+        "MU",
+        "SIMO",
+        "SNDK"
+      ],
+      "conviction": "normal",
+      "tags": []
+    },
+    {
+      "id": "h_1bf1783a9f9c83ad",
+      "source": "x",
+      "author": "aleabitoreddit",
+      "sourceUrl": "",
+      "postedAt": "2026-07-06T15:27:08Z",
+      "ingestedAt": "2026-07-06T15:27:08Z",
+      "text": "Came across an interesting report from SVRC Research called \"State of Robotics 2026\", published in April. \n\nWhich listed:\n\n1. Figure AI \n2. Agility Robotics \n$CCXI\n\n3. Apptronik \n4. \n$TSLA\n \n5. Boston Dynamics\n6. Physical Intelligence \n7. 1X Technologies\n8. \n$AMZN\n Robotics\n9. Covariant\n10. Skild AI \n\nAs the National Champions of the United States robotics program. \n\n\"The United States leads the world in where robotics is heading: Fundation models, OpenAI-style scaling laws applied to action, autonomous vehicles. \n\nWhile losing the race on where robotics is shipping today.\" \n\nThen it frames:\n\n1. Rare Earths Exposure: from Neodymium for motors to samarium-cobalt for high-temp applications as a critical vulnerability.\n\n2. Actuator dependency. Series elastic actuators, quasi-direct-drive motors, and precision reducers overwhelmingly sourced from Japan, Germany, and China\n\nAs one of the main vulnerabilities alongside Manufacturing velocity/data collection cost/regulations. Then their take was: \n\n\"With at least six well-funded US humanoid companies competing for a market still in early formation, we expect at least two significant consolidation events (acquisition or merger) in 2027\". \n\nWith Logistics / E-commerce (like \n$AMZN\n / \n$FDX\n) and Automotive from \n$GM\n to $FORD as being the immediate top use cases for deployment.\n\nI think it's just interesting to see a lot of my points I've been talking about reiterated by research firms. Regardless, I do think it's going to be a major frontier race between the US and China. \n\nAgility Robotics (which I own), Tesla, Figure, and Apptronik as leaders representing the USA. Competing against Unitree, AGIbot, Ubtech, and others in China.",
+      "tickers": [
+        "AMZN",
+        "CCXI",
+        "FDX",
+        "FORD",
+        "GM",
+        "TSLA"
+      ],
+      "conviction": "normal",
+      "tags": []
+    },
+    {
+      "id": "h_85395dd0fa8acb89",
+      "source": "x",
+      "author": "aleabitoreddit",
+      "sourceUrl": "",
+      "postedAt": "2026-07-06T15:27:45Z",
+      "ingestedAt": "2026-07-06T15:27:45Z",
+      "text": "Yep, \n$AMZN looks like the clear winner in physical AI shift. \n\nI think the Amazon ecosystem... is probably going to the catalyst for robotics players compared to others in the Google/Meta ecosystems. \n\nI kinda see parallels to the $GOOGL TPU effect on suppliers like $LITE or Mediatek, but for robotics... like Agility. Still early though.",
+      "tickers": [
+        "AMZN",
+        "GOOGL",
+        "LITE"
+      ],
+      "conviction": "normal",
+      "tags": []
+    },
+    {
+      "id": "h_10aa6c8479a57d03",
+      "source": "x",
+      "author": "aleabitoreddit",
+      "sourceUrl": "",
+      "postedAt": "2026-07-06T15:29:52Z",
+      "ingestedAt": "2026-07-06T15:29:53Z",
+      "text": "Nomura\u2019s report cites \n$AXTI\n and $IQE as the leading players. \n\nThen regarding ASP updates:\n\n- 2in InP substrate price hike 42-76%\n- 3in InP substrates price hike 78%\n- 2in EML Epiwafer price hike 50-75%\n- 3in CW Epiwafer price hike ~40%+\n- Prices lower domestically in China as expected.\n\nHyperscalers bottlenecking upstream photonics confirmation validation\u2026 on all fronts from pricing, demand, to supply shortages.\n\nMy personal expectation was that price hikes would keep going up like \n$SNDK\n given ramping optical demand. \n\nWe\u2019ll see if this turns out right given another 2 years of the demand curve.",
+      "tickers": [
+        "AXTI",
+        "IQE",
+        "SNDK"
+      ],
+      "conviction": "normal",
+      "tags": []
+    },
+    {
+      "id": "h_0ecb33baa79a6b44",
+      "source": "x",
+      "author": "aleabitoreddit",
+      "sourceUrl": "",
+      "postedAt": "2026-07-06T15:31:53Z",
+      "ingestedAt": "2026-07-06T15:31:53Z",
+      "text": "I personally think $SIVE can be the next $LITE\n. \n\nIn the past few months alone, we've seen:\n\n1. Partnerships with O-Net pushing ELS into mass production\n2. $JBL 1.6T LRO mass production signals with \"relatively dramatic moats\" for pluggables using Sivers.\n3. $GFS\n SCALE reference level laser for hyperscalers with pluggable, NPO, CPO.-\u003e -\u003e where  $AMD and others went to GFS for CPO.\n4. Ayar, which joined $NVDA\n NVLink for CPO\n-\u003e -\u003e which removed Lumentum/Macom from their website and likely made Sivers their primary laser supplier. \n-\u003e -\u003e AlChip likely Trainium win from Amazon price placement (Ayar's customer)\n-\u003e -\u003e GUC rack level design in with Ayar.\n-\u003e -\u003e Raised $500m for mass production by AMD, Alchip, Mediatek, and NVIDIA\n5.  ~  $AEVA starting HVM H2 2026.\n6. $POET starting HVM H2 2026 with hyperscaler suppliers like Lumilens (\"top 3 hyperscaler initial customer\")\n7. TFLN + $SIVE CW Lasers with Lightium\n8. Likely direct relationships with \n$MRVL Celestial and CPO players like Lightelligence/Lightmatter.\n9. Multiple new undisclosed relationships for pluggables following Jabil in their quarterly transcripts\n\nWith new Trendforce reports that \n$AMD\n and other hyperscalers are trying to source LTAs for CW laser sources, serving as a direct catalyst for independent CW sources.\n\nSo when hyperscaler suppliers from Jabil to O-Net are incentivized to mass produce as many as they can: That's very material for revenue for Sivers relative to current valuations, and it looks like just a waiting game. \n\nEven in the past week:\n\n- $SIVE raised an oversubscribed institutional round for volume ramp... This is very nuanced since Sivers is fab-lite so it's not going to in-house foundry capex to scale. Likely toward Win Semi and others (they mentioned other partners too), for laser scaling + foundry allocations. \n\nSo this is likely signaling material for revenue ramp is coming. \n\n- Sivers also mentioned NASDAQ listing completion targeted in the next few quarters (probably H2 2026 or Q1 2027 is my est. timeframe). \n\nThis would fund M&A efforts, since it's impossible with the fundraising environments in local Swedish markets. \n\nAs for becoming the next \n$LITE\n:\n\nM&A makes their lasers more valuable, so downstream IP acqusition -\u003e into contract manufacturing like \n$FN\n, and others to make the full 1.6T pluggable or optical engines. Is how they get there, since laser array ASP scaling that people are modeling off of, wouldn't command a $60B+   valuations. \n\nThere's going to be a lot of bridge architectures like NPO/pluggables, etc and noise around certain architectural delays in the meantime. \n\nBut markets misunderstand laser companies like \n$LITE, $SIVE,  $AAOI\n and others are used across different architectures compared to if you just look at certain passive optical components. \n\nSo markets see \"CPO delay headlines\" algos sell off laser companies that benefit from other architectures. \n\nBeing included in the pluggable 1.6T ramp to CPO scale out (Which Sivers is included in), helps bridge revenue waiting gaps until scale up inflection point H2 2027.  \n\nI'm personally holding long term, since I haven't seen a ~$1.4B company mapping to this many hyperscalers before. \n\nTLDR:\n- Waiting on volume ramps from different architectures to play out across their hyperscaler supplier mapping\n-\u003e 1.6T LRO/CPO scale out late H2 2026 start into high volume ramp 2027\n-\u003e H2 2027 CPO scale up volume ramp\n- Waiting on NASDAQ listing likely H2 2026/Q1 2027 for M&A efforts to fully take off, unless Sivers get more creative with equity financing in the meantime.",
+      "tickers": [
+        "AAOI",
+        "AEVA",
+        "AMD",
+        "FN",
+        "GFS",
+        "JBL",
+        "LITE",
+        "MRVL",
+        "NVDA",
+        "POET",
+        "SIVE"
+      ],
+      "conviction": "normal",
+      "tags": []
+    },
+    {
+      "id": "h_36781819bfe0ee75",
+      "source": "x",
+      "author": "aleabitoreddit",
+      "sourceUrl": "",
+      "postedAt": "2026-07-06T15:32:42Z",
+      "ingestedAt": "2026-07-06T15:32:42Z",
+      "text": "Kelper upgrades $XFAB to \"Buy\" citing:\n\n- Melexis demand strengthening \u201cweek-after-week, day-after-day\u201d (their lead customer). \n- AI giving XFAB a structural growth leg with SiC, GaN, and photonics offsetting auto cyclicality. \n- Scarce Western speciality foundries like $SILEX commanding higher multiples. \n\n\"X-Fab remains the cheapest specialty foundry peer on every multiple, trading at 4.8x 2027 EV/EBITDA versus a peer median of 14.5x\" \n\nI treat this as good signal for the core fundamentals improving like auto players. \n\nBut in terms of unpriced long term growth vectors, I'm personally looking at XFAB from a different angle in terms of photonics growth with photonixfab. Given \n$NVDA\n as a potential key driver. \n\nBut it's hard for traditional firms to price these types of active developments into valuation models until there's volume contracts.",
+      "tickers": [
+        "NVDA",
+        "SILEX",
+        "XFAB"
+      ],
+      "conviction": "normal",
+      "tags": []
+    },
+    {
+      "id": "h_33e11a1efa657fa7",
+      "source": "x",
+      "author": "aleabitoreddit",
+      "sourceUrl": "",
+      "postedAt": "2026-07-06T15:33:17Z",
+      "ingestedAt": "2026-07-06T15:33:17Z",
+      "text": "Retail: buys memory, optical, upstream semi names.\n\nMedia: \u201cretail bubble drives AI meme stock bubble higher\u201d.\n\nInstitutions that do the exact same thing, with the exact same names:\n\nMedia: \u201cInstitutions make record profits by betting on what goes inside AI Server Racks\u201d.",
+      "tickers": [],
+      "conviction": "normal",
+      "tags": []
+    },
+    {
+      "id": "h_ed35af2a69e57256",
+      "source": "x",
+      "author": "aleabitoreddit",
+      "sourceUrl": "",
+      "postedAt": "2026-07-06T15:33:45Z",
+      "ingestedAt": "2026-07-06T15:33:45Z",
+      "text": "Wow, \n$WULF\n signs a $19B DC lease with Anthropic today. \n\nProbably a very positive tailwind for the Neocloud/Colo sector.",
+      "tickers": [
+        "WULF"
+      ],
+      "conviction": "normal",
+      "tags": []
+    },
+    {
+      "id": "h_34534f43456cd196",
+      "source": "x",
+      "author": "aleabitoreddit",
+      "sourceUrl": "",
+      "postedAt": "2026-07-06T15:34:36Z",
+      "ingestedAt": "2026-07-06T15:34:37Z",
+      "text": "I\u2019d like to give a special thank you to Bloomberg\u2019s piece on \n$META\n compute.\n\nAs well as the 2 back to back bear posts on CPO delays.\n\nBut I believe thematically photonics, memory, energy, and physical AI will outperform in the long run.\n\nI suffer major drawdowns too, especially if markets think my thesis is early.\n\nBut I\u2019m very confident that AI chokepoints/bottlenecks names outperform and get validated in the long run. So happy to sit through the drops in the meantime.\n\nJust sharing wins and losses along the way\n\nI have large concentration in $SIVE to \n$AAOI\n as well. Feels bad to suffer drawdowns from institutional photonics delay bear posts. \n\nJust for the same firm to include it in their ETFs at the bottom. \n\nNFA, but I\u2019m especially confident about those two going forward despite the drop",
+      "tickers": [
+        "AAOI",
+        "META",
+        "SIVE"
+      ],
+      "conviction": "normal",
+      "tags": []
+    },
+    {
+      "id": "h_1815078828b9f257",
+      "source": "x",
+      "author": "aleabitoreddit",
+      "sourceUrl": "",
+      "postedAt": "2026-07-07T07:03:19Z",
+      "ingestedAt": "2026-07-07T07:03:19Z",
+      "text": "It\u2019s interesting to witness psychology around valuation anchoring + scarcity.\n\nRetail, for example, are buying Figure, last valued at ~$39B through CEFs\u2026\n\nAt $158B, since it\u2019s private, round 4x valuations. \n\nThen Agility Robotics \n$CCXI\n, which has broader commercialization. \n\nIs at ~$4.3B pre-money and publicly available before the name change. At closer pricing that \n$AMZN\n, \n$NVDA\n, SoftBank, and Foxconn vaulted it at.\n\nYet some end up paying 4-5x prices of already hiked private investor rounds for exposure\u2026\n\nI\u2019m convinced if Agility raised a very small private round at $39B as well from $2.5B (which it definitely could), to set a valuation anchor.\n\nInvestors would be foaming in the mouth for a private allocation, just due to psychology rather than underlying fundamentals. \n\nWe\u2019ve also seen this anchoring with \n$SPCX\n recently at $1.75T.\n\nPeak market inefficiency? Or lack of knowledge from retail?",
+      "tickers": [
+        "AMZN",
+        "CCXI",
+        "NVDA",
+        "SPCX"
+      ],
+      "conviction": "normal",
+      "tags": []
+    },
+    {
+      "id": "h_d1316054ff13d830",
+      "source": "x",
+      "author": "aleabitoreddit",
+      "sourceUrl": "",
+      "postedAt": "2026-07-07T07:03:37Z",
+      "ingestedAt": "2026-07-07T07:03:37Z",
+      "text": "Was a sad few months for \n$RDDT\n. But glad it's finally back above $200. \n\nReddit was doing:\n- $663M revenue w/ 91.5% gross margins\n- $204M GAAP net income\n- 45%+ fwd Y/Y growth after 69%+ growth.\n- Net profit is ~30.7% of revenue\n\nFelt very weird to see a profitable company get dragged down after earnings. \n\nBut in hindsight, given the increase hyperscaler capex, the drop felt more like it's more relative opportunity cost more than fundamentals?\n\nSince a lot of inflow poured into \n$MU\n / Sk Hynix that are bottlenecked into 2029. Or with laser bottlenecks like \n$LITE\n that last into 2029 as well. \n\nSame thing happens in reverse after selloffs ig, even if fundamentals didn't change. \n\nBeen seeing a lot of noise with memory optimization or Chinese players... but don't quite think you sign 16T+ LTAs if memory was getting flooded or not used anytime soon. \n\nSame with optical players... if in earnings, they state anything they make gets bought, I don't quite think a lot of the noise has material effect on their fundamentals. \n\nRegardless, nice to see some recovery with familiar faces like \n$HOOD\n, \n$HIMS\n, and \n$RDDT\n though.",
+      "tickers": [
+        "HIMS",
+        "HOOD",
+        "LITE",
+        "MU",
+        "RDDT"
+      ],
+      "conviction": "normal",
+      "tags": []
+    },
+    {
+      "id": "h_f8d4f7ca85c741a6",
+      "source": "x",
+      "author": "aleabitoreddit",
+      "sourceUrl": "",
+      "postedAt": "2026-07-07T07:05:38Z",
+      "ingestedAt": "2026-07-07T07:05:38Z",
+      "text": "Capital inflow for humanoid + Physical AI is ATHs from VC data and $2.5B valuations are tiny for the leading US humanoid player.\n\nMy take is the SPAC structure is used for faster IPO, in terms of giving retail access to US humanoid companies.\n\nOtherwise a lot of capital inflow would go to China with Unitree.\n\nA lot of it is setting valuations low to gather more momentum + investor interest, not because they can\u2019t raise more.",
+      "tickers": [],
+      "conviction": "normal",
+      "tags": []
+    },
+    {
+      "id": "h_3732049ff8aa171d",
+      "source": "x",
+      "author": "aleabitoreddit",
+      "sourceUrl": "",
+      "postedAt": "2026-07-07T07:08:33Z",
+      "ingestedAt": "2026-07-07T07:08:34Z",
+      "text": "1. I don't think they're in a dire need for financing. \n\nMy take is half geopolitical, half valuation scarcity as the first pure play humanoid player. The latter is likely more valuable than private funding in my view for momentum. \n\nUnitree was going public in China and there's no pure play US humanoid exposure. SPAC structure is used for faster listing to give investors exposure, and they're both going public around the same timeframe. \n\nOtherwise a ton of Western capital inflow would have went over to China if there's no US humanoid exposure. \nI don't quite think it's coincidence in timing. \n\n2. I'm citing last private valuations for Figure. I personally don't believe it's worth $39B. \n\nBut if it goes public, I do believe it would remain around that valuation in US markets, looking at what \n$SPCX\n did at $1.75T, just due to valuation anchoring psychology. \n\nEven so, investors are still paying 4x+ NAV to access Figure with CEFs and I'm amused by the logic behind that. \n\nI personally wouldn't assign it that value comparing it to Unitree at at $6B. (But I do think Unitree is undervaluing itself, probably ends up $12B+). But if you look at how \n$TSLA\n got their $1T+ valuation, a lot of it is anchored to the humanoid mission, so hard to value the sector. \n\n3. Same point as #1. Not exactly just to raise funds. \n\nRegardless, I'd encourage more companies to go public early on like \n$CCXI\n. Than waiting on when they already get big like Anthropic/OpenAI/SpaceX and letting retail be the last to invest.",
+      "tickers": [
+        "CCXI",
+        "SPCX",
+        "TSLA"
+      ],
+      "conviction": "normal",
+      "tags": []
+    },
+    {
+      "id": "h_30f455bac2598b96",
+      "source": "x",
+      "author": "aleabitoreddit",
+      "sourceUrl": "",
+      "postedAt": "2026-07-07T07:09:04Z",
+      "ingestedAt": "2026-07-07T07:09:04Z",
+      "text": "Was a sad few months for \n$RDDT\n. But glad it's finally back above $200. \n\nReddit was doing:\n- $663M revenue w/ 91.5% gross margins\n- $204M GAAP net income\n- 45%+ fwd Y/Y growth after 69%+ growth.\n- Net profit is ~30.7% of revenue\n\nFelt very weird to see a profitable company get dragged down after earnings. \n\nBut in hindsight, given the increase hyperscaler capex, the drop felt more like it's more relative opportunity cost more than fundamentals?\n\nSince a lot of inflow poured into \n$MU\n / Sk Hynix that are bottlenecked into 2029. Or with laser bottlenecks like \n$LITE\n that last into 2029 as well. \n\nSame thing happens in reverse after selloffs ig, even if fundamentals didn't change. \n\nBeen seeing a lot of noise with memory optimization or Chinese players... but don't quite think you sign 16T+ LTAs if memory was getting flooded or not used anytime soon. \n\nSame with optical players... if in earnings, they state anything they make gets bought, I don't quite think a lot of the noise has material effect on their fundamentals. \n\nRegardless, nice to see some recovery with familiar faces like \n$HOOD\n, \n$HIMS\n, and \n$RDDT\n though.",
+      "tickers": [
+        "HIMS",
+        "HOOD",
+        "LITE",
+        "MU",
+        "RDDT"
+      ],
+      "conviction": "normal",
+      "tags": []
+    },
+    {
+      "id": "h_97ce243eb386cc9e",
+      "source": "x",
+      "author": "aleabitoreddit",
+      "sourceUrl": "",
+      "postedAt": "2026-07-08T13:00:35Z",
+      "ingestedAt": "2026-07-08T13:00:35Z",
+      "text": "Be Samsung at $1.24T:\n\n\u003e market: we don\u2019t think you can keep hiking memory prices\n\u003e proceeds to hikes dram by 20%\n\u003e releases earnings\n\u003e most profitable company in the world beating $NVDA and $AAPL\n\n\u003e operating profits growing 1803% Y/Y  \n\nmarket: sells off Samsung -7%",
+      "tickers": [
+        "AAPL",
+        "NVDA"
+      ],
+      "conviction": "normal",
+      "tags": []
+    },
+    {
+      "id": "h_633dcb7f2e293ee4",
+      "source": "x",
+      "author": "aleabitoreddit",
+      "sourceUrl": "",
+      "postedAt": "2026-07-08T13:00:35Z",
+      "ingestedAt": "2026-07-08T13:00:36Z",
+      "text": "Raymond James initiated coverage of \n$SPCX\n with \u201cStrong Buy\u201d.\n\nGiving it a $800 PT, valuing SpaceX at a ~$10T valuation.\n\nNo words. Jokes about \u201cinstitutional\u201d notes for retail write themselves.",
+      "tickers": [
+        "SPCX"
+      ],
+      "conviction": "normal",
+      "tags": []
+    },
+    {
+      "id": "h_574cc87d7e028236",
+      "source": "x",
+      "author": "aleabitoreddit",
+      "sourceUrl": "",
+      "postedAt": "2026-07-08T13:01:43Z",
+      "ingestedAt": "2026-07-08T13:01:43Z",
+      "text": "Just putting it out there:\n\nIf everything crashes together from \n$NBIS\n$MRVL\n$INTC\n$SNDK\n$AMD\n$SIVE, \n$MU\n$LITE and others... \n\nWhich are all down -4% to -10%+ today so far. \n\nProbably doesn't have anything to do with individual fundamentals. \n\nIndiscriminate selloffs from things like cascading margin liquidations, usually provide compelling opportunities if the underlying improves.",
+      "tickers": [
+        "AMD",
+        "INTC",
+        "LITE",
+        "MRVL",
+        "MU",
+        "NBIS",
+        "SIVE",
+        "SNDK"
+      ],
+      "conviction": "normal",
+      "tags": []
+    },
+    {
+      "id": "h_0dd22247c9538b67",
+      "source": "x",
+      "author": "aleabitoreddit",
+      "sourceUrl": "",
+      "postedAt": "2026-07-08T13:02:32Z",
+      "ingestedAt": "2026-07-08T13:02:32Z",
+      "text": "$SIVE is probably my favorite stocks right now, not concerned about short term drops. \n\n- You have the laser supplier to \n$GFS\n$JBL, Ayar, \n$POET\nand many other hyperscalersuppliers. \n- NASDAQ listing planned in the next few quarters\n- Followed by M&A goals for TAM expansion. \n\nAnd it's literally trading less than \n$POET for some reason. All while CW lasers are extremely bottlenecked to the point $LITE can't make enough. \n\nThen they got a considerable amount of oversubscribed funding for fabless laser ramp recently. \n\nComfortable long for me, probably one of the stocks that way overshot selloff imo.",
+      "tickers": [
+        "GFS",
+        "JBL",
+        "LITE",
+        "POET",
+        "SIVE"
+      ],
+      "conviction": "high",
+      "tags": []
+    },
+    {
+      "id": "h_73d38658dc26c0d9",
+      "source": "x",
+      "author": "aleabitoreddit",
+      "sourceUrl": "",
+      "postedAt": "2026-07-08T13:02:54Z",
+      "ingestedAt": "2026-07-08T13:02:54Z",
+      "text": "I personally think so. It feels like markets started selling off after that misleading Bloomberg $META\n compute article, and a couple of SemiAnalysis bear posts on $NVDA supply chains.\n\nSince algos + headline interpretation of \u201cMeta excess compute\u201d was cutting capex + dropping out of AI race.\n\nCombine that with excess leverage and here we are. Probably just takes an earnings call and few Trump tweets to get back to normal\u2026\n\nBut after some names already dropped 40-60% feels like it should bottom soon. \n\nReversals the other way are pretty violent too.",
+      "tickers": [
+        "META",
+        "NVDA"
+      ],
+      "conviction": "normal",
+      "tags": []
+    },
+    {
+      "id": "h_47f3b5b1bfcce165",
+      "source": "x",
+      "author": "aleabitoreddit",
+      "sourceUrl": "",
+      "postedAt": "2026-07-08T13:04:04Z",
+      "ingestedAt": "2026-07-08T13:04:04Z",
+      "text": "This is the average visual TA bro, takes a 50% 50% coinflip: \n\nIf it goes the other way, they say \"ABC Pattern Invalidated\", should have known... \n\nIf they get the coinflip right, they promote their $40/month chart. \n\n-\u003e People drawing swiggly lines over KOSPI mean nothing where it heads. When it's primarily Samsung/SK Hynix and forward operating income growth from DRAM/NAND. \n\n-\u003e The swiggly drawing over $SIVE,$AEHR, and others mean nothing. When it's primarily hyperscaler suppliers, thematic premiums, and volume ramp orders determining valuations. \n\nThen if something randomly goes from $1 to $60 like $AXTI they claim they spotted it with their \"Golden Egg Dragon Candle\", while ignoring anything with InP substrate and otpical demand. \n\nThere's rare times like these where it's a massive sector drop all together.\n\nBut now the TA bros are showing up everywhere saying here's a $40 course on how they predicted it with swiggly lines.",
+      "tickers": [
+        "AEHR",
+        "AXTI",
+        "DRAM",
+        "SIVE"
+      ],
+      "conviction": "normal",
+      "tags": []
+    },
+    {
+      "id": "h_1550a3113d94d9da",
+      "source": "x",
+      "author": "aleabitoreddit",
+      "sourceUrl": "",
+      "postedAt": "2026-07-08T13:13:05Z",
+      "ingestedAt": "2026-07-08T13:13:05Z",
+      "text": "How is the US so far behind?\n\nXinhua: China's output of humanoids are expected to hit 100,000+ this year. \n\nEven Morgan Stanley originally projected 14,000 for 2026... \n\nReally need Elon's \n$TSLA $CCXI\n (Agility), Apptronik, and Figure to catchup. And for more US Gov. subsidies to pour into upstream supply chains + rare earths. \n\nCause this disparity between US vs. China mass production is getting ridiculous... \n\nBut it almost feels like the start of Russia/US Space race Sputnik Moment for robotics?\n\nCybersecurity Committee Dpt of. Homeland Security: \n\n\"China's speed of advancement in humanoid robots is alarming, and the US government should formulate coordinated policies and strategies to counter Chinese firms' dominance\". \n\nSingling out Unitree Robotics.",
+      "tickers": [
+        "CCXI",
+        "TSLA"
+      ],
+      "conviction": "normal",
+      "tags": []
+    },
+    {
+      "id": "h_2909dadab30949b5",
+      "source": "x",
+      "author": "aleabitoreddit",
+      "sourceUrl": "",
+      "postedAt": "2026-07-08T13:13:41Z",
+      "ingestedAt": "2026-07-08T13:13:41Z",
+      "text": "Literally just Elon. \n\n- The guy + \n$SPCX is basically the only reason why US is in the lead with Space.\n-\n$TSLA led EV commercialization in US\n\nHe's sometimes off with timeframes, but right directionally, so pretty sure he can make US robotics #1 again. \n\nI personally own $CCXI\n though since I think Agility currently has more pure play exposure for mass production/commercialization through US supply chains + $MELI/ $AMZN",
+      "tickers": [
+        "AMZN",
+        "CCXI",
+        "MELI",
+        "SPCX",
+        "TSLA"
+      ],
+      "conviction": "normal",
+      "tags": []
+    },
+    {
+      "id": "h_79f9aaff84f7f697",
+      "source": "x",
+      "author": "aleabitoreddit",
+      "sourceUrl": "",
+      "postedAt": "2026-07-08T13:14:42Z",
+      "ingestedAt": "2026-07-08T13:14:42Z",
+      "text": "Just Bloomberg and $META doing damage control after crashing the market with Meta Compute framing:\n\nSpokesperson: \"Meta is still hungry for even more computing power. \n\nIt is still moving forward with plans for expensive new data centers and recently inked major computing deals with $CRVW, Google, $ORCLand others.\"\n\nJust dropped that in with the Meta Muse announcement, and evenn threw in the \"expensive\" framing with DCs to signal capex. \n\nBut little late given we're likely seeing a lot of margin liquidation cascades and heavy losses from media framing earlier.",
+      "tickers": [
+        "CRVW",
+        "META"
+      ],
+      "conviction": "normal",
+      "tags": []
+    },
+    {
+      "id": "h_ab043547a0a514ce",
+      "source": "x",
+      "author": "aleabitoreddit",
+      "sourceUrl": "",
+      "postedAt": "2026-07-08T13:15:30Z",
+      "ingestedAt": "2026-07-08T13:15:30Z",
+      "text": "Hesai Technology, a Chinese lidar maker faces US national scrutiny over its expanded partnership with \n$NVDAand lidar sensors. \n\nFor \n$OUST $AEVA\n, and Western lidar bros, this is generally positive if competitors get regulated out.\n\nSince there were warnings that: \n\nSensors could be disabled or exploited remotely, given Hesai firmware update disabled lidar units on February 29 (as evidence). \n\nBy second order effect, this is also bullish for upstream laser suppliers too like \n$LITE\n and $SIVE that are used in western lidar players.",
+      "tickers": [
+        "AEVA",
+        "LITE",
+        "OUST",
+        "SIVE"
+      ],
+      "conviction": "normal",
+      "tags": []
+    },
+    {
+      "id": "h_8af89cd8750c505b",
+      "source": "x",
+      "author": "aleabitoreddit",
+      "sourceUrl": "",
+      "postedAt": "2026-07-08T13:17:17Z",
+      "ingestedAt": "2026-07-08T13:17:17Z",
+      "text": "Blue Origin reportedly raising $10B at a $130B valuation per NYT.\n\nSeems pretty positive for $RKLB,$ASTS\n, and other space names in terms of relative valuation anchoring. \n\nIf SpaceX and Blue Origin is able to set such high valuations.",
+      "tickers": [
+        "ASTS",
+        "RKLB"
+      ],
+      "conviction": "normal",
+      "tags": []
+    },
+    {
+      "id": "h_2c315427900a28ca",
+      "source": "x",
+      "author": "aleabitoreddit",
+      "sourceUrl": "",
+      "postedAt": "2026-07-08T13:18:10Z",
+      "ingestedAt": "2026-07-08T13:18:10Z",
+      "text": "For this type of mapping with $SIVE, it's a good idea look at their partners and their timelines.\n\n- \n$JBL confirmed via JPM fireside chat they have a relatively dramatic moat with their 1.6T LRO and are getting qualified done over next 1-4 months (2 months ago). So should be August 2026 to March 2027 timeframes for qual completion, then mass prod start with Sivers in pluggables.\n\n-  \n$AEVA are targeting HVM prob q4 2026, $POET is starting off production H2 2026 but probably later in H1 should kick off more.  \n\nO-Net, Ayar, $GFS and others are somewhere in 2027 I think and that's more along the lines of CPO timelines rather than $SIVE per say. \n\nVery confident in terms of execution, since $SIVE has a technical + qualification moat into many different hyperscaler supplier sources. \n\nAnd everyone is incentivized to produce as much as possible, with Sivers as the laser supplier. Not including likely names like $AAPL\n in 2028. \n\nHow both the $SIVE CEO and $JBL\n stated it is:\n\nIt's more about how much they can make rather than looking at competition (cause demand is so high + different chokepoints are bottlenecked). \n\nFor me personally, it's just waiting for things to play out.\n\nThe main area of interest is downstream IP acquisition for TAM expansion, so I think that opportunity pipeline undersells forward growth going forward.",
+      "tickers": [
+        "AAPL",
+        "AEVA",
+        "GFS",
+        "JBL",
+        "POET",
+        "SIVE"
+      ],
+      "conviction": "normal",
+      "tags": []
+    },
+    {
+      "id": "h_86a3019854298353",
+      "source": "x",
+      "author": "aleabitoreddit",
+      "sourceUrl": "",
+      "postedAt": "2026-07-08T13:18:55Z",
+      "ingestedAt": "2026-07-08T13:18:55Z",
+      "text": "idk Spacemob hasn't been doing too well over the past year compared to bottleneck bros. \n\nI think it's mainly just opportunity cost, even if I like \n$ASTS\n long term.",
+      "tickers": [
+        "ASTS"
+      ],
+      "conviction": "normal",
+      "tags": []
     }
   ],
   "priorities": [
     {
       "ticker": "SIVE",
-      "score": 90.8371,
-      "mentions": 62,
-      "weightedMentions": 33.077,
-      "convictionHits": 8,
-      "lastMentioned": "2026-07-03T10:11:43Z"
-    },
-    {
-      "ticker": "AAOI",
-      "score": 24.1773,
-      "mentions": 36,
-      "weightedMentions": 16.5629,
-      "convictionHits": 3,
-      "lastMentioned": "2026-07-03T10:08:17Z"
-    },
-    {
-      "ticker": "NVDA",
-      "score": 20.9444,
-      "mentions": 40,
-      "weightedMentions": 19.0026,
-      "convictionHits": 2,
-      "lastMentioned": "2026-07-03T10:11:43Z"
+      "score": 93.3409,
+      "mentions": 70,
+      "weightedMentions": 37.1649,
+      "convictionHits": 9,
+      "lastMentioned": "2026-07-08T13:18:10Z"
     },
     {
       "ticker": "LITE",
-      "score": 15.7403,
-      "mentions": 25,
-      "weightedMentions": 9.9962,
+      "score": 22.9599,
+      "mentions": 33,
+      "weightedMentions": 13.4238,
+      "convictionHits": 4,
+      "lastMentioned": "2026-07-08T13:15:30Z"
+    },
+    {
+      "ticker": "NVDA",
+      "score": 20.9132,
+      "mentions": 46,
+      "weightedMentions": 22.1119,
+      "convictionHits": 2,
+      "lastMentioned": "2026-07-08T13:02:54Z"
+    },
+    {
+      "ticker": "AAOI",
+      "score": 19.6416,
+      "mentions": 38,
+      "weightedMentions": 17.4417,
       "convictionHits": 3,
-      "lastMentioned": "2026-07-03T10:11:43Z"
+      "lastMentioned": "2026-07-06T15:34:36Z"
     },
     {
       "ticker": "JBL",
-      "score": 13.2946,
-      "mentions": 17,
-      "weightedMentions": 6.9012,
-      "convictionHits": 4,
-      "lastMentioned": "2026-07-02T20:32:33Z"
-    },
-    {
-      "ticker": "MRVL",
-      "score": 12.047,
-      "mentions": 17,
-      "weightedMentions": 7.9643,
-      "convictionHits": 3,
-      "lastMentioned": "2026-07-03T10:09:14Z"
-    },
-    {
-      "ticker": "NBIS",
-      "score": 11.0034,
-      "mentions": 18,
-      "weightedMentions": 7.9428,
-      "convictionHits": 2,
-      "lastMentioned": "2026-07-03T10:09:14Z"
-    },
-    {
-      "ticker": "AXTI",
-      "score": 9.3815,
-      "mentions": 18,
-      "weightedMentions": 9.7254,
-      "convictionHits": 1,
-      "lastMentioned": "2026-07-03T10:07:17Z"
+      "score": 15.0923,
+      "mentions": 20,
+      "weightedMentions": 8.0582,
+      "convictionHits": 5,
+      "lastMentioned": "2026-07-08T13:18:10Z"
     },
     {
       "ticker": "POET",
-      "score": 9.2875,
-      "mentions": 14,
-      "weightedMentions": 6.1832,
-      "convictionHits": 2,
-      "lastMentioned": "2026-07-02T20:32:33Z"
+      "score": 11.1703,
+      "mentions": 17,
+      "weightedMentions": 7.3402,
+      "convictionHits": 3,
+      "lastMentioned": "2026-07-08T13:18:10Z"
     },
     {
-      "ticker": "XFAB",
-      "score": 8.6517,
-      "mentions": 26,
-      "weightedMentions": 12.4671,
-      "convictionHits": 2,
-      "lastMentioned": "2026-06-27T15:40:47Z"
-    },
-    {
-      "ticker": "CCXI",
-      "score": 7.5482,
-      "mentions": 13,
-      "weightedMentions": 8.0979,
-      "convictionHits": 0,
-      "lastMentioned": "2026-07-03T10:08:32Z"
+      "ticker": "MRVL",
+      "score": 10.3216,
+      "mentions": 19,
+      "weightedMentions": 8.6193,
+      "convictionHits": 3,
+      "lastMentioned": "2026-07-08T13:01:43Z"
     },
     {
       "ticker": "GFS",
-      "score": 7.4342,
-      "mentions": 13,
-      "weightedMentions": 5.752,
+      "score": 9.467,
+      "mentions": 16,
+      "weightedMentions": 6.909,
+      "convictionHits": 3,
+      "lastMentioned": "2026-07-08T13:18:10Z"
+    },
+    {
+      "ticker": "NBIS",
+      "score": 9.3116,
+      "mentions": 20,
+      "weightedMentions": 8.6499,
       "convictionHits": 2,
-      "lastMentioned": "2026-07-02T20:32:33Z"
+      "lastMentioned": "2026-07-08T13:01:43Z"
     },
     {
       "ticker": "META",
-      "score": 7.3119,
-      "mentions": 13,
-      "weightedMentions": 5.6532,
+      "score": 8.5842,
+      "mentions": 17,
+      "weightedMentions": 8.0531,
       "convictionHits": 1,
-      "lastMentioned": "2026-07-03T10:08:17Z"
+      "lastMentioned": "2026-07-08T13:14:42Z"
+    },
+    {
+      "ticker": "AXTI",
+      "score": 8.3322,
+      "mentions": 20,
+      "weightedMentions": 10.8027,
+      "convictionHits": 1,
+      "lastMentioned": "2026-07-08T13:04:04Z"
+    },
+    {
+      "ticker": "CCXI",
+      "score": 7.9174,
+      "mentions": 18,
+      "weightedMentions": 10.7378,
+      "convictionHits": 0,
+      "lastMentioned": "2026-07-08T13:13:41Z"
+    },
+    {
+      "ticker": "AMZN",
+      "score": 7.4119,
+      "mentions": 14,
+      "weightedMentions": 6.9889,
+      "convictionHits": 1,
+      "lastMentioned": "2026-07-08T13:13:41Z"
+    },
+    {
+      "ticker": "TSLA",
+      "score": 7.3434,
+      "mentions": 13,
+      "weightedMentions": 6.7082,
+      "convictionHits": 1,
+      "lastMentioned": "2026-07-08T13:13:41Z"
+    },
+    {
+      "ticker": "XFAB",
+      "score": 7.3414,
+      "mentions": 27,
+      "weightedMentions": 13.0444,
+      "convictionHits": 2,
+      "lastMentioned": "2026-07-06T15:32:42Z"
+    },
+    {
+      "ticker": "GOOGL",
+      "score": 5.8725,
+      "mentions": 10,
+      "weightedMentions": 4.5324,
+      "convictionHits": 2,
+      "lastMentioned": "2026-07-06T15:27:45Z"
+    },
+    {
+      "ticker": "INTC",
+      "score": 5.2351,
+      "mentions": 13,
+      "weightedMentions": 6.0702,
+      "convictionHits": 1,
+      "lastMentioned": "2026-07-08T13:01:43Z"
     },
     {
       "ticker": "LPK.DE",
-      "score": 6.9363,
+      "score": 5.0999,
       "mentions": 11,
       "weightedMentions": 5.6924,
       "convictionHits": 2,
       "lastMentioned": "2026-07-03T10:12:58Z"
     },
     {
-      "ticker": "GOOGL",
-      "score": 5.9633,
-      "mentions": 8,
-      "weightedMentions": 3.6388,
-      "convictionHits": 2,
-      "lastMentioned": "2026-07-01T14:59:53Z"
-    },
-    {
-      "ticker": "INTC",
-      "score": 5.9296,
-      "mentions": 11,
-      "weightedMentions": 5.4005,
-      "convictionHits": 1,
-      "lastMentioned": "2026-07-02T08:33:21Z"
-    },
-    {
       "ticker": "AMD",
-      "score": 5.9091,
-      "mentions": 18,
-      "weightedMentions": 8.1065,
+      "score": 4.9303,
+      "mentions": 20,
+      "weightedMentions": 8.7615,
       "convictionHits": 0,
-      "lastMentioned": "2026-07-02T20:35:34Z"
+      "lastMentioned": "2026-07-08T13:01:43Z"
+    },
+    {
+      "ticker": "AEVA",
+      "score": 4.6773,
+      "mentions": 9,
+      "weightedMentions": 4.0902,
+      "convictionHits": 1,
+      "lastMentioned": "2026-07-08T13:18:10Z"
     },
     {
       "ticker": "TSEM",
-      "score": 5.6746,
+      "score": 4.1722,
       "mentions": 15,
       "weightedMentions": 6.9451,
       "convictionHits": 1,
       "lastMentioned": "2026-06-30T07:52:04Z"
     },
     {
-      "ticker": "TSLA",
-      "score": 5.5334,
-      "mentions": 8,
-      "weightedMentions": 4.252,
-      "convictionHits": 1,
-      "lastMentioned": "2026-07-02T20:35:04Z"
-    },
-    {
-      "ticker": "AMZN",
-      "score": 5.3833,
-      "mentions": 8,
-      "weightedMentions": 4.2942,
-      "convictionHits": 1,
-      "lastMentioned": "2026-07-02T20:35:04Z"
+      "ticker": "SPCX",
+      "score": 4.1713,
+      "mentions": 11,
+      "weightedMentions": 6.8251,
+      "convictionHits": 0,
+      "lastMentioned": "2026-07-08T13:13:41Z"
     },
     {
       "ticker": "TSM",
-      "score": 4.6203,
-      "mentions": 14,
-      "weightedMentions": 7.922,
+      "score": 3.651,
+      "mentions": 15,
+      "weightedMentions": 8.2382,
       "convictionHits": 0,
-      "lastMentioned": "2026-06-27T15:45:14Z"
+      "lastMentioned": "2026-07-05T12:40:49Z"
     },
     {
-      "ticker": "AEVA",
-      "score": 3.5927,
-      "mentions": 5,
-      "weightedMentions": 2.5642,
+      "ticker": "MU",
+      "score": 3.4545,
+      "mentions": 13,
+      "weightedMentions": 5.3962,
+      "convictionHits": 0,
+      "lastMentioned": "2026-07-08T13:01:43Z"
+    },
+    {
+      "ticker": "SNDK",
+      "score": 3.3745,
+      "mentions": 11,
+      "weightedMentions": 5.6949,
+      "convictionHits": 0,
+      "lastMentioned": "2026-07-08T13:01:43Z"
+    },
+    {
+      "ticker": "RKLB",
+      "score": 2.8037,
+      "mentions": 6,
+      "weightedMentions": 2.9742,
       "convictionHits": 1,
-      "lastMentioned": "2026-07-03T17:29:12Z"
+      "lastMentioned": "2026-07-08T13:17:17Z"
+    },
+    {
+      "ticker": "RDDT",
+      "score": 2.6608,
+      "mentions": 6,
+      "weightedMentions": 2.7644,
+      "convictionHits": 2,
+      "lastMentioned": "2026-07-07T07:09:04Z"
+    },
+    {
+      "ticker": "IREN",
+      "score": 2.2056,
+      "mentions": 7,
+      "weightedMentions": 4.1783,
+      "convictionHits": 0,
+      "lastMentioned": "2026-07-05T15:16:13Z"
     },
     {
       "ticker": "COHR",
-      "score": 2.9406,
+      "score": 2.1621,
       "mentions": 9,
       "weightedMentions": 3.6876,
       "convictionHits": 0,
       "lastMentioned": "2026-07-03T10:07:17Z"
     },
     {
-      "ticker": "SNDK",
-      "score": 2.8976,
+      "ticker": "ASTS",
+      "score": 2.1473,
+      "mentions": 4,
+      "weightedMentions": 2.6274,
+      "convictionHits": 0,
+      "lastMentioned": "2026-07-08T13:18:55Z"
+    },
+    {
+      "ticker": "IQE",
+      "score": 2.1251,
       "mentions": 8,
-      "weightedMentions": 4.264,
-      "convictionHits": 0,
-      "lastMentioned": "2026-07-02T20:35:34Z"
-    },
-    {
-      "ticker": "SPCX",
-      "score": 2.5534,
-      "mentions": 7,
-      "weightedMentions": 4.3006,
-      "convictionHits": 0,
-      "lastMentioned": "2026-07-02T20:34:02Z"
-    },
-    {
-      "ticker": "RKLB",
-      "score": 2.4675,
-      "mentions": 5,
-      "weightedMentions": 2.2671,
+      "weightedMentions": 3.5758,
       "convictionHits": 1,
-      "lastMentioned": "2026-07-02T14:29:58Z"
+      "lastMentioned": "2026-07-06T15:29:52Z"
     },
     {
-      "ticker": "MU",
-      "score": 2.2611,
-      "mentions": 8,
-      "weightedMentions": 3.332,
+      "ticker": "AEHR",
+      "score": 1.9583,
+      "mentions": 6,
+      "weightedMentions": 2.1127,
+      "convictionHits": 1,
+      "lastMentioned": "2026-07-08T13:04:04Z"
+    },
+    {
+      "ticker": "DRAM",
+      "score": 1.9557,
+      "mentions": 7,
+      "weightedMentions": 3.6798,
       "convictionHits": 0,
-      "lastMentioned": "2026-06-30T07:50:05Z"
+      "lastMentioned": "2026-07-08T13:04:04Z"
     },
     {
       "ticker": "EWY",
-      "score": 2.2429,
+      "score": 1.6491,
       "mentions": 8,
       "weightedMentions": 2.8129,
       "convictionHits": 1,
       "lastMentioned": "2026-06-30T07:47:41Z"
     },
     {
-      "ticker": "IREN",
-      "score": 2.2233,
-      "mentions": 6,
-      "weightedMentions": 3.4712,
-      "convictionHits": 0,
-      "lastMentioned": "2026-07-02T09:30:58Z"
-    },
-    {
-      "ticker": "IQE",
-      "score": 1.8905,
-      "mentions": 7,
-      "weightedMentions": 2.9985,
-      "convictionHits": 1,
-      "lastMentioned": "2026-06-30T07:47:41Z"
-    },
-    {
-      "ticker": "AEHR",
-      "score": 1.7123,
-      "mentions": 5,
-      "weightedMentions": 1.6127,
-      "convictionHits": 1,
-      "lastMentioned": "2026-07-02T20:35:34Z"
-    },
-    {
-      "ticker": "RDDT",
-      "score": 1.4862,
+      "ticker": "HOOD",
+      "score": 1.4876,
       "mentions": 4,
-      "weightedMentions": 1.8699,
-      "convictionHits": 2,
-      "lastMentioned": "2026-06-27T15:45:34Z"
+      "weightedMentions": 1.5842,
+      "convictionHits": 1,
+      "lastMentioned": "2026-07-07T07:09:04Z"
     },
     {
-      "ticker": "DRAM",
-      "score": 1.4486,
-      "mentions": 5,
-      "weightedMentions": 2.6798,
+      "ticker": "AAPL",
+      "score": 1.4177,
+      "mentions": 4,
+      "weightedMentions": 1.7649,
       "convictionHits": 0,
-      "lastMentioned": "2026-06-30T07:50:05Z"
+      "lastMentioned": "2026-07-08T13:18:10Z"
+    },
+    {
+      "ticker": "VPG",
+      "score": 1.0258,
+      "mentions": 3,
+      "weightedMentions": 1.1068,
+      "convictionHits": 1,
+      "lastMentioned": "2026-07-05T12:40:49Z"
     },
     {
       "ticker": "AVGO",
-      "score": 1.3923,
+      "score": 1.0237,
       "mentions": 5,
       "weightedMentions": 2.2566,
       "convictionHits": 0,
       "lastMentioned": "2026-07-03T10:09:14Z"
     },
     {
+      "ticker": "OUST",
+      "score": 1.0164,
+      "mentions": 3,
+      "weightedMentions": 1.2634,
+      "convictionHits": 0,
+      "lastMentioned": "2026-07-08T13:15:30Z"
+    },
+    {
+      "ticker": "MELI",
+      "score": 1.0128,
+      "mentions": 3,
+      "weightedMentions": 1.248,
+      "convictionHits": 0,
+      "lastMentioned": "2026-07-08T13:13:41Z"
+    },
+    {
       "ticker": "SOI.PA",
-      "score": 1.3555,
+      "score": 0.9966,
       "mentions": 9,
       "weightedMentions": 3.6208,
       "convictionHits": 0,
       "lastMentioned": "2026-06-30T07:52:04Z"
     },
     {
+      "ticker": "WULF",
+      "score": 0.9919,
+      "mentions": 2,
+      "weightedMentions": 1.5774,
+      "convictionHits": 0,
+      "lastMentioned": "2026-07-06T15:33:45Z"
+    },
+    {
+      "ticker": "HIMX",
+      "score": 0.9569,
+      "mentions": 3,
+      "weightedMentions": 1.4309,
+      "convictionHits": 0,
+      "lastMentioned": "2026-07-05T07:37:20Z"
+    },
+    {
       "ticker": "AMAT",
-      "score": 1.2564,
+      "score": 0.9238,
       "mentions": 4,
       "weightedMentions": 1.5813,
       "convictionHits": 0,
@@ -5412,15 +6501,31 @@ window.AIE_DATA = {
     },
     {
       "ticker": "CBRS",
-      "score": 1.1494,
+      "score": 0.8451,
       "mentions": 2,
       "weightedMentions": 1.2845,
       "convictionHits": 0,
       "lastMentioned": "2026-07-02T20:34:02Z"
     },
     {
+      "ticker": "LPK",
+      "score": 0.7948,
+      "mentions": 1,
+      "weightedMentions": 1.0,
+      "convictionHits": 0,
+      "lastMentioned": "2026-07-05T07:38:05Z"
+    },
+    {
+      "ticker": "HIMS",
+      "score": 0.784,
+      "mentions": 2,
+      "weightedMentions": 0.8944,
+      "convictionHits": 0,
+      "lastMentioned": "2026-07-07T07:09:04Z"
+    },
+    {
       "ticker": "NOK",
-      "score": 0.9546,
+      "score": 0.7019,
       "mentions": 5,
       "weightedMentions": 1.9883,
       "convictionHits": 2,
@@ -5428,31 +6533,23 @@ window.AIE_DATA = {
     },
     {
       "ticker": "BE",
-      "score": 0.9224,
+      "score": 0.6782,
       "mentions": 2,
       "weightedMentions": 1.0246,
       "convictionHits": 0,
       "lastMentioned": "2026-07-01T14:58:44Z"
     },
     {
-      "ticker": "HIMX",
-      "score": 0.9192,
-      "mentions": 2,
-      "weightedMentions": 1.0774,
+      "ticker": "CRVW",
+      "score": 0.6596,
+      "mentions": 1,
+      "weightedMentions": 0.7071,
       "convictionHits": 0,
-      "lastMentioned": "2026-07-03T10:11:43Z"
-    },
-    {
-      "ticker": "VPG",
-      "score": 0.8771,
-      "mentions": 2,
-      "weightedMentions": 0.7906,
-      "convictionHits": 1,
-      "lastMentioned": "2026-06-27T15:41:34Z"
+      "lastMentioned": "2026-07-08T13:14:42Z"
     },
     {
       "ticker": "CRCL",
-      "score": 0.8487,
+      "score": 0.624,
       "mentions": 3,
       "weightedMentions": 0.8337,
       "convictionHits": 1,
@@ -5460,7 +6557,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "BABA",
-      "score": 0.8443,
+      "score": 0.6208,
       "mentions": 1,
       "weightedMentions": 1.0,
       "convictionHits": 0,
@@ -5468,31 +6565,31 @@ window.AIE_DATA = {
     },
     {
       "ticker": "NVTS",
-      "score": 0.8392,
+      "score": 0.617,
       "mentions": 2,
       "weightedMentions": 0.9107,
       "convictionHits": 1,
       "lastMentioned": "2026-06-27T15:41:34Z"
     },
     {
+      "ticker": "SHAZ",
+      "score": 0.5709,
+      "mentions": 1,
+      "weightedMentions": 0.7071,
+      "convictionHits": 0,
+      "lastMentioned": "2026-07-05T15:16:13Z"
+    },
+    {
       "ticker": "BRUN",
-      "score": 0.755,
+      "score": 0.5551,
       "mentions": 2,
       "weightedMentions": 0.8944,
       "convictionHits": 0,
       "lastMentioned": "2026-06-30T07:45:27Z"
     },
     {
-      "ticker": "ASTS",
-      "score": 0.7544,
-      "mentions": 2,
-      "weightedMentions": 0.9203,
-      "convictionHits": 0,
-      "lastMentioned": "2026-06-30T07:36:16Z"
-    },
-    {
       "ticker": "KLAC",
-      "score": 0.7537,
+      "score": 0.5542,
       "mentions": 2,
       "weightedMentions": 0.9472,
       "convictionHits": 0,
@@ -5500,15 +6597,23 @@ window.AIE_DATA = {
     },
     {
       "ticker": "ASML",
-      "score": 0.6967,
+      "score": 0.5122,
       "mentions": 2,
       "weightedMentions": 0.8333,
       "convictionHits": 0,
       "lastMentioned": "2026-07-01T14:55:33Z"
     },
     {
+      "ticker": "SILEX",
+      "score": 0.4901,
+      "mentions": 1,
+      "weightedMentions": 0.5774,
+      "convictionHits": 0,
+      "lastMentioned": "2026-07-06T15:32:42Z"
+    },
+    {
       "ticker": "WUS",
-      "score": 0.6259,
+      "score": 0.4602,
       "mentions": 2,
       "weightedMentions": 1.1547,
       "convictionHits": 0,
@@ -5516,7 +6621,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "ASX",
-      "score": 0.617,
+      "score": 0.4537,
       "mentions": 2,
       "weightedMentions": 0.8936,
       "convictionHits": 0,
@@ -5524,31 +6629,55 @@ window.AIE_DATA = {
     },
     {
       "ticker": "CRWV",
-      "score": 0.6146,
+      "score": 0.4519,
       "mentions": 2,
       "weightedMentions": 0.878,
       "convictionHits": 0,
       "lastMentioned": "2026-07-01T14:59:53Z"
     },
     {
-      "ticker": "AAPL",
-      "score": 0.5135,
-      "mentions": 2,
-      "weightedMentions": 0.6496,
+      "ticker": "SIMO",
+      "score": 0.4244,
+      "mentions": 1,
+      "weightedMentions": 0.5,
       "convictionHits": 0,
-      "lastMentioned": "2026-06-30T07:39:56Z"
+      "lastMentioned": "2026-07-06T15:26:32Z"
     },
     {
       "ticker": "MSFT",
-      "score": 0.5056,
+      "score": 0.3718,
       "mentions": 2,
       "weightedMentions": 0.4557,
       "convictionHits": 1,
       "lastMentioned": "2026-06-27T15:45:34Z"
     },
     {
+      "ticker": "FDX",
+      "score": 0.3465,
+      "mentions": 1,
+      "weightedMentions": 0.4082,
+      "convictionHits": 0,
+      "lastMentioned": "2026-07-06T15:27:08Z"
+    },
+    {
+      "ticker": "FORD",
+      "score": 0.3465,
+      "mentions": 1,
+      "weightedMentions": 0.4082,
+      "convictionHits": 0,
+      "lastMentioned": "2026-07-06T15:27:08Z"
+    },
+    {
+      "ticker": "GM",
+      "score": 0.3465,
+      "mentions": 1,
+      "weightedMentions": 0.4082,
+      "convictionHits": 0,
+      "lastMentioned": "2026-07-06T15:27:08Z"
+    },
+    {
       "ticker": "MTSI",
-      "score": 0.4679,
+      "score": 0.344,
       "mentions": 2,
       "weightedMentions": 0.8936,
       "convictionHits": 0,
@@ -5556,63 +6685,87 @@ window.AIE_DATA = {
     },
     {
       "ticker": "ARM",
-      "score": 0.4655,
+      "score": 0.3422,
       "mentions": 2,
       "weightedMentions": 0.6897,
       "convictionHits": 1,
       "lastMentioned": "2026-06-27T15:45:34Z"
     },
     {
+      "ticker": "BWA",
+      "score": 0.3296,
+      "mentions": 1,
+      "weightedMentions": 0.4082,
+      "convictionHits": 0,
+      "lastMentioned": "2026-07-05T15:17:30Z"
+    },
+    {
+      "ticker": "ENS",
+      "score": 0.3296,
+      "mentions": 1,
+      "weightedMentions": 0.4082,
+      "convictionHits": 0,
+      "lastMentioned": "2026-07-05T15:17:30Z"
+    },
+    {
+      "ticker": "ETN",
+      "score": 0.3296,
+      "mentions": 1,
+      "weightedMentions": 0.4082,
+      "convictionHits": 0,
+      "lastMentioned": "2026-07-05T15:17:30Z"
+    },
+    {
+      "ticker": "VRT",
+      "score": 0.3296,
+      "mentions": 1,
+      "weightedMentions": 0.4082,
+      "convictionHits": 0,
+      "lastMentioned": "2026-07-05T15:17:30Z"
+    },
+    {
       "ticker": "QCOM",
-      "score": 0.4401,
+      "score": 0.3236,
       "mentions": 1,
       "weightedMentions": 0.4472,
       "convictionHits": 0,
       "lastMentioned": "2026-07-03T10:09:14Z"
     },
     {
-      "ticker": "MELI",
-      "score": 0.428,
-      "mentions": 1,
-      "weightedMentions": 0.4472,
-      "convictionHits": 0,
-      "lastMentioned": "2026-07-02T20:35:04Z"
-    },
-    {
-      "ticker": "HOOD",
-      "score": 0.4237,
-      "mentions": 2,
-      "weightedMentions": 0.6897,
-      "convictionHits": 1,
-      "lastMentioned": "2026-06-27T15:45:34Z"
-    },
-    {
       "ticker": "FCEL",
-      "score": 0.4026,
+      "score": 0.296,
       "mentions": 1,
       "weightedMentions": 0.4472,
       "convictionHits": 0,
       "lastMentioned": "2026-07-01T14:58:44Z"
     },
     {
-      "ticker": "OUST",
-      "score": 0.4026,
+      "ticker": "DASH",
+      "score": 0.281,
       "mentions": 1,
-      "weightedMentions": 0.4472,
+      "weightedMentions": 0.3536,
       "convictionHits": 0,
-      "lastMentioned": "2026-07-01T14:58:44Z"
+      "lastMentioned": "2026-07-05T07:37:20Z"
     },
     {
-      "ticker": "EOS",
-      "score": 0.3775,
+      "ticker": "JD",
+      "score": 0.281,
       "mentions": 1,
-      "weightedMentions": 0.4472,
+      "weightedMentions": 0.3536,
       "convictionHits": 0,
-      "lastMentioned": "2026-06-30T07:41:22Z"
+      "lastMentioned": "2026-07-05T07:37:20Z"
+    },
+    {
+      "ticker": "UBER",
+      "score": 0.281,
+      "mentions": 1,
+      "weightedMentions": 0.3536,
+      "convictionHits": 0,
+      "lastMentioned": "2026-07-05T07:37:20Z"
     },
     {
       "ticker": "WLAC",
-      "score": 0.3775,
+      "score": 0.2776,
       "mentions": 1,
       "weightedMentions": 0.4472,
       "convictionHits": 0,
@@ -5620,7 +6773,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "BOT",
-      "score": 0.3775,
+      "score": 0.2776,
       "mentions": 1,
       "weightedMentions": 0.4472,
       "convictionHits": 0,
@@ -5628,7 +6781,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "BULL",
-      "score": 0.3775,
+      "score": 0.2776,
       "mentions": 1,
       "weightedMentions": 0.4472,
       "convictionHits": 0,
@@ -5636,15 +6789,23 @@ window.AIE_DATA = {
     },
     {
       "ticker": "DJT",
-      "score": 0.3775,
+      "score": 0.2776,
       "mentions": 1,
       "weightedMentions": 0.4472,
       "convictionHits": 0,
       "lastMentioned": "2026-06-30T07:45:27Z"
     },
     {
+      "ticker": "EOS",
+      "score": 0.2775,
+      "mentions": 1,
+      "weightedMentions": 0.4472,
+      "convictionHits": 0,
+      "lastMentioned": "2026-06-30T07:41:22Z"
+    },
+    {
       "ticker": "IBM",
-      "score": 0.3698,
+      "score": 0.2719,
       "mentions": 1,
       "weightedMentions": 0.5,
       "convictionHits": 0,
@@ -5652,7 +6813,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "IONQ",
-      "score": 0.3698,
+      "score": 0.2719,
       "mentions": 1,
       "weightedMentions": 0.5,
       "convictionHits": 0,
@@ -5660,7 +6821,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "QBTS",
-      "score": 0.3698,
+      "score": 0.2719,
       "mentions": 1,
       "weightedMentions": 0.5,
       "convictionHits": 0,
@@ -5668,15 +6829,31 @@ window.AIE_DATA = {
     },
     {
       "ticker": "RGTI",
-      "score": 0.3698,
+      "score": 0.2719,
       "mentions": 1,
       "weightedMentions": 0.5,
       "convictionHits": 0,
       "lastMentioned": "2026-06-27T15:41:13Z"
     },
     {
+      "ticker": "FN",
+      "score": 0.2559,
+      "mentions": 1,
+      "weightedMentions": 0.3015,
+      "convictionHits": 0,
+      "lastMentioned": "2026-07-06T15:31:53Z"
+    },
+    {
+      "ticker": "CATL",
+      "score": 0.254,
+      "mentions": 1,
+      "weightedMentions": 0.3162,
+      "convictionHits": 0,
+      "lastMentioned": "2026-07-05T12:40:49Z"
+    },
+    {
       "ticker": "QQQ",
-      "score": 0.3446,
+      "score": 0.2534,
       "mentions": 1,
       "weightedMentions": 0.4082,
       "convictionHits": 0,
@@ -5684,7 +6861,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "ACMR",
-      "score": 0.2962,
+      "score": 0.2178,
       "mentions": 1,
       "weightedMentions": 0.5774,
       "convictionHits": 0,
@@ -5692,7 +6869,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "CAMT",
-      "score": 0.2962,
+      "score": 0.2178,
       "mentions": 1,
       "weightedMentions": 0.5774,
       "convictionHits": 0,
@@ -5700,7 +6877,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "GLW",
-      "score": 0.2886,
+      "score": 0.2122,
       "mentions": 1,
       "weightedMentions": 0.3015,
       "convictionHits": 0,
@@ -5708,7 +6885,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "TER",
-      "score": 0.2886,
+      "score": 0.2122,
       "mentions": 1,
       "weightedMentions": 0.3015,
       "convictionHits": 0,
@@ -5716,7 +6893,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "VECO",
-      "score": 0.2796,
+      "score": 0.2056,
       "mentions": 1,
       "weightedMentions": 0.378,
       "convictionHits": 0,
@@ -5724,7 +6901,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "SMTC",
-      "score": 0.2691,
+      "score": 0.1979,
       "mentions": 1,
       "weightedMentions": 0.2425,
       "convictionHits": 1,
@@ -5732,7 +6909,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "ALMU",
-      "score": 0.2615,
+      "score": 0.1923,
       "mentions": 1,
       "weightedMentions": 0.3536,
       "convictionHits": 0,
@@ -5740,7 +6917,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "SMHD",
-      "score": 0.2615,
+      "score": 0.1923,
       "mentions": 1,
       "weightedMentions": 0.3536,
       "convictionHits": 0,
@@ -5748,7 +6925,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "SMHMD",
-      "score": 0.2615,
+      "score": 0.1923,
       "mentions": 1,
       "weightedMentions": 0.3536,
       "convictionHits": 0,
@@ -5756,7 +6933,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "ETHA",
-      "score": 0.2607,
+      "score": 0.1917,
       "mentions": 2,
       "weightedMentions": 0.6604,
       "convictionHits": 0,
@@ -5764,7 +6941,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "IBIT",
-      "score": 0.2607,
+      "score": 0.1917,
       "mentions": 2,
       "weightedMentions": 0.6604,
       "convictionHits": 0,
@@ -5772,7 +6949,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "LRCX",
-      "score": 0.2466,
+      "score": 0.1813,
       "mentions": 1,
       "weightedMentions": 0.3333,
       "convictionHits": 0,
@@ -5780,7 +6957,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "LWLG",
-      "score": 0.2466,
+      "score": 0.1813,
       "mentions": 1,
       "weightedMentions": 0.3333,
       "convictionHits": 0,
@@ -5788,15 +6965,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "CIFR",
-      "score": 0.1945,
-      "mentions": 1,
-      "weightedMentions": 0.5774,
-      "convictionHits": 0,
-      "lastMentioned": "2026-06-11T18:20:31Z"
-    },
-    {
-      "ticker": "WULF",
-      "score": 0.1945,
+      "score": 0.143,
       "mentions": 1,
       "weightedMentions": 0.5774,
       "convictionHits": 0,
@@ -5804,7 +6973,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "ALAB",
-      "score": 0.1726,
+      "score": 0.1269,
       "mentions": 1,
       "weightedMentions": 0.5,
       "convictionHits": 0,
@@ -5812,7 +6981,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "ORCL",
-      "score": 0.1644,
+      "score": 0.1209,
       "mentions": 1,
       "weightedMentions": 0.378,
       "convictionHits": 0,
@@ -5820,7 +6989,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "NFLX",
-      "score": 0.1577,
+      "score": 0.1159,
       "mentions": 1,
       "weightedMentions": 0.2132,
       "convictionHits": 0,
@@ -5828,7 +6997,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "UPWK",
-      "score": 0.1577,
+      "score": 0.1159,
       "mentions": 1,
       "weightedMentions": 0.2132,
       "convictionHits": 0,
@@ -5836,7 +7005,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "RPI",
-      "score": 0.1407,
+      "score": 0.1035,
       "mentions": 1,
       "weightedMentions": 0.378,
       "convictionHits": 1,
@@ -5844,7 +7013,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "COIN",
-      "score": 0.103,
+      "score": 0.0758,
       "mentions": 1,
       "weightedMentions": 0.4472,
       "convictionHits": 0,
@@ -5852,7 +7021,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "ALRIB",
-      "score": 0.1014,
+      "score": 0.0745,
       "mentions": 1,
       "weightedMentions": 0.3162,
       "convictionHits": 0,
@@ -5861,37 +7030,50 @@ window.AIE_DATA = {
   ],
   "brain": {
     "meta": {
-      "generatedAt": "2026-07-03T13:40:18Z",
-      "model": "claude-sonnet-5 (manual, no API key \u2014 see CLAUDE.md v4 workaround)",
-      "thesesConsidered": 154,
-      "categoriesSynthesized": 10,
+      "generatedAt": "2026-07-08T15:22:47Z",
+      "model": "claude-fable-5 (manual, no API key \u2014 see CLAUDE.md v4 workaround)",
+      "thesesConsidered": 188,
+      "categoriesSynthesized": 6,
       "schemaVersion": 1
     },
     "digests": [
       {
         "category": "photonics",
-        "narrative": "His highest-conviction, highest-concentration theme by a wide margin. Core thesis: NVIDIA's move to 1.6T optics and co-packaged optics (CPO) forces an architectural shift from EML to continuous-wave (CW) lasers, and Sivers ($SIVE) is the under-recognized CW/DFB laser bottleneck feeding the entire hyperscaler CPO ecosystem \u2014 GlobalFoundries' reference design, Ayar/NVLink scale-up, Jabil's 1.6T pluggables, POET's scale-out, O-Net's ELS. He holds a million-plus share position and has tracked a string of validating catalysts over June-July: JP Morgan's stake rising 0.4%-\u003e5%+, an emergency $70M raise for mass-production capacity, a Win Semi allocation confirmation, a $8.2M space/defense order, Fidelity/BlackRock institutional ownership, EU CHIPS Act 2.0 backing, and a confirmed intent to complete a Nasdaq listing within a few quarters.\n\nAround Sivers he tracks XFAB (a pre-commercial European silicon-photonics foundry he calls 'early TSEM,' validated by NVDA/Nokia evaluations and EU policy support at a market cap he repeatedly calls a joke), AAOI (Made-in-America CW capacity projecting ~$1.4B/quarter run-rate by H1 2027, 800%+ Y/Y growth), IQE (InP epiwafer chokepoint supplier, de-risked by a multi-year TSEM deal), LITE and COHR (top-three laser suppliers 'completely sold out' into 2028-2029), JBL, POET, and MTSI (invested directly in IQE to secure epiwafer capacity). He treats a SemiAnalysis 'CPO delay' report plus a rival ETF launch as manufactured FUD the sector refuted, and reads the recent selloff as noise against a TAM scaling from near-zero to ~$91B by 2026-2028.",
+        "narrative": "His highest-conviction theme took a full-sector washout this week (-4% to -10% across optical names) and he leaned in rather than out \u2014 'SIVE is probably my favorite stock right now, not concerned about short-term drops.' His read: this was an indiscriminate margin-cascade selloff, not fundamentals, and the CW-laser chokepoint is intact (LITE 'sold out into 2028/2029,' anything they make gets bought). He tightened the Sivers case into a supplier-map post \u2014 JBL 1.6T LRO qualifying then mass-producing with Sivers lasers, AEVA HVM ~Q4 2026, POET H2 2026 \u2014 and added a new second-order leg: US scrutiny of China's Hesai lidar is bullish for western lidar players and, upstream, for their laser suppliers LITE and SIVE.\n\nTwo fact-checks temper the euphoria. First, the SemiAnalysis CPO-delay pieces he blames for the crash actually hit on 9-10 June \u2014 the 7 July rout was Samsung-triggered memory contagion, so 'manufactured photonics FUD' is the wrong frame for this leg. Second, his SIVE conviction now runs ahead of some verifiable risk: the SEK 700M raise carried an auditor going-concern flag and drew a Ningi Research short thesis, the 'JBL qualifies in 1-4 months' detail can't be sourced, and integrated-laser designs (OpenLight and peers that need no external light source) are a real long-term threat to the discrete-CW-supplier premise. The chokepoint is real; the single-name concentration risk is realer than his posts admit.",
         "conviction": "high",
         "keyPoints": [
-          "Sivers ($SIVE) is the recurring CW-laser chokepoint across GFS, Ayar/NVLink, Jabil 1.6T pluggables, POET scale-out, and O-Net \u2014 JPM stake rose 0.4%-\u003e5%+, plus a $70M raise, a Win Semi allocation win, and Nasdaq-listing intent, all in the past month.",
-          "XFAB is his #2 photonics conviction: a pre-commercial European silicon-photonics foundry likened to 'early TSEM,' backed by EU CHIPS Act 2.0 and NVDA/Nokia evaluations at a market cap he calls too cheap ahead of 2027-2028 volume ramps.",
-          "AAOI: Made-in-America CW capacity projected near $1.4B/quarter run-rate by H1 2027 (800%+ Y/Y); IQE is the InP epiwafer chokepoint feeding the same laser ecosystem, de-risked by a multi-year TSEM supply deal.",
-          "Top-three laser suppliers (LITE, COHR, plus Sivers) control ~68% of the market and are sold out into 2028-2029 per POET's AGM and Lumentum's own CEO.",
-          "A SemiAnalysis report framing CPO as delayed (paired with a rival ETF launch after a 40-60% optical drawdown) is read as manufactured FUD the sector refuted.",
-          "Timing map: 1.6T pluggables now-\u003eH1 2027, CPO scale-out late H2 2026, NPO H2 2026/2027, CPO scale-up H2 2027 \u2014 TAM scaling from near-zero to ~$91B over that window."
+          "He bought the -4% to -10% optical washout aggressively, calling it indiscriminate margin-cascade selling \u2014 'not concerned about short-term drops' on SIVE.",
+          "Fact-check: the SemiAnalysis CPO-delay bear posts hit 9-10 June, not this week; the 7 July rout was Samsung memory contagion \u2014 the 'photonics FUD' frame is misapplied to this leg.",
+          "Sivers supplier map reiterated: JBL 1.6T LRO mass-production, AEVA HVM ~Q4 2026, POET H2 2026 \u2014 but the 'JBL qualifies in 1-4 months' quote is unverified.",
+          "SIVE risk his posts understate: SEK 700M raise carried an auditor going-concern flag and a Ningi short thesis; it remains one of his largest holdings.",
+          "New second-order leg: US scrutiny of China's Hesai lidar is bullish for western lidar and upstream laser suppliers LITE/SIVE.",
+          "Structural threat to watch: integrated light-source designs (OpenLight and peers) that remove the need for a discrete CW laser supplier."
         ],
         "tickers": [
           "SIVE",
-          "XFAB",
           "AAOI",
-          "IQE",
           "LITE",
-          "COHR",
           "JBL",
           "POET",
-          "MTSI"
+          "XFAB",
+          "IQE",
+          "COHR"
         ],
         "sourceThesisIds": [
+          "h_2c315427900a28ca",
+          "h_ab043547a0a514ce",
+          "h_47f3b5b1bfcce165",
+          "h_0dd22247c9538b67",
+          "h_574cc87d7e028236",
+          "h_30f455bac2598b96",
+          "h_d1316054ff13d830",
+          "h_34534f43456cd196",
+          "h_36781819bfe0ee75",
+          "h_0ecb33baa79a6b44",
+          "h_10aa6c8479a57d03",
+          "h_85395dd0fa8acb89",
+          "h_67b7f17bf6d26992",
+          "h_ca1ce1cb5f43eec7",
           "h_3dbecf550235afcf",
           "h_faf7862f8409c216",
           "h_9c524f6339fbbee1",
@@ -5917,24 +7099,10 @@ window.AIE_DATA = {
           "h_e4cc0612983c7052",
           "h_5f7deacb158cae47",
           "h_1c4fa0b1b24c9af4",
-          "h_7864cc0211dacb69",
-          "h_8660c845cb321357",
-          "h_bebbef0482f407da",
-          "h_d81fe21a14bdd892",
-          "h_be0e37ed73e67418",
-          "h_7e5abea1e46217a6",
-          "h_13af0765b648b270",
-          "h_29e60f0da3d1925a",
-          "h_32a2c120602c0f6e",
-          "h_076a7bf5684e1f29",
-          "h_fbc83c0f2773fa23",
-          "h_f153fe80a14e0404",
-          "h_f88451f6908b5d92",
-          "h_9303cbd2c9492567",
-          "h_1ced9183836b57b7"
+          "h_7864cc0211dacb69"
         ],
         "thesesCount": 40,
-        "lastSynthesized": "2026-07-03T13:40:18Z",
+        "lastSynthesized": "2026-07-08T15:22:47Z",
         "dailyMentions": {
           "days": [
             "2026-06-02",
@@ -5965,7 +7133,11 @@ window.AIE_DATA = {
             "2026-06-30",
             "2026-07-01",
             "2026-07-02",
-            "2026-07-03"
+            "2026-07-03",
+            "2026-07-05",
+            "2026-07-06",
+            "2026-07-07",
+            "2026-07-08"
           ],
           "counts": [
             0,
@@ -5991,35 +7163,45 @@ window.AIE_DATA = {
             0,
             0,
             0,
-            8,
-            1,
-            18,
+            0,
+            0,
+            13,
             4,
             6,
-            3
+            3,
+            2,
+            5,
+            2,
+            5
           ]
         }
       },
       {
         "category": "memory",
-        "narrative": "Anchored on AXTI as a multi-month InP-substrate bottleneck thesis: China's export-control easing on InP substrates is read as a direct capacity tailwind (also benefiting AAOI/IQE/LITE/SIVE downstream), while AXTI's own re-rating ($13-\u003e$140s) came with a float expansion and dilution he flags as a real risk, alongside a new 3-year wafer supply deal with Coherent ($22.29M prepayment for committed capacity). He stresses patience \u2014 'don't judge a multi-month theme on short timeframes.'\n\nSanDisk (SNDK) and Micron (MU) are the other core memory names \u2014 SNDK shorts are described as 'wiped out' with the stock surging toward $2,000, and his own MU gross-margin model (pricing in DRAM/NAND hikes ahead of time) was validated by results, with the AI capex cycle expected to run through 2028. He also flags RPI (~247% gains since his thesis, AI-driven memory demand pushing profit ahead of expectations) and WUS TW (Winbond) as a NAV-arbitrage-plus-AI-growth trade with activist involvement as a catalyst. A tungsten (WF6) export-control bottleneck out of China (hitting SK Hynix, Samsung, and TSM) is a recurring research thread pointing to upstream supply risk across the whole memory chain.",
+        "narrative": "The memory upcycle got its cleanest real-world stress test: Samsung pre-announced record Q2 operating profit up ~1,800% Y/Y \u2014 the most profitable quarter in the world, beating NVDA and AAPL \u2014 and the stock fell ~7% anyway after a +150% YTD run. The analyst reads this correctly as priced-to-perfection profit-taking, not a fundamentals crack, and notes the same Samsung print was the actual trigger for the week's broad chip rout (INTC, AMD, MRVL, MU, SNDK all down hard in contagion). His standing thesis holds: you don't sign 16T+ LTAs into memory that's about to be flooded, and 'memory optimization / Chinese players' noise hasn't moved the bottleneck, which several houses see extending toward 2027-2029.\n\nTwo calibration notes. His specific '20% DRAM hike' claim couldn't be independently sourced this week \u2014 treat it as directional, not confirmed. And the AXTI InP-substrate leg that he threads through memory needs the fact-check caveat: the 42-78% substrate hikes are largely a China export-control artifact, and with licenses flowing again from June and AXT doubling capacity, those ASPs can normalize rather than compound the way DRAM/NAND contract prices are. The memory core is strong; the 'optical substrates repeat memory's compounding' extrapolation is the softer part of the argument.",
         "conviction": "high",
         "keyPoints": [
-          "AXTI: multi-month InP-substrate bottleneck thesis; China's export easing is a direct capacity tailwind, but the $13-\u003e$140s re-rating came with float expansion/dilution worth watching. New 3-year Coherent wafer deal ($22.29M prepayment for committed capacity).",
-          "SanDisk (SNDK) shorts are 'wiped out' with the stock surging toward $2,000 on AI-driven memory demand.",
-          "Micron (MU): his own gross-margin model (pricing in DRAM/NAND hikes ahead of time) was validated by results; AI capex cycle expected to run through 2028.",
-          "RPI: ~247% gains since his thesis, with AI-driven memory demand pushing profit ahead of expectations.",
-          "Winbond (WUS TW): NAV-arbitrage-plus-AI-growth trade, with activist involvement and an H-share listing flagged as catalysts.",
-          "Recurring bottleneck research: a China tungsten (WF6) export control disrupting SK Hynix/Samsung/TSM supply chains."
+          "Samsung reported record Q2 operating profit (~1,800% Y/Y, most profitable in the world) and still sold off ~7% \u2014 priced-to-perfection profit-taking after +150% YTD.",
+          "That Samsung print was the actual trigger for the week's broad chip rout (INTC/AMD/MRVL/MU/SNDK), not a photonics event.",
+          "Core thesis intact: 16T+ LTAs and NAND-short-into-2027 calls argue the bottleneck is real; 'memory optimization / China' noise hasn't dented it.",
+          "Calibration: his specific '20% DRAM hike' figure couldn't be independently sourced this week \u2014 directional, not confirmed.",
+          "AXTI InP leg needs a caveat: 42-78% substrate hikes are largely a China export-control artifact that can normalize as licenses flow and AXT doubles capacity.",
+          "The soft part of his argument is the extrapolation that optical substrates will repeat memory's compounding-price-hike pattern."
         ],
         "tickers": [
-          "AXTI",
-          "SNDK",
           "MU",
-          "RPI",
-          "WUS"
+          "SNDK",
+          "AXTI",
+          "000660.KS"
         ],
         "sourceThesisIds": [
+          "h_47f3b5b1bfcce165",
+          "h_574cc87d7e028236",
+          "h_30f455bac2598b96",
+          "h_d1316054ff13d830",
+          "h_10aa6c8479a57d03",
+          "h_6619c85d86ae9ed8",
+          "h_6d5dbad8581d8139",
           "h_9c524f6339fbbee1",
           "h_15c7a1a2cc1c7180",
           "h_3b2f8931edf69462",
@@ -6051,8 +7233,8 @@ window.AIE_DATA = {
           "h_201941bd3fdcb3de",
           "h_efc6858d830133ef"
         ],
-        "thesesCount": 30,
-        "lastSynthesized": "2026-07-03T13:40:18Z",
+        "thesesCount": 37,
+        "lastSynthesized": "2026-07-08T15:22:47Z",
         "dailyMentions": {
           "days": [
             "2026-06-02",
@@ -6083,7 +7265,11 @@ window.AIE_DATA = {
             "2026-06-30",
             "2026-07-01",
             "2026-07-02",
-            "2026-07-03"
+            "2026-07-03",
+            "2026-07-05",
+            "2026-07-06",
+            "2026-07-07",
+            "2026-07-08"
           ],
           "counts": [
             0,
@@ -6114,36 +7300,41 @@ window.AIE_DATA = {
             5,
             0,
             2,
-            1
+            1,
+            1,
+            2,
+            2,
+            2
           ]
         }
       },
       {
         "category": "fabs",
-        "narrative": "GlobalFoundries (GFS) is the connective tissue here \u2014 its silicon-photonics reference design embeds Sivers lasers as the default light source across the NVDA CPO ecosystem, and he's constructive on it as a 'quality holding' even as its size limits further multibagger potential. TSM is read as aggressively building a silicon-photonics/CPO empire through subsidiaries Xintec (testing) and VisEra (optical foundry), with the chairman confirming CoPoS pilot lines running now for 2-3 year volume \u2014 a longer runway than the market's 'heavily delayed' narrative suggests; autonomous vehicles/robots are flagged as a new TSM growth area.\n\nEquipment names (ASML, Applied Materials, Lam Research, KLA, Veeco) recur as the unglamorous but unavoidable layer under every advanced node and photonics wafer \u2014 Veeco's MBE tools specifically grow the InP/GaAs laser wafers feeding the CPO chokepoint. NAV-discount Asian equipment names (ACMR, Camtek) are framed as standalone-growth ideas via China-listed subsidiaries and H-share listings. He also flags OpenAI's reported talks to give the US government a stake as echoing the Intel playbook \u2014 a potential soft government backstop for hyperscaler capex \u2014 and a tungsten (WF6) export-control bottleneck touching Japan/Korea fab-adjacent supply chains.",
+        "narrative": "The fab and equipment layer was ground zero for the week's contagion: Samsung's guidance triggered a rout in which INTC was the worst S&P 500 performer (-9.7%) and AMAT fell ~10%, alongside broad equipment-name weakness (ASML, Lam, KLA). The analyst's read is consistent with his cross-sector frame \u2014 indiscriminate selling into a leverage-driven tape, where fundamentals (record memory profits, sold-out laser and substrate capacity) didn't move. GlobalFoundries remains the platform beneath his photonics book: the SCALE reference-level laser for hyperscalers where AMD and others reportedly went for CPO, with those CPO timelines now sketched 'somewhere in 2027.'\n\nThe durable specialty-foundry thesis is unchanged and still the strongest fab-layer idea here: XFAB as the cheapest specialty foundry (4.8x 2027 EV/EBITDA vs a 14.5x peer median) with a free photonixfab silicon-photonics option and NVDA/Nokia evaluations pending. TSM's silicon-photonics/CPO empire-building carries forward. The equipment names (ASML, AMAT, Lam, KLA) remain the unavoidable layer beneath all of it \u2014 and this week a reminder that they trade with the rout even when their order books don't.",
         "conviction": "high",
         "keyPoints": [
-          "GlobalFoundries (GFS): its silicon-photonics reference design embeds Sivers lasers as the default across the NVDA CPO ecosystem; a quality holding, though now large enough to cap multibagger upside.",
-          "TSM is aggressively building a silicon-photonics/CPO empire via subsidiaries Xintec (testing) and VisEra (optical foundry); CoPoS pilot lines are running now for 2-3 year volume, with autonomous vehicles/robots flagged as a new growth area.",
-          "Equipment names (ASML, Applied Materials, Lam Research, KLA) are the unavoidable layer under every advanced node; Veeco's MBE tools specifically grow the InP/GaAs laser wafers feeding the photonics chokepoint.",
-          "NAV-discount Asian equipment plays (ACMR, Camtek) are framed as standalone-growth ideas via China-listed subsidiaries and H-share listings.",
-          "OpenAI's reported talks to give the US government a stake echo the Intel playbook \u2014 a potential soft government backstop for hyperscaler capex.",
-          "A tungsten (WF6) export-control bottleneck out of China is a recurring watch item for Japan/Korea fab-adjacent supply chains."
+          "Fabs/equipment were ground zero for the Samsung contagion: INTC worst S&P 500 performer (-9.7%), AMAT ~-10%, broad ASML/Lam/KLA weakness.",
+          "His read: indiscriminate leverage-driven selling \u2014 record memory profits and sold-out capacity mean fundamentals didn't move.",
+          "GFS remains the platform beneath his photonics book (SCALE reference laser, AMD CPO), with CPO timelines now sketched 'somewhere in 2027.'",
+          "Durable idea intact: XFAB as cheapest specialty foundry (4.8x 2027 EV/EBITDA vs 14.5x peers) plus a free photonixfab silicon-photonics option.",
+          "TSM's silicon-photonics/CPO empire-building carries forward; equipment names remain the unavoidable layer beneath the whole stack.",
+          "Reminder from the week: equipment names trade with the rout even when their order books don't."
         ],
         "tickers": [
           "GFS",
           "TSM",
-          "ASML",
-          "AMAT",
-          "LRCX",
-          "KLAC",
-          "VECO",
-          "ACMR",
-          "CAMT",
           "INTC",
-          "TSEM"
+          "TSEM",
+          "AMAT",
+          "ASML",
+          "KLAC"
         ],
         "sourceThesisIds": [
+          "h_2c315427900a28ca",
+          "h_0dd22247c9538b67",
+          "h_574cc87d7e028236",
+          "h_0ecb33baa79a6b44",
+          "h_6d5dbad8581d8139",
           "h_dfc7e2d10819371c",
           "h_ce3d6e124a66f939",
           "h_dd8a7c3f97835b36",
@@ -6178,15 +7369,10 @@ window.AIE_DATA = {
           "h_ef14e95a9674e72e",
           "h_76b06718fb16b539",
           "h_fae917675b284691",
-          "h_c42176fc997d21c3",
-          "h_192466279203c8e6",
-          "h_d95ac329013064d9",
-          "h_2f364039fceec9ce",
-          "h_edf39cb9fef7f875",
-          "h_76d45ebf5a708dcc"
+          "h_c42176fc997d21c3"
         ],
         "thesesCount": 40,
-        "lastSynthesized": "2026-07-03T13:40:18Z",
+        "lastSynthesized": "2026-07-08T15:22:47Z",
         "dailyMentions": {
           "days": [
             "2026-06-02",
@@ -6217,7 +7403,11 @@ window.AIE_DATA = {
             "2026-06-30",
             "2026-07-01",
             "2026-07-02",
-            "2026-07-03"
+            "2026-07-03",
+            "2026-07-05",
+            "2026-07-06",
+            "2026-07-07",
+            "2026-07-08"
           ],
           "counts": [
             0,
@@ -6227,16 +7417,16 @@ window.AIE_DATA = {
             0,
             0,
             0,
-            2,
             0,
             0,
             0,
-            1,
-            0,
-            1,
             0,
             0,
-            1,
+            0,
+            0,
+            0,
+            0,
+            0,
             1,
             2,
             0,
@@ -6248,28 +7438,36 @@ window.AIE_DATA = {
             6,
             2,
             5,
-            0
+            0,
+            1,
+            1,
+            0,
+            3
           ]
         }
       },
       {
         "category": "neoclouds",
-        "narrative": "High conviction that the 'Meta is cutting capex' narrative is disinformation. His read: Google restricted Meta's internal compute allocation back in March because Meta's own usage was too high, forcing Meta to immediately sign $48B+ contracts with neoclouds like CoreWeave and Nebius \u2014 a demand-constraint story, not a demand-weakening one. Nebius (NBIS) is his highest-conviction pure-play neocloud, 'execution certainty delivering asymmetric upside,' repeatedly validated by all-time highs and a Nasdaq-100 addition; he explicitly frames switching from Iris Energy to Nebius last year as the correct call.\n\nThe bitcoin-miner-to-neocloud pivot (Iris Energy, Cipher Mining, TeraWulf) is a recurring secondary thread \u2014 Anthropic's data-center lease news is cited as a tailwind for WULF/CIFR colo capacity, though he holds a negative view on IREN specifically over its GPU-pivot-from-colo narrative and ongoing $6B ATM dilution. He also cites Wells Fargo's read that Meta's own excess-compute resale plans validate rather than threaten the neocloud opportunity.",
+        "narrative": "The 'Meta is cutting capex' narrative he has fought for weeks broke down publicly: Meta's upcoming 'Watermelon' model has reportedly caught up to OpenAI's GPT 5.5 using an order of magnitude more compute than its predecessor, and SemiAnalysis \u2014 the same firm whose bear notes hit photonics \u2014 says Meta's datacenter and compute will accelerate with 2027 capex 'shockingly high.' His long-standing read (a compute-constraint story, never a demand-weakening one) is aging well, and NBIS remains his highest-conviction pure-play expression of it.\n\nThe Anthropic demand wave became this week's concrete catalyst: TeraWulf signed a $19B datacenter lease with Anthropic ('a very positive tailwind for the Neocloud/Colo sector'), and leaked Anthropic docs point to ~1.4GW of Australian capacity worth ~$21.6B \u2014 mapping directly onto the sovereign datacenters IREN, SHAZ and other neoclouds have been building there (he discloses no positions in those two). The more speculative fringe \u2014 floating/ocean-based datacenters as a future NBIS-style play \u2014 he treats as directional color, not thesis.",
         "conviction": "high",
         "keyPoints": [
-          "Google restricting Meta's internal compute allocation in March forced Meta's $48B+ neocloud contracts (CRWV, NBIS) \u2014 a demand-constraint story, not a 'cutting capex' story.",
-          "Nebius (NBIS) is his highest-conviction pure-play neocloud \u2014 'execution certainty delivering asymmetric upside' \u2014 validated by all-time highs and a Nasdaq-100 addition; switching from Iris Energy to Nebius last year is framed as the correct call.",
-          "Bitcoin-miner-to-neocloud pivot (Cipher Mining, TeraWulf, Iris Energy): Anthropic's data-center lease news is a tailwind for colo capacity, but he holds a negative view on IREN specifically over its GPU-pivot narrative and ongoing $6B ATM dilution.",
-          "Wells Fargo: Meta's excess-compute resale plans validate the AI-infra opportunity for neoclouds rather than threatening it."
+          "Meta capex-cut narrative debunked: 'Watermelon' reportedly matches GPT 5.5 on an order of magnitude more compute; SemiAnalysis sees 2027 Meta capex 'shockingly high.'",
+          "TeraWulf signs a $19B datacenter lease with Anthropic \u2014 a repricing event for the whole neocloud/colo sector's contract value.",
+          "Leaked Anthropic docs point to ~1.4GW / ~$21.6B of Australian capacity, mapping onto sovereign DCs built by IREN, SHAZ and peers.",
+          "NBIS remains his highest-conviction pure-play neocloud; the demand chain is now corroborated from hyperscalers and frontier labs simultaneously.",
+          "Floating/ocean-based datacenters are flagged as an emerging concept (free cooling, geographic constraints) \u2014 color, not thesis."
         ],
         "tickers": [
           "NBIS",
-          "CRWV",
+          "WULF",
           "IREN",
-          "CIFR",
-          "WULF"
+          "CRWV",
+          "CIFR"
         ],
         "sourceThesisIds": [
+          "h_ed35af2a69e57256",
+          "h_36017b24779b163a",
+          "h_ca1ce1cb5f43eec7",
           "h_65385721915ebae2",
           "h_faf7862f8409c216",
           "h_15c7a1a2cc1c7180",
@@ -6294,8 +7492,8 @@ window.AIE_DATA = {
           "h_edf39cb9fef7f875",
           "h_58275c6f41828d55"
         ],
-        "thesesCount": 23,
-        "lastSynthesized": "2026-07-03T13:40:18Z",
+        "thesesCount": 26,
+        "lastSynthesized": "2026-07-06T16:02:09Z",
         "dailyMentions": {
           "days": [
             "2026-06-02",
@@ -6326,7 +7524,11 @@ window.AIE_DATA = {
             "2026-06-30",
             "2026-07-01",
             "2026-07-02",
-            "2026-07-03"
+            "2026-07-03",
+            "2026-07-05",
+            "2026-07-06",
+            "2026-07-07",
+            "2026-07-08"
           ],
           "counts": [
             0,
@@ -6357,7 +7559,11 @@ window.AIE_DATA = {
             3,
             2,
             3,
-            2
+            2,
+            2,
+            1,
+            0,
+            0
           ]
         }
       },
@@ -6438,7 +7644,11 @@ window.AIE_DATA = {
             "2026-06-30",
             "2026-07-01",
             "2026-07-02",
-            "2026-07-03"
+            "2026-07-03",
+            "2026-07-05",
+            "2026-07-06",
+            "2026-07-07",
+            "2026-07-08"
           ],
           "counts": [
             2,
@@ -6469,28 +7679,33 @@ window.AIE_DATA = {
             2,
             1,
             1,
-            1
+            1,
+            0,
+            0,
+            0,
+            0
           ]
         }
       },
       {
         "category": "networking",
-        "narrative": "Centers on a half-serious 'conspiracy theory' that Nvidia is discretely backing ASIC challengers \u2014 Marvell (MRVL), MediaTek, AlChip, GUC (NVLink) \u2014 to chip away at Broadcom's (AVGO) custom-silicon share, the same way neocloud offerings created a moat against CSPs' custom ASICs last year. Broadcom itself is described as structurally bullish on ~2028 networking-demand visibility despite this multi-sourcing pressure. Jensen Huang's 'the next $1T company' comment continues to anchor sentiment through MRVL drawdowns; he holds shares and also flags MRVL's CPO and Maia-ASIC exposure as reaffirming his favorable view.\n\nAstera Labs (ALAB) \u2014 PCIe/CXL connectivity linking GPUs, CPUs and memory \u2014 was added with pleasure on its Nasdaq-100 inclusion, though he later noted reduced conviction. Nokia (NOK) recurs as a validating customer alongside NVDA evaluating XFAB's silicon-photonics foundry for CPO applications.",
+        "narrative": "The Marvell thread stays sentiment-first: whenever MRVL drops he hears Jensen's 'the next $1T company' comment, and this week he formalized his half-serious 'conspiracy theory' \u2014 Nvidia quietly supports the ASIC challengers (MRVL, MediaTek, AlChip, GUC) chipping away at Broadcom's custom-silicon share, the same way neocloud offerings built a moat against CSP custom ASICs last year. He frames it as an interesting ~2-year trade but expects hyperscalers like Google to bring design in-house past 2030, and floats NVDA taking a stake in QCOM next. Nokia recurs as a validating evaluator (with NVDA) of XFAB's silicon-photonics foundry. Still no standalone networking bottleneck thesis \u2014 this remains the most narrative-driven category in the corpus.",
         "conviction": "medium",
         "keyPoints": [
-          "Half-serious thesis: Nvidia is discretely backing ASIC challengers (Marvell, MediaTek, AlChip, GUC) to chip away at Broadcom's custom-silicon share.",
-          "Broadcom (AVGO) is structurally bullish on ~2028 networking-demand visibility despite multi-sourcing pressure from the ASIC-challenger cohort.",
-          "Jensen Huang's 'the next $1T company' comment continues to anchor sentiment through MRVL drawdowns; also holds shares for its CPO and Maia-ASIC exposure.",
-          "Astera Labs (ALAB): PCIe/CXL connectivity between GPUs/CPUs/memory, added with pleasure on its Nasdaq-100 inclusion, though conviction has since eased.",
-          "Nokia (NOK) recurs as a validating customer (alongside NVDA) evaluating XFAB's silicon-photonics foundry for CPO applications."
+          "Formalized 'conspiracy theory': NVDA discretely backs ASIC challengers (MRVL, MediaTek, AlChip, GUC) against Broadcom's custom-silicon share.",
+          "Framed as a ~2-year trade opportunity \u2014 past 2030 he expects hyperscalers like Google to bring ASIC design in-house.",
+          "Jensen's 'next $1T company' comment still anchors MRVL sentiment through drawdowns; he predicts NVDA takes a stake in QCOM next.",
+          "Nokia (with NVDA) continues validating XFAB's silicon-photonics foundry for CPO applications.",
+          "Still no standalone networking bottleneck thesis \u2014 mentions remain list-driven and narrative-first."
         ],
         "tickers": [
           "MRVL",
           "AVGO",
-          "ALAB",
-          "NOK"
+          "NOK",
+          "ALAB"
         ],
         "sourceThesisIds": [
+          "h_0ecb33baa79a6b44",
           "h_65385721915ebae2",
           "h_fd9505c4ad92bce4",
           "h_15c7a1a2cc1c7180",
@@ -6517,8 +7732,8 @@ window.AIE_DATA = {
           "h_7a3e79c6e49009a9",
           "h_115b61d4fc0a904a"
         ],
-        "thesesCount": 25,
-        "lastSynthesized": "2026-07-03T13:40:18Z",
+        "thesesCount": 26,
+        "lastSynthesized": "2026-07-06T16:02:09Z",
         "dailyMentions": {
           "days": [
             "2026-06-02",
@@ -6549,7 +7764,11 @@ window.AIE_DATA = {
             "2026-06-30",
             "2026-07-01",
             "2026-07-02",
-            "2026-07-03"
+            "2026-07-03",
+            "2026-07-05",
+            "2026-07-06",
+            "2026-07-07",
+            "2026-07-08"
           ],
           "counts": [
             4,
@@ -6580,7 +7799,11 @@ window.AIE_DATA = {
             3,
             0,
             2,
-            2
+            2,
+            0,
+            1,
+            0,
+            0
           ]
         }
       },
@@ -6630,7 +7853,11 @@ window.AIE_DATA = {
             "2026-06-30",
             "2026-07-01",
             "2026-07-02",
-            "2026-07-03"
+            "2026-07-03",
+            "2026-07-05",
+            "2026-07-06",
+            "2026-07-07",
+            "2026-07-08"
           ],
           "counts": [
             0,
@@ -6661,32 +7888,44 @@ window.AIE_DATA = {
             0,
             0,
             1,
+            0,
+            0,
+            0,
+            0,
             0
           ]
         }
       },
       {
         "category": "robotics",
-        "narrative": "High conviction, and his largest position by his own account: Agility Robotics (CCXI, renaming to AGLT on its ~September IPO) is 'literally the #1 humanoid player in the US in terms of commercialization today,' ranked ahead of Tesla Optimus and Figure ($39B last round). BlueCrest Capital / Michael Platt disclosed a 5.6% stake in CCXI \u2014 institutional validation he'd been expecting. His bull case: ~75% US-sourced parts, a \u003c$30K bill-of-materials target (vs. a ~$145K sticker price people over-focus on), and 10,000-unit RoboFab capacity across Salem, Pittsburgh and Fremont, backed by Amazon, SoftBank, Foxconn and Nvidia \u2014 with a stated pre-IPO valuation around $4.9-5.5B, versus Figure's $39B and Unitree's $6.5B IPO valuation.\n\nHe frames the field via an LLM-era analogy \u2014 Agility is 'Anthropic for robotics,' Optimus is xAI, Figure is ChatGPT/Microsoft \u2014 and cites China's 54%+ share of global robotics deployments as the reason a 'national robotics strategy' narrative is building. He prefers CCXI's valuation discipline over richer SPAC-adjacent peers (BOT, trading well above NAV; BRUN and WLAC, other humanoid-IPO vehicles). Sivers lasers reportedly power Boston Dynamics' Atlas via LG Innotek and the Nvidia Hyperion physical-AI ecosystem, and Aeva/Ouster LiDAR sensing rounds out the autonomy-sensing layer.",
+        "narrative": "Physical-AI euphoria intensified, and this week the analyst's own posts became a case study in the anchoring psychology he critiques. His frame: Agility (CCXI, becoming AGLT) is the purest US mass-production humanoid play via the Amazon/MercadoLibre supply chains, going public via SPAC to give retail access before it gets 'Anthropic/OpenAI/SpaceX big.' He contrasts it with retail paying 4-5x NAV through CEFs for Figure exposure at a $39B mark, calls that 'peak market inefficiency,' and \u2014 tellingly \u2014 owns CCXI rather than TSLA despite crediting Elon as the reason US robotics can catch up. The geopolitical leg sharpened: China's output targeted at 100,000+ humanoids this year (his 'Sputnik moment'), with Congress singling out Unitree as a national-security concern.\n\nThe fact-check flags real inflation in the specifics. He cites Agility at '~$4.3B pre-money'; the actual deal is $2.5B pre-money / ~$3.4B post \u2014 a ~70% overstatement, and his own posts are internally inconsistent on the number. The China 100k figure is a government output target, not verified demand (Morgan Stanley's shipment forecast is 50k), and the 'DHS committee' was a House Homeland Security subcommittee. The theme and his personal conviction are genuine, but this is a pre-revenue name (~33x revenue, ~$100M/yr burn) re-rating on sector sentiment \u2014 the exact tape where his own venture-sizing discipline matters most.",
         "conviction": "high",
         "keyPoints": [
-          "Agility Robotics (CCXI -\u003e AGLT on IPO) is his largest position \u2014 'the #1 US humanoid player in commercialization today,' ranked ahead of Tesla Optimus and Figure.",
-          "BlueCrest Capital / Michael Platt disclosed a 5.6% stake in CCXI, an institutional validation signal.",
-          "Bull case: ~75% US-sourced parts, targeting a \u003c$30K BOM (vs. ~$145K sticker), 10,000-unit RoboFab capacity across three US sites, at a stated pre-IPO valuation of ~$4.9-5.5B vs. Figure's $39B.",
-          "Frames the field via an LLM-era analogy: Agility is 'Anthropic for robotics,' Optimus is xAI, Figure is ChatGPT/Microsoft.",
-          "China's 54%+ share of global robotics deployments is driving a 'national robotics strategy' narrative in the US; prefers CCXI's valuation discipline over richer SPAC peers like BOT.",
-          "Sivers lasers reportedly power Boston Dynamics' Atlas via LG Innotek; Aeva and Ouster LiDAR round out the autonomy-sensing layer."
+          "Agility (CCXI\u2192AGLT) framed as the purest US mass-production humanoid play via Amazon/MELI supply chains; he personally owns it over TSLA.",
+          "Fact-check: he cites Agility at ~$4.3B pre-money; the real SPAC deal is $2.5B pre-money / ~$3.4B post \u2014 a ~70% overstatement, inconsistent across his own posts.",
+          "Anchoring critique cuts both ways: he mocks retail paying 4-5x NAV for Figure at $39B while sizing his own humanoid bet on the same sentiment.",
+          "Geopolitical 'Sputnik moment': China output targeted at 100,000+ humanoids \u2014 but that's a government target, not demand (MS forecasts 50k shipments).",
+          "Congress (House Homeland Security subcommittee, not 'DHS') singled out Unitree as a national-security risk \u2014 a regulatory tailwind for US players.",
+          "TSLA appears as the robotics-sentiment index, not his idea \u2014 its $1T+ valuation is itself anchored to the humanoid mission."
         ],
         "tickers": [
           "CCXI",
           "TSLA",
-          "BOT",
-          "BRUN",
-          "WLAC",
           "AEVA",
-          "OUST"
+          "OUST",
+          "BOT"
         ],
         "sourceThesisIds": [
+          "h_2c315427900a28ca",
+          "h_ab043547a0a514ce",
+          "h_2909dadab30949b5",
+          "h_1550a3113d94d9da",
+          "h_3732049ff8aa171d",
+          "h_1815078828b9f257",
+          "h_0ecb33baa79a6b44",
+          "h_1bf1783a9f9c83ad",
+          "h_6d5dbad8581d8139",
+          "h_bbbe4405a26631b7",
           "h_559e35fdea272a74",
           "h_faf7862f8409c216",
           "h_775c672292594c21",
@@ -6708,8 +7947,8 @@ window.AIE_DATA = {
           "h_1793f6bef2c43658",
           "h_3351e475854eb59d"
         ],
-        "thesesCount": 20,
-        "lastSynthesized": "2026-07-03T13:40:18Z",
+        "thesesCount": 30,
+        "lastSynthesized": "2026-07-08T15:22:47Z",
         "dailyMentions": {
           "days": [
             "2026-06-02",
@@ -6740,7 +7979,11 @@ window.AIE_DATA = {
             "2026-06-30",
             "2026-07-01",
             "2026-07-02",
-            "2026-07-03"
+            "2026-07-03",
+            "2026-07-05",
+            "2026-07-06",
+            "2026-07-07",
+            "2026-07-08"
           ],
           "counts": [
             0,
@@ -6771,30 +8014,40 @@ window.AIE_DATA = {
             6,
             4,
             6,
-            2
+            3,
+            1,
+            2,
+            2,
+            4
           ]
         }
       },
       {
         "category": "accelerators",
-        "narrative": "High conviction that the CW-laser chokepoint is an Nvidia-and-AMD-shared problem: both are hunting for long-term laser agreements as the top-three suppliers run sold out into 2028-2029. AAOI's 800%+ Y/Y growth case is explicitly tied to AMD's CW LTA activity and ~$471M/month demand scaling into 2028. He treats a SemiAnalysis report framing CPO as delayed \u2014 paired with a rival optics ETF launch right after a 40-60% optical drawdown \u2014 as manufactured FUD that Nvidia and analyst desks refuted, and frames the AI compute race in explicitly geopolitical terms (a 'modern cold war') as the reason a hyperscaler capex pullback is hard to imagine.\n\nBeyond NVDA/AMD, he holds a starter position in Cerebras (CBRS) \u2014 OpenAI's 5.6 Sol model reportedly runs on Cerebras hardware at up to 750 tokens/sec, picked up below the $185 IPO price, though he flags it as a bit overvalued versus profitable peers. Arm (ARM) is noted for substantial gains already with room to run, and Qualcomm (QCOM) is grouped with the AVGO/MRVL ASIC-challenger cohort as it pushes into AI datacenter inference silicon.",
-        "conviction": "high",
+        "narrative": "Little new standalone accelerator signal this week \u2014 the names mostly appeared inside the indiscriminate-selloff list (AMD, MRVL and peers down 4-10% in the Samsung-triggered chip rout), which he reads as margin cascades rather than fundamentals. NVDA shows up as collateral in the narrative war (SemiAnalysis supply-chain bear posts) and in the Hesai lidar-scrutiny story, where a Chinese lidar maker's expanded NVDA partnership is under US review. His durable frame carries forward: NVDA is the gravitational center whose spending sets the tape for every supplier layer beneath it, and his half-serious theory that Nvidia quietly backs ASIC challengers (MRVL, MediaTek, AlChip) against Broadcom remains explicitly speculative.\n\nThe honest read is that the accelerator layer is where his edge is thinnest \u2014 he owns the theme through the suppliers this map surfaces, not through the megacap chips themselves, and there's no new bottleneck thesis here this week. AMD's tie to the CW-laser chokepoint (its CPO path reportedly running through GlobalFoundries) is the one thread that connects it back to his real conviction.",
+        "conviction": "medium",
         "keyPoints": [
-          "AMD and Nvidia are both hunting for CW-laser long-term agreements as the top-three laser suppliers run sold out into 2028-2029.",
-          "AAOI's 800%+ Y/Y growth case is tied directly to AMD's CW LTA activity and ~$471M/month demand scaling into 2028.",
-          "A SemiAnalysis report framing CPO as delayed (paired with a rival ETF launch after a 40-60% optical drawdown) is read as manufactured FUD that Nvidia and analyst desks refuted.",
-          "Cerebras (CBRS): starter position picked up below the $185 IPO price after OpenAI's 5.6 Sol model reportedly ran on Cerebras hardware at up to 750 tokens/sec; flagged as a bit overvalued versus profitable peers.",
-          "Arm (ARM) noted for substantial gains already with room to run; Qualcomm (QCOM) grouped with the AVGO/MRVL ASIC-challenger cohort pushing into AI datacenter inference.",
-          "Frames the AI compute buildout as a 'modern cold war,' making a hyperscaler capex pullback hard to imagine."
+          "Accelerator names mostly appeared in the indiscriminate-selloff list (AMD/MRVL down 4-10%) \u2014 he attributes it to margin cascades, not fundamentals.",
+          "NVDA as collateral: SemiAnalysis supply-chain bear posts and the Hesai lidar-scrutiny story (Chinese lidar's NVDA partnership under US review).",
+          "The NVDA-backs-ASIC-challengers (MRVL/MediaTek/AlChip vs Broadcom) theory carries forward, still explicitly speculative.",
+          "No new standalone accelerator bottleneck thesis \u2014 this is where his edge is thinnest; he owns the theme via suppliers, not the megacap chips.",
+          "AMD's CPO path reportedly runs through GlobalFoundries, tying it back to the CW-laser chokepoint that anchors his real conviction."
         ],
         "tickers": [
-          "AMD",
           "NVDA",
-          "CBRS",
+          "AMD",
+          "QCOM",
           "ARM",
-          "QCOM"
+          "CBRS"
         ],
         "sourceThesisIds": [
+          "h_73d38658dc26c0d9",
+          "h_574cc87d7e028236",
+          "h_97ce243eb386cc9e",
+          "h_1815078828b9f257",
+          "h_36781819bfe0ee75",
+          "h_0ecb33baa79a6b44",
+          "h_6d5dbad8581d8139",
           "h_3dbecf550235afcf",
           "h_65385721915ebae2",
           "h_15c7a1a2cc1c7180",
@@ -6827,17 +8080,10 @@ window.AIE_DATA = {
           "h_ef14e95a9674e72e",
           "h_b12bfe961725b517",
           "h_192466279203c8e6",
-          "h_2e843bd16531f27a",
-          "h_efc0e6324acf5656",
-          "h_e7720e250de56618",
-          "h_00a1d3192d4bb4eb",
-          "h_05968d27cdabc404",
-          "h_e41be3ee7c892fb5",
-          "h_2ef8c741889fbe18",
-          "h_201941bd3fdcb3de"
+          "h_2e843bd16531f27a"
         ],
         "thesesCount": 40,
-        "lastSynthesized": "2026-07-03T13:40:18Z",
+        "lastSynthesized": "2026-07-08T15:22:47Z",
         "dailyMentions": {
           "days": [
             "2026-06-02",
@@ -6868,7 +8114,11 @@ window.AIE_DATA = {
             "2026-06-30",
             "2026-07-01",
             "2026-07-02",
-            "2026-07-03"
+            "2026-07-03",
+            "2026-07-05",
+            "2026-07-06",
+            "2026-07-07",
+            "2026-07-08"
           ],
           "counts": [
             0,
@@ -6879,14 +8129,14 @@ window.AIE_DATA = {
             0,
             0,
             0,
-            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
             1,
-            0,
-            0,
-            0,
-            1,
-            2,
-            2,
             1,
             0,
             0,
@@ -6899,28 +8149,43 @@ window.AIE_DATA = {
             11,
             3,
             5,
-            2
+            2,
+            1,
+            2,
+            1,
+            3
           ]
         }
       },
       {
         "category": "hyperscalers",
-        "narrative": "High conviction that hyperscaler capex holds, built on the same read as his neoclouds thesis: Google restricted Meta's internal compute allocation in March, forcing Meta's $48B+ neocloud contracts \u2014 a compute-constraint story, not a 'Meta cutting capex' story the market misread. Amazon is explicitly his favorite hyperscaler: ~1.57M headcount as an LLM-automation opportunity feeding into physical AI (self-driving delivery, warehouse robotics) on top of AWS's own Trainium compute buildout.\n\nHe also flags Meta's Vistara architecture (older DDR4 memory with CXL expansion) as active cost engineering under compute constraints, is comparatively lukewarm ('iffy') on Oracle's (ORCL) capex-driven cloud upside versus Amazon, and leans on geopolitical framing \u2014 China's claimed 'AI cyber nuclear weapon' capability \u2014 to argue a broad hyperscaler capex pullback is very unlikely while the AI race is read as a modern cold war.",
-        "conviction": "high",
+        "narrative": "The Meta narrative war dominated, and the fact-check materially corrects his account. He frames the selloff as misinformation \u2014 a Bloomberg 'Meta excess compute' article algos misread as capex-cutting, followed by Meta 'damage control' reaffirming demand. What actually happened: the 1 July Bloomberg piece reported Meta will *sell* its excess compute (becoming a neocloud competitor), Meta had already *raised* 2026 capex guidance to $125-145B, and its stock rose ~9% on the news \u2014 the pain landed on neoclouds (CoreWeave -14%, NBIS -17%), not Meta. His 'damage control' spokesperson quote could not be independently verified, and the one confirmed Meta communication in the window was Zuckerberg's 2 July town hall conceding AI-agent progress 'hasn't accelerated the way we expected' \u2014 which cuts against his bull case.\n\nSo the durable reads survive but the framing was wrong. Amazon remains his top physical-AI pick \u2014 the ecosystem that catalyzes robotics suppliers the way Google's TPU program catalyzed Lumentum \u2014 and the capex commitments plus named compute deals (CoreWeave, Google, Oracle, AMD) are real and previously reported. But 'the selloff was pure FUD and Meta cleared it up' is not supported: Meta-as-compute-seller is a genuine structural threat to neocloud pricing, and the Zuckerberg concession is a real demand-narrative crack. Conviction trimmed to medium on the theme until the compute-selling ambition and the agent-progress question resolve.",
+        "conviction": "medium",
         "keyPoints": [
-          "Google restricting Meta's internal compute allocation in March forced Meta's $48B+ neocloud contracts \u2014 a compute-constraint story, not a 'cutting capex' story.",
-          "Amazon is his favorite hyperscaler: ~1.57M headcount as an LLM-automation opportunity, feeding into physical AI (delivery, warehouse robotics) plus AWS Trainium buildout.",
-          "Meta's Vistara architecture (older DDR4 + CXL memory expansion) is read as active cost engineering under compute constraints.",
-          "Comparatively lukewarm ('iffy') on Oracle's (ORCL) capex-driven cloud upside versus Amazon.",
-          "Geopolitical AI-race framing (China's capability claims) is used to argue a hyperscaler capex pullback is unlikely."
+          "Fact-check: the 1 July Bloomberg piece said Meta will SELL excess compute (a neocloud threat), not cut capex \u2014 Meta had raised 2026 guidance to $125-145B and its stock rose ~9%.",
+          "His 'Meta damage-control statement' reaffirming CoreWeave/Google/Oracle deals could not be independently verified this week \u2014 treat as paraphrase.",
+          "The confirmed Meta communication was Zuckerberg's 2 July town hall: AI-agent progress 'hasn't accelerated the way we expected' \u2014 cuts against the bull case.",
+          "Durable read intact: Amazon is his top physical-AI pick, its ecosystem catalyzing robotics suppliers like Google's TPU program catalyzed LITE.",
+          "Meta-as-compute-seller is a real structural threat to neocloud pricing power \u2014 the actual bear catalyst, not FUD.",
+          "Named compute deals (CoreWeave, Google, Oracle, AMD) and raised capex are real; the demand-narrative crack (agent progress) is also real."
         ],
         "tickers": [
+          "META",
           "AMZN",
           "GOOGL",
-          "META",
           "ORCL"
         ],
         "sourceThesisIds": [
+          "h_79f9aaff84f7f697",
+          "h_2909dadab30949b5",
+          "h_73d38658dc26c0d9",
+          "h_1815078828b9f257",
+          "h_34534f43456cd196",
+          "h_85395dd0fa8acb89",
+          "h_1bf1783a9f9c83ad",
+          "h_d4707a13060368fd",
+          "h_6d5dbad8581d8139",
+          "h_ca1ce1cb5f43eec7",
           "h_faf7862f8409c216",
           "h_15c7a1a2cc1c7180",
           "h_295de8df7cc671d3",
@@ -6943,8 +8208,8 @@ window.AIE_DATA = {
           "h_e7720e250de56618",
           "h_05968d27cdabc404"
         ],
-        "thesesCount": 21,
-        "lastSynthesized": "2026-07-03T13:40:18Z",
+        "thesesCount": 31,
+        "lastSynthesized": "2026-07-08T15:22:47Z",
         "dailyMentions": {
           "days": [
             "2026-06-02",
@@ -6975,7 +8240,11 @@ window.AIE_DATA = {
             "2026-06-30",
             "2026-07-01",
             "2026-07-02",
-            "2026-07-03"
+            "2026-07-03",
+            "2026-07-05",
+            "2026-07-06",
+            "2026-07-07",
+            "2026-07-08"
           ],
           "counts": [
             0,
@@ -7006,7 +8275,11 @@ window.AIE_DATA = {
             4,
             6,
             4,
-            1
+            1,
+            3,
+            3,
+            1,
+            3
           ]
         }
       }
@@ -7015,10 +8288,10 @@ window.AIE_DATA = {
   "desk": {
     "schemaVersion": 1,
     "meta": {
-      "reviewedAt": "2026-07-03T00:00:00Z",
+      "reviewedAt": "2026-07-08T14:00:00Z",
       "reviewer": "Claude (Fable 5) via Claude Code weekly review",
-      "thesesConsidered": 72,
-      "coverage": "Core tier, top 12 by priority score",
+      "thesesConsidered": 188,
+      "coverage": "Core tier, top 15 by priority score",
       "cadence": "weekly",
       "disclaimer": "Second-opinion research notes on @aleabitoreddit's ideas. Personal research tool \u2014 not investment advice."
     },
@@ -7026,169 +8299,188 @@ window.AIE_DATA = {
       {
         "ticker": "SIVE",
         "stance": "accumulate",
-        "view": "The CW-laser chokepoint thesis is his best-evidenced idea: JBL 1.6T transceivers, a GlobalFoundries reference laser, Ayar/NVLink CPO scale-up and POET scale-out all triangulate to Sivers, and the 700M SEK raise was oversubscribed with a NASDAQ listing now formally intended. But be clear-eyed: he discloses a million-plus share position, so his 19 mentions are conviction AND book-talking, and this is a small-cap on a Swedish exchange that just diluted.",
-        "execution": "Staggered starter position sized for single-analyst concentration risk; add only when laser LTAs convert to reported revenue or the NASDAQ listing lands. Don't let it become your largest holding on his enthusiasm alone.",
-        "changesMind": "A design-out from the JBL/GFS programs, raise proceeds not converting to shipped capacity, or the CPO ramp slipping past 2028.",
+        "view": "His conviction peaked this week \u2014 'probably my favorite stock right now' \u2014 reiterated into a -4% to -10% sector-wide washout he calls indiscriminate margin-cascade selling. New substance, not just pounding the table: JBL's 1.6T LRO qualification window (Aug 2026\u2013Mar 2027 per a JPM fireside chat) then mass production with Sivers lasers in pluggables; AEVA HVM ~Q4 2026 and POET H2 2026 as staggered demand waves; a claimed oversubscribed funding round for the fabless laser ramp; NASDAQ listing 'next few quarters' then M&A for TAM expansion. He notes it trades below POET despite supplying half the ecosystem. The flags stand: it's his largest holding (structural book-talking), and the new lidar angle (Hesai scrutiny pushing western lidar to LITE/SIVE lasers) is second-order speculation, not orders.",
+        "execution": "Hold the staggered-accumulation plan and treat this selloff leg as one of the planned tranches \u2014 the margin-cascade dip is the entry his own framework calls for. Keep the single-analyst concentration cap; the next hard catalysts are the NASDAQ listing and JBL qualification completing inside the Aug 2026\u2013Mar 2027 window.",
+        "changesMind": "JBL qualification slipping past Q1 2027 or a design-out at JBL/GFS/Ayar; the NASDAQ listing not materializing within the promised quarters; the SEK 700M raise's auditor going-concern flag (and Ningi Research's short thesis) proving to signal real cash strain; or integrated-laser designs (OpenLight and similar, which need no external light source) removing the need for a discrete CW supplier.",
         "basedOnThesisIds": [
-          "h_bebbef0482f407da",
-          "h_7797b5894b3bb34e",
-          "h_73fc29ca0e9c215c",
-          "h_05e793cf1fdb6f1c",
-          "h_5f7deacb158cae47"
+          "h_0dd22247c9538b67",
+          "h_2c315427900a28ca",
+          "h_574cc87d7e028236",
+          "h_ab043547a0a514ce"
         ],
-        "updatedAt": "2026-07-03"
-      },
-      {
-        "ticker": "AAOI",
-        "stance": "watch",
-        "view": "His own high-conviction post says photonics ran too much ($40 \u2192 $150) and expects range-bound chop until next earnings \u2014 take him at his word. The 800%+ Y/Y projection off $471M/month is extraordinary and needs one more confirming quarter before it's investable rather than narrative.",
-        "execution": "No chase. Enter only on an earnings print that confirms the monthly run-rate, or a washout back toward the pre-run range. Set the alert, keep the powder.",
-        "changesMind": "A reported quarter validating the $471M/month trajectory, or an AMD LTA expansion \u2014 either would flip this to accumulate.",
-        "basedOnThesisIds": [
-          "h_29e60f0da3d1925a",
-          "h_7f5feac9a1b88083",
-          "h_2f93712c7f08d25e"
-        ],
-        "updatedAt": "2026-07-03"
+        "updatedAt": "2026-07-08T14:00:00Z"
       },
       {
         "ticker": "LITE",
-        "stance": "watch",
-        "view": "The incumbent quality name \u2014 sold out into 2028 per its own CEO \u2014 but it already re-rated from $3B to $65B+, so the shortage is substantially priced. His note that Lumentum is buying CW lasers from competitors cuts both ways: it confirms the shortage and flags their capacity limits.",
-        "execution": "Buy macro-driven dips only; for new money the asymmetry now sits in the smaller pure plays (SIVE, AXTI) that feed the same shortage.",
-        "changesMind": "New LTAs at materially higher pricing, or a broad photonics correction resetting the multiple.",
-        "basedOnThesisIds": [
-          "h_13af0765b648b270",
-          "h_e318f2d2d543b92a",
-          "h_d81fe21a14bdd892"
-        ],
-        "updatedAt": "2026-07-03"
-      },
-      {
-        "ticker": "NBIS",
         "stance": "accumulate",
-        "view": "The demand chain is corroborated from two directions: GOOGL is so compute-constrained it cut Meta's capacity, and META is building a cloud to sell compute it sources partly from neoclouds \u2014 NBIS sits in the middle of both flows, and Wells Fargo reads it the same way. Pushback: neocloud economics are financing-heavy and contract-concentrated, which the tweets gloss over.",
-        "execution": "Modest position now; add on each disclosed hyperscaler contract expansion. Watch the balance sheet \u2014 a big debt raise changes the risk math faster than the narrative does.",
-        "changesMind": "Hyperscaler capex guidance cuts, or META insourcing the capacity it currently rents.",
+        "view": "Thesis restated at higher pitch during the washout: laser bottlenecks 'last into 2029,' and his standing frame \u2014 if the CEO says anything they make gets bought, bear notes don't touch fundamentals \u2014 got another airing as LITE fell with everything else. A second-order kicker appeared: US scrutiny of Hesai (Chinese lidar, firmware kill-switch evidence) is bullish for western lidar players and, upstream, for their laser suppliers LITE and SIVE. Still the incumbent-quality, lower-asymmetry way to own the chokepoint.",
+        "execution": "The macro dip extended \u2014 continue building the lower-beta anchor of the photonics sleeve on red days, SIVE/AXTI still carry the torque. Nothing this week changes sizing.",
+        "changesMind": "Hyperscaler order pushouts substantiating the CPO-delay bear case, or share loss to the CW-laser entrants it currently buys from.",
         "basedOnThesisIds": [
-          "h_b0d92d200ffc6bd3",
-          "h_0235e573a41f2c62",
-          "h_06c1b1dfc8ba3b53"
+          "h_d1316054ff13d830",
+          "h_ab043547a0a514ce",
+          "h_574cc87d7e028236"
         ],
-        "updatedAt": "2026-07-03"
-      },
-      {
-        "ticker": "POET",
-        "stance": "watch",
-        "view": "A story name resting on an OSINT inference \u2014 a LinkedIn post suggesting POET/SIVE power a top-3 hyperscaler \u2014 plus real but early AGM datapoints about the laser shortage. That's a rumor-grade catalyst on a speculative cap structure; the shortage backdrop is real, the customer isn't confirmed.",
-        "execution": "Speculative sizing only, and only if you'd hold through a rumor unwinding. The disciplined play is to wait for the hyperscaler customer to be named.",
-        "changesMind": "A confirmed, named hyperscaler design win \u2014 that converts this from lottery ticket to thesis.",
-        "basedOnThesisIds": [
-          "h_13af0765b648b270",
-          "h_9018322ed2470b53"
-        ],
-        "updatedAt": "2026-07-03"
-      },
-      {
-        "ticker": "JBL",
-        "stance": "accumulate",
-        "view": "The most conservative expression of the photonics ramp in his whole corpus: ~$28B market cap, ~22x forward, co-developing 1.6T optical transceivers with Sivers, and he openly frames a path to $45B. As a diversified manufacturer it survives even if individual laser suppliers get shuffled \u2014 the thesis risk is a fraction of SIVE's for a correlated payoff.",
-        "execution": "Starter position now is defensible; add when earnings start breaking out the optics/photonics contribution. Suits money you don't want in small-cap volatility.",
-        "changesMind": "Losing transceiver program share, or optics staying too small to move a $28B revenue base.",
-        "basedOnThesisIds": [
-          "h_fbc83c0f2773fa23",
-          "h_7797b5894b3bb34e"
-        ],
-        "updatedAt": "2026-07-03"
-      },
-      {
-        "ticker": "GOOGL",
-        "stance": "accumulate",
-        "view": "The corpus's cleanest demand-side fact: Google is compute-constrained enough to have cut Meta's Gemini capacity, which makes capex structurally sticky. This is the lowest-risk way to own the demand signal that every supplier thesis in this map depends on.",
-        "execution": "Core position, dollar-cost average \u2014 no timing edge needed or claimed. It also hedges your supplier bets: if capex disappoints, this falls least.",
-        "changesMind": "Explicit capex guidance cuts or 'demand normalization' language on an earnings call.",
-        "basedOnThesisIds": [
-          "h_06c1b1dfc8ba3b53",
-          "h_c1ee65a16b4a3233",
-          "h_635d80a7689d172f"
-        ],
-        "updatedAt": "2026-07-03"
-      },
-      {
-        "ticker": "META",
-        "stance": "accumulate",
-        "view": "Selling excess compute is a demand-quality signal, not an overbuild confession \u2014 Wells Fargo explicitly expects no capex pullback, and the March NBIS agreements show Meta paying up for capacity. Pushback: standing up a cloud business against AWS/Azure/GCP is a decade-long execution problem the tweets treat as a done deal.",
-        "execution": "Accumulate on capex-confirming quarters. Treat the cloud-business news as sentiment fuel, not the thesis \u2014 the thesis is the capex line.",
-        "changesMind": "A guided capex cut, or the compute-resale effort quietly shelved.",
-        "basedOnThesisIds": [
-          "h_b0d92d200ffc6bd3",
-          "h_0235e573a41f2c62",
-          "h_c1ee65a16b4a3233"
-        ],
-        "updatedAt": "2026-07-03"
-      },
-      {
-        "ticker": "MRVL",
-        "stance": "watch",
-        "view": "Here I push back on the mention count: MRVL's seven mentions are nearly all passing references inside group lists \u2014 there is no standalone Marvell thesis anywhere in the corpus. The tiering math promotes it; reading the actual posts demotes it.",
-        "execution": "No action on this analyst's signal alone. Revisit if he writes an actual MRVL thesis or custom-XPU wins re-accelerate independently.",
-        "changesMind": "A dedicated post with a specific Marvell bottleneck or design-win claim.",
-        "basedOnThesisIds": [
-          "h_29e60f0da3d1925a",
-          "h_0235e573a41f2c62"
-        ],
-        "updatedAt": "2026-07-03"
-      },
-      {
-        "ticker": "AXTI",
-        "stance": "watch",
-        "view": "The InP substrate feeder to the whole laser ramp \u2014 real chokepoint exposure one layer upstream of SIVE/LITE. But he flagged it himself in the high-conviction market post: it's one of the names that ran too much (his original idea was at $15), and photonics is chopping.",
-        "execution": "This is the pullback-list name: buy the photonics-theme washout, not the highs. Pair the entry with substrate pricing/capacity datapoints, not just price.",
-        "changesMind": "Evidence InP substrate supply is loosening, or a capacity announcement from a larger competitor.",
-        "basedOnThesisIds": [
-          "h_29e60f0da3d1925a",
-          "h_a558ec6043c7fdd7",
-          "h_3351e475854eb59d"
-        ],
-        "updatedAt": "2026-07-03"
+        "updatedAt": "2026-07-08T14:00:00Z"
       },
       {
         "ticker": "NVDA",
         "stance": "watch",
-        "view": "In this corpus NVDA is context, not a pick \u2014 he uses it as the gravitational center whose architecture changes (EML bottlenecks, CPO transition) create the bottlenecks he actually trades. His edge, and this tool's entire premise, is in the layers beneath it.",
+        "view": "Unchanged as the gravitational center rather than a pick. This week it appears as collateral damage in the narrative war (SemiAnalysis supply-chain bear posts helped trigger the selloff) and in the Hesai lidar scrutiny story. His edge \u2014 and this tool's \u2014 remains the layers beneath it.",
         "execution": "Express the view through the suppliers this map surfaces; hold NVDA as a separate core-portfolio decision outside this workflow.",
         "changesMind": "N/A \u2014 re-rate if he starts publishing NVDA-specific supply/pricing work.",
         "basedOnThesisIds": [
-          "h_e318f2d2d543b92a",
-          "h_d2558834bea09c9f"
+          "h_73d38658dc26c0d9",
+          "h_ab043547a0a514ce"
         ],
-        "updatedAt": "2026-07-03"
+        "updatedAt": "2026-07-08T14:00:00Z"
       },
       {
-        "ticker": "TSLA",
-        "stance": "pass",
-        "view": "Every TSLA mention here is theme-level ('robotics decade') \u2014 there is no Tesla-specific supply-chain thesis in the corpus, and his actual robotics money went to Agility (CCXI), which he analyzes in detail. Within this tool's scope, TSLA is noise wearing a Core badge.",
-        "execution": "No action from this signal. If you want his robotics exposure, CCXI is where his work actually is.",
-        "changesMind": "A dedicated Optimus supply-chain or production-rate thesis from him.",
+        "ticker": "AAOI",
+        "stance": "accumulate",
+        "view": "Upgraded from watch because his own entry condition fired: last week's verdict said enter on 'a washout back toward the pre-run range,' and the SemiAnalysis CPO-delay pieces produced exactly that \u2014 a 40-60% optical drawdown he heavily bought. He remains heavily concentrated here (with SIVE) and openly suffering drawdowns, so the conviction is real but so is the book-talking; the 800%+ Y/Y run-rate story still needs an earnings print to be more than narrative.",
+        "execution": "Scale in on the washout rather than waiting for the earnings confirmation you'll pay up for \u2014 but keep half the intended size in reserve for the print. If the quarter validates the $471M/month trajectory, complete the position.",
+        "changesMind": "An earnings miss against the monthly run-rate narrative, or the AMD CW LTA relationship failing to expand \u2014 either sends this back to watch.",
         "basedOnThesisIds": [
-          "h_1793f6bef2c43658",
-          "h_7864cc0211dacb69"
+          "h_29e60f0da3d1925a",
+          "h_3dbecf550235afcf",
+          "h_34534f43456cd196"
         ],
-        "updatedAt": "2026-07-03"
+        "updatedAt": "2026-07-06"
+      },
+      {
+        "ticker": "JBL",
+        "stance": "accumulate",
+        "view": "The most concrete new datapoint of the week attaches here: per his relay of a JPM fireside chat, JBL's 1.6T LRO has a 'relatively dramatic moat' with qualification completing roughly Aug 2026\u2013Mar 2027, then mass production using Sivers lasers in pluggables. That turns the conservative-expression thesis into one with a dated catalyst window.",
+        "execution": "Starter position stands; the qualification window gives you a concrete thing to verify in the next two earnings calls \u2014 add if optics contribution starts getting broken out or the qual completes on schedule.",
+        "changesMind": "Qualification slipping past Q1 2027, losing transceiver program share, or optics staying too small to move a $28B revenue base.",
+        "basedOnThesisIds": [
+          "h_2c315427900a28ca",
+          "h_0dd22247c9538b67"
+        ],
+        "updatedAt": "2026-07-08T14:00:00Z"
+      },
+      {
+        "ticker": "POET",
+        "stance": "watch",
+        "view": "Slightly firmer calendar (production starting H2 2026, more in H1 2027) but the same unnamed-customer problem. The sharpest new datapoint is relative: he flags that SIVE \u2014 which supplies lasers to POET among others \u2014 trades below POET, which is as much a POET-richness observation as a SIVE-cheapness one. The disciplined trigger is unchanged.",
+        "execution": "Unchanged: speculative sizing only. Trigger remains a named hyperscaler customer or actual HVM revenue in the H2 2026 prints. If you want the exposure, his own relative-value logic argues the supplier is the cheaper way in.",
+        "changesMind": "A confirmed, named hyperscaler customer (upgrades it), or H2 2026 passing without the promised HVM ramp (kills it).",
+        "basedOnThesisIds": [
+          "h_0dd22247c9538b67",
+          "h_2c315427900a28ca"
+        ],
+        "updatedAt": "2026-07-08T14:00:00Z"
+      },
+      {
+        "ticker": "MRVL",
+        "stance": "watch",
+        "view": "Still no standalone thesis \u2014 this week's only appearance is in the indiscriminate-selloff list. The NVDA-backed-ASIC-challenger frame from last week remains speculative and uncorroborated. The tiering math promotes it; the posts don't.",
+        "execution": "No action on this analyst's signal alone. Revisit on a dedicated MRVL bottleneck post or hard evidence of the NVDA-alliance theory.",
+        "changesMind": "A dedicated post with a specific Marvell design-win or bottleneck claim, or independent confirmation of the NVDA-backed ASIC-challenger pattern.",
+        "basedOnThesisIds": [
+          "h_574cc87d7e028236"
+        ],
+        "updatedAt": "2026-07-08T14:00:00Z"
+      },
+      {
+        "ticker": "GFS",
+        "stance": "watch",
+        "view": "Same shape as last week: the platform beneath the photonics thesis (SCALE reference laser, CPO timelines now sketched 'somewhere in 2027'), still mentioned only inside SIVE-centric posts, still no standalone valuation work. Deliberately at watch despite Core tier.",
+        "execution": "No dedicated action \u2014 SIVE/JBL positions already carry the GFS-platform exposure. Revisit on disclosed photonics revenue or a named hyperscaler CPO win.",
+        "changesMind": "A dedicated GFS thesis with numbers, or disclosed silicon-photonics revenue making the platform story investable on its own.",
+        "basedOnThesisIds": [
+          "h_0dd22247c9538b67",
+          "h_2c315427900a28ca"
+        ],
+        "updatedAt": "2026-07-08T14:00:00Z"
+      },
+      {
+        "ticker": "NBIS",
+        "stance": "accumulate",
+        "view": "No new neocloud-specific thesis this week \u2014 NBIS simply led his indiscriminate-selloff list, which he reads as margin cascades. But the fact-check reframes the catalyst he waved off: the 1 Jul trigger was not 'Meta cutting capex' (Meta had raised 2026 guidance to $125-145B); it was Bloomberg reporting Meta will sell its excess compute \u2014 i.e. Meta becoming a neocloud competitor, which hit CoreWeave -14% and NBIS -17% specifically. That is a real structural threat to neocloud pricing power, not FUD. The financing-heavy, contract-concentrated caveat therefore matters more, not less.",
+        "execution": "Hold, but treat this as the most fundamentally-exposed name in the selloff, not a clean technical dip. Add only on disclosed hyperscaler contract expansions that reprice committed capacity (the TeraWulf/Anthropic comp), not on red days alone \u2014 and watch whether Meta's compute-selling ambitions actually land.",
+        "changesMind": "Hyperscaler capex guidance cuts, Meta (or another hyperscaler) materially undercutting neocloud pricing with resold compute, META insourcing rented capacity, or a debt raise that changes the risk math.",
+        "basedOnThesisIds": [
+          "h_574cc87d7e028236",
+          "h_79f9aaff84f7f697"
+        ],
+        "updatedAt": "2026-07-08T14:00:00Z"
+      },
+      {
+        "ticker": "META",
+        "stance": "accumulate",
+        "view": "He pins the whole selloff on the Bloomberg 'Meta excess compute' framing plus SemiAnalysis bear posts, and cites a Meta spokesperson walkback confirming it's 'still hungry for more computing power' with deals inked with CoreWeave, Google and Oracle. Two corrections from the fact-check: (1) that spokesperson statement could not be independently verified this week \u2014 treat it as his paraphrase, not a confirmed press release; (2) the one confirmed Meta communication in the window was Zuckerberg's 2 Jul town hall saying AI-agent progress 'hasn't accelerated the way we expected' \u2014 which cuts against his bull case. The underlying capex commitments and named compute deals are real and previously reported; the demand-narrative crack is also real.",
+        "execution": "The dip was the accumulation window and partially closed with the clarification; from here add on capex-confirming quarters as planned rather than chasing the relief move.",
+        "changesMind": "A guided capex cut, the Zuckerberg 'agents haven't accelerated' concession hardening into slower buildout, or 'Watermelon' underdelivering enough to revive the retreat narrative.",
+        "basedOnThesisIds": [
+          "h_73d38658dc26c0d9",
+          "h_79f9aaff84f7f697"
+        ],
+        "updatedAt": "2026-07-08T14:00:00Z"
+      },
+      {
+        "ticker": "AXTI",
+        "stance": "watch",
+        "view": "Downgraded from accumulate on price, not thesis. The Coherent 3-year InP deal with a $22.3M prepayment is confirmed (8-K, 25 Jun). But the fact-check reframes the price-hike leg: the substrate ASP spikes are largely a China export-control artifact \u2014 licenses began flowing in June 2026 and AXT is doubling capacity, so the hikes can normalize rather than compound like memory. His 'Nomura 42-78%' figure couldn't be sourced. And his own post describes the stock as gone 'from $1 to $60' \u2014 the venture-scale re-rating already happened (it actually peaked near $143), so the risk/reward is no longer the trade last week's plan sized for; his standing dilution warning is most dangerous exactly here.",
+        "execution": "Stop initiating; hold whatever was started on the earlier plan. Re-engage only on a real reset (a 30-40% retrace toward the run's base) with substrate ASPs still rising \u2014 the Nomura hike schedule remains the dashboard.",
+        "changesMind": "China export licenses and AXT's capacity additions normalizing InP ASPs, or another dilutive raise into strength (kills the case); a deep retrace (30-40% toward the run's base) with the Coherent-style committed-capacity deals still expanding (re-opens accumulation).",
+        "basedOnThesisIds": [
+          "h_47f3b5b1bfcce165",
+          "h_574cc87d7e028236"
+        ],
+        "updatedAt": "2026-07-08T14:00:00Z"
       },
       {
         "ticker": "CCXI",
         "stance": "watch",
-        "view": "His most detailed non-photonics work: first listed US pure-play humanoid, AMZN/NVDA-backed, 75% US-sourced parts, \u003c$30k BOM at volume, benchmarked cheap against Figure's $39B. Pushback: it re-rated from ~$3.1B to ~$5.5B in days on the ticker-change news, and pre-revenue humanoids are a sentiment asset class \u2014 his own 'ADHD goldfish market' framing applies to it too.",
-        "execution": "If entering, size it like venture, not like a position \u2014 small, with the expectation of 50% drawdowns. Better entries likely when the physical-AI rotation cools.",
-        "changesMind": "A funded, dated Amazon deployment contract (upgrades it), or dilution at the AGLT ticker change (downgrades it).",
+        "view": "The week's most active thread. His case has three legs: valuation anchoring, geopolitical urgency, and personal ownership as the purest US mass-production play via the AMZN/MELI supply chains. But the fact-check catches him overstating the anchor: he cites Agility at '~$4.3B pre-money,' while the actual Churchill Capital XI (CCXI, becoming AGLT) deal is $2.5B pre-money / ~$3.4B post \u2014 a ~70% overstatement, and his own posts are internally inconsistent on the figure. The China-100k humanoid number is a government output target, not verified demand (Morgan Stanley's shipment forecast is 50k), and the 'DHS committee' was a House Homeland Security subcommittee. Real theme, real personal conviction \u2014 but the specifics are inflated and the whole sector is re-rating on the anchoring psychology he himself calls 'peak market inefficiency.'",
+        "execution": "Unchanged: venture sizing, not position sizing. The anchoring argument says it's relatively cheap versus Figure \u2014 it does not say either is absolutely cheap. A funded, dated Amazon deployment contract is still the upgrade trigger; a Sputnik-moment US subsidy program would be a second.",
+        "changesMind": "A funded, dated Amazon deployment contract or US robotics subsidy program (upgrades it); dilution at the AGLT ticker change, the SPAC closing below the cited valuation, or China price-war spillover crushing unit economics (downgrades it).",
         "basedOnThesisIds": [
-          "h_2e879b7947e4586e",
-          "h_13f14b8b84f90bda",
-          "h_fffac723ba054139",
-          "h_fba075fdb320e5e6"
+          "h_1815078828b9f257",
+          "h_3732049ff8aa171d",
+          "h_1550a3113d94d9da",
+          "h_2909dadab30949b5"
         ],
-        "updatedAt": "2026-07-03"
+        "updatedAt": "2026-07-08T14:00:00Z"
+      },
+      {
+        "ticker": "AMZN",
+        "stance": "accumulate",
+        "view": "The physical-AI-umbrella thesis gained a concrete edge: he frames Amazon (with MELI) as the deployment supply chain through which Agility commercializes \u2014 the demand-side anchor for his robotics book, replaying the GOOGL-TPU-catalyzes-suppliers pattern. Lowest-risk expression of a theme every smaller name here depends on.",
+        "execution": "Core-position logic, dollar-cost average \u2014 unchanged. Still the hedge against the CCXI-style venture bets: if the robotics rotation cools, this falls least.",
+        "changesMind": "The robotics/automation effort visibly stalling (deployment numbers, not narrative), or AWS capex guidance breaking the AI-demand story.",
+        "basedOnThesisIds": [
+          "h_2909dadab30949b5",
+          "h_1815078828b9f257"
+        ],
+        "updatedAt": "2026-07-08T14:00:00Z"
+      },
+      {
+        "ticker": "TSLA",
+        "stance": "watch",
+        "view": "New to Core on the robotics rotation. His take is directional, not fundamental: Elon is the reason the US leads in space and EVs, so he 'can make US robotics #1 again' \u2014 and he notes TSLA's $1T+ valuation is itself anchored to the humanoid mission. Revealingly, he owns CCXI instead, calling Agility the purer mass-production play. When the analyst's own money picks the smaller name, TSLA is his theme index, not his idea.",
+        "execution": "No action from this signal \u2014 TSLA here is a robotics-sentiment gauge, and any Tesla position is a whole-company bet (autos, energy, FSD) far beyond this corpus. If you want his actual robotics idea, that's the CCXI verdict, venture-sized.",
+        "changesMind": "A dedicated Optimus production/economics thesis from him, or TSLA disclosures making humanoid economics separable from the auto business.",
+        "basedOnThesisIds": [
+          "h_2909dadab30949b5",
+          "h_1550a3113d94d9da",
+          "h_3732049ff8aa171d"
+        ],
+        "updatedAt": "2026-07-08T14:00:00Z"
+      },
+      {
+        "ticker": "XFAB",
+        "stance": "accumulate",
+        "view": "New to the verdict roster. Two theses stack here: a value floor \u2014 Kepler's upgrade calls it the cheapest specialty foundry at 4.8x 2027 EV/EBITDA versus a 14.5x peer median, with Melexis demand strengthening weekly \u2014 and a free option, the photonixfab silicon-photonics line he thinks the market can't price until volume contracts land (NVDA/Nokia evaluations, EU Chips Act backing). He's called it 'early TSEM' for months; the sell side just started agreeing on the boring half.",
+        "execution": "The value leg justifies a real (not speculative) starter position; the photonics leg is the free upside. European listing and specialty-foundry cyclicality argue for patience over chasing \u2014 accumulate on flat-to-red days.",
+        "changesMind": "Auto/industrial demand rolling back over (the Kepler leg breaking), or photonixfab losing the NVDA/Nokia evaluations.",
+        "basedOnThesisIds": [
+          "h_36781819bfe0ee75",
+          "h_76b06718fb16b539"
+        ],
+        "updatedAt": "2026-07-06"
       }
     ]
   }
