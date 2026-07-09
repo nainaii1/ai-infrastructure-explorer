@@ -7,12 +7,17 @@ how NVIDIA + the hyperscalers connect to the layers of suppliers beneath them
 robotics, hyperscalers), plus a sourced thesis feed, an AI-synthesized "brain"
 digest of one analyst's (@aleabitoreddit) views, and a **Desk layer** — Claude's
 weekly second opinion + execution suggestion on the highest-conviction names.
-**One continuous "Field Guide" page** (v6 redesign): a hero prologue (signal
-chain + live counts + latest thesis) then four chapters — 01 The Map, 02 The
-Watchlist, 03 The Evidence (thesis feed), 04 The Synthesis (Brain) — navigated
-by a floating frosted-glass capsule nav with a sliding pill (scrollspy;
-bottom-floating on mobile). The signal chain is: analyst tweets → captured
-theses → conviction tiers → Claude's desk verdicts → operator decision.
+
+**Multi-page editorial site** (v7 "Private Coverage" upgrade — supersedes the
+single-page v6): a warm serif front page (`index.html`, the coverage index) leads
+into the **Field Guide** (`desk.html`) — one continuous chaptered scroll: a hero
+prologue (signal chain + live counts + latest thesis) then four chapters — 01 The
+Map, 02 The Watchlist, 03 The Evidence (thesis feed), 04 The Synthesis (Brain) —
+navigated by a floating frosted-paper capsule nav with a sliding pill (scrollspy;
+bottom-floating on mobile), under a shared top masthead. Later pages (`memo.html`,
+`vault.html`, `performance.html`) are on the roadmap — see `docs/EXECUTION.md`.
+The signal chain is: analyst tweets → captured theses → conviction tiers →
+Claude's desk verdicts → operator decision.
 
 This is **not** related to any trading desk or market-brief project. Standalone
 personal research tool. Single-user, local-first. Not investment advice.
@@ -76,9 +81,25 @@ not throwaway config.
   `overflow: hidden`, `.th-feed`'s flex column) gives the grid track a
   bounded "available space" instead of true content-based auto-sizing. All
   three drill-downs (map layer detail, Brain sources, this new one) now use
-  a JS-measured `max-height` (see `setDrilldownOpen()` in `index.html`) —
-  robust regardless of ancestor layout, with a resize listener to
-  re-measure anything currently open.
+  a JS-measured `max-height` (see `AIE.setDrilldownOpen()` in
+  `shared/common.js`) — robust regardless of ancestor layout, with a resize
+  listener to re-measure anything currently open.
+- **v7 — "Private Coverage" editorial multi-page upgrade** 🚧 Phase 1 done
+  (2026-07-08). The single-page app split into a multi-page vanilla site with a
+  shared design system, all still `file://`-safe and framework-free. Shipped in
+  Phase 1 (`docs/EXECUTION.md` P1–P5): (1) `shared/theme.css` — warm editorial
+  "paper" design tokens + shared components (top masthead, ledger table, chips,
+  tier/stance badges, colophon, gradient border); (2) `shared/common.js` — a
+  global `AIE` namespace holding everything used by 2+ pages (localStorage
+  seeding, `setDrilldownOpen`, `fmtNum/fmtMcap/fmtPct/fmtDate`, category-color
+  helpers, `renderNav(activePage)`, `linkForTicker(sym)` stub); (3) the Field
+  Guide moved `index.html` → `desk.html` and now loads the shared assets;
+  (4) `desk.html` retokenized to the warm editorial theme (serif hero +
+  chapter heads; frosted-paper capsule); (5) a new editorial `index.html`
+  front page (masthead, serif standfirst sourced from `AIE_DATA` counts,
+  latest-desk meta strip, chapter links, reserved coverage-ledger empty state).
+  **Phases 2–5 (memos, knowledge Vault + graph, cross-linking, performance
+  hooks) are the remaining roadmap — see `docs/EXECUTION.md`.**
 - **Live counts** (approximate, check `ingest/store/*.json` for current):
   ~109 tickers tracked (23 core / 21 watch / 65 radar after focus-weighting),
   10 categorized layers + an `unsorted` triage bucket (one Core name, RDDT,
@@ -87,15 +108,14 @@ not throwaway config.
   verdicts (reviewed 2026-07-06), 10 brain digests synthesized (8
   re-synthesized 2026-07-06 via Claude Code per the v4 workaround above;
   materials/glass carried forward — no new theses that pass).
-- **Signal Digest** 📋 designed, not built. A planned feature — periodic,
-  Claude-authored per-ticker digests (AI Signal Watch style: short overview +
-  one stance line per ticker) that will **replace** the raw thesis feed as
-  the primary Evidence-chapter content, with raw posts tucked underneath as
-  an expandable "receipts" drill-down. Full design (schema, generation
-  mechanism, rendering plan):
-  `docs/superpowers/specs/2026-07-03-signal-digest-design.md`. Tweet
-  discovery stays fully manual (Telegram bots can't read other bots'
-  messages) — only the *authoring* of the digest is new.
+- **Signal Digest** ⛔ superseded (2026-07-06) by the **Coverage memo** feature
+  in the v7 upgrade (`docs/EXECUTION.md` Phase 2). The memo
+  (`ingest/store/memos.json` → `memo.html`, authored via the weekly review /
+  `/coverage-note` skill) is the successor: a longer per-Core-name research note
+  rather than a one-line-per-ticker digest. The old design doc
+  (`docs/superpowers/specs/2026-07-03-signal-digest-design.md`) is kept for
+  history only — do not build it. Tweet discovery still stays fully manual
+  (Telegram bots can't read other bots' messages).
 - **For full history / open issues / next steps:** see `docs/ROADMAP.md`
   (living doc, update it whenever status changes).
 - **For a full design-system reference** (color tokens, type scale, spacing,
@@ -105,17 +125,28 @@ not throwaway config.
 ## Hard rules (do not break these)
 1. **Vanilla HTML / CSS / JS only** in the app. No React, no Tailwind, no
    frameworks, no CDN libraries. Everything hand-written.
-2. **Must work by double-clicking `index.html`** (file:// protocol). Data
-   lives in `data.js` (loaded via `<script>`), NOT `data.json` (fetch is
-   blocked under file://). Do not introduce `fetch()` of local files in the app.
-3. **App code lives in exactly two files:** `index.html` (CSS inside
-   `<style>`, logic inside `<script>`) and `data.js` (data + config). Do not
-   split the *app* into more files. (The Python `ingest/` backend is a
+2. **Every page must work by double-click** (file:// protocol). ALL app data —
+   tickers, theses, brain, desk verdicts, and the v7 additions (memos, vault) —
+   rides inside `data.js` (loaded via `<script>`, exposes `window.AIE_DATA`),
+   NOT `data.json` (fetch is blocked under file://). Do not introduce `fetch()`
+   of local files in any page. Cross-page navigation is plain relative-href
+   links (`desk.html#chapter-map`), never client-side routing.
+3. **App code = the page files + exactly two shared files, nothing else.**
+   Pages: `index.html` (coverage front page), `desk.html` (Field Guide), and
+   the roadmap pages `memo.html` / `vault.html` / `performance.html` — each a
+   self-contained HTML file with page-specific CSS in its `<style>` and
+   page-specific logic in its `<script>`. Shared: `shared/theme.css` (design
+   tokens + components) and `shared/common.js` (the `window.AIE` namespace).
+   **Anything used by 2+ pages goes in `shared/`, never duplicated** (tokens,
+   masthead, seeding, formatters, drill-down, category-color helpers all live
+   there). No other `.js`/`.css` files, no framework, no build step. `data.js`
+   stays the single generated datastore. (The Python `ingest/` backend is a
    separate concern and is expected to have many files — see below.)
 4. **All colors, labels, tooltips, and tickers come from `data.js`.** Never
-   hardcode them inside `index.html`. E.g. a category color is read from
-   `AIE_DATA.categories[id].color`, zone labels from `AIE_DATA.zones`, the map
-   intro line from `AIE_DATA.mapIntro`.
+   hardcode them inside a page or `shared/`. E.g. a category color is read from
+   `AIE_DATA.categories[id].color` (via `AIE.categoryColor()`), zone labels from
+   `AIE_DATA.zones`, the map intro line from `AIE_DATA.mapIntro`. The 3px
+   gradient border and per-chip accents are painted at runtime from these.
 5. All hover/click transitions **200–300ms ease**. Mobile breakpoint **768px**.
    Fully responsive.
 6. **`data.js` is generated, never hand-edited.** Source of truth is
@@ -125,26 +156,37 @@ not throwaway config.
    the ingest pipeline grows both over time. Don't assume a specific count in
    code or docs; read it from the store.
 
-## Design system (current — v6 "cleanroom" light theme; supersedes the cream theme)
-- Background `#f5f5f7` (cool near-white) · Card `#ffffff` · Border `#e3e3e8`
-- Primary text `#333336` · Muted text `#86868b` · Ink (high-contrast) `#1d1d1f`
-- Shadows: two-layer tokens `--shadow-sm` / `--shadow-lg`. Card radius `--r-card: 16px`.
-- Motion: `--ease: 240ms ease` + `--spring: cubic-bezier(.32,.72,.28,1.15)`
-  (capsule pill, drill-downs, reveals). Reveals/count-up are entrance effects
-  gated on `prefers-reduced-motion`.
-- Font: Apple system stack (`-apple-system` → SF Pro on Macs); data/tickers use
-  a genuine system monospace stack (`--mono`, e.g. SF Mono) — no CDN fonts.
+## Design system (current — v7 warm "editorial paper" theme; supersedes the v6 cleanroom theme, which superseded the original cream theme)
+Defined once in `shared/theme.css` (`:root` tokens + `.aie-*` components) and
+mirrored in `desk.html`'s inline `:root` so both files agree. Data-dense
+surfaces (watchlist table, map bands) stay system-sans; the editorial voice
+(hero + chapter heads, standfirst, ledger titles) is serif.
+- Background `#faf7f2` (warm paper) · Card `#fffdf9` · Border `#e6e0d4`
+- Text `#33302a` · Muted `#8a8375` · Ink (display) `#1a1712`
+- Shadows: warm-tinted two-layer `--shadow-sm` / `--shadow-lg`. Card radius `--r-card: 14px`.
+- Motion (unchanged, 200–300ms): `--ease: 240ms ease` + `--spring:
+  cubic-bezier(.32,.72,.28,1.15)` (capsule pill, drill-downs, reveals).
+  Reveals/count-up are entrance effects gated on `prefers-reduced-motion`.
+- Fonts: serif display stack `--serif: ui-serif, "New York", Georgia, serif`
+  (hero + chapter heads, standfirst); Apple system sans for body/data-dense
+  surfaces; genuine system monospace `--mono` (e.g. SF Mono) for tickers,
+  numbers, and small-caps labels (uppercase, 0.08em, ~11px) — no CDN fonts.
 - Category colors live in `data.js` (`categories[].color`) — see
   `ingest/store/base.json` for the current 10: Photonics `#3b82f6`, Memory
   `#8b5cf6`, Fabs `#f59e0b`, Neoclouds `#22c55e`, Materials `#f97316`,
   Networking `#14b8a6`, Glass `#0ea5e9`, Robotics `#e11d48`, Accelerators
   `#76b900`, Hyperscalers `#6366f1`.
-- Tier badges: core `#dcfce7/#15803d`, watch `#fef3c7/#b45309`, radar muted.
-  Desk stances: act green, accumulate sky, watch amber, pass muted.
-- **3px gradient top border** spanning all category colors, left → right,
-  across the full app width (`.gradient-border`).
+- Tier/stance badges are warm-tinted, same hue semantics: core/act green,
+  accumulate sky, watch amber, radar/pass muted.
+- **Top masthead** (`AIE.renderNav(activePage)`): serif wordmark · `PRIVATE
+  COVERAGE · NOT ADVICE` small-caps · page links (Coverage / Desk / Vault /
+  Graph / Performance-greyed) · double-hairline rule. On `desk.html` the
+  masthead scrolls away and the capsule chapter nav pins near the top.
+- **3px gradient top border** spanning all category colors, left → right, full
+  width (`.gradient-border`, painted by `AIE.paintGradientBorder()`).
 - ⚡ favicon via inline SVG data URI in `<head>` (no external request, `file://`-safe).
-- Transitions: `--ease: 250ms ease` (within the 200–300ms rule).
+- The dark `#0f1b2e` cross-section "blueprint" + NVIDIA hub are intentional
+  dark accent surfaces kept against the warm paper.
 
 ## Architecture — two data layers
 **Static config** (categories, center node, countries, zones, mapIntro) → read
@@ -152,8 +194,10 @@ directly from `window.AIE_DATA`. Never written to localStorage.
 **User data** (tickers, theses, settings) → seeded into localStorage on first
 load, then read/written there so user edits persist.
 
-**Script load order in `index.html`:** `<script src="data.js"></script>` must
-come FIRST, then the app `<script>`.
+**Script load order (every page):** `<script src="data.js"></script>` FIRST
+(defines `window.AIE_DATA`), then `<script src="shared/common.js"></script>`
+(defines `window.AIE`), then the page's own inline `<script>`. Each page boots
+with `AIE.seed()` → `AIE.paintGradientBorder()` → `AIE.renderNav(activePage)`.
 
 ### Seeding logic (runs once on load, version-aware)
 ```
@@ -224,9 +268,9 @@ so newly-ingested tickers and theses surface. Categories / center / countries
 
 ## Map rendering (current — Pipeline / Cross Section toggle, NOT an SVG arc or
 ## the original single vertical stack; both superseded)
-The Supply Chain Map (Tab 1) has two HTML-div views, toggled by a pill button
-(`mapState.view`, `"pipeline" | "cross"`) next to "Show All" — not SVG:
-- **Pipeline** (default) — `renderPipeline()` in `index.html` builds three
+The Supply Chain Map (chapter 01 in `desk.html`) has two HTML-div views, toggled
+by a pill button (`mapState.view`, `"pipeline" | "cross"`) next to "Show All" — not SVG:
+- **Pipeline** (default) — `renderPipeline()` in `desk.html` builds three
   flex columns (Supply → Chip → Demand, left to right) from
   `AIE_DATA.categories`, each a vertical stack of `.layer-band` cards (reusing
   `makeLayerBand()`) sorted by `layer` descending within the column. A dashed
@@ -247,12 +291,17 @@ The Supply Chain Map (Tab 1) has two HTML-div views, toggled by a pill button
 ## File structure
 ```
 ai-supply-desk/
-├── index.html                  THE APP — HTML + <style> + <script>, offline-first
+├── index.html                  THE FRONT PAGE — coverage index, offline-first
+├── desk.html                   THE FIELD GUIDE — Map/Watchlist/Evidence/Synthesis
+├── shared/
+│   ├── theme.css               design tokens + shared components (masthead, ledger, chips, badges)
+│   └── common.js               window.AIE — seeding, drill-down, formatters, nav, ticker links
 ├── data.js                     window.AIE_DATA — GENERATED, never hand-edit
 ├── CLAUDE.md                   this file — build spec + current status
 ├── README.md                   quick start + project map
 ├── .claude/skills/weekly-review/SKILL.md   the /weekly-review desk procedure
 ├── docs/
+│   ├── EXECUTION.md             v7 "Private Coverage" upgrade — phased prompt guide (the to-do doc)
 │   ├── GUIDE.md                 how to run everything + FAQ / troubleshooting (read first if stuck)
 │   ├── PRD.md                   product requirements
 │   ├── ROADMAP.md               what's built / open issues / next steps (living doc)
@@ -276,4 +325,6 @@ ai-supply-desk/
 2. Skim `docs/ROADMAP.md` for open issues and next steps.
 3. Check `git log --oneline -10` for what's landed since the roadmap was last touched.
 4. If something in this file conflicts with the actual code (`index.html`,
-   `ingest/store/base.json`), **trust the code** and fix this file — it drifts.
+   `desk.html`, `shared/*`, `ingest/store/base.json`), **trust the code** and fix
+   this file — it drifts. For the v7 upgrade's remaining phases, `docs/EXECUTION.md`
+   is the authoritative to-do doc.

@@ -9,19 +9,25 @@ a weekly "second opinion" from Claude on the names that matter most.
 > Personal project, just for me. Not investment advice.
 
 ## 🚀 Quick start
-**Just open the app:** double-click **`index.html`**. It works completely
-offline — no internet, no server, nothing to install. Everything it shows
-lives in one file, `data.js`.
+**Just open the app:** double-click **`index.html`** — the front page. From
+there, **"Desk"** in the top nav opens the field guide (the map, watchlist,
+evidence, and synthesis). It works completely offline — no internet, no
+server, nothing to install. Everything it shows lives in one file, `data.js`;
+the shared look and helpers live in `shared/`.
 
 **To add new ideas, refresh prices, or update the AI summaries** → read
 **[docs/GUIDE.md](docs/GUIDE.md)**. It also answers the #1 question people
 ask: *"I messaged the bot and nothing replied — why?"*
 
 ## What it does
-It's one long scrolling page, not a set of separate tabs. At the top: a
-quick summary (how many ideas captured, how many names tracked, the newest
-signal). Scroll down and you move through four chapters, followed
-everywhere by a floating pill-shaped nav bar so you can jump around:
+It's a small multi-page site (plain HTML — every page opens by double-click):
+
+- **The front page** (`index.html`) — a short editorial cover: what the desk
+  is, the live counts, when it was last reviewed, and links into the guide.
+- **The field guide** (`desk.html`) — one long scrolling page, not a set of
+  separate tabs. At the top: a quick summary (how many ideas captured, how many
+  names tracked, the newest signal). Scroll down through four chapters, followed
+  everywhere by a floating pill-shaped nav bar so you can jump around:
 - **01 · The Map** — the supply chain laid out visually: who supplies →
   what NVIDIA makes → who buys it. Click any piece to see what to watch and
   which companies sit there.
@@ -52,7 +58,11 @@ project — you don't need to open those unless you're curious.
 ## 🗺️ Where things live
 ```
 ai-supply-desk/
-├── index.html          THE APP — open this file to use it
+├── index.html          THE FRONT PAGE — open this file to start
+├── desk.html           THE FIELD GUIDE — map, watchlist, evidence, synthesis
+├── shared/             the shared look + helpers used by every page
+│   ├── theme.css        design tokens + components
+│   └── common.js        shared logic (window.AIE)
 ├── data.js             all the data the app shows — auto-generated, don't hand-edit
 ├── README.md           you are here
 ├── CLAUDE.md           technical build notes (for Claude Code — not needed for everyday use)
@@ -75,7 +85,8 @@ ai-supply-desk/
 ```
 
 ## How the two halves fit
-- **The app** (`index.html` + `data.js`) is what you actually look at — it
+- **The app** (`index.html` + `desk.html`, sharing `shared/theme.css` +
+  `shared/common.js`, all reading `data.js`) is what you actually look at — it
   opens in your browser and always works, just by opening the file.
 - **The backend** (everything in `ingest/`) is a set of small tools you run
   yourself, only when you want to update something — capture a new idea,
@@ -92,8 +103,11 @@ ai-supply-desk/
 
 ## Where things stand
 The map, watchlist, evidence feed, and AI synthesis are all built and
-working — redesigned as one continuous scrolling page. Currently tracking
-90+ companies and 150+ captured ideas. See [docs/ROADMAP.md](docs/ROADMAP.md)
+working, now with a warm editorial front page over the field guide (the
+"Private Coverage" multi-page upgrade — Phase 1 done). Currently tracking
+110+ companies and 180+ captured ideas. Coverage memos, a knowledge vault +
+graph, and performance tracking are the next phases — see
+[docs/EXECUTION.md](docs/EXECUTION.md) and [docs/ROADMAP.md](docs/ROADMAP.md)
 for the full history and what's next.
 
 ## License

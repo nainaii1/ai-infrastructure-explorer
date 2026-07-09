@@ -1,5 +1,22 @@
 # Design Reference — AI Infrastructure Explorer
 
+> **⚠️ Superseded again (2026-07-08): the v7 "Private Coverage" editorial theme shipped.**
+> Design tokens + shared components now live in **`shared/theme.css`** (mirrored
+> in `desk.html`'s inline `:root`) — **that file is the source of truth, not this
+> doc.** Warm "paper" palette: bg `#faf7f2` / card `#fffdf9` / border `#e6e0d4` /
+> text `#33302a` / muted `#8a8375` / ink `#1a1712`. Serif display stack
+> `--serif: ui-serif, "New York", Georgia, serif` for the hero, chapter heads,
+> and standfirst; Apple system **sans** for body + data-dense surfaces (watchlist
+> table, map bands); `--mono` (SF Mono) for tickers, numbers, and small-caps
+> labels (uppercase, 0.08em, ~11px). Warm-tinted `--shadow-sm`/`--shadow-lg`;
+> `--r-card: 14px`; motion tokens unchanged (`--ease: 240ms`, `--spring`). New
+> shared components: top masthead (`AIE.renderNav`), ledger table, chips,
+> warm-tinted tier/stance badges (same green/sky/amber/muted hue semantics),
+> colophon, and the category-painted gradient border. The dark `#0f1b2e`
+> cross-section blueprint + NVIDIA hub are intentional dark accents. Everything
+> below (the v6 cleanroom cool `#f5f5f7` palette, and the pre-v6 cream theme) is
+> now **historical baseline only** — trust `shared/theme.css` first.
+
 > **⚠️ Superseded (2026-07-03): the v6 "Field Guide" redesign shipped.**
 > The app is now one continuous chaptered scroll (hero prologue → 01 Map →
 > 02 Watchlist → 03 Evidence → 04 Synthesis) with a floating frosted-glass

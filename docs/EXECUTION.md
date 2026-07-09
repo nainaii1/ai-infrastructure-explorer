@@ -40,7 +40,7 @@ data.js           generated as always; gains memos, vault, later calls
 | Phase | What ships | Prompts | Status |
 |---|---|---|---|
 | 0 | This guide | P0 | ✅ 2026-07-06 |
-| 1 | Multi-page scaffold + editorial design system | P1–P5 | ☐ |
+| 1 | Multi-page scaffold + editorial design system | P1–P5 | ✅ 2026-07-08 |
 | 2 | Coverage memos (store, memo.html, ledger, skills, seed content) | P6–P10 | ☐ |
 | 3 | Knowledge Vault (store+sync, index/page views, graph, authoring loop) | P11–P14 | ☐ |
 | 4 | Cross-linking everywhere | P15 | ☐ |
@@ -59,7 +59,7 @@ data.js           generated as always; gains memos, vault, later calls
 
 ## Phase 1 — Editorial foundation
 
-### ☐ P1 · Op-M — shared/theme.css
+### ✅ P1 · Op-M — shared/theme.css
 
 > Read CLAUDE.md and docs/EXECUTION.md (Phase 1). Create `shared/theme.css`: the
 > new editorial design-token set — warm paper bg `#faf7f2`, card `#fffdf9`, border
@@ -75,7 +75,7 @@ data.js           generated as always; gains memos, vault, later calls
 > Include a commented static HTML snippet at the bottom of the file for visual QA.
 > Do NOT touch index.html yet. Commit as `feat: editorial design tokens + shared components (theme.css)`.
 
-### ☐ P2 · Op-H — split & wire desk.html (highest regression risk)
+### ✅ P2 · Op-H — split & wire desk.html (highest regression risk)
 
 > Read CLAUDE.md and docs/EXECUTION.md. `git mv index.html desk.html`. Create
 > `shared/common.js` exposing a global `AIE` namespace: move from the inline app
@@ -89,7 +89,7 @@ data.js           generated as always; gains memos, vault, later calls
 > animate, watchlist sorting/filters work, both map views work, scrollspy works,
 > mobile 768px OK. Commit as `refactor: multi-page split — field guide moves to desk.html, shared assets extracted`.
 
-### ☐ P3 · Op-M — retokenize desk.html to the editorial theme
+### ✅ P3 · Op-M — retokenize desk.html to the editorial theme
 
 > Read CLAUDE.md, docs/DESIGN.md, and shared/theme.css. Restyle desk.html to the
 > warm editorial theme by changing CSS custom-property values and hero/chapter-head
@@ -101,7 +101,7 @@ data.js           generated as always; gains memos, vault, later calls
 > chips/Desk column, Evidence cap + drill-down, Brain sources drill-down, hero
 > count-up, reduced-motion, 768px. Commit as `feat: editorial retheme of the field guide (desk.html)`.
 
-### ☐ P4 · S5-H — new index.html front page
+### ✅ P4 · S5-H — new index.html front page
 
 > Read CLAUDE.md, shared/theme.css, shared/common.js. Create the new `index.html`
 > editorial front page: masthead (wordmark + PRIVATE COVERAGE), a serif standfirst
@@ -112,7 +112,7 @@ data.js           generated as always; gains memos, vault, later calls
 > weekly review." Body text serif ~17px/1.65. Uses theme.css + common.js — no
 > duplicated CSS/JS. Commit as `feat: editorial front page (coverage index shell)`.
 
-### ☐ P5 · S5-M — docs sync
+### ✅ P5 · S5-M — docs sync
 
 > Update CLAUDE.md for the multi-page architecture: rewrite hard rule #3 (app code
 > = page files + exactly shared/theme.css + shared/common.js; anything used by 2+

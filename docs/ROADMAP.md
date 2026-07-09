@@ -1,12 +1,19 @@
 # Roadmap & Status — AI Infrastructure Explorer
 
-_Last updated: 2026-07-06 (post weekly-review). Living document — update as things ship or change._
+_Last updated: 2026-07-08 (Private Coverage Phase 1 shipped). Living document — update as things ship or change._
 
-> **Active build (2026-07-06):** the "Private Coverage" editorial upgrade —
-> multi-page split, memo-style coverage notes, Obsidian-style knowledge Vault +
-> graph, minimal performance hooks. Step-by-step prompt guide:
-> [EXECUTION.md](EXECUTION.md). (This supersedes the Signal Digest spec — memos
-> replace it.)
+> **Active build:** the "Private Coverage" editorial upgrade — multi-page split,
+> memo-style coverage notes, Obsidian-style knowledge Vault + graph, minimal
+> performance hooks. The authoritative **phase table + step-by-step prompt guide
+> is [EXECUTION.md](EXECUTION.md)** — check the boxes there for live status.
+> - **Phase 1 ✅ done (2026-07-08)** — multi-page editorial foundation: `shared/theme.css`
+>   (warm editorial tokens + components), `shared/common.js` (`window.AIE`), the Field
+>   Guide moved `index.html` → `desk.html` + retokenized to the warm theme, and a new
+>   editorial `index.html` front page. Still vanilla + `file://`-safe.
+> - **Phases 2–5 ☐ next** — coverage memos, knowledge Vault + graph, site-wide
+>   cross-linking, performance hooks.
+>
+> (This upgrade supersedes the Signal Digest spec — coverage memos replace it.)
 
 ---
 
