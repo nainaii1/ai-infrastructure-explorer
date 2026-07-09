@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "meta": {
-    "reviewedAt": "2026-07-06T16:00:00Z",
+    "reviewedAt": "2026-07-08T14:00:00Z",
     "reviewer": "Claude (Fable 5) via Claude Code weekly review",
-    "thesesConsidered": 170,
+    "thesesConsidered": 188,
     "coverage": "Core tier, top 15 by priority score",
     "cadence": "weekly",
     "disclaimer": "Second-opinion research notes on @aleabitoreddit's ideas. Personal research tool — not investment advice."
@@ -12,11 +12,41 @@
     {
       "ticker": "SIVE",
       "stance": "accumulate",
-      "view": "Still his best-evidenced idea, and this week added a clean summary post: JBL 1.6T LRO mass production, the GFS SCALE reference laser, Ayar/NVLink CPO (with Lumentum/Macom reportedly dropped from Ayar's site), O-Net ELS — he now frames it as 'the next LITE.' Two flags sharpened this week: he confirmed SIVE is one of his largest holdings (book-talking is structural, not incidental), and the Bootstrap Europe convertible notes executed — venture debt, which he himself concedes is not the positive others frame it as.",
-      "execution": "Hold the staggered-accumulation plan; the SemiAnalysis-driven photonics washout gave the better entry he didn't call for. Still cap position size for single-analyst concentration risk — add only on laser LTAs converting to reported revenue or the NASDAQ listing landing.",
-      "changesMind": "A design-out from the JBL/GFS/Ayar programs, the venture-debt draw signaling cash strain rather than growth funding, or the CPO ramp slipping past 2028.",
-      "basedOnThesisIds": ["h_0ecb33baa79a6b44", "h_67b7f17bf6d26992", "h_3dbecf550235afcf", "h_34534f43456cd196"],
-      "updatedAt": "2026-07-06"
+      "view": "His conviction peaked this week — 'probably my favorite stock right now' — reiterated into a -4% to -10% sector-wide washout he calls indiscriminate margin-cascade selling. New substance, not just pounding the table: JBL's 1.6T LRO qualification window (Aug 2026–Mar 2027 per a JPM fireside chat) then mass production with Sivers lasers in pluggables; AEVA HVM ~Q4 2026 and POET H2 2026 as staggered demand waves; a claimed oversubscribed funding round for the fabless laser ramp; NASDAQ listing 'next few quarters' then M&A for TAM expansion. He notes it trades below POET despite supplying half the ecosystem. The flags stand: it's his largest holding (structural book-talking), and the new lidar angle (Hesai scrutiny pushing western lidar to LITE/SIVE lasers) is second-order speculation, not orders.",
+      "execution": "Hold the staggered-accumulation plan and treat this selloff leg as one of the planned tranches — the margin-cascade dip is the entry his own framework calls for. Keep the single-analyst concentration cap; the next hard catalysts are the NASDAQ listing and JBL qualification completing inside the Aug 2026–Mar 2027 window.",
+      "changesMind": "JBL qualification slipping past Q1 2027 or a design-out at JBL/GFS/Ayar; the NASDAQ listing not materializing within the promised quarters; the SEK 700M raise's auditor going-concern flag (and Ningi Research's short thesis) proving to signal real cash strain; or integrated-laser designs (OpenLight and similar, which need no external light source) removing the need for a discrete CW supplier.",
+      "basedOnThesisIds": [
+        "h_0dd22247c9538b67",
+        "h_2c315427900a28ca",
+        "h_574cc87d7e028236",
+        "h_ab043547a0a514ce"
+      ],
+      "updatedAt": "2026-07-08T14:00:00Z"
+    },
+    {
+      "ticker": "LITE",
+      "stance": "accumulate",
+      "view": "Thesis restated at higher pitch during the washout: laser bottlenecks 'last into 2029,' and his standing frame — if the CEO says anything they make gets bought, bear notes don't touch fundamentals — got another airing as LITE fell with everything else. A second-order kicker appeared: US scrutiny of Hesai (Chinese lidar, firmware kill-switch evidence) is bullish for western lidar players and, upstream, for their laser suppliers LITE and SIVE. Still the incumbent-quality, lower-asymmetry way to own the chokepoint.",
+      "execution": "The macro dip extended — continue building the lower-beta anchor of the photonics sleeve on red days, SIVE/AXTI still carry the torque. Nothing this week changes sizing.",
+      "changesMind": "Hyperscaler order pushouts substantiating the CPO-delay bear case, or share loss to the CW-laser entrants it currently buys from.",
+      "basedOnThesisIds": [
+        "h_d1316054ff13d830",
+        "h_ab043547a0a514ce",
+        "h_574cc87d7e028236"
+      ],
+      "updatedAt": "2026-07-08T14:00:00Z"
+    },
+    {
+      "ticker": "NVDA",
+      "stance": "watch",
+      "view": "Unchanged as the gravitational center rather than a pick. This week it appears as collateral damage in the narrative war (SemiAnalysis supply-chain bear posts helped trigger the selloff) and in the Hesai lidar scrutiny story. His edge — and this tool's — remains the layers beneath it.",
+      "execution": "Express the view through the suppliers this map surfaces; hold NVDA as a separate core-portfolio decision outside this workflow.",
+      "changesMind": "N/A — re-rate if he starts publishing NVDA-specific supply/pricing work.",
+      "basedOnThesisIds": [
+        "h_73d38658dc26c0d9",
+        "h_ab043547a0a514ce"
+      ],
+      "updatedAt": "2026-07-08T14:00:00Z"
     },
     {
       "ticker": "AAOI",
@@ -24,62 +54,134 @@
       "view": "Upgraded from watch because his own entry condition fired: last week's verdict said enter on 'a washout back toward the pre-run range,' and the SemiAnalysis CPO-delay pieces produced exactly that — a 40-60% optical drawdown he heavily bought. He remains heavily concentrated here (with SIVE) and openly suffering drawdowns, so the conviction is real but so is the book-talking; the 800%+ Y/Y run-rate story still needs an earnings print to be more than narrative.",
       "execution": "Scale in on the washout rather than waiting for the earnings confirmation you'll pay up for — but keep half the intended size in reserve for the print. If the quarter validates the $471M/month trajectory, complete the position.",
       "changesMind": "An earnings miss against the monthly run-rate narrative, or the AMD CW LTA relationship failing to expand — either sends this back to watch.",
-      "basedOnThesisIds": ["h_29e60f0da3d1925a", "h_3dbecf550235afcf", "h_34534f43456cd196"],
-      "updatedAt": "2026-07-06"
-    },
-    {
-      "ticker": "NVDA",
-      "stance": "watch",
-      "view": "Unchanged: in this corpus NVDA is the gravitational center, not a pick — this week it appears as kingmaker (his half-serious theory that Nvidia quietly backs MRVL/MediaTek/AlChip against Broadcom) and as the demand driver behind XFAB's photonics option. His edge, and this tool's premise, remains the layers beneath it.",
-      "execution": "Express the view through the suppliers this map surfaces; hold NVDA as a separate core-portfolio decision outside this workflow.",
-      "changesMind": "N/A — re-rate if he starts publishing NVDA-specific supply/pricing work.",
-      "basedOnThesisIds": ["h_65385721915ebae2", "h_36781819bfe0ee75"],
-      "updatedAt": "2026-07-06"
-    },
-    {
-      "ticker": "LITE",
-      "stance": "accumulate",
-      "view": "Upgraded from watch: last week's falsifier — 'a broad photonics correction resetting the multiple' — happened. The SemiAnalysis pieces knocked the sector 40-60% before a partial recovery, and a UDN report now alleges the bear author launched a photonics ETF into the crash it caused, which he (and Serenity) read as a conflict of interest. The fundamentals never moved: sold out into 2028 per its own CEO. The incumbent-quality caveat stands — the smaller pure plays still carry more asymmetry.",
-      "execution": "The macro-driven dip you were told to wait for arrived; buying the reset is consistent with last week's plan. Size it as the lower-beta anchor of the photonics sleeve, with SIVE/AXTI as the torque.",
-      "changesMind": "Evidence the CPO-delay claims are substantively right (order pushouts from hyperscalers), or losing share to the CW-laser entrants it currently buys from.",
-      "basedOnThesisIds": ["h_3dbecf550235afcf", "h_ca1ce1cb5f43eec7", "h_85395dd0fa8acb89"],
+      "basedOnThesisIds": [
+        "h_29e60f0da3d1925a",
+        "h_3dbecf550235afcf",
+        "h_34534f43456cd196"
+      ],
       "updatedAt": "2026-07-06"
     },
     {
       "ticker": "JBL",
       "stance": "accumulate",
-      "view": "Reinforced this week: his SIVE summary post cites JBL 1.6T LRO mass-production signals with 'relatively dramatic moats' for pluggables using Sivers lasers. Still the most conservative expression of the photonics ramp — a diversified manufacturer that survives supplier reshuffles, at a fraction of the small-cap risk.",
-      "execution": "Starter position remains defensible; add when earnings start breaking out the optics/photonics contribution. Suits money you don't want in small-cap volatility.",
-      "changesMind": "Losing transceiver program share, or optics staying too small to move a $28B revenue base.",
-      "basedOnThesisIds": ["h_0ecb33baa79a6b44", "h_fbc83c0f2773fa23", "h_7797b5894b3bb34e"],
-      "updatedAt": "2026-07-06"
+      "view": "The most concrete new datapoint of the week attaches here: per his relay of a JPM fireside chat, JBL's 1.6T LRO has a 'relatively dramatic moat' with qualification completing roughly Aug 2026–Mar 2027, then mass production using Sivers lasers in pluggables. That turns the conservative-expression thesis into one with a dated catalyst window.",
+      "execution": "Starter position stands; the qualification window gives you a concrete thing to verify in the next two earnings calls — add if optics contribution starts getting broken out or the qual completes on schedule.",
+      "changesMind": "Qualification slipping past Q1 2027, losing transceiver program share, or optics staying too small to move a $28B revenue base.",
+      "basedOnThesisIds": [
+        "h_2c315427900a28ca",
+        "h_0dd22247c9538b67"
+      ],
+      "updatedAt": "2026-07-08T14:00:00Z"
+    },
+    {
+      "ticker": "POET",
+      "stance": "watch",
+      "view": "Slightly firmer calendar (production starting H2 2026, more in H1 2027) but the same unnamed-customer problem. The sharpest new datapoint is relative: he flags that SIVE — which supplies lasers to POET among others — trades below POET, which is as much a POET-richness observation as a SIVE-cheapness one. The disciplined trigger is unchanged.",
+      "execution": "Unchanged: speculative sizing only. Trigger remains a named hyperscaler customer or actual HVM revenue in the H2 2026 prints. If you want the exposure, his own relative-value logic argues the supplier is the cheaper way in.",
+      "changesMind": "A confirmed, named hyperscaler customer (upgrades it), or H2 2026 passing without the promised HVM ramp (kills it).",
+      "basedOnThesisIds": [
+        "h_0dd22247c9538b67",
+        "h_2c315427900a28ca"
+      ],
+      "updatedAt": "2026-07-08T14:00:00Z"
     },
     {
       "ticker": "MRVL",
       "stance": "watch",
-      "view": "Still no standalone Marvell thesis — this week's mentions are a Jensen '$1T company' earworm confession and a self-described 'conspiracy theory' that Nvidia quietly backs MRVL and other ASIC challengers against Broadcom. Interesting frame, explicitly speculative, and he himself caps it as a ~2-year trade with in-housing risk after 2030. The tiering math keeps promoting it; the posts still don't.",
-      "execution": "No action on this analyst's signal alone. Revisit if the NVDA-alliance theory picks up hard evidence (design wins, disclosed partnerships) or he writes an actual MRVL bottleneck thesis.",
+      "view": "Still no standalone thesis — this week's only appearance is in the indiscriminate-selloff list. The NVDA-backed-ASIC-challenger frame from last week remains speculative and uncorroborated. The tiering math promotes it; the posts don't.",
+      "execution": "No action on this analyst's signal alone. Revisit on a dedicated MRVL bottleneck post or hard evidence of the NVDA-alliance theory.",
       "changesMind": "A dedicated post with a specific Marvell design-win or bottleneck claim, or independent confirmation of the NVDA-backed ASIC-challenger pattern.",
-      "basedOnThesisIds": ["h_fd9505c4ad92bce4", "h_65385721915ebae2"],
-      "updatedAt": "2026-07-06"
+      "basedOnThesisIds": [
+        "h_574cc87d7e028236"
+      ],
+      "updatedAt": "2026-07-08T14:00:00Z"
+    },
+    {
+      "ticker": "GFS",
+      "stance": "watch",
+      "view": "Same shape as last week: the platform beneath the photonics thesis (SCALE reference laser, CPO timelines now sketched 'somewhere in 2027'), still mentioned only inside SIVE-centric posts, still no standalone valuation work. Deliberately at watch despite Core tier.",
+      "execution": "No dedicated action — SIVE/JBL positions already carry the GFS-platform exposure. Revisit on disclosed photonics revenue or a named hyperscaler CPO win.",
+      "changesMind": "A dedicated GFS thesis with numbers, or disclosed silicon-photonics revenue making the platform story investable on its own.",
+      "basedOnThesisIds": [
+        "h_0dd22247c9538b67",
+        "h_2c315427900a28ca"
+      ],
+      "updatedAt": "2026-07-08T14:00:00Z"
     },
     {
       "ticker": "NBIS",
       "stance": "accumulate",
-      "view": "The demand story strengthened: Meta's 'Watermelon' model reportedly uses an order of magnitude more compute than its predecessor, SemiAnalysis expects 2027 Meta capex to be 'shockingly high,' and TeraWulf's $19B Anthropic lease repriced the whole neocloud/colo sector's contract value. The earlier pushback stands — neocloud economics are financing-heavy and contract-concentrated — and the floating-datacenter chatter this week is color, not thesis.",
-      "execution": "Hold the position; add on each disclosed hyperscaler contract expansion. The Anthropic-WULF print is the comp to watch — it says what a GW of committed capacity is worth. Balance-sheet watch unchanged.",
-      "changesMind": "Hyperscaler capex guidance cuts, META insourcing rented capacity, or a debt raise that changes the risk math.",
-      "basedOnThesisIds": ["h_faf7862f8409c216", "h_ed35af2a69e57256", "h_ca1ce1cb5f43eec7"],
-      "updatedAt": "2026-07-06"
+      "view": "No new neocloud-specific thesis this week — NBIS simply led his indiscriminate-selloff list, which he reads as margin cascades. But the fact-check reframes the catalyst he waved off: the 1 Jul trigger was not 'Meta cutting capex' (Meta had raised 2026 guidance to $125-145B); it was Bloomberg reporting Meta will sell its excess compute — i.e. Meta becoming a neocloud competitor, which hit CoreWeave -14% and NBIS -17% specifically. That is a real structural threat to neocloud pricing power, not FUD. The financing-heavy, contract-concentrated caveat therefore matters more, not less.",
+      "execution": "Hold, but treat this as the most fundamentally-exposed name in the selloff, not a clean technical dip. Add only on disclosed hyperscaler contract expansions that reprice committed capacity (the TeraWulf/Anthropic comp), not on red days alone — and watch whether Meta's compute-selling ambitions actually land.",
+      "changesMind": "Hyperscaler capex guidance cuts, Meta (or another hyperscaler) materially undercutting neocloud pricing with resold compute, META insourcing rented capacity, or a debt raise that changes the risk math.",
+      "basedOnThesisIds": [
+        "h_574cc87d7e028236",
+        "h_79f9aaff84f7f697"
+      ],
+      "updatedAt": "2026-07-08T14:00:00Z"
+    },
+    {
+      "ticker": "META",
+      "stance": "accumulate",
+      "view": "He pins the whole selloff on the Bloomberg 'Meta excess compute' framing plus SemiAnalysis bear posts, and cites a Meta spokesperson walkback confirming it's 'still hungry for more computing power' with deals inked with CoreWeave, Google and Oracle. Two corrections from the fact-check: (1) that spokesperson statement could not be independently verified this week — treat it as his paraphrase, not a confirmed press release; (2) the one confirmed Meta communication in the window was Zuckerberg's 2 Jul town hall saying AI-agent progress 'hasn't accelerated the way we expected' — which cuts against his bull case. The underlying capex commitments and named compute deals are real and previously reported; the demand-narrative crack is also real.",
+      "execution": "The dip was the accumulation window and partially closed with the clarification; from here add on capex-confirming quarters as planned rather than chasing the relief move.",
+      "changesMind": "A guided capex cut, the Zuckerberg 'agents haven't accelerated' concession hardening into slower buildout, or 'Watermelon' underdelivering enough to revive the retreat narrative.",
+      "basedOnThesisIds": [
+        "h_73d38658dc26c0d9",
+        "h_79f9aaff84f7f697"
+      ],
+      "updatedAt": "2026-07-08T14:00:00Z"
     },
     {
       "ticker": "AXTI",
+      "stance": "watch",
+      "view": "Downgraded from accumulate on price, not thesis. The Coherent 3-year InP deal with a $22.3M prepayment is confirmed (8-K, 25 Jun). But the fact-check reframes the price-hike leg: the substrate ASP spikes are largely a China export-control artifact — licenses began flowing in June 2026 and AXT is doubling capacity, so the hikes can normalize rather than compound like memory. His 'Nomura 42-78%' figure couldn't be sourced. And his own post describes the stock as gone 'from $1 to $60' — the venture-scale re-rating already happened (it actually peaked near $143), so the risk/reward is no longer the trade last week's plan sized for; his standing dilution warning is most dangerous exactly here.",
+      "execution": "Stop initiating; hold whatever was started on the earlier plan. Re-engage only on a real reset (a 30-40% retrace toward the run's base) with substrate ASPs still rising — the Nomura hike schedule remains the dashboard.",
+      "changesMind": "China export licenses and AXT's capacity additions normalizing InP ASPs, or another dilutive raise into strength (kills the case); a deep retrace (30-40% toward the run's base) with the Coherent-style committed-capacity deals still expanding (re-opens accumulation).",
+      "basedOnThesisIds": [
+        "h_47f3b5b1bfcce165",
+        "h_574cc87d7e028236"
+      ],
+      "updatedAt": "2026-07-08T14:00:00Z"
+    },
+    {
+      "ticker": "CCXI",
+      "stance": "watch",
+      "view": "The week's most active thread. His case has three legs: valuation anchoring, geopolitical urgency, and personal ownership as the purest US mass-production play via the AMZN/MELI supply chains. But the fact-check catches him overstating the anchor: he cites Agility at '~$4.3B pre-money,' while the actual Churchill Capital XI (CCXI, becoming AGLT) deal is $2.5B pre-money / ~$3.4B post — a ~70% overstatement, and his own posts are internally inconsistent on the figure. The China-100k humanoid number is a government output target, not verified demand (Morgan Stanley's shipment forecast is 50k), and the 'DHS committee' was a House Homeland Security subcommittee. Real theme, real personal conviction — but the specifics are inflated and the whole sector is re-rating on the anchoring psychology he himself calls 'peak market inefficiency.'",
+      "execution": "Unchanged: venture sizing, not position sizing. The anchoring argument says it's relatively cheap versus Figure — it does not say either is absolutely cheap. A funded, dated Amazon deployment contract is still the upgrade trigger; a Sputnik-moment US subsidy program would be a second.",
+      "changesMind": "A funded, dated Amazon deployment contract or US robotics subsidy program (upgrades it); dilution at the AGLT ticker change, the SPAC closing below the cited valuation, or China price-war spillover crushing unit economics (downgrades it).",
+      "basedOnThesisIds": [
+        "h_1815078828b9f257",
+        "h_3732049ff8aa171d",
+        "h_1550a3113d94d9da",
+        "h_2909dadab30949b5"
+      ],
+      "updatedAt": "2026-07-08T14:00:00Z"
+    },
+    {
+      "ticker": "AMZN",
       "stance": "accumulate",
-      "view": "Upgraded from watch because both of last week's entry conditions fired at once: the photonics washout gave the pullback, and the substrate datapoints arrived hard — a 3-year Coherent wafer deal with a $22.3M prepayment for committed capacity, and a Nomura report naming AXTI a leading InP player with substrate price hikes of 42-78%. Prepaid committed capacity is exactly what a real chokepoint looks like. Dilution/float-expansion risk from the re-rating remains live.",
-      "execution": "Start the position on this evidence rather than waiting for lower prices; average in on photonics-sector red days. Track substrate ASPs — the Nomura hike schedule is now the thesis dashboard.",
-      "changesMind": "InP substrate ASPs rolling over, China domestic pricing undercutting exports materially, or another dilutive raise into strength.",
-      "basedOnThesisIds": ["h_9c524f6339fbbee1", "h_10aa6c8479a57d03", "h_29e60f0da3d1925a"],
-      "updatedAt": "2026-07-06"
+      "view": "The physical-AI-umbrella thesis gained a concrete edge: he frames Amazon (with MELI) as the deployment supply chain through which Agility commercializes — the demand-side anchor for his robotics book, replaying the GOOGL-TPU-catalyzes-suppliers pattern. Lowest-risk expression of a theme every smaller name here depends on.",
+      "execution": "Core-position logic, dollar-cost average — unchanged. Still the hedge against the CCXI-style venture bets: if the robotics rotation cools, this falls least.",
+      "changesMind": "The robotics/automation effort visibly stalling (deployment numbers, not narrative), or AWS capex guidance breaking the AI-demand story.",
+      "basedOnThesisIds": [
+        "h_2909dadab30949b5",
+        "h_1815078828b9f257"
+      ],
+      "updatedAt": "2026-07-08T14:00:00Z"
+    },
+    {
+      "ticker": "TSLA",
+      "stance": "watch",
+      "view": "New to Core on the robotics rotation. His take is directional, not fundamental: Elon is the reason the US leads in space and EVs, so he 'can make US robotics #1 again' — and he notes TSLA's $1T+ valuation is itself anchored to the humanoid mission. Revealingly, he owns CCXI instead, calling Agility the purer mass-production play. When the analyst's own money picks the smaller name, TSLA is his theme index, not his idea.",
+      "execution": "No action from this signal — TSLA here is a robotics-sentiment gauge, and any Tesla position is a whole-company bet (autos, energy, FSD) far beyond this corpus. If you want his actual robotics idea, that's the CCXI verdict, venture-sized.",
+      "changesMind": "A dedicated Optimus production/economics thesis from him, or TSLA disclosures making humanoid economics separable from the auto business.",
+      "basedOnThesisIds": [
+        "h_2909dadab30949b5",
+        "h_1550a3113d94d9da",
+        "h_3732049ff8aa171d"
+      ],
+      "updatedAt": "2026-07-08T14:00:00Z"
     },
     {
       "ticker": "XFAB",
@@ -87,61 +189,10 @@
       "view": "New to the verdict roster. Two theses stack here: a value floor — Kepler's upgrade calls it the cheapest specialty foundry at 4.8x 2027 EV/EBITDA versus a 14.5x peer median, with Melexis demand strengthening weekly — and a free option, the photonixfab silicon-photonics line he thinks the market can't price until volume contracts land (NVDA/Nokia evaluations, EU Chips Act backing). He's called it 'early TSEM' for months; the sell side just started agreeing on the boring half.",
       "execution": "The value leg justifies a real (not speculative) starter position; the photonics leg is the free upside. European listing and specialty-foundry cyclicality argue for patience over chasing — accumulate on flat-to-red days.",
       "changesMind": "Auto/industrial demand rolling back over (the Kepler leg breaking), or photonixfab losing the NVDA/Nokia evaluations.",
-      "basedOnThesisIds": ["h_36781819bfe0ee75", "h_76b06718fb16b539"],
-      "updatedAt": "2026-07-06"
-    },
-    {
-      "ticker": "POET",
-      "stance": "watch",
-      "view": "Marginally firmer but still rumor-grade: this week's SIVE summary post has POET starting HVM in H2 2026 with Lumilens as a 'top 3 hyperscaler initial customer' — the same unnamed-customer inference as before, now with a production date attached. The shortage backdrop keeps improving around it; the customer still isn't confirmed.",
-      "execution": "Unchanged: speculative sizing only, and only if you'd hold through a rumor unwinding. The disciplined trigger remains a named hyperscaler design win — or actual HVM revenue in the H2 2026 prints.",
-      "changesMind": "A confirmed, named hyperscaler customer (upgrades it), or H2 2026 passing without the promised HVM ramp (kills it).",
-      "basedOnThesisIds": ["h_0ecb33baa79a6b44", "h_9018322ed2470b53"],
-      "updatedAt": "2026-07-06"
-    },
-    {
-      "ticker": "META",
-      "stance": "accumulate",
-      "view": "The capex-cut narrative he's been fighting took real damage this week: the 'Watermelon' model reportedly matches GPT 5.5 using an order of magnitude more compute than its predecessor, and SemiAnalysis expects Meta's datacenter buildout to accelerate with 2027 capex 'shockingly high.' His read — the selloff was misinformation-driven — aged well. The cloud-business execution caveat from last week still applies.",
-      "execution": "The dip was the accumulation window; from here, add on capex-confirming quarters as planned. The BBU/battery-cell shortage thread is a reminder Meta's buildout now competes for components well beyond GPUs — demand quality, not a risk to Meta itself.",
-      "changesMind": "A guided capex cut, or 'Watermelon' underdelivering enough to revive the retreat narrative.",
-      "basedOnThesisIds": ["h_faf7862f8409c216", "h_d4707a13060368fd", "h_34534f43456cd196"],
-      "updatedAt": "2026-07-06"
-    },
-    {
-      "ticker": "AMZN",
-      "stance": "accumulate",
-      "view": "New to the verdict roster as the physical-AI umbrella: he calls Amazon 'the clear winner in the physical AI shift' and draws a specific parallel — the Amazon ecosystem will do for robotics suppliers (like Agility) what Google's TPU program did for suppliers like Lumentum. SVRC's robotics report lists Amazon Robotics among the US national champions. The signal is thematic rather than a priced bottleneck, but as with GOOGL, it's the lowest-risk way to own a theme every smaller name here depends on.",
-      "execution": "Core-position logic, dollar-cost average — same playbook as the GOOGL verdict. It also hedges the CCXI-style venture bets: if the robotics rotation cools, this falls least.",
-      "changesMind": "The robotics/automation effort visibly stalling (deployment numbers, not narrative), or AWS capex guidance breaking the AI-demand story.",
-      "basedOnThesisIds": ["h_85395dd0fa8acb89", "h_1bf1783a9f9c83ad", "h_d4707a13060368fd"],
-      "updatedAt": "2026-07-06"
-    },
-    {
-      "ticker": "GFS",
-      "stance": "watch",
-      "view": "New to the verdict roster, but deliberately at watch: GFS earns its Core tier as the platform beneath his photonics thesis — the SCALE reference-level laser for hyperscalers, where AMD and others reportedly went for CPO — yet nearly every mention is inside SIVE-centric posts. He owns the thesis through Sivers, not GlobalFoundries; there's no standalone GFS valuation work in the corpus, and he's said himself its size caps the upside.",
-      "execution": "No dedicated action from this signal — the SIVE/JBL positions already carry the GFS-platform exposure. Revisit if GFS discloses photonics revenue or wins a named hyperscaler CPO program directly.",
-      "changesMind": "A dedicated GFS thesis with numbers, or disclosed silicon-photonics revenue making the platform story investable on its own.",
-      "basedOnThesisIds": ["h_0ecb33baa79a6b44", "h_76b06718fb16b539"],
-      "updatedAt": "2026-07-06"
-    },
-    {
-      "ticker": "CCXI",
-      "stance": "watch",
-      "view": "The sector heat he was early to is now palpable — LeaderDrive at all-time highs, Unitree's STAR listing approved, SVRC ranking Agility #2 among US robotics 'national champions,' and his Amazon-ecosystem-as-catalyst frame gives the thesis a demand-side anchor. But everything that kept this at watch is intensifying too: it's a pre-revenue humanoid name re-rating on sector sentiment, and euphoric tape is when his own venture-sizing discipline matters most.",
-      "execution": "Unchanged: size it like venture, not like a position. Chasing limit-up sector sympathy is the specific mistake to avoid here; better entries when the physical-AI rotation cools.",
-      "changesMind": "A funded, dated Amazon deployment contract (upgrades it), or dilution at the AGLT ticker change (downgrades it).",
-      "basedOnThesisIds": ["h_559e35fdea272a74", "h_1bf1783a9f9c83ad", "h_faf7862f8409c216", "h_2e879b7947e4586e"],
-      "updatedAt": "2026-07-06"
-    },
-    {
-      "ticker": "GOOGL",
-      "stance": "accumulate",
-      "view": "Unchanged, and this week borrowed as the template: his AMZN call explicitly cites 'the GOOGL TPU effect on suppliers like LITE' as the pattern to repeat in robotics. The compute-constraint fact (Google cutting Meta's Gemini capacity) remains the corpus's cleanest demand-side evidence, and nothing this week weakened it.",
-      "execution": "Core position, dollar-cost average — no timing edge needed or claimed. Still the hedge against the supplier book: if capex disappoints, this falls least.",
-      "changesMind": "Explicit capex guidance cuts or 'demand normalization' language on an earnings call.",
-      "basedOnThesisIds": ["h_06c1b1dfc8ba3b53", "h_c1ee65a16b4a3233", "h_85395dd0fa8acb89"],
+      "basedOnThesisIds": [
+        "h_36781819bfe0ee75",
+        "h_76b06718fb16b539"
+      ],
       "updatedAt": "2026-07-06"
     }
   ]

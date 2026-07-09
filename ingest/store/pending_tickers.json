@@ -123,7 +123,7 @@
     "candidate": "NAV",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:39:18Z",
-    "count": 6
+    "count": 7
   },
   {
     "candidate": "PCB",
@@ -159,7 +159,7 @@
     "candidate": "NAND",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:39:49Z",
-    "count": 8
+    "count": 9
   },
   {
     "candidate": "OP",
@@ -177,7 +177,7 @@
     "candidate": "SK",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:39:49Z",
-    "count": 9
+    "count": 10
   },
   {
     "candidate": "SMIC",
@@ -327,7 +327,7 @@
     "candidate": "LRO",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:45:35Z",
-    "count": 9
+    "count": 10
   },
   {
     "candidate": "TPU",
@@ -411,7 +411,7 @@
     "candidate": "CW",
     "sourceUrl": "",
     "firstSeen": "2026-06-30T07:39:56Z",
-    "count": 19
+    "count": 20
   },
   {
     "candidate": "ERIC",
@@ -525,7 +525,7 @@
     "candidate": "IP",
     "sourceUrl": "",
     "firstSeen": "2026-06-30T07:39:58Z",
-    "count": 3
+    "count": 4
   },
   {
     "candidate": "MSA",
@@ -585,7 +585,7 @@
     "candidate": "SPAC",
     "sourceUrl": "",
     "firstSeen": "2026-06-30T07:44:51Z",
-    "count": 2
+    "count": 4
   },
   {
     "candidate": "JP",
@@ -729,7 +729,7 @@
     "candidate": "HVM",
     "sourceUrl": "",
     "firstSeen": "2026-07-01T14:56:53Z",
-    "count": 5
+    "count": 6
   },
   {
     "candidate": "CWTC",
@@ -975,7 +975,7 @@
     "candidate": "JPM",
     "sourceUrl": "",
     "firstSeen": "2026-07-03T13:20:54Z",
-    "count": 1
+    "count": 2
   },
   {
     "candidate": "CEST",
@@ -1005,7 +1005,7 @@
     "candidate": "TA",
     "sourceUrl": "",
     "firstSeen": "2026-07-03T13:23:24Z",
-    "count": 1
+    "count": 2
   },
   {
     "candidate": "VRT",
@@ -1089,7 +1089,7 @@
     "candidate": "VC",
     "sourceUrl": "",
     "firstSeen": "2026-07-03T17:29:12Z",
-    "count": 1
+    "count": 2
   },
   {
     "candidate": "LAZR",
@@ -1197,6 +1197,36 @@
     "candidate": "EV",
     "sourceUrl": "",
     "firstSeen": "2026-07-06T15:32:42Z",
+    "count": 2
+  },
+  {
+    "candidate": "GAAP",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-07T07:03:37Z",
+    "count": 2
+  },
+  {
+    "candidate": "PT",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-08T13:00:36Z",
+    "count": 1
+  },
+  {
+    "candidate": "ABC",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-08T13:04:04Z",
+    "count": 1
+  },
+  {
+    "candidate": "KOSPI",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-08T13:04:04Z",
+    "count": 1
+  },
+  {
+    "candidate": "NYT",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-08T13:17:17Z",
     "count": 1
   }
 ]
