@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Supply Desk — Private Coverage</title>
+
+  <!-- ⚡ favicon: inline SVG data URI (no external request, works on file://) -->
+  <link
+    rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M13 2 4.5 13.5H11l-1 8.5L19.5 10H13z' fill='%233b82f6'/%3E%3C/svg%3E"
+  />
+
+  <!-- Shared editorial design tokens + components (masthead, chips, ledger, colophon). -->
+  <link rel="stylesheet" href="shared/theme.css" />
+
+  <style>
+    /* Front-page-only layout. Tokens + components come from theme.css —
+       nothing here redefines a token or an .aie-* component. */
+    .front { padding: 40px 24px 8px; }
+
+    .lede-block { max-width: 60ch; }
+    .front-eyebrow { margin: 0 0 14px; }
+    .front-headline {
+      margin: 0 0 20px;
+      font-family: var(--serif);
+      font-size: clamp(30px, 5vw, 46px);
+      font-weight: 600;
+      letter-spacing: -0.015em;
+      line-height: 1.1;
+      color: var(--ink);
+    }
+    /* Standfirst — serif body, 17px / 1.65 (theme.css body default; restated
+       here so the measure/colour read as an editorial standfirst). */
+    .standfirst {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: 17px;
+      line-height: 1.65;
+      color: var(--text);
+    }
+    .standfirst b { font-weight: 600; color: var(--ink); }
+
+    /* Latest-desk meta strip. */
+    .meta-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 22px;
+      margin: 22px 0 0;
+      padding: 14px 0 0;
+      border-top: 1px solid var(--border);
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 0.02em;
+      color: var(--muted);
+    }
+    .meta-strip b { color: var(--ink); font-weight: 600; }
+    .meta-strip .sep { color: var(--border); }
+
+    /* Chapter links into desk.html. */
+    .chapter-links {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin: 40px 0 8px;
+    }
+    .chapter-link {
+      display: block;
+      padding: 18px 18px 20px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-card);
+      box-shadow: var(--shadow-sm);
+      text-decoration: none;
+      transition: transform var(--ease), box-shadow var(--ease), border-color var(--ease);
+    }
+    .chapter-link:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--muted);
+    }
+    .cl-num {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+    }
+    .cl-title {
+      display: block;
+      margin: 8px 0 4px;
+      font-family: var(--serif);
+      font-size: 21px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .cl-desc { font-size: 13.5px; line-height: 1.5; color: var(--muted); }
+
+    /* Coverage ledger — reserved shell (P8 fills it with real rows). */
+    .ledger-section { margin: 44px 0 0; }
+    .ledger-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--ink);
+    }
+    .ledger-count { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+    .empty-state {
+      padding: 40px 24px;
+      text-align: center;
+      border: 1px dashed var(--border);
+      border-top: 0;
+      border-radius: 0 0 var(--r-card) var(--r-card);
+      background: var(--card);
+    }
+    .empty-state p {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: 17px;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    @media (max-width: 768px) {
+      .front { padding: 28px 18px 8px; }
+      .chapter-links { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 460px) {
+      .chapter-links { grid-template-columns: minmax(0, 1fr); }
+    }
+  </style>
+</head>
+<body>
+  <div class="gradient-border" id="gradientBorder"></div>
+
+  <!-- Shared top nav (theme.css). Rendered by AIE.renderNav('coverage') at boot. -->
+  <div id="topNav"></div>
+
+  <main class="aie-wrap front">
+    <section class="lede-block">
+      <p class="aie-label front-eyebrow">The desk</p>
+      <h1 class="front-headline">The AI hardware supply chain, one conviction at a time.</h1>
+      <p class="standfirst" id="standfirst"><!-- built from AIE_DATA at boot --></p>
+      <div class="meta-strip" id="metaStrip"><!-- built from desk.meta at boot --></div>
+    </section>
+
+    <!-- Links into the field guide (desk.html chapters). -->
+    <nav class="chapter-links" aria-label="Field guide chapters">
+      <a class="chapter-link" href="desk.html#chapter-map">
+        <span class="cl-num">01</span>
+        <span class="cl-title">The Map</span>
+        <span class="cl-desc">How a GPU gets made, and who gets paid along the way.</span>
+      </a>
+      <a class="chapter-link" href="desk.html#chapter-watchlist">
+        <span class="cl-num">02</span>
+        <span class="cl-title">The Watchlist</span>
+        <span class="cl-desc">Every tracked name — price, tier, and the desk's second opinion.</span>
+      </a>
+      <a class="chapter-link" href="desk.html#chapter-thesis">
+        <span class="cl-num">03</span>
+        <span class="cl-title">The Evidence</span>
+        <span class="cl-desc">The sourced thesis feed the coverage is built on.</span>
+      </a>
+      <a class="chapter-link" href="desk.html#chapter-brain">
+        <span class="cl-num">04</span>
+        <span class="cl-title">The Synthesis</span>
+        <span class="cl-desc">One analyst's views, digested into a per-theme brain.</span>
+      </a>
+    </nav>
+
+    <!-- Coverage ledger — reserved empty state until memos exist (P8). -->
+    <section class="ledger-section" aria-label="Coverage and market notes">
+      <div class="ledger-head">
+        <span class="aie-label">Coverage &amp; market notes</span>
+        <span class="ledger-count">No entries yet</span>
+      </div>
+      <div class="empty-state">
+        <p>Coverage notes begin with the next weekly review.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="aie-colophon" id="colophon"><!-- disclaimer from desk.meta at boot --></footer>
+
+  <!-- data.js MUST load first: defines window.AIE_DATA -->
+  <script src="data.js"></script>
+  <!-- Shared AIE namespace (seeding, nav, formatters). After data.js. -->
+  <script src="shared/common.js"></script>
+
+  <script>
+    (function () {
+      "use strict";
+      var DATA = window.AIE_DATA || {};
+      var AIE = window.AIE;
+
+      // Shared boot: seed localStorage, paint the category gradient, render nav.
+      AIE.seed();
+      AIE.paintGradientBorder();
+      AIE.renderNav("coverage");
+
+      function el(tag, className, text) {
+        var n = document.createElement(tag);
+        if (className) n.className = className;
+        if (text != null) n.textContent = text;
+        return n;
+      }
+      function b(text) { return el("b", null, String(text)); }
+
+      // ---- Standfirst: prose frame, live counts from AIE_DATA (rule: don't
+      //      hardcode a number that the data already knows). ----
+      var tickers = DATA.tickers || [];
+      var theses = DATA.theses || [];
+      var cats = DATA.categories || {};
+      var layers = Object.keys(cats).filter(function (id) { return id !== "unsorted"; }).length;
+      var coreCount = tickers.filter(function (t) { return t.tier === "core"; }).length;
+
+      var sf = document.getElementById("standfirst");
+      if (sf) {
+        sf.appendChild(document.createTextNode(
+          "A private research desk mapping the AI hardware supply chain — the suppliers beneath NVIDIA and the hyperscalers. It tracks "));
+        sf.appendChild(b(tickers.length + " names"));
+        sf.appendChild(document.createTextNode(" across "));
+        sf.appendChild(b(layers + " layers"));
+        sf.appendChild(document.createTextNode(", captured from one analyst's public calls: "));
+        sf.appendChild(b(theses.length + " sourced theses"));
+        sf.appendChild(document.createTextNode(", sorted into conviction tiers ("));
+        sf.appendChild(b(coreCount + " core"));
+        sf.appendChild(document.createTextNode("), each challenged by a weekly second opinion. Not investment advice."));
+      }
+
+      // ---- Latest-desk meta strip. ----
+      var desk = DATA.desk || {};
+      var dmeta = desk.meta || {};
+      var verdictCount = (desk.verdicts || []).length;
+      var strip = document.getElementById("metaStrip");
+      if (strip) {
+        var reviewed = dmeta.reviewedAt ? AIE.fmtDate(dmeta.reviewedAt) : null;
+        if (reviewed) {
+          strip.appendChild(document.createTextNode("Desk reviewed "));
+          strip.appendChild(b(reviewed));
+          strip.appendChild(el("span", "sep", " · "));
+        }
+        strip.appendChild(b(verdictCount));
+        strip.appendChild(document.createTextNode(" desk verdicts"));
+        strip.appendChild(el("span", "sep", " · "));
+        strip.appendChild(b(theses.length));
+        strip.appendChild(document.createTextNode(" theses considered"));
+      }
+
+      // ---- Colophon: disclaimer straight from desk.meta (fallback if absent). ----
+      var colo = document.getElementById("colophon");
+      if (colo) {
+        colo.appendChild(el("strong", null, "AI Supply Desk"));
+        colo.appendChild(document.createTextNode(" — "));
+        colo.appendChild(document.createTextNode(
+          dmeta.disclaimer ||
+          "Personal research tool — not investment advice."));
+      }
+    })();
+  </script>
+</body>
+</html>
