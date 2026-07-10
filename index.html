@@ -123,6 +123,49 @@
       color: var(--muted);
     }
 
+    /* Filter chips (kind + rating). Uses the shared .aie-chip toggle. */
+    .ledger-filters {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin: 16px 0 10px;
+    }
+    .ledger-filters .lf-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-right: 2px;
+    }
+    .ledger-filters .lf-group { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+    .ledger-filters button { cursor: pointer; font: inherit; text-transform: capitalize; }
+    .ledger-filters .lf-sep { width: 1px; height: 15px; background: var(--border); margin: 0 6px; }
+
+    /* Ticker + kind cells in the ledger table. */
+    .ledger-section .aie-ledger .l-ticker { white-space: nowrap; }
+    .ledger-section .aie-ledger .aie-ledger-title a {
+      color: inherit; text-decoration: none;
+    }
+    .ledger-section .aie-ledger tbody tr.is-link:hover .aie-ledger-title a { color: var(--ink); }
+
+    /* Sub-label above the "verdict only" stub rows when there are no memos yet. */
+    .ledger-stub-note {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.02em;
+      color: var(--muted);
+      margin: 22px 0 6px;
+    }
+    .ledger-nomatch {
+      padding: 24px;
+      font-family: var(--sans);
+      font-size: 13.5px;
+      color: var(--muted);
+    }
+
     @media (max-width: 768px) {
       .front { padding: 28px 18px 8px; }
       .chapter-links { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -170,15 +213,14 @@
       </a>
     </nav>
 
-    <!-- Coverage ledger — reserved empty state until memos exist (P8). -->
+    <!-- Coverage ledger — memo rows + "verdict only" stubs, built at boot. -->
     <section class="ledger-section" aria-label="Coverage and market notes">
       <div class="ledger-head">
         <span class="aie-label">Coverage &amp; market notes</span>
-        <span class="ledger-count">No entries yet</span>
+        <span class="ledger-count" id="ledgerCount">No entries yet</span>
       </div>
-      <div class="empty-state">
-        <p>Coverage notes begin with the next weekly review.</p>
-      </div>
+      <div class="ledger-filters" id="ledgerFilters"></div>
+      <div id="ledgerBody"></div>
     </section>
   </main>
 
@@ -258,6 +300,184 @@
           dmeta.disclaimer ||
           "Personal research tool — not investment advice."));
       }
+
+      /* ================================================================
+         Coverage ledger. One row per published memo (newest first) plus
+         muted "verdict only" stubs for Core names the desk has a stance
+         on but hasn't written up yet. Filters (kind + rating) act on the
+         memo rows; the reserved empty-state stays when there are no memos.
+         ================================================================ */
+      var tickerCategory = {};
+      tickers.forEach(function (t) { tickerCategory[t.ticker] = t.category; });
+      function catColor(sym) { return AIE.categoryColor(tickerCategory[sym], null); }
+
+      var KIND_LABEL = { coverage: "Coverage", update: "Update", "exit-note": "Exit note" };
+      function kindLabel(k) { return KIND_LABEL[k] || k || "Note"; }
+
+      var ledgerFilter = { kind: null, rating: null };
+
+      function publishedDesc(a, b) {
+        var da = a.publishedAt || a.updatedAt || "";
+        var db = b.publishedAt || b.updatedAt || "";
+        return db < da ? -1 : (db > da ? 1 : 0);
+      }
+
+      // A ledger row. `stub` rows are muted "verdict only" links to the watchlist.
+      function ledgerRow(o) {
+        var tr = el("tr", o.stub ? "is-stub" : "is-link");
+
+        tr.appendChild(el("td", "aie-ledger-date", o.date || "—"));
+
+        var tCell = el("td", "l-ticker");
+        var chip = el("span", "aie-chip aie-chip--ticker", o.ticker);
+        var color = catColor(o.ticker);
+        if (color) chip.style.setProperty("--chip-accent", color);
+        tCell.appendChild(chip);
+        tr.appendChild(tCell);
+
+        var kCell = el("td");
+        if (o.kind) kCell.appendChild(el("span", "aie-chip", kindLabel(o.kind)));
+        else kCell.appendChild(document.createTextNode("—"));
+        tr.appendChild(kCell);
+
+        var titleCell = el("td", "aie-ledger-title");
+        var a = el("a", null, o.title);
+        a.href = o.href;
+        titleCell.appendChild(a);
+        tr.appendChild(titleCell);
+
+        var rCell = el("td");
+        if (o.rating) rCell.appendChild(el("span", "aie-badge aie-stance--" + o.rating, o.rating));
+        else rCell.appendChild(document.createTextNode("—"));
+        tr.appendChild(rCell);
+
+        // Whole-row click convenience (the title is the real, keyboard-accessible link).
+        tr.addEventListener("click", function (ev) {
+          if (ev.target.tagName !== "A") window.location.href = o.href;
+        });
+        return tr;
+      }
+
+      function buildLedgerTable(memoRows, stubRows) {
+        var table = el("table", "aie-ledger");
+        var thead = el("thead");
+        var htr = el("tr");
+        ["Date", "Ticker", "Kind", "Title", "Rating"].forEach(function (h) {
+          htr.appendChild(el("th", null, h));
+        });
+        thead.appendChild(htr);
+        table.appendChild(thead);
+
+        var tbody = el("tbody");
+        memoRows.forEach(function (m) {
+          tbody.appendChild(ledgerRow({
+            date: m.publishedAt ? AIE.fmtDate(m.publishedAt) : "—",
+            ticker: m.ticker,
+            kind: m.kind,
+            title: m.title || m.id,
+            rating: m.rating,
+            href: "memo.html?id=" + encodeURIComponent(m.id),
+            stub: false
+          }));
+        });
+        stubRows.forEach(function (v) {
+          tbody.appendChild(ledgerRow({
+            date: "—",
+            ticker: v.ticker,
+            kind: null,
+            title: "Verdict only — memo pending",
+            rating: v.stance,
+            href: "desk.html#chapter-watchlist",
+            stub: true
+          }));
+        });
+        table.appendChild(tbody);
+        return table;
+      }
+
+      // Distinct values in author-preferred order, filtered to those present.
+      function distinctIn(items, key, order) {
+        var seen = {};
+        items.forEach(function (it) { if (it[key]) seen[it[key]] = true; });
+        return order.filter(function (v) { return seen[v]; });
+      }
+
+      function renderFilterGroup(label, dimension, values) {
+        var group = el("div", "lf-group");
+        group.appendChild(el("span", "lf-label", label));
+        function chip(text, value) {
+          var active = ledgerFilter[dimension] === value;
+          var b = el("button", "aie-chip" + (active ? " is-active" : ""), text);
+          b.type = "button";
+          b.addEventListener("click", function () {
+            ledgerFilter[dimension] = value;
+            renderLedger();
+          });
+          return b;
+        }
+        group.appendChild(chip("All", null));
+        values.forEach(function (v) { group.appendChild(chip(v === "exit-note" ? "Exit note" : v, v)); });
+        return group;
+      }
+
+      function renderLedger() {
+        var store = DATA.memos || {};
+        var memos = (store.memos || []).slice().sort(publishedDesc);
+        var verdicts = (DATA.desk && DATA.desk.verdicts) || [];
+
+        var countEl = document.getElementById("ledgerCount");
+        var filtersEl = document.getElementById("ledgerFilters");
+        var bodyEl = document.getElementById("ledgerBody");
+        if (!bodyEl) return;
+
+        countEl.textContent = memos.length
+          ? memos.length + (memos.length === 1 ? " entry" : " entries")
+          : "No entries yet";
+
+        // Filters — only meaningful when memos exist.
+        filtersEl.innerHTML = "";
+        if (memos.length) {
+          var kinds = distinctIn(memos, "kind", ["coverage", "update", "exit-note"]);
+          var ratings = distinctIn(memos, "rating", ["act", "accumulate", "watch", "pass"]);
+          if (kinds.length > 1) filtersEl.appendChild(renderFilterGroup("Kind", "kind", kinds));
+          if (kinds.length > 1 && ratings.length > 1) filtersEl.appendChild(el("span", "lf-sep"));
+          if (ratings.length > 1) filtersEl.appendChild(renderFilterGroup("Rating", "rating", ratings));
+        }
+
+        var filteredMemos = memos.filter(function (m) {
+          return (!ledgerFilter.kind || m.kind === ledgerFilter.kind)
+              && (!ledgerFilter.rating || m.rating === ledgerFilter.rating);
+        });
+
+        // "Verdict only" stubs: Core names with a desk verdict but no memo.
+        var memoTickers = {};
+        memos.forEach(function (m) { memoTickers[m.ticker] = true; });
+        var stubs = verdicts.filter(function (v) { return !memoTickers[v.ticker]; });
+
+        bodyEl.innerHTML = "";
+
+        // Empty-state stays when there are no memos at all.
+        if (!memos.length) {
+          var empty = el("div", "empty-state");
+          empty.appendChild(el("p", null, "Coverage notes begin with the next weekly review."));
+          bodyEl.appendChild(empty);
+          if (stubs.length) {
+            bodyEl.appendChild(el("p", "ledger-stub-note",
+              stubs.length + " name" + (stubs.length === 1 ? "" : "s") +
+              " carry a desk verdict, awaiting a written memo:"));
+            bodyEl.appendChild(buildLedgerTable([], stubs));
+          }
+          return;
+        }
+
+        if (!filteredMemos.length && !stubs.length) {
+          bodyEl.appendChild(el("div", "ledger-nomatch", "No memos match these filters."));
+          return;
+        }
+        bodyEl.appendChild(buildLedgerTable(filteredMemos, stubs));
+      }
+
+      renderLedger();
     })();
   </script>
 </body>
