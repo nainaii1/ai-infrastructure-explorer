@@ -818,21 +818,23 @@
       font-family: var(--mono);
     }
 
-    /* Unified conviction vocabulary (audit fix #5): tier badges, thesis
-       conviction, and brain conviction share one visual language —
-       green = high/core, amber = medium/watch, neutral = low/radar/note. */
-    .tier-badge, .th-conviction, .bd-conviction {
+    /* Unified conviction vocabulary (audit fix #5): tier badges and brain
+       conviction share one visual language — green = high/core, amber =
+       medium/watch, neutral = low/radar. Thesis conviction (.th-conviction)
+       uses the same vocabulary but now lives in shared/theme.css (7b) with the
+       rest of the .th-card component. */
+    .tier-badge, .bd-conviction {
       font-family: var(--mono); font-size: 10px; letter-spacing: .07em;
       text-transform: uppercase; font-weight: 700;
       padding: 2px 8px; border-radius: 999px;
     }
-    .tier-badge.core, .th-conviction.high, .bd-conviction.high {
+    .tier-badge.core, .bd-conviction.high {
       background: #e4ecd7; color: #4d6a2b;
     }
     .tier-badge.watch, .bd-conviction.medium {
       background: #f4e7c8; color: #8a5a1a;
     }
-    .tier-badge.radar, .th-conviction.normal, .bd-conviction.low {
+    .tier-badge.radar, .bd-conviction.low {
       background: color-mix(in srgb, #8a8375 16%, var(--card)); color: var(--muted);
     }
 
@@ -941,48 +943,9 @@
     .th-empty-sub code { font-family: var(--mono); font-size: 12px;
       background: rgba(15,23,42,.06); padding: 1px 5px; border-radius: 4px; }
     .th-feed { display: flex; flex-direction: column; gap: 14px; }
-    /* One spine technique everywhere: an animatable ::before, same as
-       .tk-card / .layer-band (audit fix #1). --spine defaults to a neutral
-       hairline; high-conviction cards get the green spine. */
-    .th-card {
-      position: relative;
-      background: var(--card); border: 1px solid var(--border); border-radius: var(--r-card);
-      box-shadow: var(--shadow-sm);
-      padding: 18px 20px 18px 24px;
-      overflow: hidden;
-      transition: border-color var(--ease), box-shadow var(--ease);
-    }
-    .th-card::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; bottom: 0;
-      width: 4px;
-      background: var(--spine, var(--border));
-      transition: width var(--ease);
-    }
-    .th-card:hover::before { width: 7px; }
-    .th-card.high-conviction { --spine: #16a34a; }
-    .th-card-meta {
-      display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 10px;
-    }
-    .th-date   { font-family: var(--mono); font-size: 11px; color: var(--muted); }
-    .th-source {
-      font-family: var(--mono); font-size: 11px; color: var(--muted);
-      text-decoration: none; margin-left: auto;
-    }
-    .th-source:hover { color: var(--ink); }
-    .th-text {
-      font-size: 13.5px; line-height: 1.65; color: var(--text);
-      white-space: pre-wrap; word-break: break-word; margin: 0 0 12px;
-    }
-    .th-tickers { display: flex; flex-wrap: wrap; gap: 6px; }
-    .th-ticker {
-      display: inline-flex; align-items: center;
-      font-family: var(--mono); font-size: 11px; font-weight: 700;
-      padding: 3px 8px; border-radius: 6px;
-      background: color-mix(in srgb, var(--t-color,#94a3b8) 14%, white);
-      color: color-mix(in srgb, var(--t-color,#94a3b8) 70%, black);
-    }
+    /* The .th-card component (spine, meta, text, ticker chips, conviction badge)
+       now lives in shared/theme.css (7b) — reused by memo.html. Only desk-local
+       layout overrides for it remain here (see .bd-sources .th-card below). */
 
     /* ---------- Chapter 04, The Synthesis: theme digests ---------- */
     .bd-card {
@@ -1045,7 +1008,6 @@
     }
     .bd-sources .th-card { margin-bottom: 10px; }
     .bd-sources .th-card:last-child { margin-bottom: 0; }
-    .th-card-compact { background: var(--bg); }
 
     /* ---------- Watchlist (Tab 2): sortable price table ---------- */
     .wl-header {
@@ -2703,44 +2665,12 @@
         }
       }
 
-      // Build one thesis card. Shared by the Thesis feed and the Brain tab's
-      // drill-down (compact clips the body to a snippet). textContent only.
+      // Build one thesis card. The renderer now lives in shared/common.js
+      // (AIE.makeThesisCard) so memo.html's sources appendix renders the exact
+      // same card; this delegating wrapper keeps the local call sites (hero
+      // latest, Evidence feed, Brain drill-down) unchanged.
       function makeThesisCard(th, opts) {
-        opts = opts || {};
-        var card = document.createElement("div");
-        card.className = "th-card" + (th.conviction === "high" ? " high-conviction" : "")
-          + (opts.compact ? " th-card-compact" : "");
-
-        var meta = document.createElement("div"); meta.className = "th-card-meta";
-        var dateStr = th.postedAt || th.ingestedAt || "";
-        if (dateStr) meta.appendChild(el("span", "th-date", dateStr.slice(0, 10)));
-        meta.appendChild(el("span", "th-conviction " + (th.conviction === "high" ? "high" : "normal"),
-          th.conviction === "high" ? "High conviction" : "Note"));
-        if (th.sourceUrl) {
-          var link = document.createElement("a");
-          link.className = "th-source"; link.href = th.sourceUrl;
-          link.target = "_blank"; link.rel = "noopener noreferrer";
-          link.textContent = "View post ↗";
-          meta.appendChild(link);
-        }
-        card.appendChild(meta);
-
-        var body = th.text || "";
-        if (opts.compact && body.length > 280) body = body.slice(0, 280).trim() + "…";
-        card.appendChild(el("p", "th-text", body));
-
-        var tickers = th.tickers || [];
-        if (tickers.length) {
-          var chips = document.createElement("div"); chips.className = "th-tickers";
-          tickers.forEach(function (sym) {
-            var chip = el("span", "th-ticker", sym);
-            var color = thesisCatColor(sym);
-            if (color) chip.style.setProperty("--t-color", color);
-            chips.appendChild(chip);
-          });
-          card.appendChild(chips);
-        }
-        return card;
+        return AIE.makeThesisCard(th, opts);
       }
 
       /* ----------------------------------------------------------

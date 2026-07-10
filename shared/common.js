@@ -12,6 +12,7 @@
      categoryColor(id, fallback), paintGradientBorder(elId)   category colors
      renderNav(activePage, mount)                  theme.css top nav
      linkForTicker(sym)                            where a ticker chip points
+     makeThesisCard(th, opts)                      shared .th-card renderer
 
    Colors are read from AIE_DATA.categories at runtime — never hardcoded here
    (CLAUDE.md hard rule #4).
@@ -236,6 +237,58 @@
     return "desk.html#watchlist";
   }
 
+  /* ==========================================================================
+     Thesis card — shared renderer (moved out of desk.html so the Evidence feed,
+     the hero "latest signal", the Brain sources drill-down, and memo.html's
+     sources appendix all render one identical card). Styles live in theme.css
+     (.th-card family). `opts.compact` clamps long bodies + tints the card.
+     ======================================================================== */
+  function tickerCategoryColor(sym) {
+    var d = data();
+    var tk = d && d.tickers && d.tickers.find(function (t) { return t.ticker === sym; });
+    if (!tk) return null;
+    var c = d.categories && d.categories[tk.category];
+    return (c && c.color) || null;
+  }
+
+  function makeThesisCard(th, opts) {
+    opts = opts || {};
+    var card = mk("div", "th-card"
+      + (th.conviction === "high" ? " high-conviction" : "")
+      + (opts.compact ? " th-card-compact" : ""));
+
+    var meta = mk("div", "th-card-meta");
+    var dateStr = th.postedAt || th.ingestedAt || "";
+    if (dateStr) meta.appendChild(mk("span", "th-date", String(dateStr).slice(0, 10)));
+    meta.appendChild(mk("span", "th-conviction " + (th.conviction === "high" ? "high" : "normal"),
+      th.conviction === "high" ? "High conviction" : "Note"));
+    if (th.sourceUrl) {
+      var link = mk("a", "th-source", "View post ↗");
+      link.href = th.sourceUrl;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      meta.appendChild(link);
+    }
+    card.appendChild(meta);
+
+    var body = th.text || "";
+    if (opts.compact && body.length > 280) body = body.slice(0, 280).trim() + "…";
+    card.appendChild(mk("p", "th-text", body));
+
+    var tickers = th.tickers || [];
+    if (tickers.length) {
+      var chips = mk("div", "th-tickers");
+      tickers.forEach(function (sym) {
+        var chip = mk("span", "th-ticker", sym);
+        var color = tickerCategoryColor(sym);
+        if (color) chip.style.setProperty("--t-color", color);
+        chips.appendChild(chip);
+      });
+      card.appendChild(chips);
+    }
+    return card;
+  }
+
   global.AIE = {
     STORAGE_KEYS: STORAGE_KEYS,
     readJSON: readJSON,
@@ -248,6 +301,7 @@
     categoryColor: categoryColor,
     paintGradientBorder: paintGradientBorder,
     renderNav: renderNav,
-    linkForTicker: linkForTicker
+    linkForTicker: linkForTicker,
+    makeThesisCard: makeThesisCard
   };
 })(window);

@@ -322,6 +322,68 @@ a.aie-chip:hover { border-color: var(--muted); color: var(--ink); }
 .aie-stance--pass       { background: var(--sem-pass-bg);       color: var(--sem-pass-fg); }
 
 /* ============================================================================
+   7b. THESIS CARD
+   Shared by desk.html (Evidence feed, hero "latest signal", Brain sources) and
+   memo.html (sources appendix). AIE.makeThesisCard() in common.js emits this
+   markup — moved out of desk.html so both pages share one source (rule #3).
+   Values kept identical to the prior desk.html inline rules to avoid regression.
+   ========================================================================== */
+.th-card {
+  position: relative;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-card);
+  box-shadow: var(--shadow-sm);
+  padding: 18px 20px 18px 24px;
+  overflow: hidden;
+  transition: border-color var(--ease), box-shadow var(--ease);
+}
+/* One spine technique everywhere: an animatable ::before. --spine defaults to a
+   neutral hairline; high-conviction cards get the green spine. */
+.th-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; bottom: 0;
+  width: 4px;
+  background: var(--spine, var(--border));
+  transition: width var(--ease);
+}
+.th-card:hover::before { width: 7px; }
+.th-card.high-conviction { --spine: #16a34a; }
+.th-card-compact { background: var(--bg); }
+.th-card-meta {
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 10px;
+}
+.th-date   { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+.th-source {
+  font-family: var(--mono); font-size: 11px; color: var(--muted);
+  text-decoration: none; margin-left: auto;
+}
+.th-source:hover { color: var(--ink); }
+.th-text {
+  font-family: var(--sans);
+  font-size: 13.5px; line-height: 1.65; color: var(--text);
+  white-space: pre-wrap; word-break: break-word; margin: 0 0 12px;
+}
+.th-tickers { display: flex; flex-wrap: wrap; gap: 6px; }
+.th-ticker {
+  display: inline-flex; align-items: center;
+  font-family: var(--mono); font-size: 11px; font-weight: 700;
+  padding: 3px 8px; border-radius: 6px;
+  background: color-mix(in srgb, var(--t-color, #94a3b8) 14%, white);
+  color: color-mix(in srgb, var(--t-color, #94a3b8) 70%, black);
+}
+/* Conviction badge on a thesis card — same hue vocabulary as tiers/stances
+   (green = high, neutral = note). Values identical to desk.html's prior rule. */
+.th-conviction {
+  font-family: var(--mono); font-size: 10px; letter-spacing: .07em;
+  text-transform: uppercase; font-weight: 700;
+  padding: 2px 8px; border-radius: 999px;
+}
+.th-conviction.high   { background: #e4ecd7; color: #4d6a2b; }
+.th-conviction.normal { background: color-mix(in srgb, #8a8375 16%, var(--card)); color: var(--muted); }
+
+/* ============================================================================
    8. FOOTER COLOPHON
    ========================================================================== */
 .aie-colophon {
