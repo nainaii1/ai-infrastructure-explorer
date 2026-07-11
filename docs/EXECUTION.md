@@ -41,7 +41,7 @@ data.js           generated as always; gains memos, vault, later calls
 |---|---|---|---|
 | 0 | This guide | P0 | ✅ 2026-07-06 |
 | 1 | Multi-page scaffold + editorial design system | P1–P5 | ✅ 2026-07-08 |
-| 2 | Coverage memos (store, memo.html, ledger, skills, seed content) | P6–P10 | ☐ |
+| 2 | Coverage memos (store, memo.html, ledger, skills, seed content) | P6–P10 | ☑ 2026-07-12 |
 | 3 | Knowledge Vault (store+sync, index/page views, graph, authoring loop) | P11–P14 | ☐ |
 | 4 | Cross-linking everywhere | P15 | ☐ |
 | 5 | Performance hooks (calls.json + minimal page) | P16 | ☐ |
@@ -125,7 +125,7 @@ data.js           generated as always; gains memos, vault, later calls
 
 ## Phase 2 — Coverage memos
 
-### ☐ P6 · S5-M — memos.json plumbing
+### ☑ P6 · S5-M — memos.json plumbing
 
 > Read CLAUDE.md and docs/EXECUTION.md (memos.json schema below). Create
 > `ingest/store/memos.json` with meta (schemaVersion 1, updatedAt, author
@@ -142,7 +142,7 @@ data.js           generated as always; gains memos, vault, later calls
 > bool }`. Bodies are plain paragraphs on `\n\n` supporting `**bold**`, `$TICK`,
 > `[[wikilink]]` only.
 
-### ☐ P7 · Op-M — memo.html renderer
+### ☑ P7 · Op-M — memo.html renderer
 
 > Read CLAUDE.md, docs/EXECUTION.md, shared/theme.css, shared/common.js. Build
 > `memo.html`: reads `?id=` or `?ticker=` (newest memo for ticker) via
@@ -158,7 +158,7 @@ data.js           generated as always; gains memos, vault, later calls
 > pointing to `vault.html?page=slug` (fine that vault doesn't exist yet). Unknown
 > ticker/id → graceful empty state. Serif body 17px/1.65. Commit as `feat: memo page with right-rail TOC and sources appendix`.
 
-### ☐ P8 · S5-H — coverage ledger on index.html
+### ☑ P8 · S5-H — coverage ledger on index.html
 
 > Read index.html, shared/theme.css. Replace the reserved empty-state with the
 > coverage ledger: one row per memo (date · ticker chip · kind chip · title ·
@@ -167,7 +167,7 @@ data.js           generated as always; gains memos, vault, later calls
 > render as muted "verdict only" rows linking to desk.html#watchlist. Empty-state
 > stays when memos is empty. Commit as `feat: coverage & market notes ledger`.
 
-### ☐ P9 · S5-M — authoring skills
+### ☑ P9 · S5-M — authoring skills
 
 > Extend `.claude/skills/weekly-review/SKILL.md` with step 4b: after updating
 > verdicts, write/refresh memos in ingest/store/memos.json for Core names whose
@@ -177,7 +177,7 @@ data.js           generated as always; gains memos, vault, later calls
 > `.claude/skills/coverage-note/SKILL.md` — `/coverage-note TICKER` authors or
 > updates one memo using the same rules. Commit as `docs: memo authoring added to weekly review + /coverage-note skill`.
 
-### ☐ P10 · Op-H — seed the first memos (research writing)
+### ☑ P10 · Op-H — seed the first memos (research writing)
 
 > Author memos for the top 3–5 Core names by priority score: read their theses,
 > brain digest, and desk verdict; write full memos (Snapshot / Thesis / Why own

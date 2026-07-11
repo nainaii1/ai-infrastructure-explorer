@@ -98,7 +98,16 @@ not throwaway config.
   chapter heads; frosted-paper capsule); (5) a new editorial `index.html`
   front page (masthead, serif standfirst sourced from `AIE_DATA` counts,
   latest-desk meta strip, chapter links, reserved coverage-ledger empty state).
-  **Phases 2–5 (memos, knowledge Vault + graph, cross-linking, performance
+  **Phase 2 — Coverage memos ✅ done (2026-07-12, P6–P10):** `memos.json`
+  store + `data.js` passthrough; `memo.html` renderer (?id/?ticker routing,
+  live snapshot strip, right-rail TOC with scrollspy, sources appendix via a
+  shared `AIE.makeThesisCard`, `**bold**`/`$TICK`/`[[wikilink]]` body markup);
+  coverage ledger on `index.html` (memo rows + "verdict only" stubs, kind/
+  rating filters); authoring rules added to the weekly-review skill (step 4b)
+  plus a new `/coverage-note TICKER` skill; first 5 memos seeded (SIVE, LITE,
+  NVDA, AAOI, JBL — rating always mirrors the desk stance). `.claude/skills/`
+  is now tracked in git (gitignore exception).
+  **Phases 3–5 (knowledge Vault + graph, cross-linking, performance
   hooks) are the remaining roadmap — see `docs/EXECUTION.md`.**
 - **Live counts** (approximate, check `ingest/store/*.json` for current):
   ~109 tickers tracked (23 core / 21 watch / 65 radar after focus-weighting),
