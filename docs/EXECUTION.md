@@ -42,7 +42,7 @@ data.js           generated as always; gains memos, vault, later calls
 | 0 | This guide | P0 | ✅ 2026-07-06 |
 | 1 | Multi-page scaffold + editorial design system | P1–P5 | ✅ 2026-07-08 |
 | 2 | Coverage memos (store, memo.html, ledger, skills, seed content) | P6–P10 | ☑ 2026-07-12 |
-| 3 | Knowledge Vault (store+sync, index/page views, graph, authoring loop) | P11–P14 | 🚧 P11–P12 done |
+| 3 | Knowledge Vault (store+sync, index/page views, graph, authoring loop) | P11–P14 | 🚧 P11–P13 done |
 | 4 | Cross-linking everywhere | P15 | ☐ |
 | 5 | Performance hooks (calls.json + minimal page) | P16 | ☐ |
 
@@ -213,7 +213,7 @@ data.js           generated as always; gains memos, vault, later calls
 > common.js and make memo.html reuse it. Unknown slug → empty state. Commit as
 > `feat: vault index + page views with wikilinks and backlinks`.
 
-### ☐ P13 · Op-H — vault graph view (hardest algorithmic task)
+### ☑ P13 · Op-H — vault graph view (hardest algorithmic task) (2026-07-12)
 
 > Read vault.html and docs/EXECUTION.md graph spec. Add `?view=graph`: canvas 2D
 > force-directed layout, hand-written physics, no libraries. O(n²) pair repulsion
