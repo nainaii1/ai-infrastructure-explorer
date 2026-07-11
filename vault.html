@@ -142,6 +142,121 @@
     }
     .vlt-linkchip:hover { border-color: var(--muted); color: var(--ink); background: var(--paper-sink); }
 
+    /* ---- Graph view (?view=graph) ----
+       The canvas sits on the project's dark "blueprint" accent surface
+       (same family as the map cross-section) so category colors glow
+       against it. Node colors themselves come from data.js (themes) and
+       theme.css tokens (everything else) at runtime — nothing hardcoded. */
+    .vlt-graph-head {
+      display: flex; align-items: baseline; justify-content: space-between;
+      gap: 16px; flex-wrap: wrap; margin: 0 0 18px;
+    }
+    .vlt-graph-wrap {
+      position: relative;
+      height: clamp(460px, 66vh, 700px);
+      background:
+        radial-gradient(ellipse 80% 70% at 50% 38%, #16233a 0%, #0f1b2e 70%);
+      border: 1px solid #1e2c44;
+      border-radius: var(--r-card);
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+    }
+    .vlt-graph-wrap canvas { display: block; width: 100%; height: 100%; cursor: grab; }
+    .vlt-graph-wrap canvas.is-dragging { cursor: grabbing; }
+    .vlt-graph-wrap canvas.is-hover { cursor: pointer; }
+
+    /* Legend — one toggleable chip per node type, top-left overlay. */
+    .vlt-glegend {
+      position: absolute; top: 14px; left: 14px;
+      display: flex; flex-direction: column; gap: 5px;
+    }
+    .vlt-glegend button {
+      display: flex; align-items: center; gap: 8px;
+      font-family: var(--mono); font-size: 10px; font-weight: 600;
+      letter-spacing: .07em; text-transform: uppercase;
+      color: rgba(240, 236, 226, 0.85);
+      background: rgba(15, 27, 46, 0.55);
+      border: 1px solid rgba(230, 224, 212, 0.14);
+      border-radius: 999px; padding: 5px 12px 5px 8px;
+      cursor: pointer; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+      transition: opacity var(--ease), border-color var(--ease);
+    }
+    .vlt-glegend button:hover { border-color: rgba(230, 224, 212, 0.35); }
+    .vlt-glegend button.is-off { opacity: 0.35; }
+    .vlt-glegend .dot {
+      width: 8px; height: 8px; border-radius: 50%; flex: 0 0 auto;
+      background: var(--dot, #fffdf9);
+    }
+
+    /* Zoom controls — bottom-right overlay. */
+    .vlt-gzoom {
+      position: absolute; right: 14px; bottom: 14px;
+      display: flex; flex-direction: column; gap: 6px;
+    }
+    .vlt-gzoom button {
+      width: 32px; height: 32px;
+      font-family: var(--mono); font-size: 14px; line-height: 1;
+      color: rgba(240, 236, 226, 0.9);
+      background: rgba(15, 27, 46, 0.55);
+      border: 1px solid rgba(230, 224, 212, 0.14);
+      border-radius: 9px; cursor: pointer;
+      backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+      transition: border-color var(--ease), background var(--ease);
+    }
+    .vlt-gzoom button:hover { border-color: rgba(230, 224, 212, 0.4); background: rgba(30, 44, 68, 0.7); }
+
+    /* Detail side panel — warm paper card floated over the blueprint. */
+    .vlt-gpanel {
+      position: absolute; top: 14px; right: 14px; width: 258px;
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 12px; box-shadow: var(--shadow-lg);
+      padding: 16px 16px 14px;
+    }
+    .vlt-gpanel[hidden] { display: none; }
+    .vlt-gpanel-close {
+      position: absolute; top: 8px; right: 10px;
+      font-family: var(--mono); font-size: 13px; color: var(--muted);
+      background: none; border: 0; cursor: pointer; padding: 4px;
+    }
+    .vlt-gpanel-close:hover { color: var(--ink); }
+    .vlt-gpanel-title {
+      font-family: var(--serif); font-weight: 600; font-size: 17px;
+      line-height: 1.25; color: var(--ink); margin: 8px 0 10px;
+    }
+    .vlt-gpanel-stats { display: flex; flex-direction: column; gap: 7px; margin: 0 0 14px; }
+    .vlt-gpanel-row { display: flex; justify-content: space-between; gap: 10px; align-items: baseline; }
+    .vlt-gpanel-row .k {
+      font-family: var(--mono); font-size: 10px; font-weight: 600;
+      letter-spacing: .07em; text-transform: uppercase; color: var(--muted);
+    }
+    .vlt-gpanel-row .v { font-family: var(--sans); font-size: 12.5px; font-weight: 600; color: var(--ink); text-align: right; }
+    .vlt-gpanel-links { display: flex; flex-direction: column; gap: 6px; }
+    .vlt-gpanel-links a {
+      font-family: var(--mono); font-size: 11px; font-weight: 600;
+      letter-spacing: .05em; text-transform: uppercase; text-decoration: none;
+      color: var(--text); padding: 8px 12px;
+      border: 1px solid var(--border); border-radius: 8px; text-align: center;
+      transition: border-color var(--ease), color var(--ease), background var(--ease);
+    }
+    .vlt-gpanel-links a:hover { border-color: var(--muted); color: var(--ink); background: var(--paper-sink); }
+    .vlt-gpanel-links a.primary { background: var(--ink); border-color: var(--ink); color: var(--card); }
+
+    .vlt-ghint {
+      font-family: var(--mono); font-size: 11px; letter-spacing: .03em;
+      color: var(--muted); margin: 12px 2px 0;
+    }
+
+    @media (max-width: 768px) {
+      .vlt-graph-wrap { height: clamp(420px, 62vh, 560px); }
+      /* Side panel becomes a bottom sheet. */
+      .vlt-gpanel {
+        top: auto; right: 10px; left: 10px; bottom: 10px; width: auto;
+        border-radius: 14px;
+      }
+      .vlt-glegend { flex-direction: row; flex-wrap: wrap; max-width: 70%; }
+      .vlt-ghint { display: none; }
+    }
+
     /* ---- Empty state (shared shape with memo.html) ---- */
     .vlt-empty {
       max-width: 560px; margin: 64px auto; text-align: center;
@@ -587,22 +702,553 @@
       }
 
       /* ==================================================================
-         GRAPH VIEW placeholder — the force layout lands in P13. Keep the
-         nav "Graph" link from dead-ending until then.
+         GRAPH VIEW (?view=graph) — canvas 2D force-directed layout.
+         Hand-written physics, no libraries: O(n²) pair repulsion (fine at
+         ≤300 nodes; the vault is ~60), spring attraction along edges,
+         mild centering gravity, velocity damping ~0.85 and a cooling
+         alpha that restarts on drag / filter. Deterministic init: theme
+         nodes pre-placed on a ring, everything else position-hashed from
+         its slug — the same store always lays out the same way.
          ================================================================== */
-      function renderGraphPlaceholder() {
+      function hash01(s) {
+        // FNV-1a → [0,1). Deterministic across sessions; no Math.random.
+        var h = 2166136261;
+        for (var i = 0; i < s.length; i++) {
+          h ^= s.charCodeAt(i);
+          h = Math.imul(h, 16777619);
+        }
+        return (h >>> 0) / 4294967296;
+      }
+
+      function renderGraph() {
         AIE.renderNav("graph");
         document.title = "Graph — AI Supply Desk";
         var main = document.getElementById("vaultMain");
         main.textContent = "";
-        var box = el("div", "vlt-empty");
-        box.appendChild(el("h1", null, "Graph view is coming"));
-        box.appendChild(el("p", null, "The knowledge graph — a force-directed map of every page and its links — ships in the next update. For now, browse the vault as an index."));
-        var actions = el("div", "vlt-actions");
-        var a1 = el("a", "primary", "Vault index"); a1.href = "vault.html";
-        actions.appendChild(a1);
-        box.appendChild(actions);
-        main.appendChild(box);
+
+        if (!PAGES.length) { main.appendChild(indexEmpty()); return; }
+
+        /* ---- header (mirrors the index head) ---- */
+        var meta = VAULT.meta || {};
+        var head = el("div", "vlt-graph-head");
+        var hleft = el("div");
+        hleft.appendChild(el("h1", "vlt-title", "The Graph"));
+        var pc = meta.pageCount != null ? meta.pageCount : PAGES.length;
+        var lc = meta.linkCount != null ? meta.linkCount : 0;
+        hleft.appendChild(el("p", "vlt-count",
+          pc + (pc === 1 ? " page" : " pages") + " · " + lc + (lc === 1 ? " link" : " links") +
+          " · every page and what it touches"));
+        head.appendChild(hleft);
+        main.appendChild(head);
+
+        /* ---- stage ---- */
+        var wrap = el("div", "vlt-graph-wrap");
+        var canvas = document.createElement("canvas");
+        wrap.appendChild(canvas);
+        var legend = el("div", "vlt-glegend");
+        wrap.appendChild(legend);
+        var zoomBox = el("div", "vlt-gzoom");
+        wrap.appendChild(zoomBox);
+        var panel = el("aside", "vlt-gpanel");
+        panel.hidden = true;
+        wrap.appendChild(panel);
+        main.appendChild(wrap);
+        main.appendChild(el("p", "vlt-ghint",
+          "Hover to trace links · click for details · drag to pin · double-click to release"));
+
+        var ctx = canvas.getContext("2d");
+        var reduced = window.matchMedia &&
+          window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        /* ---- node colors: theme = its data.js category color; the rest
+               read theme.css tokens at runtime (light tints, glow on navy) */
+        var rootStyle = getComputedStyle(document.documentElement);
+        function token(name, fallback) {
+          var v = rootStyle.getPropertyValue(name);
+          return (v && v.trim()) || fallback;
+        }
+        var TYPE_COLOR = {
+          ticker:  token("--card", "#fffdf9"),
+          person:  token("--sem-accumulate-bg", "#dde8ef"),
+          concept: token("--sem-watch-bg", "#f4e7c8"),
+          event:   token("--sem-act-bg", "#e4ecd7")
+        };
+        function nodeColor(n) {
+          if (n.type === "theme") return AIE.categoryColor(n.slug, TYPE_COLOR.concept);
+          return TYPE_COLOR[n.type] || TYPE_COLOR.ticker;
+        }
+
+        /* ---- build nodes + deduped undirected edges ---- */
+        var nodes = PAGES.map(function (p) {
+          return { slug: p.slug, type: p.type, title: p.title || p.slug, page: p,
+                   x: 0, y: 0, vx: 0, vy: 0, fx: null, fy: null, degree: 0 };
+        });
+        var nodeBySlug = {};
+        nodes.forEach(function (n) { nodeBySlug[n.slug] = n; });
+
+        var edges = [], seenEdge = {};
+        PAGES.forEach(function (p) {
+          var targets = ((p.auto && p.auto.refs) || []).concat(noteWikiSlugs(p.note));
+          targets.forEach(function (t) {
+            if (t === p.slug || !nodeBySlug[t]) return;
+            var key = p.slug < t ? p.slug + "|" + t : t + "|" + p.slug;
+            if (seenEdge[key]) return;
+            seenEdge[key] = true;
+            edges.push({ a: nodeBySlug[p.slug], b: nodeBySlug[t] });
+          });
+        });
+        edges.forEach(function (e) { e.a.degree++; e.b.degree++; });
+
+        var neighbors = {}; // slug -> {slug: true}
+        edges.forEach(function (e) {
+          (neighbors[e.a.slug] = neighbors[e.a.slug] || {})[e.b.slug] = true;
+          (neighbors[e.b.slug] = neighbors[e.b.slug] || {})[e.a.slug] = true;
+        });
+
+        function nodeRadius(n) {
+          var r = (n.type === "theme" ? 9 : 4.5) + Math.sqrt(n.degree) * 1.5;
+          return Math.min(r, 20);
+        }
+
+        /* ---- deterministic init: themes on a ring, others slug-hashed ---- */
+        var RING = 250; // world units
+        var themeNodes = nodes.filter(function (n) { return n.type === "theme"; })
+                              .sort(function (a, b) { return a.slug.localeCompare(b.slug); });
+        themeNodes.forEach(function (n, i) {
+          var ang = (i / themeNodes.length) * Math.PI * 2 - Math.PI / 2;
+          n.x = Math.cos(ang) * RING;
+          n.y = Math.sin(ang) * RING;
+        });
+        nodes.forEach(function (n) {
+          if (n.type === "theme") return;
+          var ang = hash01(n.slug) * Math.PI * 2;
+          var rad = RING * (0.15 + 0.8 * hash01(n.slug + "#r"));
+          n.x = Math.cos(ang) * rad;
+          n.y = Math.sin(ang) * rad;
+        });
+
+        /* ---- physics ----
+           Repulsion must beat spring tension locally or the person-hub
+           (45 spokes) collapses everything into one blob: equilibrium
+           spacing solves REPULSE/d² ≈ stretch·SPRING, so keep the ratio
+           high and cap per-pair force to stop close-range explosions. */
+        var REPULSE = 26000, FORCE_CAP = 14;
+        var SPRING = 0.018, GRAVITY = 0.005, DAMPING = 0.85;
+        var ALPHA_DECAY = 0.986, ALPHA_MIN = 0.02;
+        var alpha = 1;
+        var hiddenTypes = {}; // legend toggles
+
+        function isVisible(n) { return !hiddenTypes[n.type]; }
+
+        function restLength(e) {
+          // Rest length by node type. The person hub carries ~45 spokes, so
+          // its edges are longest or the whole graph closes into a dense ball;
+          // theme spokes 90, everything else short.
+          if (e.a.type === "person" || e.b.type === "person") return 140;
+          if (e.a.type === "theme" || e.b.type === "theme") return 90;
+          return 60;
+        }
+
+        function tick() {
+          var i, j, n, m, dx, dy, d2, d, f;
+          var vis = nodes.filter(isVisible);
+          // O(n²) pair repulsion.
+          for (i = 0; i < vis.length; i++) {
+            for (j = i + 1; j < vis.length; j++) {
+              n = vis[i]; m = vis[j];
+              dx = m.x - n.x; dy = m.y - n.y;
+              d2 = dx * dx + dy * dy;
+              if (d2 < 1) { d2 = 1; dx = 0.5; dy = 0.5; }
+              f = Math.min(REPULSE / d2, FORCE_CAP) * alpha;
+              d = Math.sqrt(d2);
+              n.vx -= (dx / d) * f; n.vy -= (dy / d) * f;
+              m.vx += (dx / d) * f; m.vy += (dy / d) * f;
+            }
+          }
+          // Spring attraction along edges.
+          edges.forEach(function (e) {
+            if (!isVisible(e.a) || !isVisible(e.b)) return;
+            var ddx = e.b.x - e.a.x, ddy = e.b.y - e.a.y;
+            var dist = Math.sqrt(ddx * ddx + ddy * ddy) || 1;
+            var stretch = (dist - restLength(e)) * SPRING * alpha;
+            var ux = ddx / dist, uy = ddy / dist;
+            e.a.vx += ux * stretch; e.a.vy += uy * stretch;
+            e.b.vx -= ux * stretch; e.b.vy -= uy * stretch;
+          });
+          // Mild centering gravity + integrate. Isolated nodes (degree 0 —
+          // unlinked concepts) have no springs holding them, so repulsion
+          // would push them off-canvas forever: give them stronger gravity
+          // and they settle into a loose halo around the cluster instead.
+          vis.forEach(function (nd) {
+            var g = (nd.degree === 0 ? GRAVITY * 6 : GRAVITY) * alpha;
+            nd.vx -= nd.x * g;
+            nd.vy -= nd.y * g;
+            nd.vx *= DAMPING; nd.vy *= DAMPING;
+            if (nd.fx != null) { nd.x = nd.fx; nd.y = nd.fy; nd.vx = 0; nd.vy = 0; }
+            else { nd.x += nd.vx; nd.y += nd.vy; }
+          });
+          alpha *= ALPHA_DECAY;
+        }
+
+        /* ---- viewport: devicePixelRatio scaling + pan/zoom ---- */
+        var dpr = 1, cw = 0, ch = 0;
+        var scale = 1, ox = 0, oy = 0;
+
+        function fitScale() {
+          // Frame the actual node bounds (not the nominal ring) with margin.
+          var mx = RING, my = RING;
+          nodes.forEach(function (n) {
+            if (!isVisible(n)) return;
+            mx = Math.max(mx, Math.abs(n.x));
+            my = Math.max(my, Math.abs(n.y));
+          });
+          var s = Math.min(cw / (mx * 2.5), ch / (my * 2.35));
+          return Math.min(Math.max(s, 0.2), 1.4);
+        }
+        function resetView() { scale = fitScale(); ox = 0; oy = 0; }
+        var userAdjustedView = false; // pan/zoom disables the auto-refit
+
+        function resizeCanvas() {
+          dpr = window.devicePixelRatio || 1;
+          var mw = wrap.clientWidth, mh = wrap.clientHeight;
+          // A hidden/zero-sized boot (background tab, pane not laid out yet)
+          // must not freeze scale at 0 — fall back and keep re-measuring.
+          cw = mw > 0 ? mw : 1120;
+          ch = mh > 0 ? mh : 560;
+          sizeKnown = mw > 0 && mh > 0;
+          canvas.width = Math.round(cw * dpr);
+          canvas.height = Math.round(ch * dpr);
+          draw();
+        }
+        var sizeKnown = false;
+        function remeasureIfNeeded() {
+          if (sizeKnown) return;
+          if (wrap.clientWidth > 0 && wrap.clientHeight > 0) {
+            resizeCanvas();
+            resetView();
+          }
+        }
+        function toScreen(n) {
+          return { x: cw / 2 + ox + n.x * scale, y: ch / 2 + oy + n.y * scale };
+        }
+        function toWorld(sx, sy) {
+          return { x: (sx - cw / 2 - ox) / scale, y: (sy - ch / 2 - oy) / scale };
+        }
+
+        /* ---- draw ---- */
+        var hoverNode = null, selectedNode = null;
+
+        function draw() {
+          ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+          ctx.clearRect(0, 0, cw, ch);
+          var focus = hoverNode || selectedNode;
+          var hood = focus ? (neighbors[focus.slug] || {}) : null;
+
+          // Edges first.
+          edges.forEach(function (e) {
+            if (!isVisible(e.a) || !isVisible(e.b)) return;
+            var lit = focus && (e.a === focus || e.b === focus);
+            ctx.strokeStyle = lit ? "rgba(240, 236, 226, 0.55)"
+                            : focus ? "rgba(240, 236, 226, 0.05)"
+                                    : "rgba(240, 236, 226, 0.14)";
+            ctx.lineWidth = lit ? 1.4 : 1;
+            var A = toScreen(e.a), B = toScreen(e.b);
+            ctx.beginPath(); ctx.moveTo(A.x, A.y); ctx.lineTo(B.x, B.y); ctx.stroke();
+          });
+
+          // Nodes.
+          nodes.forEach(function (n) {
+            if (!isVisible(n)) return;
+            var dimmed = focus && n !== focus && !(hood && hood[n.slug]);
+            var S = toScreen(n);
+            var r = nodeRadius(n) * Math.min(scale * 1.15, 1.6);
+            ctx.globalAlpha = dimmed ? 0.16 : 1;
+            // soft glow behind focus + its hood
+            if (!dimmed && focus && (n === focus || (hood && hood[n.slug]))) {
+              ctx.beginPath(); ctx.arc(S.x, S.y, r + 5, 0, Math.PI * 2);
+              ctx.fillStyle = "rgba(240, 236, 226, 0.12)"; ctx.fill();
+            }
+            ctx.beginPath(); ctx.arc(S.x, S.y, r, 0, Math.PI * 2);
+            ctx.fillStyle = nodeColor(n); ctx.fill();
+            if (n === selectedNode) {
+              ctx.strokeStyle = "rgba(240, 236, 226, 0.9)"; ctx.lineWidth = 1.6;
+              ctx.beginPath(); ctx.arc(S.x, S.y, r + 3, 0, Math.PI * 2); ctx.stroke();
+            }
+            if (n.fx != null) { // pinned marker
+              ctx.fillStyle = "rgba(15, 27, 46, 0.85)";
+              ctx.beginPath(); ctx.arc(S.x, S.y, Math.max(r * 0.3, 1.6), 0, Math.PI * 2); ctx.fill();
+            }
+            ctx.globalAlpha = 1;
+          });
+
+          // Labels: themes always; focused node too.
+          ctx.font = "600 10px " + token("--mono", "monospace");
+          ctx.textAlign = "center";
+          nodes.forEach(function (n) {
+            if (!isVisible(n)) return;
+            var isFocus = focus && n === focus;
+            if (n.type !== "theme" && !isFocus) return;
+            if (focus && !isFocus && !(hood && hood[n.slug]) && n !== focus) {
+              if (n.type === "theme") ctx.globalAlpha = 0.25; else return;
+            }
+            var S = toScreen(n);
+            var label = n.type === "ticker"
+              ? n.slug.toUpperCase()
+              : n.title.toUpperCase();
+            var ly = S.y + nodeRadius(n) * Math.min(scale * 1.15, 1.6) + 13;
+            ctx.fillStyle = "rgba(10, 18, 32, 0.85)";
+            ctx.fillText(label, S.x + 0.8, ly + 0.8); // soft shadow for legibility
+            ctx.fillStyle = isFocus ? "rgba(255, 253, 249, 0.95)" : "rgba(240, 236, 226, 0.72)";
+            ctx.fillText(label, S.x, ly);
+            ctx.globalAlpha = 1;
+          });
+        }
+
+        /* ---- loop: pause when settled or the tab is hidden ---- */
+        var raf = null;
+        function frame() {
+          raf = null;
+          remeasureIfNeeded();
+          tick(); draw();
+          if (alpha > ALPHA_MIN && !document.hidden) {
+            raf = requestAnimationFrame(frame);
+          } else if (!userAdjustedView) {
+            // Settled: re-frame the final layout once, gently.
+            resetView(); draw();
+          }
+        }
+        function kick(strength) {
+          alpha = Math.max(alpha, strength || 0.5);
+          if (reduced) { for (var i = 0; i < 60; i++) tick(); alpha = 0; draw(); return; }
+          if (!raf && !document.hidden) raf = requestAnimationFrame(frame);
+        }
+        document.addEventListener("visibilitychange", function () {
+          if (!document.hidden && alpha > ALPHA_MIN) kick(alpha);
+        });
+
+        /* ---- legend (toggles = the graph's type filter) ---- */
+        var present = {};
+        nodes.forEach(function (n) { present[n.type] = true; });
+        Object.keys(present).sort(function (a, b) { return typeRank(a) - typeRank(b); })
+          .forEach(function (t) {
+            var btn = el("button", null);
+            btn.type = "button";
+            var dot = el("span", "dot");
+            // legend dot: themes get a neutral multi-hue read via the first
+            // category color; per-type tokens for the rest.
+            dot.style.setProperty("--dot", t === "theme"
+              ? AIE.categoryColor(Object.keys(CATS)[0], "#fffdf9")
+              : (TYPE_COLOR[t] || "#fffdf9"));
+            btn.appendChild(dot);
+            btn.appendChild(document.createTextNode(TYPE_LABEL[t] || t));
+            btn.addEventListener("click", function () {
+              hiddenTypes[t] = !hiddenTypes[t];
+              btn.classList.toggle("is-off", !!hiddenTypes[t]);
+              if (selectedNode && hiddenTypes[selectedNode.type]) closePanel();
+              if (hoverNode && hiddenTypes[hoverNode.type]) hoverNode = null;
+              kick(0.6); // filter restarts the cooling alpha
+              draw();
+            });
+            legend.appendChild(btn);
+          });
+
+        /* ---- zoom controls ---- */
+        function zoomBy(factor) {
+          userAdjustedView = true;
+          var next = Math.min(3.2, Math.max(0.2, scale * factor));
+          ox = ox * (next / scale); oy = oy * (next / scale);
+          scale = next;
+          draw();
+        }
+        [["+", function () { zoomBy(1.28); }],
+         ["−", function () { zoomBy(1 / 1.28); }],
+         ["⌂", function () { userAdjustedView = false; resetView(); draw(); }]].forEach(function (pair) {
+          var b = el("button", null, pair[0]);
+          b.type = "button";
+          b.setAttribute("aria-label", pair[0] === "⌂" ? "Reset view" : (pair[0] === "+" ? "Zoom in" : "Zoom out"));
+          b.addEventListener("click", pair[1]);
+          zoomBox.appendChild(b);
+        });
+
+        /* ---- side panel ---- */
+        function closePanel() { selectedNode = null; panel.hidden = true; draw(); }
+
+        function openPanel(n) {
+          selectedNode = n;
+          panel.textContent = "";
+          var close = el("button", "vlt-gpanel-close", "✕");
+          close.type = "button";
+          close.setAttribute("aria-label", "Close");
+          close.addEventListener("click", closePanel);
+          panel.appendChild(close);
+
+          panel.appendChild(typeChip(n.page));
+          panel.appendChild(el("h2", "vlt-gpanel-title", n.title));
+
+          var stats = el("div", "vlt-gpanel-stats");
+          function row(k, v) {
+            if (v == null || v === "") return;
+            var r = el("div", "vlt-gpanel-row");
+            r.appendChild(el("span", "k", k));
+            r.appendChild(el("span", "v", String(v)));
+            stats.appendChild(r);
+          }
+          row("Links", n.degree);
+          var s = (n.page.auto && n.page.auto.stats) || {};
+          if (n.type === "ticker") {
+            var t = tickerBySlug[n.slug];
+            row("Tier", (t && t.tier) || s.tier);
+            row("Mentions", s.mentions);
+            if (t && CATS[t.category]) row("Layer", CATS[t.category].label);
+            if (t && t.verdict) row("Desk", t.verdict.stance);
+          } else if (n.type === "theme") {
+            row("Names", s.memberCount);
+            row("Core", s.coreCount);
+            row("Flow", s.flowRole);
+          } else if (n.type === "person") {
+            row("Handle", s.handle);
+            row("Themes", s.themesCovered);
+          }
+          row("Note", isEnriched(n.page) ? "enriched" : "stub");
+          panel.appendChild(stats);
+
+          var links = el("div", "vlt-gpanel-links");
+          var pageA = el("a", "primary", "Open page →");
+          pageA.href = pageHref(n.slug);
+          links.appendChild(pageA);
+          if (n.type === "ticker") {
+            var t2 = tickerBySlug[n.slug];
+            var memo = t2 && MEMOS.filter(function (m) {
+              return (m.ticker || "").toUpperCase() === t2.ticker;
+            }).sort(memoDateDesc)[0];
+            if (memo) {
+              var memoA = el("a", null, "Open memo →");
+              memoA.href = "memo.html?id=" + encodeURIComponent(memo.id);
+              links.appendChild(memoA);
+            }
+          }
+          panel.appendChild(links);
+          panel.hidden = false;
+          draw();
+        }
+
+        /* ---- interactions: hover / click / drag-pin / pan / wheel-zoom ---- */
+        function hitTest(sx, sy) {
+          var W = toWorld(sx, sy), best = null, bestD = Infinity;
+          nodes.forEach(function (n) {
+            if (!isVisible(n)) return;
+            var dx = n.x - W.x, dy = n.y - W.y;
+            var d = Math.sqrt(dx * dx + dy * dy);
+            var hitR = (nodeRadius(n) * Math.min(scale * 1.15, 1.6)) / scale + 6 / scale;
+            if (d < hitR && d < bestD) { best = n; bestD = d; }
+          });
+          return best;
+        }
+
+        var dragNode = null, panning = false;
+        var downX = 0, downY = 0, moved = false;
+
+        function localXY(ev) {
+          var rect = canvas.getBoundingClientRect();
+          return { x: ev.clientX - rect.left, y: ev.clientY - rect.top };
+        }
+
+        canvas.addEventListener("pointerdown", function (ev) {
+          var P = localXY(ev);
+          downX = P.x; downY = P.y; moved = false;
+          var n = hitTest(P.x, P.y);
+          if (n) { dragNode = n; }
+          else { panning = true; }
+          canvas.classList.add("is-dragging");
+          canvas.setPointerCapture(ev.pointerId);
+        });
+
+        canvas.addEventListener("pointermove", function (ev) {
+          var P = localXY(ev);
+          if (dragNode) {
+            if (Math.abs(P.x - downX) + Math.abs(P.y - downY) > 3) moved = true;
+            if (moved) {
+              var W = toWorld(P.x, P.y);
+              dragNode.fx = W.x; dragNode.fy = W.y;   // drag pins the node
+              dragNode.x = W.x; dragNode.y = W.y;
+              kick(0.35);                              // drag restarts alpha
+              if (reduced) draw();
+            }
+            return;
+          }
+          if (panning) {
+            if (Math.abs(P.x - downX) + Math.abs(P.y - downY) > 3) { moved = true; userAdjustedView = true; }
+            ox += ev.movementX != null ? ev.movementX : 0;
+            oy += ev.movementY != null ? ev.movementY : 0;
+            draw();
+            return;
+          }
+          var h = hitTest(P.x, P.y);
+          if (h !== hoverNode) {
+            hoverNode = h;
+            canvas.classList.toggle("is-hover", !!h);
+            draw();
+          }
+        });
+
+        canvas.addEventListener("pointerup", function (ev) {
+          canvas.classList.remove("is-dragging");
+          var tapped = !moved;
+          var P = localXY(ev);
+          if (dragNode && tapped) {
+            // a tap (not a drag): select, don't pin
+            dragNode.fx = null; dragNode.fy = null;
+            openPanel(dragNode);
+          } else if (panning && tapped) {
+            var n = hitTest(P.x, P.y);
+            if (n) openPanel(n); else closePanel();
+          }
+          dragNode = null; panning = false;
+        });
+
+        canvas.addEventListener("pointerleave", function () {
+          if (hoverNode) { hoverNode = null; canvas.classList.remove("is-hover"); draw(); }
+        });
+
+        canvas.addEventListener("dblclick", function (ev) {
+          var P = localXY(ev);
+          var n = hitTest(P.x, P.y);
+          if (n && n.fx != null) { n.fx = null; n.fy = null; kick(0.4); }
+        });
+
+        canvas.addEventListener("wheel", function (ev) {
+          ev.preventDefault();
+          zoomBy(ev.deltaY < 0 ? 1.12 : 1 / 1.12);
+        }, { passive: false });
+
+        window.addEventListener("resize", resizeCanvas);
+
+        /* ---- boot the simulation ---- */
+        // Dev-only introspection hook (console): window.__aieGraph.state()
+        window.__aieGraph = {
+          nodes: nodes, edges: edges,
+          step: function (n) { // drive the sim manually (headless QA)
+            for (var i = 0; i < (n || 1); i++) tick();
+            draw();
+          },
+          state: function () {
+            return { alpha: alpha, scale: scale, ox: ox, oy: oy, cw: cw, ch: ch,
+                     raf: raf != null,
+                     sample: nodes.slice(0, 5).map(function (n) {
+                       return n.slug + ":" + Math.round(n.x) + "," + Math.round(n.y);
+                     }) };
+          }
+        };
+        resizeCanvas();
+        resetView();
+        if (reduced) {
+          // Settle synchronously and draw one static frame.
+          for (var it = 0; it < 300; it++) tick();
+          alpha = 0;
+          draw();
+        } else {
+          raf = requestAnimationFrame(frame);
+        }
       }
 
       /* ==================================================================
@@ -635,7 +1281,7 @@
           else { AIE.renderNav("vault"); pageEmpty(pageSlug); }
           return;
         }
-        if (view === "graph") { renderGraphPlaceholder(); return; }
+        if (view === "graph") { renderGraph(); return; }
         renderIndex();
       }
 
