@@ -289,8 +289,66 @@
     return card;
   }
 
+  /* ==========================================================================
+     Inline prose markup — the one parser for the whole app.
+     `slugify` matches ingest/vault_sync.slugify() so [[wikilinks]] resolve to
+     the right vault page. `renderInline` appends parsed nodes into a container:
+       **bold**        -> <strong>
+       $TICK           -> ticker chip (href from linkForTicker, category accent)
+       [[wikilink]]    -> quiet link to vault.html?page=<slug>
+     `renderBody` splits a body on blank lines into <p> nodes (class configurable
+     so each page keeps its own paragraph type scale). Shared by memo.html and
+     vault.html (CLAUDE.md rule #3 — no duplicated logic).
+     ======================================================================== */
+  var INLINE_RE = /(\*\*[^*]+\*\*|\$[A-Za-z][A-Za-z0-9.\-]*|\[\[[^\]]+\]\])/g;
+
+  function slugify(s) {
+    return String(s).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "") || "page";
+  }
+
+  function renderInline(container, text) {
+    INLINE_RE.lastIndex = 0;
+    var last = 0, m;
+    while ((m = INLINE_RE.exec(text)) !== null) {
+      if (m.index > last) container.appendChild(document.createTextNode(text.slice(last, m.index)));
+      var tok = m[0];
+      if (tok.slice(0, 2) === "**") {
+        container.appendChild(mk("strong", null, tok.slice(2, -2)));
+      } else if (tok.charAt(0) === "$") {
+        var sym = tok.slice(1).toUpperCase();
+        var chip = mk("a", "aie-chip aie-chip--ticker aie-tickerchip", sym);
+        chip.href = linkForTicker(sym);
+        var color = tickerCategoryColor(sym);
+        if (color) chip.style.setProperty("--chip-accent", color);
+        container.appendChild(chip);
+      } else { // [[wikilink]]
+        var inner = tok.slice(2, -2).trim();
+        var link = mk("a", "aie-wikilink", inner);
+        link.href = "vault.html?page=" + encodeURIComponent(slugify(inner));
+        container.appendChild(link);
+      }
+      last = INLINE_RE.lastIndex;
+    }
+    if (last < text.length) container.appendChild(document.createTextNode(text.slice(last)));
+  }
+
+  function renderBody(body, pClass) {
+    var out = [];
+    String(body || "").split(/\n\s*\n/).forEach(function (para) {
+      var trimmed = para.trim();
+      if (!trimmed) return;
+      var p = mk("p", pClass || "aie-prose-p");
+      renderInline(p, trimmed);
+      out.push(p);
+    });
+    return out;
+  }
+
   global.AIE = {
     STORAGE_KEYS: STORAGE_KEYS,
+    slugify: slugify,
+    renderInline: renderInline,
+    renderBody: renderBody,
     readJSON: readJSON,
     seed: seed,
     setDrilldownOpen: setDrilldownOpen,

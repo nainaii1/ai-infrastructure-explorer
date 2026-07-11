@@ -89,13 +89,8 @@
     }
     .memo-p:last-child { margin-bottom: 0; }
     .memo-p strong { font-weight: 700; color: var(--ink); }
-    .memo-tickerchip { text-decoration: none; }
-    .memo-wikilink {
-      color: var(--text); text-decoration: none;
-      border-bottom: 1px solid var(--border);
-      transition: color var(--ease), border-color var(--ease);
-    }
-    .memo-wikilink:hover { color: var(--ink); border-bottom-color: var(--muted); }
+    /* $TICK chips + [[wikilinks]] are styled by shared .aie-tickerchip /
+       .aie-wikilink in theme.css (emitted by AIE.renderInline). */
 
     /* ---- Right-rail TOC (desktop) ---- */
     .memo-toc { position: sticky; top: 84px; }
@@ -235,64 +230,19 @@
       var thesisById = {};
       THESES.forEach(function (t) { thesisById[t.id] = t; });
 
-      function tickerColor(sym) {
-        var t = tickerBySym[sym];
-        return t ? AIE.categoryColor(t.category, null) : null;
-      }
-
-      /* ---- slugs for section anchors (unique within the page) ---- */
+      /* ---- section-anchor slugs (unique within the page).
+             AIE.slugify governs the token; uniqueness is memo-local. ---- */
       var usedIds = {};
-      function slug(s) {
-        return String(s).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "") || "section";
-      }
       function uniqueSectionId(heading) {
-        var base = "sec-" + slug(heading), id = base, n = 2;
+        var base = "sec-" + AIE.slugify(heading), id = base, n = 2;
         while (usedIds[id]) { id = base + "-" + n; n++; }
         usedIds[id] = true;
         return id;
       }
 
-      /* ---- inline body renderer: **bold**, $TICK chips, [[wikilink]] ---- */
-      var INLINE_RE = /(\*\*[^*]+\*\*|\$[A-Za-z][A-Za-z0-9.\-]*|\[\[[^\]]+\]\])/g;
-      function appendInline(container, text) {
-        INLINE_RE.lastIndex = 0;
-        var last = 0, m;
-        while ((m = INLINE_RE.exec(text)) !== null) {
-          if (m.index > last) container.appendChild(document.createTextNode(text.slice(last, m.index)));
-          var tok = m[0];
-          if (tok.slice(0, 2) === "**") {
-            container.appendChild(el("strong", null, tok.slice(2, -2)));
-          } else if (tok.charAt(0) === "$") {
-            var sym = tok.slice(1).toUpperCase();
-            var chip = el("a", "aie-chip aie-chip--ticker memo-tickerchip", sym);
-            chip.href = AIE.linkForTicker(sym);
-            var color = tickerColor(sym);
-            if (color) chip.style.setProperty("--chip-accent", color);
-            container.appendChild(chip);
-          } else { // [[wikilink]]
-            var inner = tok.slice(2, -2).trim();
-            var link = el("a", "memo-wikilink", inner);
-            link.href = "vault.html?page=" + encodeURIComponent(slug(inner));
-            container.appendChild(link);
-          }
-          last = INLINE_RE.lastIndex;
-        }
-        if (last < text.length) container.appendChild(document.createTextNode(text.slice(last)));
-      }
-
-      // A body string -> array of <p> nodes, split on blank lines.
-      function renderBody(body) {
-        var paras = String(body || "").split(/\n\s*\n/);
-        var out = [];
-        paras.forEach(function (para) {
-          var trimmed = para.trim();
-          if (!trimmed) return;
-          var p = el("p", "memo-p");
-          appendInline(p, trimmed);
-          out.push(p);
-        });
-        return out;
-      }
+      // Body renderer (**bold**, $TICK chips, [[wikilink]]) is shared —
+      // AIE.renderBody in common.js. memo-p keeps this page's serif type scale.
+      function renderBody(body) { return AIE.renderBody(body, "memo-p"); }
 
       /* ---- kind label ---- */
       function kindLabel(kind) {

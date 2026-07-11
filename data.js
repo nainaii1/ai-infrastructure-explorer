@@ -6,9 +6,9 @@
 
 window.AIE_DATA = {
   "meta": {
-    "version": "1.202",
+    "version": "1.213",
     "schemaVersion": 1,
-    "lastUpdated": "2026-07-12",
+    "lastUpdated": "2026-07-11T16:26:54Z",
     "source": "ingest"
   },
   "countries": {
@@ -215,10 +215,10 @@ window.AIE_DATA = {
       "marketCap": 9134836595,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 18.0371,
-        "mentions": 38,
+        "score": 20.06,
+        "mentions": 40,
         "convictionHits": 3,
-        "lastMentioned": "2026-07-06T15:34:36Z"
+        "lastMentioned": "2026-07-11T16:26:54Z"
       },
       "tier": "core",
       "verdict": {
@@ -252,10 +252,10 @@ window.AIE_DATA = {
       "marketCap": 54611710000,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 21.0843,
-        "mentions": 33,
-        "convictionHits": 4,
-        "lastMentioned": "2026-07-08T13:15:30Z"
+        "score": 28.9953,
+        "mentions": 36,
+        "convictionHits": 5,
+        "lastMentioned": "2026-07-11T16:26:54Z"
       },
       "tier": "core",
       "verdict": {
@@ -289,10 +289,10 @@ window.AIE_DATA = {
       "marketCap": 49653040948,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 1.9855,
-        "mentions": 9,
+        "score": 2.3915,
+        "mentions": 10,
         "convictionHits": 0,
-        "lastMentioned": "2026-07-03T10:07:17Z"
+        "lastMentioned": "2026-07-11T16:21:48Z"
       },
       "tier": "watch"
     },
@@ -313,7 +313,7 @@ window.AIE_DATA = {
       "marketCap": 1055697302500,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 3.1723,
+        "score": 3.1693,
         "mentions": 13,
         "convictionHits": 0,
         "lastMentioned": "2026-07-08T13:01:43Z"
@@ -355,10 +355,10 @@ window.AIE_DATA = {
       "marketCap": 2728898393,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 7.6515,
-        "mentions": 20,
+        "score": 10.0658,
+        "mentions": 23,
         "convictionHits": 1,
-        "lastMentioned": "2026-07-08T13:04:04Z"
+        "lastMentioned": "2026-07-11T16:26:54Z"
       },
       "tier": "core",
       "verdict": {
@@ -391,7 +391,7 @@ window.AIE_DATA = {
       "marketCap": 4809200477600,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 19.2047,
+        "score": 19.1866,
         "mentions": 46,
         "convictionHits": 2,
         "lastMentioned": "2026-07-08T13:02:54Z"
@@ -427,7 +427,7 @@ window.AIE_DATA = {
       "marketCap": 23393264495,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 3.8314,
+        "score": 3.8278,
         "mentions": 15,
         "convictionHits": 1,
         "lastMentioned": "2026-06-30T07:52:04Z"
@@ -451,7 +451,7 @@ window.AIE_DATA = {
       "marketCap": 533158080000,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 4.8075,
+        "score": 4.8029,
         "mentions": 13,
         "convictionHits": 1,
         "lastMentioned": "2026-07-08T13:01:43Z"
@@ -475,10 +475,10 @@ window.AIE_DATA = {
       "marketCap": 2245590245600,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 3.3528,
-        "mentions": 15,
+        "score": 3.7576,
+        "mentions": 16,
         "convictionHits": 0,
-        "lastMentioned": "2026-07-05T12:40:49Z"
+        "lastMentioned": "2026-07-11T16:26:54Z"
       },
       "tier": "core"
     },
@@ -499,10 +499,10 @@ window.AIE_DATA = {
       "marketCap": 49120800000,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 8.5509,
-        "mentions": 20,
+        "score": 9.5421,
+        "mentions": 21,
         "convictionHits": 2,
-        "lastMentioned": "2026-07-08T13:01:43Z"
+        "lastMentioned": "2026-07-11T16:23:22Z"
       },
       "tier": "core",
       "verdict": {
@@ -535,7 +535,7 @@ window.AIE_DATA = {
       "marketCap": 46793571664,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.415,
+        "score": 0.4146,
         "mentions": 2,
         "convictionHits": 0,
         "lastMentioned": "2026-07-01T14:59:53Z"
@@ -559,7 +559,7 @@ window.AIE_DATA = {
       "marketCap": 2037384528,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 1.7983,
+        "score": 1.7966,
         "mentions": 6,
         "convictionHits": 1,
         "lastMentioned": "2026-07-08T13:04:04Z"
@@ -583,7 +583,7 @@ window.AIE_DATA = {
       "marketCap": 3513418020,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.9152,
+        "score": 0.9143,
         "mentions": 9,
         "convictionHits": 0,
         "lastMentioned": "2026-06-30T07:52:04Z"
@@ -607,7 +607,7 @@ window.AIE_DATA = {
       "marketCap": 407867491,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 4.6833,
+        "score": 4.6789,
         "mentions": 11,
         "convictionHits": 2,
         "lastMentioned": "2026-07-03T10:12:58Z"
@@ -631,10 +631,10 @@ window.AIE_DATA = {
       "marketCap": 33402980361,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 13.8594,
-        "mentions": 20,
-        "convictionHits": 5,
-        "lastMentioned": "2026-07-08T13:18:10Z"
+        "score": 17.6121,
+        "mentions": 21,
+        "convictionHits": 6,
+        "lastMentioned": "2026-07-11T16:25:35Z"
       },
       "tier": "core",
       "verdict": {
@@ -667,7 +667,7 @@ window.AIE_DATA = {
       "marketCap": 1101646516,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 10.2578,
+        "score": 10.2482,
         "mentions": 17,
         "convictionHits": 3,
         "lastMentioned": "2026-07-08T13:18:10Z"
@@ -703,10 +703,10 @@ window.AIE_DATA = {
       "marketCap": 1473087299923,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 6.7435,
-        "mentions": 13,
+        "score": 7.7972,
+        "mentions": 14,
         "convictionHits": 1,
-        "lastMentioned": "2026-07-08T13:13:41Z"
+        "lastMentioned": "2026-07-11T16:26:39Z"
       },
       "tier": "core",
       "verdict": {
@@ -740,7 +740,7 @@ window.AIE_DATA = {
       "marketCap": 30793590495,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 1.9719,
+        "score": 1.97,
         "mentions": 4,
         "convictionHits": 0,
         "lastMentioned": "2026-07-08T13:18:55Z"
@@ -764,7 +764,7 @@ window.AIE_DATA = {
       "marketCap": 16665574210,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.573,
+        "score": 0.5725,
         "mentions": 3,
         "convictionHits": 1,
         "lastMentioned": "2026-06-27T15:45:34Z"
@@ -788,7 +788,7 @@ window.AIE_DATA = {
       "marketCap": 7955342316,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.176,
+        "score": 0.1759,
         "mentions": 2,
         "convictionHits": 0,
         "lastMentioned": "2026-06-27T15:38:26Z"
@@ -812,10 +812,10 @@ window.AIE_DATA = {
       "marketCap": 13365323116,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 1.5144,
-        "mentions": 8,
+        "score": 2.5729,
+        "mentions": 9,
         "convictionHits": 1,
-        "lastMentioned": "2026-06-30T07:47:41Z"
+        "lastMentioned": "2026-07-11T16:24:01Z"
       },
       "tier": "watch"
     },
@@ -836,7 +836,7 @@ window.AIE_DATA = {
       "marketCap": 58354478050,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.176,
+        "score": 0.1759,
         "mentions": 2,
         "convictionHits": 0,
         "lastMentioned": "2026-06-27T15:38:26Z"
@@ -860,10 +860,10 @@ window.AIE_DATA = {
       "marketCap": 1531418080003,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 7.8829,
-        "mentions": 17,
+        "score": 10.4345,
+        "mentions": 19,
         "convictionHits": 1,
-        "lastMentioned": "2026-07-08T13:14:42Z"
+        "lastMentioned": "2026-07-11T16:24:57Z"
       },
       "tier": "core",
       "verdict": {
@@ -896,7 +896,7 @@ window.AIE_DATA = {
       "marketCap": 202568688000,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 9.4784,
+        "score": 9.4694,
         "mentions": 19,
         "convictionHits": 3,
         "lastMentioned": "2026-07-08T13:01:43Z"
@@ -931,7 +931,7 @@ window.AIE_DATA = {
       "marketCap": 2844122994100,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.3414,
+        "score": 0.3411,
         "mentions": 2,
         "convictionHits": 1,
         "lastMentioned": "2026-06-27T15:45:34Z"
@@ -955,7 +955,7 @@ window.AIE_DATA = {
       "marketCap": 317157456000,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.1065,
+        "score": 0.1064,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-27T15:38:26Z"
@@ -979,7 +979,7 @@ window.AIE_DATA = {
       "marketCap": 37214886118,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 2.4434,
+        "score": 2.4411,
         "mentions": 6,
         "convictionHits": 2,
         "lastMentioned": "2026-07-07T07:09:04Z"
@@ -1003,7 +1003,7 @@ window.AIE_DATA = {
       "marketCap": 1070284657,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.1065,
+        "score": 0.1064,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-27T15:38:26Z"
@@ -1027,7 +1027,7 @@ window.AIE_DATA = {
       "marketCap": 1439567122,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.942,
+        "score": 0.9411,
         "mentions": 3,
         "convictionHits": 1,
         "lastMentioned": "2026-07-05T12:40:49Z"
@@ -1051,7 +1051,7 @@ window.AIE_DATA = {
       "marketCap": 47666842229,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 2.5747,
+        "score": 2.5722,
         "mentions": 6,
         "convictionHits": 1,
         "lastMentioned": "2026-07-08T13:17:17Z"
@@ -1076,10 +1076,10 @@ window.AIE_DATA = {
       "marketCap": 10088391523,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 85.7158,
-        "mentions": 70,
-        "convictionHits": 9,
-        "lastMentioned": "2026-07-08T13:18:10Z"
+        "score": 103.9953,
+        "mentions": 74,
+        "convictionHits": 10,
+        "lastMentioned": "2026-07-11T16:26:54Z"
       },
       "tier": "core",
       "verdict": {
@@ -1110,7 +1110,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
       "priority": {
-        "score": 6.7417,
+        "score": 6.7353,
         "mentions": 27,
         "convictionHits": 2,
         "lastMentioned": "2026-07-06T15:32:42Z"
@@ -1146,7 +1146,7 @@ window.AIE_DATA = {
       "marketCap": 283694888400,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.2497,
+        "score": 0.2495,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-27T15:41:13Z"
@@ -1170,7 +1170,7 @@ window.AIE_DATA = {
       "marketCap": 16741157168,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.2497,
+        "score": 0.2495,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-27T15:41:13Z"
@@ -1194,7 +1194,7 @@ window.AIE_DATA = {
       "marketCap": 7586897771,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.2497,
+        "score": 0.2495,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-27T15:41:13Z"
@@ -1218,7 +1218,7 @@ window.AIE_DATA = {
       "marketCap": 5549398083,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.2497,
+        "score": 0.2495,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-27T15:41:13Z"
@@ -1242,7 +1242,7 @@ window.AIE_DATA = {
       "marketCap": 3132118766,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.5666,
+        "score": 0.5661,
         "mentions": 2,
         "convictionHits": 1,
         "lastMentioned": "2026-06-27T15:41:34Z"
@@ -1266,7 +1266,7 @@ window.AIE_DATA = {
       "marketCap": 2595795774738,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 6.8064,
+        "score": 6.8,
         "mentions": 14,
         "convictionHits": 1,
         "lastMentioned": "2026-07-08T13:13:41Z"
@@ -1302,10 +1302,10 @@ window.AIE_DATA = {
       "marketCap": 1845869676300,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.94,
-        "mentions": 5,
+        "score": 1.3471,
+        "mentions": 6,
         "convictionHits": 0,
-        "lastMentioned": "2026-07-03T10:09:14Z"
+        "lastMentioned": "2026-07-11T16:21:48Z"
       },
       "tier": "watch"
     },
@@ -1326,7 +1326,7 @@ window.AIE_DATA = {
       "marketCap": 446002498455,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.8483,
+        "score": 0.8475,
         "mentions": 4,
         "convictionHits": 0,
         "lastMentioned": "2026-07-02T08:34:50Z"
@@ -1350,7 +1350,7 @@ window.AIE_DATA = {
       "marketCap": 4556164704760,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 1.3019,
+        "score": 1.3006,
         "mentions": 4,
         "convictionHits": 0,
         "lastMentioned": "2026-07-08T13:18:10Z"
@@ -1374,7 +1374,7 @@ window.AIE_DATA = {
       "marketCap": 674535442769,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.4704,
+        "score": 0.4699,
         "mentions": 2,
         "convictionHits": 0,
         "lastMentioned": "2026-07-01T14:55:33Z"
@@ -1398,7 +1398,7 @@ window.AIE_DATA = {
       "marketCap": 412200377700,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.1665,
+        "score": 0.1663,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-27T15:43:29Z"
@@ -1422,7 +1422,7 @@ window.AIE_DATA = {
       "marketCap": 1023861600,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.1665,
+        "score": 0.1663,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-27T15:43:29Z"
@@ -1446,7 +1446,7 @@ window.AIE_DATA = {
       "marketCap": 250534139,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.1766,
+        "score": 0.1764,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-27T15:44:22Z"
@@ -1470,7 +1470,7 @@ window.AIE_DATA = {
       "marketCap": 28684928,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.1766,
+        "score": 0.1764,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-27T15:44:22Z"
@@ -1490,7 +1490,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
       "priority": {
-        "score": 0.1766,
+        "score": 0.1764,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-27T15:44:22Z"
@@ -1514,7 +1514,7 @@ window.AIE_DATA = {
       "marketCap": 3347686652,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.1888,
+        "score": 0.1886,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-27T15:44:33Z"
@@ -1538,7 +1538,7 @@ window.AIE_DATA = {
       "marketCap": 2528800000,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.8787,
+        "score": 0.8779,
         "mentions": 3,
         "convictionHits": 0,
         "lastMentioned": "2026-07-05T07:37:20Z"
@@ -1562,7 +1562,7 @@ window.AIE_DATA = {
       "marketCap": 322418593506,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.3143,
+        "score": 0.314,
         "mentions": 2,
         "convictionHits": 1,
         "lastMentioned": "2026-06-27T15:45:34Z"
@@ -1586,7 +1586,7 @@ window.AIE_DATA = {
       "marketCap": 4368392596276,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 5.3928,
+        "score": 5.3877,
         "mentions": 10,
         "convictionHits": 2,
         "lastMentioned": "2026-07-06T15:27:45Z"
@@ -1610,7 +1610,7 @@ window.AIE_DATA = {
       "marketCap": 99408113714,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 1.3661,
+        "score": 1.3648,
         "mentions": 4,
         "convictionHits": 1,
         "lastMentioned": "2026-07-07T07:09:04Z"
@@ -1634,7 +1634,7 @@ window.AIE_DATA = {
       "marketCap": 11753814378,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.1817,
+        "score": 0.1815,
         "mentions": 1,
         "convictionHits": 1,
         "lastMentioned": "2026-06-27T15:45:34Z"
@@ -1658,10 +1658,10 @@ window.AIE_DATA = {
       "marketCap": 1961194139011,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 3.8305,
-        "mentions": 11,
+        "score": 4.8263,
+        "mentions": 12,
         "convictionHits": 0,
-        "lastMentioned": "2026-07-08T13:13:41Z"
+        "lastMentioned": "2026-07-11T16:24:28Z"
       },
       "tier": "core"
     },
@@ -1682,7 +1682,7 @@ window.AIE_DATA = {
       "marketCap": 1409459541,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 4.2952,
+        "score": 4.2912,
         "mentions": 9,
         "convictionHits": 1,
         "lastMentioned": "2026-07-08T13:18:10Z"
@@ -1706,7 +1706,7 @@ window.AIE_DATA = {
       "marketCap": 829926482000,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 4.5275,
+        "score": 4.5232,
         "mentions": 20,
         "convictionHits": 0,
         "lastMentioned": "2026-07-08T13:01:43Z"
@@ -1730,10 +1730,10 @@ window.AIE_DATA = {
       "marketCap": 23197966602,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.3159,
-        "mentions": 2,
+        "score": 0.7235,
+        "mentions": 3,
         "convictionHits": 0,
-        "lastMentioned": "2026-06-30T07:39:56Z"
+        "lastMentioned": "2026-07-11T16:21:48Z"
       },
       "tier": "radar"
     },
@@ -1754,10 +1754,10 @@ window.AIE_DATA = {
       "marketCap": 245088536250,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 3.0989,
-        "mentions": 11,
+        "score": 3.8026,
+        "mentions": 12,
         "convictionHits": 0,
-        "lastMentioned": "2026-07-08T13:01:43Z"
+        "lastMentioned": "2026-07-11T16:24:57Z"
       },
       "tier": "core"
     },
@@ -1778,7 +1778,7 @@ window.AIE_DATA = {
       "marketCap": 1158035995,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.2549,
+        "score": 0.2546,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-30T07:41:22Z"
@@ -1802,7 +1802,7 @@ window.AIE_DATA = {
       "marketCap": 41344005738,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.7761,
+        "score": 0.7753,
         "mentions": 2,
         "convictionHits": 0,
         "lastMentioned": "2026-07-02T20:34:02Z"
@@ -1826,10 +1826,10 @@ window.AIE_DATA = {
       "marketCap": 2517737923,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.5098,
-        "mentions": 2,
+        "score": 1.5086,
+        "mentions": 3,
         "convictionHits": 0,
-        "lastMentioned": "2026-06-30T07:45:27Z"
+        "lastMentioned": "2026-07-11T16:23:51Z"
       },
       "tier": "radar"
     },
@@ -1850,10 +1850,10 @@ window.AIE_DATA = {
       "marketCap": 660553500,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 7.2706,
-        "mentions": 18,
+        "score": 8.4701,
+        "mentions": 20,
         "convictionHits": 0,
-        "lastMentioned": "2026-07-08T13:13:41Z"
+        "lastMentioned": "2026-07-11T16:26:39Z"
       },
       "tier": "core",
       "verdict": {
@@ -1888,7 +1888,7 @@ window.AIE_DATA = {
       "marketCap": 238199500,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.2549,
+        "score": 0.2547,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-30T07:44:51Z"
@@ -1912,7 +1912,7 @@ window.AIE_DATA = {
       "marketCap": 619375832,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.2549,
+        "score": 0.2547,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-30T07:45:27Z"
@@ -1936,7 +1936,7 @@ window.AIE_DATA = {
       "marketCap": 3770594321,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.2549,
+        "score": 0.2547,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-30T07:45:27Z"
@@ -1960,7 +1960,7 @@ window.AIE_DATA = {
       "marketCap": 2247480314,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.2549,
+        "score": 0.2547,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-30T07:45:27Z"
@@ -1984,7 +1984,7 @@ window.AIE_DATA = {
       "marketCap": 14670409934,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 2.0254,
+        "score": 2.0235,
         "mentions": 7,
         "convictionHits": 0,
         "lastMentioned": "2026-07-05T15:16:13Z"
@@ -2008,7 +2008,7 @@ window.AIE_DATA = {
       "marketCap": 487866691582,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.2327,
+        "score": 0.2325,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-30T07:46:57Z"
@@ -2032,10 +2032,10 @@ window.AIE_DATA = {
       "marketCap": 36481032392,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 8.6936,
-        "mentions": 16,
-        "convictionHits": 3,
-        "lastMentioned": "2026-07-08T13:18:10Z"
+        "score": 11.7633,
+        "mentions": 17,
+        "convictionHits": 4,
+        "lastMentioned": "2026-07-11T16:25:35Z"
       },
       "tier": "core",
       "verdict": {
@@ -2064,10 +2064,10 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-30",
       "priority": {
-        "score": 1.9515,
-        "mentions": 8,
+        "score": 2.5616,
+        "mentions": 9,
         "convictionHits": 1,
-        "lastMentioned": "2026-07-06T15:29:52Z"
+        "lastMentioned": "2026-07-11T16:26:54Z"
       },
       "tier": "watch"
     },
@@ -2088,7 +2088,7 @@ window.AIE_DATA = {
       "marketCap": 2224371275,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 1.7959,
+        "score": 1.7942,
         "mentions": 7,
         "convictionHits": 0,
         "lastMentioned": "2026-07-08T13:04:04Z"
@@ -2112,7 +2112,7 @@ window.AIE_DATA = {
       "marketCap": 260477307936,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.5701,
+        "score": 0.5695,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-30T07:50:19Z"
@@ -2136,7 +2136,7 @@ window.AIE_DATA = {
       "marketCap": 285578933600,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.5089,
+        "score": 0.5084,
         "mentions": 2,
         "convictionHits": 0,
         "lastMentioned": "2026-06-30T08:43:30Z"
@@ -2160,7 +2160,7 @@ window.AIE_DATA = {
       "marketCap": 87055717760,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.4166,
+        "score": 0.4162,
         "mentions": 2,
         "convictionHits": 0,
         "lastMentioned": "2026-07-01T14:57:24Z"
@@ -2184,7 +2184,7 @@ window.AIE_DATA = {
       "marketCap": 70399857330,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.6228,
+        "score": 0.6222,
         "mentions": 2,
         "convictionHits": 0,
         "lastMentioned": "2026-07-01T14:58:44Z"
@@ -2208,7 +2208,7 @@ window.AIE_DATA = {
       "marketCap": 1189618745,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.2719,
+        "score": 0.2716,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-07-01T14:58:44Z"
@@ -2232,7 +2232,7 @@ window.AIE_DATA = {
       "marketCap": 2674584365,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.9334,
+        "score": 0.9325,
         "mentions": 3,
         "convictionHits": 0,
         "lastMentioned": "2026-07-08T13:15:30Z"
@@ -2256,7 +2256,7 @@ window.AIE_DATA = {
       "marketCap": 90184456602,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.9301,
+        "score": 0.9292,
         "mentions": 3,
         "convictionHits": 0,
         "lastMentioned": "2026-07-08T13:13:41Z"
@@ -2280,7 +2280,7 @@ window.AIE_DATA = {
       "marketCap": 157961498520,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.1948,
+        "score": 0.1946,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-07-02T20:35:34Z"
@@ -2304,7 +2304,7 @@ window.AIE_DATA = {
       "marketCap": 53399662301,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.1948,
+        "score": 0.1946,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-07-02T20:35:34Z"
@@ -2328,7 +2328,7 @@ window.AIE_DATA = {
       "marketCap": 194139843600,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.2972,
+        "score": 0.2969,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-07-03T10:09:14Z"
@@ -2352,7 +2352,7 @@ window.AIE_DATA = {
       "marketCap": 63082418560,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.6445,
+        "score": 0.6439,
         "mentions": 5,
         "convictionHits": 2,
         "lastMentioned": "2026-06-06T10:20:30Z"
@@ -2376,7 +2376,7 @@ window.AIE_DATA = {
       "marketCap": 41523850692,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.0696,
+        "score": 0.0695,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-04T02:21:11Z"
@@ -2396,7 +2396,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-07-03",
       "priority": {
-        "score": 0.095,
+        "score": 0.0949,
         "mentions": 1,
         "convictionHits": 1,
         "lastMentioned": "2026-06-05T14:20:31Z"
@@ -2440,7 +2440,7 @@ window.AIE_DATA = {
       "marketCap": 8532762140,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.1313,
+        "score": 0.1312,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-11T18:20:31Z"
@@ -2464,7 +2464,7 @@ window.AIE_DATA = {
       "marketCap": 10983481076,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.9109,
+        "score": 0.91,
         "mentions": 2,
         "convictionHits": 0,
         "lastMentioned": "2026-07-06T15:33:45Z"
@@ -2488,7 +2488,7 @@ window.AIE_DATA = {
       "marketCap": 66282592972,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.1166,
+        "score": 0.1164,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-12T06:20:34Z"
@@ -2512,7 +2512,7 @@ window.AIE_DATA = {
       "marketCap": 398599438600,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.111,
+        "score": 0.1109,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-16T22:20:32Z"
@@ -2536,7 +2536,7 @@ window.AIE_DATA = {
       "marketCap": 6096308919,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.2,
+        "score": 0.1998,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-20T06:20:39Z"
@@ -2560,7 +2560,7 @@ window.AIE_DATA = {
       "marketCap": 6299266694,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.2,
+        "score": 0.1998,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-06-20T06:20:39Z"
@@ -2580,7 +2580,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-07-03",
       "priority": {
-        "score": 0.4226,
+        "score": 0.4222,
         "mentions": 2,
         "convictionHits": 0,
         "lastMentioned": "2026-06-22T10:20:52Z"
@@ -2604,7 +2604,7 @@ window.AIE_DATA = {
       "marketCap": 80348707427,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.258,
+        "score": 0.2578,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-07-05T07:37:20Z"
@@ -2628,7 +2628,7 @@ window.AIE_DATA = {
       "marketCap": 37192770000,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.258,
+        "score": 0.2578,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-07-05T07:37:20Z"
@@ -2652,7 +2652,7 @@ window.AIE_DATA = {
       "marketCap": 148456236018,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.258,
+        "score": 0.2578,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-07-05T07:37:20Z"
@@ -2672,7 +2672,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-07-05",
       "priority": {
-        "score": 0.7299,
+        "score": 0.7292,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-07-05T07:38:05Z"
@@ -2692,7 +2692,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-07-05",
       "priority": {
-        "score": 0.2332,
+        "score": 0.233,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-07-05T12:40:49Z"
@@ -2716,7 +2716,7 @@ window.AIE_DATA = {
       "marketCap": 682904192,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.5243,
+        "score": 0.5238,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-07-05T15:16:13Z"
@@ -2740,7 +2740,7 @@ window.AIE_DATA = {
       "marketCap": 12884294737,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.3027,
+        "score": 0.3024,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-07-05T15:17:30Z"
@@ -2764,7 +2764,7 @@ window.AIE_DATA = {
       "marketCap": 7133005613,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.3027,
+        "score": 0.3024,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-07-05T15:17:30Z"
@@ -2788,7 +2788,7 @@ window.AIE_DATA = {
       "marketCap": 152275728000,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.3027,
+        "score": 0.3024,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-07-05T15:17:30Z"
@@ -2812,7 +2812,7 @@ window.AIE_DATA = {
       "marketCap": 118831744406,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.3027,
+        "score": 0.3024,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-07-05T15:17:30Z"
@@ -2836,7 +2836,7 @@ window.AIE_DATA = {
       "marketCap": 10179175009,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.3897,
+        "score": 0.3893,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-07-06T15:26:32Z"
@@ -2860,7 +2860,7 @@ window.AIE_DATA = {
       "marketCap": 73352488930,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.3182,
+        "score": 0.3179,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-07-06T15:27:08Z"
@@ -2884,7 +2884,7 @@ window.AIE_DATA = {
       "marketCap": 15673513,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.3182,
+        "score": 0.3179,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-07-06T15:27:08Z"
@@ -2908,7 +2908,7 @@ window.AIE_DATA = {
       "marketCap": 67624889625,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.3182,
+        "score": 0.3179,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-07-06T15:27:08Z"
@@ -2932,7 +2932,7 @@ window.AIE_DATA = {
       "marketCap": 16691463528,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.235,
+        "score": 0.2348,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-07-06T15:31:53Z"
@@ -2952,7 +2952,7 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-07-06",
       "priority": {
-        "score": 0.4501,
+        "score": 0.4496,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-07-06T15:32:42Z"
@@ -2976,7 +2976,7 @@ window.AIE_DATA = {
       "marketCap": 7680644400,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.72,
+        "score": 0.7193,
         "mentions": 2,
         "convictionHits": 0,
         "lastMentioned": "2026-07-07T07:09:04Z"
@@ -3000,12 +3000,32 @@ window.AIE_DATA = {
       "marketCap": 29194037,
       "asOf": "2026-07-08T15:04:23Z",
       "priority": {
-        "score": 0.6057,
+        "score": 0.6051,
         "mentions": 1,
         "convictionHits": 0,
         "lastMentioned": "2026-07-08T13:14:42Z"
       },
       "tier": "radar"
+    },
+    {
+      "ticker": "SIVEF",
+      "company": "",
+      "category": "unsorted",
+      "market": "",
+      "exchange": "",
+      "whatTheyDo": "",
+      "whyNVDA": "",
+      "marketCapTier": "",
+      "rating": "watch",
+      "sourceTweetUrl": "",
+      "addedDate": "2026-07-11",
+      "priority": {
+        "score": 0.6704,
+        "mentions": 1,
+        "convictionHits": 1,
+        "lastMentioned": "2026-07-11T16:25:35Z"
+      },
+      "tier": "watch"
     }
   ],
   "theses": [
@@ -6144,124 +6164,296 @@ window.AIE_DATA = {
       ],
       "conviction": "normal",
       "tags": []
+    },
+    {
+      "id": "h_05d7771a75d1d86f",
+      "source": "x",
+      "author": "aleabitoreddit",
+      "sourceUrl": "",
+      "postedAt": "2026-07-11T16:20:35Z",
+      "ingestedAt": "2026-07-11T16:20:35Z",
+      "text": "I'm actually very curious what happens when SK Hynix opens 21% premium relative to KR.\n\nHaven't really seen any analyst or others talk about second order effects of this yet? \n\nDoes this cause South Korea futures, and others with SK Hynix in weightings to gap up in the first few minutes of opening? \n\nSince SK Hynix is a large % of many index weighting and indirectly too with SK Square, before the premium decreases to something reasonable like 3-5%? \n\nI'm not sure if there's much precedence for this before since normally you don't get these trillion dollar listings \nwith observable 21% premiums on open.. That make up large concentrations of indexes. \n\nJust throwing out market structure observations in case others get ideas.\n\nSpaceX wasn't in indexes on IPO. \n\nSK Hynix is basically half of Korea with Samsung. And it's set to trade at a 22% premium on open, so idk what's gonna happen.",
+      "tickers": [],
+      "conviction": "normal",
+      "tags": []
+    },
+    {
+      "id": "h_f97b00cbf156655b",
+      "source": "x",
+      "author": "aleabitoreddit",
+      "sourceUrl": "",
+      "postedAt": "2026-07-11T16:21:48Z",
+      "ingestedAt": "2026-07-11T16:21:48Z",
+      "text": "Just an interesting channel check regarding China lasers claims:\n\n\"They do not yet have working 200G EMLs and appear to be quite far from having high-power CWs for NPO and CPO applications.\"\n\nWhen talking about Dongshan Precision and others. \n\nSo your \n$LITE, $AAOI$COHR, $MTSI\n, Sumitomo, Furukawa, $SIVE, type players seem like a scarce capacity than others expected. \n\nRegarding other lasers: analyst included $AVGO\n comments - the ultimate \"North Star\" is CPO with ultra-high power CWs. \n\nBut believes VCSELs can be a useful in intermediate NPO solution.  Then they kinda proceeds to trash talk MicroLED and others. \n\nSo I think this greatly reaffirms conviction in $SIVE as pure play in terms of what industry is heading with CPO + CW DFB.\n\nThen on CPO delays: \"Our Take On CPO Timing: Processes Not Delayed But Timing To Reach Volume Could Stretch\", so no actual delay there just extended ramp timing which is always a possibility. But as with scale out, expectations seem always hiked. \n\nBeen a lot of noise recently over microled, vcsel, chinese suppliers, delays, but thesis in tact for a lot of the laser suppliers.\n\n- American/Japanese Laser companies like \n$AAOI\n have a deeper moat than markets expect and won't be \"flooded\" by Chinese players. \n- No actual CPO delay. \n- CW lasers are the paradigm for CPO (sivers/win type players).",
+      "tickers": [
+        "AAOI",
+        "AVGO",
+        "COHR",
+        "LITE",
+        "MTSI",
+        "SIVE"
+      ],
+      "conviction": "normal",
+      "tags": []
+    },
+    {
+      "id": "h_de3112b196491491",
+      "source": "x",
+      "author": "aleabitoreddit",
+      "sourceUrl": "",
+      "postedAt": "2026-07-11T16:23:22Z",
+      "ingestedAt": "2026-07-11T16:23:23Z",
+      "text": "Let\u2019s put it this way:\n\nRetail thinks a 30-60% drop is a \u201cfalling knife\u201d where bagholders will never recover. \n\nAnd they end up panic selling after seeing swiggly line TAs and people comparing valuable chokepoints to memes.\n\nI see it as long term ownership over:\n\n- the next hyperscaler with \n$NBIS\n, projecting $7-9B ARR Q4\n- 40% of the InP supply chain with \n$AXTI\n\n- leader of the next optical shift with $SIVE with CW DFB lasers\n- leader of US humanoids with \n$CCXI\n inside a future trillion dollar theme\n\nAnd so on\u2026 At cheaper valuations. \n\nWhile I might do things like lowering margin or hedging with my own portfolio, I\u2019m personally not panicking when something drops if the thesis didn\u2019t change. \n\nNFA and obviously depends on people\u2019s investing timeframes:\n\nSince a crash would be life changing for people that depend on investing for rent or tuition. (Which is why I personally think  others should do their own DD and choose longs in line with their own risk profile)\n\nBut my personal goal is maximizing exposure to the next-gen supercycles before they hit.\n\nI think institutions think the same way as well, which is why there\u2019s a lot of induced volatility along the way to maximize their exposure.\n\nIf a thesis ends up correct, the valuation should be reflected in the long run.\n\nI currently hold shares in the million range, so not quite sure what\u2019s with these accusations.\n\nSince I believe $SIVE is one of the most important laser companies in the next optical shift\u2026 and has immense TAM expansion potential with IP acquisition.\n\nNasdaq listing is coming up\u2026 volume ramp is coming up\u2026 I think I\u2019m fine and know what I\u2019m holding",
+      "tickers": [
+        "AXTI",
+        "CCXI",
+        "NBIS",
+        "SIVE"
+      ],
+      "conviction": "normal",
+      "tags": []
+    },
+    {
+      "id": "h_4f156b63d59d320f",
+      "source": "x",
+      "author": "aleabitoreddit",
+      "sourceUrl": "",
+      "postedAt": "2026-07-11T16:23:51Z",
+      "ingestedAt": "2026-07-11T16:23:51Z",
+      "text": "No, I\u2019m personally trying to own as much % of Agility Robotics as possible right now.\n\nSince I see Humanoids is as next major theme following space/AI.\n\nDon\u2019t think historical PTSD with bad SPAC names will sway me from owning one of the US humanoid leaders.\n\nAgility is ~$3.9B premoney valuation, which is compelling to me as is.\n\nNot all SPACs work that way as seen with \n$BRUN\n, which is why I\u2019m personally not waiting.",
+      "tickers": [
+        "BRUN"
+      ],
+      "conviction": "normal",
+      "tags": []
+    },
+    {
+      "id": "h_e71a026cc505204c",
+      "source": "x",
+      "author": "aleabitoreddit",
+      "sourceUrl": "",
+      "postedAt": "2026-07-11T16:24:01Z",
+      "ingestedAt": "2026-07-11T16:24:02Z",
+      "text": "Yep still holding \n$AXTI\n. And a lot of my older thesis like \n$EWY\n that are up hundreds of percent.\n\nEven if I don\u2019t mention it as much anymore",
+      "tickers": [
+        "AXTI",
+        "EWY"
+      ],
+      "conviction": "normal",
+      "tags": []
+    },
+    {
+      "id": "h_5459f5d7ade0192e",
+      "source": "x",
+      "author": "aleabitoreddit",
+      "sourceUrl": "",
+      "postedAt": "2026-07-11T16:24:14Z",
+      "ingestedAt": "2026-07-11T16:24:14Z",
+      "text": "$META\n to build a new $10B DC in Canada to expand AI capacity.\n\nSo much for the media framing of \u201cMeta Compute\u201das overbuilding and cutting capex.",
+      "tickers": [
+        "META"
+      ],
+      "conviction": "normal",
+      "tags": []
+    },
+    {
+      "id": "h_b62dfc00d367da76",
+      "source": "x",
+      "author": "aleabitoreddit",
+      "sourceUrl": "",
+      "postedAt": "2026-07-11T16:24:28Z",
+      "ingestedAt": "2026-07-11T16:24:28Z",
+      "text": "Wow, looks like Elon + xAI at \n$SPCX\n managed to build an Anthropic Opus-level LLM with Grok 4.5.\n\nThat\u2019s much more cost efficient as well\u2026 \n\nKinda emulating what Chinese vendors have been doing to compete on pricing + adoption. (Which is an ideal thing given Chinese model growth among US companies recently)\n\nNever doubt Elon, maybe they might end up leapfrogging Anthropic + Mythos?",
+      "tickers": [
+        "SPCX"
+      ],
+      "conviction": "normal",
+      "tags": []
+    },
+    {
+      "id": "h_530410ca5ca0e6c1",
+      "source": "x",
+      "author": "aleabitoreddit",
+      "sourceUrl": "",
+      "postedAt": "2026-07-11T16:24:57Z",
+      "ingestedAt": "2026-07-11T16:26:29Z",
+      "text": "Nothing like an internal \n$META\n memo getting published.\n\nShowing AI ramping as usual:\n\n- LTAs signed with Samsung and \n$SNDK\n for memory\n- LTAs signed with Sumitomo Electric for fiber optics\n- Expected to deploy 7GW compute infra this year, and doubling in 2027. \n- as much as $145B capex spend this year \n\n\u201cIt plans to launch a chip about every six months through 2027\u201d",
+      "tickers": [
+        "META",
+        "SNDK"
+      ],
+      "conviction": "normal",
+      "tags": []
+    },
+    {
+      "id": "h_be5adc50f7bbcc5f",
+      "source": "x",
+      "author": "aleabitoreddit",
+      "sourceUrl": "",
+      "postedAt": "2026-07-11T16:25:35Z",
+      "ingestedAt": "2026-07-11T16:26:30Z",
+      "text": "Three new $SIVE insider purchases today. \n\nMost notably: $SIVEF CEO Vikram bought 1,000,000 SEK worth of shares on the open market today. \n\nThis is following the massive drop on Sivers stock following 2 misleading CPO delay reports, Meta Compute headlines, and another insider sale report from another photonics director. \n\nTypically, insider sells for any number of reasons. But having the  CEO buy on the open-market is the clearest signal in management confidence. \n\nFollowing \n$GFS\n, \n$JBL\n, and other laser supplier partnerships, and his goal of NASDAQ listing in the near term. \n\nFeels like the CEO sees a clear potential for Sivers to become the next photonics giant (myself included).\n\n$SIVE US NASDAQ listing is more for:\n\n- Fundraising (most important thing) to acquire IP + TAM expansion and make each laser they sell more valuable. Following what  \n$LITE\n did (eg. Cloud Light acquisition) from just selling lasers. \n\n- Also it helps bridge valuation gaps, since I see it as  undervalued relative to laser peers that are all in the tens of billions. \n\nRather than near term revenue/partnerships.",
+      "tickers": [
+        "GFS",
+        "JBL",
+        "LITE",
+        "SIVE",
+        "SIVEF"
+      ],
+      "conviction": "high",
+      "tags": []
+    },
+    {
+      "id": "h_f7c876c10d52cbfa",
+      "source": "x",
+      "author": "aleabitoreddit",
+      "sourceUrl": "",
+      "postedAt": "2026-07-11T16:26:39Z",
+      "ingestedAt": "2026-07-11T16:26:39Z",
+      "text": "\"China is shipping ~90% of the world's humanoid robots. We cannot keep taking them lightly.\"\n\nElon's comment: \"For now\"\n\nMeanwhile, 1X today posts a video of the most advanced humanoid hand.\n\nLooks like the inflection point for American humanoid programs is here?\n\nBoth technologically with players like 1X and with mass production with \n$TSLA\n? \n\nI'm am personally long on Agility through \n$CCXI\n targeting commercialization with Amazon and others. \n\nBut I'm proud to see American robotics as a whole go brrrr.\n\nIt's nuanced, IMO: \n\n- \n$TSLA\n has the clearest path to close the gap between US/China in mass production. But to get this done, majority of components seem sourced from China? \n\n- \n$CCXI\n right now has a RoboFab for 10K+ units/year, and 75%+ of components sourced from the US. \n\nSo they're probably the leader in terms of Made in America supply chains + commercialization. But can't get to China scale yet through just US supply chains. \n\nFigure is probably the other one with 12,000 target capacity, but can't comment much since their supply chain visibility isn't very public. I don't consider Hyundai/Boston Dynamics to be very American anymore so didn't include them.",
+      "tickers": [
+        "CCXI",
+        "TSLA"
+      ],
+      "conviction": "normal",
+      "tags": []
+    },
+    {
+      "id": "h_65b35e33ee5ec7a3",
+      "source": "x",
+      "author": "aleabitoreddit",
+      "sourceUrl": "",
+      "postedAt": "2026-07-11T16:26:54Z",
+      "ingestedAt": "2026-07-11T16:26:54Z",
+      "text": "Yep, it\u2019s interesting to witness retail capitulation.\n\nAfter we got Bloomberg Meta compute article cleared up by their internal memo. \n\nAnd the 2 reports on delays were denied by Nvidia. \n\nBoth of which caused the selloff in the first place...\n\nSo Photonics / Nvidia\u2019s roadmap hasn\u2019t fundamentally changed:\n\n$LITE\n is still completely sold out for the next 2 years and likely into 2029.\n\n$SIVE is about to volume ramp with  GlobalFoundries, Jabil, Poet, Ayar, and other hyperscaler suppliers.\n\n$TSM\n COUPE and their TW suppliers from Shunsin to Foci aren\u2019t randomly disappearing into the void.\n\n$AAOI\n and their $471m/month h2 2027 revenue projections haven\u2019t changed.\n\n$IQE and their epiwafer contracts with Macom and Tower Semi haven\u2019t disappeared.\n\n$AXTI\n ownership of 40% of the InP substrate supply chains haven\u2019t suddenly disappeared.\n\nAs with any theme from Rocketlab + Space sector 50% drop back in 2025. \n\nOr Nebius + Neocloud 50% drop entering 2026.\n\nOr the Samsung/SK Hynix crash from Iran War LNG/Helium/Oil fears few months ago.\n\nVolatility from indiscriminate thematic selloffs isn\u2019t typically representative of individual company fundamentals.\n\nRetail tends to build conviction over price movements and imaginary charts, then lose that when a stock drops.\n\nAnd institutions are probably placing limit orders to capitalize on that.\n\nConviction shouldn\u2019t be tied to the quote of a stock on a certain day, but long term revenue or operating income growth.",
+      "tickers": [
+        "AAOI",
+        "AXTI",
+        "IQE",
+        "LITE",
+        "SIVE",
+        "TSM"
+      ],
+      "conviction": "normal",
+      "tags": []
     }
   ],
   "priorities": [
     {
       "ticker": "SIVE",
-      "score": 85.7158,
-      "mentions": 70,
-      "weightedMentions": 37.1649,
-      "convictionHits": 9,
-      "lastMentioned": "2026-07-08T13:18:10Z"
+      "score": 103.9953,
+      "mentions": 74,
+      "weightedMentions": 38.9286,
+      "convictionHits": 10,
+      "lastMentioned": "2026-07-11T16:26:54Z"
     },
     {
       "ticker": "LITE",
-      "score": 21.0843,
-      "mentions": 33,
-      "weightedMentions": 13.4238,
-      "convictionHits": 4,
-      "lastMentioned": "2026-07-08T13:15:30Z"
+      "score": 28.9953,
+      "mentions": 36,
+      "weightedMentions": 14.6875,
+      "convictionHits": 5,
+      "lastMentioned": "2026-07-11T16:26:54Z"
+    },
+    {
+      "ticker": "AAOI",
+      "score": 20.06,
+      "mentions": 40,
+      "weightedMentions": 18.2582,
+      "convictionHits": 3,
+      "lastMentioned": "2026-07-11T16:26:54Z"
     },
     {
       "ticker": "NVDA",
-      "score": 19.2047,
+      "score": 19.1866,
       "mentions": 46,
       "weightedMentions": 22.1119,
       "convictionHits": 2,
       "lastMentioned": "2026-07-08T13:02:54Z"
     },
     {
-      "ticker": "AAOI",
-      "score": 18.0371,
-      "mentions": 38,
-      "weightedMentions": 17.4417,
-      "convictionHits": 3,
-      "lastMentioned": "2026-07-06T15:34:36Z"
+      "ticker": "JBL",
+      "score": 17.6121,
+      "mentions": 21,
+      "weightedMentions": 8.5054,
+      "convictionHits": 6,
+      "lastMentioned": "2026-07-11T16:25:35Z"
     },
     {
-      "ticker": "JBL",
-      "score": 13.8594,
-      "mentions": 20,
-      "weightedMentions": 8.0582,
-      "convictionHits": 5,
-      "lastMentioned": "2026-07-08T13:18:10Z"
+      "ticker": "GFS",
+      "score": 11.7633,
+      "mentions": 17,
+      "weightedMentions": 7.3562,
+      "convictionHits": 4,
+      "lastMentioned": "2026-07-11T16:25:35Z"
+    },
+    {
+      "ticker": "META",
+      "score": 10.4345,
+      "mentions": 19,
+      "weightedMentions": 9.7602,
+      "convictionHits": 1,
+      "lastMentioned": "2026-07-11T16:24:57Z"
     },
     {
       "ticker": "POET",
-      "score": 10.2578,
+      "score": 10.2482,
       "mentions": 17,
       "weightedMentions": 7.3402,
       "convictionHits": 3,
       "lastMentioned": "2026-07-08T13:18:10Z"
     },
     {
+      "ticker": "AXTI",
+      "score": 10.0658,
+      "mentions": 23,
+      "weightedMentions": 12.4181,
+      "convictionHits": 1,
+      "lastMentioned": "2026-07-11T16:26:54Z"
+    },
+    {
+      "ticker": "NBIS",
+      "score": 9.5421,
+      "mentions": 21,
+      "weightedMentions": 9.1499,
+      "convictionHits": 2,
+      "lastMentioned": "2026-07-11T16:23:22Z"
+    },
+    {
       "ticker": "MRVL",
-      "score": 9.4784,
+      "score": 9.4694,
       "mentions": 19,
       "weightedMentions": 8.6193,
       "convictionHits": 3,
       "lastMentioned": "2026-07-08T13:01:43Z"
     },
     {
-      "ticker": "GFS",
-      "score": 8.6936,
-      "mentions": 16,
-      "weightedMentions": 6.909,
-      "convictionHits": 3,
-      "lastMentioned": "2026-07-08T13:18:10Z"
-    },
-    {
-      "ticker": "NBIS",
-      "score": 8.5509,
-      "mentions": 20,
-      "weightedMentions": 8.6499,
-      "convictionHits": 2,
-      "lastMentioned": "2026-07-08T13:01:43Z"
-    },
-    {
-      "ticker": "META",
-      "score": 7.8829,
-      "mentions": 17,
-      "weightedMentions": 8.0531,
-      "convictionHits": 1,
-      "lastMentioned": "2026-07-08T13:14:42Z"
-    },
-    {
-      "ticker": "AXTI",
-      "score": 7.6515,
-      "mentions": 20,
-      "weightedMentions": 10.8027,
-      "convictionHits": 1,
-      "lastMentioned": "2026-07-08T13:04:04Z"
-    },
-    {
       "ticker": "CCXI",
-      "score": 7.2706,
-      "mentions": 18,
-      "weightedMentions": 10.7378,
+      "score": 8.4701,
+      "mentions": 20,
+      "weightedMentions": 11.9449,
       "convictionHits": 0,
-      "lastMentioned": "2026-07-08T13:13:41Z"
+      "lastMentioned": "2026-07-11T16:26:39Z"
+    },
+    {
+      "ticker": "TSLA",
+      "score": 7.7972,
+      "mentions": 14,
+      "weightedMentions": 7.4153,
+      "convictionHits": 1,
+      "lastMentioned": "2026-07-11T16:26:39Z"
     },
     {
       "ticker": "AMZN",
-      "score": 6.8064,
+      "score": 6.8,
       "mentions": 14,
       "weightedMentions": 6.9889,
       "convictionHits": 1,
       "lastMentioned": "2026-07-08T13:13:41Z"
     },
     {
-      "ticker": "TSLA",
-      "score": 6.7435,
-      "mentions": 13,
-      "weightedMentions": 6.7082,
-      "convictionHits": 1,
-      "lastMentioned": "2026-07-08T13:13:41Z"
-    },
-    {
       "ticker": "XFAB",
-      "score": 6.7417,
+      "score": 6.7353,
       "mentions": 27,
       "weightedMentions": 13.0444,
       "convictionHits": 2,
@@ -6269,15 +6461,23 @@ window.AIE_DATA = {
     },
     {
       "ticker": "GOOGL",
-      "score": 5.3928,
+      "score": 5.3877,
       "mentions": 10,
       "weightedMentions": 4.5324,
       "convictionHits": 2,
       "lastMentioned": "2026-07-06T15:27:45Z"
     },
     {
+      "ticker": "SPCX",
+      "score": 4.8263,
+      "mentions": 12,
+      "weightedMentions": 7.8251,
+      "convictionHits": 0,
+      "lastMentioned": "2026-07-11T16:24:28Z"
+    },
+    {
       "ticker": "INTC",
-      "score": 4.8075,
+      "score": 4.8029,
       "mentions": 13,
       "weightedMentions": 6.0702,
       "convictionHits": 1,
@@ -6285,7 +6485,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "LPK.DE",
-      "score": 4.6833,
+      "score": 4.6789,
       "mentions": 11,
       "weightedMentions": 5.6924,
       "convictionHits": 2,
@@ -6293,7 +6493,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "AMD",
-      "score": 4.5275,
+      "score": 4.5232,
       "mentions": 20,
       "weightedMentions": 8.7615,
       "convictionHits": 0,
@@ -6301,7 +6501,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "AEVA",
-      "score": 4.2952,
+      "score": 4.2912,
       "mentions": 9,
       "weightedMentions": 4.0902,
       "convictionHits": 1,
@@ -6309,95 +6509,95 @@ window.AIE_DATA = {
     },
     {
       "ticker": "TSEM",
-      "score": 3.8314,
+      "score": 3.8278,
       "mentions": 15,
       "weightedMentions": 6.9451,
       "convictionHits": 1,
       "lastMentioned": "2026-06-30T07:52:04Z"
     },
     {
-      "ticker": "SPCX",
-      "score": 3.8305,
-      "mentions": 11,
-      "weightedMentions": 6.8251,
+      "ticker": "SNDK",
+      "score": 3.8026,
+      "mentions": 12,
+      "weightedMentions": 6.402,
       "convictionHits": 0,
-      "lastMentioned": "2026-07-08T13:13:41Z"
+      "lastMentioned": "2026-07-11T16:24:57Z"
     },
     {
       "ticker": "TSM",
-      "score": 3.3528,
-      "mentions": 15,
-      "weightedMentions": 8.2382,
+      "score": 3.7576,
+      "mentions": 16,
+      "weightedMentions": 8.6465,
       "convictionHits": 0,
-      "lastMentioned": "2026-07-05T12:40:49Z"
+      "lastMentioned": "2026-07-11T16:26:54Z"
     },
     {
       "ticker": "MU",
-      "score": 3.1723,
+      "score": 3.1693,
       "mentions": 13,
       "weightedMentions": 5.3962,
       "convictionHits": 0,
       "lastMentioned": "2026-07-08T13:01:43Z"
     },
     {
-      "ticker": "SNDK",
-      "score": 3.0989,
-      "mentions": 11,
-      "weightedMentions": 5.6949,
-      "convictionHits": 0,
-      "lastMentioned": "2026-07-08T13:01:43Z"
+      "ticker": "EWY",
+      "score": 2.5729,
+      "mentions": 9,
+      "weightedMentions": 3.52,
+      "convictionHits": 1,
+      "lastMentioned": "2026-07-11T16:24:01Z"
     },
     {
       "ticker": "RKLB",
-      "score": 2.5747,
+      "score": 2.5722,
       "mentions": 6,
       "weightedMentions": 2.9742,
       "convictionHits": 1,
       "lastMentioned": "2026-07-08T13:17:17Z"
     },
     {
+      "ticker": "IQE",
+      "score": 2.5616,
+      "mentions": 9,
+      "weightedMentions": 3.9841,
+      "convictionHits": 1,
+      "lastMentioned": "2026-07-11T16:26:54Z"
+    },
+    {
       "ticker": "RDDT",
-      "score": 2.4434,
+      "score": 2.4411,
       "mentions": 6,
       "weightedMentions": 2.7644,
       "convictionHits": 2,
       "lastMentioned": "2026-07-07T07:09:04Z"
     },
     {
+      "ticker": "COHR",
+      "score": 2.3915,
+      "mentions": 10,
+      "weightedMentions": 4.0959,
+      "convictionHits": 0,
+      "lastMentioned": "2026-07-11T16:21:48Z"
+    },
+    {
       "ticker": "IREN",
-      "score": 2.0254,
+      "score": 2.0235,
       "mentions": 7,
       "weightedMentions": 4.1783,
       "convictionHits": 0,
       "lastMentioned": "2026-07-05T15:16:13Z"
     },
     {
-      "ticker": "COHR",
-      "score": 1.9855,
-      "mentions": 9,
-      "weightedMentions": 3.6876,
-      "convictionHits": 0,
-      "lastMentioned": "2026-07-03T10:07:17Z"
-    },
-    {
       "ticker": "ASTS",
-      "score": 1.9719,
+      "score": 1.97,
       "mentions": 4,
       "weightedMentions": 2.6274,
       "convictionHits": 0,
       "lastMentioned": "2026-07-08T13:18:55Z"
     },
     {
-      "ticker": "IQE",
-      "score": 1.9515,
-      "mentions": 8,
-      "weightedMentions": 3.5758,
-      "convictionHits": 1,
-      "lastMentioned": "2026-07-06T15:29:52Z"
-    },
-    {
       "ticker": "AEHR",
-      "score": 1.7983,
+      "score": 1.7966,
       "mentions": 6,
       "weightedMentions": 2.1127,
       "convictionHits": 1,
@@ -6405,31 +6605,39 @@ window.AIE_DATA = {
     },
     {
       "ticker": "DRAM",
-      "score": 1.7959,
+      "score": 1.7942,
       "mentions": 7,
       "weightedMentions": 3.6798,
       "convictionHits": 0,
       "lastMentioned": "2026-07-08T13:04:04Z"
     },
     {
-      "ticker": "EWY",
-      "score": 1.5144,
-      "mentions": 8,
-      "weightedMentions": 2.8129,
-      "convictionHits": 1,
-      "lastMentioned": "2026-06-30T07:47:41Z"
+      "ticker": "BRUN",
+      "score": 1.5086,
+      "mentions": 3,
+      "weightedMentions": 1.8944,
+      "convictionHits": 0,
+      "lastMentioned": "2026-07-11T16:23:51Z"
     },
     {
       "ticker": "HOOD",
-      "score": 1.3661,
+      "score": 1.3648,
       "mentions": 4,
       "weightedMentions": 1.5842,
       "convictionHits": 1,
       "lastMentioned": "2026-07-07T07:09:04Z"
     },
     {
+      "ticker": "AVGO",
+      "score": 1.3471,
+      "mentions": 6,
+      "weightedMentions": 2.6648,
+      "convictionHits": 0,
+      "lastMentioned": "2026-07-11T16:21:48Z"
+    },
+    {
       "ticker": "AAPL",
-      "score": 1.3019,
+      "score": 1.3006,
       "mentions": 4,
       "weightedMentions": 1.7649,
       "convictionHits": 0,
@@ -6437,23 +6645,15 @@ window.AIE_DATA = {
     },
     {
       "ticker": "VPG",
-      "score": 0.942,
+      "score": 0.9411,
       "mentions": 3,
       "weightedMentions": 1.1068,
       "convictionHits": 1,
       "lastMentioned": "2026-07-05T12:40:49Z"
     },
     {
-      "ticker": "AVGO",
-      "score": 0.94,
-      "mentions": 5,
-      "weightedMentions": 2.2566,
-      "convictionHits": 0,
-      "lastMentioned": "2026-07-03T10:09:14Z"
-    },
-    {
       "ticker": "OUST",
-      "score": 0.9334,
+      "score": 0.9325,
       "mentions": 3,
       "weightedMentions": 1.2634,
       "convictionHits": 0,
@@ -6461,7 +6661,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "MELI",
-      "score": 0.9301,
+      "score": 0.9292,
       "mentions": 3,
       "weightedMentions": 1.248,
       "convictionHits": 0,
@@ -6469,7 +6669,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "SOI.PA",
-      "score": 0.9152,
+      "score": 0.9143,
       "mentions": 9,
       "weightedMentions": 3.6208,
       "convictionHits": 0,
@@ -6477,7 +6677,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "WULF",
-      "score": 0.9109,
+      "score": 0.91,
       "mentions": 2,
       "weightedMentions": 1.5774,
       "convictionHits": 0,
@@ -6485,7 +6685,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "HIMX",
-      "score": 0.8787,
+      "score": 0.8779,
       "mentions": 3,
       "weightedMentions": 1.4309,
       "convictionHits": 0,
@@ -6493,7 +6693,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "AMAT",
-      "score": 0.8483,
+      "score": 0.8475,
       "mentions": 4,
       "weightedMentions": 1.5813,
       "convictionHits": 0,
@@ -6501,7 +6701,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "CBRS",
-      "score": 0.7761,
+      "score": 0.7753,
       "mentions": 2,
       "weightedMentions": 1.2845,
       "convictionHits": 0,
@@ -6509,23 +6709,39 @@ window.AIE_DATA = {
     },
     {
       "ticker": "LPK",
-      "score": 0.7299,
+      "score": 0.7292,
       "mentions": 1,
       "weightedMentions": 1.0,
       "convictionHits": 0,
       "lastMentioned": "2026-07-05T07:38:05Z"
     },
     {
+      "ticker": "MTSI",
+      "score": 0.7235,
+      "mentions": 3,
+      "weightedMentions": 1.3018,
+      "convictionHits": 0,
+      "lastMentioned": "2026-07-11T16:21:48Z"
+    },
+    {
       "ticker": "HIMS",
-      "score": 0.72,
+      "score": 0.7193,
       "mentions": 2,
       "weightedMentions": 0.8944,
       "convictionHits": 0,
       "lastMentioned": "2026-07-07T07:09:04Z"
     },
     {
+      "ticker": "SIVEF",
+      "score": 0.6704,
+      "mentions": 1,
+      "weightedMentions": 0.4472,
+      "convictionHits": 1,
+      "lastMentioned": "2026-07-11T16:25:35Z"
+    },
+    {
       "ticker": "NOK",
-      "score": 0.6445,
+      "score": 0.6439,
       "mentions": 5,
       "weightedMentions": 1.9883,
       "convictionHits": 2,
@@ -6533,7 +6749,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "BE",
-      "score": 0.6228,
+      "score": 0.6222,
       "mentions": 2,
       "weightedMentions": 1.0246,
       "convictionHits": 0,
@@ -6541,7 +6757,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "CRVW",
-      "score": 0.6057,
+      "score": 0.6051,
       "mentions": 1,
       "weightedMentions": 0.7071,
       "convictionHits": 0,
@@ -6549,7 +6765,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "CRCL",
-      "score": 0.573,
+      "score": 0.5725,
       "mentions": 3,
       "weightedMentions": 0.8337,
       "convictionHits": 1,
@@ -6557,7 +6773,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "BABA",
-      "score": 0.5701,
+      "score": 0.5695,
       "mentions": 1,
       "weightedMentions": 1.0,
       "convictionHits": 0,
@@ -6565,7 +6781,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "NVTS",
-      "score": 0.5666,
+      "score": 0.5661,
       "mentions": 2,
       "weightedMentions": 0.9107,
       "convictionHits": 1,
@@ -6573,23 +6789,15 @@ window.AIE_DATA = {
     },
     {
       "ticker": "SHAZ",
-      "score": 0.5243,
+      "score": 0.5238,
       "mentions": 1,
       "weightedMentions": 0.7071,
       "convictionHits": 0,
       "lastMentioned": "2026-07-05T15:16:13Z"
     },
     {
-      "ticker": "BRUN",
-      "score": 0.5098,
-      "mentions": 2,
-      "weightedMentions": 0.8944,
-      "convictionHits": 0,
-      "lastMentioned": "2026-06-30T07:45:27Z"
-    },
-    {
       "ticker": "KLAC",
-      "score": 0.5089,
+      "score": 0.5084,
       "mentions": 2,
       "weightedMentions": 0.9472,
       "convictionHits": 0,
@@ -6597,7 +6805,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "ASML",
-      "score": 0.4704,
+      "score": 0.4699,
       "mentions": 2,
       "weightedMentions": 0.8333,
       "convictionHits": 0,
@@ -6605,7 +6813,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "SILEX",
-      "score": 0.4501,
+      "score": 0.4496,
       "mentions": 1,
       "weightedMentions": 0.5774,
       "convictionHits": 0,
@@ -6613,7 +6821,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "WUS",
-      "score": 0.4226,
+      "score": 0.4222,
       "mentions": 2,
       "weightedMentions": 1.1547,
       "convictionHits": 0,
@@ -6621,7 +6829,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "ASX",
-      "score": 0.4166,
+      "score": 0.4162,
       "mentions": 2,
       "weightedMentions": 0.8936,
       "convictionHits": 0,
@@ -6629,7 +6837,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "CRWV",
-      "score": 0.415,
+      "score": 0.4146,
       "mentions": 2,
       "weightedMentions": 0.878,
       "convictionHits": 0,
@@ -6637,7 +6845,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "SIMO",
-      "score": 0.3897,
+      "score": 0.3893,
       "mentions": 1,
       "weightedMentions": 0.5,
       "convictionHits": 0,
@@ -6645,7 +6853,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "MSFT",
-      "score": 0.3414,
+      "score": 0.3411,
       "mentions": 2,
       "weightedMentions": 0.4557,
       "convictionHits": 1,
@@ -6653,7 +6861,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "FDX",
-      "score": 0.3182,
+      "score": 0.3179,
       "mentions": 1,
       "weightedMentions": 0.4082,
       "convictionHits": 0,
@@ -6661,7 +6869,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "FORD",
-      "score": 0.3182,
+      "score": 0.3179,
       "mentions": 1,
       "weightedMentions": 0.4082,
       "convictionHits": 0,
@@ -6669,23 +6877,15 @@ window.AIE_DATA = {
     },
     {
       "ticker": "GM",
-      "score": 0.3182,
+      "score": 0.3179,
       "mentions": 1,
       "weightedMentions": 0.4082,
       "convictionHits": 0,
       "lastMentioned": "2026-07-06T15:27:08Z"
     },
     {
-      "ticker": "MTSI",
-      "score": 0.3159,
-      "mentions": 2,
-      "weightedMentions": 0.8936,
-      "convictionHits": 0,
-      "lastMentioned": "2026-06-30T07:39:56Z"
-    },
-    {
       "ticker": "ARM",
-      "score": 0.3143,
+      "score": 0.314,
       "mentions": 2,
       "weightedMentions": 0.6897,
       "convictionHits": 1,
@@ -6693,7 +6893,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "BWA",
-      "score": 0.3027,
+      "score": 0.3024,
       "mentions": 1,
       "weightedMentions": 0.4082,
       "convictionHits": 0,
@@ -6701,7 +6901,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "ENS",
-      "score": 0.3027,
+      "score": 0.3024,
       "mentions": 1,
       "weightedMentions": 0.4082,
       "convictionHits": 0,
@@ -6709,7 +6909,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "ETN",
-      "score": 0.3027,
+      "score": 0.3024,
       "mentions": 1,
       "weightedMentions": 0.4082,
       "convictionHits": 0,
@@ -6717,7 +6917,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "VRT",
-      "score": 0.3027,
+      "score": 0.3024,
       "mentions": 1,
       "weightedMentions": 0.4082,
       "convictionHits": 0,
@@ -6725,7 +6925,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "QCOM",
-      "score": 0.2972,
+      "score": 0.2969,
       "mentions": 1,
       "weightedMentions": 0.4472,
       "convictionHits": 0,
@@ -6733,7 +6933,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "FCEL",
-      "score": 0.2719,
+      "score": 0.2716,
       "mentions": 1,
       "weightedMentions": 0.4472,
       "convictionHits": 0,
@@ -6741,7 +6941,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "DASH",
-      "score": 0.258,
+      "score": 0.2578,
       "mentions": 1,
       "weightedMentions": 0.3536,
       "convictionHits": 0,
@@ -6749,7 +6949,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "JD",
-      "score": 0.258,
+      "score": 0.2578,
       "mentions": 1,
       "weightedMentions": 0.3536,
       "convictionHits": 0,
@@ -6757,23 +6957,15 @@ window.AIE_DATA = {
     },
     {
       "ticker": "UBER",
-      "score": 0.258,
+      "score": 0.2578,
       "mentions": 1,
       "weightedMentions": 0.3536,
       "convictionHits": 0,
       "lastMentioned": "2026-07-05T07:37:20Z"
     },
     {
-      "ticker": "EOS",
-      "score": 0.2549,
-      "mentions": 1,
-      "weightedMentions": 0.4472,
-      "convictionHits": 0,
-      "lastMentioned": "2026-06-30T07:41:22Z"
-    },
-    {
       "ticker": "WLAC",
-      "score": 0.2549,
+      "score": 0.2547,
       "mentions": 1,
       "weightedMentions": 0.4472,
       "convictionHits": 0,
@@ -6781,7 +6973,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "BOT",
-      "score": 0.2549,
+      "score": 0.2547,
       "mentions": 1,
       "weightedMentions": 0.4472,
       "convictionHits": 0,
@@ -6789,7 +6981,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "BULL",
-      "score": 0.2549,
+      "score": 0.2547,
       "mentions": 1,
       "weightedMentions": 0.4472,
       "convictionHits": 0,
@@ -6797,15 +6989,23 @@ window.AIE_DATA = {
     },
     {
       "ticker": "DJT",
-      "score": 0.2549,
+      "score": 0.2547,
       "mentions": 1,
       "weightedMentions": 0.4472,
       "convictionHits": 0,
       "lastMentioned": "2026-06-30T07:45:27Z"
     },
     {
+      "ticker": "EOS",
+      "score": 0.2546,
+      "mentions": 1,
+      "weightedMentions": 0.4472,
+      "convictionHits": 0,
+      "lastMentioned": "2026-06-30T07:41:22Z"
+    },
+    {
       "ticker": "IBM",
-      "score": 0.2497,
+      "score": 0.2495,
       "mentions": 1,
       "weightedMentions": 0.5,
       "convictionHits": 0,
@@ -6813,7 +7013,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "IONQ",
-      "score": 0.2497,
+      "score": 0.2495,
       "mentions": 1,
       "weightedMentions": 0.5,
       "convictionHits": 0,
@@ -6821,7 +7021,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "QBTS",
-      "score": 0.2497,
+      "score": 0.2495,
       "mentions": 1,
       "weightedMentions": 0.5,
       "convictionHits": 0,
@@ -6829,7 +7029,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "RGTI",
-      "score": 0.2497,
+      "score": 0.2495,
       "mentions": 1,
       "weightedMentions": 0.5,
       "convictionHits": 0,
@@ -6837,7 +7037,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "FN",
-      "score": 0.235,
+      "score": 0.2348,
       "mentions": 1,
       "weightedMentions": 0.3015,
       "convictionHits": 0,
@@ -6845,7 +7045,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "CATL",
-      "score": 0.2332,
+      "score": 0.233,
       "mentions": 1,
       "weightedMentions": 0.3162,
       "convictionHits": 0,
@@ -6853,7 +7053,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "QQQ",
-      "score": 0.2327,
+      "score": 0.2325,
       "mentions": 1,
       "weightedMentions": 0.4082,
       "convictionHits": 0,
@@ -6861,7 +7061,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "ACMR",
-      "score": 0.2,
+      "score": 0.1998,
       "mentions": 1,
       "weightedMentions": 0.5774,
       "convictionHits": 0,
@@ -6869,7 +7069,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "CAMT",
-      "score": 0.2,
+      "score": 0.1998,
       "mentions": 1,
       "weightedMentions": 0.5774,
       "convictionHits": 0,
@@ -6877,7 +7077,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "GLW",
-      "score": 0.1948,
+      "score": 0.1946,
       "mentions": 1,
       "weightedMentions": 0.3015,
       "convictionHits": 0,
@@ -6885,7 +7085,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "TER",
-      "score": 0.1948,
+      "score": 0.1946,
       "mentions": 1,
       "weightedMentions": 0.3015,
       "convictionHits": 0,
@@ -6893,7 +7093,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "VECO",
-      "score": 0.1888,
+      "score": 0.1886,
       "mentions": 1,
       "weightedMentions": 0.378,
       "convictionHits": 0,
@@ -6901,7 +7101,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "SMTC",
-      "score": 0.1817,
+      "score": 0.1815,
       "mentions": 1,
       "weightedMentions": 0.2425,
       "convictionHits": 1,
@@ -6909,7 +7109,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "ALMU",
-      "score": 0.1766,
+      "score": 0.1764,
       "mentions": 1,
       "weightedMentions": 0.3536,
       "convictionHits": 0,
@@ -6917,7 +7117,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "SMHD",
-      "score": 0.1766,
+      "score": 0.1764,
       "mentions": 1,
       "weightedMentions": 0.3536,
       "convictionHits": 0,
@@ -6925,7 +7125,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "SMHMD",
-      "score": 0.1766,
+      "score": 0.1764,
       "mentions": 1,
       "weightedMentions": 0.3536,
       "convictionHits": 0,
@@ -6933,7 +7133,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "ETHA",
-      "score": 0.176,
+      "score": 0.1759,
       "mentions": 2,
       "weightedMentions": 0.6604,
       "convictionHits": 0,
@@ -6941,7 +7141,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "IBIT",
-      "score": 0.176,
+      "score": 0.1759,
       "mentions": 2,
       "weightedMentions": 0.6604,
       "convictionHits": 0,
@@ -6949,7 +7149,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "LRCX",
-      "score": 0.1665,
+      "score": 0.1663,
       "mentions": 1,
       "weightedMentions": 0.3333,
       "convictionHits": 0,
@@ -6957,7 +7157,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "LWLG",
-      "score": 0.1665,
+      "score": 0.1663,
       "mentions": 1,
       "weightedMentions": 0.3333,
       "convictionHits": 0,
@@ -6965,7 +7165,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "CIFR",
-      "score": 0.1313,
+      "score": 0.1312,
       "mentions": 1,
       "weightedMentions": 0.5774,
       "convictionHits": 0,
@@ -6973,7 +7173,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "ALAB",
-      "score": 0.1166,
+      "score": 0.1164,
       "mentions": 1,
       "weightedMentions": 0.5,
       "convictionHits": 0,
@@ -6981,7 +7181,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "ORCL",
-      "score": 0.111,
+      "score": 0.1109,
       "mentions": 1,
       "weightedMentions": 0.378,
       "convictionHits": 0,
@@ -6989,7 +7189,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "NFLX",
-      "score": 0.1065,
+      "score": 0.1064,
       "mentions": 1,
       "weightedMentions": 0.2132,
       "convictionHits": 0,
@@ -6997,7 +7197,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "UPWK",
-      "score": 0.1065,
+      "score": 0.1064,
       "mentions": 1,
       "weightedMentions": 0.2132,
       "convictionHits": 0,
@@ -7005,7 +7205,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "RPI",
-      "score": 0.095,
+      "score": 0.0949,
       "mentions": 1,
       "weightedMentions": 0.378,
       "convictionHits": 1,
@@ -7013,7 +7213,7 @@ window.AIE_DATA = {
     },
     {
       "ticker": "COIN",
-      "score": 0.0696,
+      "score": 0.0695,
       "mentions": 1,
       "weightedMentions": 0.4472,
       "convictionHits": 0,
@@ -8686,9 +8886,9 @@ window.AIE_DATA = {
   "vault": {
     "meta": {
       "schemaVersion": 1,
-      "syncedAt": "2026-07-11T16:16:03Z",
-      "pageCount": 63,
-      "linkCount": 123
+      "syncedAt": "2026-07-11T16:40:34Z",
+      "pageCount": 64,
+      "linkCount": 124
     },
     "pages": [
       {
@@ -8915,8 +9115,8 @@ window.AIE_DATA = {
           ],
           "stats": {
             "tier": "core",
-            "mentions": 38,
-            "lastMentioned": "2026-07-06T15:34:36Z",
+            "mentions": 40,
+            "lastMentioned": "2026-07-11T16:26:54Z",
             "category": "photonics",
             "market": "US",
             "marketCapTier": "Small",
@@ -9068,8 +9268,8 @@ window.AIE_DATA = {
           ],
           "stats": {
             "tier": "watch",
-            "mentions": 5,
-            "lastMentioned": "2026-07-03T10:09:14Z",
+            "mentions": 6,
+            "lastMentioned": "2026-07-11T16:21:48Z",
             "category": "networking",
             "market": "",
             "marketCapTier": "",
@@ -9090,8 +9290,8 @@ window.AIE_DATA = {
           ],
           "stats": {
             "tier": "core",
-            "mentions": 20,
-            "lastMentioned": "2026-07-08T13:04:04Z",
+            "mentions": 23,
+            "lastMentioned": "2026-07-11T16:26:54Z",
             "category": "memory",
             "market": "US",
             "marketCapTier": "Small",
@@ -9112,8 +9312,8 @@ window.AIE_DATA = {
           ],
           "stats": {
             "tier": "core",
-            "mentions": 18,
-            "lastMentioned": "2026-07-08T13:13:41Z",
+            "mentions": 20,
+            "lastMentioned": "2026-07-11T16:26:39Z",
             "category": "robotics",
             "market": "US",
             "marketCapTier": "Mid",
@@ -9134,8 +9334,8 @@ window.AIE_DATA = {
           ],
           "stats": {
             "tier": "watch",
-            "mentions": 9,
-            "lastMentioned": "2026-07-03T10:07:17Z",
+            "mentions": 10,
+            "lastMentioned": "2026-07-11T16:21:48Z",
             "category": "photonics",
             "market": "US",
             "marketCapTier": "Large",
@@ -9197,8 +9397,8 @@ window.AIE_DATA = {
           ],
           "stats": {
             "tier": "watch",
-            "mentions": 8,
-            "lastMentioned": "2026-06-30T07:47:41Z",
+            "mentions": 9,
+            "lastMentioned": "2026-07-11T16:24:01Z",
             "category": "unsorted",
             "market": "",
             "marketCapTier": "",
@@ -9219,8 +9419,8 @@ window.AIE_DATA = {
           ],
           "stats": {
             "tier": "core",
-            "mentions": 16,
-            "lastMentioned": "2026-07-08T13:18:10Z",
+            "mentions": 17,
+            "lastMentioned": "2026-07-11T16:25:35Z",
             "category": "fabs",
             "market": "",
             "marketCapTier": "",
@@ -9306,8 +9506,8 @@ window.AIE_DATA = {
           ],
           "stats": {
             "tier": "watch",
-            "mentions": 8,
-            "lastMentioned": "2026-07-06T15:29:52Z",
+            "mentions": 9,
+            "lastMentioned": "2026-07-11T16:26:54Z",
             "category": "photonics",
             "market": "",
             "marketCapTier": "",
@@ -9350,8 +9550,8 @@ window.AIE_DATA = {
           ],
           "stats": {
             "tier": "core",
-            "mentions": 20,
-            "lastMentioned": "2026-07-08T13:18:10Z",
+            "mentions": 21,
+            "lastMentioned": "2026-07-11T16:25:35Z",
             "category": "photonics",
             "market": "US",
             "marketCapTier": "Large",
@@ -9372,8 +9572,8 @@ window.AIE_DATA = {
           ],
           "stats": {
             "tier": "core",
-            "mentions": 33,
-            "lastMentioned": "2026-07-08T13:15:30Z",
+            "mentions": 36,
+            "lastMentioned": "2026-07-11T16:26:54Z",
             "category": "photonics",
             "market": "US",
             "marketCapTier": "Mid",
@@ -9416,8 +9616,8 @@ window.AIE_DATA = {
           ],
           "stats": {
             "tier": "core",
-            "mentions": 17,
-            "lastMentioned": "2026-07-08T13:14:42Z",
+            "mentions": 19,
+            "lastMentioned": "2026-07-11T16:24:57Z",
             "category": "hyperscalers",
             "market": "US",
             "marketCapTier": "Mega",
@@ -9504,8 +9704,8 @@ window.AIE_DATA = {
           ],
           "stats": {
             "tier": "core",
-            "mentions": 20,
-            "lastMentioned": "2026-07-08T13:01:43Z",
+            "mentions": 21,
+            "lastMentioned": "2026-07-11T16:23:22Z",
             "category": "neoclouds",
             "market": "US",
             "marketCapTier": "Mid",
@@ -9677,12 +9877,33 @@ window.AIE_DATA = {
           ],
           "stats": {
             "tier": "core",
-            "mentions": 70,
-            "lastMentioned": "2026-07-08T13:18:10Z",
+            "mentions": 74,
+            "lastMentioned": "2026-07-11T16:26:54Z",
             "category": "photonics",
             "market": "SE",
             "marketCapTier": "Small",
             "company": "Sivers Semiconductors"
+          }
+        },
+        "note": "",
+        "noteUpdatedAt": null
+      },
+      {
+        "slug": "sivef",
+        "type": "ticker",
+        "title": "SIVEF",
+        "auto": {
+          "refs": [
+            "aleabitoreddit"
+          ],
+          "stats": {
+            "tier": "watch",
+            "mentions": 1,
+            "lastMentioned": "2026-07-11T16:25:35Z",
+            "category": "unsorted",
+            "market": "",
+            "marketCapTier": "",
+            "company": ""
           }
         },
         "note": "",
@@ -9720,8 +9941,8 @@ window.AIE_DATA = {
           ],
           "stats": {
             "tier": "core",
-            "mentions": 11,
-            "lastMentioned": "2026-07-08T13:01:43Z",
+            "mentions": 12,
+            "lastMentioned": "2026-07-11T16:24:57Z",
             "category": "memory",
             "market": "",
             "marketCapTier": "",
@@ -9763,8 +9984,8 @@ window.AIE_DATA = {
           ],
           "stats": {
             "tier": "core",
-            "mentions": 11,
-            "lastMentioned": "2026-07-08T13:13:41Z",
+            "mentions": 12,
+            "lastMentioned": "2026-07-11T16:24:28Z",
             "category": "unsorted",
             "market": "",
             "marketCapTier": "",
@@ -9807,8 +10028,8 @@ window.AIE_DATA = {
           ],
           "stats": {
             "tier": "core",
-            "mentions": 13,
-            "lastMentioned": "2026-07-08T13:13:41Z",
+            "mentions": 14,
+            "lastMentioned": "2026-07-11T16:26:39Z",
             "category": "robotics",
             "market": "US",
             "marketCapTier": "Mega",
@@ -9829,8 +10050,8 @@ window.AIE_DATA = {
           ],
           "stats": {
             "tier": "core",
-            "mentions": 15,
-            "lastMentioned": "2026-07-05T12:40:49Z",
+            "mentions": 16,
+            "lastMentioned": "2026-07-11T16:26:54Z",
             "category": "fabs",
             "market": "TW",
             "marketCapTier": "Mega",

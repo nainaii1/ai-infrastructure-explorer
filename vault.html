@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vault — AI Supply Desk</title>
+
+  <!-- ⚡ favicon: inline SVG data URI (no external request, works on file://) -->
+  <link
+    rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M13 2 4.5 13.5H11l-1 8.5L19.5 10H13z' fill='%233b82f6'/%3E%3C/svg%3E"
+  />
+
+  <!-- Shared editorial design tokens + components (masthead, chips, badges, .th-card, colophon). -->
+  <link rel="stylesheet" href="shared/theme.css" />
+
+  <style>
+    /* vault.html-only layout. Tokens + components come from theme.css —
+       nothing here redefines a token or an .aie-* / .th-card component. */
+
+    .vault-shell { padding: 32px 0 8px; }
+
+    /* ---- Index: header + filters ---- */
+    .vlt-head { margin: 0 0 6px; }
+    .vlt-title {
+      font-family: var(--serif); font-weight: 600;
+      font-size: 34px; line-height: 1.1; letter-spacing: -0.02em;
+      color: var(--ink); margin: 0 0 8px;
+    }
+    .vlt-count {
+      font-family: var(--mono); font-size: 12px; letter-spacing: .04em;
+      color: var(--muted); margin: 0 0 22px;
+    }
+    .vlt-filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 22px; }
+    .vlt-filters .aie-chip { cursor: pointer; }
+
+    /* ---- Index: rows ---- */
+    .vlt-rows { display: flex; flex-direction: column; }
+    .vlt-row {
+      display: flex; align-items: center; gap: 14px;
+      padding: 13px 6px; border-bottom: 1px solid var(--border);
+      text-decoration: none; color: var(--text);
+      transition: background var(--ease);
+    }
+    .vlt-row:hover { background: var(--paper-sink); }
+    .vlt-row-title { font-family: var(--serif); font-size: 16.5px; color: var(--ink); flex: 1 1 auto; min-width: 0; }
+    .vlt-row-title .vlt-sub { font-family: var(--mono); font-size: 11px; color: var(--muted); margin-left: 8px; }
+    .vlt-row-meta { display: flex; align-items: center; gap: 12px; flex: 0 0 auto; }
+    .vlt-updated { font-family: var(--mono); font-size: 11px; color: var(--muted); min-width: 82px; text-align: right; }
+
+    /* Stub / enriched status badges (warm-tinted, reuse the semantic palette). */
+    .vlt-status {
+      font-family: var(--mono); font-size: 10px; font-weight: 700;
+      letter-spacing: .06em; text-transform: uppercase;
+      padding: 3px 8px; border-radius: 6px; line-height: 1;
+    }
+    .vlt-status--enriched { background: var(--sem-act-bg); color: var(--sem-act-fg); }
+    .vlt-status--stub { background: var(--sem-pass-bg); color: var(--sem-pass-fg); }
+
+    /* ---- Page view ---- */
+    .vlt-article { max-width: 720px; }
+    .vlt-eyebrow { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin: 0 0 14px; }
+    .vlt-back {
+      font-family: var(--mono); font-size: 11px; letter-spacing: .04em;
+      color: var(--muted); text-decoration: none;
+    }
+    .vlt-back:hover { color: var(--ink); }
+    .vlt-page-title {
+      font-family: var(--serif); font-weight: 600;
+      font-size: 38px; line-height: 1.12; letter-spacing: -0.02em;
+      color: var(--ink); margin: 0 0 18px;
+    }
+
+    /* Auto-stats strip — live from the ticker / theme record. */
+    .vlt-stats {
+      display: flex; flex-wrap: wrap; gap: 14px 30px;
+      margin: 0 0 30px; padding: 16px 20px;
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--r-card); box-shadow: var(--shadow-sm);
+    }
+    .vlt-stat { display: flex; flex-direction: column; gap: 6px; }
+    .vlt-stat-label {
+      font-family: var(--mono); font-size: 10px; font-weight: 600;
+      letter-spacing: .08em; text-transform: uppercase; color: var(--muted);
+    }
+    .vlt-stat-value {
+      font-family: var(--sans); font-size: 15px; font-weight: 600; color: var(--ink);
+      display: flex; align-items: center; gap: 8px;
+    }
+    .vlt-stat-value .mono { font-family: var(--mono); font-weight: 600; }
+    .vlt-chg { font-family: var(--mono); font-size: 12px; font-weight: 600; }
+    .vlt-chg.up { color: #4d6a2b; }
+    .vlt-chg.down { color: #a13d2f; }
+
+    /* Note prose (serif 17/1.65 per house style). */
+    .vlt-note { margin: 0 0 8px; }
+    .vlt-p {
+      font-family: var(--serif); font-size: 17px; line-height: 1.65;
+      color: var(--text); margin: 0 0 16px;
+    }
+    .vlt-p:last-child { margin-bottom: 0; }
+    .vlt-p strong { font-weight: 700; color: var(--ink); }
+    .vlt-note-empty {
+      font-family: var(--sans); font-size: 14.5px; line-height: 1.6; color: var(--muted);
+      margin: 0; padding: 16px 18px; background: var(--paper-sink);
+      border-radius: 10px; border: 1px dashed var(--border);
+    }
+    .vlt-note-empty code {
+      font-family: var(--mono); font-size: 12.5px;
+      background: var(--card); padding: 1px 6px; border-radius: 4px;
+    }
+
+    /* Auto sections: memos / theses / backlinks. */
+    .vlt-sec { margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--border); }
+    .vlt-sec-title {
+      font-family: var(--mono); font-size: 11px; font-weight: 600;
+      letter-spacing: .08em; text-transform: uppercase; color: var(--muted);
+      margin: 0 0 16px;
+    }
+    .vlt-sec-empty { font-family: var(--sans); font-size: 13.5px; color: var(--muted); margin: 0; }
+    .vlt-sources { display: flex; flex-direction: column; gap: 12px; }
+
+    /* Linked-memo list (mirrors memo.html's prior-memo rows). */
+    .vlt-memos { list-style: none; margin: 0; padding: 0; }
+    .vlt-memos a {
+      display: flex; gap: 14px; align-items: baseline;
+      padding: 12px 0; border-bottom: 1px solid var(--border);
+      text-decoration: none; color: var(--text);
+    }
+    .vlt-memos a:hover .vm-title { color: var(--ink); }
+    .vm-date { font-family: var(--mono); font-size: 11px; color: var(--muted); min-width: 82px; flex: 0 0 auto; }
+    .vm-title { font-family: var(--serif); font-size: 15.5px; color: var(--ink); }
+    .vm-kind { font-family: var(--mono); font-size: 10px; color: var(--muted); }
+
+    /* Backlink / member chips. */
+    .vlt-links { display: flex; flex-wrap: wrap; gap: 8px; }
+    .vlt-linkchip {
+      font-family: var(--mono); font-size: 12px;
+      color: var(--text); text-decoration: none;
+      padding: 5px 11px; border: 1px solid var(--border); border-radius: 999px;
+      transition: border-color var(--ease), color var(--ease), background var(--ease);
+    }
+    .vlt-linkchip:hover { border-color: var(--muted); color: var(--ink); background: var(--paper-sink); }
+
+    /* ---- Empty state (shared shape with memo.html) ---- */
+    .vlt-empty {
+      max-width: 560px; margin: 64px auto; text-align: center;
+      padding: 52px 34px; background: var(--card);
+      border: 1px solid var(--border); border-radius: var(--r-card);
+      box-shadow: var(--shadow-sm);
+    }
+    .vlt-empty h1 { font-family: var(--serif); font-weight: 600; font-size: 28px; color: var(--ink); margin: 0 0 12px; }
+    .vlt-empty p { font-family: var(--sans); font-size: 15px; line-height: 1.6; color: var(--muted); margin: 0 0 22px; }
+    .vlt-empty p code {
+      font-family: var(--mono); font-size: 13px;
+      background: var(--paper-sink); padding: 1px 6px; border-radius: 4px;
+    }
+    .vlt-actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+    .vlt-actions a {
+      font-family: var(--mono); font-size: 11px; font-weight: 600;
+      letter-spacing: .06em; text-transform: uppercase; text-decoration: none;
+      padding: 9px 16px; border-radius: 8px;
+      border: 1px solid var(--border); color: var(--text);
+      transition: border-color var(--ease), color var(--ease), background var(--ease);
+    }
+    .vlt-actions a:hover { border-color: var(--muted); color: var(--ink); background: var(--paper-sink); }
+    .vlt-actions a.primary { background: var(--ink); border-color: var(--ink); color: var(--card); }
+
+    @media (max-width: 768px) {
+      .vlt-page-title { font-size: 30px; }
+      .vlt-updated { min-width: 64px; }
+      .vlt-row { gap: 10px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- 3px category-gradient border, painted at runtime by AIE.paintGradientBorder(). -->
+  <div class="gradient-border" id="gradientBorder"></div>
+
+  <!-- Shared top nav (theme.css). Rendered by AIE.renderNav(...) at boot. -->
+  <div id="topNav"></div>
+
+  <main class="aie-wrap vault-shell" id="vaultMain"><!-- filled by boot() --></main>
+
+  <footer class="aie-colophon" id="colophon"><!-- disclaimer from the store at boot --></footer>
+
+  <!-- data.js MUST load first: defines window.AIE_DATA -->
+  <script src="data.js"></script>
+  <!-- Shared AIE namespace (seeding, nav, formatters, wikilink parser). After data.js. -->
+  <script src="shared/common.js"></script>
+
+  <script>
+    (function () {
+      "use strict";
+      var DATA = window.AIE_DATA || {};
+      var AIE = window.AIE;
+
+      // Shared boot: seed localStorage, paint the category gradient.
+      AIE.seed();
+      AIE.paintGradientBorder();
+
+      /* ---- tiny DOM helper ---- */
+      function el(tag, className, text) {
+        var n = document.createElement(tag);
+        if (className) n.className = className;
+        if (text != null) n.textContent = text;
+        return n;
+      }
+
+      /* ---- store lookups ---- */
+      var VAULT = DATA.vault || {};
+      var PAGES = VAULT.pages || [];
+      var TICKERS = DATA.tickers || [];
+      var THESES = DATA.theses || [];
+      var CATS = DATA.categories || {};
+      var MEMOS = (DATA.memos && DATA.memos.memos) || [];
+
+      var pageBySlug = {};
+      PAGES.forEach(function (p) { pageBySlug[p.slug] = p; });
+      var tickerBySlug = {};      // slug -> ticker record
+      TICKERS.forEach(function (t) { tickerBySlug[AIE.slugify(t.ticker)] = t; });
+      var thesisById = {};
+      THESES.forEach(function (t) { thesisById[t.id] = t; });
+
+      var WIKI_RE = /\[\[([^\]]+)\]\]/g;
+      function noteWikiSlugs(note) {
+        var out = [], m; WIKI_RE.lastIndex = 0;
+        while ((m = WIKI_RE.exec(note || "")) !== null) out.push(AIE.slugify(m[1].trim()));
+        return out;
+      }
+
+      var TYPE_LABEL = { ticker: "Ticker", theme: "Theme", person: "Person",
+                         event: "Event", concept: "Concept" };
+      var TYPE_ORDER = { theme: 0, ticker: 1, person: 2, concept: 3, event: 4 };
+      // NB: use hasOwnProperty, not `|| 99` — theme's rank is 0 (falsy).
+      function typeRank(t) { return TYPE_ORDER.hasOwnProperty(t) ? TYPE_ORDER[t] : 99; }
+
+      function pageHref(slug) { return "vault.html?page=" + encodeURIComponent(slug); }
+      function isEnriched(p) { return !!(p.note && p.note.trim()); }
+
+      /* Color for a page's type chip: a theme page slug IS a category id. */
+      function typeChipColor(p) {
+        if (p.type === "theme") return AIE.categoryColor(p.slug, null);
+        if (p.type === "ticker") {
+          var t = tickerBySlug[p.slug];
+          return t ? AIE.categoryColor(t.category, null) : null;
+        }
+        return null;
+      }
+
+      function typeChip(p) {
+        var chip = el("span", "aie-chip aie-chip--ticker", TYPE_LABEL[p.type] || p.type);
+        var color = typeChipColor(p);
+        if (color) chip.style.setProperty("--chip-accent", color);
+        return chip;
+      }
+
+      /* ==================================================================
+         INDEX VIEW  (?view=index — the default)
+         ================================================================== */
+      function renderIndex() {
+        AIE.renderNav("vault");
+        document.title = "Vault — AI Supply Desk";
+        var main = document.getElementById("vaultMain");
+        main.textContent = "";
+
+        if (!PAGES.length) {
+          main.appendChild(indexEmpty());
+          return;
+        }
+
+        var meta = VAULT.meta || {};
+        var head = el("div", "vlt-head");
+        head.appendChild(el("h1", "vlt-title", "The Vault"));
+        var pc = meta.pageCount != null ? meta.pageCount : PAGES.length;
+        var lc = meta.linkCount != null ? meta.linkCount : 0;
+        head.appendChild(el("p", "vlt-count",
+          pc + (pc === 1 ? " page" : " pages") + " · " + lc + (lc === 1 ? " link" : " links")));
+        main.appendChild(head);
+
+        // Type filter chips — only types that actually exist, in canonical order.
+        var present = {};
+        PAGES.forEach(function (p) { present[p.type] = true; });
+        var types = Object.keys(present).sort(function (a, b) {
+          return typeRank(a) - typeRank(b);
+        });
+
+        var filters = el("div", "vlt-filters");
+        var rowsWrap = el("div", "vlt-rows");
+        var active = "all";
+
+        function draw() {
+          rowsWrap.textContent = "";
+          var shown = PAGES.filter(function (p) { return active === "all" || p.type === active; })
+                           .slice()
+                           .sort(function (a, b) {
+                             var d = typeRank(a.type) - typeRank(b.type);
+                             return d !== 0 ? d : a.title.localeCompare(b.title);
+                           });
+          shown.forEach(function (p) { rowsWrap.appendChild(indexRow(p)); });
+          if (!shown.length) {
+            rowsWrap.appendChild(el("p", "vlt-sec-empty", "No pages of this type."));
+          }
+        }
+
+        function chip(label, value) {
+          var c = el("span", "aie-chip" + (value === active ? " is-active" : ""), label);
+          c.addEventListener("click", function () {
+            active = value;
+            Array.prototype.forEach.call(filters.children, function (ch) {
+              ch.classList.toggle("is-active", ch === c);
+            });
+            draw();
+          });
+          return c;
+        }
+
+        filters.appendChild(chip("All", "all"));
+        types.forEach(function (t) { filters.appendChild(chip(TYPE_LABEL[t] || t, t)); });
+        main.appendChild(filters);
+        main.appendChild(rowsWrap);
+        draw();
+      }
+
+      function indexRow(p) {
+        var row = el("a", "vlt-row");
+        row.href = pageHref(p.slug);
+
+        var title = el("div", "vlt-row-title");
+        title.appendChild(document.createTextNode(p.title || p.slug));
+        title.appendChild(el("span", "vlt-sub", TYPE_LABEL[p.type] || p.type));
+        row.appendChild(title);
+
+        var meta = el("div", "vlt-row-meta");
+        var enriched = isEnriched(p);
+        meta.appendChild(el("span", "vlt-status " + (enriched ? "vlt-status--enriched" : "vlt-status--stub"),
+          enriched ? "enriched" : "stub"));
+        meta.appendChild(el("span", "vlt-updated", p.noteUpdatedAt ? AIE.fmtDate(p.noteUpdatedAt) : "—"));
+        row.appendChild(meta);
+        return row;
+      }
+
+      function indexEmpty() {
+        var box = el("div", "vlt-empty");
+        box.appendChild(el("h1", null, "The vault is empty"));
+        var p = el("p");
+        p.appendChild(document.createTextNode("Pages are generated by "));
+        p.appendChild(el("code", null, "ingest/vault_sync.py"));
+        p.appendChild(document.createTextNode(" — run it, then regenerate "));
+        p.appendChild(el("code", null, "data.js"));
+        p.appendChild(document.createTextNode("."));
+        box.appendChild(p);
+        var actions = el("div", "vlt-actions");
+        var a1 = el("a", "primary", "Coverage index"); a1.href = "index.html";
+        var a2 = el("a", null, "The Desk"); a2.href = "desk.html";
+        actions.appendChild(a1); actions.appendChild(a2);
+        box.appendChild(actions);
+        return box;
+      }
+
+      /* ==================================================================
+         PAGE VIEW  (?page=slug)
+         ================================================================== */
+      function renderPage(page) {
+        AIE.renderNav("vault");
+        document.title = (page.title || "Vault") + " — AI Supply Desk";
+        var main = document.getElementById("vaultMain");
+        main.textContent = "";
+
+        var article = el("article", "vlt-article");
+
+        var eyebrow = el("div", "vlt-eyebrow");
+        var back = el("a", "vlt-back", "← Vault index"); back.href = "vault.html";
+        eyebrow.appendChild(back);
+        eyebrow.appendChild(typeChip(page));
+        article.appendChild(eyebrow);
+
+        article.appendChild(el("h1", "vlt-page-title", page.title || page.slug));
+
+        // Auto-stats strip (live).
+        var stats = buildStats(page);
+        if (stats) article.appendChild(stats);
+
+        // Claude-owned note prose, or a stub hint.
+        var note = el("div", "vlt-note");
+        if (isEnriched(page)) {
+          AIE.renderBody(page.note, "vlt-p").forEach(function (p) { note.appendChild(p); });
+        } else {
+          var hint = el("p", "vlt-note-empty");
+          hint.appendChild(document.createTextNode("This page hasn't been enriched yet. Add prose with "));
+          hint.appendChild(el("code", null, "/vault-note " + page.slug));
+          hint.appendChild(document.createTextNode("."));
+          note.appendChild(hint);
+        }
+        article.appendChild(note);
+
+        // Auto sections: linked memos, cited theses, backlinks.
+        var memos = relatedMemos(page);
+        if (memos.length) article.appendChild(buildMemoSection(memos, page));
+
+        var theses = citedTheses(page, memos);
+        if (theses.length) article.appendChild(buildThesisSection(theses));
+
+        var backlinks = backlinksTo(page.slug);
+        if (backlinks.length) article.appendChild(buildBacklinkSection(backlinks));
+
+        main.appendChild(article);
+      }
+
+      /* ---- stat strips per page type ---- */
+      function statItem(label, valueNode) {
+        var item = el("div", "vlt-stat");
+        item.appendChild(el("span", "vlt-stat-label", label));
+        var v = el("div", "vlt-stat-value");
+        if (typeof valueNode === "string") v.appendChild(el("span", "mono", valueNode));
+        else v.appendChild(valueNode);
+        item.appendChild(v);
+        return item;
+      }
+
+      function buildStats(page) {
+        var strip = el("div", "vlt-stats");
+        var n = 0;
+
+        if (page.type === "ticker") {
+          var t = tickerBySlug[page.slug];
+          var stats = (page.auto && page.auto.stats) || {};
+          if (t && t.company) { strip.appendChild(statItem("Company", el("span", null, t.company))); n++; }
+          var tier = (t && t.tier) || stats.tier;
+          if (tier) { strip.appendChild(statItem("Tier", el("span", "aie-badge aie-tier--" + tier, tier))); n++; }
+          var cat = t && CATS[t.category];
+          if (cat) {
+            var catChip = el("span", "aie-chip aie-chip--ticker", cat.label || t.category);
+            if (cat.color) catChip.style.setProperty("--chip-accent", cat.color);
+            strip.appendChild(statItem("Layer", catChip)); n++;
+          }
+          if (t && t.price != null) {
+            var pv = el("div", "vlt-stat-value");
+            pv.appendChild(el("span", "mono", AIE.fmtNum(t.price, 2) + (t.currency ? " " + t.currency : "")));
+            if (t.chg7d != null) pv.appendChild(el("span", "vlt-chg " + (t.chg7d >= 0 ? "up" : "down"), AIE.fmtPct(t.chg7d) + " 7d"));
+            var pi = el("div", "vlt-stat"); pi.appendChild(el("span", "vlt-stat-label", "Price")); pi.appendChild(pv);
+            strip.appendChild(pi); n++;
+          }
+          if (stats.mentions != null) { strip.appendChild(statItem("Mentions", String(stats.mentions))); n++; }
+          if (stats.lastMentioned) { strip.appendChild(statItem("Last cited", AIE.fmtDate(stats.lastMentioned))); n++; }
+          if (t && t.verdict && t.verdict.stance) {
+            strip.appendChild(statItem("Desk stance", el("span", "aie-badge aie-stance--" + t.verdict.stance, t.verdict.stance))); n++;
+          }
+        } else if (page.type === "theme") {
+          var s = (page.auto && page.auto.stats) || {};
+          var cat2 = CATS[page.slug];
+          if (cat2 && cat2.subtitle) { strip.appendChild(statItem("Layer", el("span", null, cat2.subtitle))); n++; }
+          if (s.flowRole) { strip.appendChild(statItem("Flow role", s.flowRole)); n++; }
+          if (s.memberCount != null) { strip.appendChild(statItem("Names", String(s.memberCount))); n++; }
+          if (s.coreCount != null) { strip.appendChild(statItem("Core", String(s.coreCount))); n++; }
+          if (s.watchCount != null) { strip.appendChild(statItem("Watch", String(s.watchCount))); n++; }
+        } else if (page.type === "person") {
+          var ps = (page.auto && page.auto.stats) || {};
+          if (ps.handle) { strip.appendChild(statItem("Handle", ps.handle)); n++; }
+          if (ps.themesCovered != null) { strip.appendChild(statItem("Themes covered", String(ps.themesCovered))); n++; }
+        } else if (page.type === "concept") {
+          var def = (page.auto && page.auto.stats && page.auto.stats.definition) || "";
+          if (def) { strip.appendChild(statItem("Definition", el("span", null, def))); n++; }
+        }
+
+        return n ? strip : null;
+      }
+
+      /* ---- related content ---- */
+      function memoLinksToPage(memo, page) {
+        if (page.type === "ticker" && AIE.slugify(memo.ticker || "") === page.slug) return true;
+        var blob = (memo.title || "") + " " + (memo.dek || "");
+        (memo.sections || []).forEach(function (sec) { blob += " " + (sec.body || ""); });
+        return noteWikiSlugs(blob).indexOf(page.slug) !== -1;
+      }
+
+      function memoDateDesc(a, b) {
+        var da = a.publishedAt || a.updatedAt || "", db = b.publishedAt || b.updatedAt || "";
+        return db < da ? -1 : (db > da ? 1 : 0);
+      }
+
+      function relatedMemos(page) {
+        return MEMOS.filter(function (m) { return memoLinksToPage(m, page); }).sort(memoDateDesc);
+      }
+
+      // Cited theses = those cited by the linked memos, plus (ticker pages)
+      // theses that mention the symbol directly. Newest first, capped.
+      var THESIS_CAP = 12;
+      function citedTheses(page, memos) {
+        var ids = {};
+        memos.forEach(function (m) { (m.sourceThesisIds || []).forEach(function (id) { ids[id] = true; }); });
+        if (page.type === "ticker") {
+          var t = tickerBySlug[page.slug];
+          var sym = t && t.ticker;
+          if (sym) THESES.forEach(function (th) {
+            if ((th.tickers || []).indexOf(sym) !== -1) ids[th.id] = true;
+          });
+        }
+        var out = Object.keys(ids).map(function (id) { return thesisById[id]; }).filter(Boolean);
+        out.sort(function (a, b) {
+          var da = a.postedAt || "", db = b.postedAt || "";
+          return db < da ? -1 : (db > da ? 1 : 0);
+        });
+        return out.slice(0, THESIS_CAP);
+      }
+
+      // "What links here": pages whose auto.refs or note wikilinks target slug.
+      function backlinksTo(slug) {
+        var out = [];
+        PAGES.forEach(function (p) {
+          if (p.slug === slug) return;
+          var refs = (p.auto && p.auto.refs) || [];
+          var hit = refs.indexOf(slug) !== -1 || noteWikiSlugs(p.note).indexOf(slug) !== -1;
+          if (hit) out.push(p);
+        });
+        out.sort(function (a, b) {
+          var d = typeRank(a.type) - typeRank(b.type);
+          return d !== 0 ? d : a.title.localeCompare(b.title);
+        });
+        return out;
+      }
+
+      /* ---- section builders ---- */
+      function kindLabel(kind) {
+        if (kind === "update") return "Update";
+        if (kind === "exit-note") return "Exit note";
+        if (kind === "coverage") return "Coverage note";
+        return kind || "Note";
+      }
+
+      function buildMemoSection(memos, page) {
+        var wrap = el("section", "vlt-sec");
+        wrap.appendChild(el("h2", "vlt-sec-title", "Coverage · " + memos.length + (memos.length === 1 ? " memo" : " memos")));
+        var ul = el("ul", "vlt-memos");
+        memos.forEach(function (m) {
+          var li = el("li");
+          var a = el("a"); a.href = "memo.html?id=" + encodeURIComponent(m.id);
+          a.appendChild(el("span", "vm-date", m.publishedAt ? AIE.fmtDate(m.publishedAt) : "—"));
+          var mid = el("span"); mid.appendChild(el("span", "vm-title", m.title || m.id));
+          a.appendChild(mid);
+          a.appendChild(el("span", "vm-kind", kindLabel(m.kind)));
+          li.appendChild(a); ul.appendChild(li);
+        });
+        wrap.appendChild(ul);
+        return wrap;
+      }
+
+      function buildThesisSection(theses) {
+        var wrap = el("section", "vlt-sec");
+        wrap.appendChild(el("h2", "vlt-sec-title", "Evidence · " + theses.length + " cited " + (theses.length === 1 ? "thesis" : "theses")));
+        var list = el("div", "vlt-sources");
+        theses.forEach(function (th) { list.appendChild(AIE.makeThesisCard(th, { compact: true })); });
+        wrap.appendChild(list);
+        return wrap;
+      }
+
+      function buildBacklinkSection(pages) {
+        var wrap = el("section", "vlt-sec");
+        wrap.appendChild(el("h2", "vlt-sec-title", "What links here · " + pages.length));
+        var links = el("div", "vlt-links");
+        pages.forEach(function (p) {
+          var a = el("a", "vlt-linkchip", p.title || p.slug);
+          a.href = pageHref(p.slug);
+          links.appendChild(a);
+        });
+        wrap.appendChild(links);
+        return wrap;
+      }
+
+      function pageEmpty(slug) {
+        var main = document.getElementById("vaultMain");
+        main.textContent = "";
+        var box = el("div", "vlt-empty");
+        box.appendChild(el("h1", null, "Page not found"));
+        var p = el("p");
+        p.appendChild(document.createTextNode("No vault page matches "));
+        p.appendChild(el("code", null, "page=" + slug));
+        p.appendChild(document.createTextNode(". It may not have been synced yet."));
+        box.appendChild(p);
+        var actions = el("div", "vlt-actions");
+        var a1 = el("a", "primary", "Vault index"); a1.href = "vault.html";
+        var a2 = el("a", null, "Coverage index"); a2.href = "index.html";
+        actions.appendChild(a1); actions.appendChild(a2);
+        box.appendChild(actions);
+        main.appendChild(box);
+        document.title = "Page not found — AI Supply Desk";
+      }
+
+      /* ==================================================================
+         GRAPH VIEW placeholder — the force layout lands in P13. Keep the
+         nav "Graph" link from dead-ending until then.
+         ================================================================== */
+      function renderGraphPlaceholder() {
+        AIE.renderNav("graph");
+        document.title = "Graph — AI Supply Desk";
+        var main = document.getElementById("vaultMain");
+        main.textContent = "";
+        var box = el("div", "vlt-empty");
+        box.appendChild(el("h1", null, "Graph view is coming"));
+        box.appendChild(el("p", null, "The knowledge graph — a force-directed map of every page and its links — ships in the next update. For now, browse the vault as an index."));
+        var actions = el("div", "vlt-actions");
+        var a1 = el("a", "primary", "Vault index"); a1.href = "vault.html";
+        actions.appendChild(a1);
+        box.appendChild(actions);
+        main.appendChild(box);
+      }
+
+      /* ==================================================================
+         Colophon disclaimer — memos.meta, then desk.meta, then generic.
+         ================================================================== */
+      function renderColophon() {
+        var memoMeta = (DATA.memos && DATA.memos.meta) || {};
+        var deskMeta = (DATA.desk && DATA.desk.meta) || {};
+        var colo = document.getElementById("colophon");
+        if (!colo) return;
+        colo.appendChild(el("strong", null, "AI Supply Desk"));
+        colo.appendChild(document.createTextNode(" — "));
+        colo.appendChild(document.createTextNode(
+          memoMeta.disclaimer || deskMeta.disclaimer ||
+          "Personal research tool — not investment advice."));
+      }
+
+      /* ==================================================================
+         Boot / router.
+         ================================================================== */
+      function boot() {
+        renderColophon();
+        var params = new URLSearchParams(window.location.search);
+        var pageSlug = params.get("page");
+        var view = params.get("view");
+
+        if (pageSlug) {
+          var page = pageBySlug[pageSlug];
+          if (page) renderPage(page);
+          else { AIE.renderNav("vault"); pageEmpty(pageSlug); }
+          return;
+        }
+        if (view === "graph") { renderGraphPlaceholder(); return; }
+        renderIndex();
+      }
+
+      boot();
+    })();
+  </script>
+</body>
+</html>

@@ -292,6 +292,19 @@ a.aie-chip:hover { border-color: var(--muted); color: var(--ink); }
   color: var(--card);
 }
 
+/* ----------------------------------------------------------------------------
+   Inline prose markup (shared by AIE.renderInline — memo.html, vault.html).
+   A $TICK chip is an .aie-chip--ticker link; a [[wikilink]] is a quiet
+   underlined internal link into the vault.
+   -------------------------------------------------------------------------- */
+.aie-tickerchip { text-decoration: none; }
+.aie-wikilink {
+  color: var(--text); text-decoration: none;
+  border-bottom: 1px solid var(--border);
+  transition: color var(--ease), border-color var(--ease);
+}
+.aie-wikilink:hover { color: var(--ink); border-bottom-color: var(--muted); }
+
 /* ============================================================================
    7. TIER + STANCE BADGES
    Warm-tinted fills, SAME hue semantics as the cleanroom theme:
