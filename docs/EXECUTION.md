@@ -42,7 +42,7 @@ data.js           generated as always; gains memos, vault, later calls
 | 0 | This guide | P0 | ✅ 2026-07-06 |
 | 1 | Multi-page scaffold + editorial design system | P1–P5 | ✅ 2026-07-08 |
 | 2 | Coverage memos (store, memo.html, ledger, skills, seed content) | P6–P10 | ☑ 2026-07-12 |
-| 3 | Knowledge Vault (store+sync, index/page views, graph, authoring loop) | P11–P14 | ☐ |
+| 3 | Knowledge Vault (store+sync, index/page views, graph, authoring loop) | P11–P14 | 🚧 P11–P12 done |
 | 4 | Cross-linking everywhere | P15 | ☐ |
 | 5 | Performance hooks (calls.json + minimal page) | P16 | ☐ |
 
@@ -187,7 +187,7 @@ data.js           generated as always; gains memos, vault, later calls
 
 ## Phase 3 — Knowledge Vault
 
-### ☐ P11 · S5-H — vault.json + vault_sync.py
+### ☑ P11 · S5-H — vault.json + vault_sync.py (2026-07-12)
 
 > Read CLAUDE.md and docs/EXECUTION.md (vault schema below). Create
 > `ingest/store/vault.json` and `ingest/vault_sync.py`: idempotent upsert of one
@@ -202,7 +202,7 @@ data.js           generated as always; gains memos, vault, later calls
 > data.js. Unit tests: idempotency, note preservation, counts. Regen. Commit as
 > `feat: knowledge vault store + structural sync`.
 
-### ☐ P12 · Op-M — vault.html index + page views
+### ☑ P12 · Op-M — vault.html index + page views (2026-07-12)
 
 > Read CLAUDE.md, shared/*, docs/EXECUTION.md. Build `vault.html` with
 > `?view=index` (default): "N pages · M links" serif header, type filter chips,
