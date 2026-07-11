@@ -43,7 +43,7 @@ data.js           generated as always; gains memos, vault, later calls
 | 1 | Multi-page scaffold + editorial design system | P1–P5 | ✅ 2026-07-08 |
 | 2 | Coverage memos (store, memo.html, ledger, skills, seed content) | P6–P10 | ☑ 2026-07-12 |
 | 3 | Knowledge Vault (store+sync, index/page views, graph, authoring loop) | P11–P14 | ✅ 2026-07-12 |
-| 4 | Cross-linking everywhere | P15 | ☐ |
+| 4 | Cross-linking everywhere | P15 | ✅ |
 | 5 | Performance hooks (calls.json + minimal page) | P16 | ☐ |
 
 ## Verification checklist (run after EVERY prompt)
@@ -240,7 +240,7 @@ data.js           generated as always; gains memos, vault, later calls
 
 ## Phase 4 — Cross-linking
 
-### ☐ P15 · S5-H — link everything
+### ✅ P15 · S5-H — link everything (2026-07-12)
 
 > Upgrade `AIE.linkForTicker(sym)` in common.js: memo exists → memo.html; else
 > vault page exists → vault.html?page=…; else desk.html#watchlist. Apply it to
@@ -249,6 +249,20 @@ data.js           generated as always; gains memos, vault, later calls
 > side panel/pages. Watchlist gains a "Note" column (memo link + date) for
 > covered names. Coverage ledger gains theme (category) filter chips. Commit as
 > `feat: site-wide ticker cross-linking`.
+
+**Shipped (commit `feat: site-wide ticker cross-linking`):**
+`AIE.linkForTicker(sym)` now returns, in order, `memo.html?ticker=SYM` (a
+coverage memo exists) → `vault.html?page=<slug>` (a `type:"ticker"` vault page
+exists) → `desk.html#chapter-watchlist`. Applied to: thesis-card ticker chips
+(shared `makeThesisCard`, so Evidence feed + memo appendix + **vault cited-thesis
+cards** all inherit it), brain-digest ticker lists, ticker-card headers (the map's
+per-category cards), and the watchlist (symbol is a link + whole-row click, both
+guarded so the rating `<select>` and in-row links still work). Watchlist added a
+**Note** column linking the newest memo with its date. Coverage ledger added a
+**Theme** filter group (distinct ticker categories, ordered by value-chain layer)
+that narrows both memo rows and verdict-only stubs. Vault graph side panel already
+linked page + memo, so it was left as-is. `.th-ticker` / `.tk-ticker` / `.wl-sym`
+gained link (hover) styling. No `data.js` regen — code-only change.
 
 ## Phase 5 — Performance hooks
 
