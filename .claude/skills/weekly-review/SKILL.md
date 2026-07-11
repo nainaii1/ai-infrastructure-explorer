@@ -72,6 +72,15 @@ operator asking.
      and `publishedAt`, refresh `updatedAt` + body. A new week's revisit
      gets a new `id` (new week number) with `kind: "update"`.
 
+4c. **Enrich touched vault pages** in `ingest/store/vault.json` — only the
+   pages whose story actually moved this week: any ticker whose **tier or
+   stance changed** in step 4, and the **theme** of any such ticker. Follow
+   the `/vault-note` skill rules — write 1–3 paragraphs of wikilinked prose
+   into that page's `note` (never touch `auto.*`), stamp `noteUpdatedAt`.
+   Don't re-enrich the whole vault weekly; leave unchanged pages alone. New
+   ticker pages appear automatically (sync runs during regen) — they start as
+   stubs and can be enriched on demand via `/vault-note SLUG`.
+
 5. **Refresh Brain digests** for categories with new theses — author digests
    grouped by category and run them through
    `synthesize.synthesize_all()` with an injected `call_fn` (see
@@ -91,9 +100,9 @@ operator asking.
 
 ## Hard rules
 
-- `verdicts.json` and `memos.json` are the only store files this skill
-  authors directly; everything else flows through the existing pipeline
-  scripts.
+- `verdicts.json`, `memos.json`, and the `note` fields of `vault.json` are
+  the only store data this skill authors directly (vault `auto.*` is owned by
+  `vault_sync.py`); everything else flows through the existing pipeline scripts.
 - Never hand-edit `data.js` (CLAUDE.md rule #6).
 - Always include the disclaimer in `meta.disclaimer` — this is research
   support, not investment advice.

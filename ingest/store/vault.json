@@ -1,9 +1,9 @@
 {
   "meta": {
     "schemaVersion": 1,
-    "syncedAt": "2026-07-11T16:16:03Z",
-    "pageCount": 63,
-    "linkCount": 123
+    "syncedAt": "2026-07-11T18:01:09Z",
+    "pageCount": 65,
+    "linkCount": 184
   },
   "pages": [
     {
@@ -24,8 +24,8 @@
           "watchCount": 1
         }
       },
-      "note": "",
-      "noteUpdatedAt": null
+      "note": "This is the demand engine's silicon \u2014 [[nvda]] plus the challengers. Little new standalone signal this week; the names mostly appeared inside the indiscriminate-selloff list ([[amd]] and peers down 4-10% in the Samsung-triggered rout), which [[aleabitoreddit]] reads as margin cascades rather than fundamentals. He treats [[nvda]] as the gravitational center rather than a pick \u2014 the edge is in the layers beneath it ([[photonics]], [[memory]], [[fabs]]).\n\n[[amd]] is the merchant-GPU alternative; [[arm]] the architecture licensor riding the same compute wave. The desk's stance on the group is deliberately hands-off: express the view through the suppliers this map surfaces, not the headline chip.",
+      "noteUpdatedAt": "2026-07-12T00:00:00Z"
     },
     {
       "slug": "fabs",
@@ -46,8 +46,8 @@
           "watchCount": 0
         }
       },
-      "note": "",
-      "noteUpdatedAt": null
+      "note": "The fabrication and equipment layer was ground zero for the week's contagion \u2014 Samsung's guidance triggered a rout in which [[intc]] was the worst S&P 500 performer and the equipment names sold off hard. [[aleabitoreddit]]'s read is consistent with his cross-sector frame: indiscriminate selling into a leverage-driven tape while the fundamentals (record memory profits, sold-out capacity) held.\n\n[[tsm]] is the gravitational center of the layer; [[gfs]] and [[tsem]] the specialty-foundry expressions; [[intc]] the turnaround/optionality name. The layer gates everything downstream \u2014 the [[accelerators]] that [[nvda]] designs are only as available as the fab and [[advanced-packaging]] capacity behind them.",
+      "noteUpdatedAt": "2026-07-12T00:00:00Z"
     },
     {
       "slug": "glass",
@@ -63,8 +63,8 @@
           "watchCount": 0
         }
       },
-      "note": "",
-      "noteUpdatedAt": null
+      "note": "The newest and thinnest entry in this cycle: glass-core substrates for [[advanced-packaging]], a natural extension of the packaging wave as chips grow larger and run hotter. No dedicated glass-substrate thesis has been posted yet \u2014 Corning (GLW) has surfaced only inside a broader Bloomberg-driven semis-selloff basket, and is tracked here as a candidate alongside SKC Absolics and TSMC's CoPoS effort.\n\nThe better-developed way [[aleabitoreddit]] plays the same substrate shift lives on the [[materials]] page, via LPKF ([[lpk-de]])'s glass-core equipment near-monopoly. Watch this theme for a first dedicated thesis.",
+      "noteUpdatedAt": "2026-07-12T00:00:00Z"
     },
     {
       "slug": "hyperscalers",
@@ -85,8 +85,8 @@
           "watchCount": 1
         }
       },
-      "note": "",
-      "noteUpdatedAt": null
+      "note": "The buyers of compute \u2014 and the center of the week's narrative war. [[aleabitoreddit]] framed the selloff as misinformation: a 1 July Bloomberg piece reported [[meta]] will *sell* its excess compute (becoming a [[neocloud]] competitor), which algorithms misread as capex-cutting. His long-standing 'Meta is not cutting' thesis got public support when Meta's 'Watermelon' model reportedly caught up to GPT 5.5 using an order of magnitude more compute.\n\n[[meta]] is the contested name; [[amzn]], [[googl]] and [[msft]] the other three legs of demand. Tracking them here is directional, not for the mega-caps themselves \u2014 hyperscaler capex is the tide that lifts the [[neoclouds]], [[photonics]] and [[memory]] suppliers downstream.",
+      "noteUpdatedAt": "2026-07-12T00:00:00Z"
     },
     {
       "slug": "materials",
@@ -106,8 +106,8 @@
           "watchCount": 2
         }
       },
-      "note": "",
-      "noteUpdatedAt": null
+      "note": "A lighter-touch, picks-and-shovels research theme sitting upstream of the [[fabs]] and [[advanced-packaging]] layers. [[aleabitoreddit]] views AEHR ([[aehr]])'s ~100% rally as largely priced in absent a new catalyst; LPKF ([[lpk-de]]) is his recurring bullish idea on a glass-core substrate near-monopoly \u2014 a bridge into the [[glass]] theme \u2014 with a stated multi-billion factory ambition; Soitec ([[soi-pa]]) rounds out the specialty-materials group.\n\nThese are second-derivative plays: they win if the [[memory]], [[photonics]] and packaging build-outs they supply keep scaling.",
+      "noteUpdatedAt": "2026-07-12T00:00:00Z"
     },
     {
       "slug": "memory",
@@ -128,8 +128,8 @@
           "watchCount": 1
         }
       },
-      "note": "",
-      "noteUpdatedAt": null
+      "note": "The [[hbm]] memory upcycle is a high-conviction supply theme, and it got a clean real-world stress test this week: Samsung pre-announced record Q2 operating profit up ~1,800% Y/Y \u2014 on his telling the most profitable quarter in the world \u2014 and the stock still fell ~7% after a +150% YTD run. [[aleabitoreddit]] reads that as priced-to-perfection profit-taking, not a fundamentals break, and notes the same Samsung print was the actual trigger for the broader chip rout.\n\n[[mu]] is the liquid US expression of the DRAM/HBM cycle; [[sndk]] the NAND leg; [[axti]] the upstream substrate/materials feed (torque he also pairs with the [[photonics]] sleeve); [[rpi]] rounds out the group. The through-line is [[hbm]] scarcity \u2014 stacked memory bonded next to the GPU is the scarcest ingredient in every accelerator the [[hyperscalers]] are buying.",
+      "noteUpdatedAt": "2026-07-12T00:00:00Z"
     },
     {
       "slug": "neoclouds",
@@ -148,8 +148,8 @@
           "watchCount": 1
         }
       },
-      "note": "",
-      "noteUpdatedAt": null
+      "note": "The independent GPU-cloud layer \u2014 the [[neocloud]] model that rents accelerated compute outside the big [[hyperscalers]]. The 'Meta is cutting capex' narrative [[aleabitoreddit]] fought for weeks broke down publicly: SemiAnalysis, the same firm whose bear notes hit [[photonics]], now says Meta's datacenter compute will accelerate with 2027 capex 'shockingly high.'\n\n[[nbis]] is the core liquid expression; [[iren]] the crossover from crypto-mining infrastructure into AI hosting. The theme rides directly on hyperscaler and enterprise compute demand \u2014 if the capex-cut narrative is wrong, these are the highest-beta way to be right.",
+      "noteUpdatedAt": "2026-07-12T00:00:00Z"
     },
     {
       "slug": "networking",
@@ -169,8 +169,8 @@
           "watchCount": 1
         }
       },
-      "note": "",
-      "noteUpdatedAt": null
+      "note": "The switching and custom-silicon layer that moves data between accelerators. [[aleabitoreddit]]'s [[mrvl]] thread stays sentiment-first \u2014 every drop reminds him of Jensen's 'next $1T company' comment \u2014 and this week he formalized a half-serious 'conspiracy theory' that [[nvda]] quietly supports the ASIC challengers (Marvell, MediaTek, AlChip) chipping at [[avgo]]'s custom-silicon share.\n\n[[avgo]] is the incumbent custom-silicon giant; [[mrvl]] the challenger he watches most; [[nok]] a peripheral networking name. The layer overlaps the [[photonics]] story where switching meets optics ([[cpo]]).",
+      "noteUpdatedAt": "2026-07-12T00:00:00Z"
     },
     {
       "slug": "photonics",
@@ -195,8 +195,8 @@
           "watchCount": 2
         }
       },
-      "note": "",
-      "noteUpdatedAt": null
+      "note": "Optical interconnect is [[aleabitoreddit]]'s highest-conviction theme, and the one this desk weights most heavily. The thesis is a physical [[chokepoint]]: copper cannot move data fast enough inside dense GPU racks, so light-based links are a forced upgrade rather than an option \u2014 and the continuous-wave laser supply that feeds them is, on his read, sold out for years ([[lite]] 'into 2028/2029,' with anything the laser makers ship getting bought). The week's -4% to -10% sector washout he called an indiscriminate margin-cascade selloff, not a fundamentals crack, and leaned in.\n\nThe names cluster by role. [[sive]] and [[aaoi]] are the high-torque bets he is most concentrated in; [[lite]] is the lower-beta anchor of the sleeve; [[jbl]] the picks-and-shovels assembler with a 1.6T laser-optics qualification window ahead; [[cohr]], [[iqe]] and [[poet]] fill out the component chain; and [[xfab]] carries a silicon-photonics ([[siph]]) free option on top of its foundry value case. The recurring bear counter is [[cpo]]-delay research, which he treats as sentiment rather than substance.",
+      "noteUpdatedAt": "2026-07-12T00:00:00Z"
     },
     {
       "slug": "robotics",
@@ -216,8 +216,8 @@
           "watchCount": 1
         }
       },
-      "note": "",
-      "noteUpdatedAt": null
+      "note": "Physical-AI is a high-conviction, high-euphoria theme \u2014 and one [[aleabitoreddit]]'s own posts became a case study in the anchoring psychology he critiques. His frame: Agility ([[ccxi]], becoming AGLT) is the purest US mass-production humanoid play via the Amazon/MercadoLibre supply chains, going public via SPAC to give retail access 'before it gets big.'\n\n[[ccxi]] is the humanoid pure-play; [[aeva]] the lidar/perception supplier; [[tsla]] the mega-cap Optimus optionality. The desk treats the group as the most sentiment-driven corner of the map \u2014 real end-demand, but valuations running on narrative.",
+      "noteUpdatedAt": "2026-07-12T00:00:00Z"
     },
     {
       "slug": "aaoi",
@@ -230,12 +230,33 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 38,
-          "lastMentioned": "2026-07-06T15:34:36Z",
+          "mentions": 42,
+          "lastMentioned": "2026-07-11T17:59:31Z",
           "category": "photonics",
           "market": "US",
           "marketCapTier": "Small",
           "company": "Applied Optoelectronics"
+        }
+      },
+      "note": "Applied Optoelectronics is a high-torque [[photonics]] name [[aleabitoreddit]] upgraded when his own entry condition fired: he had said to enter on 'a washout back toward the pre-run range,' and the SemiAnalysis [[cpo]]-delay pieces produced exactly that \u2014 a 40-60% optical drawdown he heavily bought.\n\nHe remains heavily concentrated here alongside [[sive]]. The desk stance is **accumulate**, scaling into the washout while keeping reserve for the earnings print \u2014 the falsifier is a quarter that fails to validate the transceiver ramp. AAOI sits in the optical-interconnect [[chokepoint]] story with [[lite]], [[cohr]] and [[jbl]].",
+      "noteUpdatedAt": "2026-07-12T00:00:00Z"
+    },
+    {
+      "slug": "aapl",
+      "type": "ticker",
+      "title": "AAPL",
+      "auto": {
+        "refs": [
+          "aleabitoreddit"
+        ],
+        "stats": {
+          "tier": "watch",
+          "mentions": 6,
+          "lastMentioned": "2026-07-11T17:59:50Z",
+          "category": "unsorted",
+          "market": "",
+          "marketCapTier": "",
+          "company": ""
         }
       },
       "note": "",
@@ -318,8 +339,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 14,
-          "lastMentioned": "2026-07-08T13:13:41Z",
+          "mentions": 15,
+          "lastMentioned": "2026-07-11T17:59:31Z",
           "category": "hyperscalers",
           "market": "US",
           "marketCapTier": "Mega",
@@ -383,8 +404,8 @@
         ],
         "stats": {
           "tier": "watch",
-          "mentions": 5,
-          "lastMentioned": "2026-07-03T10:09:14Z",
+          "mentions": 6,
+          "lastMentioned": "2026-07-11T16:21:48Z",
           "category": "networking",
           "market": "",
           "marketCapTier": "",
@@ -405,8 +426,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 20,
-          "lastMentioned": "2026-07-08T13:04:04Z",
+          "mentions": 23,
+          "lastMentioned": "2026-07-11T16:26:54Z",
           "category": "memory",
           "market": "US",
           "marketCapTier": "Small",
@@ -427,8 +448,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 18,
-          "lastMentioned": "2026-07-08T13:13:41Z",
+          "mentions": 20,
+          "lastMentioned": "2026-07-11T16:26:39Z",
           "category": "robotics",
           "market": "US",
           "marketCapTier": "Mid",
@@ -449,8 +470,8 @@
         ],
         "stats": {
           "tier": "watch",
-          "mentions": 9,
-          "lastMentioned": "2026-07-03T10:07:17Z",
+          "mentions": 11,
+          "lastMentioned": "2026-07-11T17:58:56Z",
           "category": "photonics",
           "market": "US",
           "marketCapTier": "Large",
@@ -512,8 +533,8 @@
         ],
         "stats": {
           "tier": "watch",
-          "mentions": 8,
-          "lastMentioned": "2026-06-30T07:47:41Z",
+          "mentions": 9,
+          "lastMentioned": "2026-07-11T16:24:01Z",
           "category": "unsorted",
           "market": "",
           "marketCapTier": "",
@@ -534,8 +555,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 16,
-          "lastMentioned": "2026-07-08T13:18:10Z",
+          "mentions": 17,
+          "lastMentioned": "2026-07-11T16:25:35Z",
           "category": "fabs",
           "market": "",
           "marketCapTier": "",
@@ -556,8 +577,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 10,
-          "lastMentioned": "2026-07-06T15:27:45Z",
+          "mentions": 11,
+          "lastMentioned": "2026-07-11T17:59:40Z",
           "category": "hyperscalers",
           "market": "US",
           "marketCapTier": "Mega",
@@ -621,8 +642,8 @@
         ],
         "stats": {
           "tier": "watch",
-          "mentions": 8,
-          "lastMentioned": "2026-07-06T15:29:52Z",
+          "mentions": 9,
+          "lastMentioned": "2026-07-11T16:26:54Z",
           "category": "photonics",
           "market": "",
           "marketCapTier": "",
@@ -665,8 +686,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 20,
-          "lastMentioned": "2026-07-08T13:18:10Z",
+          "mentions": 21,
+          "lastMentioned": "2026-07-11T16:25:35Z",
           "category": "photonics",
           "market": "US",
           "marketCapTier": "Large",
@@ -687,16 +708,16 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 33,
-          "lastMentioned": "2026-07-08T13:15:30Z",
+          "mentions": 37,
+          "lastMentioned": "2026-07-11T17:58:56Z",
           "category": "photonics",
           "market": "US",
           "marketCapTier": "Mid",
           "company": "Lumentum Holdings"
         }
       },
-      "note": "",
-      "noteUpdatedAt": null
+      "note": "Lumentum is the lower-beta anchor of the [[photonics]] sleeve \u2014 the laser incumbent whose bottleneck [[aleabitoreddit]] says 'lasts into 2029.' His standing frame: if the CEO says anything they make gets bought, bear notes do not touch fundamentals. It fell with everything else in the washout, which he used to keep building the position.\n\nA second-order kicker appeared in US scrutiny of Chinese laser suppliers, which would tighten the Western supply he already thinks is sold out. Desk stance is **accumulate** as the steady anchor, with [[sive]] and [[axti]] carrying the torque. The through-line is the CW-laser [[chokepoint]].",
+      "noteUpdatedAt": "2026-07-12T00:00:00Z"
     },
     {
       "slug": "lpk-de",
@@ -731,8 +752,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 17,
-          "lastMentioned": "2026-07-08T13:14:42Z",
+          "mentions": 19,
+          "lastMentioned": "2026-07-11T16:24:57Z",
           "category": "hyperscalers",
           "market": "US",
           "marketCapTier": "Mega",
@@ -775,8 +796,8 @@
         ],
         "stats": {
           "tier": "watch",
-          "mentions": 2,
-          "lastMentioned": "2026-06-27T15:45:34Z",
+          "mentions": 3,
+          "lastMentioned": "2026-07-11T17:59:50Z",
           "category": "hyperscalers",
           "market": "US",
           "marketCapTier": "Mega",
@@ -819,8 +840,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 20,
-          "lastMentioned": "2026-07-08T13:01:43Z",
+          "mentions": 21,
+          "lastMentioned": "2026-07-11T16:23:22Z",
           "category": "neoclouds",
           "market": "US",
           "marketCapTier": "Mid",
@@ -863,16 +884,16 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 46,
-          "lastMentioned": "2026-07-08T13:02:54Z",
+          "mentions": 47,
+          "lastMentioned": "2026-07-11T17:59:50Z",
           "category": "accelerators",
           "market": "US",
           "marketCapTier": "Mega",
           "company": "NVIDIA Corporation"
         }
       },
-      "note": "",
-      "noteUpdatedAt": null
+      "note": "NVIDIA is the gravitational center of this entire map rather than a stock pick. [[aleabitoreddit]] \u2014 and this desk \u2014 treat the edge as the layers beneath it: the [[photonics]], [[memory]] and [[fabs]] suppliers whose fortunes are levered to NVIDIA demand but priced far less efficiently.\n\nThis week NVDA appeared mainly as collateral in the narrative war (SemiAnalysis supply-chain bear posts) and in the Hesai lidar-scrutiny story. Desk stance is **watch**: express the thesis through the suppliers the map surfaces, and hold NVDA as a separate core-portfolio decision outside this workflow. It anchors the [[accelerators]] theme alongside [[amd]] and [[arm]].",
+      "noteUpdatedAt": "2026-07-12T00:00:00Z"
     },
     {
       "slug": "nvts",
@@ -992,12 +1013,33 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 70,
-          "lastMentioned": "2026-07-08T13:18:10Z",
+          "mentions": 75,
+          "lastMentioned": "2026-07-11T17:59:31Z",
           "category": "photonics",
           "market": "SE",
           "marketCapTier": "Small",
           "company": "Sivers Semiconductors"
+        }
+      },
+      "note": "Sivers Semiconductors is [[aleabitoreddit]]'s single highest-conviction name \u2014 'probably my favorite stock right now' \u2014 and the highest-torque bet in the [[photonics]] sleeve. He reiterated it straight into the -4% to -10% sector washout he calls indiscriminate margin-cascade selling, treating the dip as one of his planned accumulation tranches rather than a reason to trim.\n\nThe substance beneath the conviction: a [[jbl]] 1.6T laser-optics qualification window (per a JPM fireside chat) and the broader CW-laser [[chokepoint]] that underpins the whole optical thesis. The desk stance is **accumulate** on the staggered plan; the standing risk is concentration and talking-his-book, since he pairs it so heavily with [[aaoi]].",
+      "noteUpdatedAt": "2026-07-12T00:00:00Z"
+    },
+    {
+      "slug": "sivef",
+      "type": "ticker",
+      "title": "SIVEF",
+      "auto": {
+        "refs": [
+          "aleabitoreddit"
+        ],
+        "stats": {
+          "tier": "watch",
+          "mentions": 2,
+          "lastMentioned": "2026-07-11T17:58:56Z",
+          "category": "unsorted",
+          "market": "",
+          "marketCapTier": "",
+          "company": ""
         }
       },
       "note": "",
@@ -1035,8 +1077,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 11,
-          "lastMentioned": "2026-07-08T13:01:43Z",
+          "mentions": 12,
+          "lastMentioned": "2026-07-11T16:24:57Z",
           "category": "memory",
           "market": "",
           "marketCapTier": "",
@@ -1078,8 +1120,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 11,
-          "lastMentioned": "2026-07-08T13:13:41Z",
+          "mentions": 12,
+          "lastMentioned": "2026-07-11T16:24:28Z",
           "category": "unsorted",
           "market": "",
           "marketCapTier": "",
@@ -1122,8 +1164,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 13,
-          "lastMentioned": "2026-07-08T13:13:41Z",
+          "mentions": 15,
+          "lastMentioned": "2026-07-11T17:59:50Z",
           "category": "robotics",
           "market": "US",
           "marketCapTier": "Mega",
@@ -1144,8 +1186,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 15,
-          "lastMentioned": "2026-07-05T12:40:49Z",
+          "mentions": 16,
+          "lastMentioned": "2026-07-11T16:26:54Z",
           "category": "fabs",
           "market": "TW",
           "marketCapTier": "Mega",
@@ -1195,8 +1237,8 @@
           "company": "X-FAB Silicon Foundries"
         }
       },
-      "note": "",
-      "noteUpdatedAt": null
+      "note": "X-FAB is a specialty foundry that carries two stacked theses. The value leg: Kepler's upgrade calls it the cheapest specialty foundry at 4.8x 2027 EV/EBITDA versus a ~14.5x peer median, with Melexis demand strengthening. The free option: its 'photonixfab' silicon-photonics ([[siph]]) line, which [[aleabitoreddit]] thinks the market is not pricing at all.\n\nThat [[siph]] leg is why it lives on the [[photonics]] page rather than with the [[fabs]]. Desk stance is **accumulate** \u2014 the value floor justifies a real starter position, the photonics upside is the kicker \u2014 tempered by European-listing illiquidity and specialty-foundry cyclicality, which argue for patience.",
+      "noteUpdatedAt": "2026-07-12T00:00:00Z"
     },
     {
       "slug": "aleabitoreddit",
