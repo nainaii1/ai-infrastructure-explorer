@@ -678,7 +678,10 @@
       letter-spacing: -0.02em;
       color: var(--accent);
       word-break: break-word;
+      text-decoration: none;
+      transition: opacity var(--ease);
     }
+    a.tk-ticker:hover { opacity: 0.72; text-decoration: underline; text-underline-offset: 4px; }
     .tk-company {
       font-size: 13px;
       font-weight: 500;
@@ -1103,7 +1106,16 @@
        dot in dense table rows — two deliberate forms of the same signal. */
     .wl-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--accent, #94a3b8); flex: 0 0 auto; }
     .wl-cat-label { color: var(--muted); }
-    .wl-sym { font-family: var(--mono); font-weight: 700; color: var(--accent, #1e293b); }
+    .wl-sym { font-family: var(--mono); font-weight: 700; color: var(--accent, #1e293b); text-decoration: none; }
+    a.wl-sym:hover { text-decoration: underline; text-underline-offset: 3px; }
+    .wl-row-link { cursor: pointer; }
+    .wl-note {
+      display: inline-flex; align-items: baseline; gap: 6px;
+      font-family: var(--mono); font-size: 11px; font-weight: 700;
+      color: var(--accent, #1e293b); text-decoration: none;
+    }
+    .wl-note:hover { text-decoration: underline; text-underline-offset: 3px; }
+    .wl-note-date { font-weight: 400; font-size: 10px; color: var(--muted); }
     .wl-price { font-weight: 600; }
     .wl-cur { color: var(--muted); font-size: 10px; margin-left: 3px; }
     .wl-pos { color: #16a34a; }
@@ -1288,6 +1300,7 @@
                   <th data-key="marketCap" class="num">Mkt Cap</th>
                   <th class="wl-nosort">Trend (sample)</th>
                   <th data-key="deskStance">Desk</th>
+                  <th class="wl-nosort">Note</th>
                   <th data-key="rating">Rating</th>
                 </tr>
               </thead>
@@ -1983,7 +1996,9 @@
 
         // Header: ticker + company
         var head = el("div", "tk-head");
-        head.appendChild(el("div", "tk-ticker", ticker.ticker));
+        var tkLink = el("a", "tk-ticker", ticker.ticker);
+        tkLink.href = AIE.linkForTicker(ticker.ticker);
+        head.appendChild(tkLink);
         head.appendChild(el("div", "tk-company", ticker.company));
         card.appendChild(head);
 
@@ -2215,6 +2230,16 @@
 
       function wlTickers() { return (DATA && DATA.tickers) ? DATA.tickers.slice() : []; }
 
+      // Newest coverage memo for a symbol, or null.
+      function memoForTicker(sym) {
+        var memos = (DATA && DATA.memos && DATA.memos.memos) || [];
+        return memos.filter(function (m) { return (m.ticker || "").toUpperCase() === String(sym).toUpperCase(); })
+          .sort(function (a, b) {
+            var da = a.publishedAt || a.updatedAt || "", db = b.publishedAt || b.updatedAt || "";
+            return db < da ? -1 : (db > da ? 1 : 0);
+          })[0] || null;
+      }
+
       function wlTierMatches(t) {
         var f = wlState.tierFilter;
         if (f === "all") return true;
@@ -2293,7 +2318,10 @@
         wrap.appendChild(el("span", "wl-cat-label", cat ? cat.label : (t.category || "—")));
         cTd.appendChild(wrap); tr.appendChild(cTd);
 
-        var tTd = document.createElement("td"); tTd.appendChild(el("span", "wl-sym", t.ticker)); tr.appendChild(tTd);
+        var tTd = document.createElement("td");
+        var symLink = el("a", "wl-sym", t.ticker);
+        symLink.href = AIE.linkForTicker(t.ticker);
+        tTd.appendChild(symLink); tr.appendChild(tTd);
         tr.appendChild(el("td", null, t.company || "—"));
 
         var pTd = el("td", "num");
@@ -2331,6 +2359,19 @@
         }
         tr.appendChild(dTd);
 
+        // Note: link to the coverage memo (+ its date) when one exists.
+        var nTd = document.createElement("td");
+        var memo = memoForTicker(t.ticker);
+        if (memo) {
+          var noteLink = el("a", "wl-note", "Memo");
+          noteLink.href = "memo.html?id=" + encodeURIComponent(memo.id);
+          if (memo.publishedAt) noteLink.appendChild(el("span", "wl-note-date", AIE.fmtDate(memo.publishedAt)));
+          nTd.appendChild(noteLink);
+        } else {
+          nTd.appendChild(el("span", "wl-muted", "—"));
+        }
+        tr.appendChild(nTd);
+
         var rTd = document.createElement("td");
         var sel = document.createElement("select"); sel.className = "wl-rating";
         WL_RATINGS.forEach(function (opt) {
@@ -2339,6 +2380,16 @@
         sel.value = ratingFor(t.ticker);
         sel.addEventListener("change", function () { setRating(t.ticker, sel.value); });
         rTd.appendChild(sel); tr.appendChild(rTd);
+
+        // Whole-row click convenience — navigate to the ticker's best page, but
+        // let real interactive cells (the rating select, in-row links) act first.
+        tr.classList.add("wl-row-link");
+        tr.addEventListener("click", function (ev) {
+          var tag = ev.target.tagName;
+          if (tag === "A" || tag === "SELECT" || tag === "OPTION") return;
+          if (ev.target.closest && ev.target.closest("a, select")) return;
+          window.location.href = AIE.linkForTicker(t.ticker);
+        });
 
         return tr;
       }
@@ -2391,7 +2442,7 @@
             subtotal.className = "wl-subtotal";
             subtotal.style.background = "color-mix(in srgb, " + cat.color + " 6%, white)";
             var td = document.createElement("td");
-            td.colSpan = 10;
+            td.colSpan = 11;
             td.appendChild(el("b", null, cat.label));
             td.appendChild(document.createTextNode(" · " + rows.length + (rows.length === 1 ? " ticker" : " tickers")));
             subtotal.appendChild(td);
@@ -2771,7 +2822,8 @@
           if (tks.length) {
             var chips = el("div", "bd-tickers");
             tks.forEach(function (sym) {
-              var chip = el("span", "th-ticker", sym);
+              var chip = el("a", "th-ticker", sym);
+              chip.href = AIE.linkForTicker(sym);
               var color = thesisCatColor(sym);
               if (color) chip.style.setProperty("--t-color", color);
               chips.appendChild(chip);

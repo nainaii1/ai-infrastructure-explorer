@@ -230,11 +230,27 @@
   }
 
   /* ==========================================================================
-     Where a ticker chip points. Stub for now (P2) — Phase 4 (P15) upgrades this
-     to prefer a memo, then a vault page, then fall back to the watchlist.
+     Where a ticker chip points (P15). Best available destination, in order:
+       1. a coverage memo for the symbol   -> memo.html?ticker=SYM
+       2. a knowledge-vault ticker page    -> vault.html?page=<slug>
+       3. otherwise the watchlist          -> desk.html#chapter-watchlist
+     Reads AIE_DATA live so it stays correct as memos/vault grow.
      ======================================================================== */
   function linkForTicker(sym) {
-    return "desk.html#watchlist";
+    var d = data();
+    var s = String(sym || "").toUpperCase();
+    if (d && s) {
+      var memos = (d.memos && d.memos.memos) || [];
+      if (memos.some(function (m) { return (m.ticker || "").toUpperCase() === s; })) {
+        return "memo.html?ticker=" + encodeURIComponent(s);
+      }
+      var slug = slugify(s);
+      var pages = (d.vault && d.vault.pages) || [];
+      if (pages.some(function (p) { return p.type === "ticker" && p.slug === slug; })) {
+        return "vault.html?page=" + encodeURIComponent(slug);
+      }
+    }
+    return "desk.html#chapter-watchlist";
   }
 
   /* ==========================================================================
@@ -279,7 +295,8 @@
     if (tickers.length) {
       var chips = mk("div", "th-tickers");
       tickers.forEach(function (sym) {
-        var chip = mk("span", "th-ticker", sym);
+        var chip = mk("a", "th-ticker", sym);
+        chip.href = linkForTicker(sym);
         var color = tickerCategoryColor(sym);
         if (color) chip.style.setProperty("--t-color", color);
         chips.appendChild(chip);

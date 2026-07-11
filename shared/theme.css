@@ -383,8 +383,14 @@ a.aie-chip:hover { border-color: var(--muted); color: var(--ink); }
   display: inline-flex; align-items: center;
   font-family: var(--mono); font-size: 11px; font-weight: 700;
   padding: 3px 8px; border-radius: 6px;
+  text-decoration: none; cursor: pointer;
   background: color-mix(in srgb, var(--t-color, #94a3b8) 14%, white);
   color: color-mix(in srgb, var(--t-color, #94a3b8) 70%, black);
+  transition: background var(--ease), box-shadow var(--ease);
+}
+a.th-ticker:hover {
+  background: color-mix(in srgb, var(--t-color, #94a3b8) 24%, white);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--t-color, #94a3b8) 45%, white);
 }
 /* Conviction badge on a thesis card — same hue vocabulary as tiers/stances
    (green = high, neutral = note). Values identical to desk.html's prior rule. */

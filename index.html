@@ -314,7 +314,7 @@
       var KIND_LABEL = { coverage: "Coverage", update: "Update", "exit-note": "Exit note" };
       function kindLabel(k) { return KIND_LABEL[k] || k || "Note"; }
 
-      var ledgerFilter = { kind: null, rating: null };
+      var ledgerFilter = { kind: null, rating: null, theme: null };
 
       function publishedDesc(a, b) {
         var da = a.publishedAt || a.updatedAt || "";
@@ -402,7 +402,7 @@
         return order.filter(function (v) { return seen[v]; });
       }
 
-      function renderFilterGroup(label, dimension, values) {
+      function renderFilterGroup(label, dimension, values, labelFn) {
         var group = el("div", "lf-group");
         group.appendChild(el("span", "lf-label", label));
         function chip(text, value) {
@@ -416,8 +416,27 @@
           return b;
         }
         group.appendChild(chip("All", null));
-        values.forEach(function (v) { group.appendChild(chip(v === "exit-note" ? "Exit note" : v, v)); });
+        values.forEach(function (v) {
+          var text = labelFn ? labelFn(v) : (v === "exit-note" ? "Exit note" : v);
+          group.appendChild(chip(text, v));
+        });
         return group;
+      }
+
+      // Distinct ticker categories present across the given memos, ordered by the
+      // categories' value-chain layer so the theme chips read Supply → Demand.
+      function themesInMemos(memos) {
+        var seen = {};
+        memos.forEach(function (m) { var c = tickerCategory[m.ticker]; if (c) seen[c] = true; });
+        return Object.keys(DATA.categories)
+          .filter(function (id) { return seen[id]; })
+          .sort(function (a, b) {
+            return (DATA.categories[a].layer || 0) - (DATA.categories[b].layer || 0);
+          });
+      }
+      function themeLabel(id) {
+        var c = DATA.categories && DATA.categories[id];
+        return (c && c.label) || id;
       }
 
       function renderLedger() {
@@ -439,20 +458,32 @@
         if (memos.length) {
           var kinds = distinctIn(memos, "kind", ["coverage", "update", "exit-note"]);
           var ratings = distinctIn(memos, "rating", ["act", "accumulate", "watch", "pass"]);
-          if (kinds.length > 1) filtersEl.appendChild(renderFilterGroup("Kind", "kind", kinds));
-          if (kinds.length > 1 && ratings.length > 1) filtersEl.appendChild(el("span", "lf-sep"));
-          if (ratings.length > 1) filtersEl.appendChild(renderFilterGroup("Rating", "rating", ratings));
+          var themes = themesInMemos(memos);
+          var groups = [];
+          if (kinds.length > 1) groups.push(renderFilterGroup("Kind", "kind", kinds));
+          if (ratings.length > 1) groups.push(renderFilterGroup("Rating", "rating", ratings));
+          if (themes.length > 1) groups.push(renderFilterGroup("Theme", "theme", themes, themeLabel));
+          groups.forEach(function (g, i) {
+            if (i) filtersEl.appendChild(el("span", "lf-sep"));
+            filtersEl.appendChild(g);
+          });
         }
 
         var filteredMemos = memos.filter(function (m) {
           return (!ledgerFilter.kind || m.kind === ledgerFilter.kind)
-              && (!ledgerFilter.rating || m.rating === ledgerFilter.rating);
+              && (!ledgerFilter.rating || m.rating === ledgerFilter.rating)
+              && (!ledgerFilter.theme || tickerCategory[m.ticker] === ledgerFilter.theme);
         });
 
         // "Verdict only" stubs: Core names with a desk verdict but no memo.
+        // The theme filter is a ticker attribute, so it narrows stubs too; kind/
+        // rating are memo attributes and leave stubs untouched (as before).
         var memoTickers = {};
         memos.forEach(function (m) { memoTickers[m.ticker] = true; });
-        var stubs = verdicts.filter(function (v) { return !memoTickers[v.ticker]; });
+        var stubs = verdicts.filter(function (v) {
+          return !memoTickers[v.ticker]
+              && (!ledgerFilter.theme || tickerCategory[v.ticker] === ledgerFilter.theme);
+        });
 
         bodyEl.innerHTML = "";
 
