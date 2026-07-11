@@ -42,7 +42,7 @@ data.js           generated as always; gains memos, vault, later calls
 | 0 | This guide | P0 | ✅ 2026-07-06 |
 | 1 | Multi-page scaffold + editorial design system | P1–P5 | ✅ 2026-07-08 |
 | 2 | Coverage memos (store, memo.html, ledger, skills, seed content) | P6–P10 | ☑ 2026-07-12 |
-| 3 | Knowledge Vault (store+sync, index/page views, graph, authoring loop) | P11–P14 | 🚧 P11–P13 done |
+| 3 | Knowledge Vault (store+sync, index/page views, graph, authoring loop) | P11–P14 | ✅ 2026-07-12 |
 | 4 | Cross-linking everywhere | P15 | ☐ |
 | 5 | Performance hooks (calls.json + minimal page) | P16 | ☐ |
 
@@ -229,7 +229,7 @@ data.js           generated as always; gains memos, vault, later calls
 > Mobile ≤768px: side panel becomes a bottom sheet; +/− zoom and reset buttons.
 > Un-grey the "Graph" nav link. Commit as `feat: vault knowledge graph (canvas force layout)`.
 
-### ☐ P14 · Op-M — vault authoring loop + first enrichment
+### ☑ P14 · Op-M — vault authoring loop + first enrichment (2026-07-12)
 
 > Create `.claude/skills/vault-note/SKILL.md` — `/vault-note SLUG` enriches one
 > vault page's `note` (plain prose, 1–3 paragraphs, dense with `[[wikilinks]]` to
