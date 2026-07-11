@@ -1,9 +1,199 @@
 {
   "meta": {
     "schemaVersion": 1,
-    "updatedAt": null,
+    "updatedAt": "2026-07-12T00:00:00Z",
     "author": "claude-desk",
     "disclaimer": "Coverage memos are second-opinion research notes on @aleabitoreddit's ideas. Personal research tool — not investment advice."
   },
-  "memos": []
+  "memos": [
+    {
+      "id": "m_SIVE_2026w28",
+      "ticker": "SIVE",
+      "kind": "coverage",
+      "title": "The laser everyone else's thesis depends on",
+      "dek": "Sivers sells the continuous-wave lasers that JBL, GlobalFoundries, Ayar and POET all need — the analyst's favorite name, and his most concentrated bet.",
+      "publishedAt": "2026-07-12T00:00:00Z",
+      "updatedAt": "2026-07-12T00:00:00Z",
+      "rating": "accumulate",
+      "sections": [
+        {
+          "heading": "Snapshot",
+          "body": "$SIVE makes indium-phosphide continuous-wave (CW) DFB lasers — the light source that co-packaged optics and next-gen pluggable transceivers cannot work without. It is fab-lite, Sweden-listed, and mapped as the laser supplier into $JBL's 1.6T modules, $GFS's reference design, Ayar Labs' NVLink-attached CPO, and [[photonics]] scale-out plays like $POET.\n\nThis is the analyst's highest-conviction name — \"probably my favorite stock right now\" — and also his largest holding, which is exactly why this memo exists: the desk's job is to separate the supply-chain logic (strong) from the book-talking (structural)."
+        },
+        {
+          "heading": "Thesis",
+          "body": "The chokepoint argument is simple: everyone building CPO or 1.6T optics needs CW lasers, few suppliers exist, and Sivers sits on qualification tracks at several of them at once. The most dateable claim is the $JBL leg — per a JPM fireside chat the analyst relayed, JBL's 1.6T LRO qualification should complete between **Aug 2026 and Mar 2027**, followed by mass production with Sivers lasers in the pluggables. AEVA targets high-volume manufacturing around Q4 2026 and $POET H2 2026, so the demand waves are staggered rather than simultaneous.\n\nOn top sit the corporate catalysts he cites: an oversubscribed funding round for the fabless ramp, a NASDAQ listing \"in the next few quarters,\" then M&A for TAM expansion. His valuation hook is relative — it trades below $POET while supplying half the ecosystem POET belongs to."
+        },
+        {
+          "heading": "Why own it",
+          "body": "If the CPO transition happens at all, the discrete CW laser is one of the few places where a small company owns a genuine bottleneck rather than renting a story. The multi-customer structure matters: this is not a one-design-win bet, it is four or five partially independent qualification tracks, any one of which validates the ramp. The NASDAQ listing is a separate, non-fundamental catalyst — a liquidity re-rate that does not require the technology thesis to resolve first."
+        },
+        {
+          "heading": "Risks",
+          "body": "Every flag the desk tracks is live here. It is the analyst's largest position, so every reiteration is also an advertisement. The auditor has raised a going-concern flag around the SEK 700M raise, and Ningi Research has published a short thesis — if the cash strain is real, dilution does the damage before any design win pays. Integrated-laser architectures (OpenLight-style, needing no external light source) are the technology kill-shot: they remove the discrete CW supplier from the diagram entirely. And the newest angle — Hesai lidar scrutiny pushing western lidar toward $LITE/$SIVE lasers — is second-order speculation, not orders.\n\nQualification risk is the dateable one: $JBL slipping past Q1 2027, or a design-out at JBL/GFS/Ayar, breaks the strongest leg of the thesis."
+        },
+        {
+          "heading": "Bottom line",
+          "body": "Accumulate, on the staggered plan — the desk's standing view is that margin-cascade selloffs in a name whose fundamentals just got *more* dated (the JBL qualification window) are the planned tranches, not a reason to stop. Keep the single-analyst concentration cap; this is the one name where his conviction and his exposure are the same thing. The next hard checkpoints: the NASDAQ listing materializing within the promised quarters, and JBL qualification completing inside the Aug 2026–Mar 2027 window."
+        }
+      ],
+      "sourceThesisIds": [
+        "h_0dd22247c9538b67",
+        "h_2c315427900a28ca",
+        "h_574cc87d7e028236",
+        "h_ab043547a0a514ce"
+      ],
+      "basedOnVerdict": true
+    },
+    {
+      "id": "m_LITE_2026w28",
+      "ticker": "LITE",
+      "kind": "coverage",
+      "title": "The incumbent way to own the laser bottleneck",
+      "dek": "Lumentum is the lower-torque, lower-drama expression of the same photonics chokepoint — the anchor holding of the sleeve while SIVE and AXTI carry the risk.",
+      "publishedAt": "2026-07-12T00:00:00Z",
+      "updatedAt": "2026-07-12T00:00:00Z",
+      "rating": "accumulate",
+      "sections": [
+        {
+          "heading": "Snapshot",
+          "body": "$LITE builds industrial lasers and the optical components inside datacenter transceivers and telecom gear — the incumbent supplier at the [[photonics]] layer where $SIVE is the challenger. In this coverage universe it plays a specific role: the established, revenue-generating way to own the laser bottleneck without underwriting a micro-cap's balance sheet."
+        },
+        {
+          "heading": "Thesis",
+          "body": "The analyst's frame is that laser supply stays bottlenecked **into 2029** — demand from 1.6T pluggables and CPO scale-out compounds faster than laser capacity can be added. His standing heuristic: when the CEO says everything they make gets bought, sell-side bear notes about valuation do not touch the fundamentals. The recent washout gave that frame a live test — LITE fell 4–10% alongside the whole complex on what he reads as cascading margin liquidations plus the SemiAnalysis CPO-delay pieces, none of it name-specific.\n\nA second-order kicker appeared with the Hesai story: US national-security scrutiny of the Chinese lidar maker is bullish for western lidar players, and upstream, for their laser suppliers — LITE and SIVE both."
+        },
+        {
+          "heading": "Why own it",
+          "body": "Same chokepoint as the small-caps, a fraction of the fragility. LITE has scale, customer breadth, and actual current earnings against the same structural shortage. In sleeve terms it is the low-beta anchor: if the photonics thesis is right, LITE re-rates with it; if the thesis is early, LITE's drawdowns are survivable in a way SIVE's may not be."
+        },
+        {
+          "heading": "Risks",
+          "body": "The bear case that matters is the one SemiAnalysis argued: CPO delays plus hyperscaler order pushouts would hit the growth narrative even if today's business holds. The subtler risk is competitive — LITE currently buys from some of the CW-laser entrants; if names like SIVE graduate from suppliers to rivals on next-gen sockets, the incumbent loses share exactly where the growth was supposed to come from. Note also the evidence quality: this week's citations are washout commentary and a second-order lidar story, not new LITE-specific datapoints."
+        },
+        {
+          "heading": "Bottom line",
+          "body": "Accumulate — keep building the anchor position on red days and let SIVE/AXTI carry the torque. Nothing in the current evidence changes sizing. What would: hyperscaler pushouts substantiating the CPO-delay bear case, or visible share loss to the CW-laser entrants."
+        }
+      ],
+      "sourceThesisIds": [
+        "h_d1316054ff13d830",
+        "h_ab043547a0a514ce",
+        "h_574cc87d7e028236"
+      ],
+      "basedOnVerdict": true
+    },
+    {
+      "id": "m_NVDA_2026w28",
+      "ticker": "NVDA",
+      "kind": "coverage",
+      "title": "The center of the map is not the trade",
+      "dek": "NVIDIA is the demand hub every thesis here feeds into — which is precisely why this desk expresses the view through the suppliers, not the hub.",
+      "publishedAt": "2026-07-12T00:00:00Z",
+      "updatedAt": "2026-07-12T00:00:00Z",
+      "rating": "watch",
+      "sections": [
+        {
+          "heading": "Snapshot",
+          "body": "$NVDA is the gravitational center of this entire coverage universe: every name in the book either supplies into its chips, manufactures them, connects them, or builds on top of them. It carries a desk verdict not because it is a pick, but because it is the reference point every other verdict is measured against — see [[accelerators]]."
+        },
+        {
+          "heading": "Thesis",
+          "body": "The analyst rarely publishes NVDA-specific work, and that is the point. His edge — and this tool's — lives in the layers beneath: the optics, lasers, memory and substrates where a design win moves a small company's entire valuation rather than a mega-cap's next quarter. This week NVDA featured only as collateral: the selloff he attributes to a misleading Bloomberg piece on Meta compute plus SemiAnalysis bear posts on NVDA supply chains, and the Hesai lidar scrutiny in which NVDA is the partner under review."
+        },
+        {
+          "heading": "Why own it",
+          "body": "Not the question this desk answers. The honest framing: if you want NVDA exposure, that is a core-portfolio allocation decision made outside this workflow. What this coverage universe offers instead is the derivative trade — names whose fortunes are levered to NVDA's roadmap at multiples of the payoff and multiples of the risk."
+        },
+        {
+          "heading": "Risks",
+          "body": "For this book, NVDA is the risk factor rather than the position: a genuine NVDA demand shock (hyperscaler capex cuts, an export-control expansion, a credible custom-silicon displacement story) hits every supplier here harder than it hits NVDA itself. The narrative war matters too — this week showed that two bearish supply-chain posts can mark the whole complex down 40–60% from the highs, fundamentals untouched."
+        },
+        {
+          "heading": "Bottom line",
+          "body": "Watch. Express the view through the suppliers this map surfaces; hold NVDA as a separate decision. The desk would re-rate this into an active call only if the analyst starts publishing NVDA-specific supply or pricing work — that is the falsifier for keeping it parked."
+        }
+      ],
+      "sourceThesisIds": [
+        "h_73d38658dc26c0d9",
+        "h_ab043547a0a514ce"
+      ],
+      "basedOnVerdict": true
+    },
+    {
+      "id": "m_AAOI_2026w28",
+      "ticker": "AAOI",
+      "kind": "coverage",
+      "title": "The washout he asked for arrived — and he bought it",
+      "dek": "Applied Optoelectronics ran from the analyst's entry to a multi-bagger, crashed 40–60% with the optical complex, and his own framework said that dip was the entry.",
+      "publishedAt": "2026-07-12T00:00:00Z",
+      "updatedAt": "2026-07-12T00:00:00Z",
+      "rating": "accumulate",
+      "sections": [
+        {
+          "heading": "Snapshot",
+          "body": "$AAOI makes optical transceivers — the modules that convert electrical signals to light so GPU racks can move data at bandwidths copper physically cannot carry. It sits in the [[photonics]] layer as the volume-manufacturing pure play, and it is one of the analyst's two most concentrated holdings alongside $SIVE."
+        },
+        {
+          "heading": "Thesis",
+          "body": "The headline claim is aggressive: a ~$1.4B/quarter revenue run-rate by H1 2027 — 800%+ year-over-year growth — driven by hyperscaler transceiver demand, stated off a market cap that makes the multiple look cheap *if* the ramp is real. The analyst himself called the stock overextended after its huge run and predicted range-bound chop until earnings.\n\nThen the washout came: the SemiAnalysis CPO-delay pieces plus the Bloomberg Meta-compute story knocked optical names down 40–60%. His response was to buy heavily — and notably, the desk's own prior verdict had named exactly this condition (\"a washout back toward the pre-run range\") as the entry trigger. The condition fired; the stance upgraded from watch to accumulate."
+        },
+        {
+          "heading": "Why own it",
+          "body": "Of the transceiver names, AAOI has the clearest single-story torque: one revenue ramp, one customer concentration question, one earnings print that settles it. The desk's read is that the 40–60% drawdown transferred most of the froth out of the position while the claimed monthly run-rate trajectory — roughly $471M/month at target — remained untested rather than disproven. An AMD CW long-term-agreement relationship gives the story a second leg beyond the hyperscaler transceiver ramp."
+        },
+        {
+          "heading": "Risks",
+          "body": "The run-rate story is still narrative until an earnings print validates it — 800% growth claims fail more often than they land. The analyst is heavily concentrated and openly suffering drawdowns here, so reiterations carry maximum book-talking risk; the desk discounts frequency and weights only new datapoints. And AAOI is the highest-beta expression of a complex that just demonstrated it can lose half its value on two blog posts."
+        },
+        {
+          "heading": "Bottom line",
+          "body": "Accumulate — scale in on the washout rather than paying up after the earnings confirmation, but keep half the intended size in reserve for the print. If the quarter validates the monthly run-rate trajectory, complete the position. An earnings miss against the run-rate narrative, or the AMD relationship failing to expand, sends this straight back to watch."
+        }
+      ],
+      "sourceThesisIds": [
+        "h_29e60f0da3d1925a",
+        "h_3dbecf550235afcf",
+        "h_34534f43456cd196"
+      ],
+      "basedOnVerdict": true
+    },
+    {
+      "id": "m_JBL_2026w28",
+      "ticker": "JBL",
+      "kind": "coverage",
+      "title": "A dated catalyst inside a boring giant",
+      "dek": "Jabil's 1.6T optical module qualification — Aug 2026 to Mar 2027, then mass production with Sivers lasers — gives the conservative photonics expression an actual clock.",
+      "publishedAt": "2026-07-12T00:00:00Z",
+      "updatedAt": "2026-07-12T00:00:00Z",
+      "rating": "accumulate",
+      "sections": [
+        {
+          "heading": "Snapshot",
+          "body": "$JBL is a contract electronics giant whose relevance to this map is one program: it builds 1.6T LRO optical modules for AI datacenters, feeding the same interconnect demand as the pure plays in [[photonics]] — with a diversified multi-billion-revenue base underneath instead of a single-product balance sheet."
+        },
+        {
+          "heading": "Thesis",
+          "body": "This week produced the book's most concrete new datapoint, and it attaches here. Per a JPM fireside chat the analyst relayed, JBL management described a \"relatively dramatic moat\" in its 1.6T LRO, with qualification completing over the following months — an **Aug 2026 to Mar 2027** window — and mass production starting afterward, using $SIVE lasers in the pluggables. That converts JBL from a vague conservative-expression idea into a thesis with a dated, checkable catalyst.\n\nIt also makes JBL the keystone of the analyst's photonics stack: the same qualification event de-risks his SIVE position, which is worth remembering when weighing his enthusiasm."
+        },
+        {
+          "heading": "Why own it",
+          "body": "It is the low-risk door into the highest-conviction corner of the book. If 1.6T optics ramp, JBL participates with manufacturing scale no pure play can match; if they slip, JBL remains a profitable EMS business and the position costs patience, not capital. The catalyst is verifiable from public sources — qualification completion and optics revenue commentary on the next two earnings calls — so the thesis does not depend on trusting anyone's enthusiasm."
+        },
+        {
+          "heading": "Risks",
+          "body": "Dilution of impact is the structural one: optics can succeed and still be too small to move a ~$28B-revenue company's needle — the bull case needs optics broken out or visibly bending the growth rate. Program risk is the sharp one: qualification slipping past Q1 2027 or losing transceiver share to rival EMS suppliers guts the thesis. And note the sourcing: the moat language is management's own, relayed secondhand through the analyst — friendlier telephone than a filed disclosure."
+        },
+        {
+          "heading": "Bottom line",
+          "body": "Accumulate — the starter position stands, with the qualification window as the concrete thing to verify across the next two earnings calls. Add if optics contribution starts getting broken out or the qual completes on schedule. Slip past Q1 2027 and the desk folds this back to watch."
+        }
+      ],
+      "sourceThesisIds": [
+        "h_2c315427900a28ca",
+        "h_0dd22247c9538b67"
+      ],
+      "basedOnVerdict": true
+    }
+  ]
 }
