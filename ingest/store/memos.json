@@ -3,7 +3,7 @@
     "schemaVersion": 1,
     "updatedAt": "2026-07-12T00:00:00Z",
     "author": "claude-desk",
-    "disclaimer": "Coverage memos are second-opinion research notes on @aleabitoreddit's ideas. Personal research tool — not investment advice."
+    "disclaimer": "Coverage memos are second-opinion research notes on @aleabitoreddit's ideas. Personal research tool \u2014 not investment advice."
   },
   "memos": [
     {
@@ -11,37 +11,41 @@
       "ticker": "SIVE",
       "kind": "coverage",
       "title": "The laser everyone else's thesis depends on",
-      "dek": "Sivers sells the continuous-wave lasers that JBL, GlobalFoundries, Ayar and POET all need — the analyst's favorite name, and his most concentrated bet.",
+      "dek": "Sivers sells the continuous-wave lasers that JBL, GlobalFoundries, Ayar and POET all need \u2014 the analyst's favorite name, and his most concentrated bet.",
       "publishedAt": "2026-07-12T00:00:00Z",
       "updatedAt": "2026-07-12T00:00:00Z",
       "rating": "accumulate",
       "sections": [
         {
           "heading": "Snapshot",
-          "body": "$SIVE makes indium-phosphide continuous-wave (CW) DFB lasers — the light source that co-packaged optics and next-gen pluggable transceivers cannot work without. It is fab-lite, Sweden-listed, and mapped as the laser supplier into $JBL's 1.6T modules, $GFS's reference design, Ayar Labs' NVLink-attached CPO, and [[photonics]] scale-out plays like $POET.\n\nThis is the analyst's highest-conviction name — \"probably my favorite stock right now\" — and also his largest holding, which is exactly why this memo exists: the desk's job is to separate the supply-chain logic (strong) from the book-talking (structural)."
+          "body": "$SIVE makes indium-phosphide continuous-wave (CW) DFB lasers \u2014 the light source that co-packaged optics and next-gen pluggable transceivers cannot work without. It is fab-lite, Sweden-listed, and mapped as the laser supplier into $JBL's 1.6T modules, $GFS's reference design, Ayar Labs' NVLink-attached CPO, and [[photonics]] scale-out plays like $POET.\n\nThis is the analyst's highest-conviction name \u2014 \"probably my favorite stock right now\" \u2014 and also his largest holding, which is exactly why this memo exists: the desk's job is to separate the supply-chain logic (strong) from the book-talking (structural).\n\nLate-week development: three insider purchases landed right after the drop \u2014 most notably the CEO buying 1,000,000 SEK of stock on the open market \u2014 while Nvidia denied the delay reports that caused the selloff and a sell-side channel check concluded Chinese rivals are 'quite far' from high-power CW lasers."
         },
         {
           "heading": "Thesis",
-          "body": "The chokepoint argument is simple: everyone building CPO or 1.6T optics needs CW lasers, few suppliers exist, and Sivers sits on qualification tracks at several of them at once. The most dateable claim is the $JBL leg — per a JPM fireside chat the analyst relayed, JBL's 1.6T LRO qualification should complete between **Aug 2026 and Mar 2027**, followed by mass production with Sivers lasers in the pluggables. AEVA targets high-volume manufacturing around Q4 2026 and $POET H2 2026, so the demand waves are staggered rather than simultaneous.\n\nOn top sit the corporate catalysts he cites: an oversubscribed funding round for the fabless ramp, a NASDAQ listing \"in the next few quarters,\" then M&A for TAM expansion. His valuation hook is relative — it trades below $POET while supplying half the ecosystem POET belongs to."
+          "body": "The chokepoint argument is simple: everyone building CPO or 1.6T optics needs CW lasers, few suppliers exist, and Sivers sits on qualification tracks at several of them at once. The most dateable claim is the $JBL leg \u2014 per a JPM fireside chat the analyst relayed, JBL's 1.6T LRO qualification should complete between **Aug 2026 and Mar 2027**, followed by mass production with Sivers lasers in the pluggables. AEVA targets high-volume manufacturing around Q4 2026 and $POET H2 2026, so the demand waves are staggered rather than simultaneous.\n\nOn top sit the corporate catalysts he cites: an oversubscribed funding round for the fabless ramp, a NASDAQ listing \"in the next few quarters,\" then M&A for TAM expansion. His valuation hook is relative \u2014 it trades below $POET while supplying half the ecosystem POET belongs to."
         },
         {
           "heading": "Why own it",
-          "body": "If the CPO transition happens at all, the discrete CW laser is one of the few places where a small company owns a genuine bottleneck rather than renting a story. The multi-customer structure matters: this is not a one-design-win bet, it is four or five partially independent qualification tracks, any one of which validates the ramp. The NASDAQ listing is a separate, non-fundamental catalyst — a liquidity re-rate that does not require the technology thesis to resolve first."
+          "body": "If the CPO transition happens at all, the discrete CW laser is one of the few places where a small company owns a genuine bottleneck rather than renting a story. The multi-customer structure matters: this is not a one-design-win bet, it is four or five partially independent qualification tracks, any one of which validates the ramp. The NASDAQ listing is a separate, non-fundamental catalyst \u2014 a liquidity re-rate that does not require the technology thesis to resolve first."
         },
         {
           "heading": "Risks",
-          "body": "Every flag the desk tracks is live here. It is the analyst's largest position, so every reiteration is also an advertisement. The auditor has raised a going-concern flag around the SEK 700M raise, and Ningi Research has published a short thesis — if the cash strain is real, dilution does the damage before any design win pays. Integrated-laser architectures (OpenLight-style, needing no external light source) are the technology kill-shot: they remove the discrete CW supplier from the diagram entirely. And the newest angle — Hesai lidar scrutiny pushing western lidar toward $LITE/$SIVE lasers — is second-order speculation, not orders.\n\nQualification risk is the dateable one: $JBL slipping past Q1 2027, or a design-out at JBL/GFS/Ayar, breaks the strongest leg of the thesis."
+          "body": "Every flag the desk tracks is live here. It is the analyst's largest position, so every reiteration is also an advertisement. The auditor has raised a going-concern flag around the SEK 700M raise, and Ningi Research has published a short thesis \u2014 if the cash strain is real, dilution does the damage before any design win pays. Integrated-laser architectures (OpenLight-style, needing no external light source) are the technology kill-shot: they remove the discrete CW supplier from the diagram entirely. And the newest angle \u2014 Hesai lidar scrutiny pushing western lidar toward $LITE/$SIVE lasers \u2014 is second-order speculation, not orders.\n\nQualification risk is the dateable one: $JBL slipping past Q1 2027, or a design-out at JBL/GFS/Ayar, breaks the strongest leg of the thesis."
         },
         {
           "heading": "Bottom line",
-          "body": "Accumulate, on the staggered plan — the desk's standing view is that margin-cascade selloffs in a name whose fundamentals just got *more* dated (the JBL qualification window) are the planned tranches, not a reason to stop. Keep the single-analyst concentration cap; this is the one name where his conviction and his exposure are the same thing. The next hard checkpoints: the NASDAQ listing materializing within the promised quarters, and JBL qualification completing inside the Aug 2026–Mar 2027 window."
+          "body": "Accumulate, on the staggered plan \u2014 and this week supplied the tranche trigger the plan was waiting for: a CEO open-market buy into a headline-driven drop, both delay reports denied, and Rosenblatt reporting the short sellers pressuring the sector intend to cover in late July/August. The desk treats that combination as the add-on-dip window. What breaks the thesis is unchanged: insider selling resuming, the NASDAQ listing slipping, or the [[jbl]]/GlobalFoundries partnerships failing to convert to volume orders."
         }
       ],
       "sourceThesisIds": [
         "h_0dd22247c9538b67",
         "h_2c315427900a28ca",
+        "h_4112af08b2b031a5",
         "h_574cc87d7e028236",
-        "h_ab043547a0a514ce"
+        "h_65b35e33ee5ec7a3",
+        "h_ab043547a0a514ce",
+        "h_be5adc50f7bbcc5f",
+        "h_f97b00cbf156655b"
       ],
       "basedOnVerdict": true
     },
@@ -50,18 +54,18 @@
       "ticker": "LITE",
       "kind": "coverage",
       "title": "The incumbent way to own the laser bottleneck",
-      "dek": "Lumentum is the lower-torque, lower-drama expression of the same photonics chokepoint — the anchor holding of the sleeve while SIVE and AXTI carry the risk.",
+      "dek": "Lumentum is the lower-torque, lower-drama expression of the same photonics chokepoint \u2014 the anchor holding of the sleeve while SIVE and AXTI carry the risk.",
       "publishedAt": "2026-07-12T00:00:00Z",
       "updatedAt": "2026-07-12T00:00:00Z",
       "rating": "accumulate",
       "sections": [
         {
           "heading": "Snapshot",
-          "body": "$LITE builds industrial lasers and the optical components inside datacenter transceivers and telecom gear — the incumbent supplier at the [[photonics]] layer where $SIVE is the challenger. In this coverage universe it plays a specific role: the established, revenue-generating way to own the laser bottleneck without underwriting a micro-cap's balance sheet."
+          "body": "$LITE builds industrial lasers and the optical components inside datacenter transceivers and telecom gear \u2014 the incumbent supplier at the [[photonics]] layer where $SIVE is the challenger. In this coverage universe it plays a specific role: the established, revenue-generating way to own the laser bottleneck without underwriting a micro-cap's balance sheet."
         },
         {
           "heading": "Thesis",
-          "body": "The analyst's frame is that laser supply stays bottlenecked **into 2029** — demand from 1.6T pluggables and CPO scale-out compounds faster than laser capacity can be added. His standing heuristic: when the CEO says everything they make gets bought, sell-side bear notes about valuation do not touch the fundamentals. The recent washout gave that frame a live test — LITE fell 4–10% alongside the whole complex on what he reads as cascading margin liquidations plus the SemiAnalysis CPO-delay pieces, none of it name-specific.\n\nA second-order kicker appeared with the Hesai story: US national-security scrutiny of the Chinese lidar maker is bullish for western lidar players, and upstream, for their laser suppliers — LITE and SIVE both."
+          "body": "The analyst's frame is that laser supply stays bottlenecked **into 2029** \u2014 demand from 1.6T pluggables and CPO scale-out compounds faster than laser capacity can be added. His standing heuristic: when the CEO says everything they make gets bought, sell-side bear notes about valuation do not touch the fundamentals. The recent washout gave that frame a live test \u2014 LITE fell 4\u201310% alongside the whole complex on what he reads as cascading margin liquidations plus the SemiAnalysis CPO-delay pieces, none of it name-specific.\n\nA second-order kicker appeared with the Hesai story: US national-security scrutiny of the Chinese lidar maker is bullish for western lidar players, and upstream, for their laser suppliers \u2014 LITE and SIVE both.\n\nThe week's channel check hardened the supply side of the argument: Chinese laser makers reportedly have no working 200G EMLs and remain far from the high-power CW lasers that CPO needs \u2014 meaning the capacity the bears assumed was coming isn't visible yet."
         },
         {
           "heading": "Why own it",
@@ -69,17 +73,20 @@
         },
         {
           "heading": "Risks",
-          "body": "The bear case that matters is the one SemiAnalysis argued: CPO delays plus hyperscaler order pushouts would hit the growth narrative even if today's business holds. The subtler risk is competitive — LITE currently buys from some of the CW-laser entrants; if names like SIVE graduate from suppliers to rivals on next-gen sockets, the incumbent loses share exactly where the growth was supposed to come from. Note also the evidence quality: this week's citations are washout commentary and a second-order lidar story, not new LITE-specific datapoints."
+          "body": "The bear case that matters is the one SemiAnalysis argued: CPO delays plus hyperscaler order pushouts would hit the growth narrative even if today's business holds. The subtler risk is competitive \u2014 LITE currently buys from some of the CW-laser entrants; if names like SIVE graduate from suppliers to rivals on next-gen sockets, the incumbent loses share exactly where the growth was supposed to come from. Note also the evidence quality: this week's citations are washout commentary and a second-order lidar story, not new LITE-specific datapoints."
         },
         {
           "heading": "Bottom line",
-          "body": "Accumulate — keep building the anchor position on red days and let SIVE/AXTI carry the torque. Nothing in the current evidence changes sizing. What would: hyperscaler pushouts substantiating the CPO-delay bear case, or visible share loss to the CW-laser entrants."
+          "body": "Accumulate \u2014 keep building the anchor position on red days and let [[sive]]/[[axti]] carry the torque. Rosenblatt's read that short sellers plan to cover in late July/August suggests the red days are numbered; nothing in the current evidence changes sizing. What would: an actual (not reported-then-denied) CPO slip, or Chinese high-power CW capacity showing up in channel checks."
         }
       ],
       "sourceThesisIds": [
-        "h_d1316054ff13d830",
+        "h_4112af08b2b031a5",
+        "h_574cc87d7e028236",
+        "h_65b35e33ee5ec7a3",
         "h_ab043547a0a514ce",
-        "h_574cc87d7e028236"
+        "h_d1316054ff13d830",
+        "h_f97b00cbf156655b"
       ],
       "basedOnVerdict": true
     },
@@ -88,30 +95,30 @@
       "ticker": "NVDA",
       "kind": "coverage",
       "title": "The center of the map is not the trade",
-      "dek": "NVIDIA is the demand hub every thesis here feeds into — which is precisely why this desk expresses the view through the suppliers, not the hub.",
+      "dek": "NVIDIA is the demand hub every thesis here feeds into \u2014 which is precisely why this desk expresses the view through the suppliers, not the hub.",
       "publishedAt": "2026-07-12T00:00:00Z",
       "updatedAt": "2026-07-12T00:00:00Z",
       "rating": "watch",
       "sections": [
         {
           "heading": "Snapshot",
-          "body": "$NVDA is the gravitational center of this entire coverage universe: every name in the book either supplies into its chips, manufactures them, connects them, or builds on top of them. It carries a desk verdict not because it is a pick, but because it is the reference point every other verdict is measured against — see [[accelerators]]."
+          "body": "$NVDA is the gravitational center of this entire coverage universe: every name in the book either supplies into its chips, manufactures them, connects them, or builds on top of them. It carries a desk verdict not because it is a pick, but because it is the reference point every other verdict is measured against \u2014 see [[accelerators]]."
         },
         {
           "heading": "Thesis",
-          "body": "The analyst rarely publishes NVDA-specific work, and that is the point. His edge — and this tool's — lives in the layers beneath: the optics, lasers, memory and substrates where a design win moves a small company's entire valuation rather than a mega-cap's next quarter. This week NVDA featured only as collateral: the selloff he attributes to a misleading Bloomberg piece on Meta compute plus SemiAnalysis bear posts on NVDA supply chains, and the Hesai lidar scrutiny in which NVDA is the partner under review."
+          "body": "The analyst rarely publishes NVDA-specific work, and that is the point. His edge \u2014 and this tool's \u2014 lives in the layers beneath: the optics, lasers, memory and substrates where a design win moves a small company's entire valuation rather than a mega-cap's next quarter. This week NVDA featured only as collateral: the selloff he attributes to a misleading Bloomberg piece on Meta compute plus SemiAnalysis bear posts on NVDA supply chains, and the Hesai lidar scrutiny in which NVDA is the partner under review."
         },
         {
           "heading": "Why own it",
-          "body": "Not the question this desk answers. The honest framing: if you want NVDA exposure, that is a core-portfolio allocation decision made outside this workflow. What this coverage universe offers instead is the derivative trade — names whose fortunes are levered to NVDA's roadmap at multiples of the payoff and multiples of the risk."
+          "body": "Not the question this desk answers. The honest framing: if you want NVDA exposure, that is a core-portfolio allocation decision made outside this workflow. What this coverage universe offers instead is the derivative trade \u2014 names whose fortunes are levered to NVDA's roadmap at multiples of the payoff and multiples of the risk."
         },
         {
           "heading": "Risks",
-          "body": "For this book, NVDA is the risk factor rather than the position: a genuine NVDA demand shock (hyperscaler capex cuts, an export-control expansion, a credible custom-silicon displacement story) hits every supplier here harder than it hits NVDA itself. The narrative war matters too — this week showed that two bearish supply-chain posts can mark the whole complex down 40–60% from the highs, fundamentals untouched."
+          "body": "For this book, NVDA is the risk factor rather than the position: a genuine NVDA demand shock (hyperscaler capex cuts, an export-control expansion, a credible custom-silicon displacement story) hits every supplier here harder than it hits NVDA itself. The narrative war matters too \u2014 this week showed that two bearish supply-chain posts can mark the whole complex down 40\u201360% from the highs, fundamentals untouched."
         },
         {
           "heading": "Bottom line",
-          "body": "Watch. Express the view through the suppliers this map surfaces; hold NVDA as a separate decision. The desk would re-rate this into an active call only if the analyst starts publishing NVDA-specific supply or pricing work — that is the falsifier for keeping it parked."
+          "body": "Watch. Express the view through the suppliers this map surfaces; hold NVDA as a separate decision. The desk would re-rate this into an active call only if the analyst starts publishing NVDA-specific supply or pricing work \u2014 that is the falsifier for keeping it parked."
         }
       ],
       "sourceThesisIds": [
@@ -124,37 +131,40 @@
       "id": "m_AAOI_2026w28",
       "ticker": "AAOI",
       "kind": "coverage",
-      "title": "The washout he asked for arrived — and he bought it",
-      "dek": "Applied Optoelectronics ran from the analyst's entry to a multi-bagger, crashed 40–60% with the optical complex, and his own framework said that dip was the entry.",
+      "title": "The washout he asked for arrived \u2014 and he bought it",
+      "dek": "Applied Optoelectronics ran from the analyst's entry to a multi-bagger, crashed 40\u201360% with the optical complex, and his own framework said that dip was the entry.",
       "publishedAt": "2026-07-12T00:00:00Z",
       "updatedAt": "2026-07-12T00:00:00Z",
       "rating": "accumulate",
       "sections": [
         {
           "heading": "Snapshot",
-          "body": "$AAOI makes optical transceivers — the modules that convert electrical signals to light so GPU racks can move data at bandwidths copper physically cannot carry. It sits in the [[photonics]] layer as the volume-manufacturing pure play, and it is one of the analyst's two most concentrated holdings alongside $SIVE."
+          "body": "$AAOI makes optical transceivers \u2014 the modules that convert electrical signals to light so GPU racks can move data at bandwidths copper physically cannot carry. It sits in the [[photonics]] layer as the volume-manufacturing pure play, and it is one of the analyst's two most concentrated holdings alongside $SIVE."
         },
         {
           "heading": "Thesis",
-          "body": "The headline claim is aggressive: a ~$1.4B/quarter revenue run-rate by H1 2027 — 800%+ year-over-year growth — driven by hyperscaler transceiver demand, stated off a market cap that makes the multiple look cheap *if* the ramp is real. The analyst himself called the stock overextended after its huge run and predicted range-bound chop until earnings.\n\nThen the washout came: the SemiAnalysis CPO-delay pieces plus the Bloomberg Meta-compute story knocked optical names down 40–60%. His response was to buy heavily — and notably, the desk's own prior verdict had named exactly this condition (\"a washout back toward the pre-run range\") as the entry trigger. The condition fired; the stance upgraded from watch to accumulate."
+          "body": "The headline claim is aggressive: a ~$1.4B/quarter revenue run-rate by H1 2027 \u2014 800%+ year-over-year growth \u2014 driven by hyperscaler transceiver demand, stated off a market cap that makes the multiple look cheap *if* the ramp is real. The analyst himself called the stock overextended after its huge run and predicted range-bound chop until earnings.\n\nThen the washout came: the SemiAnalysis CPO-delay pieces plus the Bloomberg Meta-compute story knocked optical names down 40\u201360%. His response was to buy heavily \u2014 and notably, the desk's own prior verdict had named exactly this condition (\"a washout back toward the pre-run range\") as the entry trigger. The condition fired; the stance upgraded from watch to accumulate."
         },
         {
           "heading": "Why own it",
-          "body": "Of the transceiver names, AAOI has the clearest single-story torque: one revenue ramp, one customer concentration question, one earnings print that settles it. The desk's read is that the 40–60% drawdown transferred most of the froth out of the position while the claimed monthly run-rate trajectory — roughly $471M/month at target — remained untested rather than disproven. An AMD CW long-term-agreement relationship gives the story a second leg beyond the hyperscaler transceiver ramp."
+          "body": "Of the transceiver names, AAOI has the clearest single-story torque: one revenue ramp, one customer concentration question, one earnings print that settles it. The desk's read is that the 40\u201360% drawdown transferred most of the froth out of the position while the claimed monthly run-rate trajectory \u2014 roughly $471M/month at target \u2014 remained untested rather than disproven. An AMD CW long-term-agreement relationship gives the story a second leg beyond the hyperscaler transceiver ramp."
         },
         {
           "heading": "Risks",
-          "body": "The run-rate story is still narrative until an earnings print validates it — 800% growth claims fail more often than they land. The analyst is heavily concentrated and openly suffering drawdowns here, so reiterations carry maximum book-talking risk; the desk discounts frequency and weights only new datapoints. And AAOI is the highest-beta expression of a complex that just demonstrated it can lose half its value on two blog posts."
+          "body": "The run-rate story is still narrative until an earnings print validates it \u2014 800% growth claims fail more often than they land. The analyst is heavily concentrated and openly suffering drawdowns here, so reiterations carry maximum book-talking risk; the desk discounts frequency and weights only new datapoints. And AAOI is the highest-beta expression of a complex that just demonstrated it can lose half its value on two blog posts.\n\nAAOI is now an explicit sell-side battleground: B. Riley's sell case argues network flattening cuts transceiver TAM 40-50%, while Rosenblatt counters that XPU count grows faster than per-XPU optics shrink, so total optical demand still rises. Expect headline whipsaw into the print."
         },
         {
           "heading": "Bottom line",
-          "body": "Accumulate — scale in on the washout rather than paying up after the earnings confirmation, but keep half the intended size in reserve for the print. If the quarter validates the monthly run-rate trajectory, complete the position. An earnings miss against the run-rate narrative, or the AMD relationship failing to expand, sends this straight back to watch."
+          "body": "Accumulate \u2014 scale in on the washout rather than paying up after the earnings confirmation, but keep half the intended size in reserve for the print. The new sell-report noise is not a thesis change; it raises the stakes on the earnings event that was always the decisive test of the $471m/month run-rate claim."
         }
       ],
       "sourceThesisIds": [
         "h_29e60f0da3d1925a",
+        "h_34534f43456cd196",
         "h_3dbecf550235afcf",
-        "h_34534f43456cd196"
+        "h_4112af08b2b031a5",
+        "h_65b35e33ee5ec7a3",
+        "h_d087ebd537bedd40"
       ],
       "basedOnVerdict": true
     },
@@ -163,30 +173,30 @@
       "ticker": "JBL",
       "kind": "coverage",
       "title": "A dated catalyst inside a boring giant",
-      "dek": "Jabil's 1.6T optical module qualification — Aug 2026 to Mar 2027, then mass production with Sivers lasers — gives the conservative photonics expression an actual clock.",
+      "dek": "Jabil's 1.6T optical module qualification \u2014 Aug 2026 to Mar 2027, then mass production with Sivers lasers \u2014 gives the conservative photonics expression an actual clock.",
       "publishedAt": "2026-07-12T00:00:00Z",
       "updatedAt": "2026-07-12T00:00:00Z",
       "rating": "accumulate",
       "sections": [
         {
           "heading": "Snapshot",
-          "body": "$JBL is a contract electronics giant whose relevance to this map is one program: it builds 1.6T LRO optical modules for AI datacenters, feeding the same interconnect demand as the pure plays in [[photonics]] — with a diversified multi-billion-revenue base underneath instead of a single-product balance sheet."
+          "body": "$JBL is a contract electronics giant whose relevance to this map is one program: it builds 1.6T LRO optical modules for AI datacenters, feeding the same interconnect demand as the pure plays in [[photonics]] \u2014 with a diversified multi-billion-revenue base underneath instead of a single-product balance sheet."
         },
         {
           "heading": "Thesis",
-          "body": "This week produced the book's most concrete new datapoint, and it attaches here. Per a JPM fireside chat the analyst relayed, JBL management described a \"relatively dramatic moat\" in its 1.6T LRO, with qualification completing over the following months — an **Aug 2026 to Mar 2027** window — and mass production starting afterward, using $SIVE lasers in the pluggables. That converts JBL from a vague conservative-expression idea into a thesis with a dated, checkable catalyst.\n\nIt also makes JBL the keystone of the analyst's photonics stack: the same qualification event de-risks his SIVE position, which is worth remembering when weighing his enthusiasm."
+          "body": "This week produced the book's most concrete new datapoint, and it attaches here. Per a JPM fireside chat the analyst relayed, JBL management described a \"relatively dramatic moat\" in its 1.6T LRO, with qualification completing over the following months \u2014 an **Aug 2026 to Mar 2027** window \u2014 and mass production starting afterward, using $SIVE lasers in the pluggables. That converts JBL from a vague conservative-expression idea into a thesis with a dated, checkable catalyst.\n\nIt also makes JBL the keystone of the analyst's photonics stack: the same qualification event de-risks his SIVE position, which is worth remembering when weighing his enthusiasm."
         },
         {
           "heading": "Why own it",
-          "body": "It is the low-risk door into the highest-conviction corner of the book. If 1.6T optics ramp, JBL participates with manufacturing scale no pure play can match; if they slip, JBL remains a profitable EMS business and the position costs patience, not capital. The catalyst is verifiable from public sources — qualification completion and optics revenue commentary on the next two earnings calls — so the thesis does not depend on trusting anyone's enthusiasm."
+          "body": "It is the low-risk door into the highest-conviction corner of the book. If 1.6T optics ramp, JBL participates with manufacturing scale no pure play can match; if they slip, JBL remains a profitable EMS business and the position costs patience, not capital. The catalyst is verifiable from public sources \u2014 qualification completion and optics revenue commentary on the next two earnings calls \u2014 so the thesis does not depend on trusting anyone's enthusiasm."
         },
         {
           "heading": "Risks",
-          "body": "Dilution of impact is the structural one: optics can succeed and still be too small to move a ~$28B-revenue company's needle — the bull case needs optics broken out or visibly bending the growth rate. Program risk is the sharp one: qualification slipping past Q1 2027 or losing transceiver share to rival EMS suppliers guts the thesis. And note the sourcing: the moat language is management's own, relayed secondhand through the analyst — friendlier telephone than a filed disclosure."
+          "body": "Dilution of impact is the structural one: optics can succeed and still be too small to move a ~$28B-revenue company's needle \u2014 the bull case needs optics broken out or visibly bending the growth rate. Program risk is the sharp one: qualification slipping past Q1 2027 or losing transceiver share to rival EMS suppliers guts the thesis. And note the sourcing: the moat language is management's own, relayed secondhand through the analyst \u2014 friendlier telephone than a filed disclosure."
         },
         {
           "heading": "Bottom line",
-          "body": "Accumulate — the starter position stands, with the qualification window as the concrete thing to verify across the next two earnings calls. Add if optics contribution starts getting broken out or the qual completes on schedule. Slip past Q1 2027 and the desk folds this back to watch."
+          "body": "Accumulate \u2014 the starter position stands, with the qualification window as the concrete thing to verify across the next two earnings calls. Add if optics contribution starts getting broken out or the qual completes on schedule. Slip past Q1 2027 and the desk folds this back to watch."
         }
       ],
       "sourceThesisIds": [
@@ -194,6 +204,46 @@
         "h_0dd22247c9538b67"
       ],
       "basedOnVerdict": true
+    },
+    {
+      "id": "m_AXTI_2026w28",
+      "ticker": "AXTI",
+      "kind": "coverage",
+      "title": "The substrate chokepoint that already re-rated",
+      "dek": "AXT owns roughly 40% of the indium-phosphide substrate supply the entire laser chain grows on \u2014 but the venture-scale move already happened, and the desk is on watch, not chase.",
+      "publishedAt": "2026-07-12",
+      "updatedAt": "2026-07-12T00:00:00Z",
+      "rating": "watch",
+      "basedOnVerdict": true,
+      "sourceThesisIds": [
+        "h_9c524f6339fbbee1",
+        "h_10aa6c8479a57d03",
+        "h_de3112b196491491",
+        "h_e71a026cc505204c",
+        "h_65b35e33ee5ec7a3"
+      ],
+      "sections": [
+        {
+          "heading": "Snapshot",
+          "body": "$AXTI (AXT Inc) manufactures compound-semiconductor substrates \u2014 the indium-phosphide (InP) and gallium-arsenide wafers that photonics lasers are physically grown on. In the analyst's framing it controls roughly **40% of the InP substrate supply chain**, sitting one layer upstream of every laser maker in the [[photonics]] story, from [[sive]] to [[lite]]."
+        },
+        {
+          "heading": "Thesis",
+          "body": "Every CW laser, EML and epiwafer in the optical ramp starts life on an InP substrate, and supply is concentrated in a handful of names. The confirmed anchor: a 3-year wafer supply deal with Coherent ([[cohr]]), including a **$22,288,500 prepayment** to AXT-Tongmei for committed capacity (8-K, 25 Jun). Around it, a Nomura report he relayed cites 2-inch InP substrate price hikes of 42-76%, 3-inch hikes of ~78%, and 50-75% on EML epiwafers \u2014 the [[chokepoint]] pattern this desk tracks across the map.\n\nThe desk's caution is about what's already in the price, not the mechanism: part of the ASP spike is a China export-control artifact (licenses began flowing in June 2026, and AXT is doubling capacity), so the hikes can normalize rather than compound."
+        },
+        {
+          "heading": "Why own it",
+          "body": "It is the purest upstream expression of the optical build-out: if transceiver and CPO volumes ramp the way the [[photonics]] names require, substrate demand rises with all of them regardless of which laser vendor wins. The Coherent prepayment is exactly what a real chokepoint looks like \u2014 customers paying eight figures up front for committed capacity."
+        },
+        {
+          "heading": "Risks",
+          "body": "The re-rating already happened \u2014 his own post describes the stock going 'from $1 to $60' (it peaked well above that), so today's buyer is not getting the trade his original thesis sized. The ASP-spike leg can unwind as export licenses normalize supply. His standing dilution warning applies most sharply here, and this week's three mentions were all list-posts plus a bare 'still holding' \u2014 mention-count momentum, not new evidence."
+        },
+        {
+          "heading": "Bottom line",
+          "body": "Watch \u2014 the chokepoint is real but the venture-scale move is behind it. Re-engage on a real reset (a 30-40% retrace toward the run's base) with substrate ASPs still rising; the Nomura hike schedule is the dashboard. Chasing list-post momentum after a hundred-bagger leg is how the [[conviction-tier]] system gets people hurt."
+        }
+      ]
     }
   ]
 }

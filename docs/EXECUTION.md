@@ -44,7 +44,7 @@ data.js           generated as always; gains memos, vault, later calls
 | 2 | Coverage memos (store, memo.html, ledger, skills, seed content) | P6–P10 | ☑ 2026-07-12 |
 | 3 | Knowledge Vault (store+sync, index/page views, graph, authoring loop) | P11–P14 | ✅ 2026-07-12 |
 | 4 | Cross-linking everywhere | P15 | ✅ |
-| 5 | Performance hooks (calls.json + minimal page) | P16 | ☐ |
+| 5 | Performance hooks (calls.json + minimal page) | P16 | ✅ 2026-07-12 |
 
 ## Verification checklist (run after EVERY prompt)
 
@@ -266,7 +266,7 @@ gained link (hover) styling. No `data.js` regen — code-only change.
 
 ## Phase 5 — Performance hooks
 
-### ☐ P16 · S5-H — calls.json + minimal performance page
+### ☑ P16 · S5-H — calls.json + minimal performance page (2026-07-12)
 
 > Read docs/EXECUTION.md. Create `ingest/store/calls.json` (meta + calls: id,
 > ticker, kind new-position|add-on-dip|trim|exit, calledAt, entryPrice,

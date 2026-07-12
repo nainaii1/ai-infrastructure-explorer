@@ -53,6 +53,7 @@ def build_data():
     desk = _load_optional("verdicts.json", {})  # {} until the weekly desk review has run; {meta, verdicts} after
     memos = _load_optional("memos.json", {})    # {} until authored; {meta, memos} after (coverage memos)
     vault = _load_optional("vault.json", {})    # {} until synced; {meta, pages} after (knowledge vault)
+    calls = _load_optional("calls.json", {})    # {} until a first call is stamped; {meta, calls} after
 
     # Merge weekly price snapshot (from fetch_prices.py) onto each ticker.
     for t in tickers:
@@ -106,6 +107,10 @@ def build_data():
         "desk": desk,
         "memos": memos,
         "vault": vault,
+        "calls": calls,
+        # Latest benchmark quote (fetched by fetch_prices.py alongside the
+        # tickers) so performance.html can compute vs-SMH without a fetch().
+        "benchmarkQuote": prices.get((calls.get("meta") or {}).get("benchmark", "SMH")) or None,
     }
 
 

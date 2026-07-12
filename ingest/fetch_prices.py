@@ -42,6 +42,10 @@ FMP_REQUEST_DELAY_SECONDS = 0.3
 # automated. Pacing between per-symbol chart requests + exponential backoff
 # on 429 keeps a run of ~80-100 tickers under that threshold.
 REQUEST_DELAY_SECONDS = 1.5
+
+# Non-tracked symbols fetched purely as benchmarks for the calls ledger
+# (performance.html). Stored in prices.json under their own symbol.
+BENCHMARK_SYMBOLS = ("SMH",)
 BASE_BACKOFF_SECONDS = 2.0
 MAX_BACKOFF_SECONDS = 30.0
 
@@ -224,6 +228,13 @@ def run():
     fmp_key = os.environ.get("FMP_API_KEY")
 
     tickers = _load("tickers.json")
+    # Benchmark quote for the calls ledger (performance.html's vs-SMH column).
+    # Fetched exactly like a ticker; stored in prices.json under its symbol.
+    tracked = {t["ticker"] for t in tickers}
+    for bench in BENCHMARK_SYMBOLS:
+        if bench not in tracked:
+            tickers = tickers + [{"ticker": bench}]
+
     opener, crumb = _crumb_opener()
     prices = _load_prices()  # keep prior snapshot; only overwrite what succeeds
     ok, failed = 0, []

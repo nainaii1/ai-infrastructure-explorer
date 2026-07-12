@@ -81,6 +81,24 @@ operator asking.
    ticker pages appear automatically (sync runs during regen) — they start as
    stubs and can be enriched on demand via `/vault-note SLUG`.
 
+4d. **Stamp calls** in `ingest/store/calls.json` — ONLY when this week's pass
+   produced a **discrete, forward-looking event**:
+   - a verdict **newly flipping to act/accumulate** (kind `new-position`),
+   - a **declared dip-buy** on an already-accumulating name (kind `add-on-dip`),
+   - a stance stepping down with a trim suggestion (kind `trim`), or
+   - an **exit** (stance → pass / dropped from Core; kind `exit` — also set
+     `closedAt`, `exitPrice`, and grade `outcome` win|loss|wash vs entry).
+   **Explicitly no retro-fitting**: never stamp a call for something that
+   already happened, and never backdate `calledAt`. If prices are stale, run
+   `python3 ingest/fetch_prices.py` first — `entryPrice` comes from
+   `prices.json` (same day), `benchmark.priceAtCall` from its `SMH` row.
+   Record shape: `{ id: "c_<TICKER>_<yyyy-mm-dd>", ticker, kind:
+   "new-position"|"add-on-dip"|"trim"|"exit", calledAt, entryPrice,
+   entryCurrency, stanceAtCall, memoId (or null), thesisIds, closedAt: null,
+   exitPrice: null, outcome: "open"|"win"|"loss"|"wash",
+   benchmark: {symbol: "SMH", priceAtCall} }`. Bump `meta.updatedAt`.
+   No qualifying event this week → stamp nothing (most weeks stamp nothing).
+
 5. **Refresh Brain digests** for categories with new theses — author digests
    grouped by category and run them through
    `synthesize.synthesize_all()` with an injected `call_fn` (see
@@ -100,9 +118,12 @@ operator asking.
 
 ## Hard rules
 
-- `verdicts.json`, `memos.json`, and the `note` fields of `vault.json` are
-  the only store data this skill authors directly (vault `auto.*` is owned by
-  `vault_sync.py`); everything else flows through the existing pipeline scripts.
+- `verdicts.json`, `memos.json`, `calls.json`, and the `note` fields of
+  `vault.json` are the only store data this skill authors directly (vault
+  `auto.*` is owned by `vault_sync.py`); everything else flows through the
+  existing pipeline scripts.
+- Calls are stamped forward-only. A missed entry is a missed entry — the
+  ledger's honesty is the product.
 - Never hand-edit `data.js` (CLAUDE.md rule #6).
 - Always include the disclaimer in `meta.disclaimer` — this is research
   support, not investment advice.
