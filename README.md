@@ -23,7 +23,8 @@ ask: *"I messaged the bot and nothing replied — why?"*
 It's a small multi-page site (plain HTML — every page opens by double-click):
 
 - **The front page** (`index.html`) — a short editorial cover: what the desk
-  is, the live counts, when it was last reviewed, and links into the guide.
+  is, the live counts, when it was last reviewed, plus the **coverage ledger**
+  — every research memo the desk has written, filterable by kind and rating.
 - **The field guide** (`desk.html`) — one long scrolling page, not a set of
   separate tabs. At the top: a quick summary (how many ideas captured, how many
   names tracked, the newest signal). Scroll down through four chapters, followed
@@ -39,6 +40,17 @@ It's a small multi-page site (plain HTML — every page opens by double-click):
 - **04 · The Synthesis** — Claude reads all the evidence and writes one
   short summary per theme: what the story is, how confident, which stocks
   matter.
+- **Coverage memos** (`memo.html`) — full research notes on the
+  highest-conviction names: thesis, why own it, risks, bottom line, with the
+  source posts cited underneath and live price/tier/stance pulled in at the top.
+- **The Vault** (`vault.html`) — an Obsidian-style knowledge base: one page
+  per company, theme, and concept, cross-linked with `[[wikilinks]]` and
+  backlinks — plus a **Graph view** that draws the whole web as an
+  interactive force-directed map (hover to trace, click for details).
+- **Performance** (`performance.html`) — the desk's track record: every
+  dated call with its entry price, current return, and whether it beat
+  simply buying the SMH semiconductor index that day. Stamped forward-only,
+  never back-dated; the nav link stays greyed until 3 real calls exist.
 
 ## 📚 Which doc do I open?
 
@@ -58,8 +70,11 @@ project — you don't need to open those unless you're curious.
 ## 🗺️ Where things live
 ```
 ai-supply-desk/
-├── index.html          THE FRONT PAGE — open this file to start
+├── index.html          THE FRONT PAGE — open this file to start (+ coverage ledger)
 ├── desk.html           THE FIELD GUIDE — map, watchlist, evidence, synthesis
+├── memo.html           COVERAGE MEMOS — full research notes per name (?ticker=)
+├── vault.html          THE VAULT — knowledge base + graph view (?view=graph)
+├── performance.html    THE TRACK RECORD — dated calls vs the SMH benchmark
 ├── shared/             the shared look + helpers used by every page
 │   ├── theme.css        design tokens + components
 │   └── common.js        shared logic (window.AIE)
@@ -102,13 +117,24 @@ ai-supply-desk/
   shared or uploaded anywhere.
 
 ## Where things stand
-The map, watchlist, evidence feed, and AI synthesis are all built and
-working, now with a warm editorial front page over the field guide (the
-"Private Coverage" multi-page upgrade — Phase 1 done). Currently tracking
-110+ companies and 180+ captured ideas. Coverage memos, a knowledge vault +
-graph, and performance tracking are the next phases — see
+**The "Private Coverage" upgrade is complete** (all phases, Jul 2026): the
+warm editorial front page with its coverage ledger, the field guide (map /
+watchlist / evidence / synthesis), full coverage memos, the knowledge vault
+with its interactive graph view, site-wide cross-linking, and the
+forward-only performance ledger. Currently tracking 110+ companies, 200+
+captured ideas, 15 desk verdicts, and 6 coverage memos. See
 [docs/EXECUTION.md](docs/EXECUTION.md) and [docs/ROADMAP.md](docs/ROADMAP.md)
-for the full history and what's next.
+for the full history.
+
+## Screenshots
+
+| The front page | The field guide |
+|---|---|
+| ![Front page](docs/images/screen-index.png) | ![Field guide](docs/images/screen-desk.png) |
+
+| A coverage memo | The knowledge graph |
+|---|---|
+| ![Coverage memo](docs/images/screen-memo.png) | ![Vault graph](docs/images/screen-graph.png) |
 
 ## License
 All rights reserved. No open-source license is granted at this time.

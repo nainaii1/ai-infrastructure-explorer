@@ -19,7 +19,12 @@ __pycache__/
 ingest/store/.bot_offset
 
 # --- Session artifacts ---
+# Stray screenshots etc. are ignored everywhere EXCEPT docs/images/, which
+# holds the deliberate documentation assets the README embeds.
 .playwright-mcp/
 *.jpeg
 *.jpg
 *.png
+!docs/images/*.png
+!docs/images/*.jpg
+!docs/images/*.jpeg
