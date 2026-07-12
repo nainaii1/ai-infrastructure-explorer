@@ -1,10 +1,34 @@
 {
   "meta": {
     "schemaVersion": 1,
-    "updatedAt": "2026-07-12T00:00:00Z",
+    "updatedAt": "2026-07-12T08:40:00Z",
     "author": "claude-desk",
     "benchmark": "SMH",
     "disclaimer": "The calls ledger tracks the desk's own dated suggestions against a buy-the-index benchmark. Stamped forward-only, never retro-fitted. Personal research tool - not investment advice."
   },
-  "calls": []
+  "calls": [
+    {
+      "id": "c_SIVE_2026-07-12",
+      "ticker": "SIVE",
+      "kind": "add-on-dip",
+      "calledAt": "2026-07-12",
+      "entryPrice": 47.28,
+      "entryCurrency": "SEK",
+      "stanceAtCall": "accumulate",
+      "memoId": "m_SIVE_2026w28",
+      "thesisIds": [
+        "h_be5adc50f7bbcc5f",
+        "h_f97b00cbf156655b",
+        "h_4112af08b2b031a5",
+        "h_65b35e33ee5ec7a3"
+      ],
+      "closedAt": null,
+      "exitPrice": null,
+      "outcome": "open",
+      "benchmark": {
+        "symbol": "SMH",
+        "priceAtCall": 611.03
+      }
+    }
+  ]
 }
