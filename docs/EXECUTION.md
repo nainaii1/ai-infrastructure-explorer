@@ -45,6 +45,7 @@ data.js           generated as always; gains memos, vault, later calls
 | 3 | Knowledge Vault (store+sync, index/page views, graph, authoring loop) | P11–P14 | ✅ 2026-07-12 |
 | 4 | Cross-linking everywhere | P15 | ✅ |
 | 5 | Performance hooks (calls.json + minimal page) | P16 | ✅ 2026-07-12 |
+| 6 | "Unpacked" rebrand + focus card + map restructure | U1–U8 | 🚧 U1 done 2026-07-13 |
 
 ## Verification checklist (run after EVERY prompt)
 
@@ -278,6 +279,181 @@ gained link (hover) styling. No `data.js` regen — code-only change.
 > Build minimal `performance.html`: ledger table (date, ticker, kind, entry,
 > latest from prices, return %, vs-SMH), disclaimer. Nav link stays greyed until
 > ≥3 calls exist (render-time check). Commit as `feat: calls ledger schema + minimal performance page`.
+
+---
+
+## Phase 6 — "Unpacked" rebrand + focus card + map restructure
+
+_Added 2026-07-13 from the approved plan
+(`~/.claude/plans/this-section-on-01-robust-liskov.md`). Three workstreams:
+(a) rebrand every page to a Samsung Galaxy Unpacked aesthetic — cool
+neutral-grey canvas, near-black bold geometric sans display type, ONE
+blue→violet gradient accent used sparingly, white large-radius cards, pill
+controls, true-black "event stage" dark surfaces; (b) a desk-authored weekly
+**Focus card** ("the headline") leading index + desk hero, demoting raw tweets
+to Evidence; (c) Chapter 01 restructure — 49 tall cards become compact tiles
+with expand-in-place, line-art category icons, animated flow arrows._
+
+Model key addition — **F5-M / F5-H** = Claude Fable 5 medium/high effort
+(design taste on new components). Op/S5 as before. Same rule of thumb: bump
+one notch when a prompt touches `desk.html`.
+
+### Token spec (the U2 payload — later prompts reference this table)
+
+| Token | New value |
+|---|---|
+| `--bg` / `--card` / `--border` | `#f4f5f7` / `#ffffff` / `#e2e5ea` |
+| `--ink` / `--text` / `--muted` | `#0b0d12` / `#2a2e35` / `#7c828c` |
+| `--paper-sink` / `--paper-tint` | `#eceef1` / `#f0f2f5` (names kept — pages consume them) |
+| `--stage` / `--stage-hi` (new) | `#0a0a0c` / `#16161a` — replaces hardcoded `#0f1b2e` (desk.html cross-section + color-mix; vault.html graph bg) |
+| `--brand-a` / `--brand-b` | `#2b6bf3` / `#7a3bf0` |
+| `--brand-grad` / `--brand-ink` (new) | `linear-gradient(100deg, var(--brand-a), var(--brand-b))` / `#3d55f2` (solid fallback) |
+| `--display` (new) | `"Avenir Next", "Futura", -apple-system, "SF Pro Display", "Segoe UI", system-ui, sans-serif` · weight 700 / -0.02em tracking at use sites |
+| `--serif` | transitional alias `var(--display)` in U2; per-page rename in U4; alias deleted in U8 |
+| `--r-card` / `--r-tile` (new) / `--r-chip` | `20px` / `14px` / `999px` |
+| `--shadow-sm` / `--shadow-lg` | cool-tinted `rgba(15,23,42,…)` soft / deep pairs |
+| `--sem-act-*` | `#def0dd` / `#256b39` |
+| `--sem-accumulate-*` | `#dce9f9` / `#1f5fa8` |
+| `--sem-watch-*` | `#fbeecb` / `#8c5c0a` |
+| `--sem-pass-*` | `#e8eaee` / `#7c828c` |
+| Motion | `--dur/--ease/--spring` unchanged (hard rule #5); add `@keyframes aie-flow` dash-scroll (ambient; the existing reduced-motion gate kills it) |
+
+The 3px gradient top border becomes the **brand gradient** (pure CSS);
+`AIE.paintGradientBorder()` becomes a kept-for-boot-order no-op. Category
+colors keep their data-viz job (bands/tiles/chips/graph) — never the chrome.
+
+### ☑ U1 · S5-M — this guide (2026-07-13)
+
+> Append Phase 6 to docs/EXECUTION.md: token spec table, focus-card design,
+> prompts U2–U8 with model+effort, loop commands for the difficult steps.
+> Commit as `docs: unpacked rebrand execution guide`.
+
+### ☐ U2 · F5-M — brand tokens ⚠️ CHECKPOINT: eyeball all 5 pages before U3
+
+> Read CLAUDE.md and docs/EXECUTION.md Phase 6 (token spec). In
+> `shared/theme.css`: rewrite `:root` per the token table (add `--display`,
+> alias `--serif: var(--display)`, `--stage`/`--stage-hi`, `--brand-*`,
+> `--r-tile`; recalibrate `--sem-*`); set `.gradient-border { background:
+> var(--brand-grad); }`; add `@keyframes aie-flow { to { stroke-dashoffset:
+> -12; } }`; sweep any warm literals in shared components (grep
+> `rgba(60, 48, 30` and the old warm hexes). In `desk.html`: **DELETE the
+> duplicate `:root` block (~lines 26–48)** — it is a strict subset that
+> silently overrides theme.css; swap `#0f1b2e` → `var(--stage)` (the
+> `.map-cross` rule ~line 475 and inside the `color-mix()` string ~line 1865).
+> In `vault.html`: the two graph-stage hexes (~line 158) → `var(--stage-hi)` /
+> `var(--stage)`. In `shared/common.js`: make `paintGradientBorder` a no-op
+> (KEEP the export — every page calls it at boot). Verify: unit tests green;
+> all 5 pages via file:// — cool canvas, display type flipped via the alias,
+> gradient border, badges legible on bg/card/zebra/stage, vault graph node
+> colors flow (runtime getComputedStyle), reduced-motion pass, 375/768px.
+> Commit as `feat: unpacked design tokens`.
+
+### ☐ U3 · S5-M — category palette recalibration
+
+> Read docs/EXECUTION.md Phase 6. In `ingest/store/base.json`, deepen the
+> light/acid category hues for the cool canvas — fabs `#f59e0b`→`#e08a00`,
+> neoclouds `#22c55e`→`#16a34a`, glass `#0ea5e9`→`#0284c7`; keep accelerators
+> `#76b900` (NVIDIA-green is semantic); judge the rest against `#f4f5f7`.
+> Small recognizable moves only. Regen via `python3
+> ingest/generate_data_js.py` (never hand-edit data.js; expect vault.json
+> churn). Verify hues flow to layer bands, cross-section bars, chips, and the
+> vault graph theme nodes. Commit as `feat: cooler category palette`.
+
+### ☐ U4 · Op-H — per-page polish (regression-prone: touches every page)
+
+> Read CLAUDE.md + docs/EXECUTION.md Phase 6. Across all 5 pages: replace
+> `var(--serif)` → `var(--display)` (~29 uses) adding weight-700 /
+> -0.02em tracking at display sites; pill-ify toggles/buttons/filter chips
+> (`--r-chip`, active state = brand-gradient fill + white text); at most ONE
+> gradient text moment per page (`color: var(--brand-ink)` fallback BEFORE the
+> background-clip declarations); sweep page-local warm literals (grep
+> `#faf7f2|#fffdf9|#e6e0d4|#f2ede4|#f6f1e8|rgba(60, 48, 30`); desk.html dark
+> surfaces (cross-section, NVIDIA hub) restyled on `var(--stage)` with a
+> brand-gradient hairline top edge; muted text on stage ≥ 4.5:1 (use
+> `#9aa1ac`+). Full interactive click-through per page (map filter, watchlist
+> sort, evidence + brain drill-downs, memo scrollspy, vault graph drag, ledger
+> filters). Commit as `feat: unpacked page pass`.
+>
+> **Then run:** `/loop open each page (index, desk, memo?ticker=SIVE, vault,
+> vault?view=graph, performance) on the local server; check console clean, no
+> warm-color remnants, no 375px overflow, reduced-motion inert; fix what
+> fails; stop when a full pass is clean`
+
+### ☐ U5 · S5-H — Focus card ("the headline")
+
+> Read CLAUDE.md + docs/EXECUTION.md Phase 6. Every financial terminal leads
+> with a headline; this site leads with raw tweets. (1) `ingest/store/
+> verdicts.json` gains `meta.focus = { headline, dek, updatedAt, tickers[] }`
+> — seed it from the 2026-07-12 review (the washout-resolves / CEO-insider-
+> buying story). (2) `.claude/skills/weekly-review/SKILL.md` gains a step:
+> author the week's headline — short, declarative, desk voice, one story only.
+> (3) `index.html`: full-width Focus card directly under the masthead, before
+> the standfirst — brand-gradient hairline, mono `FOCUS · <date>` eyebrow,
+> display-type headline (~34px), one-line dek, ticker chips via
+> `AIE.linkForTicker`. (4) `desk.html` hero: the Focus headline replaces
+> "Latest signal" as the lead card; the raw latest-tweet card demotes to a
+> compact secondary slot linking into Chapter 03. Graceful absence: no
+> `meta.focus` → both surfaces render exactly as today. Regen; verify both
+> surfaces + the absent-key empty state in a sandbox copy. Commit as
+> `feat: weekly focus headline card`.
+
+### ☐ U6 · Op-M — category icons in data
+
+> Read CLAUDE.md + docs/EXECUTION.md Phase 6. (1) In `ingest/store/base.json`
+> add 12 hand-drawn line-art icons as inner-SVG strings (no `<svg>` wrapper):
+> `categories[<id>].icon` for all 10 + `center.icon` + `unsortedCategory.icon`
+> — viewBox `0 0 24 24`, `fill="none" stroke="currentColor" stroke-width="1.5"
+> stroke-linecap="round" stroke-linejoin="round"`; motifs: photonics=light
+> beam, memory=stacked chips, fabs=wafer, neoclouds=cloud+rack,
+> materials=layered substrate, networking=switch fabric, glass=pane,
+> robotics=arm, accelerators=GPU die, hyperscalers=server towers. (2) In
+> `ingest/generate_data_js.py` add `_validate_icon(markup)` called from
+> `build_data()`: allowlist elements path|circle|line|rect|polyline|ellipse
+> and geometry/stroke attributes only; reject `on*=`, `script`, `href`,
+> `<svg` → ValueError. (3) Tests in `ingest/tests/test_generate.py`: valid
+> icon passes, `onload=` rejected, `<script>` rejected, missing icon
+> tolerated (optional field). (4) `shared/common.js`: `AIE.iconSVG(markup,
+> color, size)` — builds the `<svg viewBox="0 0 24 24" aria-hidden="true">`
+> wrapper via innerHTML of the validated store markup, tinted through
+> currentColor. (5) Wire into `makeLayerBand()` so pipeline bands + hub show
+> icons immediately. Regen; grep data.js for `<path`. Commit as
+> `feat: category icons in base.json`.
+
+### ☐ U7 · F5-H — Chapter 01 restructure (hardest; desk.html only)
+
+> Read CLAUDE.md + docs/EXECUTION.md Phase 6. In `desk.html`: (1) split
+> `makeCard()` into `makeTile(ticker)` — compact ~90–110px: `AIE.iconSVG`
+> category icon, mono ticker, one-line company, tier + stance micro-badges,
+> `sparkSVG(t, 56, 20)` — and `makeCardDetail(ticker)` (the existing
+> badges/prose/verdict markup, unchanged). (2) `#cardGrid` →
+> `repeat(auto-fill, minmax(168px, 1fr))`, tiles on `--r-tile` (49 cards →
+> ~7 tile rows). (3) Expand-in-place: clicking a tile inserts a
+> `grid-column: 1 / -1` detail row right after the clicked tile's row,
+> animated with `AIE.setDrilldownOpen` (NOT grid-template-rows 0fr→1fr — the
+> documented v6 bug); one open at a time; Esc/re-click closes;
+> `aria-expanded` + Enter/Space keyboard (mirror the `appendLayerBand`
+> pattern). (4) Chapter reorder to cut scroll: head → map → priority strip
+> merged into the holdings ledger row as a horizontal chip scroller → tile
+> grid → glossary behind a drill-down. `renderCards()` tier/radar/filter
+> logic stays verbatim; `revealify` still staggers tiles. (5) Animate
+> `makeFlowArrow()` dashes with the U2 `aie-flow` keyframes. Commit as
+> `feat: map tiles + expand-in-place`.
+>
+> **Then run:** `/loop on desk.html: click every layer band + cross bar
+> (filter scopes tiles), toggle radar (counts correct), expand/collapse tiles
+> incl. after a filter change and a window resize, keyboard Enter/Esc, 375px
+> + 768px, reduced-motion; fix regressions; stop when a full checklist pass
+> is clean twice in a row`
+
+### ☐ U8 · S5-M — docs + alias cleanup
+
+> Update CLAUDE.md (Design system section → Unpacked tokens; rule #4's
+> gradient-border sentence — the border is now brand chrome, category colors
+> stay data; Map rendering section → tiles + expand-in-place), rewrite
+> docs/DESIGN.md's token reference, add a ROADMAP.md status entry. Delete the
+> `--serif` alias from shared/theme.css — `grep -rn 'var(--serif)' *.html
+> shared/` must return nothing. Tick the Phase 6 boxes. Commit as
+> `docs: unpacked design system current`.
 
 ---
 
