@@ -678,7 +678,10 @@
       letter-spacing: -0.02em;
       color: var(--accent);
       word-break: break-word;
+      text-decoration: none;
+      transition: opacity var(--ease);
     }
+    a.tk-ticker:hover { opacity: 0.72; text-decoration: underline; text-underline-offset: 4px; }
     .tk-company {
       font-size: 13px;
       font-weight: 500;
@@ -818,21 +821,23 @@
       font-family: var(--mono);
     }
 
-    /* Unified conviction vocabulary (audit fix #5): tier badges, thesis
-       conviction, and brain conviction share one visual language —
-       green = high/core, amber = medium/watch, neutral = low/radar/note. */
-    .tier-badge, .th-conviction, .bd-conviction {
+    /* Unified conviction vocabulary (audit fix #5): tier badges and brain
+       conviction share one visual language — green = high/core, amber =
+       medium/watch, neutral = low/radar. Thesis conviction (.th-conviction)
+       uses the same vocabulary but now lives in shared/theme.css (7b) with the
+       rest of the .th-card component. */
+    .tier-badge, .bd-conviction {
       font-family: var(--mono); font-size: 10px; letter-spacing: .07em;
       text-transform: uppercase; font-weight: 700;
       padding: 2px 8px; border-radius: 999px;
     }
-    .tier-badge.core, .th-conviction.high, .bd-conviction.high {
+    .tier-badge.core, .bd-conviction.high {
       background: #e4ecd7; color: #4d6a2b;
     }
     .tier-badge.watch, .bd-conviction.medium {
       background: #f4e7c8; color: #8a5a1a;
     }
-    .tier-badge.radar, .th-conviction.normal, .bd-conviction.low {
+    .tier-badge.radar, .bd-conviction.low {
       background: color-mix(in srgb, #8a8375 16%, var(--card)); color: var(--muted);
     }
 
@@ -941,48 +946,9 @@
     .th-empty-sub code { font-family: var(--mono); font-size: 12px;
       background: rgba(15,23,42,.06); padding: 1px 5px; border-radius: 4px; }
     .th-feed { display: flex; flex-direction: column; gap: 14px; }
-    /* One spine technique everywhere: an animatable ::before, same as
-       .tk-card / .layer-band (audit fix #1). --spine defaults to a neutral
-       hairline; high-conviction cards get the green spine. */
-    .th-card {
-      position: relative;
-      background: var(--card); border: 1px solid var(--border); border-radius: var(--r-card);
-      box-shadow: var(--shadow-sm);
-      padding: 18px 20px 18px 24px;
-      overflow: hidden;
-      transition: border-color var(--ease), box-shadow var(--ease);
-    }
-    .th-card::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; bottom: 0;
-      width: 4px;
-      background: var(--spine, var(--border));
-      transition: width var(--ease);
-    }
-    .th-card:hover::before { width: 7px; }
-    .th-card.high-conviction { --spine: #16a34a; }
-    .th-card-meta {
-      display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 10px;
-    }
-    .th-date   { font-family: var(--mono); font-size: 11px; color: var(--muted); }
-    .th-source {
-      font-family: var(--mono); font-size: 11px; color: var(--muted);
-      text-decoration: none; margin-left: auto;
-    }
-    .th-source:hover { color: var(--ink); }
-    .th-text {
-      font-size: 13.5px; line-height: 1.65; color: var(--text);
-      white-space: pre-wrap; word-break: break-word; margin: 0 0 12px;
-    }
-    .th-tickers { display: flex; flex-wrap: wrap; gap: 6px; }
-    .th-ticker {
-      display: inline-flex; align-items: center;
-      font-family: var(--mono); font-size: 11px; font-weight: 700;
-      padding: 3px 8px; border-radius: 6px;
-      background: color-mix(in srgb, var(--t-color,#94a3b8) 14%, white);
-      color: color-mix(in srgb, var(--t-color,#94a3b8) 70%, black);
-    }
+    /* The .th-card component (spine, meta, text, ticker chips, conviction badge)
+       now lives in shared/theme.css (7b) — reused by memo.html. Only desk-local
+       layout overrides for it remain here (see .bd-sources .th-card below). */
 
     /* ---------- Chapter 04, The Synthesis: theme digests ---------- */
     .bd-card {
@@ -1045,7 +1011,6 @@
     }
     .bd-sources .th-card { margin-bottom: 10px; }
     .bd-sources .th-card:last-child { margin-bottom: 0; }
-    .th-card-compact { background: var(--bg); }
 
     /* ---------- Watchlist (Tab 2): sortable price table ---------- */
     .wl-header {
@@ -1141,7 +1106,16 @@
        dot in dense table rows — two deliberate forms of the same signal. */
     .wl-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--accent, #94a3b8); flex: 0 0 auto; }
     .wl-cat-label { color: var(--muted); }
-    .wl-sym { font-family: var(--mono); font-weight: 700; color: var(--accent, #1e293b); }
+    .wl-sym { font-family: var(--mono); font-weight: 700; color: var(--accent, #1e293b); text-decoration: none; }
+    a.wl-sym:hover { text-decoration: underline; text-underline-offset: 3px; }
+    .wl-row-link { cursor: pointer; }
+    .wl-note {
+      display: inline-flex; align-items: baseline; gap: 6px;
+      font-family: var(--mono); font-size: 11px; font-weight: 700;
+      color: var(--accent, #1e293b); text-decoration: none;
+    }
+    .wl-note:hover { text-decoration: underline; text-underline-offset: 3px; }
+    .wl-note-date { font-weight: 400; font-size: 10px; color: var(--muted); }
     .wl-price { font-weight: 600; }
     .wl-cur { color: var(--muted); font-size: 10px; margin-left: 3px; }
     .wl-pos { color: #16a34a; }
@@ -1326,6 +1300,7 @@
                   <th data-key="marketCap" class="num">Mkt Cap</th>
                   <th class="wl-nosort">Trend (sample)</th>
                   <th data-key="deskStance">Desk</th>
+                  <th class="wl-nosort">Note</th>
                   <th data-key="rating">Rating</th>
                 </tr>
               </thead>
@@ -2021,7 +1996,9 @@
 
         // Header: ticker + company
         var head = el("div", "tk-head");
-        head.appendChild(el("div", "tk-ticker", ticker.ticker));
+        var tkLink = el("a", "tk-ticker", ticker.ticker);
+        tkLink.href = AIE.linkForTicker(ticker.ticker);
+        head.appendChild(tkLink);
         head.appendChild(el("div", "tk-company", ticker.company));
         card.appendChild(head);
 
@@ -2253,6 +2230,16 @@
 
       function wlTickers() { return (DATA && DATA.tickers) ? DATA.tickers.slice() : []; }
 
+      // Newest coverage memo for a symbol, or null.
+      function memoForTicker(sym) {
+        var memos = (DATA && DATA.memos && DATA.memos.memos) || [];
+        return memos.filter(function (m) { return (m.ticker || "").toUpperCase() === String(sym).toUpperCase(); })
+          .sort(function (a, b) {
+            var da = a.publishedAt || a.updatedAt || "", db = b.publishedAt || b.updatedAt || "";
+            return db < da ? -1 : (db > da ? 1 : 0);
+          })[0] || null;
+      }
+
       function wlTierMatches(t) {
         var f = wlState.tierFilter;
         if (f === "all") return true;
@@ -2331,7 +2318,10 @@
         wrap.appendChild(el("span", "wl-cat-label", cat ? cat.label : (t.category || "—")));
         cTd.appendChild(wrap); tr.appendChild(cTd);
 
-        var tTd = document.createElement("td"); tTd.appendChild(el("span", "wl-sym", t.ticker)); tr.appendChild(tTd);
+        var tTd = document.createElement("td");
+        var symLink = el("a", "wl-sym", t.ticker);
+        symLink.href = AIE.linkForTicker(t.ticker);
+        tTd.appendChild(symLink); tr.appendChild(tTd);
         tr.appendChild(el("td", null, t.company || "—"));
 
         var pTd = el("td", "num");
@@ -2369,6 +2359,19 @@
         }
         tr.appendChild(dTd);
 
+        // Note: link to the coverage memo (+ its date) when one exists.
+        var nTd = document.createElement("td");
+        var memo = memoForTicker(t.ticker);
+        if (memo) {
+          var noteLink = el("a", "wl-note", "Memo");
+          noteLink.href = "memo.html?id=" + encodeURIComponent(memo.id);
+          if (memo.publishedAt) noteLink.appendChild(el("span", "wl-note-date", AIE.fmtDate(memo.publishedAt)));
+          nTd.appendChild(noteLink);
+        } else {
+          nTd.appendChild(el("span", "wl-muted", "—"));
+        }
+        tr.appendChild(nTd);
+
         var rTd = document.createElement("td");
         var sel = document.createElement("select"); sel.className = "wl-rating";
         WL_RATINGS.forEach(function (opt) {
@@ -2377,6 +2380,16 @@
         sel.value = ratingFor(t.ticker);
         sel.addEventListener("change", function () { setRating(t.ticker, sel.value); });
         rTd.appendChild(sel); tr.appendChild(rTd);
+
+        // Whole-row click convenience — navigate to the ticker's best page, but
+        // let real interactive cells (the rating select, in-row links) act first.
+        tr.classList.add("wl-row-link");
+        tr.addEventListener("click", function (ev) {
+          var tag = ev.target.tagName;
+          if (tag === "A" || tag === "SELECT" || tag === "OPTION") return;
+          if (ev.target.closest && ev.target.closest("a, select")) return;
+          window.location.href = AIE.linkForTicker(t.ticker);
+        });
 
         return tr;
       }
@@ -2429,7 +2442,7 @@
             subtotal.className = "wl-subtotal";
             subtotal.style.background = "color-mix(in srgb, " + cat.color + " 6%, white)";
             var td = document.createElement("td");
-            td.colSpan = 10;
+            td.colSpan = 11;
             td.appendChild(el("b", null, cat.label));
             td.appendChild(document.createTextNode(" · " + rows.length + (rows.length === 1 ? " ticker" : " tickers")));
             subtotal.appendChild(td);
@@ -2703,44 +2716,12 @@
         }
       }
 
-      // Build one thesis card. Shared by the Thesis feed and the Brain tab's
-      // drill-down (compact clips the body to a snippet). textContent only.
+      // Build one thesis card. The renderer now lives in shared/common.js
+      // (AIE.makeThesisCard) so memo.html's sources appendix renders the exact
+      // same card; this delegating wrapper keeps the local call sites (hero
+      // latest, Evidence feed, Brain drill-down) unchanged.
       function makeThesisCard(th, opts) {
-        opts = opts || {};
-        var card = document.createElement("div");
-        card.className = "th-card" + (th.conviction === "high" ? " high-conviction" : "")
-          + (opts.compact ? " th-card-compact" : "");
-
-        var meta = document.createElement("div"); meta.className = "th-card-meta";
-        var dateStr = th.postedAt || th.ingestedAt || "";
-        if (dateStr) meta.appendChild(el("span", "th-date", dateStr.slice(0, 10)));
-        meta.appendChild(el("span", "th-conviction " + (th.conviction === "high" ? "high" : "normal"),
-          th.conviction === "high" ? "High conviction" : "Note"));
-        if (th.sourceUrl) {
-          var link = document.createElement("a");
-          link.className = "th-source"; link.href = th.sourceUrl;
-          link.target = "_blank"; link.rel = "noopener noreferrer";
-          link.textContent = "View post ↗";
-          meta.appendChild(link);
-        }
-        card.appendChild(meta);
-
-        var body = th.text || "";
-        if (opts.compact && body.length > 280) body = body.slice(0, 280).trim() + "…";
-        card.appendChild(el("p", "th-text", body));
-
-        var tickers = th.tickers || [];
-        if (tickers.length) {
-          var chips = document.createElement("div"); chips.className = "th-tickers";
-          tickers.forEach(function (sym) {
-            var chip = el("span", "th-ticker", sym);
-            var color = thesisCatColor(sym);
-            if (color) chip.style.setProperty("--t-color", color);
-            chips.appendChild(chip);
-          });
-          card.appendChild(chips);
-        }
-        return card;
+        return AIE.makeThesisCard(th, opts);
       }
 
       /* ----------------------------------------------------------
@@ -2841,7 +2822,8 @@
           if (tks.length) {
             var chips = el("div", "bd-tickers");
             tks.forEach(function (sym) {
-              var chip = el("span", "th-ticker", sym);
+              var chip = el("a", "th-ticker", sym);
+              chip.href = AIE.linkForTicker(sym);
               var color = thesisCatColor(sym);
               if (color) chip.style.setProperty("--t-color", color);
               chips.appendChild(chip);

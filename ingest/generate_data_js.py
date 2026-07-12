@@ -10,6 +10,7 @@ import json
 import pathlib
 
 import scorer
+import vault_sync
 
 ING = pathlib.Path(__file__).resolve().parent
 STORE = ING / "store"
@@ -50,6 +51,8 @@ def build_data():
     prices = _load_optional("prices.json", {})  # {ticker: {price, chg7d, chg1m, marketCap, asOf}}
     brain = _load_optional("brain.json", {})    # {} until synthesize.py has run; {meta, digests} after
     desk = _load_optional("verdicts.json", {})  # {} until the weekly desk review has run; {meta, verdicts} after
+    memos = _load_optional("memos.json", {})    # {} until authored; {meta, memos} after (coverage memos)
+    vault = _load_optional("vault.json", {})    # {} until synced; {meta, pages} after (knowledge vault)
 
     # Merge weekly price snapshot (from fetch_prices.py) onto each ticker.
     for t in tickers:
@@ -101,6 +104,8 @@ def build_data():
         "priorities": priorities,
         "brain": brain,
         "desk": desk,
+        "memos": memos,
+        "vault": vault,
     }
 
 
@@ -114,7 +119,11 @@ def render(data):
 
 
 def write_data_js(data=None):
-    data = data if data is not None else build_data()
+    if data is None:
+        # Refresh the vault store from current tickers/tiers (preserving notes)
+        # before assembling, so data.js always ships an up-to-date vault.
+        vault_sync.sync()
+        data = build_data()
     DATA_JS.write_text(render(data), encoding="utf-8")
     return DATA_JS
 

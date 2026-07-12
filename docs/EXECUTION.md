@@ -41,9 +41,9 @@ data.js           generated as always; gains memos, vault, later calls
 |---|---|---|---|
 | 0 | This guide | P0 | ✅ 2026-07-06 |
 | 1 | Multi-page scaffold + editorial design system | P1–P5 | ✅ 2026-07-08 |
-| 2 | Coverage memos (store, memo.html, ledger, skills, seed content) | P6–P10 | ☐ |
-| 3 | Knowledge Vault (store+sync, index/page views, graph, authoring loop) | P11–P14 | ☐ |
-| 4 | Cross-linking everywhere | P15 | ☐ |
+| 2 | Coverage memos (store, memo.html, ledger, skills, seed content) | P6–P10 | ☑ 2026-07-12 |
+| 3 | Knowledge Vault (store+sync, index/page views, graph, authoring loop) | P11–P14 | ✅ 2026-07-12 |
+| 4 | Cross-linking everywhere | P15 | ✅ |
 | 5 | Performance hooks (calls.json + minimal page) | P16 | ☐ |
 
 ## Verification checklist (run after EVERY prompt)
@@ -125,7 +125,7 @@ data.js           generated as always; gains memos, vault, later calls
 
 ## Phase 2 — Coverage memos
 
-### ☐ P6 · S5-M — memos.json plumbing
+### ☑ P6 · S5-M — memos.json plumbing
 
 > Read CLAUDE.md and docs/EXECUTION.md (memos.json schema below). Create
 > `ingest/store/memos.json` with meta (schemaVersion 1, updatedAt, author
@@ -142,7 +142,7 @@ data.js           generated as always; gains memos, vault, later calls
 > bool }`. Bodies are plain paragraphs on `\n\n` supporting `**bold**`, `$TICK`,
 > `[[wikilink]]` only.
 
-### ☐ P7 · Op-M — memo.html renderer
+### ☑ P7 · Op-M — memo.html renderer
 
 > Read CLAUDE.md, docs/EXECUTION.md, shared/theme.css, shared/common.js. Build
 > `memo.html`: reads `?id=` or `?ticker=` (newest memo for ticker) via
@@ -158,7 +158,7 @@ data.js           generated as always; gains memos, vault, later calls
 > pointing to `vault.html?page=slug` (fine that vault doesn't exist yet). Unknown
 > ticker/id → graceful empty state. Serif body 17px/1.65. Commit as `feat: memo page with right-rail TOC and sources appendix`.
 
-### ☐ P8 · S5-H — coverage ledger on index.html
+### ☑ P8 · S5-H — coverage ledger on index.html
 
 > Read index.html, shared/theme.css. Replace the reserved empty-state with the
 > coverage ledger: one row per memo (date · ticker chip · kind chip · title ·
@@ -167,7 +167,7 @@ data.js           generated as always; gains memos, vault, later calls
 > render as muted "verdict only" rows linking to desk.html#watchlist. Empty-state
 > stays when memos is empty. Commit as `feat: coverage & market notes ledger`.
 
-### ☐ P9 · S5-M — authoring skills
+### ☑ P9 · S5-M — authoring skills
 
 > Extend `.claude/skills/weekly-review/SKILL.md` with step 4b: after updating
 > verdicts, write/refresh memos in ingest/store/memos.json for Core names whose
@@ -177,7 +177,7 @@ data.js           generated as always; gains memos, vault, later calls
 > `.claude/skills/coverage-note/SKILL.md` — `/coverage-note TICKER` authors or
 > updates one memo using the same rules. Commit as `docs: memo authoring added to weekly review + /coverage-note skill`.
 
-### ☐ P10 · Op-H — seed the first memos (research writing)
+### ☑ P10 · Op-H — seed the first memos (research writing)
 
 > Author memos for the top 3–5 Core names by priority score: read their theses,
 > brain digest, and desk verdict; write full memos (Snapshot / Thesis / Why own
@@ -187,7 +187,7 @@ data.js           generated as always; gains memos, vault, later calls
 
 ## Phase 3 — Knowledge Vault
 
-### ☐ P11 · S5-H — vault.json + vault_sync.py
+### ☑ P11 · S5-H — vault.json + vault_sync.py (2026-07-12)
 
 > Read CLAUDE.md and docs/EXECUTION.md (vault schema below). Create
 > `ingest/store/vault.json` and `ingest/vault_sync.py`: idempotent upsert of one
@@ -202,7 +202,7 @@ data.js           generated as always; gains memos, vault, later calls
 > data.js. Unit tests: idempotency, note preservation, counts. Regen. Commit as
 > `feat: knowledge vault store + structural sync`.
 
-### ☐ P12 · Op-M — vault.html index + page views
+### ☑ P12 · Op-M — vault.html index + page views (2026-07-12)
 
 > Read CLAUDE.md, shared/*, docs/EXECUTION.md. Build `vault.html` with
 > `?view=index` (default): "N pages · M links" serif header, type filter chips,
@@ -213,7 +213,7 @@ data.js           generated as always; gains memos, vault, later calls
 > common.js and make memo.html reuse it. Unknown slug → empty state. Commit as
 > `feat: vault index + page views with wikilinks and backlinks`.
 
-### ☐ P13 · Op-H — vault graph view (hardest algorithmic task)
+### ☑ P13 · Op-H — vault graph view (hardest algorithmic task) (2026-07-12)
 
 > Read vault.html and docs/EXECUTION.md graph spec. Add `?view=graph`: canvas 2D
 > force-directed layout, hand-written physics, no libraries. O(n²) pair repulsion
@@ -229,7 +229,7 @@ data.js           generated as always; gains memos, vault, later calls
 > Mobile ≤768px: side panel becomes a bottom sheet; +/− zoom and reset buttons.
 > Un-grey the "Graph" nav link. Commit as `feat: vault knowledge graph (canvas force layout)`.
 
-### ☐ P14 · Op-M — vault authoring loop + first enrichment
+### ☑ P14 · Op-M — vault authoring loop + first enrichment (2026-07-12)
 
 > Create `.claude/skills/vault-note/SKILL.md` — `/vault-note SLUG` enriches one
 > vault page's `note` (plain prose, 1–3 paragraphs, dense with `[[wikilinks]]` to
@@ -240,7 +240,7 @@ data.js           generated as always; gains memos, vault, later calls
 
 ## Phase 4 — Cross-linking
 
-### ☐ P15 · S5-H — link everything
+### ✅ P15 · S5-H — link everything (2026-07-12)
 
 > Upgrade `AIE.linkForTicker(sym)` in common.js: memo exists → memo.html; else
 > vault page exists → vault.html?page=…; else desk.html#watchlist. Apply it to
@@ -249,6 +249,20 @@ data.js           generated as always; gains memos, vault, later calls
 > side panel/pages. Watchlist gains a "Note" column (memo link + date) for
 > covered names. Coverage ledger gains theme (category) filter chips. Commit as
 > `feat: site-wide ticker cross-linking`.
+
+**Shipped (commit `feat: site-wide ticker cross-linking`):**
+`AIE.linkForTicker(sym)` now returns, in order, `memo.html?ticker=SYM` (a
+coverage memo exists) → `vault.html?page=<slug>` (a `type:"ticker"` vault page
+exists) → `desk.html#chapter-watchlist`. Applied to: thesis-card ticker chips
+(shared `makeThesisCard`, so Evidence feed + memo appendix + **vault cited-thesis
+cards** all inherit it), brain-digest ticker lists, ticker-card headers (the map's
+per-category cards), and the watchlist (symbol is a link + whole-row click, both
+guarded so the rating `<select>` and in-row links still work). Watchlist added a
+**Note** column linking the newest memo with its date. Coverage ledger added a
+**Theme** filter group (distinct ticker categories, ordered by value-chain layer)
+that narrows both memo rows and verdict-only stubs. Vault graph side panel already
+linked page + memo, so it was left as-is. `.th-ticker` / `.tk-ticker` / `.wl-sym`
+gained link (hover) styling. No `data.js` regen — code-only change.
 
 ## Phase 5 — Performance hooks
 

@@ -76,5 +76,45 @@ class TestTiersAndDesk(unittest.TestCase):
                 self.assertEqual(by_sym[v["ticker"]].get("verdict"), v)
 
 
+class TestMemos(unittest.TestCase):
+    def test_memos_key_absent_defaults_to_empty(self):
+        # When memos.json is missing, build_data still exposes a `memos` key
+        # as {} (same optional-load contract as brain/desk).
+        orig = gen._load_optional
+
+        def fake(name, default):
+            if name == "memos.json":
+                return default  # simulate file absent
+            return orig(name, default)
+
+        gen._load_optional = fake
+        try:
+            d = gen.build_data()
+        finally:
+            gen._load_optional = orig
+        self.assertIn("memos", d)
+        self.assertEqual(d["memos"], {})
+
+    def test_memos_passthrough_intact(self):
+        # When memos.json is present, it is passed through verbatim.
+        payload = {
+            "meta": {"schemaVersion": 1, "author": "claude-desk"},
+            "memos": [{"id": "m_TEST_2026w28", "ticker": "TEST", "rating": "watch"}],
+        }
+        orig = gen._load_optional
+
+        def fake(name, default):
+            if name == "memos.json":
+                return payload
+            return orig(name, default)
+
+        gen._load_optional = fake
+        try:
+            d = gen.build_data()
+        finally:
+            gen._load_optional = orig
+        self.assertEqual(d["memos"], payload)
+
+
 if __name__ == "__main__":
     unittest.main()

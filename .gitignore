@@ -3,7 +3,10 @@
 ingest/.env
 
 # --- Local tooling / editor state ---
-.claude/
+# Ignore Claude session state but keep the project skills (they're the
+# desk's documented procedures) in the repo.
+.claude/*
+!.claude/skills/
 .gstack/
 .DS_Store
 

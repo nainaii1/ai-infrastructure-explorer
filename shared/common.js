@@ -12,6 +12,7 @@
      categoryColor(id, fallback), paintGradientBorder(elId)   category colors
      renderNav(activePage, mount)                  theme.css top nav
      linkForTicker(sym)                            where a ticker chip points
+     makeThesisCard(th, opts)                      shared .th-card renderer
 
    Colors are read from AIE_DATA.categories at runtime — never hardcoded here
    (CLAUDE.md hard rule #4).
@@ -229,15 +230,142 @@
   }
 
   /* ==========================================================================
-     Where a ticker chip points. Stub for now (P2) — Phase 4 (P15) upgrades this
-     to prefer a memo, then a vault page, then fall back to the watchlist.
+     Where a ticker chip points (P15). Best available destination, in order:
+       1. a coverage memo for the symbol   -> memo.html?ticker=SYM
+       2. a knowledge-vault ticker page    -> vault.html?page=<slug>
+       3. otherwise the watchlist          -> desk.html#chapter-watchlist
+     Reads AIE_DATA live so it stays correct as memos/vault grow.
      ======================================================================== */
   function linkForTicker(sym) {
-    return "desk.html#watchlist";
+    var d = data();
+    var s = String(sym || "").toUpperCase();
+    if (d && s) {
+      var memos = (d.memos && d.memos.memos) || [];
+      if (memos.some(function (m) { return (m.ticker || "").toUpperCase() === s; })) {
+        return "memo.html?ticker=" + encodeURIComponent(s);
+      }
+      var slug = slugify(s);
+      var pages = (d.vault && d.vault.pages) || [];
+      if (pages.some(function (p) { return p.type === "ticker" && p.slug === slug; })) {
+        return "vault.html?page=" + encodeURIComponent(slug);
+      }
+    }
+    return "desk.html#chapter-watchlist";
+  }
+
+  /* ==========================================================================
+     Thesis card — shared renderer (moved out of desk.html so the Evidence feed,
+     the hero "latest signal", the Brain sources drill-down, and memo.html's
+     sources appendix all render one identical card). Styles live in theme.css
+     (.th-card family). `opts.compact` clamps long bodies + tints the card.
+     ======================================================================== */
+  function tickerCategoryColor(sym) {
+    var d = data();
+    var tk = d && d.tickers && d.tickers.find(function (t) { return t.ticker === sym; });
+    if (!tk) return null;
+    var c = d.categories && d.categories[tk.category];
+    return (c && c.color) || null;
+  }
+
+  function makeThesisCard(th, opts) {
+    opts = opts || {};
+    var card = mk("div", "th-card"
+      + (th.conviction === "high" ? " high-conviction" : "")
+      + (opts.compact ? " th-card-compact" : ""));
+
+    var meta = mk("div", "th-card-meta");
+    var dateStr = th.postedAt || th.ingestedAt || "";
+    if (dateStr) meta.appendChild(mk("span", "th-date", String(dateStr).slice(0, 10)));
+    meta.appendChild(mk("span", "th-conviction " + (th.conviction === "high" ? "high" : "normal"),
+      th.conviction === "high" ? "High conviction" : "Note"));
+    if (th.sourceUrl) {
+      var link = mk("a", "th-source", "View post ↗");
+      link.href = th.sourceUrl;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      meta.appendChild(link);
+    }
+    card.appendChild(meta);
+
+    var body = th.text || "";
+    if (opts.compact && body.length > 280) body = body.slice(0, 280).trim() + "…";
+    card.appendChild(mk("p", "th-text", body));
+
+    var tickers = th.tickers || [];
+    if (tickers.length) {
+      var chips = mk("div", "th-tickers");
+      tickers.forEach(function (sym) {
+        var chip = mk("a", "th-ticker", sym);
+        chip.href = linkForTicker(sym);
+        var color = tickerCategoryColor(sym);
+        if (color) chip.style.setProperty("--t-color", color);
+        chips.appendChild(chip);
+      });
+      card.appendChild(chips);
+    }
+    return card;
+  }
+
+  /* ==========================================================================
+     Inline prose markup — the one parser for the whole app.
+     `slugify` matches ingest/vault_sync.slugify() so [[wikilinks]] resolve to
+     the right vault page. `renderInline` appends parsed nodes into a container:
+       **bold**        -> <strong>
+       $TICK           -> ticker chip (href from linkForTicker, category accent)
+       [[wikilink]]    -> quiet link to vault.html?page=<slug>
+     `renderBody` splits a body on blank lines into <p> nodes (class configurable
+     so each page keeps its own paragraph type scale). Shared by memo.html and
+     vault.html (CLAUDE.md rule #3 — no duplicated logic).
+     ======================================================================== */
+  var INLINE_RE = /(\*\*[^*]+\*\*|\$[A-Za-z][A-Za-z0-9.\-]*|\[\[[^\]]+\]\])/g;
+
+  function slugify(s) {
+    return String(s).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "") || "page";
+  }
+
+  function renderInline(container, text) {
+    INLINE_RE.lastIndex = 0;
+    var last = 0, m;
+    while ((m = INLINE_RE.exec(text)) !== null) {
+      if (m.index > last) container.appendChild(document.createTextNode(text.slice(last, m.index)));
+      var tok = m[0];
+      if (tok.slice(0, 2) === "**") {
+        container.appendChild(mk("strong", null, tok.slice(2, -2)));
+      } else if (tok.charAt(0) === "$") {
+        var sym = tok.slice(1).toUpperCase();
+        var chip = mk("a", "aie-chip aie-chip--ticker aie-tickerchip", sym);
+        chip.href = linkForTicker(sym);
+        var color = tickerCategoryColor(sym);
+        if (color) chip.style.setProperty("--chip-accent", color);
+        container.appendChild(chip);
+      } else { // [[wikilink]]
+        var inner = tok.slice(2, -2).trim();
+        var link = mk("a", "aie-wikilink", inner);
+        link.href = "vault.html?page=" + encodeURIComponent(slugify(inner));
+        container.appendChild(link);
+      }
+      last = INLINE_RE.lastIndex;
+    }
+    if (last < text.length) container.appendChild(document.createTextNode(text.slice(last)));
+  }
+
+  function renderBody(body, pClass) {
+    var out = [];
+    String(body || "").split(/\n\s*\n/).forEach(function (para) {
+      var trimmed = para.trim();
+      if (!trimmed) return;
+      var p = mk("p", pClass || "aie-prose-p");
+      renderInline(p, trimmed);
+      out.push(p);
+    });
+    return out;
   }
 
   global.AIE = {
     STORAGE_KEYS: STORAGE_KEYS,
+    slugify: slugify,
+    renderInline: renderInline,
+    renderBody: renderBody,
     readJSON: readJSON,
     seed: seed,
     setDrilldownOpen: setDrilldownOpen,
@@ -248,6 +376,7 @@
     categoryColor: categoryColor,
     paintGradientBorder: paintGradientBorder,
     renderNav: renderNav,
-    linkForTicker: linkForTicker
+    linkForTicker: linkForTicker,
+    makeThesisCard: makeThesisCard
   };
 })(window);
