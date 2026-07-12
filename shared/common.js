@@ -195,6 +195,15 @@
     { page: "performance", label: "Performance", href: "performance.html", disabled: true }
   ];
 
+  // Performance stays greyed until the calls ledger has a real track record
+  // (>=3 stamped calls) — an empty performance page never ships.
+  var MIN_CALLS_FOR_NAV = 3;
+  function performanceEnabled() {
+    var d = data();
+    var calls = (d && d.calls && d.calls.calls) || [];
+    return calls.length >= MIN_CALLS_FOR_NAV;
+  }
+
   function renderNav(activePage, mount) {
     var host = typeof mount === "string" ? document.querySelector(mount)
              : (mount || document.getElementById("topNav"));
@@ -213,9 +222,10 @@
 
     var links = mk("div", "aie-nav-links");
     NAV_PAGES.forEach(function (p) {
-      var cls = p.disabled ? "is-disabled" : (p.page === activePage ? "is-active" : "");
+      var disabled = p.disabled && !(p.page === "performance" && performanceEnabled());
+      var cls = disabled ? "is-disabled" : (p.page === activePage ? "is-active" : "");
       var a = mk("a", cls || null, p.label);
-      if (!p.disabled) a.setAttribute("href", p.href);
+      if (!disabled) a.setAttribute("href", p.href);
       if (p.page === activePage) a.setAttribute("aria-current", "page");
       links.appendChild(a);
     });

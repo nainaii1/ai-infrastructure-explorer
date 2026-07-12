@@ -1,0 +1,10 @@
+{
+  "meta": {
+    "schemaVersion": 1,
+    "updatedAt": "2026-07-12T00:00:00Z",
+    "author": "claude-desk",
+    "benchmark": "SMH",
+    "disclaimer": "The calls ledger tracks the desk's own dated suggestions against a buy-the-index benchmark. Stamped forward-only, never retro-fitted. Personal research tool - not investment advice."
+  },
+  "calls": []
+}

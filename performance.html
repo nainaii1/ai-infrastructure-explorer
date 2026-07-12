@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Performance — AI Supply Desk</title>
+
+  <!-- ⚡ favicon: inline SVG data URI (no external request, works on file://) -->
+  <link
+    rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M13 2 4.5 13.5H11l-1 8.5L19.5 10H13z' fill='%233b82f6'/%3E%3C/svg%3E"
+  />
+
+  <!-- Shared editorial design tokens + components. -->
+  <link rel="stylesheet" href="shared/theme.css" />
+
+  <style>
+    /* performance.html-only layout. Tokens + components come from theme.css. */
+
+    .perf-shell { padding: 32px 0 8px; }
+    .perf-title {
+      font-family: var(--serif); font-weight: 600;
+      font-size: 34px; line-height: 1.1; letter-spacing: -0.02em;
+      color: var(--ink); margin: 0 0 8px;
+    }
+    .perf-sub {
+      font-family: var(--mono); font-size: 12px; letter-spacing: .04em;
+      color: var(--muted); margin: 0 0 26px;
+    }
+
+    /* Ledger numerics. */
+    .perf-num { font-family: var(--mono); font-size: 12.5px; white-space: nowrap; }
+    .perf-pct { font-family: var(--mono); font-size: 12.5px; font-weight: 700; white-space: nowrap; }
+    .perf-pct.up   { color: #4d6a2b; }
+    .perf-pct.down { color: #a13d2f; }
+    .perf-pct.flat { color: var(--muted); }
+    .perf-kind { font-family: var(--mono); font-size: 10px; letter-spacing: .05em;
+                 text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+    .perf-outcome {
+      font-family: var(--mono); font-size: 10px; font-weight: 700;
+      letter-spacing: .06em; text-transform: uppercase;
+      padding: 3px 8px; border-radius: 6px; line-height: 1;
+    }
+    .perf-outcome--open { background: var(--sem-accumulate-bg); color: var(--sem-accumulate-fg); }
+    .perf-outcome--win  { background: var(--sem-act-bg);        color: var(--sem-act-fg); }
+    .perf-outcome--loss { background: var(--sem-watch-bg);      color: var(--sem-watch-fg); }
+    .perf-outcome--wash { background: var(--sem-pass-bg);       color: var(--sem-pass-fg); }
+    .perf-note { font-family: var(--sans); font-size: 12.5px; color: var(--muted); }
+
+    /* Methodology line under the table. */
+    .perf-method {
+      font-family: var(--sans); font-size: 13px; line-height: 1.6;
+      color: var(--muted); margin: 22px 2px 0; max-width: 720px;
+    }
+
+    /* Empty state (shared shape with memo/vault). */
+    .perf-empty {
+      max-width: 560px; margin: 64px auto; text-align: center;
+      padding: 52px 34px; background: var(--card);
+      border: 1px solid var(--border); border-radius: var(--r-card);
+      box-shadow: var(--shadow-sm);
+    }
+    .perf-empty h1 { font-family: var(--serif); font-weight: 600; font-size: 28px; color: var(--ink); margin: 0 0 12px; }
+    .perf-empty p { font-family: var(--sans); font-size: 15px; line-height: 1.6; color: var(--muted); margin: 0 0 22px; }
+    .perf-actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+    .perf-actions a {
+      font-family: var(--mono); font-size: 11px; font-weight: 600;
+      letter-spacing: .06em; text-transform: uppercase; text-decoration: none;
+      padding: 9px 16px; border-radius: 8px;
+      border: 1px solid var(--border); color: var(--text);
+      transition: border-color var(--ease), color var(--ease), background var(--ease);
+    }
+    .perf-actions a:hover { border-color: var(--muted); color: var(--ink); background: var(--paper-sink); }
+    .perf-actions a.primary { background: var(--ink); border-color: var(--ink); color: var(--card); }
+
+    @media (max-width: 768px) {
+      .perf-title { font-size: 28px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- 3px category-gradient border, painted at runtime. -->
+  <div class="gradient-border" id="gradientBorder"></div>
+
+  <!-- Shared top nav. -->
+  <div id="topNav"></div>
+
+  <main class="aie-wrap perf-shell" id="perfMain"><!-- filled by boot() --></main>
+
+  <footer class="aie-colophon" id="colophon"></footer>
+
+  <!-- data.js MUST load first: defines window.AIE_DATA -->
+  <script src="data.js"></script>
+  <script src="shared/common.js"></script>
+
+  <script>
+    (function () {
+      "use strict";
+      var DATA = window.AIE_DATA || {};
+      var AIE = window.AIE;
+
+      AIE.seed();
+      AIE.paintGradientBorder();
+      AIE.renderNav("performance");
+
+      function el(tag, className, text) {
+        var n = document.createElement(tag);
+        if (className) n.className = className;
+        if (text != null) n.textContent = text;
+        return n;
+      }
+
+      var TICKERS = DATA.tickers || [];
+      var tickerBySym = {};
+      TICKERS.forEach(function (t) { tickerBySym[t.ticker] = t; });
+
+      var STORE = DATA.calls || {};
+      var CALLS = STORE.calls || [];
+      var BENCH = DATA.benchmarkQuote || null;
+      var BENCH_SYM = (STORE.meta && STORE.meta.benchmark) || "SMH";
+
+      function kindLabel(kind) {
+        return { "new-position": "New position", "add-on-dip": "Add on dip",
+                 "trim": "Trim", "exit": "Exit" }[kind] || kind || "—";
+      }
+
+      // Percent return from entry -> latest; null when either side is missing.
+      function pctReturn(entry, latest) {
+        if (entry == null || latest == null || !isFinite(entry) || entry === 0) return null;
+        return ((latest - entry) / entry) * 100;
+      }
+
+      function pctCell(v) {
+        if (v == null) return el("span", "perf-pct flat", "—");
+        var cls = v > 0.05 ? "up" : (v < -0.05 ? "down" : "flat");
+        return el("span", "perf-pct " + cls, AIE.fmtPct(v));
+      }
+
+      // "Latest" for a call: closed -> its exitPrice (frozen); open -> the
+      // live price merged onto the ticker record by fetch_prices.
+      function latestFor(call) {
+        if (call.closedAt && call.exitPrice != null) {
+          return { price: call.exitPrice, frozen: true };
+        }
+        var t = tickerBySym[call.ticker];
+        return { price: t && t.price != null ? t.price : null, frozen: false };
+      }
+
+      // vs-SMH: the call's return minus SMH's return over the same window.
+      // Open calls use the live benchmark quote; without one (or without a
+      // stamped priceAtCall) the column shows "—" rather than a guess.
+      function vsBenchmark(call, callReturn) {
+        if (callReturn == null || !call.benchmark || call.benchmark.priceAtCall == null) return null;
+        var benchLatest = call.closedAt && call.benchmark.priceAtClose != null
+          ? call.benchmark.priceAtClose
+          : (BENCH && BENCH.price != null ? BENCH.price : null);
+        var benchReturn = pctReturn(call.benchmark.priceAtCall, benchLatest);
+        if (benchReturn == null) return null;
+        return callReturn - benchReturn;
+      }
+
+      function renderLedger() {
+        var main = document.getElementById("perfMain");
+        main.textContent = "";
+
+        main.appendChild(el("h1", "perf-title", "Performance"));
+        var open = CALLS.filter(function (c) { return !c.closedAt; }).length;
+        main.appendChild(el("p", "perf-sub",
+          CALLS.length + (CALLS.length === 1 ? " call" : " calls") +
+          " · " + open + " open · benchmark " + BENCH_SYM +
+          (BENCH && BENCH.asOf ? " · prices as of " + AIE.fmtDate(BENCH.asOf) : "")));
+
+        var table = el("table", "aie-ledger");
+        var thead = el("thead");
+        var hr = el("tr");
+        ["Date", "Ticker", "Call", "Entry", "Latest", "Return", "vs " + BENCH_SYM, "Status"]
+          .forEach(function (h) { hr.appendChild(el("th", null, h)); });
+        thead.appendChild(hr);
+        table.appendChild(thead);
+
+        var tbody = el("tbody");
+        CALLS.slice().sort(function (a, b) {
+          return (b.calledAt || "") < (a.calledAt || "") ? -1 : 1;
+        }).forEach(function (c) {
+          var tr = el("tr");
+
+          tr.appendChild(el("td", "aie-ledger-date", c.calledAt ? AIE.fmtDate(c.calledAt) : "—"));
+
+          var tdSym = el("td");
+          var chip = el("a", "aie-chip aie-chip--ticker aie-tickerchip", c.ticker);
+          chip.href = AIE.linkForTicker(c.ticker);
+          var t = tickerBySym[c.ticker];
+          if (t) {
+            var color = AIE.categoryColor(t.category, null);
+            if (color) chip.style.setProperty("--chip-accent", color);
+          }
+          tdSym.appendChild(chip);
+          tr.appendChild(tdSym);
+
+          tr.appendChild(el("td", null)).appendChild(el("span", "perf-kind", kindLabel(c.kind)));
+
+          var tdEntry = el("td");
+          tdEntry.appendChild(el("span", "perf-num",
+            c.entryPrice != null
+              ? AIE.fmtNum(c.entryPrice, 2) + (c.entryCurrency ? " " + c.entryCurrency : "")
+              : "—"));
+          tr.appendChild(tdEntry);
+
+          var latest = latestFor(c);
+          var tdLatest = el("td");
+          tdLatest.appendChild(el("span", "perf-num",
+            latest.price != null
+              ? AIE.fmtNum(latest.price, 2) + (latest.frozen ? " (exit)" : "")
+              : "—"));
+          tr.appendChild(tdLatest);
+
+          var ret = pctReturn(c.entryPrice, latest.price);
+          tr.appendChild(el("td", null)).appendChild(pctCell(ret));
+          tr.appendChild(el("td", null)).appendChild(pctCell(vsBenchmark(c, ret)));
+
+          var tdStatus = el("td");
+          var outcome = c.closedAt ? (c.outcome || "wash") : "open";
+          tdStatus.appendChild(el("span", "perf-outcome perf-outcome--" + outcome, outcome));
+          tr.appendChild(tdStatus);
+
+          tbody.appendChild(tr);
+        });
+        table.appendChild(tbody);
+        main.appendChild(table);
+
+        var method = el("p", "perf-method");
+        method.appendChild(document.createTextNode(
+          "Calls are stamped forward-only on the day the desk makes them — never retro-fitted. " +
+          "“Return” compares the stamped entry price to the latest weekly price fetch " +
+          "(or the exit price once closed); “vs " + BENCH_SYM + "” subtracts what simply " +
+          "buying the benchmark on the same day would have returned."));
+        main.appendChild(method);
+      }
+
+      function renderEmpty() {
+        var main = document.getElementById("perfMain");
+        main.textContent = "";
+        var box = el("div", "perf-empty");
+        box.appendChild(el("h1", null, "No calls on the ledger yet"));
+        box.appendChild(el("p", null,
+          "The desk stamps a call only when a verdict newly flips to act/accumulate, " +
+          "a dip-buy is declared, or a position is exited — forward-only, never " +
+          "back-dated. The first calls will appear after a qualifying weekly review."));
+        var actions = el("div", "perf-actions");
+        var a1 = el("a", "primary", "The Desk"); a1.href = "desk.html";
+        var a2 = el("a", null, "Coverage index"); a2.href = "index.html";
+        actions.appendChild(a1); actions.appendChild(a2);
+        box.appendChild(actions);
+        main.appendChild(box);
+      }
+
+      function renderColophon() {
+        var meta = STORE.meta || {};
+        var colo = document.getElementById("colophon");
+        colo.appendChild(el("strong", null, "AI Supply Desk"));
+        colo.appendChild(document.createTextNode(" — " + (meta.disclaimer ||
+          "Personal research tool — not investment advice.")));
+      }
+
+      renderColophon();
+      if (CALLS.length) renderLedger(); else renderEmpty();
+    })();
+  </script>
+</body>
+</html>

@@ -116,5 +116,57 @@ class TestMemos(unittest.TestCase):
         self.assertEqual(d["memos"], payload)
 
 
+class TestCalls(unittest.TestCase):
+    def _with_fake(self, calls_payload, prices_payload=None):
+        orig = gen._load_optional
+
+        def fake(name, default):
+            if name == "calls.json":
+                return default if calls_payload is None else calls_payload
+            if name == "prices.json" and prices_payload is not None:
+                return prices_payload
+            return orig(name, default)
+
+        gen._load_optional = fake
+        try:
+            return gen.build_data()
+        finally:
+            gen._load_optional = orig
+
+    def test_calls_key_absent_defaults_to_empty(self):
+        # calls.json missing -> `calls` key still present as {} (same
+        # optional-load contract as brain/desk/memos/vault).
+        d = self._with_fake(None)
+        self.assertIn("calls", d)
+        self.assertEqual(d["calls"], {})
+
+    def test_calls_passthrough_intact(self):
+        payload = {
+            "meta": {"schemaVersion": 1, "benchmark": "SMH"},
+            "calls": [{
+                "id": "c_AAOI_2026-07-12", "ticker": "AAOI",
+                "kind": "add-on-dip", "calledAt": "2026-07-12",
+                "entryPrice": 113.84, "entryCurrency": "USD",
+                "stanceAtCall": "accumulate", "memoId": "m_AAOI_2026w28",
+                "thesisIds": [], "closedAt": None, "exitPrice": None,
+                "outcome": "open",
+                "benchmark": {"symbol": "SMH", "priceAtCall": 300.0},
+            }],
+        }
+        d = self._with_fake(payload)
+        self.assertEqual(d["calls"], payload)
+
+    def test_benchmark_quote_from_prices(self):
+        # When prices.json carries the benchmark symbol, its quote is exposed
+        # top-level so performance.html can compute vs-SMH without fetch().
+        prices = {"SMH": {"price": 301.5, "currency": "USD", "asOf": "2026-07-12T00:00:00Z"}}
+        d = self._with_fake({"meta": {"benchmark": "SMH"}, "calls": []}, prices)
+        self.assertEqual(d["benchmarkQuote"]["price"], 301.5)
+
+    def test_benchmark_quote_none_when_unpriced(self):
+        d = self._with_fake({"meta": {"benchmark": "SMH"}, "calls": []}, {})
+        self.assertIsNone(d["benchmarkQuote"])
+
+
 if __name__ == "__main__":
     unittest.main()
