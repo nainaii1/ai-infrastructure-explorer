@@ -23,18 +23,27 @@
     .front-eyebrow { margin: 0 0 14px; }
     .front-headline {
       margin: 0 0 20px;
-      font-family: var(--serif);
+      font-family: var(--display);
       font-size: clamp(30px, 5vw, 46px);
-      font-weight: 600;
-      letter-spacing: -0.015em;
+      font-weight: 700;
+      letter-spacing: -0.02em;
       line-height: 1.1;
       color: var(--ink);
+    }
+    /* The one brand-gradient text moment on this page. Solid fallback first,
+       so a browser without background-clip:text still reads the phrase. */
+    .front-headline .grad {
+      color: var(--brand-ink);
+      background: var(--brand-grad);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
     /* Standfirst — serif body, 17px / 1.65 (theme.css body default; restated
        here so the measure/colour read as an editorial standfirst). */
     .standfirst {
       margin: 0;
-      font-family: var(--serif);
+      font-family: var(--display);
       font-size: 17px;
       line-height: 1.65;
       color: var(--text);
@@ -89,9 +98,10 @@
     .cl-title {
       display: block;
       margin: 8px 0 4px;
-      font-family: var(--serif);
+      font-family: var(--display);
       font-size: 21px;
-      font-weight: 600;
+      font-weight: 700;
+      letter-spacing: -0.02em;
       color: var(--ink);
     }
     .cl-desc { font-size: 13.5px; line-height: 1.5; color: var(--muted); }
@@ -117,7 +127,7 @@
     }
     .empty-state p {
       margin: 0;
-      font-family: var(--serif);
+      font-family: var(--display);
       font-size: 17px;
       line-height: 1.6;
       color: var(--muted);
@@ -184,7 +194,7 @@
   <main class="aie-wrap front">
     <section class="lede-block">
       <p class="aie-label front-eyebrow">The desk</p>
-      <h1 class="front-headline">The AI hardware supply chain, one conviction at a time.</h1>
+      <h1 class="front-headline">The AI hardware supply chain, <span class="grad">one conviction at a time.</span></h1>
       <p class="standfirst" id="standfirst"><!-- built from AIE_DATA at boot --></p>
       <div class="meta-strip" id="metaStrip"><!-- built from desk.meta at boot --></div>
     </section>

@@ -23,7 +23,7 @@
     /* ---- Index: header + filters ---- */
     .vlt-head { margin: 0 0 6px; }
     .vlt-title {
-      font-family: var(--serif); font-weight: 600;
+      font-family: var(--display); font-weight: 700;
       font-size: 34px; line-height: 1.1; letter-spacing: -0.02em;
       color: var(--ink); margin: 0 0 8px;
     }
@@ -43,7 +43,7 @@
       transition: background var(--ease);
     }
     .vlt-row:hover { background: var(--paper-sink); }
-    .vlt-row-title { font-family: var(--serif); font-size: 16.5px; color: var(--ink); flex: 1 1 auto; min-width: 0; }
+    .vlt-row-title { font-family: var(--display); font-size: 16.5px; color: var(--ink); flex: 1 1 auto; min-width: 0; }
     .vlt-row-title .vlt-sub { font-family: var(--mono); font-size: 11px; color: var(--muted); margin-left: 8px; }
     .vlt-row-meta { display: flex; align-items: center; gap: 12px; flex: 0 0 auto; }
     .vlt-updated { font-family: var(--mono); font-size: 11px; color: var(--muted); min-width: 82px; text-align: right; }
@@ -66,7 +66,7 @@
     }
     .vlt-back:hover { color: var(--ink); }
     .vlt-page-title {
-      font-family: var(--serif); font-weight: 600;
+      font-family: var(--display); font-weight: 700;
       font-size: 38px; line-height: 1.12; letter-spacing: -0.02em;
       color: var(--ink); margin: 0 0 18px;
     }
@@ -95,7 +95,7 @@
     /* Note prose (serif 17/1.65 per house style). */
     .vlt-note { margin: 0 0 8px; }
     .vlt-p {
-      font-family: var(--serif); font-size: 17px; line-height: 1.65;
+      font-family: var(--display); font-size: 17px; line-height: 1.65;
       color: var(--text); margin: 0 0 16px;
     }
     .vlt-p:last-child { margin-bottom: 0; }
@@ -129,7 +129,7 @@
     }
     .vlt-memos a:hover .vm-title { color: var(--ink); }
     .vm-date { font-family: var(--mono); font-size: 11px; color: var(--muted); min-width: 82px; flex: 0 0 auto; }
-    .vm-title { font-family: var(--serif); font-size: 15.5px; color: var(--ink); }
+    .vm-title { font-family: var(--display); font-size: 15.5px; color: var(--ink); }
     .vm-kind { font-family: var(--mono); font-size: 10px; color: var(--muted); }
 
     /* Backlink / member chips. */
@@ -156,7 +156,7 @@
       height: clamp(460px, 66vh, 700px);
       background:
         radial-gradient(ellipse 80% 70% at 50% 38%, var(--stage-hi) 0%, var(--stage) 70%);
-      border: 1px solid #1e2c44;
+      border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: var(--r-card);
       box-shadow: var(--shadow-lg);
       overflow: hidden;
@@ -174,18 +174,18 @@
       display: flex; align-items: center; gap: 8px;
       font-family: var(--mono); font-size: 10px; font-weight: 600;
       letter-spacing: .07em; text-transform: uppercase;
-      color: rgba(240, 236, 226, 0.85);
-      background: rgba(15, 27, 46, 0.55);
-      border: 1px solid rgba(230, 224, 212, 0.14);
+      color: rgba(226, 232, 240, 0.85);
+      background: rgba(22, 22, 26, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.14);
       border-radius: 999px; padding: 5px 12px 5px 8px;
       cursor: pointer; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
       transition: opacity var(--ease), border-color var(--ease);
     }
-    .vlt-glegend button:hover { border-color: rgba(230, 224, 212, 0.35); }
+    .vlt-glegend button:hover { border-color: rgba(255, 255, 255, 0.35); }
     .vlt-glegend button.is-off { opacity: 0.35; }
     .vlt-glegend .dot {
       width: 8px; height: 8px; border-radius: 50%; flex: 0 0 auto;
-      background: var(--dot, #fffdf9);
+      background: var(--dot, #ffffff);
     }
 
     /* Zoom controls — bottom-right overlay. */
@@ -196,16 +196,16 @@
     .vlt-gzoom button {
       width: 32px; height: 32px;
       font-family: var(--mono); font-size: 14px; line-height: 1;
-      color: rgba(240, 236, 226, 0.9);
-      background: rgba(15, 27, 46, 0.55);
-      border: 1px solid rgba(230, 224, 212, 0.14);
+      color: rgba(226, 232, 240, 0.9);
+      background: rgba(22, 22, 26, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.14);
       border-radius: 9px; cursor: pointer;
       backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
       transition: border-color var(--ease), background var(--ease);
     }
-    .vlt-gzoom button:hover { border-color: rgba(230, 224, 212, 0.4); background: rgba(30, 44, 68, 0.7); }
+    .vlt-gzoom button:hover { border-color: rgba(255, 255, 255, 0.4); background: rgba(40, 40, 48, 0.7); }
 
-    /* Detail side panel — warm paper card floated over the blueprint. */
+    /* Detail side panel — white card floated over the event-stage graph. */
     .vlt-gpanel {
       position: absolute; top: 14px; right: 14px; width: 258px;
       background: var(--card); border: 1px solid var(--border);
@@ -220,8 +220,8 @@
     }
     .vlt-gpanel-close:hover { color: var(--ink); }
     .vlt-gpanel-title {
-      font-family: var(--serif); font-weight: 600; font-size: 17px;
-      line-height: 1.25; color: var(--ink); margin: 8px 0 10px;
+      font-family: var(--display); font-weight: 700; font-size: 17px;
+      line-height: 1.25; letter-spacing: -0.01em; color: var(--ink); margin: 8px 0 10px;
     }
     .vlt-gpanel-stats { display: flex; flex-direction: column; gap: 7px; margin: 0 0 14px; }
     .vlt-gpanel-row { display: flex; justify-content: space-between; gap: 10px; align-items: baseline; }
@@ -235,11 +235,11 @@
       font-family: var(--mono); font-size: 11px; font-weight: 600;
       letter-spacing: .05em; text-transform: uppercase; text-decoration: none;
       color: var(--text); padding: 8px 12px;
-      border: 1px solid var(--border); border-radius: 8px; text-align: center;
+      border: 1px solid var(--border); border-radius: var(--r-chip); text-align: center;
       transition: border-color var(--ease), color var(--ease), background var(--ease);
     }
     .vlt-gpanel-links a:hover { border-color: var(--muted); color: var(--ink); background: var(--paper-sink); }
-    .vlt-gpanel-links a.primary { background: var(--ink); border-color: var(--ink); color: var(--card); }
+    .vlt-gpanel-links a.primary { background: var(--brand-grad); border-color: transparent; color: #fff; }
 
     .vlt-ghint {
       font-family: var(--mono); font-size: 11px; letter-spacing: .03em;
@@ -264,7 +264,7 @@
       border: 1px solid var(--border); border-radius: var(--r-card);
       box-shadow: var(--shadow-sm);
     }
-    .vlt-empty h1 { font-family: var(--serif); font-weight: 600; font-size: 28px; color: var(--ink); margin: 0 0 12px; }
+    .vlt-empty h1 { font-family: var(--display); font-weight: 700; font-size: 28px; letter-spacing: -0.02em; color: var(--ink); margin: 0 0 12px; }
     .vlt-empty p { font-family: var(--sans); font-size: 15px; line-height: 1.6; color: var(--muted); margin: 0 0 22px; }
     .vlt-empty p code {
       font-family: var(--mono); font-size: 13px;
@@ -274,12 +274,12 @@
     .vlt-actions a {
       font-family: var(--mono); font-size: 11px; font-weight: 600;
       letter-spacing: .06em; text-transform: uppercase; text-decoration: none;
-      padding: 9px 16px; border-radius: 8px;
+      padding: 9px 16px; border-radius: var(--r-chip);
       border: 1px solid var(--border); color: var(--text);
       transition: border-color var(--ease), color var(--ease), background var(--ease);
     }
     .vlt-actions a:hover { border-color: var(--muted); color: var(--ink); background: var(--paper-sink); }
-    .vlt-actions a.primary { background: var(--ink); border-color: var(--ink); color: var(--card); }
+    .vlt-actions a.primary { background: var(--brand-grad); border-color: transparent; color: #fff; }
 
     @media (max-width: 768px) {
       .vlt-page-title { font-size: 30px; }
@@ -768,7 +768,7 @@
           return (v && v.trim()) || fallback;
         }
         var TYPE_COLOR = {
-          ticker:  token("--card", "#fffdf9"),
+          ticker:  token("--card", "#ffffff"),
           person:  token("--sem-accumulate-bg", "#dde8ef"),
           concept: token("--sem-watch-bg", "#f4e7c8"),
           event:   token("--sem-act-bg", "#e4ecd7")
@@ -948,9 +948,9 @@
           edges.forEach(function (e) {
             if (!isVisible(e.a) || !isVisible(e.b)) return;
             var lit = focus && (e.a === focus || e.b === focus);
-            ctx.strokeStyle = lit ? "rgba(240, 236, 226, 0.55)"
-                            : focus ? "rgba(240, 236, 226, 0.05)"
-                                    : "rgba(240, 236, 226, 0.14)";
+            ctx.strokeStyle = lit ? "rgba(226, 232, 240, 0.55)"
+                            : focus ? "rgba(226, 232, 240, 0.05)"
+                                    : "rgba(226, 232, 240, 0.14)";
             ctx.lineWidth = lit ? 1.4 : 1;
             var A = toScreen(e.a), B = toScreen(e.b);
             ctx.beginPath(); ctx.moveTo(A.x, A.y); ctx.lineTo(B.x, B.y); ctx.stroke();
@@ -966,12 +966,12 @@
             // soft glow behind focus + its hood
             if (!dimmed && focus && (n === focus || (hood && hood[n.slug]))) {
               ctx.beginPath(); ctx.arc(S.x, S.y, r + 5, 0, Math.PI * 2);
-              ctx.fillStyle = "rgba(240, 236, 226, 0.12)"; ctx.fill();
+              ctx.fillStyle = "rgba(226, 232, 240, 0.12)"; ctx.fill();
             }
             ctx.beginPath(); ctx.arc(S.x, S.y, r, 0, Math.PI * 2);
             ctx.fillStyle = nodeColor(n); ctx.fill();
             if (n === selectedNode) {
-              ctx.strokeStyle = "rgba(240, 236, 226, 0.9)"; ctx.lineWidth = 1.6;
+              ctx.strokeStyle = "rgba(226, 232, 240, 0.9)"; ctx.lineWidth = 1.6;
               ctx.beginPath(); ctx.arc(S.x, S.y, r + 3, 0, Math.PI * 2); ctx.stroke();
             }
             if (n.fx != null) { // pinned marker
@@ -998,7 +998,7 @@
             var ly = S.y + nodeRadius(n) * Math.min(scale * 1.15, 1.6) + 13;
             ctx.fillStyle = "rgba(10, 18, 32, 0.85)";
             ctx.fillText(label, S.x + 0.8, ly + 0.8); // soft shadow for legibility
-            ctx.fillStyle = isFocus ? "rgba(255, 253, 249, 0.95)" : "rgba(240, 236, 226, 0.72)";
+            ctx.fillStyle = isFocus ? "rgba(255, 255, 255, 0.95)" : "rgba(226, 232, 240, 0.72)";
             ctx.fillText(label, S.x, ly);
             ctx.globalAlpha = 1;
           });
@@ -1037,8 +1037,8 @@
             // legend dot: themes get a neutral multi-hue read via the first
             // category color; per-type tokens for the rest.
             dot.style.setProperty("--dot", t === "theme"
-              ? AIE.categoryColor(Object.keys(CATS)[0], "#fffdf9")
-              : (TYPE_COLOR[t] || "#fffdf9"));
+              ? AIE.categoryColor(Object.keys(CATS)[0], "#ffffff")
+              : (TYPE_COLOR[t] || "#ffffff"));
             btn.appendChild(dot);
             btn.appendChild(document.createTextNode(TYPE_LABEL[t] || t));
             btn.addEventListener("click", function () {

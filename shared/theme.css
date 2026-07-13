@@ -302,12 +302,15 @@ a.aie-chip:hover { border-color: var(--muted); color: var(--ink); }
   background: var(--chip-accent, var(--muted));
 }
 
-/* Filter chip toggle state. */
+/* Filter chip toggle state — active = brand-gradient fill, white text (Phase 6,
+   U4). Shared so every filter toggle site-wide reads the same. */
 .aie-chip.is-active {
-  background: var(--ink);
-  border-color: var(--ink);
-  color: var(--card);
+  background: var(--brand-grad);
+  border-color: transparent;
+  color: #fff;
 }
+.aie-chip.is-active::before { background: #fff; }  /* ticker dot stays visible on the gradient */
+a.aie-chip.is-active:hover { color: #fff; }
 
 /* ----------------------------------------------------------------------------
    Inline prose markup (shared by AIE.renderInline — memo.html, vault.html).

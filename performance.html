@@ -19,7 +19,7 @@
 
     .perf-shell { padding: 32px 0 8px; }
     .perf-title {
-      font-family: var(--serif); font-weight: 600;
+      font-family: var(--display); font-weight: 700;
       font-size: 34px; line-height: 1.1; letter-spacing: -0.02em;
       color: var(--ink); margin: 0 0 8px;
     }
@@ -60,18 +60,18 @@
       border: 1px solid var(--border); border-radius: var(--r-card);
       box-shadow: var(--shadow-sm);
     }
-    .perf-empty h1 { font-family: var(--serif); font-weight: 600; font-size: 28px; color: var(--ink); margin: 0 0 12px; }
+    .perf-empty h1 { font-family: var(--display); font-weight: 700; font-size: 28px; letter-spacing: -0.02em; color: var(--ink); margin: 0 0 12px; }
     .perf-empty p { font-family: var(--sans); font-size: 15px; line-height: 1.6; color: var(--muted); margin: 0 0 22px; }
     .perf-actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
     .perf-actions a {
       font-family: var(--mono); font-size: 11px; font-weight: 600;
       letter-spacing: .06em; text-transform: uppercase; text-decoration: none;
-      padding: 9px 16px; border-radius: 8px;
+      padding: 9px 16px; border-radius: var(--r-chip);
       border: 1px solid var(--border); color: var(--text);
       transition: border-color var(--ease), color var(--ease), background var(--ease);
     }
     .perf-actions a:hover { border-color: var(--muted); color: var(--ink); background: var(--paper-sink); }
-    .perf-actions a.primary { background: var(--ink); border-color: var(--ink); color: var(--card); }
+    .perf-actions a.primary { background: var(--brand-grad); border-color: transparent; color: #fff; }
 
     @media (max-width: 768px) {
       .perf-title { font-size: 28px; }
