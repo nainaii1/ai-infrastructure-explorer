@@ -1,43 +1,53 @@
 /* ============================================================================
-   theme.css — Editorial design tokens + shared components
-   "Private Coverage" multi-page upgrade (EXECUTION.md Phase 1, P1)
+   theme.css — "Unpacked" design tokens + shared components
+   (EXECUTION.md Phase 6, U2 — supersedes the warm editorial palette)
 
    Loaded by every page (index / desk / memo / vault / performance) via a plain
    <link>. Offline-first: no @import, no CDN fonts, file:// safe.
 
    HARD RULES honoured here:
-   - Category colors are NEVER hardcoded. The 3px gradient top border and any
-     per-category accents are painted at runtime by JS from
-     AIE_DATA.categories[id].color. This file only ships the .gradient-border
-     shell + a neutral fallback.
+   - Category colors are NEVER hardcoded — they stay a data-viz concern painted
+     at runtime from AIE_DATA.categories[id].color. The 3px top border is now
+     BRAND chrome (--brand-grad, pure CSS); AIE.paintGradientBorder() is a
+     kept-for-boot-order no-op.
    - Motion stays inside the 200-300ms rule and is gated on
      prefers-reduced-motion (see bottom of the Tokens block).
-
-   Warm editorial palette supersedes the cool "cleanroom" theme still living
-   inline in index.html — do NOT edit index.html for this prompt (P3/P4 wire
-   these tokens in).
    ========================================================================== */
 
 /* ============================================================================
    1. TOKENS
    ========================================================================== */
 :root {
-  /* --- Warm paper palette ------------------------------------------------ */
-  --bg:        #faf7f2;   /* warm paper */
-  --card:      #fffdf9;   /* slightly warmer than the page, lifts on paper */
-  --border:    #e6e0d4;   /* soft warm hairline */
-  --ink:       #1a1712;   /* near-black display ink */
-  --text:      #33302a;   /* body text — ink softened for long reading */
-  --muted:     #8a8375;   /* captions, small-caps labels, secondary meta */
+  /* --- Cool neutral "Unpacked" palette (EXECUTION.md Phase 6) ------------ */
+  --bg:        #f4f5f7;   /* cool neutral-grey canvas */
+  --card:      #ffffff;   /* pure white cards lift on the grey */
+  --border:    #e2e5ea;   /* cool hairline */
+  --ink:       #0b0d12;   /* near-black display ink */
+  --text:      #2a2e35;   /* body text — ink softened for long reading */
+  --muted:     #7c828c;   /* captions, small-caps labels, secondary meta */
 
-  /* A couple of derived neutrals for fills/hovers on paper. */
-  --paper-sink: #f2ede4;  /* recessed rows / hover wash */
-  --paper-tint: #f6f1e8;  /* subtle zebra / header fill */
+  /* Derived neutrals for fills/hovers. Names kept — pages consume them. */
+  --paper-sink: #eceef1;  /* recessed rows / hover wash */
+  --paper-tint: #f0f2f5;  /* subtle zebra / header fill */
+
+  /* True-black "event stage" dark surfaces (cross-section, vault graph). */
+  --stage:    #0a0a0c;
+  --stage-hi: #16161a;
+
+  /* --- Brand accent — ONE blue→violet gradient, used sparingly ----------- */
+  --brand-a:    #2b6bf3;
+  --brand-b:    #7a3bf0;
+  --brand-grad: linear-gradient(100deg, var(--brand-a), var(--brand-b));
+  --brand-ink:  #3d55f2;  /* solid fallback where a gradient can't paint */
 
   /* --- Typography -------------------------------------------------------- */
-  /* Display + body serif. ui-serif resolves to New York on Apple, then the
-     Georgia fallback everywhere else — no web font, offline-safe. */
-  --serif: ui-serif, "New York", Georgia, "Times New Roman", serif;
+  /* Bold geometric sans display stack — hero, chapter heads, ledger titles.
+     Weight 700 / -0.02em tracking applied at use sites. No CDN fonts. */
+  --display: "Avenir Next", "Futura", -apple-system, "SF Pro Display",
+             "Segoe UI", system-ui, sans-serif;
+  /* Transitional alias — pages still say var(--serif); renamed per page in
+     U4, alias deleted in U8. */
+  --serif: var(--display);
   /* System sans for data-dense surfaces (tables, map bands) — set per page. */
   --sans:  -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui,
            "Segoe UI", Roboto, sans-serif;
@@ -45,27 +55,33 @@
   --mono:  "SF Mono", ui-monospace, SFMono-Regular, Menlo, Monaco,
            "Cascadia Code", "Roboto Mono", monospace;
 
-  /* --- Radii & shadows (warm-tinted) ------------------------------------ */
-  --r-card:    14px;
+  /* --- Radii & shadows (cool-tinted) ------------------------------------ */
+  --r-card:    20px;
+  --r-tile:    14px;
   --r-chip:    999px;
-  --shadow-sm: 0 1px 2px rgba(60, 48, 30, 0.05),
-               0 4px 14px rgba(60, 48, 30, 0.05);
-  --shadow-lg: 0 2px 6px rgba(60, 48, 30, 0.06),
-               0 18px 40px -18px rgba(60, 48, 30, 0.20);
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05),
+               0 4px 14px rgba(15, 23, 42, 0.05);
+  --shadow-lg: 0 2px 6px rgba(15, 23, 42, 0.06),
+               0 18px 40px -18px rgba(15, 23, 42, 0.20);
 
   /* --- Motion (UNCHANGED — inside 200-300ms, spring for pill/drilldowns) - */
   --dur:    240ms;
   --ease:   240ms ease;
   --spring: cubic-bezier(0.32, 0.72, 0.28, 1.15);
 
-  /* --- Semantic hue tokens (warm-tinted fills, same hue meaning) ---------
+  /* --- Semantic hue tokens (cool-tinted fills, same hue meaning) ---------
      Green = act / core · Sky = accumulate · Amber = watch · Muted = pass /
-     radar. Fills are muted toward paper so badges sit on #faf7f2 without
-     glowing. Text keeps enough contrast to read. */
-  --sem-act-bg:        #e4ecd7;  --sem-act-fg:        #4d6a2b;  /* green  */
-  --sem-accumulate-bg: #dde8ef;  --sem-accumulate-fg: #2f6486;  /* sky    */
-  --sem-watch-bg:      #f4e7c8;  --sem-watch-fg:      #8a5a1a;  /* amber  */
-  --sem-pass-bg:       #ece7dd;  --sem-pass-fg:       #8a8375;  /* muted  */
+     radar. Fills recalibrated for the cool canvas; text keeps ≥4.5:1. */
+  --sem-act-bg:        #def0dd;  --sem-act-fg:        #256b39;  /* green  */
+  --sem-accumulate-bg: #dce9f9;  --sem-accumulate-fg: #1f5fa8;  /* sky    */
+  --sem-watch-bg:      #fbeecb;  --sem-watch-fg:      #8c5c0a;  /* amber  */
+  --sem-pass-bg:       #e8eaee;  --sem-pass-fg:       #7c828c;  /* muted  */
+}
+
+/* Ambient dash-scroll for the map's flow arrows (U7 wires this up). The
+   reduced-motion gate below kills it along with everything else. */
+@keyframes aie-flow {
+  to { stroke-dashoffset: -12; }
 }
 
 /* Motion gating: entrance/decorative motion off when the user asks for less. */
@@ -126,15 +142,16 @@ body {
 
 /* ============================================================================
    3. GRADIENT TOP BORDER
-   3px band across the full width. Background is painted at runtime by JS from
-   AIE_DATA category colors — do NOT hardcode a gradient here.
+   3px band across the full width — the BRAND gradient (pure CSS, Phase 6).
+   Category colors keep their data-viz job elsewhere; the chrome is brand.
+   AIE.paintGradientBorder() is a kept-for-boot-order no-op.
    ========================================================================== */
 .gradient-border {
   position: fixed;
   top: 0; left: 0; right: 0;
   height: 3px;
   z-index: 200;
-  background: var(--border); /* neutral fallback until JS paints it */
+  background: var(--brand-grad);
 }
 
 /* ============================================================================
@@ -399,8 +416,8 @@ a.th-ticker:hover {
   text-transform: uppercase; font-weight: 700;
   padding: 2px 8px; border-radius: 999px;
 }
-.th-conviction.high   { background: #e4ecd7; color: #4d6a2b; }
-.th-conviction.normal { background: color-mix(in srgb, #8a8375 16%, var(--card)); color: var(--muted); }
+.th-conviction.high   { background: var(--sem-act-bg); color: var(--sem-act-fg); }
+.th-conviction.normal { background: color-mix(in srgb, var(--muted) 16%, var(--card)); color: var(--muted); }
 
 /* ============================================================================
    8. FOOTER COLOPHON

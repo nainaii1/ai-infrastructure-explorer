@@ -170,17 +170,9 @@
     var c = d && d.categories && d.categories[id];
     return (c && c.color) || fallback || "#94a3b8";
   }
-  // Paint the 3px gradient top border from every category color, left->right.
-  function paintGradientBorder(elId) {
-    var el = document.getElementById(elId || "gradientBorder");
-    var d = data();
-    if (!el || !d || !d.categories) return;
-    var colors = Object.keys(d.categories).map(function (id) {
-      return d.categories[id].color;
-    });
-    if (colors.length === 0) return;
-    el.style.background = "linear-gradient(to right, " + colors.join(", ") + ")";
-  }
+  // No-op since the Phase 6 rebrand: the 3px top border is now pure-CSS brand
+  // chrome (theme.css --brand-grad). Kept because every page calls it at boot.
+  function paintGradientBorder() {}
 
   /* ==========================================================================
      Top nav (theme.css .aie-nav). Serif wordmark · PRIVATE COVERAGE small-caps

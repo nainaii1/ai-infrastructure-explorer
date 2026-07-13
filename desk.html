@@ -11,10 +11,8 @@
     href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M13 2 4.5 13.5H11l-1 8.5L19.5 10H13z' fill='%233b82f6'/%3E%3C/svg%3E"
   />
 
-  <!-- Shared editorial design tokens + components. Loaded BEFORE the inline
-       <style> so the page's current cleanroom tokens still win (P3 does the
-       warm retheme); only new tokens (--serif) and .aie-* nav classes are
-       additive here. -->
+  <!-- Shared design tokens + components — the single source of truth for
+       :root tokens (Phase 6, U2). -->
   <link rel="stylesheet" href="shared/theme.css" />
 
   <style>
@@ -23,29 +21,8 @@
        Category/gradient colors come from data.js at runtime —
        never hardcoded here (CLAUDE.md hard rule #4).
        ============================================================ */
-    :root {
-      /* Warm editorial "paper" palette (P3 retheme — supersedes the cleanroom
-         theme). Mirrors shared/theme.css so both files agree. */
-      --bg:        #faf7f2;  /* warm paper */
-      --card:      #fffdf9;  /* lifts slightly off the page */
-      --border:    #e6e0d4;  /* soft warm hairline */
-      --text:      #33302a;  /* body text — ink softened for reading */
-      --muted:     #8a8375;  /* captions, eyebrows, secondary meta */
-      --ink:       #1a1712;  /* near-black display ink / active states */
-      /* Motion: unchanged (200-300ms + spring). */
-      --dur:       240ms;
-      --ease:      240ms ease;
-      --spring:    cubic-bezier(0.32, 0.72, 0.28, 1.15);
-      /* Warm-tinted two-layer soft shadows: ambient + key. */
-      --shadow-sm: 0 1px 2px rgba(60, 48, 30, 0.05), 0 4px 14px rgba(60, 48, 30, 0.05);
-      --shadow-lg: 0 2px 6px rgba(60, 48, 30, 0.06), 0 18px 40px -18px rgba(60, 48, 30, 0.20);
-      --r-card:    14px;
-      /* Serif display stack — hero + chapter heads carry the editorial voice.
-         ui-serif -> New York on Apple, Georgia fallback elsewhere; no CDN font. */
-      --serif:     ui-serif, "New York", Georgia, "Times New Roman", serif;
-      /* Distinctive data type — genuine system monospace, no CDN, offline-safe. */
-      --mono:      "SF Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, "Cascadia Code", "Roboto Mono", monospace;
-    }
+    /* Design tokens come from shared/theme.css only (Phase 6, U2 — the old
+       duplicate :root here silently overrode it and is gone). */
 
     * { box-sizing: border-box; }
 
@@ -64,17 +41,8 @@
       html { scroll-behavior: auto; }
     }
 
-    /* 3px gradient top border across full app width.
-       Its background is injected by JS from AIE_DATA category colors. */
-    .gradient-border {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      z-index: 100;
-      background: var(--border); /* fallback until JS paints the gradient */
-    }
+    /* 3px brand-gradient top border comes from shared/theme.css
+       (.gradient-border, Phase 6) — no page-local rule needed. */
 
     .app {
       max-width: 1200px;
@@ -472,7 +440,7 @@
 
     /* ---------- Cross Section view: blueprint-style bar chart ---------- */
     .map-cross {
-      background: #0f1b2e;
+      background: var(--stage);
       border-radius: var(--r-card);
       padding: 24px 20px 18px;
       background-image:
@@ -832,13 +800,13 @@
       padding: 2px 8px; border-radius: 999px;
     }
     .tier-badge.core, .bd-conviction.high {
-      background: #e4ecd7; color: #4d6a2b;
+      background: var(--sem-act-bg); color: var(--sem-act-fg);
     }
     .tier-badge.watch, .bd-conviction.medium {
-      background: #f4e7c8; color: #8a5a1a;
+      background: var(--sem-watch-bg); color: var(--sem-watch-fg);
     }
     .tier-badge.radar, .bd-conviction.low {
-      background: color-mix(in srgb, #8a8375 16%, var(--card)); color: var(--muted);
+      background: color-mix(in srgb, var(--muted) 16%, var(--card)); color: var(--muted);
     }
 
     /* Desk verdict — Claude's weekly stance on a Core name. */
@@ -847,10 +815,10 @@
       text-transform: uppercase; font-weight: 700;
       padding: 2px 8px; border-radius: 999px; white-space: nowrap;
     }
-    .vd-stance.act        { background: #e4ecd7; color: #4d6a2b; }
-    .vd-stance.accumulate { background: #dde8ef; color: #2f6486; }
-    .vd-stance.watch      { background: #f4e7c8; color: #8a5a1a; }
-    .vd-stance.pass       { background: color-mix(in srgb, #8a8375 16%, var(--card)); color: var(--muted); }
+    .vd-stance.act        { background: var(--sem-act-bg); color: var(--sem-act-fg); }
+    .vd-stance.accumulate { background: var(--sem-accumulate-bg); color: var(--sem-accumulate-fg); }
+    .vd-stance.watch      { background: var(--sem-watch-bg); color: var(--sem-watch-fg); }
+    .vd-stance.pass       { background: color-mix(in srgb, var(--muted) 16%, var(--card)); color: var(--muted); }
     .tk-verdict {
       margin-top: 12px; padding: 12px 14px; border-radius: 10px;
       background: color-mix(in srgb, var(--accent) 4%, var(--bg));
@@ -1862,7 +1830,7 @@
 
           var bar = el("div", "mc-bar");
           bar.style.height = Math.max(4, (n / maxCount) * 170) + "px";
-          bar.style.background = "color-mix(in srgb, " + c.color + " 55%, #0f1b2e)";
+          bar.style.background = "color-mix(in srgb, " + c.color + " 55%, var(--stage))";
           col.appendChild(bar);
           col.appendChild(el("span", "mc-count", String(n)));
           // Heat: median 7-day move across this category's tickers.
