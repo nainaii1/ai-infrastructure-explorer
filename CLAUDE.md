@@ -109,6 +109,18 @@ not throwaway config.
   is now tracked in git (gitignore exception).
   **Phases 3–5 (knowledge Vault + graph, cross-linking, performance
   hooks) are the remaining roadmap — see `docs/EXECUTION.md`.**
+  **Phase 6 — "Unpacked" rebrand 🚧 in progress (started 2026-07-13):** a
+  Samsung-Unpacked aesthetic — cool neutral-grey canvas, bold geometric display
+  type, ONE blue→violet brand-gradient accent used sparingly, true-black "event
+  stage" dark surfaces. Shipped: **U1** (guide), **U2** (design tokens in
+  `shared/theme.css` — palette/fonts/brand/stage; the duplicate `desk.html`
+  `:root` deleted; `paintGradientBorder` now a no-op — the border is pure-CSS
+  brand chrome), **U3** (4 category hues deepened for the cool canvas).
+  Remaining: **U4** per-page polish, **U5** focus card, **U6** category icons,
+  **U7** map tiles + expand-in-place, **U8** docs + `--serif`-alias cleanup —
+  see `docs/EXECUTION.md` Phase 6. The Design system section below carries the
+  shipped U2/U3 token values; its comprehensive rewrite (and `docs/DESIGN.md`'s)
+  lands in U8.
 - **Live counts** (approximate, check `ingest/store/*.json` for current):
   ~109 tickers tracked (23 core / 21 watch / 65 radar after focus-weighting),
   10 categorized layers + an `unsorted` triage bucket (one Core name, RDDT,
@@ -154,8 +166,10 @@ not throwaway config.
 4. **All colors, labels, tooltips, and tickers come from `data.js`.** Never
    hardcode them inside a page or `shared/`. E.g. a category color is read from
    `AIE_DATA.categories[id].color` (via `AIE.categoryColor()`), zone labels from
-   `AIE_DATA.zones`, the map intro line from `AIE_DATA.mapIntro`. The 3px
-   gradient border and per-chip accents are painted at runtime from these.
+   `AIE_DATA.zones`, the map intro line from `AIE_DATA.mapIntro`. Per-chip and
+   map-band accents are painted at runtime from category colors; the 3px top
+   border is now brand chrome (`--brand-grad`, pure CSS) — not category-painted
+   (Phase 6, U2).
 5. All hover/click transitions **200–300ms ease**. Mobile breakpoint **768px**.
    Fully responsive.
 6. **`data.js` is generated, never hand-edited.** Source of truth is
@@ -165,37 +179,49 @@ not throwaway config.
    the ingest pipeline grows both over time. Don't assume a specific count in
    code or docs; read it from the store.
 
-## Design system (current — v7 warm "editorial paper" theme; supersedes the v6 cleanroom theme, which superseded the original cream theme)
-Defined once in `shared/theme.css` (`:root` tokens + `.aie-*` components) and
-mirrored in `desk.html`'s inline `:root` so both files agree. Data-dense
-surfaces (watchlist table, map bands) stay system-sans; the editorial voice
-(hero + chapter heads, standfirst, ledger titles) is serif.
-- Background `#faf7f2` (warm paper) · Card `#fffdf9` · Border `#e6e0d4`
-- Text `#33302a` · Muted `#8a8375` · Ink (display) `#1a1712`
-- Shadows: warm-tinted two-layer `--shadow-sm` / `--shadow-lg`. Card radius `--r-card: 14px`.
+## Design system (migrating — v7 "Unpacked" cool theme, Phase 6; supersedes the warm "editorial paper" theme, which superseded the v6 cleanroom / original cream themes). Values below are the shipped U2/U3 state; the full section + `docs/DESIGN.md` rewrite lands in U8.
+Defined once in `shared/theme.css` (`:root` tokens + `.aie-*` components); every
+page (including `desk.html`) consumes them directly — U2 deleted the duplicate
+`desk.html` `:root`. Data-dense surfaces (watchlist table, map bands) stay
+system-sans; the display voice (hero + chapter heads, standfirst, ledger titles)
+is a bold geometric sans (`--display`).
+- Background `#f4f5f7` (cool neutral grey) · Card `#ffffff` · Border `#e2e5ea`
+- Text `#2a2e35` · Muted `#7c828c` · Ink (display) `#0b0d12`
+- Brand accent: ONE blue→violet gradient `--brand-grad` (`#2b6bf3`→`#7a3bf0`;
+  solid fallback `--brand-ink` `#3d55f2`), used sparingly — paints the 3px top
+  border and (from U4) at most one gradient-text moment per page. True-black
+  "event stage" dark surfaces: `--stage` `#0a0a0c` / `--stage-hi` `#16161a`
+  (cross-section, NVIDIA hub, vault graph).
+- Shadows: cool-tinted (`rgba(15,23,42,…)`) two-layer `--shadow-sm` /
+  `--shadow-lg`. Radii: `--r-card: 20px` · `--r-tile: 14px` · `--r-chip: 999px`.
 - Motion (unchanged, 200–300ms): `--ease: 240ms ease` + `--spring:
   cubic-bezier(.32,.72,.28,1.15)` (capsule pill, drill-downs, reveals).
   Reveals/count-up are entrance effects gated on `prefers-reduced-motion`.
-- Fonts: serif display stack `--serif: ui-serif, "New York", Georgia, serif`
-  (hero + chapter heads, standfirst); Apple system sans for body/data-dense
-  surfaces; genuine system monospace `--mono` (e.g. SF Mono) for tickers,
-  numbers, and small-caps labels (uppercase, 0.08em, ~11px) — no CDN fonts.
+- Fonts: bold geometric display stack `--display: "Avenir Next", "Futura",
+  -apple-system, "SF Pro Display", …` (hero + chapter heads, standfirst; weight
+  700 / -0.02em at use sites). `--serif` is a transitional alias of `--display`
+  (pages still say `var(--serif)`; renamed in U4, alias deleted in U8). Apple
+  system sans for body/data-dense surfaces; genuine system monospace `--mono`
+  (e.g. SF Mono) for tickers, numbers, and small-caps labels (uppercase, 0.08em,
+  ~11px) — no CDN fonts.
 - Category colors live in `data.js` (`categories[].color`) — see
-  `ingest/store/base.json` for the current 10: Photonics `#3b82f6`, Memory
-  `#8b5cf6`, Fabs `#f59e0b`, Neoclouds `#22c55e`, Materials `#f97316`,
-  Networking `#14b8a6`, Glass `#0ea5e9`, Robotics `#e11d48`, Accelerators
-  `#76b900`, Hyperscalers `#6366f1`.
-- Tier/stance badges are warm-tinted, same hue semantics: core/act green,
-  accumulate sky, watch amber, radar/pass muted.
+  `ingest/store/base.json` for the current 10 (deepened for the cool canvas in
+  U3): Photonics `#3b82f6`, Memory `#8b5cf6`, Fabs `#e08a00`, Neoclouds
+  `#16a34a`, Materials `#f97316`, Networking `#0d9488`, Glass `#0284c7`,
+  Robotics `#e11d48`, Accelerators `#76b900`, Hyperscalers `#6366f1`.
+- Tier/stance badges are cool-tinted (`--sem-*` tokens), same hue semantics:
+  core/act green, accumulate sky, watch amber, radar/pass muted.
 - **Top masthead** (`AIE.renderNav(activePage)`): serif wordmark · `PRIVATE
   COVERAGE · NOT ADVICE` small-caps · page links (Coverage / Desk / Vault /
   Graph / Performance-greyed) · double-hairline rule. On `desk.html` the
   masthead scrolls away and the capsule chapter nav pins near the top.
-- **3px gradient top border** spanning all category colors, left → right, full
-  width (`.gradient-border`, painted by `AIE.paintGradientBorder()`).
+- **3px brand-gradient top border** (blue→violet `--brand-grad`), full width,
+  pure CSS (`.gradient-border`). `AIE.paintGradientBorder()` is a
+  kept-for-boot-order no-op since U2 — category colors no longer paint the chrome.
 - ⚡ favicon via inline SVG data URI in `<head>` (no external request, `file://`-safe).
-- The dark `#0f1b2e` cross-section "blueprint" + NVIDIA hub are intentional
-  dark accent surfaces kept against the warm paper.
+- The true-black `--stage` (`#0a0a0c`) cross-section "blueprint" + NVIDIA hub
+  are intentional dark "event stage" surfaces kept against the cool canvas
+  (Phase 6, U2 — was the `#0f1b2e` blueprint navy).
 
 ## Architecture — two data layers
 **Static config** (categories, center node, countries, zones, mapIntro) → read

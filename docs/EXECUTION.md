@@ -328,7 +328,7 @@ colors keep their data-viz job (bands/tiles/chips/graph) — never the chrome.
 > prompts U2–U8 with model+effort, loop commands for the difficult steps.
 > Commit as `docs: unpacked rebrand execution guide`.
 
-### ☐ U2 · F5-M — brand tokens ⚠️ CHECKPOINT: eyeball all 5 pages before U3
+### ☑ U2 · F5-M — brand tokens (2026-07-13) ⚠️ CHECKPOINT: eyeball all 5 pages before U3
 
 > Read CLAUDE.md and docs/EXECUTION.md Phase 6 (token spec). In
 > `shared/theme.css`: rewrite `:root` per the token table (add `--display`,
@@ -348,7 +348,14 @@ colors keep their data-viz job (bands/tiles/chips/graph) — never the chrome.
 > colors flow (runtime getComputedStyle), reduced-motion pass, 375/768px.
 > Commit as `feat: unpacked design tokens`.
 
-### ☐ U3 · S5-M — category palette recalibration
+_Shipped 2026-07-13 (`0fdf102`). One extra beyond the prompt: `desk.html` also
+carried a **page-local `.gradient-border` rule** (not just the `:root` block)
+that overrode theme.css — deleted it too, else the desk border stayed a grey
+hairline. Also swept `desk.html`'s hardcoded warm tier/stance badge hexes to the
+`--sem-*` tokens so the checkpoint didn't render stale badges. 101 unit tests
+green; all 5 pages verified via the local server._
+
+### ☑ U3 · S5-M — category palette recalibration (2026-07-13)
 
 > Read docs/EXECUTION.md Phase 6. In `ingest/store/base.json`, deepen the
 > light/acid category hues for the cool canvas — fabs `#f59e0b`→`#e08a00`,
@@ -358,6 +365,15 @@ colors keep their data-viz job (bands/tiles/chips/graph) — never the chrome.
 > ingest/generate_data_js.py` (never hand-edit data.js; expect vault.json
 > churn). Verify hues flow to layer bands, cross-section bars, chips, and the
 > vault graph theme nodes. Commit as `feat: cooler category palette`.
+
+_Shipped 2026-07-13 (`a6dd0c8`). Four hues moved: the three mandated (fabs,
+neoclouds, glass) plus **networking `#14b8a6`→`#0d9488`** as the "judge the
+rest" call — the one remaining acid teal that washed out on the near-white
+canvas. Photonics/memory/materials/robotics/hyperscalers kept (enough weight
+already); accelerators kept (semantic). The regen churned **priority scores**,
+not `vault.json` (the scorer's recency weighting recomputes vs today's date);
+tier counts unchanged, so nothing re-tiered. Verified hues flow to bands,
+cross-section bars, and vault graph nodes._
 
 ### ☐ U4 · Op-H — per-page polish (regression-prone: touches every page)
 
