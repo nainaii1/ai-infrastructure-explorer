@@ -364,59 +364,173 @@
   }
 
   /* ==========================================================================
-     UNPACKED HERO ART — a gem + sparkle cluster as one inline SVG string.
-     Pure brand-chrome decoration (blue→violet→teal), file://-safe, no external
-     assets. Category colors are untouched (hard rule #4 governs data-driven
-     hues, not the illustration). Reused by the index + desk heroes so the
-     "Unpacked" visual language lives in one place.
+     PAGE ART — a small library of DISTINCT AI-hardware illustrations, one per
+     page, so no two heroes repeat (Aave discipline, Unpacked palette). Pure
+     brand-chrome (cool blue→violet with teal / mint accents), inline SVG,
+     file://-safe, no external assets. Category colors stay a data concern
+     (hard rule #4 governs data-driven hues, not the illustration).
+       artCoverage()     silicon die / prism      — front page  (blue→violet)
+       artDesk()         chip-node constellation   — field guide (electric blue)
+       artVault()        interconnect network      — vault       (violet)
+       artPerformance()  rising returns curve      — performance (mint/green)
+       chipSpark(color)  a small tinted chip glyph  — memo accent
      ======================================================================== */
-  function heroArt() {
-    return [
-'<svg class="unf-art-svg" viewBox="0 0 440 380" fill="none" role="img" aria-label="Abstract gem and sparkle cluster" xmlns="http://www.w3.org/2000/svg">',
-  '<defs>',
-    '<radialGradient id="unfBokeh" cx="42%" cy="36%" r="64%">',
-      '<stop offset="0%" stop-color="#e9edfc"/>',
-      '<stop offset="58%" stop-color="#dde4f9"/>',
-      '<stop offset="100%" stop-color="#ccd8f3"/>',
-    '</radialGradient>',
-    '<linearGradient id="unfGemMain" x1="0" y1="0" x2="1" y2="1">',
-      '<stop offset="0%" stop-color="#2b6bf3"/>',
-      '<stop offset="52%" stop-color="#2aa6d9"/>',
-      '<stop offset="100%" stop-color="#16b9c8"/>',
-    '</linearGradient>',
-    '<linearGradient id="unfGemTeal" x1="0" y1="0" x2="1" y2="1">',
-      '<stop offset="0%" stop-color="#3ad0ca"/>',
-      '<stop offset="100%" stop-color="#159fbe"/>',
-    '</linearGradient>',
-    '<linearGradient id="unfGemBlue" x1="0" y1="0" x2="1" y2="1">',
-      '<stop offset="0%" stop-color="#2b6bf3"/>',
-      '<stop offset="100%" stop-color="#6d92f6"/>',
-    '</linearGradient>',
-    '<linearGradient id="unfCardA" x1="0" y1="0" x2="1" y2="1">',
-      '<stop offset="0%" stop-color="#cabdf8"/>',
-      '<stop offset="100%" stop-color="#a086ef"/>',
-    '</linearGradient>',
-    '<linearGradient id="unfCardB" x1="0" y1="0" x2="1" y2="1">',
-      '<stop offset="0%" stop-color="#bac6f9"/>',
-      '<stop offset="100%" stop-color="#8ba4f1"/>',
-    '</linearGradient>',
-    '<filter id="unfSoft" x="-40%" y="-40%" width="180%" height="180%">',
-      '<feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#33408a" flood-opacity="0.22"/>',
-    '</filter>',
-  '</defs>',
-  '<circle cx="252" cy="150" r="150" fill="url(#unfBokeh)"/>',
-  '<circle cx="392" cy="70" r="40" fill="#d4ddf6"/>',
-  '<circle cx="74" cy="252" r="32" fill="#c0efe7"/>',
-  '<g filter="url(#unfSoft)">',
-    '<rect x="168" y="120" width="118" height="118" rx="20" fill="url(#unfCardB)" opacity="0.55" transform="rotate(-13 227 179)"/>',
-    '<rect x="200" y="150" width="118" height="118" rx="20" fill="url(#unfCardA)" opacity="0.5" transform="rotate(11 259 209)"/>',
-  '</g>',
-  '<path filter="url(#unfSoft)" fill="url(#unfGemMain)" d="M235,110 C240.6,160.4 254.6,174.4 305,180 C254.6,185.6 240.6,199.6 235,250 C229.4,199.6 215.4,185.6 165,180 C215.4,174.4 229.4,160.4 235,110 Z"/>',
-  '<path fill="#ffffff" opacity="0.34" d="M235,150 C237.4,171.6 243.4,177.6 265,180 C243.4,182.4 237.4,188.4 235,210 C232.6,188.4 226.6,182.4 205,180 C226.6,177.6 232.6,171.6 235,150 Z"/>',
-  '<path fill="url(#unfGemTeal)" d="M150,86 C152.08,104.72 157.28,109.92 176,112 C157.28,114.08 152.08,119.28 150,138 C147.92,119.28 142.72,114.08 124,112 C142.72,109.92 147.92,104.72 150,86 Z"/>',
-  '<path fill="url(#unfGemBlue)" d="M330,157 C331.2,167.8 335.8,170.8 345,172 C335.8,173.2 331.2,176.2 330,187 C328.8,176.2 324.2,173.2 315,172 C324.2,170.8 328.8,167.8 330,157 Z"/>',
-'</svg>'
-    ].join("");
+
+  function _n(v) { return Math.round(v * 100) / 100; }
+
+  // 4-point "signal" sparkle path centred at (cx,cy), radius r.
+  function sparkPath(cx, cy, r) {
+    var a = 0.08 * r, b = 0.28 * r;
+    return "M" + _n(cx) + "," + _n(cy - r) +
+      " C" + _n(cx + a) + "," + _n(cy - b) + " " + _n(cx + b) + "," + _n(cy - a) + " " + _n(cx + r) + "," + _n(cy) +
+      " C" + _n(cx + b) + "," + _n(cy + a) + " " + _n(cx + a) + "," + _n(cy + b) + " " + _n(cx) + "," + _n(cy + r) +
+      " C" + _n(cx - a) + "," + _n(cy + b) + " " + _n(cx - b) + "," + _n(cy + a) + " " + _n(cx - r) + "," + _n(cy) +
+      " C" + _n(cx - b) + "," + _n(cy - a) + " " + _n(cx - a) + "," + _n(cy - b) + " " + _n(cx) + "," + _n(cy - r) + " Z";
+  }
+  function _wrap(label, inner) {
+    return '<svg class="unf-art-svg" viewBox="0 0 440 380" fill="none" role="img" aria-label="' +
+      label + '" xmlns="http://www.w3.org/2000/svg">' + inner + '</svg>';
+  }
+  function _bokeh(id) {
+    return '<radialGradient id="' + id + '" cx="44%" cy="36%" r="64%">' +
+      '<stop offset="0%" stop-color="#e9edfc"/><stop offset="60%" stop-color="#dde4f9"/>' +
+      '<stop offset="100%" stop-color="#ccd8f3"/></radialGradient>';
+  }
+  function _shadow(id) {
+    return '<filter id="' + id + '" x="-40%" y="-40%" width="180%" height="180%">' +
+      '<feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#33408a" flood-opacity="0.20"/></filter>';
+  }
+  // Comb of contact "pins" around a chip package.
+  function _pins(x, y, w, h, color) {
+    var s = "", n = 6, pw = 8, pl = 12, i, px, py;
+    for (i = 0; i < n; i++) {
+      px = x + (i + 0.5) * (w / n) - pw / 2;
+      s += '<rect x="' + _n(px) + '" y="' + (y - pl + 2) + '" width="' + pw + '" height="' + pl + '" rx="3" fill="' + color + '"/>';
+      s += '<rect x="' + _n(px) + '" y="' + (y + h - 2) + '" width="' + pw + '" height="' + pl + '" rx="3" fill="' + color + '"/>';
+    }
+    for (i = 0; i < n; i++) {
+      py = y + (i + 0.5) * (h / n) - pw / 2;
+      s += '<rect x="' + (x - pl + 2) + '" y="' + _n(py) + '" width="' + pl + '" height="' + pw + '" rx="3" fill="' + color + '"/>';
+      s += '<rect x="' + (x + w - 2) + '" y="' + _n(py) + '" width="' + pl + '" height="' + pw + '" rx="3" fill="' + color + '"/>';
+    }
+    return s;
+  }
+
+  // COVERAGE — a glowing silicon die (gem/prism read) seated in a chip package.
+  function artCoverage() {
+    var defs = '<defs>' + _bokeh("cvBokeh") +
+      '<linearGradient id="cvDie" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#2b6bf3"/>' +
+        '<stop offset="52%" stop-color="#5a5cf0"/><stop offset="100%" stop-color="#7a3bf0"/></linearGradient>' +
+      '<linearGradient id="cvCore" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#4fdcd2"/>' +
+        '<stop offset="100%" stop-color="#2b6bf3"/></linearGradient>' + _shadow("cvSoft") + '</defs>';
+    var inner = defs +
+      '<circle cx="252" cy="150" r="150" fill="url(#cvBokeh)"/>' +
+      '<circle cx="392" cy="72" r="38" fill="#d4ddf6"/>' +
+      '<circle cx="74" cy="250" r="30" fill="#c3efe8"/>' +
+      _pins(158, 108, 156, 156, "#c3cff0") +
+      '<g filter="url(#cvSoft)"><rect x="158" y="108" width="156" height="156" rx="26" fill="#eef2fc" stroke="#dbe3f7" stroke-width="1.5"/></g>' +
+      '<rect x="190" y="140" width="92" height="92" rx="16" fill="url(#cvDie)"/>' +
+      '<rect x="205" y="155" width="62" height="62" rx="11" fill="none" stroke="#ffffff" stroke-opacity="0.34" stroke-width="2"/>' +
+      '<rect x="218" y="168" width="36" height="36" rx="8" fill="none" stroke="#ffffff" stroke-opacity="0.5" stroke-width="2"/>' +
+      '<path fill="url(#cvCore)" d="' + sparkPath(236, 186, 15) + '"/>' +
+      '<path fill="url(#cvDie)" d="' + sparkPath(348, 122, 15) + '"/>' +
+      '<circle cx="150" cy="150" r="5" fill="#7a3bf0"/>';
+    return _wrap("Silicon die", inner);
+  }
+
+  // DESK — a constellation of chip nodes wired to a central GPU hub.
+  function artDesk() {
+    var cx = 232, cy = 184;
+    var nodes = [[112, 96], [344, 110], [92, 250], [350, 256], [224, 58], [236, 306]];
+    var lines = "", chips = "";
+    nodes.forEach(function (p) {
+      lines += '<line x1="' + cx + '" y1="' + cy + '" x2="' + p[0] + '" y2="' + p[1] + '" stroke="#b9c6f5" stroke-width="1.6"/>';
+    });
+    nodes.forEach(function (p, i) {
+      var col = (i % 3 === 1) ? "#17b8c7" : "#2b6bf3";
+      chips += '<rect x="' + (p[0] - 13) + '" y="' + (p[1] - 13) + '" width="26" height="26" rx="7" fill="#ffffff" stroke="' + col + '" stroke-width="2"/>' +
+               '<rect x="' + (p[0] - 5) + '" y="' + (p[1] - 5) + '" width="10" height="10" rx="2.5" fill="' + col + '"/>';
+    });
+    var defs = '<defs>' + _bokeh("dkBokeh") +
+      '<linearGradient id="dkHub" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#2b6bf3"/>' +
+        '<stop offset="100%" stop-color="#7a3bf0"/></linearGradient>' + _shadow("dkSoft") + '</defs>';
+    var inner = defs +
+      '<circle cx="240" cy="150" r="150" fill="url(#dkBokeh)"/>' +
+      '<circle cx="384" cy="252" r="28" fill="#c3efe8"/>' +
+      lines + chips +
+      '<g filter="url(#dkSoft)"><rect x="' + (cx - 38) + '" y="' + (cy - 38) + '" width="76" height="76" rx="18" fill="url(#dkHub)"/></g>' +
+      '<rect x="' + (cx - 20) + '" y="' + (cy - 20) + '" width="40" height="40" rx="9" fill="none" stroke="#ffffff" stroke-opacity="0.45" stroke-width="2"/>' +
+      '<path fill="#ffffff" d="' + sparkPath(cx, cy, 11) + '"/>';
+    return _wrap("Signal constellation", inner);
+  }
+
+  // VAULT — an interconnect / PCB-trace network of pads and hub chips.
+  function artVault() {
+    var pads = [[90, 112], [190, 90], [300, 120], [362, 202], [300, 292], [180, 300], [90, 220], [152, 190], [252, 202]];
+    var edges = [[0, 7], [7, 1], [1, 2], [2, 3], [3, 8], [8, 7], [8, 4], [4, 5], [5, 6], [6, 0], [8, 2]];
+    var traces = "", padStr = "";
+    edges.forEach(function (e) {
+      var a = pads[e[0]], b = pads[e[1]];
+      traces += '<polyline points="' + a[0] + ',' + a[1] + ' ' + b[0] + ',' + a[1] + ' ' + b[0] + ',' + b[1] +
+        '" fill="none" stroke="#c8b6f2" stroke-width="1.6"/>';
+    });
+    pads.forEach(function (p, i) {
+      if (i === 7 || i === 8) {
+        padStr += '<rect x="' + (p[0] - 12) + '" y="' + (p[1] - 12) + '" width="24" height="24" rx="6" fill="#ffffff" stroke="#7a3bf0" stroke-width="2"/>' +
+                  '<rect x="' + (p[0] - 4) + '" y="' + (p[1] - 4) + '" width="8" height="8" rx="2" fill="#7a3bf0"/>';
+      } else {
+        padStr += '<circle cx="' + p[0] + '" cy="' + p[1] + '" r="6.5" fill="#ffffff" stroke="#8b5cf6" stroke-width="2"/>';
+      }
+    });
+    var defs = '<defs>' + _bokeh("vtBokeh") + _shadow("vtSoft") + '</defs>';
+    var inner = defs +
+      '<circle cx="238" cy="150" r="150" fill="url(#vtBokeh)"/>' +
+      '<circle cx="378" cy="86" r="28" fill="#e0d6fb"/>' +
+      traces + padStr +
+      '<path fill="#7a3bf0" d="' + sparkPath(300, 120, 10) + '"/>';
+    return _wrap("Interconnect network", inner);
+  }
+
+  // PERFORMANCE — a rising returns curve with a gridded area fill.
+  function artPerformance() {
+    var line = "M40,300 C110,300 120,222 180,214 C232,206 246,254 300,222 C346,196 352,118 396,100";
+    var area = line + " L396,322 L40,322 Z";
+    var grid = "";
+    [112, 170, 228, 286].forEach(function (y) {
+      grid += '<line x1="40" y1="' + y + '" x2="404" y2="' + y + '" stroke="#dfe4ee" stroke-width="1"/>';
+    });
+    var defs = '<defs>' + _bokeh("pfBokeh") +
+      '<linearGradient id="pfArea" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#34c1a4" stop-opacity="0.5"/>' +
+        '<stop offset="100%" stop-color="#34c1a4" stop-opacity="0"/></linearGradient>' +
+      '<linearGradient id="pfLine" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#2b6bf3"/>' +
+        '<stop offset="100%" stop-color="#17b8a0"/></linearGradient>' + _shadow("pfSoft") + '</defs>';
+    var inner = defs +
+      '<circle cx="250" cy="140" r="150" fill="url(#pfBokeh)"/>' +
+      '<circle cx="378" cy="252" r="26" fill="#c3efe8"/>' +
+      grid +
+      '<path d="' + area + '" fill="url(#pfArea)"/>' +
+      '<path d="' + line + '" fill="none" stroke="url(#pfLine)" stroke-width="4" stroke-linecap="round"/>' +
+      '<line x1="396" y1="100" x2="396" y2="300" stroke="#17b8a0" stroke-width="1.5" stroke-dasharray="4 4"/>' +
+      '<g filter="url(#pfSoft)"><circle cx="396" cy="100" r="10" fill="#ffffff" stroke="#17b8a0" stroke-width="3"/></g>' +
+      '<path fill="#2b6bf3" d="' + sparkPath(120, 110, 12) + '"/>';
+    return _wrap("Rising returns curve", inner);
+  }
+
+  // MEMO accent — a small chip glyph tinted with the ticker's category color.
+  function chipSpark(color) {
+    var c = color || "#7c828c";
+    var pins = "", i, s;
+    for (i = 0; i < 4; i++) {
+      s = 11 + i * 6;                       // pin position along an edge
+      pins += '<rect x="' + s + '" y="4" width="3" height="5" rx="1" fill="' + c + '"/>';   // top
+      pins += '<rect x="' + s + '" y="31" width="3" height="5" rx="1" fill="' + c + '"/>';  // bottom
+      pins += '<rect x="4" y="' + s + '" width="5" height="3" rx="1" fill="' + c + '"/>';    // left
+      pins += '<rect x="31" y="' + s + '" width="5" height="3" rx="1" fill="' + c + '"/>';   // right
+    }
+    return '<svg class="memo-chip" viewBox="0 0 40 40" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">' +
+      pins +
+      '<rect x="9" y="9" width="22" height="22" rx="5" fill="#ffffff" stroke="' + c + '" stroke-width="2"/>' +
+      '<rect x="15" y="15" width="10" height="10" rx="2.5" fill="' + c + '"/></svg>';
   }
 
   /* Small decorative corner shape for a soft-tile (arc | ring | square | none),
@@ -459,7 +573,11 @@
     renderNav: renderNav,
     linkForTicker: linkForTicker,
     makeThesisCard: makeThesisCard,
-    heroArt: heroArt,
+    artCoverage: artCoverage,
+    artDesk: artDesk,
+    artVault: artVault,
+    artPerformance: artPerformance,
+    chipSpark: chipSpark,
     tileShape: tileShape
   };
 })(window);

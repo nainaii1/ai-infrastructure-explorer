@@ -35,6 +35,8 @@
       margin-bottom: 14px;
     }
     .memo-eyebrow .sep { color: var(--border); }
+    .memo-chip-wrap { display: inline-flex; margin-right: 4px; }
+    .memo-chip-wrap .memo-chip { width: 30px; height: 30px; display: block; }
     .memo-title {
       font-family: var(--display); font-weight: 700;
       font-size: 40px; line-height: 1.12; letter-spacing: -0.02em;
@@ -479,6 +481,14 @@
 
         // Header: eyebrow (kind · ticker), title, dek, meta (rating + dates).
         var eyebrow = el("div", "memo-eyebrow");
+        var etk = tickerBySym[memo.ticker];
+        var ecol = etk ? AIE.categoryColor(etk.category, null) : null;
+        if (AIE.chipSpark) {
+          var chipWrap = document.createElement("span");
+          chipWrap.className = "memo-chip-wrap";
+          chipWrap.innerHTML = AIE.chipSpark(ecol || "#7c828c");
+          eyebrow.appendChild(chipWrap);
+        }
         eyebrow.appendChild(el("span", "aie-label", kindLabel(memo.kind)));
         eyebrow.appendChild(el("span", "sep aie-label", "·"));
         eyebrow.appendChild(el("span", "aie-label", memo.ticker));
