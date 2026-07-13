@@ -375,7 +375,7 @@ not `vault.json` (the scorer's recency weighting recomputes vs today's date);
 tier counts unchanged, so nothing re-tiered. Verified hues flow to bands,
 cross-section bars, and vault graph nodes._
 
-### ☐ U4 · Op-H — per-page polish (regression-prone: touches every page)
+### ☑ U4 · Op-H — per-page polish (2026-07-13)
 
 > Read CLAUDE.md + docs/EXECUTION.md Phase 6. Across all 5 pages: replace
 > `var(--serif)` → `var(--display)` (~29 uses) adding weight-700 /
@@ -394,6 +394,27 @@ cross-section bars, and vault graph nodes._
 > vault?view=graph, performance) on the local server; check console clean, no
 > warm-color remnants, no 375px overflow, reduced-motion inert; fix what
 > fails; stop when a full pass is clean`
+
+_Shipped 2026-07-13 (`dfe9fd5`). All 23 page `var(--serif)` → `var(--display)`;
+weight 700 / -0.02em at display sites. ONE gradient-text moment on each
+front-of-house page (index + desk hero headlines) via a `.grad` span with a
+solid `--brand-ink` fallback before the background-clip declarations — memo /
+vault / performance kept solid ink (reading surfaces). Pills: `.aie-chip`
+active state moved to the brand gradient in `shared/theme.css` (shared, so every
+filter toggle inherits it); desk `.vt-btn`, tier/`.filter-chip` **neutral**
+fallback, and the capsule pill all go brand-gradient — **category filter chips
+keep their `--chip-accent` data-viz color** (rule #4). desk dark surfaces
+(NVIDIA hub + cross-section) rebuilt on `var(--stage)` with a 2px
+brand-gradient hairline top edge; the two sub-4.5:1 stage greys lifted to
+`#9aa1ac`. Warm remnants beyond the grep list also swept: the capsule
+frosted-paper (`rgba(255,253,249…)` / `rgba(74,60,40…)`) → cool white, the amber
+`.wl-hint` → `--brand-ink`, and every warm off-white / blueprint-navy literal in
+the **vault graph** overlays + canvas draw code → cool slate/white. Verified on
+the local server across all 6 surfaces (console clean, no warm remnants, no
+375px overflow, display type + gradient active states + stage hairlines, and
+map filter / view toggle / watchlist sort / evidence+brain drill-downs / vault
+type filter / graph render all working); 101 unit tests green. reduced-motion
+gating untouched, so preserved by construction._
 
 ### ☐ U5 · S5-H — Focus card ("the headline")
 
