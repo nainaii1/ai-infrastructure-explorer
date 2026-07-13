@@ -363,6 +363,85 @@
     return out;
   }
 
+  /* ==========================================================================
+     UNPACKED HERO ART — a gem + sparkle cluster as one inline SVG string.
+     Pure brand-chrome decoration (blue→violet→teal), file://-safe, no external
+     assets. Category colors are untouched (hard rule #4 governs data-driven
+     hues, not the illustration). Reused by the index + desk heroes so the
+     "Unpacked" visual language lives in one place.
+     ======================================================================== */
+  function heroArt() {
+    return [
+'<svg class="unf-art-svg" viewBox="0 0 440 380" fill="none" role="img" aria-label="Abstract gem and sparkle cluster" xmlns="http://www.w3.org/2000/svg">',
+  '<defs>',
+    '<radialGradient id="unfBokeh" cx="42%" cy="36%" r="64%">',
+      '<stop offset="0%" stop-color="#e9edfc"/>',
+      '<stop offset="58%" stop-color="#dde4f9"/>',
+      '<stop offset="100%" stop-color="#ccd8f3"/>',
+    '</radialGradient>',
+    '<linearGradient id="unfGemMain" x1="0" y1="0" x2="1" y2="1">',
+      '<stop offset="0%" stop-color="#2b6bf3"/>',
+      '<stop offset="52%" stop-color="#2aa6d9"/>',
+      '<stop offset="100%" stop-color="#16b9c8"/>',
+    '</linearGradient>',
+    '<linearGradient id="unfGemTeal" x1="0" y1="0" x2="1" y2="1">',
+      '<stop offset="0%" stop-color="#3ad0ca"/>',
+      '<stop offset="100%" stop-color="#159fbe"/>',
+    '</linearGradient>',
+    '<linearGradient id="unfGemBlue" x1="0" y1="0" x2="1" y2="1">',
+      '<stop offset="0%" stop-color="#2b6bf3"/>',
+      '<stop offset="100%" stop-color="#6d92f6"/>',
+    '</linearGradient>',
+    '<linearGradient id="unfCardA" x1="0" y1="0" x2="1" y2="1">',
+      '<stop offset="0%" stop-color="#cabdf8"/>',
+      '<stop offset="100%" stop-color="#a086ef"/>',
+    '</linearGradient>',
+    '<linearGradient id="unfCardB" x1="0" y1="0" x2="1" y2="1">',
+      '<stop offset="0%" stop-color="#bac6f9"/>',
+      '<stop offset="100%" stop-color="#8ba4f1"/>',
+    '</linearGradient>',
+    '<filter id="unfSoft" x="-40%" y="-40%" width="180%" height="180%">',
+      '<feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#33408a" flood-opacity="0.22"/>',
+    '</filter>',
+  '</defs>',
+  '<circle cx="252" cy="150" r="150" fill="url(#unfBokeh)"/>',
+  '<circle cx="392" cy="70" r="40" fill="#d4ddf6"/>',
+  '<circle cx="74" cy="252" r="32" fill="#c0efe7"/>',
+  '<g filter="url(#unfSoft)">',
+    '<rect x="168" y="120" width="118" height="118" rx="20" fill="url(#unfCardB)" opacity="0.55" transform="rotate(-13 227 179)"/>',
+    '<rect x="200" y="150" width="118" height="118" rx="20" fill="url(#unfCardA)" opacity="0.5" transform="rotate(11 259 209)"/>',
+  '</g>',
+  '<path filter="url(#unfSoft)" fill="url(#unfGemMain)" d="M235,110 C240.6,160.4 254.6,174.4 305,180 C254.6,185.6 240.6,199.6 235,250 C229.4,199.6 215.4,185.6 165,180 C215.4,174.4 229.4,160.4 235,110 Z"/>',
+  '<path fill="#ffffff" opacity="0.34" d="M235,150 C237.4,171.6 243.4,177.6 265,180 C243.4,182.4 237.4,188.4 235,210 C232.6,188.4 226.6,182.4 205,180 C226.6,177.6 232.6,171.6 235,150 Z"/>',
+  '<path fill="url(#unfGemTeal)" d="M150,86 C152.08,104.72 157.28,109.92 176,112 C157.28,114.08 152.08,119.28 150,138 C147.92,119.28 142.72,114.08 124,112 C142.72,109.92 147.92,104.72 150,86 Z"/>',
+  '<path fill="url(#unfGemBlue)" d="M330,157 C331.2,167.8 335.8,170.8 345,172 C335.8,173.2 331.2,176.2 330,187 C328.8,176.2 324.2,173.2 315,172 C324.2,170.8 328.8,167.8 330,157 Z"/>',
+'</svg>'
+    ].join("");
+  }
+
+  /* Small decorative corner shape for a soft-tile (arc | ring | square | none),
+     tinted with `color`. Returns an inline SVG string sized to sit in the
+     bottom-right of a .unf-tile. */
+  function tileShape(kind, color) {
+    var c = color || "#94a3b8";
+    if (kind === "arc") {
+      return '<svg class="tile-shape" viewBox="0 0 120 120" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">' +
+        '<path d="M18 108a90 90 0 0 1 90-90" stroke="' + c + '" stroke-width="16" stroke-linecap="round"/>' +
+        '</svg>';
+    }
+    if (kind === "ring") {
+      return '<svg class="tile-shape" viewBox="0 0 120 120" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">' +
+        '<path d="M104 60a44 44 0 1 1-24-39" stroke="' + c + '" stroke-width="14" stroke-linecap="round"/>' +
+        '</svg>';
+    }
+    if (kind === "square") {
+      return '<svg class="tile-shape" viewBox="0 0 120 120" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">' +
+        '<rect x="34" y="34" width="72" height="72" rx="16" fill="' + c + '" transform="rotate(18 70 70)"/>' +
+        '</svg>';
+    }
+    return "";
+  }
+
   global.AIE = {
     STORAGE_KEYS: STORAGE_KEYS,
     slugify: slugify,
@@ -379,6 +458,8 @@
     paintGradientBorder: paintGradientBorder,
     renderNav: renderNav,
     linkForTicker: linkForTicker,
-    makeThesisCard: makeThesisCard
+    makeThesisCard: makeThesisCard,
+    heroArt: heroArt,
+    tileShape: tileShape
   };
 })(window);

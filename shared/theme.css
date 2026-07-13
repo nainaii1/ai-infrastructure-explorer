@@ -458,6 +458,157 @@ a.th-ticker:hover {
 }
 
 /* ============================================================================
+   10. UNPACKED SHOWCASE COMPONENTS
+   Samsung-Unpacked visual language, shared so every page speaks it:
+   a two-column gem hero, icon pill buttons, a stat rail capped by a
+   brand-gradient action tile, and colored soft-tiles with decorative corner
+   shapes. Brand chrome only — category colors keep their data-viz job.
+   ========================================================================== */
+
+/* ---- Two-column hero: copy left, gem art right --------------------------- */
+.unf-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: 40px;
+  align-items: center;
+  padding: 40px 0 4px;
+}
+.unf-hero-copy { min-width: 0; }
+.unf-hero-art { position: relative; align-self: center; }
+.unf-art-svg { display: block; width: 100%; height: auto; }
+/* Small mono caption tucked under the art (like "your position in motion"). */
+.unf-art-cap {
+  position: absolute; right: 6px; bottom: 8px;
+  text-align: right; line-height: 1.35;
+}
+
+/* Hero CTA row. */
+.unf-cta { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 30px; }
+
+/* ---- Icon pill button ---------------------------------------------------- */
+.unf-pill {
+  display: inline-flex; align-items: center; gap: 9px;
+  font-family: var(--sans); font-size: 14px; font-weight: 600;
+  letter-spacing: -0.01em; white-space: nowrap;
+  padding: 12px 20px; border-radius: var(--r-chip);
+  background: var(--ink); color: #fff; border: 1px solid var(--ink);
+  text-decoration: none; cursor: pointer;
+  transition: transform var(--ease), box-shadow var(--ease), filter var(--ease);
+}
+.unf-pill:hover { transform: translateY(-1px); box-shadow: var(--shadow-lg); }
+.unf-pill .glyph { color: #37e0c8; font-weight: 700; }
+.unf-pill--brand { background: var(--brand-grad); border-color: transparent; }
+.unf-pill--brand:hover { filter: brightness(1.06); }
+.unf-pill--brand .glyph { color: #fff; }
+.unf-pill--sm { padding: 9px 16px; font-size: 13px; }
+/* Ghost = quiet text link with the same glyph vocabulary. */
+.unf-pill--ghost {
+  background: none; border: 0; color: var(--text); padding: 12px 4px;
+}
+.unf-pill--ghost:hover { transform: none; box-shadow: none; color: var(--ink); }
+.unf-pill--ghost .glyph { color: var(--brand-ink); }
+
+/* ---- Stat rail: columns split by hairlines, last cell a gradient tile ----- */
+.unf-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) minmax(0, 0.7fr);
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-card);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+.unf-stat { padding: 22px 26px 24px; border-left: 1px solid var(--border); }
+.unf-stat:first-child { border-left: 0; }
+.unf-stat .st-label {
+  font-family: var(--mono); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+}
+.unf-stat .st-value {
+  font-family: var(--display); font-weight: 700; letter-spacing: -0.02em;
+  font-size: 30px; line-height: 1; color: var(--ink); margin: 14px 0 8px;
+}
+.unf-stat .st-sub { font-family: var(--sans); font-size: 12.5px; color: var(--muted); }
+.unf-stat .st-sub.is-down { color: #c0392b; }
+.unf-stat .st-sub.is-up   { color: #1f8f4e; }
+/* Brand-gradient action tile — the "unfold the position" call. */
+.unf-stat--action {
+  background: var(--brand-grad); border-left: 0; color: #fff;
+  display: flex; flex-direction: column; justify-content: space-between; gap: 16px;
+  text-decoration: none; transition: filter var(--ease);
+}
+.unf-stat--action:hover { filter: brightness(1.07); }
+.unf-stat--action .st-label { color: rgba(255, 255, 255, 0.85); }
+.unf-stat--action .act-title {
+  font-family: var(--mono); font-size: 12px; font-weight: 700;
+  letter-spacing: 0.06em; text-transform: uppercase; line-height: 1.4;
+}
+.unf-stat--action .act-arrow { align-self: flex-end; font-size: 20px; line-height: 1; }
+
+/* ---- Section head (Unpacked "big statement") ----------------------------- */
+.unf-section { margin: 46px 0 0; }
+.unf-section-title {
+  font-family: var(--display); font-weight: 700; letter-spacing: -0.02em;
+  font-size: clamp(26px, 3.4vw, 34px); line-height: 1.08; color: var(--ink);
+  margin: 6px 0 0;
+}
+
+/* ---- Colored soft-tiles with decorative corner shapes -------------------- */
+.unf-tiles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; margin-top: 20px; }
+.unf-tile {
+  position: relative; overflow: hidden; min-height: 196px;
+  padding: 22px 22px 24px; border-radius: var(--r-card);
+  background: var(--tile-bg, var(--paper-tint));
+  text-decoration: none; display: flex; flex-direction: column;
+  transition: transform var(--ease), box-shadow var(--ease);
+}
+.unf-tile:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+.unf-tile .tile-label {
+  position: relative; z-index: 1;
+  font-family: var(--mono); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--tile-ink, var(--muted)); opacity: 0.9;
+}
+.unf-tile .tile-value {
+  position: relative; z-index: 1;
+  font-family: var(--display); font-weight: 700; letter-spacing: -0.02em;
+  font-size: 34px; line-height: 1; margin: 16px 0 8px;
+  color: var(--tile-ink, var(--ink));
+}
+.unf-tile .tile-sub {
+  position: relative; z-index: 1;
+  font-family: var(--sans); font-size: 12.5px; line-height: 1.45;
+  color: var(--tile-sub, var(--muted));
+}
+.unf-tile .tile-shape { position: absolute; right: -18px; bottom: -18px; width: 148px; height: 148px; pointer-events: none; z-index: 0; }
+.unf-tile .tile-foot { position: relative; z-index: 1; margin-top: auto; padding-top: 14px; }
+/* Dark queue card. */
+.unf-tile--dark { background: var(--ink); }
+.unf-tile--dark .tile-label { color: rgba(255, 255, 255, 0.7); }
+.unf-tile--dark .tile-value { color: #fff; }
+.unf-tile--dark .tile-sub   { color: rgba(255, 255, 255, 0.72); }
+
+/* ---- Responsive ---------------------------------------------------------- */
+@media (max-width: 900px) {
+  .unf-hero { grid-template-columns: 1fr; gap: 10px; }
+  .unf-hero-art { max-width: 420px; margin: 6px auto 0; order: 2; }
+  .unf-tiles { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 720px) {
+  .unf-stats { grid-template-columns: 1fr 1fr; }
+  .unf-stat { border-left: 1px solid var(--border); }
+  .unf-stat:nth-child(odd) { border-left: 0; }
+  .unf-stat:nth-child(n+3) { border-top: 1px solid var(--border); }
+  .unf-stat--action { grid-column: 1 / -1; border-top: 0; }
+}
+@media (max-width: 460px) {
+  .unf-tiles { grid-template-columns: 1fr; }
+  .unf-stats { grid-template-columns: 1fr; }
+  .unf-stat { border-left: 0; border-top: 1px solid var(--border); }
+  .unf-stat:first-child { border-top: 0; }
+}
+
+/* ============================================================================
    VISUAL QA — static snippet (commented; not rendered)
    Paste into a bare .html <body> that links this file to eyeball every
    component. Category colors here are stand-ins for what JS paints at runtime.

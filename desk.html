@@ -100,6 +100,12 @@
       color: var(--text);
       max-width: 60ch;
     }
+    /* Two-column hero top (copy + gem art). The signal chain below stays
+       full-width, so only this top band is a grid (reuses shared .unf-hero). */
+    .hero-top { padding: 0; margin-bottom: 26px; }
+    .hero-top-copy { min-width: 0; }
+    .hero-top .hero-lede { margin-bottom: 0; }
+    .hero-top .unf-hero-art { max-width: 400px; }
 
     /* Signal chain: four stat nodes joined by dashed arrows. */
     .signal-chain {
@@ -1167,14 +1173,21 @@
     <!-- Prologue: what this guide is and how to read it. Live numbers are
          rendered into the placeholders by renderHero() from AIE_DATA. -->
     <header class="hero">
-      <div class="brand">
-        <span class="brand-bolt" aria-hidden="true">⚡</span>
-        <h1>AI Infrastructure Explorer</h1>
+      <div class="hero-top unf-hero">
+        <div class="hero-top-copy">
+          <div class="brand">
+            <span class="brand-bolt" aria-hidden="true">⚡</span>
+            <h1>AI Infrastructure Explorer</h1>
+          </div>
+          <p class="hero-tagline">Follow the signal chain, <span class="grad">not the headlines.</span></p>
+          <p class="hero-lede">A field guide to the AI hardware supply chain — one analyst's
+            public calls, captured at the source, ranked by conviction, and challenged by a
+            weekly second opinion. Read it top to bottom: terrain, names, evidence, synthesis.</p>
+        </div>
+        <div class="unf-hero-art" id="deskHeroArt">
+          <span class="unf-art-cap aie-label">Your signal<br>in motion</span>
+        </div>
       </div>
-      <p class="hero-tagline">Follow the signal chain, <span class="grad">not the headlines.</span></p>
-      <p class="hero-lede">A field guide to the AI hardware supply chain — one analyst's
-        public calls, captured at the source, ranked by conviction, and challenged by a
-        weekly second opinion. Read it top to bottom: terrain, names, evidence, synthesis.</p>
       <div class="signal-chain" id="signalChain" aria-label="Signal chain: posts to theses to tiers to verdicts"></div>
       <div class="hero-barbell" id="heroBarbell"></div>
       <div class="hero-latest" id="heroLatest" hidden>
@@ -2865,6 +2878,8 @@
       AIE.seed();
       AIE.paintGradientBorder();
       AIE.renderNav("desk");
+      var deskArt = document.getElementById("deskHeroArt");
+      if (deskArt && AIE.heroArt) deskArt.insertAdjacentHTML("afterbegin", AIE.heroArt());
       renderHero();
       initCapsuleNav();
       initMapViewToggle();

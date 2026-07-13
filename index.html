@@ -17,9 +17,7 @@
   <style>
     /* Front-page-only layout. Tokens + components come from theme.css —
        nothing here redefines a token or an .aie-* component. */
-    .front { padding: 40px 24px 8px; }
-
-    .lede-block { max-width: 60ch; }
+    .front { padding: 0 0 8px; }
     .front-eyebrow { margin: 0 0 14px; }
     .front-headline {
       margin: 0 0 20px;
@@ -49,62 +47,6 @@
       color: var(--text);
     }
     .standfirst b { font-weight: 600; color: var(--ink); }
-
-    /* Latest-desk meta strip. */
-    .meta-strip {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px 22px;
-      margin: 22px 0 0;
-      padding: 14px 0 0;
-      border-top: 1px solid var(--border);
-      font-family: var(--mono);
-      font-size: 12px;
-      letter-spacing: 0.02em;
-      color: var(--muted);
-    }
-    .meta-strip b { color: var(--ink); font-weight: 600; }
-    .meta-strip .sep { color: var(--border); }
-
-    /* Chapter links into desk.html. */
-    .chapter-links {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 14px;
-      margin: 40px 0 8px;
-    }
-    .chapter-link {
-      display: block;
-      padding: 18px 18px 20px;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--r-card);
-      box-shadow: var(--shadow-sm);
-      text-decoration: none;
-      transition: transform var(--ease), box-shadow var(--ease), border-color var(--ease);
-    }
-    .chapter-link:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-lg);
-      border-color: var(--muted);
-    }
-    .cl-num {
-      font-family: var(--mono);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      color: var(--muted);
-    }
-    .cl-title {
-      display: block;
-      margin: 8px 0 4px;
-      font-family: var(--display);
-      font-size: 21px;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      color: var(--ink);
-    }
-    .cl-desc { font-size: 13.5px; line-height: 1.5; color: var(--muted); }
 
     /* Coverage ledger — reserved shell (P8 fills it with real rows). */
     .ledger-section { margin: 44px 0 0; }
@@ -177,11 +119,7 @@
     }
 
     @media (max-width: 768px) {
-      .front { padding: 28px 18px 8px; }
-      .chapter-links { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    }
-    @media (max-width: 460px) {
-      .chapter-links { grid-template-columns: minmax(0, 1fr); }
+      .front-headline { margin-bottom: 16px; }
     }
   </style>
 </head>
@@ -192,36 +130,31 @@
   <div id="topNav"></div>
 
   <main class="aie-wrap front">
-    <section class="lede-block">
-      <p class="aie-label front-eyebrow">The desk</p>
-      <h1 class="front-headline">The AI hardware supply chain, <span class="grad">one conviction at a time.</span></h1>
-      <p class="standfirst" id="standfirst"><!-- built from AIE_DATA at boot --></p>
-      <div class="meta-strip" id="metaStrip"><!-- built from desk.meta at boot --></div>
+    <!-- Two-column Unpacked hero: copy left, gem art right. -->
+    <section class="unf-hero">
+      <div class="unf-hero-copy">
+        <p class="aie-label front-eyebrow">Personal coverage desk / 2026</p>
+        <h1 class="front-headline">The AI supply chain,<br><span class="grad">unfolded.</span></h1>
+        <p class="standfirst" id="standfirst"><!-- short standfirst at boot --></p>
+        <div class="unf-cta">
+          <a class="unf-pill" href="desk.html#chapter-watchlist">Review the desk <span class="glyph">↗</span></a>
+          <a class="unf-pill unf-pill--ghost" href="desk.html#chapter-map">Explore the map <span class="glyph">→</span></a>
+        </div>
+      </div>
+      <div class="unf-hero-art" id="heroArt">
+        <span class="unf-art-cap aie-label">Your signal<br>in motion</span>
+      </div>
     </section>
 
-    <!-- Links into the field guide (desk.html chapters). -->
-    <nav class="chapter-links" aria-label="Field guide chapters">
-      <a class="chapter-link" href="desk.html#chapter-map">
-        <span class="cl-num">01</span>
-        <span class="cl-title">The Map</span>
-        <span class="cl-desc">How a GPU gets made, and who gets paid along the way.</span>
-      </a>
-      <a class="chapter-link" href="desk.html#chapter-watchlist">
-        <span class="cl-num">02</span>
-        <span class="cl-title">The Watchlist</span>
-        <span class="cl-desc">Every tracked name — price, tier, and the desk's second opinion.</span>
-      </a>
-      <a class="chapter-link" href="desk.html#chapter-thesis">
-        <span class="cl-num">03</span>
-        <span class="cl-title">The Evidence</span>
-        <span class="cl-desc">The sourced thesis feed the coverage is built on.</span>
-      </a>
-      <a class="chapter-link" href="desk.html#chapter-brain">
-        <span class="cl-num">04</span>
-        <span class="cl-title">The Synthesis</span>
-        <span class="cl-desc">One analyst's views, digested into a per-theme brain.</span>
-      </a>
-    </nav>
+    <!-- Stat rail: three live counts + a brand-gradient action tile. -->
+    <section class="unf-stats" id="statRail" aria-label="The desk at a glance"><!-- built at boot --></section>
+
+    <!-- At a glance: the field-guide chapters as colored soft-tiles. -->
+    <section class="unf-section" aria-label="Field guide chapters">
+      <p class="aie-label">At a glance</p>
+      <h2 class="unf-section-title">Every number has a next move.</h2>
+      <div class="unf-tiles" id="chapterTiles"><!-- built at boot --></div>
+    </section>
 
     <!-- Coverage ledger — memo rows + "verdict only" stubs, built at boot. -->
     <section class="ledger-section" aria-label="Coverage and market notes">
@@ -258,47 +191,89 @@
         if (text != null) n.textContent = text;
         return n;
       }
-      function b(text) { return el("b", null, String(text)); }
-
-      // ---- Standfirst: prose frame, live counts from AIE_DATA (rule: don't
-      //      hardcode a number that the data already knows). ----
+      // ---- Live counts (rule: don't hardcode a number the data knows). ----
       var tickers = DATA.tickers || [];
       var theses = DATA.theses || [];
       var cats = DATA.categories || {};
       var layers = Object.keys(cats).filter(function (id) { return id !== "unsorted"; }).length;
       var coreCount = tickers.filter(function (t) { return t.tier === "core"; }).length;
-
-      var sf = document.getElementById("standfirst");
-      if (sf) {
-        sf.appendChild(document.createTextNode(
-          "A private research desk mapping the AI hardware supply chain — the suppliers beneath NVIDIA and the hyperscalers. It tracks "));
-        sf.appendChild(b(tickers.length + " names"));
-        sf.appendChild(document.createTextNode(" across "));
-        sf.appendChild(b(layers + " layers"));
-        sf.appendChild(document.createTextNode(", captured from one analyst's public calls: "));
-        sf.appendChild(b(theses.length + " sourced theses"));
-        sf.appendChild(document.createTextNode(", sorted into conviction tiers ("));
-        sf.appendChild(b(coreCount + " core"));
-        sf.appendChild(document.createTextNode("), each challenged by a weekly second opinion. Not investment advice."));
-      }
-
-      // ---- Latest-desk meta strip. ----
+      var watchCount = tickers.filter(function (t) { return t.tier === "watch"; }).length;
       var desk = DATA.desk || {};
       var dmeta = desk.meta || {};
       var verdictCount = (desk.verdicts || []).length;
-      var strip = document.getElementById("metaStrip");
-      if (strip) {
-        var reviewed = dmeta.reviewedAt ? AIE.fmtDate(dmeta.reviewedAt) : null;
-        if (reviewed) {
-          strip.appendChild(document.createTextNode("Desk reviewed "));
-          strip.appendChild(b(reviewed));
-          strip.appendChild(el("span", "sep", " · "));
-        }
-        strip.appendChild(b(verdictCount));
-        strip.appendChild(document.createTextNode(" desk verdicts"));
-        strip.appendChild(el("span", "sep", " · "));
-        strip.appendChild(b(theses.length));
-        strip.appendChild(document.createTextNode(" theses considered"));
+      var digestCount = ((DATA.brain || {}).digests || []).length;
+
+      // ---- Hero: short standfirst + injected gem art. ----
+      var sf = document.getElementById("standfirst");
+      if (sf) sf.textContent =
+        "A decisive read on the AI hardware supply chain — the suppliers beneath " +
+        "NVIDIA and the hyperscalers, ranked by conviction and built for the next " +
+        "move, not the last print.";
+
+      var art = document.getElementById("heroArt");
+      if (art) art.insertAdjacentHTML("afterbegin", AIE.heroArt());
+
+      // ---- Stat rail: three live counts + a brand-gradient action tile. ----
+      function stat(label, value, sub) {
+        var d = el("div", "unf-stat");
+        d.appendChild(el("span", "st-label", label));
+        d.appendChild(el("div", "st-value", value));
+        d.appendChild(el("span", "st-sub", sub));
+        return d;
+      }
+      var rail = document.getElementById("statRail");
+      if (rail) {
+        rail.appendChild(stat("Names tracked", String(tickers.length),
+          coreCount + " core · " + watchCount + " watch"));
+        rail.appendChild(stat("Sourced theses", String(theses.length),
+          "captured from public calls"));
+        rail.appendChild(stat("Desk verdicts", String(verdictCount),
+          dmeta.reviewedAt ? "reviewed " + AIE.fmtDate(dmeta.reviewedAt) : "second opinions"));
+        var action = el("a", "unf-stat unf-stat--action");
+        action.href = "desk.html";
+        action.appendChild(el("span", "act-title", "Unfold the position"));
+        action.appendChild(el("span", "act-arrow", "↗"));
+        rail.appendChild(action);
+      }
+
+      // ---- Field-guide chapters as colored soft-tiles. ----
+      var TILES = [
+        { href: "desk.html#chapter-map", label: "The Map", value: String(layers),
+          sub: "layers, Supply → Demand", shape: "arc",
+          bg: "#dfe8fb", ink: "#23408f", subc: "#52619d", shapec: "#7aa0f0" },
+        { href: "desk.html#chapter-watchlist", label: "The Watchlist", value: String(tickers.length),
+          sub: "names priced & tiered", shape: "ring",
+          bg: "#d7f0e8", ink: "#14614f", subc: "#37796a", shapec: "#34c1a4" },
+        { href: "desk.html#chapter-thesis", label: "The Evidence", value: String(theses.length),
+          sub: "sourced theses", shape: "square",
+          bg: "#e7e2fb", ink: "#4a3a8f", subc: "#6a5cae", shapec: "#9a86ef" },
+        { href: "desk.html#chapter-brain", label: "The Synthesis", value: String(digestCount),
+          sub: "per-theme digests", dark: true }
+      ];
+      var tilesEl = document.getElementById("chapterTiles");
+      if (tilesEl) {
+        TILES.forEach(function (t) {
+          var a = el("a", "unf-tile" + (t.dark ? " unf-tile--dark" : ""));
+          a.href = t.href;
+          if (!t.dark) {
+            a.style.setProperty("--tile-bg", t.bg);
+            a.style.setProperty("--tile-ink", t.ink);
+            a.style.setProperty("--tile-sub", t.subc);
+          }
+          a.appendChild(el("span", "tile-label", t.label));
+          a.appendChild(el("div", "tile-value", t.value));
+          a.appendChild(el("span", "tile-sub", t.sub));
+          if (t.dark) {
+            var foot = el("div", "tile-foot");
+            var pill = el("span", "unf-pill unf-pill--sm", "Open synthesis ");
+            pill.appendChild(el("span", "glyph", "↗"));
+            foot.appendChild(pill);
+            a.appendChild(foot);
+          } else {
+            a.insertAdjacentHTML("beforeend", AIE.tileShape(t.shape, t.shapec));
+          }
+          tilesEl.appendChild(a);
+        });
       }
 
       // ---- Colophon: disclaimer straight from desk.meta (fallback if absent). ----
