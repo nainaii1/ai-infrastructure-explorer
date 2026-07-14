@@ -419,6 +419,8 @@
       border-radius: 6px;
       padding: 6px 8px;
     }
+    .layer-icon { flex: 0 0 auto; display: grid; place-items: center; color: var(--accent); }
+    .layer-icon svg { display: block; }
     .layer-main { flex: 1 1 auto; min-width: 0; }
     .layer-title { font-size: 15px; font-weight: 700; color: var(--accent); }
     .layer-sub { font-weight: 500; font-size: 12px; color: var(--muted); }
@@ -444,6 +446,7 @@
     .layer-hub:hover { transform: none; background: var(--stage); border-color: var(--stage); box-shadow: none; }
     .layer-hub:hover::before { width: auto; height: 2px; }
     .layer-hub .layer-index { color: #cbd5e1; background: rgba(255, 255, 255, 0.08); }
+    .layer-hub .layer-icon { color: #ffffff; }
     .layer-hub .layer-title { color: #ffffff; }
     .layer-hub .layer-sub { color: #94a3b8; }
     .layer-hub .layer-desc { color: #cbd5e1; }
@@ -1157,6 +1160,7 @@
       /* Layer bands: let content wrap; count drops below the title block. */
       .layer-band { flex-wrap: wrap; align-items: flex-start; gap: 8px 14px; }
       .layer-count { margin-left: 52px; }
+      .layer-band.has-icon .layer-count { margin-left: 88px; }
       /* Pipeline columns stack vertically; flow arrows rotate to point down. */
       .mp-columns { flex-direction: column; }
       .mp-arrow { align-self: flex-start; padding: 0 0 0 9px; transform: rotate(90deg); }
@@ -1719,10 +1723,17 @@
       function makeLayerBand(opts) {
         // opts: { id, indexLabel, title, sub, desc, color, count, isHub }
         var band = el("div", "layer-band" + (opts.isHub ? " layer-hub" : ""));
+        if (opts.icon) band.classList.add("has-icon");
         band.setAttribute("role", "listitem");
         if (opts.color) band.style.setProperty("--accent", opts.color);
         if (opts.id) band.dataset.cat = opts.id;
 
+        if (opts.icon) {
+          var iconWrap = el("span", "layer-icon");
+          var icon = AIE.iconSVG(opts.icon, opts.color, 22);
+          if (icon) iconWrap.appendChild(icon);
+          band.appendChild(iconWrap);
+        }
         band.appendChild(el("span", "layer-index", opts.indexLabel));
 
         var main = el("div", "layer-main");
@@ -1777,7 +1788,7 @@
           id: id,
           indexLabel: "L" + (c.layer != null ? c.layer : "?"),
           title: c.label, sub: c.subtitle, desc: c.tooltip, angle: c.investorAngle,
-          color: c.color, count: counts[id] || 0
+          color: c.color, icon: c.icon, count: counts[id] || 0
         });
         band.setAttribute("tabindex", "0");
         band.setAttribute("aria-pressed", "false");
@@ -1824,7 +1835,8 @@
         var hubWrap = el("div", "mp-hub");
         hubWrap.appendChild(makeLayerBand({
           isHub: true, indexLabel: "DEMAND",
-          title: DATA.center.title, sub: DATA.center.subtitle, desc: DATA.center.tooltip
+          title: DATA.center.title, sub: DATA.center.subtitle, desc: DATA.center.tooltip,
+          icon: DATA.center.icon
         }));
         root.appendChild(hubWrap);
 

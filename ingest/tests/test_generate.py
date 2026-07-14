@@ -33,6 +33,26 @@ class TestBuild(unittest.TestCase):
         self.assertIsInstance(d["brain"], dict)
 
 
+class TestIconValidation(unittest.TestCase):
+    def test_valid_icon_passes(self):
+        gen._validate_icon('<path d="M3 12h18" fill="none" stroke="currentColor" stroke-width="1.5"/>')
+
+    def test_onload_is_rejected(self):
+        with self.assertRaises(ValueError):
+            gen._validate_icon('<path d="M3 12h18" onload="alert(1)"/>')
+
+    def test_script_is_rejected(self):
+        with self.assertRaises(ValueError):
+            gen._validate_icon('<script>alert(1)</script>')
+
+    def test_href_is_rejected(self):
+        with self.assertRaises(ValueError):
+            gen._validate_icon('<path d="M3 12h18" href="https://example.com"/>')
+
+    def test_missing_icon_is_tolerated(self):
+        gen._validate_icon(None)
+
+
 class TestRenderSafety(unittest.TestCase):
     def test_render_roundtrips(self):
         d = gen.build_data()

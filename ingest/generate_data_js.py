@@ -8,6 +8,8 @@ which is the safest thing to ship over file:// across editors/encodings.
 
 import json
 import pathlib
+import re
+import xml.etree.ElementTree as ET
 
 import scorer
 import vault_sync
@@ -42,6 +44,44 @@ def _load_optional(name, default):
 
 PRICE_FIELDS = ("price", "currency", "chg7d", "chg1m", "marketCap", "asOf")
 
+_ICON_ELEMENTS = {"path", "circle", "line", "rect", "polyline", "ellipse"}
+_ICON_ATTRIBUTES = {
+    "d", "cx", "cy", "r", "x", "y", "x1", "y1", "x2", "y2",
+    "width", "height", "rx", "ry", "points", "fill", "stroke",
+    "stroke-width", "stroke-linecap", "stroke-linejoin",
+}
+
+
+def _validate_icon(markup):
+    """Reject unsafe or out-of-contract inner SVG markup from base.json.
+
+    Icons are optional store data, but present markup is intentionally a tiny
+    line-art subset before it reaches `innerHTML` in the browser.
+    """
+    if markup is None:
+        return
+    if not isinstance(markup, str):
+        raise ValueError("icon markup must be a string")
+    if re.search(r"<\s*/?\s*svg\b|<\s*script\b|\bhref\s*=|\bon\w+\s*=", markup, re.I):
+        raise ValueError("icon markup contains a forbidden SVG construct")
+    try:
+        root = ET.fromstring("<icon>" + markup + "</icon>")
+    except ET.ParseError as exc:
+        raise ValueError("icon markup must be valid SVG fragment XML") from exc
+    if root.text and root.text.strip():
+        raise ValueError("icon markup cannot contain text")
+    for node in root:
+        if node.tag not in _ICON_ELEMENTS:
+            raise ValueError("icon markup contains a disallowed element")
+        if node.text and node.text.strip():
+            raise ValueError("icon markup cannot contain text")
+        if node.tail and node.tail.strip():
+            raise ValueError("icon markup cannot contain text")
+        if list(node):
+            raise ValueError("icon markup cannot nest elements")
+        if any(attr not in _ICON_ATTRIBUTES for attr in node.attrib):
+            raise ValueError("icon markup contains a disallowed attribute")
+
 
 def build_data():
     """Assemble the AIE_DATA object from the store (no file write)."""
@@ -54,6 +94,13 @@ def build_data():
     memos = _load_optional("memos.json", {})    # {} until authored; {meta, memos} after (coverage memos)
     vault = _load_optional("vault.json", {})    # {} until synced; {meta, pages} after (knowledge vault)
     calls = _load_optional("calls.json", {})    # {} until a first call is stamped; {meta, calls} after
+
+    # Store-provided icon fragments are the only markup later assigned through
+    # innerHTML. Validate every optional icon before it can reach data.js.
+    for category in base.get("categories", {}).values():
+        _validate_icon(category.get("icon"))
+    _validate_icon((base.get("center") or {}).get("icon"))
+    _validate_icon((base.get("unsortedCategory") or {}).get("icon"))
 
     # Merge weekly price snapshot (from fetch_prices.py) onto each ticker.
     for t in tickers:

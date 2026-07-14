@@ -434,7 +434,7 @@ gating untouched, so preserved by construction._
 > surfaces + the absent-key empty state in a sandbox copy. Commit as
 > `feat: weekly focus headline card`.
 
-### ☐ U6 · Op-M — category icons in data
+### ✅ U6 · Op-M — category icons in data
 
 > Read CLAUDE.md + docs/EXECUTION.md Phase 6. (1) In `ingest/store/base.json`
 > add 12 hand-drawn line-art icons as inner-SVG strings (no `<svg>` wrapper):

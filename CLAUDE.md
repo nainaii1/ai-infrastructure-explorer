@@ -116,8 +116,9 @@ not throwaway config.
   `shared/theme.css` — palette/fonts/brand/stage; the duplicate `desk.html`
   `:root` deleted; `paintGradientBorder` now a no-op — the border is pure-CSS
   brand chrome), **U3** (4 category hues deepened for the cool canvas).
-  Remaining: **U4** per-page polish, **U5** focus card, **U6** category icons,
-  **U7** map tiles + expand-in-place, **U8** docs + `--serif`-alias cleanup —
+  Shipped: **U6** (12 validated, data-owned category icons in the pipeline
+  bands and hub). Remaining: **U5** focus card, **U7** map tiles +
+  expand-in-place, **U8** docs + `--serif`-alias cleanup —
   see `docs/EXECUTION.md` Phase 6. The Design system section below carries the
   shipped U2/U3 token values; its comprehensive rewrite (and `docs/DESIGN.md`'s)
   lands in U8.

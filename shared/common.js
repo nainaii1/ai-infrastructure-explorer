@@ -128,6 +128,27 @@
     });
   });
 
+  /* Store icons are validated by generate_data_js.py before reaching data.js.
+     This helper provides the trusted outer SVG shell and keeps icon colour/
+     sizing consistent wherever a category mark appears. */
+  function iconSVG(markup, color, size) {
+    if (!markup) return null;
+    var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    var iconSize = size || 24;
+    svg.setAttribute("viewBox", "0 0 24 24");
+    svg.setAttribute("fill", "none");
+    svg.setAttribute("stroke", "currentColor");
+    svg.setAttribute("stroke-width", "1.5");
+    svg.setAttribute("stroke-linecap", "round");
+    svg.setAttribute("stroke-linejoin", "round");
+    svg.setAttribute("aria-hidden", "true");
+    svg.setAttribute("width", iconSize);
+    svg.setAttribute("height", iconSize);
+    svg.innerHTML = markup;
+    if (color) svg.style.color = color;
+    return svg;
+  }
+
   /* ==========================================================================
      Formatters — numbers, market cap, percent, dates.
      ======================================================================== */
@@ -564,6 +585,7 @@
     readJSON: readJSON,
     seed: seed,
     setDrilldownOpen: setDrilldownOpen,
+    iconSVG: iconSVG,
     fmtNum: fmtNum,
     fmtMcap: fmtMcap,
     fmtPct: fmtPct,
