@@ -57,7 +57,7 @@
     "candidate": "MLCC",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:37:23Z",
-    "count": 4
+    "count": 5
   },
   {
     "candidate": "MOCVD",
@@ -129,7 +129,7 @@
     "candidate": "PCB",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:39:18Z",
-    "count": 3
+    "count": 4
   },
   {
     "candidate": "TW",
@@ -159,7 +159,7 @@
     "candidate": "NAND",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:39:49Z",
-    "count": 9
+    "count": 11
   },
   {
     "candidate": "OP",
@@ -177,7 +177,7 @@
     "candidate": "SK",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:39:49Z",
-    "count": 12
+    "count": 13
   },
   {
     "candidate": "SMIC",
@@ -201,7 +201,7 @@
     "candidate": "TSMC",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:41:05Z",
-    "count": 1
+    "count": 2
   },
   {
     "candidate": "SV",
@@ -291,7 +291,7 @@
     "candidate": "EML",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:44:22Z",
-    "count": 12
+    "count": 13
   },
   {
     "candidate": "QD",
@@ -315,7 +315,7 @@
     "candidate": "ASIC",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:45:35Z",
-    "count": 7
+    "count": 8
   },
   {
     "candidate": "LPO",
@@ -369,7 +369,7 @@
     "candidate": "OSINT",
     "sourceUrl": "",
     "firstSeen": "2026-06-30T07:19:13Z",
-    "count": 4
+    "count": 5
   },
   {
     "candidate": "PR",
@@ -381,7 +381,7 @@
     "candidate": "BOM",
     "sourceUrl": "",
     "firstSeen": "2026-06-30T07:36:46Z",
-    "count": 6
+    "count": 7
   },
   {
     "candidate": "LEO",
@@ -411,7 +411,7 @@
     "candidate": "CW",
     "sourceUrl": "",
     "firstSeen": "2026-06-30T07:39:56Z",
-    "count": 23
+    "count": 24
   },
   {
     "candidate": "ERIC",
@@ -465,7 +465,7 @@
     "candidate": "PIC",
     "sourceUrl": "",
     "firstSeen": "2026-06-30T07:39:56Z",
-    "count": 1
+    "count": 2
   },
   {
     "candidate": "RTX",
@@ -621,7 +621,7 @@
     "candidate": "ARR",
     "sourceUrl": "",
     "firstSeen": "2026-06-30T07:48:15Z",
-    "count": 3
+    "count": 4
   },
   {
     "candidate": "BS",
@@ -639,7 +639,7 @@
     "candidate": "FAU",
     "sourceUrl": "",
     "firstSeen": "2026-06-30T07:49:19Z",
-    "count": 1
+    "count": 2
   },
   {
     "candidate": "HBF",
@@ -681,13 +681,13 @@
     "candidate": "LG",
     "sourceUrl": "",
     "firstSeen": "2026-06-30T07:51:53Z",
-    "count": 3
+    "count": 4
   },
   {
     "candidate": "ASP",
     "sourceUrl": "",
     "firstSeen": "2026-06-30T07:53:06Z",
-    "count": 5
+    "count": 6
   },
   {
     "candidate": "RF",
@@ -753,7 +753,7 @@
     "candidate": "KYEC",
     "sourceUrl": "",
     "firstSeen": "2026-07-01T14:57:24Z",
-    "count": 1
+    "count": 2
   },
   {
     "candidate": "MPI",
@@ -765,7 +765,7 @@
     "candidate": "MS",
     "sourceUrl": "",
     "firstSeen": "2026-07-01T14:57:24Z",
-    "count": 2
+    "count": 3
   },
   {
     "candidate": "OSAT",
@@ -903,7 +903,7 @@
     "candidate": "STAR",
     "sourceUrl": "",
     "firstSeen": "2026-07-03T10:08:32Z",
-    "count": 1
+    "count": 2
   },
   {
     "candidate": "TBH",
@@ -915,7 +915,7 @@
     "candidate": "JV",
     "sourceUrl": "",
     "firstSeen": "2026-07-03T10:12:58Z",
-    "count": 2
+    "count": 3
   },
   {
     "candidate": "KRW",
@@ -975,7 +975,7 @@
     "candidate": "JPM",
     "sourceUrl": "",
     "firstSeen": "2026-07-03T13:20:54Z",
-    "count": 2
+    "count": 3
   },
   {
     "candidate": "CEST",
@@ -993,7 +993,7 @@
     "candidate": "VPEC",
     "sourceUrl": "",
     "firstSeen": "2026-07-03T13:22:38Z",
-    "count": 1
+    "count": 2
   },
   {
     "candidate": "CNBC",
@@ -1053,7 +1053,7 @@
     "candidate": "FOCI",
     "sourceUrl": "",
     "firstSeen": "2026-07-03T13:26:09Z",
-    "count": 1
+    "count": 2
   },
   {
     "candidate": "KGD",
@@ -1125,7 +1125,7 @@
     "candidate": "BD",
     "sourceUrl": "",
     "firstSeen": "2026-07-05T12:48:29Z",
-    "count": 1
+    "count": 2
   },
   {
     "candidate": "HL",
@@ -1251,6 +1251,78 @@
     "candidate": "XPU",
     "sourceUrl": "",
     "firstSeen": "2026-07-11T17:59:31Z",
+    "count": 1
+  },
+  {
+    "candidate": "EOY",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-13T07:25:45Z",
+    "count": 1
+  },
+  {
+    "candidate": "IBK",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-13T07:25:45Z",
+    "count": 1
+  },
+  {
+    "candidate": "ADEKA",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-13T07:26:27Z",
+    "count": 1
+  },
+  {
+    "candidate": "NCI",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-13T07:26:27Z",
+    "count": 1
+  },
+  {
+    "candidate": "TDK",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-13T07:26:27Z",
+    "count": 1
+  },
+  {
+    "candidate": "ADR",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-13T07:27:08Z",
+    "count": 1
+  },
+  {
+    "candidate": "CCL",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-13T07:27:08Z",
+    "count": 1
+  },
+  {
+    "candidate": "CXMT",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-13T07:27:08Z",
+    "count": 1
+  },
+  {
+    "candidate": "NTT",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-13T07:27:08Z",
+    "count": 1
+  },
+  {
+    "candidate": "RAG",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-13T07:27:08Z",
+    "count": 1
+  },
+  {
+    "candidate": "TBD",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-14T09:36:06Z",
+    "count": 1
+  },
+  {
+    "candidate": "ER",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-14T09:36:28Z",
     "count": 1
   }
 ]
