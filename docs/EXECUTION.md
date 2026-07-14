@@ -45,7 +45,7 @@ data.js           generated as always; gains memos, vault, later calls
 | 3 | Knowledge Vault (store+sync, index/page views, graph, authoring loop) | P11–P14 | ✅ 2026-07-12 |
 | 4 | Cross-linking everywhere | P15 | ✅ |
 | 5 | Performance hooks (calls.json + minimal page) | P16 | ✅ 2026-07-12 |
-| 6 | "Unpacked" rebrand + focus card + map restructure | U1–U8 | 🚧 U1–U6 done, U7–U8 remain |
+| 6 | "Unpacked" rebrand + focus card + map restructure | U1–U8 | ✅ 2026-07-15 |
 
 ## Verification checklist (run after EVERY prompt)
 
@@ -472,7 +472,7 @@ console errors, 106 unit tests green._
 > icons immediately. Regen; grep data.js for `<path`. Commit as
 > `feat: category icons in base.json`.
 
-### ☐ U7 · F5-H — Chapter 01 restructure (hardest; desk.html only)
+### ☑ U7 · F5-H — Chapter 01 restructure (2026-07-14; desk.html only)
 
 > Read CLAUDE.md + docs/EXECUTION.md Phase 6. In `desk.html`: (1) split
 > `makeCard()` into `makeTile(ticker)` — compact ~90–110px: `AIE.iconSVG`
@@ -498,7 +498,23 @@ console errors, 106 unit tests green._
 > + 768px, reduced-motion; fix regressions; stop when a full checklist pass
 > is clean twice in a row`
 
-### ☐ U8 · S5-M — docs + alias cleanup
+_Shipped 2026-07-14 (`8c8442d`). `makeCard()` split into `makeTile()` (compact
+~96–110px grid unit — icon, mono ticker, one-line company, tier + stance
+micro-badges, `sparkSVG(t, 56, 20)`) and `makeCardDetail()` (the old dossier
+markup, unchanged). `#cardGrid` → `repeat(auto-fill, minmax(168px, 1fr))` on
+`--r-tile` (47 tiles). Expand-in-place inserts a `grid-column: 1 / -1`
+`.tk-detail-row` after the clicked tile's visual row via `AIE.setDrilldownOpen`
+(JS-measured max-height, not the v6 grid-rows bug); one open at a time, Esc /
+re-click closes (Esc returns focus), Enter/Space + `aria-expanded`; the row
+reseats + re-measures on resize, and `renderCards()` drops any open detail when
+it wipes the grid. Priority chips folded into the Holdings ledger row as a
+horizontal scroller; glossary behind a `.bd-toggle` drill-down; flow-arrow
+dashes animate via the `aie-flow` keyframes. Verified live: two consecutive
+clean full-checklist passes (all 11 bands + 10 cross bars filter to exact
+counts, radar toggle counts exact, expand after filter-change + resize,
+keyboard, 375/768/desktop no h-overflow, console clean); 106 unit tests green._
+
+### ☑ U8 · S5-M — docs + alias cleanup (2026-07-15)
 
 > Update CLAUDE.md (Design system section → Unpacked tokens; rule #4's
 > gradient-border sentence — the border is now brand chrome, category colors
@@ -507,6 +523,15 @@ console errors, 106 unit tests green._
 > `--serif` alias from shared/theme.css — `grep -rn 'var(--serif)' *.html
 > shared/` must return nothing. Tick the Phase 6 boxes. Commit as
 > `docs: unpacked design system current`.
+
+_Shipped 2026-07-15. `--serif` deleted from `shared/theme.css`; its 3 use sites
+(body, wordmark, ledger title) + the "serif" comments switched to
+`var(--display)` — `grep -rn 'var(--serif)' *.html shared/` returns nothing.
+CLAUDE.md Design system section marked current (values re-verified against
+theme.css + base.json), the fonts + masthead + Map rendering paragraphs updated
+for the alias removal and U7 tiles; the Phase 6 status block marked ✅ done.
+`docs/DESIGN.md` token reference rewritten to the Unpacked palette/tokens.
+ROADMAP.md gains a Phase 6 status entry. All Phase 6 boxes ticked._
 
 ---
 

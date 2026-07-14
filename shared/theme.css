@@ -45,9 +45,6 @@
      Weight 700 / -0.02em tracking applied at use sites. No CDN fonts. */
   --display: "Avenir Next", "Futura", -apple-system, "SF Pro Display",
              "Segoe UI", system-ui, sans-serif;
-  /* Transitional alias — pages still say var(--serif); renamed per page in
-     U4, alias deleted in U8. */
-  --serif: var(--display);
   /* System sans for data-dense surfaces (tables, map bands) — set per page. */
   --sans:  -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui,
            "Segoe UI", Roboto, sans-serif;
@@ -103,7 +100,7 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: var(--serif);
+  font-family: var(--display);
   font-size: 17px;
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
@@ -218,9 +215,9 @@ body {
   flex-wrap: wrap;
 }
 
-/* Wordmark — the serif brand, left. */
+/* Wordmark — the display brand, left. */
 .aie-wordmark {
-  font-family: var(--serif);
+  font-family: var(--display);
   font-size: 22px;
   font-weight: 600;
   letter-spacing: -0.01em;
@@ -272,7 +269,7 @@ body {
 /* ============================================================================
    5. LEDGER TABLE
    The coverage-notes ledger (index.html) + any tabular list. Editorial: quiet
-   hairlines, small-caps header, serif titles, mono meta.
+   hairlines, small-caps header, display titles, mono meta.
    ========================================================================== */
 .aie-ledger {
   width: 100%;
@@ -300,9 +297,9 @@ body {
 .aie-ledger tbody tr:hover { background: var(--paper-sink); }
 /* Row links: whole row acts as a link without underlining everything. */
 .aie-ledger tbody tr.is-link { cursor: pointer; }
-/* The title cell carries the serif editorial voice. */
+/* The title cell carries the display editorial voice. */
 .aie-ledger .aie-ledger-title {
-  font-family: var(--serif);
+  font-family: var(--display);
   font-size: 16px;
   color: var(--ink);
 }
