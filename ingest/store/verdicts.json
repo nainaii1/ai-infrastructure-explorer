@@ -6,7 +6,13 @@
     "thesesConsidered": 203,
     "coverage": "Core tier, top 15 by priority score",
     "cadence": "weekly",
-    "disclaimer": "Second-opinion research notes on @aleabitoreddit's ideas. Personal research tool \u2014 not investment advice."
+    "disclaimer": "Second-opinion research notes on @aleabitoreddit's ideas. Personal research tool \u2014 not investment advice.",
+    "focus": {
+      "headline": "Insiders bought the SIVE dip the market got wrong.",
+      "dek": "A CEO open-market purchase and Nvidia's denial reversed a misleading-headline selloff \u2014 the same channel check firms up LITE's sold-out position too.",
+      "updatedAt": "2026-07-12T00:00:00Z",
+      "tickers": ["SIVE", "LITE"]
+    }
   },
   "verdicts": [
     {

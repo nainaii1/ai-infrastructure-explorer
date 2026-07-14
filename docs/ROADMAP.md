@@ -1,19 +1,24 @@
 # Roadmap & Status — AI Infrastructure Explorer
 
-_Last updated: 2026-07-08 (Private Coverage Phase 1 shipped). Living document — update as things ship or change._
+_Last updated: 2026-07-15 (Phase 6 "Unpacked" rebrand shipped — v7 upgrade complete). Living document — update as things ship or change._
 
-> **Active build:** the "Private Coverage" editorial upgrade — multi-page split,
+> **Private Coverage upgrade (v7) — ✅ all six phases shipped.** Multi-page split,
 > memo-style coverage notes, Obsidian-style knowledge Vault + graph, minimal
-> performance hooks. The authoritative **phase table + step-by-step prompt guide
-> is [EXECUTION.md](EXECUTION.md)** — check the boxes there for live status.
-> - **Phase 1 ✅ done (2026-07-08)** — multi-page editorial foundation: `shared/theme.css`
->   (warm editorial tokens + components), `shared/common.js` (`window.AIE`), the Field
->   Guide moved `index.html` → `desk.html` + retokenized to the warm theme, and a new
->   editorial `index.html` front page. Still vanilla + `file://`-safe.
-> - **Phases 2–5 ☐ next** — coverage memos, knowledge Vault + graph, site-wide
->   cross-linking, performance hooks.
+> performance hooks, and the "Unpacked" cool rebrand. The authoritative **phase
+> table + step-by-step prompt guide is [EXECUTION.md](EXECUTION.md)** — check the
+> boxes there for live status.
+> - **Phase 1 ✅ (2026-07-08)** — multi-page editorial foundation: `shared/theme.css`,
+>   `shared/common.js` (`window.AIE`), `index.html` → `desk.html`, new front page.
+> - **Phase 2 ✅ (2026-07-12)** — coverage memos (`memos.json` → `memo.html`, ledger, skills).
+> - **Phase 3 ✅ (2026-07-12)** — knowledge Vault + graph (`vault.json`, index/page/graph views).
+> - **Phase 4 ✅** — site-wide cross-linking (`AIE.linkForTicker`, `$TICK` / `[[wikilink]]` markup).
+> - **Phase 5 ✅ (2026-07-12)** — performance hooks (`calls.json` + minimal page, greyed until 3+ calls).
+> - **Phase 6 ✅ (2026-07-15)** — "Unpacked" cool rebrand (U1–U8): cool neutral-grey canvas,
+>   geometric display type, ONE blue→violet brand gradient, true-black stage surfaces, data-owned
+>   category icons, the weekly Focus card, Chapter 01 ticker-tile grid + expand-in-place, and the
+>   docs/alias cleanup (`--serif` retired for `--display`).
 >
-> (This upgrade supersedes the Signal Digest spec — coverage memos replace it.)
+> (This upgrade superseded the Signal Digest spec — coverage memos replaced it.)
 
 ---
 

@@ -1455,5 +1455,31 @@
     "rating": "watch",
     "sourceTweetUrl": "",
     "addedDate": "2026-07-11"
+  },
+  {
+    "ticker": "XPEV",
+    "company": "",
+    "category": "unsorted",
+    "market": "",
+    "exchange": "",
+    "whatTheyDo": "",
+    "whyNVDA": "",
+    "marketCapTier": "",
+    "rating": "watch",
+    "sourceTweetUrl": "",
+    "addedDate": "2026-07-13"
+  },
+  {
+    "ticker": "AMKR",
+    "company": "",
+    "category": "unsorted",
+    "market": "",
+    "exchange": "",
+    "whatTheyDo": "",
+    "whyNVDA": "",
+    "marketCapTier": "",
+    "rating": "watch",
+    "sourceTweetUrl": "",
+    "addedDate": "2026-07-13"
   }
 ]

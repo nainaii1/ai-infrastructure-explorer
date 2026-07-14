@@ -1,33 +1,33 @@
 {
   "meta": {
-    "version": "1.218",
+    "version": "1.225",
     "schemaVersion": 1,
-    "lastUpdated": "2026-07-12",
+    "lastUpdated": "2026-07-14T09:36:43Z",
     "source": "ingest"
   },
   "countries": {
     "US": {
-      "flag": "\ud83c\uddfa\ud83c\uddf8",
+      "flag": "🇺🇸",
       "label": "United States"
     },
     "KR": {
-      "flag": "\ud83c\uddf0\ud83c\uddf7",
+      "flag": "🇰🇷",
       "label": "South Korea"
     },
     "TW": {
-      "flag": "\ud83c\uddf9\ud83c\uddfc",
+      "flag": "🇹🇼",
       "label": "Taiwan"
     },
     "SE": {
-      "flag": "\ud83c\uddf8\ud83c\uddea",
+      "flag": "🇸🇪",
       "label": "Sweden"
     },
     "FR": {
-      "flag": "\ud83c\uddeb\ud83c\uddf7",
+      "flag": "🇫🇷",
       "label": "France"
     },
     "DE": {
-      "flag": "\ud83c\udde9\ud83c\uddea",
+      "flag": "🇩🇪",
       "label": "Germany"
     }
   },
@@ -37,115 +37,125 @@
       "label": "Photonics",
       "subtitle": "Optical Interconnects",
       "color": "#3b82f6",
+      "icon": "<path d=\"M3 12h11\"/><path d=\"m11 8 4 4-4 4\"/><path d=\"M17 7v10\"/><path d=\"M20 9v6\"/>",
       "layer": 4,
-      "tooltip": "Light-based data transmission inside AI data centers. Copper cables cannot handle 100kW+ GPU rack bandwidth \u2014 optical interconnects replace them.",
+      "tooltip": "Light-based data transmission inside AI data centers. Copper cables cannot handle 100kW+ GPU rack bandwidth — optical interconnects replace them.",
       "flowRole": "supply",
-      "investorAngle": "Copper hits a physical wall in dense GPU racks, so optical is a forced upgrade \u2014 watch transceiver volumes and design wins at the major GPU vendors."
+      "investorAngle": "Copper hits a physical wall in dense GPU racks, so optical is a forced upgrade — watch transceiver volumes and design wins at the major GPU vendors."
     },
     "memory": {
       "id": "memory",
       "label": "AI Memory",
       "subtitle": "HBM & DRAM",
       "color": "#8b5cf6",
+      "icon": "<rect x=\"5\" y=\"5\" width=\"14\" height=\"5\" rx=\"1\"/><rect x=\"5\" y=\"14\" width=\"14\" height=\"5\" rx=\"1\"/><path d=\"M8 10v4M12 10v4M16 10v4\"/>",
       "layer": 3,
       "tooltip": "High-Bandwidth Memory (HBM) is physically stacked on top of NVDA GPUs. Every H100/B200 chip needs it. More AI training = more HBM demand.",
       "flowRole": "supply",
-      "investorAngle": "HBM demand scales 1:1 with every GPU shipped \u2014 watch HBM pricing, capacity expansions, and which suppliers qualify for the newest chips."
+      "investorAngle": "HBM demand scales 1:1 with every GPU shipped — watch HBM pricing, capacity expansions, and which suppliers qualify for the newest chips."
     },
     "fabs": {
       "id": "fabs",
       "label": "Fabs & Foundries",
       "subtitle": "Chip Manufacturing",
-      "color": "#f59e0b",
+      "color": "#e08a00",
+      "icon": "<circle cx=\"12\" cy=\"12\" r=\"8\"/><circle cx=\"12\" cy=\"12\" r=\"3\"/><path d=\"M4.8 8.5h14.4M4.8 15.5h14.4\"/>",
       "layer": 5,
-      "tooltip": "The factories that physically manufacture chips. NVDA designs GPUs but does not make them \u2014 TSMC and others do the actual fabrication.",
+      "tooltip": "The factories that physically manufacture chips. NVDA designs GPUs but does not make them — TSMC and others do the actual fabrication.",
       "flowRole": "chip",
-      "investorAngle": "NVIDIA can't ship a chip without a fab slot, so leading-edge capacity is the real bottleneck \u2014 watch utilization, new node ramps, and pricing power."
+      "investorAngle": "NVIDIA can't ship a chip without a fab slot, so leading-edge capacity is the real bottleneck — watch utilization, new node ramps, and pricing power."
     },
     "neoclouds": {
       "id": "neoclouds",
       "label": "Neoclouds",
       "subtitle": "GPU Cloud Providers",
-      "color": "#22c55e",
+      "color": "#16a34a",
+      "icon": "<path d=\"M4 15.5h16\"/><path d=\"M6 15.5V11h12v4.5\"/><path d=\"M7 11a5 5 0 0 1 9.6-2A3.5 3.5 0 0 1 18 15.5\"/><path d=\"M9 13h1M12 13h1M15 13h1\"/>",
       "layer": 8,
       "tooltip": "New cloud companies built purely for AI GPU compute. They buy NVDA GPUs in bulk and rent compute time to AI startups and enterprises.",
       "flowRole": "demand",
-      "investorAngle": "A demand signal, not a supplier \u2014 heavy GPU buying here confirms compute appetite, but watch their debt loads and customer concentration."
+      "investorAngle": "A demand signal, not a supplier — heavy GPU buying here confirms compute appetite, but watch their debt loads and customer concentration."
     },
     "materials": {
       "id": "materials",
       "label": "Materials & Packaging",
       "subtitle": "Substrates & Test",
       "color": "#f97316",
+      "icon": "<path d=\"m5 7 7-3 7 3-7 3-7-3Z\"/><path d=\"m5 12 7 3 7-3\"/><path d=\"m5 16 7 3 7-3\"/>",
       "layer": 1,
       "tooltip": "Specialty substrates, wafer materials, and laser tools needed to build and package chips. The often-overlooked picks-and-shovels of AI.",
       "flowRole": "supply",
-      "investorAngle": "Classic picks-and-shovels: these sell into every chip regardless of who wins \u2014 watch order growth and exposure to advanced-packaging ramps."
+      "investorAngle": "Classic picks-and-shovels: these sell into every chip regardless of who wins — watch order growth and exposure to advanced-packaging ramps."
     },
     "networking": {
       "id": "networking",
       "label": "Networking",
       "subtitle": "AI Cluster Connectivity",
-      "color": "#14b8a6",
+      "color": "#0d9488",
+      "icon": "<rect x=\"4\" y=\"7\" width=\"16\" height=\"10\" rx=\"2\"/><path d=\"M7 10h2M11 10h2M15 10h2M9 14h6\"/><path d=\"M2 12h2M20 12h2\"/>",
       "layer": 7,
       "tooltip": "InfiniBand and Ethernet fabric connecting thousands of GPUs into one coherent cluster. Without this, individual GPUs cannot work together at scale.",
       "flowRole": "chip",
-      "investorAngle": "Clusters are only as fast as the fabric linking them \u2014 watch the InfiniBand-vs-Ethernet share shift and attach rates as cluster sizes grow."
+      "investorAngle": "Clusters are only as fast as the fabric linking them — watch the InfiniBand-vs-Ethernet share shift and attach rates as cluster sizes grow."
     },
     "glass": {
       "id": "glass",
       "label": "Glass Substrates",
       "subtitle": "Advanced Packaging Substrates",
-      "color": "#0ea5e9",
+      "color": "#0284c7",
+      "icon": "<rect x=\"5\" y=\"3\" width=\"14\" height=\"18\" rx=\"1\"/><path d=\"M8 7h8M8 17h8\"/><path d=\"M12 3v18\"/>",
       "layer": 2,
       "tooltip": "Glass-core substrates for advanced chip packaging (SKC Absolics, TSMC CoPoS). A next-gen substrate layer ramping H2 2026 onward.",
       "flowRole": "supply",
-      "investorAngle": "An early, pre-revenue layer ramping from ~H2 2026 \u2014 higher risk/reward; watch qualification milestones and which packagers commit to glass cores."
+      "investorAngle": "An early, pre-revenue layer ramping from ~H2 2026 — higher risk/reward; watch qualification milestones and which packagers commit to glass cores."
     },
     "robotics": {
       "id": "robotics",
       "label": "Robotics",
       "subtitle": "Humanoids & Automation",
       "color": "#e11d48",
+      "icon": "<path d=\"M5 19h5\"/><path d=\"M7.5 19v-4\"/><path d=\"m7.5 15 4-4 3 2 3-4\"/><circle cx=\"11.5\" cy=\"11\" r=\"1.5\"/><circle cx=\"14.5\" cy=\"13\" r=\"1.5\"/><path d=\"M17.5 9v-3h2\"/>",
       "layer": 9,
       "tooltip": "Humanoid robots and automation as a new AI-compute demand vertical (Tesla Optimus, Unitree). Early-stage but a major future driver.",
       "flowRole": "demand",
-      "investorAngle": "An emerging demand vertical, not a near-term driver \u2014 treat as optionality; watch unit shipments and whether AI compute per robot actually scales."
+      "investorAngle": "An emerging demand vertical, not a near-term driver — treat as optionality; watch unit shipments and whether AI compute per robot actually scales."
     },
     "accelerators": {
       "id": "accelerators",
       "label": "Accelerators",
       "subtitle": "GPU / AI Chip Designers",
       "color": "#76b900",
+      "icon": "<rect x=\"6\" y=\"6\" width=\"12\" height=\"12\" rx=\"2\"/><rect x=\"9\" y=\"9\" width=\"6\" height=\"6\" rx=\"1\"/><path d=\"M9 3v3M12 3v3M15 3v3M9 18v3M12 18v3M15 18v3M3 9h3M3 12h3M3 15h3M18 9h3M18 12h3M18 15h3\"/>",
       "layer": 6,
       "tooltip": "The GPU and AI-accelerator designers the whole supply chain feeds into. NVDA designs the chips; TSMC and others fabricate them.",
       "flowRole": "chip",
-      "investorAngle": "The chip everyone designs around \u2014 watch share between NVIDIA and challengers (AMD, custom silicon) and how fast hyperscalers build their own."
+      "investorAngle": "The chip everyone designs around — watch share between NVIDIA and challengers (AMD, custom silicon) and how fast hyperscalers build their own."
     },
     "hyperscalers": {
       "id": "hyperscalers",
       "label": "Hyperscalers",
       "subtitle": "The compute buyers",
       "color": "#6366f1",
+      "icon": "<rect x=\"4\" y=\"4\" width=\"6\" height=\"16\" rx=\"1\"/><rect x=\"14\" y=\"4\" width=\"6\" height=\"16\" rx=\"1\"/><path d=\"M6 8h2M6 12h2M6 16h2M16 8h2M16 12h2M16 16h2\"/>",
       "layer": 10,
       "flowRole": "demand",
-      "tooltip": "Meta, Alphabet, Amazon, Microsoft \u2014 the capex engines that buy the GPUs and rent the neocloud capacity. Their spend IS the demand signal for everything below.",
-      "investorAngle": "Watch quarterly capex guidance and any 'compute constrained' language \u2014 hyperscaler budgets are the single input every supplier thesis depends on."
+      "tooltip": "Meta, Alphabet, Amazon, Microsoft — the capex engines that buy the GPUs and rent the neocloud capacity. Their spend IS the demand signal for everything below.",
+      "investorAngle": "Watch quarterly capex guidance and any 'compute constrained' language — hyperscaler budgets are the single input every supplier thesis depends on."
     }
   },
-  "mapIntro": "Everything below NVIDIA feeds the AI chips it designs \u2014 suppliers at the bottom, the chip in the middle, the buyers on top. Click any layer to see what it does, what to watch as an investor, and the companies tracked there.",
+  "mapIntro": "Everything below NVIDIA feeds the AI chips it designs — suppliers at the bottom, the chip in the middle, the buyers on top. Click any layer to see what it does, what to watch as an investor, and the companies tracked there.",
   "glossary": [
     {
       "term": "HBM",
-      "def": "High-bandwidth memory \u2014 stacked DRAM bonded next to the GPU; the scarcest ingredient in every accelerator."
+      "def": "High-bandwidth memory — stacked DRAM bonded next to the GPU; the scarcest ingredient in every accelerator."
     },
     {
       "term": "CPO",
-      "def": "Co-packaged optics \u2014 moving the optical connection onto the chip package itself; the next photonics wave."
+      "def": "Co-packaged optics — moving the optical connection onto the chip package itself; the next photonics wave."
     },
     {
       "term": "SiPh",
-      "def": "Silicon photonics \u2014 making optical parts with chip fabs, so light replaces copper between GPUs."
+      "def": "Silicon photonics — making optical parts with chip fabs, so light replaces copper between GPUs."
     },
     {
       "term": "Neocloud",
@@ -153,11 +163,11 @@
     },
     {
       "term": "Chokepoint",
-      "def": "A layer with so few capable suppliers that demand has nowhere else to go \u2014 where pricing power lives."
+      "def": "A layer with so few capable suppliers that demand has nowhere else to go — where pricing power lives."
     },
     {
       "term": "Advanced packaging",
-      "def": "Assembling multiple dies (GPU + HBM) into one part \u2014 often the real bottleneck, not the fab."
+      "def": "Assembling multiple dies (GPU + HBM) into one part — often the real bottleneck, not the fab."
     },
     {
       "term": "Conviction tier",
@@ -167,20 +177,21 @@
   "zones": [
     {
       "id": "demand",
-      "label": "Demand \u00b7 who buys the compute"
+      "label": "Demand · who buys the compute"
     },
     {
       "id": "chip",
-      "label": "The chip \u00b7 NVIDIA + who builds it"
+      "label": "The chip · NVIDIA + who builds it"
     },
     {
       "id": "supply",
-      "label": "Supply \u00b7 what feeds the chip"
+      "label": "Supply · what feeds the chip"
     }
   ],
   "center": {
     "title": "NVIDIA + Hyperscalers",
     "subtitle": "GPU Designer & Buyers (MSFT, GOOGL, AMZN, META)",
+    "icon": "<rect x=\"4\" y=\"4\" width=\"16\" height=\"16\" rx=\"3\"/><rect x=\"8\" y=\"8\" width=\"8\" height=\"8\" rx=\"1\"/><path d=\"M8 2v2M12 2v2M16 2v2M8 20v2M12 20v2M16 20v2M2 8h2M2 12h2M2 16h2M20 8h2M20 12h2M20 16h2\"/>",
     "tooltip": "NVIDIA designs the GPUs that power all AI training and inference. Every company in this map either supplies into NVDA chips, connects to them, or runs on top of them."
   },
   "unsortedCategory": {
@@ -188,7 +199,8 @@
     "label": "Unsorted",
     "subtitle": "Awaiting classification",
     "color": "#94a3b8",
+    "icon": "<circle cx=\"12\" cy=\"12\" r=\"8\"/><path d=\"M12 8v5\"/><circle cx=\"12\" cy=\"16\" r=\".5\"/>",
     "layer": 0,
-    "tooltip": "Auto-added tickers ingested from posts that have not been categorized yet \u2014 triage with review.py."
+    "tooltip": "Auto-added tickers ingested from posts that have not been categorized yet — triage with review.py."
   }
 }

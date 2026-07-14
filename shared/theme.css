@@ -1,43 +1,50 @@
 /* ============================================================================
-   theme.css — Editorial design tokens + shared components
-   "Private Coverage" multi-page upgrade (EXECUTION.md Phase 1, P1)
+   theme.css — "Unpacked" design tokens + shared components
+   (EXECUTION.md Phase 6, U2 — supersedes the warm editorial palette)
 
    Loaded by every page (index / desk / memo / vault / performance) via a plain
    <link>. Offline-first: no @import, no CDN fonts, file:// safe.
 
    HARD RULES honoured here:
-   - Category colors are NEVER hardcoded. The 3px gradient top border and any
-     per-category accents are painted at runtime by JS from
-     AIE_DATA.categories[id].color. This file only ships the .gradient-border
-     shell + a neutral fallback.
+   - Category colors are NEVER hardcoded — they stay a data-viz concern painted
+     at runtime from AIE_DATA.categories[id].color. The 3px top border is now
+     BRAND chrome (--brand-grad, pure CSS); AIE.paintGradientBorder() is a
+     kept-for-boot-order no-op.
    - Motion stays inside the 200-300ms rule and is gated on
      prefers-reduced-motion (see bottom of the Tokens block).
-
-   Warm editorial palette supersedes the cool "cleanroom" theme still living
-   inline in index.html — do NOT edit index.html for this prompt (P3/P4 wire
-   these tokens in).
    ========================================================================== */
 
 /* ============================================================================
    1. TOKENS
    ========================================================================== */
 :root {
-  /* --- Warm paper palette ------------------------------------------------ */
-  --bg:        #faf7f2;   /* warm paper */
-  --card:      #fffdf9;   /* slightly warmer than the page, lifts on paper */
-  --border:    #e6e0d4;   /* soft warm hairline */
-  --ink:       #1a1712;   /* near-black display ink */
-  --text:      #33302a;   /* body text — ink softened for long reading */
-  --muted:     #8a8375;   /* captions, small-caps labels, secondary meta */
+  /* --- Cool neutral "Unpacked" palette (EXECUTION.md Phase 6) ------------ */
+  --bg:        #f4f5f7;   /* cool neutral-grey canvas */
+  --card:      #ffffff;   /* pure white cards lift on the grey */
+  --border:    #e2e5ea;   /* cool hairline */
+  --ink:       #0b0d12;   /* near-black display ink */
+  --text:      #2a2e35;   /* body text — ink softened for long reading */
+  --muted:     #7c828c;   /* captions, small-caps labels, secondary meta */
 
-  /* A couple of derived neutrals for fills/hovers on paper. */
-  --paper-sink: #f2ede4;  /* recessed rows / hover wash */
-  --paper-tint: #f6f1e8;  /* subtle zebra / header fill */
+  /* Derived neutrals for fills/hovers. Names kept — pages consume them. */
+  --paper-sink: #eceef1;  /* recessed rows / hover wash */
+  --paper-tint: #f0f2f5;  /* subtle zebra / header fill */
+
+  /* True-black "event stage" dark surfaces (cross-section, vault graph). */
+  --stage:    #0a0a0c;
+  --stage-hi: #16161a;
+
+  /* --- Brand accent — ONE blue→violet gradient, used sparingly ----------- */
+  --brand-a:    #2b6bf3;
+  --brand-b:    #7a3bf0;
+  --brand-grad: linear-gradient(100deg, var(--brand-a), var(--brand-b));
+  --brand-ink:  #3d55f2;  /* solid fallback where a gradient can't paint */
 
   /* --- Typography -------------------------------------------------------- */
-  /* Display + body serif. ui-serif resolves to New York on Apple, then the
-     Georgia fallback everywhere else — no web font, offline-safe. */
-  --serif: ui-serif, "New York", Georgia, "Times New Roman", serif;
+  /* Bold geometric sans display stack — hero, chapter heads, ledger titles.
+     Weight 700 / -0.02em tracking applied at use sites. No CDN fonts. */
+  --display: "Avenir Next", "Futura", -apple-system, "SF Pro Display",
+             "Segoe UI", system-ui, sans-serif;
   /* System sans for data-dense surfaces (tables, map bands) — set per page. */
   --sans:  -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui,
            "Segoe UI", Roboto, sans-serif;
@@ -45,27 +52,33 @@
   --mono:  "SF Mono", ui-monospace, SFMono-Regular, Menlo, Monaco,
            "Cascadia Code", "Roboto Mono", monospace;
 
-  /* --- Radii & shadows (warm-tinted) ------------------------------------ */
-  --r-card:    14px;
+  /* --- Radii & shadows (cool-tinted) ------------------------------------ */
+  --r-card:    20px;
+  --r-tile:    14px;
   --r-chip:    999px;
-  --shadow-sm: 0 1px 2px rgba(60, 48, 30, 0.05),
-               0 4px 14px rgba(60, 48, 30, 0.05);
-  --shadow-lg: 0 2px 6px rgba(60, 48, 30, 0.06),
-               0 18px 40px -18px rgba(60, 48, 30, 0.20);
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05),
+               0 4px 14px rgba(15, 23, 42, 0.05);
+  --shadow-lg: 0 2px 6px rgba(15, 23, 42, 0.06),
+               0 18px 40px -18px rgba(15, 23, 42, 0.20);
 
   /* --- Motion (UNCHANGED — inside 200-300ms, spring for pill/drilldowns) - */
   --dur:    240ms;
   --ease:   240ms ease;
   --spring: cubic-bezier(0.32, 0.72, 0.28, 1.15);
 
-  /* --- Semantic hue tokens (warm-tinted fills, same hue meaning) ---------
+  /* --- Semantic hue tokens (cool-tinted fills, same hue meaning) ---------
      Green = act / core · Sky = accumulate · Amber = watch · Muted = pass /
-     radar. Fills are muted toward paper so badges sit on #faf7f2 without
-     glowing. Text keeps enough contrast to read. */
-  --sem-act-bg:        #e4ecd7;  --sem-act-fg:        #4d6a2b;  /* green  */
-  --sem-accumulate-bg: #dde8ef;  --sem-accumulate-fg: #2f6486;  /* sky    */
-  --sem-watch-bg:      #f4e7c8;  --sem-watch-fg:      #8a5a1a;  /* amber  */
-  --sem-pass-bg:       #ece7dd;  --sem-pass-fg:       #8a8375;  /* muted  */
+     radar. Fills recalibrated for the cool canvas; text keeps ≥4.5:1. */
+  --sem-act-bg:        #def0dd;  --sem-act-fg:        #256b39;  /* green  */
+  --sem-accumulate-bg: #dce9f9;  --sem-accumulate-fg: #1f5fa8;  /* sky    */
+  --sem-watch-bg:      #fbeecb;  --sem-watch-fg:      #8c5c0a;  /* amber  */
+  --sem-pass-bg:       #e8eaee;  --sem-pass-fg:       #7c828c;  /* muted  */
+}
+
+/* Ambient dash-scroll for the map's flow arrows (U7 wires this up). The
+   reduced-motion gate below kills it along with everything else. */
+@keyframes aie-flow {
+  to { stroke-dashoffset: -12; }
 }
 
 /* Motion gating: entrance/decorative motion off when the user asks for less. */
@@ -87,7 +100,7 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: var(--serif);
+  font-family: var(--display);
   font-size: 17px;
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
@@ -126,16 +139,59 @@ body {
 
 /* ============================================================================
    3. GRADIENT TOP BORDER
-   3px band across the full width. Background is painted at runtime by JS from
-   AIE_DATA category colors — do NOT hardcode a gradient here.
+   3px band across the full width — the BRAND gradient (pure CSS, Phase 6).
+   Category colors keep their data-viz job elsewhere; the chrome is brand.
+   AIE.paintGradientBorder() is a kept-for-boot-order no-op.
    ========================================================================== */
 .gradient-border {
   position: fixed;
   top: 0; left: 0; right: 0;
   height: 3px;
   z-index: 200;
-  background: var(--border); /* neutral fallback until JS paints it */
+  background: var(--brand-grad);
 }
+
+/* ============================================================================
+   3b. FOCUS CARD (Phase 6, U5)
+   The week's one headline — desk.meta.focus. Shared by index.html (full-width
+   lead) and desk.html (hero lead card); pages only add layout/spacing around
+   this block (margins, hero placement) — the look itself lives here.
+   ========================================================================== */
+.aie-focus {
+  position: relative;
+  padding: 22px 26px 24px;
+  border-radius: var(--r-card);
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+.aie-focus::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--brand-grad);
+}
+.aie-focus-eyebrow { display: block; margin-bottom: 10px; }
+.aie-focus-headline {
+  margin: 0 0 8px;
+  font-family: var(--display);
+  font-size: clamp(22px, 3.4vw, 34px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--ink);
+}
+.aie-focus-dek {
+  margin: 0 0 14px;
+  font-family: var(--display);
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--text);
+}
+.aie-focus-tickers { display: flex; flex-wrap: wrap; gap: 6px; }
+.aie-focus > *:last-child { margin-bottom: 0; }
 
 /* ============================================================================
    4. TOP NAV / MASTHEAD
@@ -159,9 +215,9 @@ body {
   flex-wrap: wrap;
 }
 
-/* Wordmark — the serif brand, left. */
+/* Wordmark — the display brand, left. */
 .aie-wordmark {
-  font-family: var(--serif);
+  font-family: var(--display);
   font-size: 22px;
   font-weight: 600;
   letter-spacing: -0.01em;
@@ -213,7 +269,7 @@ body {
 /* ============================================================================
    5. LEDGER TABLE
    The coverage-notes ledger (index.html) + any tabular list. Editorial: quiet
-   hairlines, small-caps header, serif titles, mono meta.
+   hairlines, small-caps header, display titles, mono meta.
    ========================================================================== */
 .aie-ledger {
   width: 100%;
@@ -241,9 +297,9 @@ body {
 .aie-ledger tbody tr:hover { background: var(--paper-sink); }
 /* Row links: whole row acts as a link without underlining everything. */
 .aie-ledger tbody tr.is-link { cursor: pointer; }
-/* The title cell carries the serif editorial voice. */
+/* The title cell carries the display editorial voice. */
 .aie-ledger .aie-ledger-title {
-  font-family: var(--serif);
+  font-family: var(--display);
   font-size: 16px;
   color: var(--ink);
 }
@@ -285,12 +341,15 @@ a.aie-chip:hover { border-color: var(--muted); color: var(--ink); }
   background: var(--chip-accent, var(--muted));
 }
 
-/* Filter chip toggle state. */
+/* Filter chip toggle state — active = brand-gradient fill, white text (Phase 6,
+   U4). Shared so every filter toggle site-wide reads the same. */
 .aie-chip.is-active {
-  background: var(--ink);
-  border-color: var(--ink);
-  color: var(--card);
+  background: var(--brand-grad);
+  border-color: transparent;
+  color: #fff;
 }
+.aie-chip.is-active::before { background: #fff; }  /* ticker dot stays visible on the gradient */
+a.aie-chip.is-active:hover { color: #fff; }
 
 /* ----------------------------------------------------------------------------
    Inline prose markup (shared by AIE.renderInline — memo.html, vault.html).
@@ -399,8 +458,8 @@ a.th-ticker:hover {
   text-transform: uppercase; font-weight: 700;
   padding: 2px 8px; border-radius: 999px;
 }
-.th-conviction.high   { background: #e4ecd7; color: #4d6a2b; }
-.th-conviction.normal { background: color-mix(in srgb, #8a8375 16%, var(--card)); color: var(--muted); }
+.th-conviction.high   { background: var(--sem-act-bg); color: var(--sem-act-fg); }
+.th-conviction.normal { background: color-mix(in srgb, var(--muted) 16%, var(--card)); color: var(--muted); }
 
 /* ============================================================================
    8. FOOTER COLOPHON
@@ -435,6 +494,157 @@ a.th-ticker:hover {
   .aie-ledger thead { display: none; }         /* stack rows on mobile */
   .aie-ledger tbody td { padding: 8px 4px; display: block; border: 0; }
   .aie-ledger tbody tr { display: block; padding: 12px 4px; border-bottom: 1px solid var(--border); }
+}
+
+/* ============================================================================
+   10. UNPACKED SHOWCASE COMPONENTS
+   Samsung-Unpacked visual language, shared so every page speaks it:
+   a two-column gem hero, icon pill buttons, a stat rail capped by a
+   brand-gradient action tile, and colored soft-tiles with decorative corner
+   shapes. Brand chrome only — category colors keep their data-viz job.
+   ========================================================================== */
+
+/* ---- Two-column hero: copy left, gem art right --------------------------- */
+.unf-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: 40px;
+  align-items: center;
+  padding: 40px 0 4px;
+}
+.unf-hero-copy { min-width: 0; }
+.unf-hero-art { position: relative; align-self: center; }
+.unf-art-svg { display: block; width: 100%; height: auto; }
+/* Small mono caption tucked under the art (like "your position in motion"). */
+.unf-art-cap {
+  position: absolute; right: 6px; bottom: 8px;
+  text-align: right; line-height: 1.35;
+}
+
+/* Hero CTA row. */
+.unf-cta { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 30px; }
+
+/* ---- Icon pill button ---------------------------------------------------- */
+.unf-pill {
+  display: inline-flex; align-items: center; gap: 9px;
+  font-family: var(--sans); font-size: 14px; font-weight: 600;
+  letter-spacing: -0.01em; white-space: nowrap;
+  padding: 12px 20px; border-radius: var(--r-chip);
+  background: var(--ink); color: #fff; border: 1px solid var(--ink);
+  text-decoration: none; cursor: pointer;
+  transition: transform var(--ease), box-shadow var(--ease), filter var(--ease);
+}
+.unf-pill:hover { transform: translateY(-1px); box-shadow: var(--shadow-lg); }
+.unf-pill .glyph { color: #37e0c8; font-weight: 700; }
+.unf-pill--brand { background: var(--brand-grad); border-color: transparent; }
+.unf-pill--brand:hover { filter: brightness(1.06); }
+.unf-pill--brand .glyph { color: #fff; }
+.unf-pill--sm { padding: 9px 16px; font-size: 13px; }
+/* Ghost = quiet text link with the same glyph vocabulary. */
+.unf-pill--ghost {
+  background: none; border: 0; color: var(--text); padding: 12px 4px;
+}
+.unf-pill--ghost:hover { transform: none; box-shadow: none; color: var(--ink); }
+.unf-pill--ghost .glyph { color: var(--brand-ink); }
+
+/* ---- Stat rail: columns split by hairlines, last cell a gradient tile ----- */
+.unf-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) minmax(0, 0.7fr);
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-card);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+.unf-stat { padding: 22px 26px 24px; border-left: 1px solid var(--border); }
+.unf-stat:first-child { border-left: 0; }
+.unf-stat .st-label {
+  font-family: var(--mono); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+}
+.unf-stat .st-value {
+  font-family: var(--display); font-weight: 700; letter-spacing: -0.02em;
+  font-size: 30px; line-height: 1; color: var(--ink); margin: 14px 0 8px;
+}
+.unf-stat .st-sub { font-family: var(--sans); font-size: 12.5px; color: var(--muted); }
+.unf-stat .st-sub.is-down { color: #c0392b; }
+.unf-stat .st-sub.is-up   { color: #1f8f4e; }
+/* Brand-gradient action tile — the "unfold the position" call. */
+.unf-stat--action {
+  background: var(--brand-grad); border-left: 0; color: #fff;
+  display: flex; flex-direction: column; justify-content: space-between; gap: 16px;
+  text-decoration: none; transition: filter var(--ease);
+}
+.unf-stat--action:hover { filter: brightness(1.07); }
+.unf-stat--action .st-label { color: rgba(255, 255, 255, 0.85); }
+.unf-stat--action .act-title {
+  font-family: var(--mono); font-size: 12px; font-weight: 700;
+  letter-spacing: 0.06em; text-transform: uppercase; line-height: 1.4;
+}
+.unf-stat--action .act-arrow { align-self: flex-end; font-size: 20px; line-height: 1; }
+
+/* ---- Section head (Unpacked "big statement") ----------------------------- */
+.unf-section { margin: 46px 0 0; }
+.unf-section-title {
+  font-family: var(--display); font-weight: 700; letter-spacing: -0.02em;
+  font-size: clamp(26px, 3.4vw, 34px); line-height: 1.08; color: var(--ink);
+  margin: 6px 0 0;
+}
+
+/* ---- Colored soft-tiles with decorative corner shapes -------------------- */
+.unf-tiles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; margin-top: 20px; }
+.unf-tile {
+  position: relative; overflow: hidden; min-height: 196px;
+  padding: 22px 22px 24px; border-radius: var(--r-card);
+  background: var(--tile-bg, var(--paper-tint));
+  text-decoration: none; display: flex; flex-direction: column;
+  transition: transform var(--ease), box-shadow var(--ease);
+}
+.unf-tile:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+.unf-tile .tile-label {
+  position: relative; z-index: 1;
+  font-family: var(--mono); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--tile-ink, var(--muted)); opacity: 0.9;
+}
+.unf-tile .tile-value {
+  position: relative; z-index: 1;
+  font-family: var(--display); font-weight: 700; letter-spacing: -0.02em;
+  font-size: 34px; line-height: 1; margin: 16px 0 8px;
+  color: var(--tile-ink, var(--ink));
+}
+.unf-tile .tile-sub {
+  position: relative; z-index: 1;
+  font-family: var(--sans); font-size: 12.5px; line-height: 1.45;
+  color: var(--tile-sub, var(--muted));
+}
+.unf-tile .tile-shape { position: absolute; right: -18px; bottom: -18px; width: 148px; height: 148px; pointer-events: none; z-index: 0; }
+.unf-tile .tile-foot { position: relative; z-index: 1; margin-top: auto; padding-top: 14px; }
+/* Dark queue card. */
+.unf-tile--dark { background: var(--ink); }
+.unf-tile--dark .tile-label { color: rgba(255, 255, 255, 0.7); }
+.unf-tile--dark .tile-value { color: #fff; }
+.unf-tile--dark .tile-sub   { color: rgba(255, 255, 255, 0.72); }
+
+/* ---- Responsive ---------------------------------------------------------- */
+@media (max-width: 900px) {
+  .unf-hero { grid-template-columns: 1fr; gap: 10px; }
+  .unf-hero-art { max-width: 420px; margin: 6px auto 0; order: 2; }
+  .unf-tiles { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 720px) {
+  .unf-stats { grid-template-columns: 1fr 1fr; }
+  .unf-stat { border-left: 1px solid var(--border); }
+  .unf-stat:nth-child(odd) { border-left: 0; }
+  .unf-stat:nth-child(n+3) { border-top: 1px solid var(--border); }
+  .unf-stat--action { grid-column: 1 / -1; border-top: 0; }
+}
+@media (max-width: 460px) {
+  .unf-tiles { grid-template-columns: 1fr; }
+  .unf-stats { grid-template-columns: 1fr; }
+  .unf-stat { border-left: 0; border-top: 1px solid var(--border); }
+  .unf-stat:first-child { border-top: 0; }
 }
 
 /* ============================================================================

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Design System — AI Supply Desk</title>
+  <link
+    rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M13 2 4.5 13.5H11l-1 8.5L19.5 10H13z' fill='%232b6bf3'/%3E%3C/svg%3E"
+  />
+  <!-- Live source of truth: shared tokens and shared components. -->
+  <link rel="stylesheet" href="shared/theme.css" />
+  <style>
+    /* Reference-page-only layout; all system values are inherited from theme.css. */
+    .design-shell { padding: 34px 0 8px; }
+    .design-hero { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(280px, .9fr); gap: 28px; align-items: end; margin-bottom: 52px; }
+    .design-title { margin: 8px 0 14px; font-family: var(--display); font-size: clamp(38px, 6vw, 64px); font-weight: 700; letter-spacing: -.045em; line-height: .98; color: var(--ink); }
+    .design-dek { max-width: 58ch; margin: 0; font-family: var(--sans); font-size: 16px; line-height: 1.65; color: var(--text); }
+    .design-status { padding: 20px; border: 1px solid var(--border); border-radius: var(--r-card); background: var(--card); box-shadow: var(--shadow-sm); }
+    .design-status p { margin: 0; font-family: var(--sans); font-size: 13.5px; line-height: 1.6; color: var(--muted); }
+    .design-status strong { color: var(--ink); }
+
+    .design-nav { display: flex; flex-wrap: wrap; gap: 7px; margin: 0 0 46px; }
+    .design-nav a { color: var(--text); text-decoration: none; }
+    .design-nav a:hover { color: var(--ink); }
+
+    .design-section { scroll-margin-top: 90px; margin: 0 0 58px; }
+    .design-section-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--ink); margin-bottom: 20px; }
+    .design-section h2 { margin: 4px 0 0; font-family: var(--display); font-size: clamp(25px, 3vw, 34px); font-weight: 700; letter-spacing: -.03em; line-height: 1.08; color: var(--ink); }
+    .design-section-note { max-width: 42ch; margin: 0; font-family: var(--sans); font-size: 13px; line-height: 1.55; color: var(--muted); text-align: right; }
+    .design-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+    .design-card { min-width: 0; padding: 18px; background: var(--card); border: 1px solid var(--border); border-radius: var(--r-tile); box-shadow: var(--shadow-sm); }
+    .design-card h3 { margin: 0 0 12px; font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+    .design-card p { margin: 0; font-family: var(--sans); font-size: 13.5px; line-height: 1.55; color: var(--text); }
+
+    .swatch { height: 78px; border-radius: 10px; margin-bottom: 14px; border: 1px solid color-mix(in srgb, var(--border) 70%, transparent); background: var(--swatch); }
+    .swatch--brand { background: var(--brand-grad); }
+    .swatch-name { display: block; font-family: var(--mono); font-size: 12px; font-weight: 700; color: var(--ink); }
+    .swatch-value { display: block; margin-top: 3px; font-family: var(--mono); font-size: 11px; color: var(--muted); }
+    .category-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; }
+    .category-swatch { padding: 12px; border: 1px solid var(--border); border-radius: 10px; background: var(--card); }
+    .category-dot { width: 100%; aspect-ratio: 2.4; border-radius: 7px; margin-bottom: 9px; background: var(--category-color); }
+    .category-swatch strong, .category-swatch span { display: block; font-family: var(--mono); font-size: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .category-swatch strong { color: var(--ink); }
+    .category-swatch span { color: var(--muted); margin-top: 2px; }
+
+    .type-display { margin: 0; font-family: var(--display); font-size: clamp(30px, 4vw, 46px); font-weight: 700; letter-spacing: -.04em; line-height: 1.05; color: var(--ink); }
+    .type-body { margin: 14px 0 0; font-family: var(--sans); font-size: 17px; line-height: 1.65; color: var(--text); }
+    .type-mono { margin: 16px 0 0; font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+    .type-scale { display: grid; grid-template-columns: 1.25fr .75fr; gap: 14px; }
+    .type-row { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--border); }
+    .type-row:last-child { border-bottom: 0; }
+    .type-row strong { font-family: var(--sans); font-size: 14px; color: var(--ink); }
+    .type-row span { font-family: var(--mono); font-size: 11px; color: var(--muted); text-align: right; }
+
+    .component-stack { display: flex; flex-wrap: wrap; align-items: center; gap: 9px; }
+    .component-stack + .component-stack { margin-top: 14px; }
+    .demo-thesis { max-width: 680px; }
+    .demo-thesis .th-card { margin-top: 14px; }
+    .design-table { overflow-x: auto; }
+    .design-table .aie-ledger { min-width: 640px; }
+    .anatomy { position: relative; padding: 22px 20px 22px 24px; overflow: hidden; background: var(--card); border: 1px solid var(--border); border-radius: var(--r-card); box-shadow: var(--shadow-sm); }
+    .anatomy::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 4px; background: var(--brand-ink); }
+    .anatomy-title { margin: 0 0 4px; font-family: var(--mono); font-size: 24px; font-weight: 700; color: var(--ink); }
+    .anatomy p { max-width: 55ch; margin: 0; font-family: var(--sans); font-size: 13px; color: var(--muted); }
+    .callout { display: inline-block; margin: 14px 6px 0 0; padding: 4px 8px; border-radius: 6px; background: var(--paper-sink); font-family: var(--mono); font-size: 10px; color: var(--muted); }
+
+    .rules { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .rule { padding: 18px; border-radius: var(--r-tile); border: 1px solid var(--border); background: var(--card); }
+    .rule h3 { margin: 0 0 8px; font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink); }
+    .rule p { margin: 0; font-family: var(--sans); font-size: 13.5px; line-height: 1.6; color: var(--muted); }
+    .rule code { font-family: var(--mono); font-size: .9em; color: var(--text); }
+    .motion-demo { display: flex; align-items: center; justify-content: center; min-height: 140px; background: var(--paper-tint); border: 1px solid var(--border); border-radius: var(--r-card); }
+    .motion-tile { width: 138px; padding: 18px; border-radius: var(--r-tile); background: var(--brand-grad); box-shadow: var(--shadow-sm); color: #fff; transition: transform var(--ease), box-shadow var(--ease); }
+    .motion-tile:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .motion-tile span { display: block; font-family: var(--mono); font-size: 10px; letter-spacing: .07em; text-transform: uppercase; opacity: .86; }
+    .motion-tile strong { display: block; margin-top: 10px; font-family: var(--display); font-size: 21px; line-height: 1; }
+
+    @media (max-width: 768px) {
+      .design-shell { padding-top: 24px; }
+      .design-hero { grid-template-columns: 1fr; margin-bottom: 38px; }
+      .design-section { margin-bottom: 42px; }
+      .design-section-head { display: block; }
+      .design-section-note { margin-top: 8px; text-align: left; }
+      .design-grid { grid-template-columns: 1fr 1fr; }
+      .category-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .type-scale, .rules { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 460px) { .design-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="gradient-border"></div>
+  <div id="topNav"></div>
+
+  <main class="aie-wrap design-shell">
+    <section class="design-hero">
+      <div>
+        <p class="aie-label">Internal reference / live system</p>
+        <h1 class="design-title">The visual language,<br>made tangible.</h1>
+        <p class="design-dek">A working reference for AI Supply Desk’s current “Unpacked” design system: its tokens, component patterns, semantic signals, and responsive rules.</p>
+      </div>
+      <aside class="design-status">
+        <p class="aie-label">Source of truth</p>
+        <p><strong>shared/theme.css</strong> defines the live tokens and shared components. <strong>docs/DESIGN.md</strong> documents earlier visual systems and should be read as historical context.</p>
+      </aside>
+    </section>
+
+    <nav class="design-nav" aria-label="Design system sections">
+      <a class="aie-chip" href="#foundations">Foundations</a>
+      <a class="aie-chip" href="#type">Typography</a>
+      <a class="aie-chip" href="#components">Components</a>
+      <a class="aie-chip" href="#patterns">Patterns</a>
+      <a class="aie-chip" href="#rules">Rules</a>
+    </nav>
+
+    <section class="design-section" id="foundations">
+      <div class="design-section-head">
+        <div><p class="aie-label">01 / Foundations</p><h2>Cool, quiet, precise.</h2></div>
+        <p class="design-section-note">A neutral canvas keeps research readable. The blue–violet gradient is reserved for brand-level moments; category colour explains the map.</p>
+      </div>
+      <div class="design-grid" id="neutralSwatches"></div>
+      <div style="height:14px"></div>
+      <p class="aie-label" style="margin:0 0 10px">Live category palette / from data.js</p>
+      <div class="category-grid" id="categoryPalette"></div>
+    </section>
+
+    <section class="design-section" id="type">
+      <div class="design-section-head">
+        <div><p class="aie-label">02 / Typography</p><h2>Display for the idea. Mono for the proof.</h2></div>
+        <p class="design-section-note">Use geometric display type to frame insight, system sans for sustained reading, and a genuine system mono stack for figures, labels, and tickers.</p>
+      </div>
+      <div class="type-scale">
+        <div class="design-card">
+          <p class="type-display">The supply chain, unfolded.</p>
+          <p class="type-body">Editorial copy stays clean, direct, and comfortably spaced. It should read as private research, not a trading terminal.</p>
+          <p class="type-mono">Ticker · Core · Updated weekly</p>
+        </div>
+        <div class="design-card">
+          <div class="type-row"><strong>Display / hero &amp; chapters</strong><span>700 · −.02em</span></div>
+          <div class="type-row"><strong>Sans / body &amp; data surfaces</strong><span>17px · 1.65</span></div>
+          <div class="type-row"><strong>Mono / labels &amp; numerics</strong><span>10–12px · uppercase</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="design-section" id="components">
+      <div class="design-section-head">
+        <div><p class="aie-label">03 / Components</p><h2>Small vocabulary, repeated carefully.</h2></div>
+        <p class="design-section-note">Shared pieces should look identical across Coverage, Desk, Vault, Memo, and Performance.</p>
+      </div>
+      <div class="design-grid">
+        <div class="design-card"><h3>Chips</h3><div class="component-stack" id="chipDemo"></div><div class="component-stack"><span class="aie-chip is-active">Active filter</span><a class="aie-chip" href="#components">Quiet link</a></div></div>
+        <div class="design-card"><h3>Tier &amp; stance semantics</h3><div class="component-stack"><span class="aie-badge aie-tier--core">Core</span><span class="aie-badge aie-tier--watch">Watch</span><span class="aie-badge aie-tier--radar">Radar</span></div><div class="component-stack"><span class="aie-badge aie-stance--act">Act</span><span class="aie-badge aie-stance--accumulate">Accumulate</span><span class="aie-badge aie-stance--watch">Watch</span><span class="aie-badge aie-stance--pass">Pass</span></div></div>
+        <div class="design-card"><h3>Action hierarchy</h3><div class="component-stack"><a class="unf-pill unf-pill--sm" href="#rules">Primary <span class="glyph">↗</span></a><a class="unf-pill unf-pill--ghost unf-pill--sm" href="#rules">Secondary <span class="glyph">→</span></a></div><p style="margin-top:16px">One direct action per local decision. Brand gradient is a special emphasis, not a default fill.</p></div>
+      </div>
+      <div class="demo-thesis">
+        <p class="aie-label" style="margin:24px 0 0">Evidence card</p>
+        <article class="th-card high-conviction">
+          <div class="th-card-meta"><span class="th-conviction high">High conviction</span><span class="th-date">14 Jul 2026</span><a class="th-source" href="#components">Source ↗</a></div>
+          <p class="th-text">The left spine carries the evidence signal. The card is quiet by default, then gains presence through a subtle spine expansion on hover.</p>
+          <div class="th-tickers" id="thesisTicks"></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="design-section" id="patterns">
+      <div class="design-section-head">
+        <div><p class="aie-label">04 / Layout patterns</p><h2>Editorial rhythm with data discipline.</h2></div>
+        <p class="design-section-note">Use whitespace and hairlines to organize dense information. Cards support a decision; they do not become the whole page.</p>
+      </div>
+      <div class="anatomy"><p class="anatomy-title" id="anatomyTicker">Ticker</p><p>Card anatomy: data-forward title, a concise supporting thought, and small semantic labels. A 4px spine provides a category or conviction cue without flooding the surface with colour.</p><span class="callout">4px spine → 7px hover</span><span class="callout">20px card radius</span><span class="callout">soft shadow</span></div>
+      <div class="design-table" style="margin-top:18px"><table class="aie-ledger"><thead><tr><th>Date</th><th>Ticker</th><th>Kind</th><th>Research title</th><th>Stance</th></tr></thead><tbody id="ledgerDemo"></tbody></table></div>
+    </section>
+
+    <section class="design-section" id="rules">
+      <div class="design-section-head">
+        <div><p class="aie-label">05 / Guardrails</p><h2>Consistency is the feature.</h2></div>
+        <p class="design-section-note">These are implementation constraints as much as visual preferences.</p>
+      </div>
+      <div class="rules">
+        <div class="rule"><h3>Offline by default</h3><p>Keep pages vanilla and <code>file://</code>-safe. Load <code>data.js</code> before page logic; do not fetch local data in-browser.</p></div>
+        <div class="rule"><h3>Data owns category colour</h3><p>Read category colour, labels, and ticker information from <code>AIE_DATA</code>. Do not hardcode a category palette into page CSS or scripts.</p></div>
+        <div class="rule"><h3>Motion earns attention</h3><p>Use 240ms motion for hover and state changes; reserve the spring curve for pills and measured drill-downs. Respect reduced-motion preferences.</p></div>
+        <div class="rule"><h3>Responsive at 768px</h3><p>Mobile is a reordered reading experience: tables stack, navigation wraps, and dense grids simplify. Do not merely shrink the desktop view.</p></div>
+      </div>
+      <div class="motion-demo" style="margin-top:18px"><div class="motion-tile"><span>Hover test</span><strong>240ms</strong></div></div>
+    </section>
+  </main>
+
+  <footer class="aie-colophon"><strong>AI Supply Desk Design System</strong> — a live visual reference for the current shared theme. Historical design notes remain in <code>docs/DESIGN.md</code>.</footer>
+
+  <script src="data.js"></script>
+  <script src="shared/common.js"></script>
+  <script>
+    (function () {
+      "use strict";
+      var DATA = window.AIE_DATA || {};
+      var AIE = window.AIE;
+      AIE.seed();
+      AIE.paintGradientBorder();
+      AIE.renderNav("", "#topNav");
+
+      function el(tag, cls, text) { var n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; }
+      function css(name) { return getComputedStyle(document.documentElement).getPropertyValue(name).trim(); }
+      var neutral = [
+        ["Canvas", "--bg", css("--bg")], ["Surface", "--card", css("--card")], ["Hairline", "--border", css("--border")],
+        ["Display ink", "--ink", css("--ink")], ["Body text", "--text", css("--text")], ["Muted", "--muted", css("--muted")],
+        ["Brand", "--brand-grad", "blue → violet"]
+      ];
+      var swatches = document.getElementById("neutralSwatches");
+      neutral.forEach(function (item) {
+        var card = el("div", "design-card"); var swatch = el("div", "swatch" + (item[1] === "--brand-grad" ? " swatch--brand" : ""));
+        if (item[1] !== "--brand-grad") swatch.style.setProperty("--swatch", "var(" + item[1] + ")");
+        card.appendChild(swatch); card.appendChild(el("span", "swatch-name", item[0])); card.appendChild(el("span", "swatch-value", item[2])); swatches.appendChild(card);
+      });
+
+      var cats = DATA.categories || {};
+      var categoryPalette = document.getElementById("categoryPalette");
+      Object.keys(cats).sort(function (a, b) { return (cats[a].layer || 0) - (cats[b].layer || 0); }).forEach(function (id) {
+        var cat = cats[id]; var item = el("div", "category-swatch"); item.style.setProperty("--category-color", cat.color);
+        item.appendChild(el("div", "category-dot")); item.appendChild(el("strong", null, cat.label)); item.appendChild(el("span", null, cat.color)); categoryPalette.appendChild(item);
+      });
+
+      var firstCats = Object.keys(cats).slice(0, 3);
+      var chipDemo = document.getElementById("chipDemo"); var thesisTicks = document.getElementById("thesisTicks");
+      firstCats.forEach(function (id) {
+        var cat = cats[id]; var chip = el("span", "aie-chip aie-chip--ticker", cat.label); chip.style.setProperty("--chip-accent", cat.color); chipDemo.appendChild(chip);
+        var tick = el("a", "th-ticker", (cat.label || "").slice(0, 4).toUpperCase()); tick.href = "#components"; tick.style.setProperty("--t-color", cat.color); thesisTicks.appendChild(tick);
+      });
+
+      var liveTicker = (DATA.tickers || [])[0] || null;
+      var lead = liveTicker && cats[liveTicker.category] ? cats[liveTicker.category] : (firstCats[0] ? cats[firstCats[0]] : null);
+      var anatomyTicker = document.getElementById("anatomyTicker");
+      if (anatomyTicker && liveTicker) anatomyTicker.textContent = liveTicker.ticker;
+      var tbody = document.getElementById("ledgerDemo");
+      var row = el("tr", "is-link");
+      row.appendChild(el("td", "aie-ledger-date", "14 Jul 2026"));
+      var tickerCell = el("td"); var ticker = el("span", "aie-chip aie-chip--ticker", liveTicker ? liveTicker.ticker : "—"); if (lead) ticker.style.setProperty("--chip-accent", lead.color); tickerCell.appendChild(ticker); row.appendChild(tickerCell);
+      row.appendChild(el("td", null, "Coverage")); row.appendChild(el("td", "aie-ledger-title", "A quiet, clear decision surface"));
+      var stanceCell = el("td"); stanceCell.appendChild(el("span", "aie-badge aie-stance--accumulate", "Accumulate")); row.appendChild(stanceCell); tbody.appendChild(row);
+    }());
+  </script>
+</body>
+</html>

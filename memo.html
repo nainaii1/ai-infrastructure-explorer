@@ -35,13 +35,15 @@
       margin-bottom: 14px;
     }
     .memo-eyebrow .sep { color: var(--border); }
+    .memo-chip-wrap { display: inline-flex; margin-right: 4px; }
+    .memo-chip-wrap .memo-chip { width: 30px; height: 30px; display: block; }
     .memo-title {
-      font-family: var(--serif); font-weight: 600;
+      font-family: var(--display); font-weight: 700;
       font-size: 40px; line-height: 1.12; letter-spacing: -0.02em;
       color: var(--ink); margin: 0 0 14px;
     }
     .memo-dek {
-      font-family: var(--serif);
+      font-family: var(--display);
       font-size: 20px; line-height: 1.45; color: var(--muted);
       margin: 0 0 20px;
     }
@@ -78,13 +80,13 @@
     /* ---- Sections ---- */
     .memo-section { margin: 32px 0; scroll-margin-top: 92px; }
     .memo-h2 {
-      font-family: var(--serif); font-weight: 600;
-      font-size: 24px; line-height: 1.2; letter-spacing: -0.01em;
+      font-family: var(--display); font-weight: 700;
+      font-size: 24px; line-height: 1.2; letter-spacing: -0.02em;
       color: var(--ink); margin: 0 0 12px;
     }
-    /* Body copy — serif 17px / 1.65 per spec. */
+    /* Body copy — 17px / 1.65 per spec. */
     .memo-p {
-      font-family: var(--serif); font-size: 17px; line-height: 1.65;
+      font-family: var(--display); font-size: 17px; line-height: 1.65;
       color: var(--text); margin: 0 0 16px;
     }
     .memo-p:last-child { margin-bottom: 0; }
@@ -148,7 +150,7 @@
     }
     .memo-prior a:hover .mp-title { color: var(--ink); }
     .mp-date { font-family: var(--mono); font-size: 11px; color: var(--muted); min-width: 82px; flex: 0 0 auto; }
-    .mp-title { font-family: var(--serif); font-size: 15.5px; color: var(--ink); }
+    .mp-title { font-family: var(--display); font-size: 15.5px; color: var(--ink); }
     .mp-kind { font-family: var(--mono); font-size: 10px; color: var(--muted); }
 
     /* ---- Empty state ---- */
@@ -158,7 +160,7 @@
       border: 1px solid var(--border); border-radius: var(--r-card);
       box-shadow: var(--shadow-sm);
     }
-    .memo-empty h1 { font-family: var(--serif); font-weight: 600; font-size: 28px; color: var(--ink); margin: 0 0 12px; }
+    .memo-empty h1 { font-family: var(--display); font-weight: 700; font-size: 28px; letter-spacing: -0.02em; color: var(--ink); margin: 0 0 12px; }
     .memo-empty p { font-family: var(--sans); font-size: 15px; line-height: 1.6; color: var(--muted); margin: 0 0 22px; }
     .memo-empty p code {
       font-family: var(--mono); font-size: 13px;
@@ -168,12 +170,12 @@
     .memo-actions a {
       font-family: var(--mono); font-size: 11px; font-weight: 600;
       letter-spacing: .06em; text-transform: uppercase; text-decoration: none;
-      padding: 9px 16px; border-radius: 8px;
+      padding: 9px 16px; border-radius: var(--r-chip);
       border: 1px solid var(--border); color: var(--text);
       transition: border-color var(--ease), color var(--ease), background var(--ease);
     }
     .memo-actions a:hover { border-color: var(--muted); color: var(--ink); background: var(--paper-sink); }
-    .memo-actions a.primary { background: var(--ink); border-color: var(--ink); color: var(--card); }
+    .memo-actions a.primary { background: var(--brand-grad); border-color: transparent; color: #fff; }
 
     /* ---- Responsive: 768px breakpoint ---- */
     @media (max-width: 768px) {
@@ -479,6 +481,14 @@
 
         // Header: eyebrow (kind · ticker), title, dek, meta (rating + dates).
         var eyebrow = el("div", "memo-eyebrow");
+        var etk = tickerBySym[memo.ticker];
+        var ecol = etk ? AIE.categoryColor(etk.category, null) : null;
+        if (AIE.chipSpark) {
+          var chipWrap = document.createElement("span");
+          chipWrap.className = "memo-chip-wrap";
+          chipWrap.innerHTML = AIE.chipSpark(ecol || "#7c828c");
+          eyebrow.appendChild(chipWrap);
+        }
         eyebrow.appendChild(el("span", "aie-label", kindLabel(memo.kind)));
         eyebrow.appendChild(el("span", "sep aie-label", "·"));
         eyebrow.appendChild(el("span", "aie-label", memo.ticker));

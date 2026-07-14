@@ -11,10 +11,8 @@
     href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M13 2 4.5 13.5H11l-1 8.5L19.5 10H13z' fill='%233b82f6'/%3E%3C/svg%3E"
   />
 
-  <!-- Shared editorial design tokens + components. Loaded BEFORE the inline
-       <style> so the page's current cleanroom tokens still win (P3 does the
-       warm retheme); only new tokens (--serif) and .aie-* nav classes are
-       additive here. -->
+  <!-- Shared design tokens + components — the single source of truth for
+       :root tokens (Phase 6, U2). -->
   <link rel="stylesheet" href="shared/theme.css" />
 
   <style>
@@ -23,29 +21,8 @@
        Category/gradient colors come from data.js at runtime —
        never hardcoded here (CLAUDE.md hard rule #4).
        ============================================================ */
-    :root {
-      /* Warm editorial "paper" palette (P3 retheme — supersedes the cleanroom
-         theme). Mirrors shared/theme.css so both files agree. */
-      --bg:        #faf7f2;  /* warm paper */
-      --card:      #fffdf9;  /* lifts slightly off the page */
-      --border:    #e6e0d4;  /* soft warm hairline */
-      --text:      #33302a;  /* body text — ink softened for reading */
-      --muted:     #8a8375;  /* captions, eyebrows, secondary meta */
-      --ink:       #1a1712;  /* near-black display ink / active states */
-      /* Motion: unchanged (200-300ms + spring). */
-      --dur:       240ms;
-      --ease:      240ms ease;
-      --spring:    cubic-bezier(0.32, 0.72, 0.28, 1.15);
-      /* Warm-tinted two-layer soft shadows: ambient + key. */
-      --shadow-sm: 0 1px 2px rgba(60, 48, 30, 0.05), 0 4px 14px rgba(60, 48, 30, 0.05);
-      --shadow-lg: 0 2px 6px rgba(60, 48, 30, 0.06), 0 18px 40px -18px rgba(60, 48, 30, 0.20);
-      --r-card:    14px;
-      /* Serif display stack — hero + chapter heads carry the editorial voice.
-         ui-serif -> New York on Apple, Georgia fallback elsewhere; no CDN font. */
-      --serif:     ui-serif, "New York", Georgia, "Times New Roman", serif;
-      /* Distinctive data type — genuine system monospace, no CDN, offline-safe. */
-      --mono:      "SF Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, "Cascadia Code", "Roboto Mono", monospace;
-    }
+    /* Design tokens come from shared/theme.css only (Phase 6, U2 — the old
+       duplicate :root here silently overrode it and is gone). */
 
     * { box-sizing: border-box; }
 
@@ -64,17 +41,8 @@
       html { scroll-behavior: auto; }
     }
 
-    /* 3px gradient top border across full app width.
-       Its background is injected by JS from AIE_DATA category colors. */
-    .gradient-border {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      z-index: 100;
-      background: var(--border); /* fallback until JS paints the gradient */
-    }
+    /* 3px brand-gradient top border comes from shared/theme.css
+       (.gradient-border, Phase 6) — no page-local rule needed. */
 
     .app {
       max-width: 1200px;
@@ -107,22 +75,37 @@
 
     .hero-tagline {
       margin: 0 0 10px;
-      font-family: var(--serif);
+      font-family: var(--display);
       font-size: clamp(32px, 5vw, 48px);
-      font-weight: 600;
-      letter-spacing: -0.015em;
+      font-weight: 700;
+      letter-spacing: -0.02em;
       line-height: 1.08;
       color: var(--ink);
       max-width: 21ch;
     }
+    /* The page's one brand-gradient text moment. Solid fallback first so a
+       browser without background-clip:text still reads the phrase. */
+    .hero-tagline .grad {
+      color: var(--brand-ink);
+      background: var(--brand-grad);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
     .hero-lede {
       margin: 0 0 28px;
-      font-family: var(--serif);
+      font-family: var(--display);
       font-size: 17px;
       line-height: 1.6;
       color: var(--text);
       max-width: 60ch;
     }
+    /* Two-column hero top (copy + gem art). The signal chain below stays
+       full-width, so only this top band is a grid (reuses shared .unf-hero). */
+    .hero-top { padding: 0; margin-bottom: 26px; }
+    .hero-top-copy { min-width: 0; }
+    .hero-top .hero-lede { margin-bottom: 0; }
+    .hero-top .unf-hero-art { max-width: 400px; }
 
     /* Signal chain: four stat nodes joined by dashed arrows. */
     .signal-chain {
@@ -191,9 +174,16 @@
     }
     .hb-legend b { color: var(--ink); font-weight: 700; }
 
-    /* Latest signal — the newest captured thesis, featured. */
+    /* Focus card — spacing only; the look is the shared .aie-focus component
+       in theme.css (identical to index.html's front-page Focus card). */
+    .hero-focus { margin-bottom: 22px; }
+
+    /* Latest signal — demoted (Focus leads the hero now) to a compact,
+       lower-emphasis secondary slot whose eyebrow links into Chapter 03. */
     .hero-latest { margin-top: 22px; }
     .hero-latest .th-card { box-shadow: var(--shadow-sm); }
+    .hero-latest--compact { margin-top: 14px; }
+    .hero-latest--compact .th-card { box-shadow: none; border: 1px solid var(--border); }
     .hl-eyebrow {
       display: block;
       font-family: var(--mono);
@@ -204,6 +194,16 @@
       color: var(--muted);
       margin-bottom: 8px;
     }
+    .hl-eyebrow-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      text-decoration: none;
+      transition: color var(--ease);
+    }
+    .hl-eyebrow-link:hover { color: var(--ink); }
+    .hl-eyebrow-link:hover .hl-eyebrow { color: var(--ink); }
+    .hl-arrow { font-size: 11px; color: inherit; }
 
     /* ============================================================
        Capsule nav — frosted glass, sliding pill, sticky on scroll.
@@ -225,13 +225,13 @@
       gap: 2px;
       padding: 4px;
       border-radius: 999px;
-      border: 1px solid rgba(74, 60, 40, 0.12);
-      background: rgba(255, 253, 249, 0.92); /* warm paper fallback */
+      border: 1px solid rgba(15, 23, 42, 0.10);
+      background: rgba(255, 255, 255, 0.92); /* cool white fallback */
       box-shadow: var(--shadow-lg);
     }
     @supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
       .capsule-nav {
-        background: rgba(255, 253, 249, 0.66); /* frosted warm paper */
+        background: rgba(255, 255, 255, 0.66); /* frosted cool white */
         -webkit-backdrop-filter: blur(20px) saturate(1.4);
         backdrop-filter: blur(20px) saturate(1.4);
       }
@@ -242,7 +242,7 @@
       left: 0;
       height: calc(100% - 8px);
       border-radius: 999px;
-      background: var(--ink);
+      background: var(--brand-grad);
       transition: transform var(--dur) var(--spring), width var(--dur) var(--spring);
       will-change: transform, width;
       opacity: 0; /* shown once JS measures the active link */
@@ -301,16 +301,16 @@
     }
     .chapter-title {
       margin: 0 0 8px;
-      font-family: var(--serif);
+      font-family: var(--display);
       font-size: clamp(28px, 4vw, 38px);
-      font-weight: 600;
-      letter-spacing: -0.012em;
+      font-weight: 700;
+      letter-spacing: -0.02em;
       line-height: 1.1;
       color: var(--ink);
     }
     .chapter-lede {
       margin: 0;
-      font-family: var(--serif);
+      font-family: var(--display);
       font-size: 16px;
       line-height: 1.6;
       color: var(--text);
@@ -380,6 +380,9 @@
       margin-bottom: 2px;
     }
     .mp-arrow { flex: 0 0 auto; align-self: center; padding-top: 46px; color: var(--muted); }
+    /* Ambient dash-scroll on the flow arrows (U7) — the aie-flow keyframes
+       live in theme.css (U2); its reduced-motion gate stops this too. */
+    .flow-dash { animation: aie-flow 1.4s linear infinite; }
     .mp-hub { display: flex; justify-content: center; }
     .mp-hub .layer-hub { width: 100%; max-width: 420px; }
 
@@ -436,6 +439,8 @@
       border-radius: 6px;
       padding: 6px 8px;
     }
+    .layer-icon { flex: 0 0 auto; display: grid; place-items: center; color: var(--accent); }
+    .layer-icon svg { display: block; }
     .layer-main { flex: 1 1 auto; min-width: 0; }
     .layer-title { font-size: 15px; font-weight: 700; color: var(--accent); }
     .layer-sub { font-weight: 500; font-size: 12px; color: var(--muted); }
@@ -450,12 +455,18 @@
     }
     .layer-count b { color: var(--ink); font-weight: 700; }
 
-    /* Demand hub band: dark, distinct, non-interactive. */
-    .layer-hub { cursor: default; background: var(--ink); border-color: var(--ink); }
-    .layer-hub::before { background: #475569; }
-    .layer-hub:hover { transform: none; background: var(--ink); border-color: var(--ink); box-shadow: none; }
-    .layer-hub:hover::before { width: 4px; }
+    /* Demand hub band: true-black "event stage" surface, non-interactive, with a
+       brand-gradient hairline along its top edge (Phase 6, U4). */
+    .layer-hub { cursor: default; background: var(--stage); border-color: var(--stage); }
+    .layer-hub::before {
+      top: 0; left: 0; right: 0; bottom: auto;
+      width: auto; height: 2px;
+      background: var(--brand-grad);
+    }
+    .layer-hub:hover { transform: none; background: var(--stage); border-color: var(--stage); box-shadow: none; }
+    .layer-hub:hover::before { width: auto; height: 2px; }
     .layer-hub .layer-index { color: #cbd5e1; background: rgba(255, 255, 255, 0.08); }
+    .layer-hub .layer-icon { color: #ffffff; }
     .layer-hub .layer-title { color: #ffffff; }
     .layer-hub .layer-sub { color: #94a3b8; }
     .layer-hub .layer-desc { color: #cbd5e1; }
@@ -472,13 +483,23 @@
 
     /* ---------- Cross Section view: blueprint-style bar chart ---------- */
     .map-cross {
-      background: #0f1b2e;
+      position: relative;
+      background: var(--stage);
       border-radius: var(--r-card);
       padding: 24px 20px 18px;
+      overflow: hidden;
       background-image:
         linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
       background-size: 28px 28px;
+    }
+    /* Brand-gradient hairline along the top edge (Phase 6, U4). */
+    .map-cross::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--brand-grad);
     }
     .mc-bars { display: flex; align-items: flex-end; gap: 10px; height: 190px; }
     .mc-col {
@@ -502,11 +523,11 @@
     .mc-heat { font-family: var(--mono); font-size: 10px; font-weight: 700; }
     .mc-heat.hot  { color: #4ade80; }
     .mc-heat.cold { color: #f87171; }
-    .mc-heat.flat { color: #64748b; }
+    .mc-heat.flat { color: #9aa1ac; }
     .mc-legend {
       margin-top: 14px;
       font-family: var(--mono); font-size: 10px; letter-spacing: 0.06em;
-      color: #64748b;
+      color: #9aa1ac;
     }
 
     /* Zone divider: groups the pipeline (Demand / Chip / Supply) or a date group. */
@@ -589,11 +610,13 @@
        ============================================================ */
     .cards-section { margin-top: 40px; }
 
-    /* Section ledger header: a hairline rule with a mono caption. */
+    /* Section ledger header: a hairline rule with a mono caption. U7 folds the
+       priority chip scroller into this row (eyebrow · scope · chips · toggle). */
     .cards-ledger {
       display: flex;
-      align-items: baseline;
+      align-items: center;
       gap: 12px;
+      flex-wrap: wrap;
       padding-bottom: 10px;
       margin-bottom: 22px;
       border-bottom: 1px solid var(--border);
@@ -610,15 +633,96 @@
       font-size: 11px;
       letter-spacing: 0.04em;
       color: var(--ink);
-      margin-left: auto;
+      white-space: nowrap;
     }
     .cards-ledger .ledger-scope b { color: inherit; font-weight: 700; }
 
     .card-grid {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 18px;
+      grid-template-columns: repeat(auto-fill, minmax(168px, 1fr));
+      gap: 12px;
     }
+
+    /* Compact ticker tile (U7) — the grid unit. Clicking expands the full
+       dossier card in-place on a full-width detail row below the tile's row. */
+    .tk-tile {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      min-height: 96px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-tile);
+      padding: 12px 14px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform var(--ease), box-shadow var(--ease),
+                  border-color var(--ease), background var(--ease);
+    }
+    .tk-tile::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; bottom: 0;
+      width: 3px;
+      background: var(--accent);
+      transition: width var(--ease);
+    }
+    .tk-tile:hover {
+      transform: translateY(-2px);
+      border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+      box-shadow: 0 8px 20px -12px color-mix(in srgb, var(--accent) 50%, transparent);
+    }
+    .tk-tile:hover::before { width: 5px; }
+    .tk-tile.is-open {
+      border-color: color-mix(in srgb, var(--accent) 55%, var(--border));
+      background: color-mix(in srgb, var(--accent) 6%, var(--card));
+      box-shadow: 0 10px 24px -12px color-mix(in srgb, var(--accent) 50%, transparent);
+    }
+    .tk-tile.is-open::before { width: 5px; }
+    .tk-tile:focus-visible { outline: 2px solid var(--muted); outline-offset: 2px; }
+
+    .tk-tile-top { display: flex; align-items: center; gap: 8px; min-width: 0; }
+    .tk-tile-icon { flex: 0 0 auto; display: grid; place-items: center; color: var(--accent); }
+    .tk-tile-icon svg { display: block; }
+    .tk-tile-sym {
+      font-family: var(--mono);
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--accent);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .tk-tile-spark { flex: 0 0 auto; margin-left: auto; color: var(--accent); opacity: 0.85; }
+    .tk-tile-co {
+      font-size: 11.5px;
+      color: var(--muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .tk-tile-badges { display: flex; align-items: center; gap: 5px; margin-top: auto; }
+    .tk-tile-badges .tier-badge,
+    .tk-tile-badges .vd-stance { font-size: 9px; padding: 2px 7px; }
+
+    /* Expand-in-place detail row — a full-width grid row inserted right after
+       the clicked tile's row, animated by AIE.setDrilldownOpen (JS-measured
+       max-height; the grid-template-rows 0fr->1fr trick is the documented v6
+       bug — see .layer-detail's comment). */
+    .tk-detail-row {
+      grid-column: 1 / -1;
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: max-height var(--dur) var(--spring), opacity var(--ease);
+    }
+    .tk-detail-row.open { opacity: 1; }
+    .tk-detail-inner { padding: 2px 0 6px; }
+    .tk-detail-inner .tk-card { max-width: 640px; }
+    /* The detail card is stationary inside its clipped row — no hover lift. */
+    .tk-detail-inner .tk-card:hover { transform: none; }
 
     /* The card. */
     .tk-card {
@@ -779,19 +883,22 @@
     }
     .cards-empty p { margin: 0; font-size: 13px; color: var(--muted); }
 
-    /* "What they prioritize" strip — ranked chips from AIE_DATA.priorities. */
+    /* "What they prioritize" — mention-count chips, merged into the Holdings
+       ledger row as a horizontal scroller (U7; was a standalone card strip). */
     .priority-strip {
       display: flex;
-      flex-wrap: wrap;
       align-items: center;
       gap: 8px;
-      margin-bottom: 18px;
-      padding: 12px 14px;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--r-card);
+      flex: 1 1 260px;
+      min-width: 0;
+      overflow-x: auto;
+      padding: 2px 0;
+      scrollbar-width: none;
     }
+    .priority-strip::-webkit-scrollbar { display: none; }
+    .priority-strip[hidden] { display: none; }
     .priority-strip .ps-label {
+      flex: 0 0 auto;
       font-family: var(--mono);
       font-size: 10px;
       letter-spacing: 0.16em;
@@ -801,6 +908,7 @@
     }
     .ps-chip {
       display: inline-flex;
+      flex: 0 0 auto;
       align-items: baseline;
       gap: 6px;
       padding: 5px 10px;
@@ -809,6 +917,7 @@
       background: var(--bg);
       font-family: var(--mono);
       font-size: 12px;
+      white-space: nowrap;
     }
     .ps-chip .ps-rank { color: var(--muted); font-size: 10px; }
     .ps-chip .ps-sym { font-weight: 700; color: var(--ink); }
@@ -832,13 +941,13 @@
       padding: 2px 8px; border-radius: 999px;
     }
     .tier-badge.core, .bd-conviction.high {
-      background: #e4ecd7; color: #4d6a2b;
+      background: var(--sem-act-bg); color: var(--sem-act-fg);
     }
     .tier-badge.watch, .bd-conviction.medium {
-      background: #f4e7c8; color: #8a5a1a;
+      background: var(--sem-watch-bg); color: var(--sem-watch-fg);
     }
     .tier-badge.radar, .bd-conviction.low {
-      background: color-mix(in srgb, #8a8375 16%, var(--card)); color: var(--muted);
+      background: color-mix(in srgb, var(--muted) 16%, var(--card)); color: var(--muted);
     }
 
     /* Desk verdict — Claude's weekly stance on a Core name. */
@@ -847,10 +956,10 @@
       text-transform: uppercase; font-weight: 700;
       padding: 2px 8px; border-radius: 999px; white-space: nowrap;
     }
-    .vd-stance.act        { background: #e4ecd7; color: #4d6a2b; }
-    .vd-stance.accumulate { background: #dde8ef; color: #2f6486; }
-    .vd-stance.watch      { background: #f4e7c8; color: #8a5a1a; }
-    .vd-stance.pass       { background: color-mix(in srgb, #8a8375 16%, var(--card)); color: var(--muted); }
+    .vd-stance.act        { background: var(--sem-act-bg); color: var(--sem-act-fg); }
+    .vd-stance.accumulate { background: var(--sem-accumulate-bg); color: var(--sem-accumulate-fg); }
+    .vd-stance.watch      { background: var(--sem-watch-bg); color: var(--sem-watch-fg); }
+    .vd-stance.pass       { background: color-mix(in srgb, var(--muted) 16%, var(--card)); color: var(--muted); }
     .tk-verdict {
       margin-top: 12px; padding: 12px 14px; border-radius: 10px;
       background: color-mix(in srgb, var(--accent) 4%, var(--bg));
@@ -887,6 +996,11 @@
       letter-spacing: 0.16em; text-transform: uppercase;
       color: var(--muted); margin-bottom: 10px;
     }
+    /* U7: glossary folds behind a drill-down (reuses the .bd-sources animation
+       + .bd-toggle pill) so Chapter 01 stays short by default. */
+    .gl-head { display: flex; align-items: center; gap: 12px; }
+    .gl-head .gl-eyebrow { margin-bottom: 0; }
+    .gl-head .bd-toggle { margin-top: 0; margin-left: auto; }
     .gl-items { display: flex; flex-wrap: wrap; gap: 8px 22px; }
     .gl-item { font-size: 12.5px; line-height: 1.55; color: var(--muted); }
     .gl-item dfn {
@@ -1032,8 +1146,8 @@
     .wl-fetch:disabled { opacity: 0.55; cursor: default; }
     .wl-hint {
       margin-bottom: 14px; padding: 10px 12px; border-radius: 8px;
-      background: color-mix(in srgb, #f59e0b 12%, var(--card));
-      border: 1px solid color-mix(in srgb, #f59e0b 40%, var(--border));
+      background: color-mix(in srgb, var(--brand-ink) 7%, var(--card));
+      border: 1px solid color-mix(in srgb, var(--brand-ink) 28%, var(--border));
       font-size: 12.5px; line-height: 1.5; color: var(--text);
     }
     .wl-hint code {
@@ -1044,16 +1158,16 @@
        aria-selected pattern as the tab nav. */
     .view-toggle {
       display: inline-flex; gap: 3px; background: var(--card);
-      border: 1px solid var(--border); border-radius: 8px; padding: 3px;
+      border: 1px solid var(--border); border-radius: var(--r-chip); padding: 3px;
     }
     .vt-btn {
       appearance: none; background: none; border: none; font: inherit;
       font-size: 12.5px; font-weight: 600; color: var(--muted);
-      padding: 5px 12px; border-radius: 6px; cursor: pointer;
+      padding: 5px 14px; border-radius: var(--r-chip); cursor: pointer;
       transition: background var(--ease), color var(--ease);
     }
     .vt-btn:hover { color: var(--text); }
-    .vt-btn[aria-selected="true"] { background: var(--ink); color: #fff; }
+    .vt-btn[aria-selected="true"] { background: var(--brand-grad); color: #fff; }
     .vt-btn:focus-visible { outline: 2px solid var(--muted); outline-offset: 2px; }
 
     /* Generic filter chip — category filters on Watchlist + Thesis. */
@@ -1064,9 +1178,11 @@
       transition: color var(--ease), border-color var(--ease), background var(--ease);
     }
     .filter-chip:hover { color: var(--text); border-color: var(--muted); }
+    /* Active toggle: category filters keep their data-viz accent (--chip-accent);
+       neutral filters (tier / signal / all) fall back to the brand gradient. */
     .filter-chip.is-active {
-      color: #fff; background: var(--chip-accent, var(--ink));
-      border-color: var(--chip-accent, var(--ink));
+      color: #fff; background: var(--chip-accent, var(--brand-grad));
+      border-color: var(--chip-accent, transparent);
     }
     .filter-chip:focus-visible { outline: 2px solid var(--muted); outline-offset: 2px; }
 
@@ -1127,10 +1243,9 @@
       border-radius: 6px; padding: 4px 8px; cursor: pointer;
     }
 
-    /* ---------- Responsive (mobile breakpoint 768px) ---------- */
-    @media (max-width: 1024px) {
-      .card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    }
+    /* ---------- Responsive (mobile breakpoint 768px) ----------
+       The tile grid is auto-fill (minmax 168px) so it needs no per-breakpoint
+       column overrides (U7). */
     @media (max-width: 768px) {
       /* Room for the bottom-floating capsule (iOS tab-bar position). */
       .app { padding: 0 16px calc(96px + env(safe-area-inset-bottom)); }
@@ -1152,11 +1267,11 @@
       .capsule-link .cl-index { display: none; }
       .chapter { padding-top: 32px; scroll-margin-top: 16px; }
 
-      .card-grid { grid-template-columns: minmax(0, 1fr); }
       .cards-section { margin-top: 28px; }
       /* Layer bands: let content wrap; count drops below the title block. */
       .layer-band { flex-wrap: wrap; align-items: flex-start; gap: 8px 14px; }
       .layer-count { margin-left: 52px; }
+      .layer-band.has-icon .layer-count { margin-left: 88px; }
       /* Pipeline columns stack vertically; flow arrows rotate to point down. */
       .mp-columns { flex-direction: column; }
       .mp-arrow { align-self: flex-start; padding: 0 0 0 9px; transform: rotate(90deg); }
@@ -1173,18 +1288,33 @@
     <!-- Prologue: what this guide is and how to read it. Live numbers are
          rendered into the placeholders by renderHero() from AIE_DATA. -->
     <header class="hero">
-      <div class="brand">
-        <span class="brand-bolt" aria-hidden="true">⚡</span>
-        <h1>AI Infrastructure Explorer</h1>
+      <div class="hero-top unf-hero">
+        <div class="hero-top-copy">
+          <div class="brand">
+            <span class="brand-bolt" aria-hidden="true">⚡</span>
+            <h1>AI Infrastructure Explorer</h1>
+          </div>
+          <p class="hero-tagline">Follow the signal chain, <span class="grad">not the headlines.</span></p>
+          <p class="hero-lede">A field guide to the AI hardware supply chain — one analyst's
+            public calls, captured at the source, ranked by conviction, and challenged by a
+            weekly second opinion. Read it top to bottom: terrain, names, evidence, synthesis.</p>
+        </div>
+        <div class="unf-hero-art" id="deskHeroArt">
+          <span class="unf-art-cap aie-label">Your signal<br>in motion</span>
+        </div>
       </div>
-      <p class="hero-tagline">Follow the signal chain, not the headlines.</p>
-      <p class="hero-lede">A field guide to the AI hardware supply chain — one analyst's
-        public calls, captured at the source, ranked by conviction, and challenged by a
-        weekly second opinion. Read it top to bottom: terrain, names, evidence, synthesis.</p>
+      <!-- Focus — the week's one headline (desk.meta.focus), the hero's lead
+           card. Hidden entirely when absent; AIE.renderFocusCard handles both
+           states. Same shared look as index.html's front-page Focus card. -->
+      <div class="aie-focus hero-focus" id="heroFocus" hidden></div>
       <div class="signal-chain" id="signalChain" aria-label="Signal chain: posts to theses to tiers to verdicts"></div>
       <div class="hero-barbell" id="heroBarbell"></div>
-      <div class="hero-latest" id="heroLatest" hidden>
-        <span class="hl-eyebrow">Latest signal</span>
+      <!-- Latest signal — demoted to a compact secondary slot (Focus leads
+           the hero now); the eyebrow links into Chapter 03 for the full feed. -->
+      <div class="hero-latest hero-latest--compact" id="heroLatest" hidden>
+        <a class="hl-eyebrow-link" href="#chapter-thesis" data-target="chapter-thesis">
+          <span class="hl-eyebrow">Latest signal</span><span class="hl-arrow" aria-hidden="true">→</span>
+        </a>
         <div id="heroLatestCard"></div>
       </div>
     </header>
@@ -1237,15 +1367,17 @@
           <div class="map-cross" id="mapCross" hidden></div>
         </div>
 
-        <!-- Section B: ticker cards. Built by renderCards() from the
-             seeded localStorage tickers; filtered by map selection. -->
+        <!-- Section B: ticker tiles. Built by renderCards() from the
+             seeded localStorage tickers; filtered by map selection. Each tile
+             expands in place to the full dossier card (U7). -->
         <div class="cards-section">
-          <!-- "What @aleabitoreddit prioritizes" — ranked from AIE_DATA.priorities
-               (populated by the ingest backend). Hidden until data exists. -->
-          <div class="priority-strip" id="priorityStrip" hidden></div>
           <div class="cards-ledger">
             <span class="ledger-eyebrow">Holdings</span>
             <span class="ledger-scope" id="cardScope"></span>
+            <!-- "What @aleabitoreddit prioritizes" — mention chips from
+                 AIE_DATA.priorities, riding the ledger row as a horizontal
+                 scroller (U7). Hidden until data exists. -->
+            <div class="priority-strip" id="priorityStrip" hidden></div>
             <button type="button" class="tier-toggle" id="cardTierToggle" hidden></button>
           </div>
           <div class="card-grid" id="cardGrid" aria-live="polite"></div>
@@ -1591,6 +1723,9 @@
         tickers.forEach(function (t) { tiers[tierOf(t)] = (tiers[tierOf(t)] || 0) + 1; });
         var verdictCount = tickers.filter(function (t) { return t.verdict; }).length;
 
+        // Focus card — the hero's lead card (replaces "Latest signal").
+        AIE.renderFocusCard("#heroFocus", (DATA.desk && DATA.desk.meta && DATA.desk.meta.focus) || null);
+
         var chain = document.getElementById("signalChain");
         if (chain) {
           chain.innerHTML = "";
@@ -1668,7 +1803,7 @@
           latestCard.innerHTML = "";
           if (newest) {
             latestWrap.hidden = false;
-            latestCard.appendChild(makeThesisCard(newest));
+            latestCard.appendChild(makeThesisCard(newest, { compact: true }));
           } else {
             latestWrap.hidden = true;
           }
@@ -1712,10 +1847,17 @@
       function makeLayerBand(opts) {
         // opts: { id, indexLabel, title, sub, desc, color, count, isHub }
         var band = el("div", "layer-band" + (opts.isHub ? " layer-hub" : ""));
+        if (opts.icon) band.classList.add("has-icon");
         band.setAttribute("role", "listitem");
         if (opts.color) band.style.setProperty("--accent", opts.color);
         if (opts.id) band.dataset.cat = opts.id;
 
+        if (opts.icon) {
+          var iconWrap = el("span", "layer-icon");
+          var icon = AIE.iconSVG(opts.icon, opts.color, 22);
+          if (icon) iconWrap.appendChild(icon);
+          band.appendChild(iconWrap);
+        }
         band.appendChild(el("span", "layer-index", opts.indexLabel));
 
         var main = el("div", "layer-main");
@@ -1757,7 +1899,7 @@
       function makeFlowArrow(cls) {
         var wrap = el("div", cls || "mp-arrow");
         wrap.innerHTML = '<svg width="28" height="16" viewBox="0 0 28 16" aria-hidden="true">'
-          + '<line x1="1" y1="8" x2="20" y2="8" stroke="currentColor" stroke-width="2" stroke-dasharray="3 3"/>'
+          + '<line class="flow-dash" x1="1" y1="8" x2="20" y2="8" stroke="currentColor" stroke-width="2" stroke-dasharray="3 3"/>'
           + '<path d="M15 2 L23 8 L15 14" fill="none" stroke="currentColor" stroke-width="2" '
           + 'stroke-linejoin="round" stroke-linecap="round"/></svg>';
         return wrap;
@@ -1770,7 +1912,7 @@
           id: id,
           indexLabel: "L" + (c.layer != null ? c.layer : "?"),
           title: c.label, sub: c.subtitle, desc: c.tooltip, angle: c.investorAngle,
-          color: c.color, count: counts[id] || 0
+          color: c.color, icon: c.icon, count: counts[id] || 0
         });
         band.setAttribute("tabindex", "0");
         band.setAttribute("aria-pressed", "false");
@@ -1817,7 +1959,8 @@
         var hubWrap = el("div", "mp-hub");
         hubWrap.appendChild(makeLayerBand({
           isHub: true, indexLabel: "DEMAND",
-          title: DATA.center.title, sub: DATA.center.subtitle, desc: DATA.center.tooltip
+          title: DATA.center.title, sub: DATA.center.subtitle, desc: DATA.center.tooltip,
+          icon: DATA.center.icon
         }));
         root.appendChild(hubWrap);
 
@@ -1862,7 +2005,7 @@
 
           var bar = el("div", "mc-bar");
           bar.style.height = Math.max(4, (n / maxCount) * 170) + "px";
-          bar.style.background = "color-mix(in srgb, " + c.color + " 55%, #0f1b2e)";
+          bar.style.background = "color-mix(in srgb, " + c.color + " 55%, var(--stage))";
           col.appendChild(bar);
           col.appendChild(el("span", "mc-count", String(n)));
           // Heat: median 7-day move across this category's tickers.
@@ -1986,7 +2129,117 @@
         return node;
       }
 
-      function makeCard(ticker) {
+      /* Compact tile (U7) — the grid unit. Category icon · mono ticker ·
+         one-line company · tier + stance micro-badges · sparkline. Activation
+         (click / Enter / Space + aria-expanded) mirrors appendLayerBand. */
+      function makeTile(ticker) {
+        var cat = (DATA.categories && DATA.categories[ticker.category]) || null;
+        var accent = cat ? cat.color : "#64748b";
+
+        var tile = el("article", "tk-tile");
+        tile.style.setProperty("--accent", accent);
+        tile.setAttribute("role", "button");
+        tile.setAttribute("tabindex", "0");
+        tile.setAttribute("aria-expanded", "false");
+
+        var top = el("div", "tk-tile-top");
+        if (cat && cat.icon) {
+          var iconWrap = el("span", "tk-tile-icon");
+          var icon = AIE.iconSVG(cat.icon, accent, 18);
+          if (icon) iconWrap.appendChild(icon);
+          top.appendChild(iconWrap);
+        }
+        top.appendChild(el("span", "tk-tile-sym", ticker.ticker));
+        var spark = el("span", "tk-tile-spark");
+        spark.appendChild(sparkSVG(ticker.ticker, 56, 20));
+        top.appendChild(spark);
+        tile.appendChild(top);
+
+        tile.appendChild(el("div", "tk-tile-co", ticker.company || ""));
+
+        var badges = el("div", "tk-tile-badges");
+        badges.appendChild(el("span", "tier-badge " + tierOf(ticker), tierOf(ticker)));
+        if (ticker.verdict) {
+          badges.appendChild(el("span", "vd-stance " + ticker.verdict.stance, ticker.verdict.stance));
+        }
+        tile.appendChild(badges);
+
+        tile.addEventListener("click", function () { toggleTileDetail(tile, ticker); });
+        tile.addEventListener("keydown", function (e) {
+          if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggleTileDetail(tile, ticker); }
+        });
+        return tile;
+      }
+
+      /* Expand-in-place (U7): clicking a tile inserts a full-width detail row
+         right after the clicked tile's visual row, animated through
+         AIE.setDrilldownOpen (JS-measured max-height — NOT grid-template-rows
+         0fr->1fr, the documented v6 bug). One open at a time; Esc or a
+         re-click closes; the row reseats itself when a resize regroups rows. */
+      var openDetail = null; // { tile, row, inner } — the one open detail
+
+      function insertDetailAfterRow(tile, row) {
+        var grid = document.getElementById("cardGrid");
+        var tiles = Array.prototype.slice.call(grid.querySelectorAll(".tk-tile"));
+        var top = tile.offsetTop;
+        var last = tile;
+        for (var i = tiles.indexOf(tile) + 1; i < tiles.length; i++) {
+          if (tiles[i].offsetTop === top) { last = tiles[i]; } else { break; }
+        }
+        last.insertAdjacentElement("afterend", row);
+      }
+
+      function closeTileDetail(refocus) {
+        if (!openDetail) return;
+        var od = openDetail;
+        openDetail = null;
+        od.tile.classList.remove("is-open");
+        od.tile.setAttribute("aria-expanded", "false");
+        setDrilldownOpen(od.row, od.inner, false, "open");
+        var removed = false;
+        function remove() {
+          if (removed) return;
+          removed = true;
+          if (od.row.parentNode) od.row.parentNode.removeChild(od.row);
+        }
+        od.row.addEventListener("transitionend", function (e) {
+          if (e.propertyName === "max-height") remove();
+        });
+        setTimeout(remove, 420); // fallback: reduced-motion / missed event
+        if (refocus) od.tile.focus();
+      }
+
+      function toggleTileDetail(tile, ticker) {
+        var wasOpen = openDetail && openDetail.tile === tile;
+        closeTileDetail(false);
+        if (wasOpen) return;
+        var row = el("div", "tk-detail-row");
+        var inner = el("div", "tk-detail-inner");
+        inner.appendChild(makeCardDetail(ticker));
+        row.appendChild(inner);
+        insertDetailAfterRow(tile, row);
+        openDetail = { tile: tile, row: row, inner: inner };
+        tile.classList.add("is-open");
+        tile.setAttribute("aria-expanded", "true");
+        void row.offsetHeight; // commit the closed state so max-height animates
+        setDrilldownOpen(row, inner, true, "open");
+      }
+
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") closeTileDetail(true);
+      });
+
+      window.addEventListener("resize", function () {
+        if (!openDetail) return;
+        var od = openDetail;
+        if (od.row.parentNode) od.row.parentNode.removeChild(od.row);
+        insertDetailAfterRow(od.tile, od.row);
+        od.row.style.maxHeight = od.inner.scrollHeight + "px";
+      });
+
+      /* Full dossier card — the expand-in-place detail (was makeCard();
+         badges / prose / verdict markup unchanged). */
+      function makeCardDetail(ticker) {
         var cat = (DATA.categories && DATA.categories[ticker.category]) || null;
         var country = (DATA.countries && DATA.countries[ticker.market]) || null;
         var accent = cat ? cat.color : "#64748b";
@@ -2120,6 +2373,12 @@
           }
         }
 
+        // The grid is wiped below — drop any open expand-in-place detail with
+        // it (unregisters the row from the shared drill-down resize registry).
+        if (openDetail) {
+          setDrilldownOpen(openDetail.row, openDetail.inner, false, "open");
+          openDetail = null;
+        }
         grid.innerHTML = "";
 
         if (list.length === 0) {
@@ -2138,13 +2397,14 @@
         }
 
         list.forEach(function (ticker, i) {
-          var card = makeCard(ticker);
-          revealify(card, i);
-          grid.appendChild(card);
+          var tile = makeTile(ticker);
+          revealify(tile, i);
+          grid.appendChild(tile);
         });
       }
 
-      /* "Jargon, translated" — inline glossary from AIE_DATA.glossary. */
+      /* "Jargon, translated" — glossary from AIE_DATA.glossary, folded behind
+         a drill-down (U7) so Chapter 01 stays short by default. */
       function renderGlossary() {
         var strip = document.getElementById("glossaryStrip");
         if (!strip) return;
@@ -2152,7 +2412,21 @@
         if (!items.length) { strip.hidden = true; return; }
         strip.hidden = false;
         strip.innerHTML = "";
-        strip.appendChild(el("span", "gl-eyebrow", "Jargon, translated"));
+
+        var head = el("div", "gl-head");
+        head.appendChild(el("span", "gl-eyebrow", "Jargon, translated"));
+        var n = items.length;
+        var label = function (open) {
+          return (open ? "Hide " : "Show ") + n + (n === 1 ? " term" : " terms");
+        };
+        var toggle = el("button", "bd-toggle", label(false));
+        toggle.setAttribute("type", "button");
+        toggle.setAttribute("aria-expanded", "false");
+        head.appendChild(toggle);
+        strip.appendChild(head);
+
+        var drill = el("div", "bd-sources");
+        var drillInner = el("div", "bd-sources-inner");
         var wrap = el("div", "gl-items");
         items.forEach(function (g) {
           var item = el("span", "gl-item");
@@ -2160,7 +2434,16 @@
           item.appendChild(document.createTextNode(g.def));
           wrap.appendChild(item);
         });
-        strip.appendChild(wrap);
+        drillInner.appendChild(wrap);
+        drill.appendChild(drillInner);
+        strip.appendChild(drill);
+
+        toggle.addEventListener("click", function () {
+          var open = !drill.classList.contains("open");
+          toggle.setAttribute("aria-expanded", open ? "true" : "false");
+          toggle.textContent = label(open);
+          setDrilldownOpen(drill, drillInner, open, "open");
+        });
       }
 
       /* "New this week" — tickers added within 7 days of today. */
@@ -2871,6 +3154,8 @@
       AIE.seed();
       AIE.paintGradientBorder();
       AIE.renderNav("desk");
+      var deskArt = document.getElementById("deskHeroArt");
+      if (deskArt && AIE.artDesk) deskArt.insertAdjacentHTML("afterbegin", AIE.artDesk());
       renderHero();
       initCapsuleNav();
       initMapViewToggle();

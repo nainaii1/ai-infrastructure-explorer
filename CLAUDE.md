@@ -109,6 +109,30 @@ not throwaway config.
   is now tracked in git (gitignore exception).
   **Phases 3–5 (knowledge Vault + graph, cross-linking, performance
   hooks) are the remaining roadmap — see `docs/EXECUTION.md`.**
+  **Phase 6 — "Unpacked" rebrand ✅ done (2026-07-15, U1–U8):** a
+  Samsung-Unpacked aesthetic — cool neutral-grey canvas, bold geometric display
+  type, ONE blue→violet brand-gradient accent used sparingly, true-black "event
+  stage" dark surfaces. **U1** (guide), **U2** (design tokens in
+  `shared/theme.css` — palette/fonts/brand/stage; the duplicate `desk.html`
+  `:root` deleted; `paintGradientBorder` now a no-op — the border is pure-CSS
+  brand chrome), **U3** (4 category hues deepened for the cool canvas),
+  **U4** (per-page polish — all page `var(--serif)` → `var(--display)`, pill-ified
+  toggles, one gradient-text moment per front-of-house page, dark surfaces on
+  `--stage`), **U6** (12 validated, data-owned category icons in the pipeline
+  bands and hub), **U5** (2026-07-14 — a desk-authored weekly Focus card:
+  `verdicts.json` `meta.focus` = `{headline, dek, updatedAt, tickers[]}`,
+  rendered by the shared `AIE.renderFocusCard()` / `.aie-focus` component as
+  the full-width lead on `index.html` and the hero's lead card on
+  `desk.html`, demoting the raw latest-tweet card to a compact secondary
+  slot linking into Chapter 03; absent `meta.focus` → both surfaces render
+  exactly as before), **U7** (2026-07-14 — Chapter 01 restructure: `makeCard()`
+  split into a compact `makeTile()` grid + an expand-in-place `makeCardDetail()`
+  detail row animated by `AIE.setDrilldownOpen`; priority chips folded into the
+  Holdings ledger row, glossary behind a drill-down, flow-arrow dashes animated
+  via the `aie-flow` keyframes), and **U8** (2026-07-15 — this docs pass: the
+  `--serif` alias deleted from `shared/theme.css` and every use switched to
+  `var(--display)`; the Design system section + `docs/DESIGN.md` brought current;
+  Phase 6 boxes ticked in `docs/EXECUTION.md`).
 - **Live counts** (approximate, check `ingest/store/*.json` for current):
   ~109 tickers tracked (23 core / 21 watch / 65 radar after focus-weighting),
   10 categorized layers + an `unsorted` triage bucket (one Core name, RDDT,
@@ -154,8 +178,10 @@ not throwaway config.
 4. **All colors, labels, tooltips, and tickers come from `data.js`.** Never
    hardcode them inside a page or `shared/`. E.g. a category color is read from
    `AIE_DATA.categories[id].color` (via `AIE.categoryColor()`), zone labels from
-   `AIE_DATA.zones`, the map intro line from `AIE_DATA.mapIntro`. The 3px
-   gradient border and per-chip accents are painted at runtime from these.
+   `AIE_DATA.zones`, the map intro line from `AIE_DATA.mapIntro`. Per-chip and
+   map-band accents are painted at runtime from category colors; the 3px top
+   border is now brand chrome (`--brand-grad`, pure CSS) — not category-painted
+   (Phase 6, U2).
 5. All hover/click transitions **200–300ms ease**. Mobile breakpoint **768px**.
    Fully responsive.
 6. **`data.js` is generated, never hand-edited.** Source of truth is
@@ -165,37 +191,48 @@ not throwaway config.
    the ingest pipeline grows both over time. Don't assume a specific count in
    code or docs; read it from the store.
 
-## Design system (current — v7 warm "editorial paper" theme; supersedes the v6 cleanroom theme, which superseded the original cream theme)
-Defined once in `shared/theme.css` (`:root` tokens + `.aie-*` components) and
-mirrored in `desk.html`'s inline `:root` so both files agree. Data-dense
-surfaces (watchlist table, map bands) stay system-sans; the editorial voice
-(hero + chapter heads, standfirst, ledger titles) is serif.
-- Background `#faf7f2` (warm paper) · Card `#fffdf9` · Border `#e6e0d4`
-- Text `#33302a` · Muted `#8a8375` · Ink (display) `#1a1712`
-- Shadows: warm-tinted two-layer `--shadow-sm` / `--shadow-lg`. Card radius `--r-card: 14px`.
+## Design system (current — v7 "Unpacked" cool theme, Phase 6; supersedes the warm "editorial paper" theme, which superseded the v6 cleanroom / original cream themes). Values below are the shipped, current state (`docs/DESIGN.md` carries the full component reference).
+Defined once in `shared/theme.css` (`:root` tokens + `.aie-*` components); every
+page (including `desk.html`) consumes them directly — U2 deleted the duplicate
+`desk.html` `:root`. Data-dense surfaces (watchlist table, map bands) stay
+system-sans; the display voice (hero + chapter heads, standfirst, ledger titles)
+is a bold geometric sans (`--display`).
+- Background `#f4f5f7` (cool neutral grey) · Card `#ffffff` · Border `#e2e5ea`
+- Text `#2a2e35` · Muted `#7c828c` · Ink (display) `#0b0d12`
+- Brand accent: ONE blue→violet gradient `--brand-grad` (`#2b6bf3`→`#7a3bf0`;
+  solid fallback `--brand-ink` `#3d55f2`), used sparingly — paints the 3px top
+  border and (from U4) at most one gradient-text moment per page. True-black
+  "event stage" dark surfaces: `--stage` `#0a0a0c` / `--stage-hi` `#16161a`
+  (cross-section, NVIDIA hub, vault graph).
+- Shadows: cool-tinted (`rgba(15,23,42,…)`) two-layer `--shadow-sm` /
+  `--shadow-lg`. Radii: `--r-card: 20px` · `--r-tile: 14px` · `--r-chip: 999px`.
 - Motion (unchanged, 200–300ms): `--ease: 240ms ease` + `--spring:
   cubic-bezier(.32,.72,.28,1.15)` (capsule pill, drill-downs, reveals).
   Reveals/count-up are entrance effects gated on `prefers-reduced-motion`.
-- Fonts: serif display stack `--serif: ui-serif, "New York", Georgia, serif`
-  (hero + chapter heads, standfirst); Apple system sans for body/data-dense
-  surfaces; genuine system monospace `--mono` (e.g. SF Mono) for tickers,
-  numbers, and small-caps labels (uppercase, 0.08em, ~11px) — no CDN fonts.
+- Fonts: bold geometric display stack `--display: "Avenir Next", "Futura",
+  -apple-system, "SF Pro Display", …` (hero + chapter heads, standfirst, wordmark,
+  ledger titles; weight 700 / -0.02em at use sites). The old `--serif` alias is
+  gone (U8) — every site says `var(--display)`. Apple system sans (`--sans`) for
+  body/data-dense surfaces; genuine system monospace `--mono` (e.g. SF Mono) for
+  tickers, numbers, and small-caps labels (uppercase, 0.08em, ~11px) — no CDN fonts.
 - Category colors live in `data.js` (`categories[].color`) — see
-  `ingest/store/base.json` for the current 10: Photonics `#3b82f6`, Memory
-  `#8b5cf6`, Fabs `#f59e0b`, Neoclouds `#22c55e`, Materials `#f97316`,
-  Networking `#14b8a6`, Glass `#0ea5e9`, Robotics `#e11d48`, Accelerators
-  `#76b900`, Hyperscalers `#6366f1`.
-- Tier/stance badges are warm-tinted, same hue semantics: core/act green,
-  accumulate sky, watch amber, radar/pass muted.
-- **Top masthead** (`AIE.renderNav(activePage)`): serif wordmark · `PRIVATE
+  `ingest/store/base.json` for the current 10 (deepened for the cool canvas in
+  U3): Photonics `#3b82f6`, Memory `#8b5cf6`, Fabs `#e08a00`, Neoclouds
+  `#16a34a`, Materials `#f97316`, Networking `#0d9488`, Glass `#0284c7`,
+  Robotics `#e11d48`, Accelerators `#76b900`, Hyperscalers `#6366f1`.
+- Tier/stance badges are cool-tinted (`--sem-*` tokens), same hue semantics:
+  core/act green, accumulate sky, watch amber, radar/pass muted.
+- **Top masthead** (`AIE.renderNav(activePage)`): display wordmark · `PRIVATE
   COVERAGE · NOT ADVICE` small-caps · page links (Coverage / Desk / Vault /
   Graph / Performance-greyed) · double-hairline rule. On `desk.html` the
   masthead scrolls away and the capsule chapter nav pins near the top.
-- **3px gradient top border** spanning all category colors, left → right, full
-  width (`.gradient-border`, painted by `AIE.paintGradientBorder()`).
+- **3px brand-gradient top border** (blue→violet `--brand-grad`), full width,
+  pure CSS (`.gradient-border`). `AIE.paintGradientBorder()` is a
+  kept-for-boot-order no-op since U2 — category colors no longer paint the chrome.
 - ⚡ favicon via inline SVG data URI in `<head>` (no external request, `file://`-safe).
-- The dark `#0f1b2e` cross-section "blueprint" + NVIDIA hub are intentional
-  dark accent surfaces kept against the warm paper.
+- The true-black `--stage` (`#0a0a0c`) cross-section "blueprint" + NVIDIA hub
+  are intentional dark "event stage" surfaces kept against the cool canvas
+  (Phase 6, U2 — was the `#0f1b2e` blueprint navy).
 
 ## Architecture — two data layers
 **Static config** (categories, center node, countries, zones, mapIntro) → read
@@ -291,11 +328,26 @@ by a pill button (`mapState.view`, `"pipeline" | "cross"`) next to "Show All" �
   (`.mc-bar`) on a dark blueprint background, bar height proportional to
   ticker count per category (`counts[id]/maxCount * 170px`).
 - Click a band or bar → `setFilter(id)` toggles `.is-active` (on both
-  `.layer-band[data-cat]` and `.mc-col[data-cat]`), filters the ticker cards
+  `.layer-band[data-cat]` and `.mc-col[data-cat]`), filters the ticker tiles
   below (`renderCards`), and (Pipeline only) expands a `.layer-detail` panel
   showing `investorAngle` ("What to watch").
 - "Show All" clears the filter. Switching the view toggle calls `renderMap()`,
   which re-renders whichever view is active and keeps the intro line in sync.
+- **Ticker tiles + expand-in-place** (Section B, Phase 6, U7). The tickers below
+  the map render as a compact `.tk-tile` grid (`repeat(auto-fill, minmax(168px,
+  1fr))` on `--r-tile`): category icon, mono ticker, one-line company, tier +
+  stance micro-badges, sparkline — built by `makeTile()`. Clicking a tile (or
+  Enter/Space; `aria-expanded` tracks state) inserts a full-width
+  `grid-column: 1 / -1` `.tk-detail-row` right after the clicked tile's visual
+  row, holding the full dossier card (`makeCardDetail()` — the old `makeCard()`
+  badges/prose/verdict markup). One open at a time; Esc or a re-click closes;
+  the row reseats + re-measures on resize. Animated by `AIE.setDrilldownOpen`
+  (JS-measured `max-height`, NOT the `grid-template-rows: 0fr→1fr` trick — that
+  silently resolves to 0 inside overflow-constrained/flex ancestors; see the
+  `.layer-detail` comment). The priority mention-chips ride the Holdings ledger
+  row as a horizontal scroller and the "Jargon, translated" glossary sits behind
+  a drill-down, both to keep Chapter 01 short. `makeFlowArrow()` dashes scroll
+  via the shared `aie-flow` keyframes (reduced-motion gated).
 
 ## File structure
 ```

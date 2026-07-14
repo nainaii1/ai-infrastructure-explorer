@@ -1,5 +1,50 @@
 # Design Reference — AI Infrastructure Explorer
 
+> **✅ CURRENT (2026-07-15): the v7 "Unpacked" cool theme is live (Phase 6, U1–U8).**
+> **`shared/theme.css` `:root` is the single source of truth** — the duplicate
+> `desk.html` `:root` was deleted (U2), and the old `--serif` alias is gone (U8;
+> every site now says `var(--display)`). A Samsung-Unpacked aesthetic: cool
+> neutral-grey canvas, bold geometric display type, ONE blue→violet
+> brand-gradient accent used sparingly, true-black "event stage" dark surfaces.
+>
+> **Palette:** bg `#f4f5f7` (cool neutral grey) · card `#ffffff` · border
+> `#e2e5ea` · text `#2a2e35` · muted `#7c828c` · ink `#0b0d12` · recessed
+> `--paper-sink #eceef1` / `--paper-tint #f0f2f5`. **Brand:** `--brand-grad`
+> = `linear-gradient(100deg, #2b6bf3, #7a3bf0)` (a/b tokens `--brand-a #2b6bf3`
+> / `--brand-b #7a3bf0`), solid fallback `--brand-ink #3d55f2` — used sparingly:
+> the 3px pure-CSS top border (`.gradient-border`) + at most one gradient-text
+> moment per front-of-house page. **Stage** (true-black dark surfaces —
+> cross-section, NVIDIA hub, vault graph): `--stage #0a0a0c` / `--stage-hi
+> #16161a`.
+>
+> **Type:** `--display` = `"Avenir Next", "Futura", -apple-system, "SF Pro
+> Display", "Segoe UI", system-ui, sans-serif` (hero + chapter heads, standfirst,
+> wordmark, ledger titles; weight 700 / -0.02em at use sites). `--sans` (Apple
+> system) for body + data-dense surfaces; `--mono` (SF Mono) for tickers,
+> numbers, small-caps labels. No CDN fonts.
+>
+> **Shape / shadow / motion:** `--r-card 20px` · `--r-tile 14px` · `--r-chip
+> 999px`; cool-tinted two-layer `--shadow-sm` / `--shadow-lg` (`rgba(15,23,42,…)`);
+> motion unchanged — `--ease 240ms ease`, `--dur 240ms`, `--spring
+> cubic-bezier(.32,.72,.28,1.15)` (capsule pill, drill-downs, reveals), all
+> entrance/decorative motion gated on `prefers-reduced-motion`.
+>
+> **Category colors** (data-owned, `ingest/store/base.json` →
+> `AIE_DATA.categories[id].color`, deepened for the cool canvas in U3):
+> Photonics `#3b82f6` · Memory `#8b5cf6` · Fabs `#e08a00` · Neoclouds `#16a34a`
+> · Materials `#f97316` · Networking `#0d9488` · Glass `#0284c7` · Robotics
+> `#e11d48` · Accelerators `#76b900` · Hyperscalers `#6366f1`. Each category
+> now also carries a validated line-art `icon` (U6). Tier/stance badges use
+> the cool-tinted `--sem-*` tokens (core/act green, accumulate sky, watch
+> amber, radar/pass muted).
+>
+> **Components since the warm theme:** the desk Focus card
+> (`AIE.renderFocusCard` / `.aie-focus`, U5); Chapter 01's compact ticker-tile
+> grid + expand-in-place detail row (`makeTile` / `makeCardDetail`, animated by
+> `AIE.setDrilldownOpen`, U7). Everything below (the warm "paper" theme, the v6
+> cleanroom, the pre-v6 cream theme) is **historical baseline only** — trust
+> `shared/theme.css` first.
+
 > **⚠️ Superseded again (2026-07-08): the v7 "Private Coverage" editorial theme shipped.**
 > Design tokens + shared components now live in **`shared/theme.css`** (mirrored
 > in `desk.html`'s inline `:root`) — **that file is the source of truth, not this
