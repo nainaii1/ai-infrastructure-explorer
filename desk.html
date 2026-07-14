@@ -380,6 +380,9 @@
       margin-bottom: 2px;
     }
     .mp-arrow { flex: 0 0 auto; align-self: center; padding-top: 46px; color: var(--muted); }
+    /* Ambient dash-scroll on the flow arrows (U7) — the aie-flow keyframes
+       live in theme.css (U2); its reduced-motion gate stops this too. */
+    .flow-dash { animation: aie-flow 1.4s linear infinite; }
     .mp-hub { display: flex; justify-content: center; }
     .mp-hub .layer-hub { width: 100%; max-width: 420px; }
 
@@ -607,11 +610,13 @@
        ============================================================ */
     .cards-section { margin-top: 40px; }
 
-    /* Section ledger header: a hairline rule with a mono caption. */
+    /* Section ledger header: a hairline rule with a mono caption. U7 folds the
+       priority chip scroller into this row (eyebrow · scope · chips · toggle). */
     .cards-ledger {
       display: flex;
-      align-items: baseline;
+      align-items: center;
       gap: 12px;
+      flex-wrap: wrap;
       padding-bottom: 10px;
       margin-bottom: 22px;
       border-bottom: 1px solid var(--border);
@@ -628,15 +633,96 @@
       font-size: 11px;
       letter-spacing: 0.04em;
       color: var(--ink);
-      margin-left: auto;
+      white-space: nowrap;
     }
     .cards-ledger .ledger-scope b { color: inherit; font-weight: 700; }
 
     .card-grid {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 18px;
+      grid-template-columns: repeat(auto-fill, minmax(168px, 1fr));
+      gap: 12px;
     }
+
+    /* Compact ticker tile (U7) — the grid unit. Clicking expands the full
+       dossier card in-place on a full-width detail row below the tile's row. */
+    .tk-tile {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      min-height: 96px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-tile);
+      padding: 12px 14px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform var(--ease), box-shadow var(--ease),
+                  border-color var(--ease), background var(--ease);
+    }
+    .tk-tile::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; bottom: 0;
+      width: 3px;
+      background: var(--accent);
+      transition: width var(--ease);
+    }
+    .tk-tile:hover {
+      transform: translateY(-2px);
+      border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+      box-shadow: 0 8px 20px -12px color-mix(in srgb, var(--accent) 50%, transparent);
+    }
+    .tk-tile:hover::before { width: 5px; }
+    .tk-tile.is-open {
+      border-color: color-mix(in srgb, var(--accent) 55%, var(--border));
+      background: color-mix(in srgb, var(--accent) 6%, var(--card));
+      box-shadow: 0 10px 24px -12px color-mix(in srgb, var(--accent) 50%, transparent);
+    }
+    .tk-tile.is-open::before { width: 5px; }
+    .tk-tile:focus-visible { outline: 2px solid var(--muted); outline-offset: 2px; }
+
+    .tk-tile-top { display: flex; align-items: center; gap: 8px; min-width: 0; }
+    .tk-tile-icon { flex: 0 0 auto; display: grid; place-items: center; color: var(--accent); }
+    .tk-tile-icon svg { display: block; }
+    .tk-tile-sym {
+      font-family: var(--mono);
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--accent);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .tk-tile-spark { flex: 0 0 auto; margin-left: auto; color: var(--accent); opacity: 0.85; }
+    .tk-tile-co {
+      font-size: 11.5px;
+      color: var(--muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .tk-tile-badges { display: flex; align-items: center; gap: 5px; margin-top: auto; }
+    .tk-tile-badges .tier-badge,
+    .tk-tile-badges .vd-stance { font-size: 9px; padding: 2px 7px; }
+
+    /* Expand-in-place detail row — a full-width grid row inserted right after
+       the clicked tile's row, animated by AIE.setDrilldownOpen (JS-measured
+       max-height; the grid-template-rows 0fr->1fr trick is the documented v6
+       bug — see .layer-detail's comment). */
+    .tk-detail-row {
+      grid-column: 1 / -1;
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: max-height var(--dur) var(--spring), opacity var(--ease);
+    }
+    .tk-detail-row.open { opacity: 1; }
+    .tk-detail-inner { padding: 2px 0 6px; }
+    .tk-detail-inner .tk-card { max-width: 640px; }
+    /* The detail card is stationary inside its clipped row — no hover lift. */
+    .tk-detail-inner .tk-card:hover { transform: none; }
 
     /* The card. */
     .tk-card {
@@ -797,19 +883,22 @@
     }
     .cards-empty p { margin: 0; font-size: 13px; color: var(--muted); }
 
-    /* "What they prioritize" strip — ranked chips from AIE_DATA.priorities. */
+    /* "What they prioritize" — mention-count chips, merged into the Holdings
+       ledger row as a horizontal scroller (U7; was a standalone card strip). */
     .priority-strip {
       display: flex;
-      flex-wrap: wrap;
       align-items: center;
       gap: 8px;
-      margin-bottom: 18px;
-      padding: 12px 14px;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--r-card);
+      flex: 1 1 260px;
+      min-width: 0;
+      overflow-x: auto;
+      padding: 2px 0;
+      scrollbar-width: none;
     }
+    .priority-strip::-webkit-scrollbar { display: none; }
+    .priority-strip[hidden] { display: none; }
     .priority-strip .ps-label {
+      flex: 0 0 auto;
       font-family: var(--mono);
       font-size: 10px;
       letter-spacing: 0.16em;
@@ -819,6 +908,7 @@
     }
     .ps-chip {
       display: inline-flex;
+      flex: 0 0 auto;
       align-items: baseline;
       gap: 6px;
       padding: 5px 10px;
@@ -827,6 +917,7 @@
       background: var(--bg);
       font-family: var(--mono);
       font-size: 12px;
+      white-space: nowrap;
     }
     .ps-chip .ps-rank { color: var(--muted); font-size: 10px; }
     .ps-chip .ps-sym { font-weight: 700; color: var(--ink); }
@@ -905,6 +996,11 @@
       letter-spacing: 0.16em; text-transform: uppercase;
       color: var(--muted); margin-bottom: 10px;
     }
+    /* U7: glossary folds behind a drill-down (reuses the .bd-sources animation
+       + .bd-toggle pill) so Chapter 01 stays short by default. */
+    .gl-head { display: flex; align-items: center; gap: 12px; }
+    .gl-head .gl-eyebrow { margin-bottom: 0; }
+    .gl-head .bd-toggle { margin-top: 0; margin-left: auto; }
     .gl-items { display: flex; flex-wrap: wrap; gap: 8px 22px; }
     .gl-item { font-size: 12.5px; line-height: 1.55; color: var(--muted); }
     .gl-item dfn {
@@ -1147,10 +1243,9 @@
       border-radius: 6px; padding: 4px 8px; cursor: pointer;
     }
 
-    /* ---------- Responsive (mobile breakpoint 768px) ---------- */
-    @media (max-width: 1024px) {
-      .card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    }
+    /* ---------- Responsive (mobile breakpoint 768px) ----------
+       The tile grid is auto-fill (minmax 168px) so it needs no per-breakpoint
+       column overrides (U7). */
     @media (max-width: 768px) {
       /* Room for the bottom-floating capsule (iOS tab-bar position). */
       .app { padding: 0 16px calc(96px + env(safe-area-inset-bottom)); }
@@ -1172,7 +1267,6 @@
       .capsule-link .cl-index { display: none; }
       .chapter { padding-top: 32px; scroll-margin-top: 16px; }
 
-      .card-grid { grid-template-columns: minmax(0, 1fr); }
       .cards-section { margin-top: 28px; }
       /* Layer bands: let content wrap; count drops below the title block. */
       .layer-band { flex-wrap: wrap; align-items: flex-start; gap: 8px 14px; }
@@ -1273,15 +1367,17 @@
           <div class="map-cross" id="mapCross" hidden></div>
         </div>
 
-        <!-- Section B: ticker cards. Built by renderCards() from the
-             seeded localStorage tickers; filtered by map selection. -->
+        <!-- Section B: ticker tiles. Built by renderCards() from the
+             seeded localStorage tickers; filtered by map selection. Each tile
+             expands in place to the full dossier card (U7). -->
         <div class="cards-section">
-          <!-- "What @aleabitoreddit prioritizes" — ranked from AIE_DATA.priorities
-               (populated by the ingest backend). Hidden until data exists. -->
-          <div class="priority-strip" id="priorityStrip" hidden></div>
           <div class="cards-ledger">
             <span class="ledger-eyebrow">Holdings</span>
             <span class="ledger-scope" id="cardScope"></span>
+            <!-- "What @aleabitoreddit prioritizes" — mention chips from
+                 AIE_DATA.priorities, riding the ledger row as a horizontal
+                 scroller (U7). Hidden until data exists. -->
+            <div class="priority-strip" id="priorityStrip" hidden></div>
             <button type="button" class="tier-toggle" id="cardTierToggle" hidden></button>
           </div>
           <div class="card-grid" id="cardGrid" aria-live="polite"></div>
@@ -1803,7 +1899,7 @@
       function makeFlowArrow(cls) {
         var wrap = el("div", cls || "mp-arrow");
         wrap.innerHTML = '<svg width="28" height="16" viewBox="0 0 28 16" aria-hidden="true">'
-          + '<line x1="1" y1="8" x2="20" y2="8" stroke="currentColor" stroke-width="2" stroke-dasharray="3 3"/>'
+          + '<line class="flow-dash" x1="1" y1="8" x2="20" y2="8" stroke="currentColor" stroke-width="2" stroke-dasharray="3 3"/>'
           + '<path d="M15 2 L23 8 L15 14" fill="none" stroke="currentColor" stroke-width="2" '
           + 'stroke-linejoin="round" stroke-linecap="round"/></svg>';
         return wrap;
@@ -2033,7 +2129,117 @@
         return node;
       }
 
-      function makeCard(ticker) {
+      /* Compact tile (U7) — the grid unit. Category icon · mono ticker ·
+         one-line company · tier + stance micro-badges · sparkline. Activation
+         (click / Enter / Space + aria-expanded) mirrors appendLayerBand. */
+      function makeTile(ticker) {
+        var cat = (DATA.categories && DATA.categories[ticker.category]) || null;
+        var accent = cat ? cat.color : "#64748b";
+
+        var tile = el("article", "tk-tile");
+        tile.style.setProperty("--accent", accent);
+        tile.setAttribute("role", "button");
+        tile.setAttribute("tabindex", "0");
+        tile.setAttribute("aria-expanded", "false");
+
+        var top = el("div", "tk-tile-top");
+        if (cat && cat.icon) {
+          var iconWrap = el("span", "tk-tile-icon");
+          var icon = AIE.iconSVG(cat.icon, accent, 18);
+          if (icon) iconWrap.appendChild(icon);
+          top.appendChild(iconWrap);
+        }
+        top.appendChild(el("span", "tk-tile-sym", ticker.ticker));
+        var spark = el("span", "tk-tile-spark");
+        spark.appendChild(sparkSVG(ticker.ticker, 56, 20));
+        top.appendChild(spark);
+        tile.appendChild(top);
+
+        tile.appendChild(el("div", "tk-tile-co", ticker.company || ""));
+
+        var badges = el("div", "tk-tile-badges");
+        badges.appendChild(el("span", "tier-badge " + tierOf(ticker), tierOf(ticker)));
+        if (ticker.verdict) {
+          badges.appendChild(el("span", "vd-stance " + ticker.verdict.stance, ticker.verdict.stance));
+        }
+        tile.appendChild(badges);
+
+        tile.addEventListener("click", function () { toggleTileDetail(tile, ticker); });
+        tile.addEventListener("keydown", function (e) {
+          if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggleTileDetail(tile, ticker); }
+        });
+        return tile;
+      }
+
+      /* Expand-in-place (U7): clicking a tile inserts a full-width detail row
+         right after the clicked tile's visual row, animated through
+         AIE.setDrilldownOpen (JS-measured max-height — NOT grid-template-rows
+         0fr->1fr, the documented v6 bug). One open at a time; Esc or a
+         re-click closes; the row reseats itself when a resize regroups rows. */
+      var openDetail = null; // { tile, row, inner } — the one open detail
+
+      function insertDetailAfterRow(tile, row) {
+        var grid = document.getElementById("cardGrid");
+        var tiles = Array.prototype.slice.call(grid.querySelectorAll(".tk-tile"));
+        var top = tile.offsetTop;
+        var last = tile;
+        for (var i = tiles.indexOf(tile) + 1; i < tiles.length; i++) {
+          if (tiles[i].offsetTop === top) { last = tiles[i]; } else { break; }
+        }
+        last.insertAdjacentElement("afterend", row);
+      }
+
+      function closeTileDetail(refocus) {
+        if (!openDetail) return;
+        var od = openDetail;
+        openDetail = null;
+        od.tile.classList.remove("is-open");
+        od.tile.setAttribute("aria-expanded", "false");
+        setDrilldownOpen(od.row, od.inner, false, "open");
+        var removed = false;
+        function remove() {
+          if (removed) return;
+          removed = true;
+          if (od.row.parentNode) od.row.parentNode.removeChild(od.row);
+        }
+        od.row.addEventListener("transitionend", function (e) {
+          if (e.propertyName === "max-height") remove();
+        });
+        setTimeout(remove, 420); // fallback: reduced-motion / missed event
+        if (refocus) od.tile.focus();
+      }
+
+      function toggleTileDetail(tile, ticker) {
+        var wasOpen = openDetail && openDetail.tile === tile;
+        closeTileDetail(false);
+        if (wasOpen) return;
+        var row = el("div", "tk-detail-row");
+        var inner = el("div", "tk-detail-inner");
+        inner.appendChild(makeCardDetail(ticker));
+        row.appendChild(inner);
+        insertDetailAfterRow(tile, row);
+        openDetail = { tile: tile, row: row, inner: inner };
+        tile.classList.add("is-open");
+        tile.setAttribute("aria-expanded", "true");
+        void row.offsetHeight; // commit the closed state so max-height animates
+        setDrilldownOpen(row, inner, true, "open");
+      }
+
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") closeTileDetail(true);
+      });
+
+      window.addEventListener("resize", function () {
+        if (!openDetail) return;
+        var od = openDetail;
+        if (od.row.parentNode) od.row.parentNode.removeChild(od.row);
+        insertDetailAfterRow(od.tile, od.row);
+        od.row.style.maxHeight = od.inner.scrollHeight + "px";
+      });
+
+      /* Full dossier card — the expand-in-place detail (was makeCard();
+         badges / prose / verdict markup unchanged). */
+      function makeCardDetail(ticker) {
         var cat = (DATA.categories && DATA.categories[ticker.category]) || null;
         var country = (DATA.countries && DATA.countries[ticker.market]) || null;
         var accent = cat ? cat.color : "#64748b";
@@ -2167,6 +2373,12 @@
           }
         }
 
+        // The grid is wiped below — drop any open expand-in-place detail with
+        // it (unregisters the row from the shared drill-down resize registry).
+        if (openDetail) {
+          setDrilldownOpen(openDetail.row, openDetail.inner, false, "open");
+          openDetail = null;
+        }
         grid.innerHTML = "";
 
         if (list.length === 0) {
@@ -2185,13 +2397,14 @@
         }
 
         list.forEach(function (ticker, i) {
-          var card = makeCard(ticker);
-          revealify(card, i);
-          grid.appendChild(card);
+          var tile = makeTile(ticker);
+          revealify(tile, i);
+          grid.appendChild(tile);
         });
       }
 
-      /* "Jargon, translated" — inline glossary from AIE_DATA.glossary. */
+      /* "Jargon, translated" — glossary from AIE_DATA.glossary, folded behind
+         a drill-down (U7) so Chapter 01 stays short by default. */
       function renderGlossary() {
         var strip = document.getElementById("glossaryStrip");
         if (!strip) return;
@@ -2199,7 +2412,21 @@
         if (!items.length) { strip.hidden = true; return; }
         strip.hidden = false;
         strip.innerHTML = "";
-        strip.appendChild(el("span", "gl-eyebrow", "Jargon, translated"));
+
+        var head = el("div", "gl-head");
+        head.appendChild(el("span", "gl-eyebrow", "Jargon, translated"));
+        var n = items.length;
+        var label = function (open) {
+          return (open ? "Hide " : "Show ") + n + (n === 1 ? " term" : " terms");
+        };
+        var toggle = el("button", "bd-toggle", label(false));
+        toggle.setAttribute("type", "button");
+        toggle.setAttribute("aria-expanded", "false");
+        head.appendChild(toggle);
+        strip.appendChild(head);
+
+        var drill = el("div", "bd-sources");
+        var drillInner = el("div", "bd-sources-inner");
         var wrap = el("div", "gl-items");
         items.forEach(function (g) {
           var item = el("span", "gl-item");
@@ -2207,7 +2434,16 @@
           item.appendChild(document.createTextNode(g.def));
           wrap.appendChild(item);
         });
-        strip.appendChild(wrap);
+        drillInner.appendChild(wrap);
+        drill.appendChild(drillInner);
+        strip.appendChild(drill);
+
+        toggle.addEventListener("click", function () {
+          var open = !drill.classList.contains("open");
+          toggle.setAttribute("aria-expanded", open ? "true" : "false");
+          toggle.textContent = label(open);
+          setDrilldownOpen(drill, drillInner, open, "open");
+        });
       }
 
       /* "New this week" — tickers added within 7 days of today. */
