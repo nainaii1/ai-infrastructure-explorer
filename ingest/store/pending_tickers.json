@@ -45,7 +45,7 @@
     "candidate": "MC",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:37:23Z",
-    "count": 18
+    "count": 19
   },
   {
     "candidate": "MF",
@@ -765,7 +765,7 @@
     "candidate": "MS",
     "sourceUrl": "",
     "firstSeen": "2026-07-01T14:57:24Z",
-    "count": 3
+    "count": 4
   },
   {
     "candidate": "OSAT",
@@ -1323,6 +1323,12 @@
     "candidate": "ER",
     "sourceUrl": "",
     "firstSeen": "2026-07-14T09:36:28Z",
+    "count": 1
+  },
+  {
+    "candidate": "CPI",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-14T16:59:29Z",
     "count": 1
   }
 ]

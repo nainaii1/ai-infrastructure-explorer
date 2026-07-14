@@ -3503,5 +3503,53 @@
     ],
     "conviction": "normal",
     "tags": []
+  },
+  {
+    "id": "h_6c2c47820fd61d59",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-14T16:59:09Z",
+    "ingestedAt": "2026-07-14T16:59:09Z",
+    "text": "Two different capacity expansion announcements today across \n$TSEM\n and \n$AAOI\n.\n\nTower Semi, supported by the Japanese government, announced expansion of its 300mm Silicon Photonics (SiPho), Silicon Germanium (SiGe), and advanced packaging capabilities. \n\nTargeting $1.2B net profit, and $3.6B revenue in 2028 (with a ~$28B MC, that's ~23.3 2028 forward p/e).\n\nAAOI announced the commencement of its buildout, roughly 400,000 square feet of manufacturing to make 800g/1.6T production go brrr. \n\nThe overall expansion is also supported by the local city government in Texas. (they also $20.85M worth of subsidies from the State earlier).\n\nThis one isn't exactly as materially new as Tower, since AAOI originally announced these plans before. Just commencement of it. \n\nRegardless, glad to see both of these companies in their Anime training arc phase as they power up.",
+    "tickers": [
+      "AAOI",
+      "TSEM"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_742edebe9c4a8c54",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-14T16:59:29Z",
+    "ingestedAt": "2026-07-14T16:59:29Z",
+    "text": "Feels like algos often miss $SIVE, after slight \n$LITE\n / optical sector recovery after CPI print. Especially bc it's trading on some random Swedish exchange, but catches up on random days. \n\nThat being said it's definitely on institutional radar, especially since MS put it next to \n$LITE\n and \n$COHR\n as the three leading CPO laser companies yesterday. \n\nJust waiting for things to play out, stocks don't move in a straight line up every day.",
+    "tickers": [
+      "COHR",
+      "LITE",
+      "SIVE"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_6bf88df291b0d0c8",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-14T16:59:42Z",
+    "ingestedAt": "2026-07-14T16:59:42Z",
+    "text": "$NBIS\n signs $1B+ compute agreement with Reflection AI, for GB300 access through 2029.\n\nReflection also signed a multi-billion dollar agreement with \n$SPCX\n earlier. \n\nInteresting to say the least, seeing Nebius drop -5% off the news today. \n\nAlso... counterparty to get this done kinda reminds me of OpenAI, where they might not have the funds to actually execute on these LTAs yet compared to \n$META\n or \n$MSFT\n. \n\nBut generally positive long term developments, customer diversification was one of the core strengths of Nebius.",
+    "tickers": [
+      "META",
+      "MSFT",
+      "NBIS",
+      "SPCX"
+    ],
+    "conviction": "normal",
+    "tags": []
   }
 ]
