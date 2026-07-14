@@ -117,11 +117,16 @@ not throwaway config.
   `:root` deleted; `paintGradientBorder` now a no-op — the border is pure-CSS
   brand chrome), **U3** (4 category hues deepened for the cool canvas).
   Shipped: **U6** (12 validated, data-owned category icons in the pipeline
-  bands and hub). Remaining: **U5** focus card, **U7** map tiles +
-  expand-in-place, **U8** docs + `--serif`-alias cleanup —
-  see `docs/EXECUTION.md` Phase 6. The Design system section below carries the
-  shipped U2/U3 token values; its comprehensive rewrite (and `docs/DESIGN.md`'s)
-  lands in U8.
+  bands and hub), **U5** (2026-07-14 — a desk-authored weekly Focus card:
+  `verdicts.json` `meta.focus` = `{headline, dek, updatedAt, tickers[]}`,
+  rendered by the shared `AIE.renderFocusCard()` / `.aie-focus` component as
+  the full-width lead on `index.html` and the hero's lead card on
+  `desk.html`, demoting the raw latest-tweet card to a compact secondary
+  slot linking into Chapter 03; absent `meta.focus` → both surfaces render
+  exactly as before). Remaining: **U7** map tiles + expand-in-place, **U8**
+  docs + `--serif`-alias cleanup — see `docs/EXECUTION.md` Phase 6. The
+  Design system section below carries the shipped U2/U3 token values; its
+  comprehensive rewrite (and `docs/DESIGN.md`'s) lands in U8.
 - **Live counts** (approximate, check `ingest/store/*.json` for current):
   ~109 tickers tracked (23 core / 21 watch / 65 radar after focus-weighting),
   10 categorized layers + an `unsorted` triage bucket (one Core name, RDDT,

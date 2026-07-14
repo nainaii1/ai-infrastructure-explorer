@@ -19,6 +19,9 @@
        nothing here redefines a token or an .aie-* component. */
     .front { padding: 0 0 8px; }
     .front-eyebrow { margin: 0 0 14px; }
+    /* Focus card spacing only — the look itself is the shared .aie-focus
+       component in theme.css (used identically on desk.html's hero). */
+    .front-focus { margin: 0 0 28px; }
     .front-headline {
       margin: 0 0 20px;
       font-family: var(--display);
@@ -130,6 +133,10 @@
   <div id="topNav"></div>
 
   <main class="aie-wrap front">
+    <!-- Focus — the week's one headline (desk.meta.focus). Hidden entirely
+         when absent; AIE.renderFocusCard handles both states. -->
+    <section class="aie-focus front-focus" id="focusCard" hidden></section>
+
     <!-- Two-column Unpacked hero: copy left, gem art right. -->
     <section class="unf-hero">
       <div class="unf-hero-copy">
@@ -202,6 +209,9 @@
       var dmeta = desk.meta || {};
       var verdictCount = (desk.verdicts || []).length;
       var digestCount = ((DATA.brain || {}).digests || []).length;
+
+      // ---- Focus card: the week's one headline (desk.meta.focus). ----
+      AIE.renderFocusCard("#focusCard", dmeta.focus);
 
       // ---- Hero: short standfirst + injected gem art. ----
       var sf = document.getElementById("standfirst");

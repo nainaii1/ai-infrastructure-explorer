@@ -48,6 +48,16 @@ operator asking.
    - Names that dropped out of Core: remove their verdict (the UI hides
      verdicts for absent names automatically via the stamp).
 
+4a. **Author the week's Focus headline** in `ingest/store/verdicts.json`
+   `meta.focus`: `{ headline, dek, updatedAt, tickers[] }`. One story only —
+   the single most decision-relevant development from this pass, not a
+   roundup. `headline` short and declarative (desk voice, no hedging).
+   `dek` one line of supporting context. `tickers` the 1-3 names the story
+   is actually about. On a quiet week with nothing headline-worthy, leave
+   `meta.focus` as-is (a stale-but-true headline beats a manufactured one) —
+   never invent a story to fill the slot. Bump `updatedAt` only when the
+   headline itself changes.
+
 4b. **Write/refresh coverage memos** in `ingest/store/memos.json` — only for
    Core names whose **stance changed** in step 4 or that gained **≥3 new
    theses** since the last review (don't rewrite the whole book weekly):

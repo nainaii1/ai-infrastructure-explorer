@@ -45,7 +45,7 @@ data.js           generated as always; gains memos, vault, later calls
 | 3 | Knowledge Vault (store+sync, index/page views, graph, authoring loop) | P11–P14 | ✅ 2026-07-12 |
 | 4 | Cross-linking everywhere | P15 | ✅ |
 | 5 | Performance hooks (calls.json + minimal page) | P16 | ✅ 2026-07-12 |
-| 6 | "Unpacked" rebrand + focus card + map restructure | U1–U8 | 🚧 U1 done 2026-07-13 |
+| 6 | "Unpacked" rebrand + focus card + map restructure | U1–U8 | 🚧 U1–U6 done, U7–U8 remain |
 
 ## Verification checklist (run after EVERY prompt)
 
@@ -416,7 +416,7 @@ map filter / view toggle / watchlist sort / evidence+brain drill-downs / vault
 type filter / graph render all working); 101 unit tests green. reduced-motion
 gating untouched, so preserved by construction._
 
-### ☐ U5 · S5-H — Focus card ("the headline")
+### ☑ U5 · S5-H — Focus card ("the headline") (2026-07-14)
 
 > Read CLAUDE.md + docs/EXECUTION.md Phase 6. Every financial terminal leads
 > with a headline; this site leads with raw tweets. (1) `ingest/store/
@@ -433,6 +433,22 @@ gating untouched, so preserved by construction._
 > `meta.focus` → both surfaces render exactly as today. Regen; verify both
 > surfaces + the absent-key empty state in a sandbox copy. Commit as
 > `feat: weekly focus headline card`.
+
+_Shipped 2026-07-14. Seeded `meta.focus` from the SIVE insider-buying /
+Nvidia-denial story in the 2026-07-12 verdict (tickers SIVE, LITE — the
+channel-check thread ties both). Since `verdicts.json` already passes
+through whole in `generate_data_js.py`, no pipeline code changed. One
+addition beyond the prompt's letter: the renderer (`AIE.renderFocusCard`)
+and its look (`.aie-focus` family) landed in `shared/common.js` /
+`shared/theme.css` rather than being written twice — hard rule #3 requires
+anything used by 2+ pages to live in shared, and this component is used by
+both index.html and desk.html identically (pages only add their own
+margin/placement CSS around it). `desk.html`'s demoted "Latest signal" slot
+keeps `makeThesisCard(..., {compact:true})` and wraps its eyebrow in a link
+to `#chapter-thesis`. Verified: both pages render live, the `meta.focus`
+absent-state collapses cleanly with no layout gap (tested in-browser via
+`AIE.renderFocusCard(mount, null)`), 375px mobile clean on both pages, no
+console errors, 106 unit tests green._
 
 ### ✅ U6 · Op-M — category icons in data
 

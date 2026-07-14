@@ -13,6 +13,7 @@
      renderNav(activePage, mount)                  theme.css top nav
      linkForTicker(sym)                            where a ticker chip points
      makeThesisCard(th, opts)                      shared .th-card renderer
+     renderFocusCard(mount, focus)                 shared .aie-focus renderer
 
    Colors are read from AIE_DATA.categories at runtime — never hardcoded here
    (CLAUDE.md hard rule #4).
@@ -330,6 +331,39 @@
   }
 
   /* ==========================================================================
+     Focus card (Phase 6, U5) — the week's one headline, from desk.meta.focus.
+     One renderer for index.html (full-width lead) and desk.html (hero lead
+     card); each page only wraps `mount` with its own layout/spacing classes.
+     No `focus.headline` -> mount stays hidden (graceful absence — both pages
+     render exactly as before the feature shipped).
+     ======================================================================== */
+  function renderFocusCard(mount, focus) {
+    var host = typeof mount === "string" ? document.querySelector(mount) : mount;
+    if (!host) return;
+    host.textContent = "";
+    if (!focus || !focus.headline) { host.hidden = true; return; }
+    host.hidden = false;
+
+    host.appendChild(mk("span", "aie-label aie-focus-eyebrow",
+      "Focus" + (focus.updatedAt ? " · " + fmtDate(focus.updatedAt) : "")));
+    host.appendChild(mk("h2", "aie-focus-headline", focus.headline));
+    if (focus.dek) host.appendChild(mk("p", "aie-focus-dek", focus.dek));
+
+    var tickers = focus.tickers || [];
+    if (tickers.length) {
+      var row = mk("div", "aie-focus-tickers");
+      tickers.forEach(function (sym) {
+        var chip = mk("a", "aie-chip aie-chip--ticker", sym);
+        chip.href = linkForTicker(sym);
+        var color = tickerCategoryColor(sym);
+        if (color) chip.style.setProperty("--chip-accent", color);
+        row.appendChild(chip);
+      });
+      host.appendChild(row);
+    }
+  }
+
+  /* ==========================================================================
      Inline prose markup — the one parser for the whole app.
      `slugify` matches ingest/vault_sync.slugify() so [[wikilinks]] resolve to
      the right vault page. `renderInline` appends parsed nodes into a container:
@@ -595,6 +629,7 @@
     renderNav: renderNav,
     linkForTicker: linkForTicker,
     makeThesisCard: makeThesisCard,
+    renderFocusCard: renderFocusCard,
     artCoverage: artCoverage,
     artDesk: artDesk,
     artVault: artVault,
