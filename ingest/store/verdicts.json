@@ -4,7 +4,7 @@
     "reviewedAt": "2026-07-16T00:00:00Z",
     "reviewer": "Claude (Opus 4.8 / Fable 5) via Claude Code weekly review",
     "thesesConsidered": 221,
-    "coverage": "Core tier, top 15 by priority score, plus sticky act/accumulate holdovers (17 names)",
+    "coverage": "Core tier, top 15 by priority score, plus sticky act/accumulate holdovers and operator-requested names (18 names)",
     "cadence": "weekly",
     "disclaimer": "Second-opinion research notes on @aleabitoreddit's ideas. Personal research tool \u2014 not investment advice.",
     "focus": {
@@ -224,6 +224,20 @@
       "basedOnThesisIds": [
         "h_d11968fac60e79dd",
         "h_05faa8a8788a2cb1"
+      ],
+      "updatedAt": "2026-07-16T00:00:00Z"
+    },
+    {
+      "ticker": "MU",
+      "stance": "watch",
+      "view": "Added at operator request for memo coverage. The demand side is undeniable \u2014 16+ LTAs plus a new QCOM agreement signed today (the stock fell 5%+ anyway, his 'deleveraging tail' read), UBS modeling DDR contracts +32% in Q3, and MU leading a ~\u00a51.5T Hiroshima investment. But two of his own observations argue against chasing the flagship: Micron retained price ceilings-and-floors in its strategic agreements (it captures less of the spot spike than SK Hynix), and on the sharpest sub-cycles (SLC NAND) he says the beneficiaries are smaller players because MU's ~$1T scale dwarfs the TAM. His MU conviction is real but low-resolution \u2014 dip-buy comments and list posts, never a dedicated deep dive.",
+      "execution": "No dedicated action \u2014 the desk's memory-upcycle torque is expressed via SNDK. MU is the lower-beta, already-owned-by-everyone leg; if you want it, it's a core-portfolio decision like NVDA, not an edge from this corpus.",
+      "changesMind": "LTA terms shown to participate in spot upside (upgrades it), a dedicated MU thesis with numbers from him, or DRAM contract momentum breaking (downgrades the whole memory book, SNDK first).",
+      "basedOnThesisIds": [
+        "h_fbc69a525f2c83ea",
+        "h_6619c85d86ae9ed8",
+        "h_e7720e250de56618",
+        "h_8660c845cb321357"
       ],
       "updatedAt": "2026-07-16T00:00:00Z"
     }

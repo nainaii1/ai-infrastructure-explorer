@@ -3681,5 +3681,35 @@
     ],
     "conviction": "normal",
     "tags": []
+  },
+  {
+    "id": "h_fbc69a525f2c83ea",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-16T14:21:43Z",
+    "ingestedAt": "2026-07-16T14:21:43Z",
+    "text": "Today, \n$MU\n announced it signed memory LTAs with \n$QCOM\n.\n\nInteresting reaction to see Micron proceeded to drop 5.37% right after.\n\nDoesn’t quite feel like there’s anything individually wrong with memory or AI names with all these structural agreements signed?\n\nMore like the tail end of deleveraging / margin cascades.",
+    "tickers": [
+      "MU",
+      "QCOM"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_51d64b06417d7c82",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-16T14:21:51Z",
+    "ingestedAt": "2026-07-16T14:21:51Z",
+    "text": "I personally think valuations are extremely stupid now on \n$AAOI\n and $SIVE.\n\nWith AAOI you're doing $5.62B annualized revenue (probably higher), by midpoint next year. And it's a $8B MC.\n\nWith Sivers, I would est. it's close to ~5 forward 2028 P/E off 10% win allocation, 65% yield, and $75 ASP.",
+    "tickers": [
+      "AAOI",
+      "SIVE"
+    ],
+    "conviction": "normal",
+    "tags": []
   }
 ]

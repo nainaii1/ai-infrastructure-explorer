@@ -1,7 +1,7 @@
 {
   "meta": {
     "schemaVersion": 1,
-    "syncedAt": "2026-07-16T10:15:47Z",
+    "syncedAt": "2026-07-16T14:33:08Z",
     "pageCount": 62,
     "linkCount": 187
   },
@@ -232,8 +232,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 46,
-          "lastMentioned": "2026-07-16T06:22:18Z",
+          "mentions": 47,
+          "lastMentioned": "2026-07-16T14:21:51Z",
           "category": "photonics",
           "market": "US",
           "marketCapTier": "Small",
@@ -800,8 +800,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 19,
-          "lastMentioned": "2026-07-16T09:55:59Z",
+          "mentions": 20,
+          "lastMentioned": "2026-07-16T14:21:43Z",
           "category": "memory",
           "market": "US",
           "marketCapTier": "Large",
@@ -995,8 +995,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 81,
-          "lastMentioned": "2026-07-14T16:59:29Z",
+          "mentions": 82,
+          "lastMentioned": "2026-07-16T14:21:51Z",
           "category": "photonics",
           "market": "SE",
           "marketCapTier": "Small",
