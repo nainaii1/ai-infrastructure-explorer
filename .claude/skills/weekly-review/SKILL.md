@@ -12,10 +12,13 @@ session — no Anthropic API key needed.
 
 ## Token budget rule
 
-Verdicts are written for the **Core tier only, top 12–15 by priority
-score** — never for the whole universe. Everything else is covered by tier
-badges and per-theme Brain digests. Do not expand coverage without the
-operator asking.
+Verdicts are written for the **Core tier only: top 15 by priority score,
+plus sticky holdovers** — a name with a live act/accumulate verdict stays
+on the roster even if its score slips out of the top 15, until its stance
+drops to watch/pass (operator decision, 2026-07-16). Score decides who
+*enters*. Never write verdicts for the whole universe — everything else is
+covered by tier badges and per-theme Brain digests. Do not expand coverage
+further without the operator asking.
 
 ## Procedure
 
