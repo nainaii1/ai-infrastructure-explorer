@@ -156,13 +156,25 @@
   function fmtNum(n, dp) {
     return Number(n).toLocaleString(undefined, { minimumFractionDigits: dp, maximumFractionDigits: dp });
   }
-  function fmtMcap(v) {
+  // Currency prefix for money formatting. USD (or unknown/absent) stays "$";
+  // a non-USD listing uses its own symbol so a KRW/SEK figure isn't mislabeled
+  // with a dollar sign (e.g. SK Hynix's cap reads ₩1312T, not $1312T). Falls
+  // back to a "<CODE> " prefix for currencies without a known symbol.
+  var MCAP_CURRENCY_SYMBOLS = {
+    USD: "$", KRW: "₩", EUR: "€", GBP: "£", JPY: "¥", CNY: "¥",
+    TWD: "NT$", HKD: "HK$", SGD: "S$", CAD: "C$", AUD: "A$", SEK: "kr "
+  };
+  function mcapCurrencyPrefix(currency) {
+    if (!currency || currency === "USD") return "$";
+    return MCAP_CURRENCY_SYMBOLS[currency] || (currency + " ");
+  }
+  function fmtMcap(v, currency) {
     if (v == null) return null;
     var abs = Math.abs(v), d = v, unit = "";
     if (abs >= 1e12) { d = v / 1e12; unit = "T"; }
     else if (abs >= 1e9) { d = v / 1e9; unit = "B"; }
     else if (abs >= 1e6) { d = v / 1e6; unit = "M"; }
-    return "$" + fmtNum(d, d < 10 ? 1 : 0) + unit;
+    return mcapCurrencyPrefix(currency) + fmtNum(d, d < 10 ? 1 : 0) + unit;
   }
   // Signed percent string, e.g. +1.2% / -0.4% / 0.0%. Matches the legacy inline
   // formatting used in the watchlist pctCell and the map heat label.

@@ -125,59 +125,41 @@ Go to **http://localhost:8765/** in your browser (not a double-clicked
 rewrites `data.js` with price / market cap / currency (and 7D/1M % when
 available). Afterward, plain double-click shows the last-fetched prices.
 
-**Two data sources, layered:**
-1. **Financial Modeling Prep (FMP)** — the primary source, if
-   `FMP_API_KEY` is set in `ingest/.env`. Free tier (250 calls/day, no
-   card): sign up at [site.financialmodelingprep.com](https://site.financialmodelingprep.com)
-   → Dashboard → API Keys. Reliable exact **price + market cap +
-   currency** for one ticker per call. Its free tier does **not** include
-   historical data, so it can't provide 7D/1M %.
-2. **Yahoo Finance** (key-free) — fills in **7D/1M %** on a best-effort
-   basis, and backfills price/market cap for anything FMP doesn't carry
-   (e.g. some OTC tickers). Yahoo rate-limits (HTTP 429) aggressively and
-   unpredictably right now — when it's blocked, price/market cap still
-   work fine (FMP), but 7D/1M % just won't populate that run. No action
-   needed; try **Fetch prices** again later, or live with price/mcap-only
-   updates in the meantime.
+**The data source (since 2026-07-16): the operator's Google Sheet.**
+Yahoo/FMP fetching was retired — Yahoo rate-limited (HTTP 429) most runs.
+Instead, a Google Sheet keeps every quote live via `GOOGLEFINANCE()`
+formulas (Google refreshes them itself, ~20-min delayed), and
+`ingest/fetch_prices.py` just downloads the sheet's CSV export in one
+request — no API key, no rate limits.
 
-A handful of tickers failing entirely (both sources return nothing) is
-usually normal — check **Supply Chain Map → Unsorted layer**: an
-un-triaged `$CASHTAG` (e.g. `LPK` instead of `LPK.DE`, `KLA` instead of
-`KLAC`) often isn't a valid symbol on its own. Classify it properly (§5)
-and it'll resolve on the next fetch.
+- Sheet: https://docs.google.com/spreadsheets/d/1Zeqqq01H1KiSvJnNArm0kr2rcn-F3FV8uxYjjX8mihA
+  (override with `PRICES_SHEET_URL` in `ingest/.env` if the sheet moves —
+  use the `/export?format=csv` form of the URL).
+- Expected columns: `Ticker` (must match the `ticker` field in
+  `tickers.json`, e.g. `000660.KS`, `SOI.PA`), `GoogleFinanceSymbol`
+  (what the formulas use, e.g. `KRX:000660`), `Price`, `MarketCap`, and
+  optionally `Currency`, `Chg1W`, `Chg1M`, `Chg1Y` (baked into the site
+  as 7D / 1M / 1Y %). Missing optional columns are simply skipped.
+- Tickers not present in the sheet are reported in the run summary
+  (`notInSheet`) and keep their last-known price — add a row to the sheet
+  to start tracking them. `#N/A` cells are treated as "no data", never 0.
 
-### Optional: Google Sheets as a 7D/1M performance source
+**Three ways to refresh (any of them, once or twice a day is plenty):**
+1. **Automatic** — a launchd agent
+   (`~/Library/LaunchAgents/com.aie.refresh-prices.plist`) runs the fetch
+   daily at 09:00 and 21:00. One-time macOS permission needed: System
+   Settings → Privacy & Security → Full Disk Access → add
+   `/usr/bin/python3` (background jobs can't read ~/Documents otherwise).
+   Log: `~/Library/Logs/aie-refresh-prices.log`.
+2. **Double-click `refresh-prices.command`** in the project root.
+3. The **Fetch prices** button (via `serve.py`, as above).
 
-Since Yahoo is the only (unreliable) source for 7D/1M % and FMP's free tier
-can't provide history at all, you can track performance yourself in a
-Google Sheet using the built-in `GOOGLEFINANCE()` function — no scraping,
-no rate limits, and you stay in full control.
-
-1. **Paste the template.** Open `docs/google_finance_template.csv` (one row
-   per tracked ticker, with ready-to-use `GOOGLEFINANCE` formulas already
-   filled in) and paste its contents into a blank Google Sheet. US tickers
-   use the bare symbol; the handful of non-US ones (Sivers `STO:SIVE`, SK
-   Hynix `KRX:000660`, Soitec `EPA:SOI`, LPKF `ETR:LPK`, TSM `NYSE:TSM`)
-   already have the correct exchange-prefixed symbol baked in.
-2. **Snapshot periodically.** Once a week (matching the `/weekly-review`
-   cadence), copy the live "Price" column and **Paste Special → Values
-   only** into a new column labeled with that date. The first snapshot has
-   nothing to compare against; from the second onward you can compute %
-   change with plain arithmetic against the prior dated column.
-3. **Publish as CSV.** File → Share → Publish to web → select the sheet →
-   CSV → Publish. Copy the resulting URL.
-4. **Give me the URL** and I'll build and test an ingest step that reads it
-   directly into `data.js` — same standard as everything else in this
-   project: verified against your real published sheet before it's called
-   done, not assumed to work from the template alone.
-
-**Non-US tickers need the exchange-suffixed symbol to resolve correctly** —
-without one, both Yahoo and FMP can silently match the *wrong* company
-(e.g. a bare `SIVE` matched an unrelated US penny stock instead of Sivers
-Semiconductors on Nasdaq Stockholm). If you add a non-US ticker, set
-`yahooSymbol` in its `tickers.json` record to the suffixed symbol (`.ST`
-Stockholm, `.PA` Paris, `.DE` Frankfurt, `.KS` Korea, etc.) — both
-providers share the same suffix convention.
+**Non-US tickers:** the sheet's `Ticker` column carries the suffixed
+symbol (`.ST` Stockholm, `.PA` Paris, `.DE` Frankfurt, `.KS` Korea) so it
+matches `tickers.json`, while `GoogleFinanceSymbol` uses Google's
+exchange-prefix form (`STO:SIVE`, `EPA:SOI`, `ETR:LPK`, `KRX:000660`).
+Prices stay in the listing's native currency — fill the `Currency` column
+so the watchlist labels them correctly.
 
 ---
 

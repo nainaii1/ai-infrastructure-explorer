@@ -42,7 +42,7 @@ def _load_optional(name, default):
         return default
 
 
-PRICE_FIELDS = ("price", "currency", "chg7d", "chg1m", "marketCap", "asOf")
+PRICE_FIELDS = ("price", "currency", "chg7d", "chg1m", "chg1y", "marketCap", "asOf")
 
 _ICON_ELEMENTS = {"path", "circle", "line", "rect", "polyline", "ellipse"}
 _ICON_ATTRIBUTES = {

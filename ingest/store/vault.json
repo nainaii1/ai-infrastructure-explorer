@@ -1,7 +1,7 @@
 {
   "meta": {
     "schemaVersion": 1,
-    "syncedAt": "2026-07-14T14:15:50Z",
+    "syncedAt": "2026-07-16T07:58:52Z",
     "pageCount": 65,
     "linkCount": 184
   },
@@ -102,8 +102,8 @@
           "label": "Materials & Packaging",
           "flowRole": "supply",
           "memberCount": 3,
-          "coreCount": 1,
-          "watchCount": 2
+          "coreCount": 2,
+          "watchCount": 1
         }
       },
       "note": "A lighter-touch, picks-and-shovels research theme sitting upstream of the [[fabs]] and [[advanced-packaging]] layers. [[aleabitoreddit]] views AEHR ([[aehr]])'s ~100% rally as largely priced in absent a new catalyst; LPKF ([[lpk-de]]) is his recurring bullish idea on a glass-core substrate near-monopoly \u2014 a bridge into the [[glass]] theme \u2014 with a stated multi-billion factory ambition; Soitec ([[soi-pa]]) rounds out the specialty-materials group.\n\nThese are second-derivative plays: they win if the [[memory]], [[photonics]] and packaging build-outs they supply keep scaling.",
@@ -230,8 +230,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 44,
-          "lastMentioned": "2026-07-14T09:36:28Z",
+          "mentions": 46,
+          "lastMentioned": "2026-07-16T06:22:18Z",
           "category": "photonics",
           "market": "US",
           "marketCapTier": "Small",
@@ -251,8 +251,8 @@
         ],
         "stats": {
           "tier": "watch",
-          "mentions": 7,
-          "lastMentioned": "2026-07-13T07:27:07Z",
+          "mentions": 9,
+          "lastMentioned": "2026-07-16T06:23:06Z",
           "category": "unsorted",
           "market": "",
           "marketCapTier": "",
@@ -272,9 +272,9 @@
           "aleabitoreddit"
         ],
         "stats": {
-          "tier": "watch",
-          "mentions": 6,
-          "lastMentioned": "2026-07-08T13:04:04Z",
+          "tier": "core",
+          "mentions": 8,
+          "lastMentioned": "2026-07-16T06:22:18Z",
           "category": "materials",
           "market": "US",
           "marketCapTier": "Small",
@@ -470,8 +470,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 15,
-          "lastMentioned": "2026-07-14T09:36:28Z",
+          "mentions": 17,
+          "lastMentioned": "2026-07-16T06:22:18Z",
           "category": "photonics",
           "market": "US",
           "marketCapTier": "Large",
@@ -512,8 +512,8 @@
         ],
         "stats": {
           "tier": "watch",
-          "mentions": 8,
-          "lastMentioned": "2026-07-13T07:27:07Z",
+          "mentions": 10,
+          "lastMentioned": "2026-07-16T06:23:00Z",
           "category": "unsorted",
           "market": "",
           "marketCapTier": "",
@@ -577,8 +577,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 11,
-          "lastMentioned": "2026-07-11T17:59:40Z",
+          "mentions": 12,
+          "lastMentioned": "2026-07-16T06:23:06Z",
           "category": "hyperscalers",
           "market": "US",
           "marketCapTier": "Mega",
@@ -708,8 +708,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 41,
-          "lastMentioned": "2026-07-14T09:36:28Z",
+          "mentions": 43,
+          "lastMentioned": "2026-07-16T06:22:18Z",
           "category": "photonics",
           "market": "US",
           "marketCapTier": "Mid",
@@ -752,8 +752,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 20,
-          "lastMentioned": "2026-07-13T07:27:07Z",
+          "mentions": 25,
+          "lastMentioned": "2026-07-16T06:23:06Z",
           "category": "hyperscalers",
           "market": "US",
           "marketCapTier": "Mega",
@@ -796,8 +796,8 @@
         ],
         "stats": {
           "tier": "watch",
-          "mentions": 3,
-          "lastMentioned": "2026-07-11T17:59:50Z",
+          "mentions": 5,
+          "lastMentioned": "2026-07-16T06:22:55Z",
           "category": "hyperscalers",
           "market": "US",
           "marketCapTier": "Mega",
@@ -818,8 +818,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 15,
-          "lastMentioned": "2026-07-13T07:27:07Z",
+          "mentions": 18,
+          "lastMentioned": "2026-07-16T06:23:00Z",
           "category": "memory",
           "market": "US",
           "marketCapTier": "Large",
@@ -840,8 +840,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 21,
-          "lastMentioned": "2026-07-11T16:23:22Z",
+          "mentions": 22,
+          "lastMentioned": "2026-07-14T16:59:42Z",
           "category": "neoclouds",
           "market": "US",
           "marketCapTier": "Mid",
@@ -884,8 +884,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 49,
-          "lastMentioned": "2026-07-14T09:36:43Z",
+          "mentions": 50,
+          "lastMentioned": "2026-07-16T06:22:06Z",
           "category": "accelerators",
           "market": "US",
           "marketCapTier": "Mega",
@@ -927,8 +927,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 18,
-          "lastMentioned": "2026-07-14T09:35:43Z",
+          "mentions": 19,
+          "lastMentioned": "2026-07-16T06:22:18Z",
           "category": "photonics",
           "market": "US",
           "marketCapTier": "Small",
@@ -1013,8 +1013,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 79,
-          "lastMentioned": "2026-07-14T09:36:28Z",
+          "mentions": 80,
+          "lastMentioned": "2026-07-14T16:59:29Z",
           "category": "photonics",
           "market": "SE",
           "marketCapTier": "Small",
@@ -1077,8 +1077,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 12,
-          "lastMentioned": "2026-07-11T16:24:57Z",
+          "mentions": 14,
+          "lastMentioned": "2026-07-16T06:23:00Z",
           "category": "memory",
           "market": "",
           "marketCapTier": "",
@@ -1120,8 +1120,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 13,
-          "lastMentioned": "2026-07-13T07:27:07Z",
+          "mentions": 14,
+          "lastMentioned": "2026-07-14T16:59:42Z",
           "category": "unsorted",
           "market": "",
           "marketCapTier": "",
@@ -1142,8 +1142,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 17,
-          "lastMentioned": "2026-07-14T09:35:43Z",
+          "mentions": 18,
+          "lastMentioned": "2026-07-14T16:59:09Z",
           "category": "fabs",
           "market": "US",
           "marketCapTier": "Mid",

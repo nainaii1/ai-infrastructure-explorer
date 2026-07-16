@@ -1429,6 +1429,7 @@
                   <th data-key="price" class="num">Price</th>
                   <th data-key="chg7d" class="num">7D</th>
                   <th data-key="chg1m" class="num">1M</th>
+                  <th data-key="chg1y" class="num">1Y</th>
                   <th data-key="marketCap" class="num">Mkt Cap</th>
                   <th class="wl-nosort">Trend (sample)</th>
                   <th data-key="deskStance">Desk</th>
@@ -2570,7 +2571,7 @@
           if (av !== bv) return (bv - av) * wlState.dir;
           return a.ticker < b.ticker ? -1 : 1;
         }
-        var numeric = (k === "price" || k === "chg7d" || k === "chg1m" || k === "marketCap");
+        var numeric = (k === "price" || k === "chg7d" || k === "chg1m" || k === "chg1y" || k === "marketCap");
         if (numeric) {
           var anull = a[k] == null, bnull = b[k] == null;
           if (anull !== bnull) return anull ? 1 : -1;   // missing values always last
@@ -2616,9 +2617,10 @@
 
         tr.appendChild(pctCell(t.chg7d));
         tr.appendChild(pctCell(t.chg1m));
+        tr.appendChild(pctCell(t.chg1y));
 
         var mTd = el("td", "num");
-        var mc = fmtMcap(t.marketCap);
+        var mc = fmtMcap(t.marketCap, t.currency);
         if (mc) { mTd.textContent = mc; }
         else { mTd.appendChild(el("span", "wl-muted", t.marketCapTier || "—")); }
         tr.appendChild(mTd);
