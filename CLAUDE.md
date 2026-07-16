@@ -30,8 +30,12 @@ not throwaway config.
 - **v1 — Supply Chain Map** ✅ done. Value-chain layer stack (not an SVG arc —
   see "Map rendering" below), grouped into Demand/Chip/Supply flow zones,
   click-to-filter, ticker cards.
-- **v2 — Watchlist** ✅ done. Sortable table, weekly Yahoo price fetch via a
-  local server (`ingest/serve.py`), ratings persist to localStorage.
+- **v2 — Watchlist** ✅ done. Sortable table (Price/7D/1M/1Y/MktCap), ratings
+  persist to localStorage. Prices come from the operator's **Google Sheet**
+  (GOOGLEFINANCE formulas; CSV export downloaded by `ingest/fetch_prices.py`
+  — Yahoo/FMP retired 2026-07-16 after chronic 429s). Refresh: launchd agent
+  twice daily, `refresh-prices.command`, or the button via `ingest/serve.py`.
+  See `docs/GUIDE.md` §4.
 - **v3 — Thesis tab + ingest pipeline** ✅ done. Telegram bot (`ingest/bot.py`)
   captures posts → `theses.json`, auto-grows `tickers.json`, computes a
   priority ranking (`scorer.py`).
@@ -372,8 +376,8 @@ ai-supply-desk/
 └── ingest/                     THE BACKEND — Python tooling that regenerates data.js
     ├── bot.py                   Telegram ingest (forward a post -> thesis)
     ├── synthesize.py            the "Brain" — Claude-synthesized theme digests (needs ANTHROPIC_API_KEY)
-    ├── fetch_prices.py          weekly Yahoo price fetch
-    ├── serve.py                 tiny local server (Yahoo fetch needs http://, not file://)
+    ├── fetch_prices.py          price fetch from the operator's Google Sheet (GOOGLEFINANCE)
+    ├── serve.py                 tiny local server (the Fetch-prices button needs http://, not file://)
     ├── parser.py / scorer.py / fetcher.py / review.py / generate_data_js.py
     ├── store/*.json             source of truth (base, tickers, theses, brain, verdicts, pending_tickers, prices)
     ├── tests/                   unittest suite — python3 -m unittest discover -s ingest/tests

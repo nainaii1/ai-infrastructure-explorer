@@ -183,6 +183,17 @@ class TestCalls(unittest.TestCase):
         d = self._with_fake({"meta": {"benchmark": "SMH"}, "calls": []}, prices)
         self.assertEqual(d["benchmarkQuote"]["price"], 301.5)
 
+    def test_price_fields_merged_onto_ticker(self):
+        d = gen.build_data()
+        sym = d["tickers"][0]["ticker"]
+        prices = {sym: {"price": 10.5, "currency": "USD", "chg7d": 1.1,
+                        "chg1m": 2.2, "chg1y": 33.3, "marketCap": 999,
+                        "asOf": "2026-07-16T00:00:00Z"}}
+        d2 = self._with_fake({"meta": {}, "calls": []}, prices)
+        t = next(t for t in d2["tickers"] if t["ticker"] == sym)
+        for f in gen.PRICE_FIELDS:
+            self.assertEqual(t[f], prices[sym][f], f)
+
     def test_benchmark_quote_none_when_unpriced(self):
         d = self._with_fake({"meta": {"benchmark": "SMH"}, "calls": []}, {})
         self.assertIsNone(d["benchmarkQuote"])
