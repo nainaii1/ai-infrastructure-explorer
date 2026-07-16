@@ -1,7 +1,7 @@
 {
   "meta": {
     "schemaVersion": 1,
-    "updatedAt": "2026-07-12T00:00:00Z",
+    "updatedAt": "2026-07-16T00:00:00Z",
     "author": "claude-desk",
     "disclaimer": "Coverage memos are second-opinion research notes on @aleabitoreddit's ideas. Personal research tool \u2014 not investment advice."
   },
@@ -244,6 +244,46 @@
           "body": "Watch \u2014 the chokepoint is real but the venture-scale move is behind it. Re-engage on a real reset (a 30-40% retrace toward the run's base) with substrate ASPs still rising; the Nomura hike schedule is the dashboard. Chasing list-post momentum after a hundred-bagger leg is how the [[conviction-tier]] system gets people hurt."
         }
       ]
+    },
+    {
+      "id": "m_SNDK_2026w29",
+      "ticker": "SNDK",
+      "kind": "coverage",
+      "title": "The memory trade the market refuses to believe",
+      "dek": "SanDisk's Meta supply deal and a verified NAND price upcycle landed the same week memory stocks sold off \u2014 the desk opens coverage on the gap.",
+      "publishedAt": "2026-07-16T00:00:00Z",
+      "updatedAt": "2026-07-16T00:00:00Z",
+      "rating": "accumulate",
+      "sections": [
+        {
+          "heading": "Snapshot",
+          "body": "$SNDK is the NAND flash pure play spun out of Western Digital \u2014 one of a handful of companies worldwide that manufacture the flash memory AI datacenters are suddenly consuming at scale. It enters desk coverage this week because the [[memory]] repricing stopped being a narrative and became contracts: a long-term supply agreement with $META confirmed, sector-wide price hikes verified by third-party researchers, and a completed wafer-level burn-in benchmark at $AEHR with a \"global leader in NAND flash\" that [[aleabitoreddit]] reads as SanDisk.\n\nUnusually for this book, the analyst has never written a dedicated SanDisk thesis \u2014 the name surfaces only inside his memory-macro posts. Coverage here rests on the mosaic, and the memo says so plainly."
+        },
+        {
+          "heading": "Thesis",
+          "body": "The claim is that AI inference demand has structurally repriced memory, and NAND is the least-believed leg of it. The analyst's recap cites a **5x general NAND flash price move this year** triggered by RAG and inference workloads, with Samsung and SK Hynix making emergency fab investments to chase it; TrendForce sees server DRAM contracts up 13\u201318% next quarter with Samsung asking 20%, and SLC NAND forecast up 120\u2013170% into H2. Demand visibility is the new part: $MU has signed 16+ long-term agreements and $META contracted with SanDisk directly \u2014 hyperscalers are locking supply years out, which is what turns a price spike into a cycle.\n\nHis sharpest observation is the market's reaction: hikes confirmed, LTAs signed \u2014 and memory names sold off anyway. The desk agrees that gap is the trade, with one caveat he doesn't make: LTAs cut both ways, capping the seller's price capture as well as guaranteeing volume. Micron kept price ceilings in its agreements; SanDisk's terms are undisclosed."
+        },
+        {
+          "heading": "Why own it",
+          "body": "It is the purest listed NAND exposure to a repricing that now has contract-backed demand visibility rather than spot-market hope. The $AEHR angle adds free optionality: a completed burn-in benchmark and a potential development agreement around HBF \u2014 high-bandwidth flash entering AI inference stacks \u2014 would put SanDisk inside the AI bill of materials, not just adjacent to it. And unlike the DRAM majors, a NAND pure play doesn't dilute the cycle across HBM, logic, and foundry exposure."
+        },
+        {
+          "heading": "Risks",
+          "body": "Three real ones. First, the mosaic problem: no dedicated thesis from the analyst means no falsifiable single claim to track \u2014 this coverage leans on third-party price data more than his work. Second, LTA terms: if SanDisk's agreements cap pricing well below spot, the upcycle accrues to the spot-heavy players instead. Third, the supply response: Samsung and SK Hynix emergency NAND capex is exactly how memory cycles die \u2014 if that capacity lands into 2027 demand that has normalized, the cycle inverts fast. The analyst himself flagged the stock approaching $2,000 with shorts wiped out \u2014 the run has already happened once, and post-run volatility in this name is violent."
+        },
+        {
+          "heading": "Bottom line",
+          "body": "Accumulate \u2014 but entry discipline is most of the position. Starter tranche into the current memory weakness only, sized small; no chasing green days. Add if the $AEHR HBF development agreement is confirmed as SanDisk or if LTA pricing terms turn out to reset with spot. What sends this back to watch: the 2027 NAND capex wave arriving into softening demand, or the LTA terms revealing capped upside. The desk's fuller reasoning sits in the [[memory]] theme note and the verdict on the watchlist."
+        }
+      ],
+      "sourceThesisIds": [
+        "h_c0e79065f90fc60c",
+        "h_2c13160eead5f0f3",
+        "h_abafede3f1b850bd",
+        "h_d654bae2bf028e4f",
+        "h_061b5ccd49c3a139"
+      ],
+      "basedOnVerdict": true
     }
   ]
 }

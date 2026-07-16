@@ -1,9 +1,9 @@
 {
   "meta": {
     "schemaVersion": 1,
-    "syncedAt": "2026-07-16T07:58:52Z",
-    "pageCount": 65,
-    "linkCount": 184
+    "syncedAt": "2026-07-16T10:15:47Z",
+    "pageCount": 62,
+    "linkCount": 187
   },
   "pages": [
     {
@@ -72,6 +72,7 @@
       "title": "Hyperscalers",
       "auto": {
         "refs": [
+          "aapl",
           "amzn",
           "googl",
           "meta",
@@ -80,9 +81,9 @@
         "stats": {
           "label": "Hyperscalers",
           "flowRole": "demand",
-          "memberCount": 4,
+          "memberCount": 5,
           "coreCount": 3,
-          "watchCount": 1
+          "watchCount": 2
         }
       },
       "note": "The buyers of compute \u2014 and the center of the week's narrative war. [[aleabitoreddit]] framed the selloff as misinformation: a 1 July Bloomberg piece reported [[meta]] will *sell* its excess compute (becoming a [[neocloud]] competitor), which algorithms misread as capex-cutting. His long-standing 'Meta is not cutting' thesis got public support when Meta's 'Watermelon' model reportedly caught up to GPT 5.5 using an order of magnitude more compute.\n\n[[meta]] is the contested name; [[amzn]], [[googl]] and [[msft]] the other three legs of demand. Tracking them here is directional, not for the mega-caps themselves \u2014 hyperscaler capex is the tide that lifts the [[neoclouds]], [[photonics]] and [[memory]] suppliers downstream.",
@@ -128,8 +129,8 @@
           "watchCount": 1
         }
       },
-      "note": "The [[hbm]] memory upcycle is a high-conviction supply theme, and it got a clean real-world stress test this week: Samsung pre-announced record Q2 operating profit up ~1,800% Y/Y \u2014 on his telling the most profitable quarter in the world \u2014 and the stock still fell ~7% after a +150% YTD run. [[aleabitoreddit]] reads that as priced-to-perfection profit-taking, not a fundamentals break, and notes the same Samsung print was the actual trigger for the broader chip rout.\n\n[[mu]] is the liquid US expression of the DRAM/HBM cycle; [[sndk]] the NAND leg; [[axti]] the upstream substrate/materials feed (torque he also pairs with the [[photonics]] sleeve); [[rpi]] rounds out the group. The through-line is [[hbm]] scarcity \u2014 stacked memory bonded next to the GPU is the scarcest ingredient in every accelerator the [[hyperscalers]] are buying.",
-      "noteUpdatedAt": "2026-07-12T00:00:00Z"
+      "note": "The [[hbm]] memory upcycle is a high-conviction supply theme, and it got a clean real-world stress test this week: Samsung pre-announced record Q2 operating profit up ~1,800% Y/Y \u2014 on his telling the most profitable quarter in the world \u2014 and the stock still fell ~7% after a +150% YTD run. [[aleabitoreddit]] reads that as priced-to-perfection profit-taking, not a fundamentals break, and notes the same Samsung print was the actual trigger for the broader chip rout.\n\n[[mu]] is the liquid US expression of the DRAM/HBM cycle; [[sndk]] the NAND leg; [[axti]] the upstream substrate/materials feed (torque he also pairs with the [[photonics]] sleeve); [[rpi]] rounds out the group. The through-line is [[hbm]] scarcity \u2014 stacked memory bonded next to the GPU is the scarcest ingredient in every accelerator the [[hyperscalers]] are buying.\n\nThe 16 Jul 2026 review made memory the week's Focus: TrendForce confirmed 13\u201318% server-DRAM contract hikes for Q3 with Samsung seeking 20%, [[mu]] disclosed 16+ long-term agreements, and [[sndk]]'s supply deal with [[meta]] was confirmed \u2014 while memory equities sold off into all of it. The desk opened SNDK coverage on that disconnect. The structural nuance worth keeping: SK Hynix reportedly scrapped LTA price caps while Micron kept ceilings-and-floors, so the same upcycle is captured very differently across the complex.",
+      "noteUpdatedAt": "2026-07-16T00:00:00Z"
     },
     {
       "slug": "neoclouds",
@@ -159,14 +160,15 @@
         "refs": [
           "avgo",
           "mrvl",
-          "nok"
+          "nok",
+          "smtc"
         ],
         "stats": {
           "label": "Networking",
           "flowRole": "chip",
-          "memberCount": 3,
+          "memberCount": 4,
           "coreCount": 2,
-          "watchCount": 1
+          "watchCount": 2
         }
       },
       "note": "The switching and custom-silicon layer that moves data between accelerators. [[aleabitoreddit]]'s [[mrvl]] thread stays sentiment-first \u2014 every drop reminds him of Jensen's 'next $1T company' comment \u2014 and this week he formalized a half-serious 'conspiracy theory' that [[nvda]] quietly supports the ASIC challengers (Marvell, MediaTek, AlChip) chipping at [[avgo]]'s custom-silicon share.\n\n[[avgo]] is the incumbent custom-silicon giant; [[mrvl]] the challenger he watches most; [[nok]] a peripheral networking name. The layer overlaps the [[photonics]] story where switching meets optics ([[cpo]]).",
@@ -244,19 +246,20 @@
     {
       "slug": "aapl",
       "type": "ticker",
-      "title": "AAPL",
+      "title": "AAPL \u00b7 Apple",
       "auto": {
         "refs": [
+          "hyperscalers",
           "aleabitoreddit"
         ],
         "stats": {
           "tier": "watch",
           "mentions": 9,
           "lastMentioned": "2026-07-16T06:23:06Z",
-          "category": "unsorted",
-          "market": "",
-          "marketCapTier": "",
-          "company": ""
+          "category": "hyperscalers",
+          "market": "US",
+          "marketCapTier": "Mega",
+          "company": "Apple"
         }
       },
       "note": "",
@@ -503,27 +506,6 @@
       "noteUpdatedAt": null
     },
     {
-      "slug": "dram",
-      "type": "ticker",
-      "title": "DRAM",
-      "auto": {
-        "refs": [
-          "aleabitoreddit"
-        ],
-        "stats": {
-          "tier": "watch",
-          "mentions": 10,
-          "lastMentioned": "2026-07-16T06:23:00Z",
-          "category": "unsorted",
-          "market": "",
-          "marketCapTier": "",
-          "company": ""
-        }
-      },
-      "note": "",
-      "noteUpdatedAt": null
-    },
-    {
       "slug": "ewy",
       "type": "ticker",
       "title": "EWY",
@@ -585,8 +567,8 @@
           "company": "Alphabet"
         }
       },
-      "note": "",
-      "noteUpdatedAt": null
+      "note": "Alphabet joined the verdict roster in the 16 Jul 2026 review on tier math alone \u2014 and the desk verdict says so: every mention in the corpus is contextual, never a mispricing argument. [[aleabitoreddit]] uses Google as the demand gauge of the AI buildout: the compute-constrained hyperscaler, the party that cut Meta off and taught the industry the cost of renting, and (this week) the counterfactual he believes pushed $AAPL toward AI-chip acquisitions. Watch stance; the upgrade trigger is a dedicated TPU-supply-chain thesis with named suppliers.",
+      "noteUpdatedAt": "2026-07-16T00:00:00Z"
     },
     {
       "slug": "hood",
@@ -752,8 +734,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 25,
-          "lastMentioned": "2026-07-16T06:23:06Z",
+          "mentions": 26,
+          "lastMentioned": "2026-07-16T09:55:59Z",
           "category": "hyperscalers",
           "market": "US",
           "marketCapTier": "Mega",
@@ -818,8 +800,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 18,
-          "lastMentioned": "2026-07-16T06:23:00Z",
+          "mentions": 19,
+          "lastMentioned": "2026-07-16T09:55:59Z",
           "category": "memory",
           "market": "US",
           "marketCapTier": "Large",
@@ -1013,7 +995,7 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 80,
+          "mentions": 81,
           "lastMentioned": "2026-07-14T16:59:29Z",
           "category": "photonics",
           "market": "SE",
@@ -1025,42 +1007,22 @@
       "noteUpdatedAt": "2026-07-12T00:00:00Z"
     },
     {
-      "slug": "sivef",
-      "type": "ticker",
-      "title": "SIVEF",
-      "auto": {
-        "refs": [
-          "aleabitoreddit"
-        ],
-        "stats": {
-          "tier": "watch",
-          "mentions": 2,
-          "lastMentioned": "2026-07-11T17:58:56Z",
-          "category": "unsorted",
-          "market": "",
-          "marketCapTier": "",
-          "company": ""
-        }
-      },
-      "note": "",
-      "noteUpdatedAt": null
-    },
-    {
       "slug": "smtc",
       "type": "ticker",
-      "title": "SMTC",
+      "title": "SMTC \u00b7 Semtech",
       "auto": {
         "refs": [
+          "networking",
           "aleabitoreddit"
         ],
         "stats": {
           "tier": "watch",
           "mentions": 1,
           "lastMentioned": "2026-06-27T15:45:34Z",
-          "category": "unsorted",
-          "market": "",
-          "marketCapTier": "",
-          "company": ""
+          "category": "networking",
+          "market": "US",
+          "marketCapTier": "Mid",
+          "company": "Semtech"
         }
       },
       "note": "",
@@ -1077,16 +1039,16 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 14,
-          "lastMentioned": "2026-07-16T06:23:00Z",
+          "mentions": 15,
+          "lastMentioned": "2026-07-16T09:55:59Z",
           "category": "memory",
           "market": "",
           "marketCapTier": "",
           "company": "SanDisk"
         }
       },
-      "note": "",
-      "noteUpdatedAt": null
+      "note": "SanDisk entered desk coverage in the 16 Jul 2026 weekly review as the expression of the [[memory]] repricing \u2014 the week the story hardened from price-hike headlines into contracts, with the $META long-term agreement confirmed and an [[aehr]] NAND burn-in benchmark the analyst reads as SanDisk. Notably, [[aleabitoreddit]] has never written a dedicated SNDK thesis; the desk's accumulate stance rests on a mosaic of his memory-macro posts plus third-party verification (TrendForce, Jefferies), which the coverage memo flags openly.\n\nThe desk's caveat is the LTA cut-both-ways problem: long-term agreements guarantee volume but can cap price capture, and SanDisk's terms are undisclosed \u2014 the single most decision-relevant unknown on the name.",
+      "noteUpdatedAt": "2026-07-16T00:00:00Z"
     },
     {
       "slug": "soi-pa",
@@ -1105,27 +1067,6 @@
           "market": "FR",
           "marketCapTier": "Mid",
           "company": "Soitec SA"
-        }
-      },
-      "note": "",
-      "noteUpdatedAt": null
-    },
-    {
-      "slug": "spcx",
-      "type": "ticker",
-      "title": "SPCX",
-      "auto": {
-        "refs": [
-          "aleabitoreddit"
-        ],
-        "stats": {
-          "tier": "core",
-          "mentions": 14,
-          "lastMentioned": "2026-07-14T16:59:42Z",
-          "category": "unsorted",
-          "market": "",
-          "marketCapTier": "",
-          "company": ""
         }
       },
       "note": "",

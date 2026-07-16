@@ -1,35 +1,35 @@
 {
   "meta": {
-    "generatedAt": "2026-07-15T00:00:00Z",
+    "generatedAt": "2026-07-16T10:43:21Z",
     "model": "claude-opus-4-8 (Claude Code weekly review, injected call_fn)",
-    "thesesConsidered": 213,
-    "categoriesSynthesized": 3,
+    "thesesConsidered": 221,
+    "categoriesSynthesized": 9,
     "schemaVersion": 1
   },
   "digests": [
     {
       "category": "photonics",
-      "narrative": "The washout he leaned into last week collected its outside validation. A Morgan Stanley CPO note independently named SIVE, COHR, and LITE as the laser-supply leaders — placing a ~$1.5B laser company beside two $60B+ names and confirming from sell-side coverage the three-leader framing he'd built from his own OSINT. He sharpened the differentiation that matters: AAOI is a pluggable-revenue business sampling lasers but with no CPO design wins and \"TBD\" commercial timing, and MTSI has effectively fallen off the CPO-laser map (Ayar removed Macom from its site) — so CPO-laser leadership narrows to SIVE/LITE/COHR, not the whole optical complex. Innolight's IR added a demand leg: 1.6T demand hasn't contracted and 800G was revised up \"significantly,\" with neoclouds and AI-model companies diversifying the buyer base beyond hyperscalers and the module shortage described as broad.\n\nBeneath the finished lasers he kept mapping the raw-material chokepoints — Nippon Chemical's red phosphorus (#1 globally, with Rasa) feeding AXTI, InP substrates into IQE/TSEM, and an MLCC/barium chain — the picks-beneath-the-picks that make the laser scarcity structural rather than cyclical. SIVE stays the sharpest single name: it trades on a thin Swedish listing that algos routinely misprice, but MS placing it next to LITE and COHR pulls it onto the institutional radar, and the prior week's insider-buy cluster still anchors the conviction.",
+      "narrative": "The sold-out story is now triple-sourced and he treats the market's refusal to price it as the opportunity. POET's own investor relations confirmed the big optical makers \u2014 LITE, COHR \u2014 are completely sold out for the next two years and likely into 2029 for photonics; Innolight's IR revised 800G demand sharply upward (\"demand has not contracted; instead, 800G demand has increased significantly\") with the shortage list broadening beyond EML/CW chips to PCBs and module materials; and Morgan Stanley's CPO note independently named SIVE, COHR, and LITE the laser-supply leaders \u2014 the sell-side validation of his three-leader OSINT framing, with SIVE a ~$1.5B company placed beside two $60B+ names.\n\nHe sharpened the internal differentiation: AAOI is a pluggables business (no CPO design wins, CEO says commercial timing is 'TBD') that benefits from the 800G revision and formally commenced its 400k sqft Texas buildout; MACOM has fallen off the CPO laser map. Rising silicon-photonics mix at Innolight's customers shifts demand from EML toward CW lasers \u2014 the SIVE/JBL side of the ledger. His closing frame for the week's selloff: nothing is fundamentally wrong, corrections flush leverage, and lasers sold out into 2029 while the market sells laser companies is a disconnect, not a warning.",
       "conviction": "high",
       "keyPoints": [
-        "Morgan Stanley CPO note independently named SIVE/COHR/LITE as the laser leaders — sell-side validation of his OSINT-built three-leader thesis",
-        "AAOI clarified as pluggable-only: sampling lasers but no CPO design wins, \"TBD\" timing — CPO-laser leadership narrows to SIVE/LITE/COHR",
-        "Innolight IR: 800G demand revised up \"significantly,\" 1.6T intact; neoclouds + AI-model buyers diversify demand beyond hyperscalers",
-        "Raw-material chokepoints mapped deeper: Nippon Chemical red phosphorus → AXTI, InP → IQE/TSEM — makes the laser scarcity structural",
-        "SIVE the sharpest name: thin Swedish listing algos misprice, now on institutional radar after the MS placement",
-        "Conviction unchanged — the bear catalysts (delay reports, China-laser scare) were denied and are now being validated against"
+        "Lasers sold out into 2029 (LITE/COHR) now confirmed by three independent channels",
+        "Morgan Stanley names SIVE, COHR, LITE the CPO laser-supply leaders \u2014 sell-side validates his trio",
+        "Innolight revises 800G demand sharply upward; shortage list broadens beyond EML/CW",
+        "AAOI clarified as a pluggables (not CPO) story; Texas 400k sqft buildout commenced",
+        "Rising SiPh mix shifts demand from EML toward CW lasers (SIVE/JBL side)",
+        "He reads the sector selloff as leverage flush against improving fundamentals"
       ],
       "tickers": [
         "SIVE",
         "LITE",
         "COHR",
         "AAOI",
-        "IQE",
         "POET",
         "JBL",
         "MTSI"
       ],
       "sourceThesisIds": [
+        "h_abafede3f1b850bd",
         "h_742edebe9c4a8c54",
         "h_6c2c47820fd61d59",
         "h_88866c3ae0b73767",
@@ -68,11 +68,10 @@
         "h_6602d43dfb4b625c",
         "h_05e793cf1fdb6f1c",
         "h_73fc29ca0e9c215c",
-        "h_c2b2a64111bd30cc",
-        "h_6f4609ddc5d7b259"
+        "h_c2b2a64111bd30cc"
       ],
       "thesesCount": 40,
-      "lastSynthesized": "2026-07-15T00:00:00Z",
+      "lastSynthesized": "2026-07-16T10:43:21Z",
       "dailyMentions": {
         "days": [
           "2026-06-02",
@@ -110,7 +109,8 @@
           "2026-07-08",
           "2026-07-11",
           "2026-07-13",
-          "2026-07-14"
+          "2026-07-14",
+          "2026-07-16"
         ],
         "counts": [
           0,
@@ -138,7 +138,7 @@
           0,
           0,
           0,
-          1,
+          0,
           4,
           6,
           3,
@@ -148,26 +148,34 @@
           5,
           6,
           1,
-          5
+          5,
+          1
         ]
       }
     },
     {
       "category": "memory",
-      "narrative": "The memory leg picked up hyperscaler confirmation this week: Meta's published internal memo shows long-term agreements signed with Samsung and SNDK for memory as part of a 7GW-this-year, doubling-in-2027 compute build — exactly the demand-durability argument the upcycle thesis needs. On the substrate side he reaffirmed AXTI ('still holding') with his ~40%-of-InP-supply framing, though the week's mentions were list-posts rather than new evidence; the confirmed anchor remains the 3-year Coherent wafer deal with a $22.3M prepayment and the Nomura ASP-hike schedule (2-inch InP +42-76%, 3-inch ~+78%). He also flagged a market-structure curiosity: SK Hynix set to open at a ~21% premium on its listing, wondering aloud whether Korea-index products gap with it.",
+      "narrative": "The upcycle hardened from price forecasts into contracts \u2014 and the market sold it anyway, which is now his central point. DRAM contract prices are set for 20%+ hikes next quarter, SLC NAND is forecast up 120\u2013170% for H2 2026 per TrendForce, and general NAND flash has already run ~5x this year on RAG/inference demand. The demand side is locking in long-term: MU has signed 16+ LTAs, SNDK signed directly with META, and Samsung keeps projecting further DRAM hikes after becoming the most profitable company in the world. His refrain: 'Market: proceeds to sell off memory.'\n\nThe AEHR print gave the theme a picks-and-shovels kicker \u2014 a completed wafer-level burn-in benchmark with a 'global leader in NAND flash' (he reads SanDisk) now moving toward a development agreement around HBM/NAND. On SLC NAND specifically he notes the cleaner beneficiaries are smaller Asian players (Winbond, Macronix, SkyHigh via Puya) since Micron's $1T scale dwarfs the SLC TAM.",
       "conviction": "high",
       "keyPoints": [
-        "Meta internal memo: memory LTAs signed with Samsung and SNDK — hyperscaler demand contracted, not spot",
-        "AXTI reaffirmed but on list-post momentum; Coherent 3-year deal ($22.3M prepay) is the hard anchor",
-        "Nomura ASP hikes: 2in InP +42-76%, 3in ~+78%, EML epiwafers +50-75%",
-        "SK Hynix listing premium flagged as a Korea-index market-structure event"
+        "DRAM 20%+ contract hikes next quarter; SLC NAND forecast +120\u2013170% H2 2026",
+        "Demand locked long-term: MU 16+ LTAs, SNDK\u2013META agreement, NAND ~5x this year",
+        "Market sells memory names into confirmed hikes \u2014 the disconnect he's trading",
+        "AEHR NAND burn-in benchmark (likely SanDisk) opens an HBM/NAND qualification path",
+        "SLC NAND upside accrues to smaller players (Winbond, Macronix) more than MU"
       ],
       "tickers": [
-        "AXTI",
         "MU",
         "SNDK"
       ],
       "sourceThesisIds": [
+        "h_11fa0500a43edbbf",
+        "h_2c13160eead5f0f3",
+        "h_abafede3f1b850bd",
+        "h_d654bae2bf028e4f",
+        "h_c0e79065f90fc60c",
+        "h_061b5ccd49c3a139",
+        "h_6110d0e1ccf98f98",
         "h_65b35e33ee5ec7a3",
         "h_530410ca5ca0e6c1",
         "h_e71a026cc505204c",
@@ -200,17 +208,10 @@
         "h_192466279203c8e6",
         "h_e7720e250de56618",
         "h_00a1d3192d4bb4eb",
-        "h_05968d27cdabc404",
-        "h_9ef65856888e6e3c",
-        "h_e533dc2110717bbc",
-        "h_e9991d77d7372b90",
-        "h_1c23c5007eaecfae",
-        "h_61113b2db6cc052e",
-        "h_2ef8c741889fbe18",
-        "h_201941bd3fdcb3de"
+        "h_05968d27cdabc404"
       ],
       "thesesCount": 40,
-      "lastSynthesized": "2026-07-12T08:44:59Z",
+      "lastSynthesized": "2026-07-16T10:43:21Z",
       "dailyMentions": {
         "days": [
           "2026-06-02",
@@ -248,7 +249,8 @@
           "2026-07-08",
           "2026-07-11",
           "2026-07-13",
-          "2026-07-14"
+          "2026-07-14",
+          "2026-07-16"
         ],
         "counts": [
           0,
@@ -259,11 +261,11 @@
           0,
           0,
           0,
-          2,
           0,
-          3,
-          1,
-          1,
+          0,
+          0,
+          0,
+          0,
           1,
           2,
           0,
@@ -285,21 +287,22 @@
           2,
           2,
           4,
+          2,
           0,
-          0
+          5
         ]
       }
     },
     {
       "category": "fabs",
-      "narrative": "The silicon-photonics foundry layer got externally mapped this week. Morgan Stanley's CPO note placed TSM, GFS, and TSEM as the silicon-photonics foundry capacity beneath the CPO laser leaders — the same \"platform beneath his photonics book\" frame he's held, now with a sell-side stamp. Tower Semi (TSEM) reinforced it with a concrete capacity announcement: a Japanese-government-supported expansion of 300mm silicon-photonics, SiGe, and advanced-packaging capacity, targeting $1.2B net profit and $3.6B revenue in 2028 (~23x 2028 forward P/E at a ~$28B market cap) — a fab putting capex behind the SiPho ramp rather than just being named in a note.\n\nThe durable specialty-foundry idea is unchanged and still the strongest standalone fab-layer thesis: XFAB as the cheapest specialty foundry with a free photonixfab silicon-photonics option, GlobalFoundries as the SCALE reference-laser platform where AMD's CPO reportedly routes, and the equipment names (ASML/AMAT/LRCX/KLAC) as the unavoidable layer beneath the whole stack. His cross-sector frame holds: when the tape sells the fab/equipment complex on macro leverage, sold-out SiPho and advanced-packaging capacity means the order books didn't move with the price.",
+      "narrative": "The silicon-photonics foundry layer got externally mapped this week. Morgan Stanley's CPO note placed TSM, GFS, and TSEM as the silicon-photonics foundry capacity beneath the CPO laser leaders \u2014 the same \"platform beneath his photonics book\" frame he's held, now with a sell-side stamp. Tower Semi (TSEM) reinforced it with a concrete capacity announcement: a Japanese-government-supported expansion of 300mm silicon-photonics, SiGe, and advanced-packaging capacity, targeting $1.2B net profit and $3.6B revenue in 2028 (~23x 2028 forward P/E at a ~$28B market cap) \u2014 a fab putting capex behind the SiPho ramp rather than just being named in a note.\n\nThe durable specialty-foundry idea is unchanged and still the strongest standalone fab-layer thesis: XFAB as the cheapest specialty foundry with a free photonixfab silicon-photonics option, GlobalFoundries as the SCALE reference-laser platform where AMD's CPO reportedly routes, and the equipment names (ASML/AMAT/LRCX/KLAC) as the unavoidable layer beneath the whole stack. His cross-sector frame holds: when the tape sells the fab/equipment complex on macro leverage, sold-out SiPho and advanced-packaging capacity means the order books didn't move with the price.",
       "conviction": "high",
       "keyPoints": [
-        "Morgan Stanley mapped TSM/GFS/TSEM as the silicon-photonics foundry capacity beneath the CPO laser leaders — sell-side stamp on his platform frame",
+        "Morgan Stanley mapped TSM/GFS/TSEM as the silicon-photonics foundry capacity beneath the CPO laser leaders \u2014 sell-side stamp on his platform frame",
         "Tower Semi (TSEM): Japan-backed 300mm SiPho/SiGe/advanced-packaging expansion, targeting $3.6B revenue / $1.2B net profit in 2028",
-        "Capacity is being put behind the SiPho ramp, not just named — capex validation of the foundry-layer thesis",
+        "Capacity is being put behind the SiPho ramp, not just named \u2014 capex validation of the foundry-layer thesis",
         "Durable idea intact: XFAB cheapest specialty foundry (+ free photonixfab option); GFS the SCALE reference-laser platform for AMD's CPO",
-        "Equipment names (ASML/AMAT/LRCX/KLAC) remain the unavoidable layer — they trade with macro routs even when order books don't move"
+        "Equipment names (ASML/AMAT/LRCX/KLAC) remain the unavoidable layer \u2014 they trade with macro routs even when order books don't move"
       ],
       "tickers": [
         "TSM",
@@ -390,7 +393,8 @@
           "2026-07-08",
           "2026-07-11",
           "2026-07-13",
-          "2026-07-14"
+          "2026-07-14",
+          "2026-07-16"
         ],
         "counts": [
           0,
@@ -428,29 +432,29 @@
           3,
           2,
           2,
-          2
+          2,
+          0
         ]
       }
     },
     {
       "category": "neoclouds",
-      "narrative": "The 'Meta is cutting capex' narrative he has fought for weeks broke down publicly: Meta's upcoming 'Watermelon' model has reportedly caught up to OpenAI's GPT 5.5 using an order of magnitude more compute than its predecessor, and SemiAnalysis — the same firm whose bear notes hit photonics — says Meta's datacenter and compute will accelerate with 2027 capex 'shockingly high.' His long-standing read (a compute-constraint story, never a demand-weakening one) is aging well, and NBIS remains his highest-conviction pure-play expression of it.\n\nThe Anthropic demand wave became this week's concrete catalyst: TeraWulf signed a $19B datacenter lease with Anthropic ('a very positive tailwind for the Neocloud/Colo sector'), and leaked Anthropic docs point to ~1.4GW of Australian capacity worth ~$21.6B — mapping directly onto the sovereign datacenters IREN, SHAZ and other neoclouds have been building there (he discloses no positions in those two). The more speculative fringe — floating/ocean-based datacenters as a future NBIS-style play — he treats as directional color, not thesis.",
-      "conviction": "high",
+      "narrative": "Customer diversification \u2014 the strength he's always cited for NBIS \u2014 delivered its proof: a $1B+ compute agreement with Reflection AI for GB300 access through 2029. The stock fell ~5% on the news, and this time he supplies the caveat himself: Reflection (which also signed multi-billion deals on the SpaceX side) reminds him of OpenAI-style counterparties that may not yet have the funds to execute their commitments, unlike META or MSFT. Long-term positive, he says, but contract quality now shares the stage with contract count.",
+      "conviction": "medium",
       "keyPoints": [
-        "Meta capex-cut narrative debunked: 'Watermelon' reportedly matches GPT 5.5 on an order of magnitude more compute; SemiAnalysis sees 2027 Meta capex 'shockingly high.'",
-        "TeraWulf signs a $19B datacenter lease with Anthropic — a repricing event for the whole neocloud/colo sector's contract value.",
-        "Leaked Anthropic docs point to ~1.4GW / ~$21.6B of Australian capacity, mapping onto sovereign DCs built by IREN, SHAZ and peers.",
-        "NBIS remains his highest-conviction pure-play neocloud; the demand chain is now corroborated from hyperscalers and frontier labs simultaneously.",
-        "Floating/ocean-based datacenters are flagged as an emerging concept (free cooling, geographic constraints) — color, not thesis."
+        "NBIS signs $1B+ GB300 compute deal with Reflection AI through 2029",
+        "Customer diversification thesis delivering \u2014 but stock fell on the news",
+        "He flags counterparty funding risk himself (the OpenAI-commitment pattern)",
+        "Contract quality (fundable counterparties) now matters as much as volume"
       ],
       "tickers": [
-        "NBIS",
-        "WULF",
-        "IREN",
-        "CRWV",
-        "CIFR"
+        "NBIS"
       ],
       "sourceThesisIds": [
+        "h_6bf88df291b0d0c8",
+        "h_de3112b196491491",
+        "h_79f9aaff84f7f697",
+        "h_574cc87d7e028236",
         "h_ed35af2a69e57256",
         "h_36017b24779b163a",
         "h_ca1ce1cb5f43eec7",
@@ -478,8 +482,8 @@
         "h_edf39cb9fef7f875",
         "h_58275c6f41828d55"
       ],
-      "thesesCount": 26,
-      "lastSynthesized": "2026-07-06T16:02:09Z",
+      "thesesCount": 30,
+      "lastSynthesized": "2026-07-16T10:43:21Z",
       "dailyMentions": {
         "days": [
           "2026-06-02",
@@ -517,7 +521,8 @@
           "2026-07-08",
           "2026-07-11",
           "2026-07-13",
-          "2026-07-14"
+          "2026-07-14",
+          "2026-07-16"
         ],
         "counts": [
           0,
@@ -552,32 +557,32 @@
           2,
           1,
           0,
+          2,
+          1,
           0,
-          0,
-          0,
+          1,
           0
         ]
       }
     },
     {
       "category": "materials",
-      "narrative": "Lighter-touch theme, mostly picks-and-shovels research. AEHR's ~100% rally is viewed as largely priced in, with limited near-term re-rating room absent a new catalyst. LPKF (LPK.DE) is a recurring bullish idea on its glass-core substrate monopoly — >80% of major global players selecting its equipment for validation, a 70% market-share target, and NASDAQ-listing discussions — with a stated $3-5B fair value at full volume ramp. Soitec (SOI.PA) is repeatedly cited as a European chokepoint SOI-wafer supplier benefiting from EU CHIPS Act 2.0's new photonics-policy priority, alongside LPKF and XFAB.\n\nASE Technology (ASX) and Teradyne (TER) round out the packaging/test layer, mentioned inside broader '$10-100B AI-exposed names' baskets as offering compelling ROI versus larger names. Ongoing trade-record research (Starlink and other direct-supplier mapping) continues to surface obscure materials names, and the China->Japan->Korea tungsten (WF6) export-control thread remains a recurring materials-bottleneck watch item.",
-      "conviction": "medium",
+      "narrative": "The theme's sleeper woke up violently: AEHR rallied +36% on earnings, guiding FY2027 to $130\u2013150M (160\u2013200% growth) on $60.7M Q4 bookings and a $100M+ effective backlog. His core observation is breadth \u2014 wafer-level burn-in qualification tracks now span AI processors (lead customer significantly ramping), a benchmark 'major supplier of AI accelerators, CPUs and network processors' that exceeded expectations, silicon photonics (already ramping), and a NAND flash leader moving toward an HBM/NAND development agreement. He argues the guide understates 2027 if benchmarks convert to high-volume manufacturing, while flagging the violence of the ride ($116 \u2192 $60 \u2192 $94 within a month).\n\nThe quieter thread is his Nippon Chemical rabbit hole: NCI's red phosphorus (with Rasa, #1 globally) feeds AXTI's InP substrates, its phosphine gas feeds Entegris into the Kioxia/MU/SK Hynix fabs, and its barium chemistry feeds the MLCC bottleneck via TDK/Murata \u2014 'one of the most important companies in the world' at a tiny valuation, though Japanese pricing culture caps how much of that chokepoint value ever reaches the P&L.",
+      "conviction": "high",
       "keyPoints": [
-        "LPKF (LPK.DE): glass-core substrate monopoly, >80% major-player validation, 70% market-share target, NASDAQ-listing discussions — stated $3-5B fair value at full volume ramp.",
-        "Soitec (SOI.PA): European SOI-wafer chokepoint supplier, a repeated beneficiary of EU CHIPS Act 2.0's new photonics-policy priority.",
-        "AEHR's ~100% rally is seen as mostly priced in — limited near-term re-rating room without a new catalyst.",
-        "ASE Technology (ASX) and Teradyne (TER) round out the packaging/test layer, cited inside broader AI-exposed-name baskets for compelling ROI.",
-        "The China->Japan->Korea tungsten (WF6) export-control thread remains a recurring materials-bottleneck watch item."
+        "AEHR +36% on earnings: FY27 guide $130\u2013150M (160\u2013200% growth), $100M+ backlog",
+        "Burn-in qualification spans AI processors, silicon photonics, and NAND/HBM",
+        "He thinks the guide understates 2027 if benchmark customers convert to HVM",
+        "Nippon Chemical deep-dive: red phosphorus \u2192 InP; phosphine \u2192 memory fabs; barium \u2192 MLCC",
+        "Japanese pricing culture caps chokepoint value capture \u2014 thesis caveat he owns"
       ],
       "tickers": [
-        "LPK.DE",
-        "SOI.PA",
-        "AEHR",
-        "ASX",
-        "TER"
+        "AEHR"
       ],
       "sourceThesisIds": [
+        "h_abafede3f1b850bd",
+        "h_c0e79065f90fc60c",
+        "h_47f3b5b1bfcce165",
         "h_5602bfef722355a2",
         "h_15c7a1a2cc1c7180",
         "h_3fddbb3c1756349f",
@@ -604,8 +609,8 @@
         "h_659f631bfc95b4c6",
         "h_7a3e79c6e49009a9"
       ],
-      "thesesCount": 25,
-      "lastSynthesized": "2026-07-03T13:40:18Z",
+      "thesesCount": 28,
+      "lastSynthesized": "2026-07-16T10:43:21Z",
       "dailyMentions": {
         "days": [
           "2026-06-02",
@@ -643,7 +648,8 @@
           "2026-07-08",
           "2026-07-11",
           "2026-07-13",
-          "2026-07-14"
+          "2026-07-14",
+          "2026-07-16"
         ],
         "counts": [
           2,
@@ -678,31 +684,32 @@
           0,
           0,
           0,
+          1,
           0,
           0,
           0,
-          0
+          2
         ]
       }
     },
     {
       "category": "networking",
-      "narrative": "The Marvell thread stays sentiment-first: whenever MRVL drops he hears Jensen's 'the next $1T company' comment, and this week he formalized his half-serious 'conspiracy theory' — Nvidia quietly supports the ASIC challengers (MRVL, MediaTek, AlChip, GUC) chipping away at Broadcom's custom-silicon share, the same way neocloud offerings built a moat against CSP custom ASICs last year. He frames it as an interesting ~2-year trade but expects hyperscalers like Google to bring design in-house past 2030, and floats NVDA taking a stake in QCOM next. Nokia recurs as a validating evaluator (with NVDA) of XFAB's silicon-photonics foundry. Still no standalone networking bottleneck thesis — this remains the most narrative-driven category in the corpus.",
+      "narrative": "Two supply-side breadcrumbs this week, still no dedicated networking thesis. His semi recap flags Starlink Gen 3 scaling to 100,000 units (10x the previous generation), creating possible capacity constraints for switch suppliers into CCL, and PCB supply shortages projected to persist until 2028 \u2014 component inflation already forcing ODMs into conservative H2 shipment guides. The Marvell thread got indirect help: Morgan Stanley's CPO note slots Marvell/Celestial among the optical-engine players, the first sell-side corroboration of his half-serious NVDA-backs-the-ASIC-challengers theory \u2014 which he still hasn't converted into a numbers-driven thesis.",
       "conviction": "medium",
       "keyPoints": [
-        "Formalized 'conspiracy theory': NVDA discretely backs ASIC challengers (MRVL, MediaTek, AlChip, GUC) against Broadcom's custom-silicon share.",
-        "Framed as a ~2-year trade opportunity — past 2030 he expects hyperscalers like Google to bring ASIC design in-house.",
-        "Jensen's 'next $1T company' comment still anchors MRVL sentiment through drawdowns; he predicts NVDA takes a stake in QCOM next.",
-        "Nokia (with NVDA) continues validating XFAB's silicon-photonics foundry for CPO applications.",
-        "Still no standalone networking bottleneck thesis — mentions remain list-driven and narrative-first."
+        "Starlink Gen 3 scaling 10x \u2014 possible switch/CCL supplier capacity constraints",
+        "PCB shortages projected to persist until 2028; ODMs already guiding conservatively",
+        "MS places Marvell/Celestial in CPO optical engines \u2014 first corroboration of the MRVL angle",
+        "Still no dedicated, numbers-driven networking thesis from him"
       ],
       "tickers": [
         "MRVL",
-        "AVGO",
-        "NOK",
-        "ALAB"
+        "NOK"
       ],
       "sourceThesisIds": [
+        "h_061b5ccd49c3a139",
+        "h_f97b00cbf156655b",
+        "h_574cc87d7e028236",
         "h_0ecb33baa79a6b44",
         "h_65385721915ebae2",
         "h_fd9505c4ad92bce4",
@@ -730,8 +737,8 @@
         "h_7a3e79c6e49009a9",
         "h_115b61d4fc0a904a"
       ],
-      "thesesCount": 26,
-      "lastSynthesized": "2026-07-06T16:02:09Z",
+      "thesesCount": 29,
+      "lastSynthesized": "2026-07-16T10:43:21Z",
       "dailyMentions": {
         "days": [
           "2026-06-02",
@@ -769,7 +776,8 @@
           "2026-07-08",
           "2026-07-11",
           "2026-07-13",
-          "2026-07-14"
+          "2026-07-14",
+          "2026-07-16"
         ],
         "counts": [
           4,
@@ -804,8 +812,9 @@
           0,
           1,
           0,
-          0,
-          0,
+          1,
+          1,
+          1,
           0,
           0
         ]
@@ -813,20 +822,22 @@
     },
     {
       "category": "glass",
-      "narrative": "A new, thin entry in this cycle: Corning (GLW) surfaced only inside a broader Bloomberg-driven semis-selloff basket (down ~11.4% alongside AAOI/MRVL/LITE/SNDK/TER on a report UBS called 'not new news'). No dedicated glass-substrate thesis has been posted on it yet — it's tracked here as a natural candidate for the glass-core advanced-packaging wave (alongside SKC Absolics/TSMC CoPoS) given Corning's position as the leading specialty-glass and optical-fiber maker, but that connection hasn't been stated directly by the analyst.",
+      "narrative": "First substantive datapoint for the theme: per his Morgan Stanley recap, Corning's 'glass bridge' has potential in the CPO stack but will struggle to displace incumbent FAU solutions (like FOCI's) in the short term \u2014 and separately Largan Precision secured its first CPO FAU order with mass production slated for mid-next-year, confirming where that socket currently sits. Still no dedicated glass thesis from him; the theme remains a tracked candidate for the glass-core packaging wave rather than an active position.",
       "conviction": "low",
       "keyPoints": [
-        "Corning (GLW) has only appeared inside a broader semis-selloff basket so far — no dedicated glass-substrate thesis posted yet.",
-        "Tracked as a natural fit for the glass-core advanced-packaging wave given Corning's specialty-glass/fiber leadership, though the analyst hasn't drawn that link explicitly."
+        "MS: GLW glass bridge has potential but hard to displace FAU incumbents near-term",
+        "Largan's first CPO FAU order confirms the incumbent socket",
+        "Still no dedicated glass-substrate thesis \u2014 tracked, not owned"
       ],
       "tickers": [
         "GLW"
       ],
       "sourceThesisIds": [
+        "h_061b5ccd49c3a139",
         "h_15c7a1a2cc1c7180"
       ],
-      "thesesCount": 1,
-      "lastSynthesized": "2026-07-03T13:40:18Z",
+      "thesesCount": 2,
+      "lastSynthesized": "2026-07-16T10:43:21Z",
       "dailyMentions": {
         "days": [
           "2026-06-02",
@@ -864,7 +875,8 @@
           "2026-07-08",
           "2026-07-11",
           "2026-07-13",
-          "2026-07-14"
+          "2026-07-14",
+          "2026-07-16"
         ],
         "counts": [
           0,
@@ -901,6 +913,7 @@
           0,
           0,
           0,
+          1,
           0,
           0
         ]
@@ -908,20 +921,22 @@
     },
     {
       "category": "robotics",
-      "narrative": "The theme escalated from research to declared maximum conviction: 'I'm personally trying to own as much % of Agility Robotics as possible right now,' at a ~$3.9B pre-money valuation via the CCXI SPAC, brushing off SPAC-history objections. His sharpened frame is geopolitical: China ships ~90% of the world's humanoid robots (Elon's comment: 'for now'), which makes a US champion politically valuable — and he positions Agility as the Made-in-America leader with a RoboFab targeting 10K+ units/year and 75%+ US-sourced components, versus Tesla's clearer mass-production path but China-heavy BOM. The desk notes this is his most talking-his-book theme: real assets and real commercialization partners (Amazon, MercadoLibre), but euphoria-phase framing throughout.",
+      "narrative": "The theme got its first institutional scaffolding: an IBK Research report on Boston Dynamics value chains that he mostly uses as a measuring stick. He rejects their linear volume ramp (+10K units/year) for an S-curve \u2014 his own guess is 90\u2013140K units by 2030 versus IBK's 30K \u2014 anchored on Boston Dynamics' 30K capacity target for 2028 and China already collectively shipping ~100K by end-2026. The report's most useful claim, in his view: actuator capacity is the cleanest forward indicator of the ramp (~310K actuators per 10K robots), making actuator output, yields and ASPs the thing to track through 2028\u20132030.\n\nTSLA supplied the first hard production datapoint of the cycle: procurement guidelines requiring suppliers to hit 1,000 Optimus gen-3 units/week by September, doubling to 2,000\u20132,500 by year end. His conviction expression is still Agility via CCXI ('own as much % as possible' \u2014 maximum book-talking), with the IBK landscape placing Agility among the US leaders against Unitree/Figure/Apptronik and the Chinese volume machine.",
       "conviction": "high",
       "keyPoints": [
-        "Declared intent to maximize Agility ownership at ~$3.9B pre-money via the CCXI SPAC",
-        "China ships ~90% of humanoids — US-champion scarcity is the new thesis leg",
-        "Agility RoboFab: 10K+ units/year capacity, 75%+ US-sourced components",
-        "TSLA framed as the mass-production path but with China-dependent sourcing"
+        "IBK/Boston Dynamics report gives the theme institutional valuation scaffolding",
+        "He rejects linear ramps: his 2030 guess is 90\u2013140K units vs IBK's 30K",
+        "Actuator capacity (~310K per 10K robots) is the leading indicator to track",
+        "TSLA Optimus gen-3 supplier mandates: 1,000/week by Sept, 2,000\u20132,500 by year end",
+        "Agility (via CCXI) remains his conviction pick \u2014 with heavy book-talking discount"
       ],
       "tickers": [
         "CCXI",
-        "TSLA",
-        "AEVA"
+        "TSLA"
       ],
       "sourceThesisIds": [
+        "h_061b5ccd49c3a139",
+        "h_c3d18058dfc695de",
         "h_6f58883d2e2c5a6e",
         "h_f7c876c10d52cbfa",
         "h_4f156b63d59d320f",
@@ -957,8 +972,8 @@
         "h_1793f6bef2c43658",
         "h_3351e475854eb59d"
       ],
-      "thesesCount": 34,
-      "lastSynthesized": "2026-07-12T08:44:59Z",
+      "thesesCount": 36,
+      "lastSynthesized": "2026-07-16T10:43:21Z",
       "dailyMentions": {
         "days": [
           "2026-06-02",
@@ -996,7 +1011,8 @@
           "2026-07-08",
           "2026-07-11",
           "2026-07-13",
-          "2026-07-14"
+          "2026-07-14",
+          "2026-07-16"
         ],
         "counts": [
           0,
@@ -1033,6 +1049,7 @@
           2,
           4,
           4,
+          2,
           0,
           0
         ]
@@ -1040,20 +1057,21 @@
     },
     {
       "category": "accelerators",
-      "narrative": "The one genuinely new accelerator signal was Jensen Huang stepping out personally to do damage control on the delay reports. He said 800V and rack-to-rack optical interconnects are progressing in line with the original plan with no material delay, debunked the rumor that Rubin Ultra slips to 2028 (says it ships next year), and framed the Kyber-replacement rack redesign as an architectural optimization rather than a schedule hit — while claiming no ASIC market-share loss. For this map that matters most as a read-through to photonics: the CEO of the demand center directly denying the optical-interconnect delay that triggered the sector selloff is the same catalyst reversal the laser names are trading on.\n\nOtherwise the accelerator layer stays where his edge is thinnest — NVDA appears mostly as the gravitational center whose roadmap sets the tape for every supplier beneath it, plus the still-explicitly-speculative theory that Nvidia quietly backs ASIC challengers (MRVL, MediaTek, AlChip) against Broadcom. He owns the theme through the suppliers this map surfaces, not the megacap chips themselves.",
+      "narrative": "Jensen Huang escalated from company statements to personal, on-the-record denial: in Tokyo he called the delay reports 'not true \u2014 Vera Rubin is already in production. Giant amounts of production incoming.' That's the second rebuttal in a week (after debunking the Rubin-Ultra-to-2028 rumor and reframing the Kyber change as architectural optimization). The analyst sides with Nvidia on timelines \u2014 they have the best visibility into their own supply chain \u2014 while noting the rumor cycle already did real damage to supply-chain stock prices, and calling out the growing pattern of overreaching claims spun from technical nuance for viewcount.\n\nAround the edges: a frontier lab that leaned on internal ASICs has reportedly shifted ~50% of its compute back to Nvidia, DeepSeek and Zhipu are building custom ASICs to route around it (expected), and Nvidia hosts a CPO strategy conference with NTT on July 24 \u2014 a dated catalyst for the optics complex.",
       "conviction": "medium",
       "keyPoints": [
-        "Jensen personally denied the delay reports: 800V + rack-to-rack optical interconnects \"in line with plan, no material delay\"",
-        "Rubin Ultra 2028-delay rumor debunked (ships next year); Kyber-replacement redesign framed as architectural optimization, not a slip",
-        "Claimed no ASIC market-share loss — a direct rebuttal to the SemiAnalysis-style supply-chain bear framing",
-        "Read-through to photonics: the demand center denying the optical-interconnect delay is the catalyst the laser names are trading on",
-        "Edge still thinnest here: NVDA as the gravitational center; the \"Nvidia backs ASIC challengers vs Broadcom\" theory stays speculative"
+        "Jensen in Tokyo: 'Vera Rubin is already in production' \u2014 flat denial of delay reports",
+        "Second rebuttal in a week; he trusts NVDA's visibility on its own timelines",
+        "Rumor cycle already damaged supplier stock prices \u2014 narrative risk is the real risk",
+        "Frontier lab reportedly moved ~50% of compute from internal ASICs back to NVDA",
+        "NVDA/NTT CPO conference July 24 \u2014 dated catalyst for the optics complex"
       ],
       "tickers": [
         "NVDA",
         "AMD"
       ],
       "sourceThesisIds": [
+        "h_5e8b6c10f7ff1099",
         "h_af10808228e2376e",
         "h_061b5ccd49c3a139",
         "h_6f58883d2e2c5a6e",
@@ -1092,11 +1110,10 @@
         "h_d2558834bea09c9f",
         "h_af8d7a1453dad76f",
         "h_a50d2beceb05baea",
-        "h_0fc55eab6ec27b83",
-        "h_ef14e95a9674e72e"
+        "h_0fc55eab6ec27b83"
       ],
       "thesesCount": 40,
-      "lastSynthesized": "2026-07-15T00:00:00Z",
+      "lastSynthesized": "2026-07-16T10:43:21Z",
       "dailyMentions": {
         "days": [
           "2026-06-02",
@@ -1134,7 +1151,8 @@
           "2026-07-08",
           "2026-07-11",
           "2026-07-13",
-          "2026-07-14"
+          "2026-07-14",
+          "2026-07-16"
         ],
         "counts": [
           0,
@@ -1157,7 +1175,7 @@
           0,
           0,
           0,
-          1,
+          0,
           2,
           0,
           6,
@@ -1172,35 +1190,47 @@
           3,
           1,
           1,
+          1,
           1
         ]
       }
     },
     {
       "category": "hyperscalers",
-      "narrative": "His 'Meta is not cutting' thesis won the week outright. A published internal Meta memo showed AI ramping as usual — LTAs with Samsung and SNDK for memory and Sumitomo Electric for fiber, ~7GW of compute deployed this year and expected to double in 2027, up to $145B capex, and a new chip every six months through 2027 — followed days later by a new $10B datacenter in Canada. 'So much for the media framing of Meta Compute as overbuilding and cutting capex.' The rest of the week's hyperscaler talk was narrative texture: OpenAI antagonizing every Mag7 partner it has (TSLA, MSFT, NVDA, AAPL) while building its own ecosystem, which he reads admiringly as the industry's genuine disruptor dynamic, and xAI's Grok 4.5 reportedly reaching frontier quality at lower cost.",
+      "narrative": "A possible fifth capex payer entered his frame: The Information reports AAPL is shopping for AI chip companies, which he reads as Apple learning the lesson GOOGL taught the industry when it cut Meta off \u2014 own your infrastructure or someone else rations it. If Apple follows M&A with a real buildout, that's an unexpected, unpriced demand wave across foundries, optics, and memory. No leaked targets yet; he's explicit this is scenario, not fact.\n\nMeanwhile META keeps converting narrative into supply-chain fact: the Iris chip enters mass production in September via Broadcom and TSMC, compute doubles to 14GW by 2027, and its memory LTAs (Samsung, SanDisk) are underwriting the memory upcycle. His standing frame holds \u2014 hyperscaler capex plans sit at the high end of projections while the market keeps treating each confirmation as sell-the-news.",
       "conviction": "high",
       "keyPoints": [
-        "Meta internal memo: up to $145B capex, 7GW compute this year doubling in 2027, chip every 6 months",
-        "New $10B Meta datacenter in Canada — directly contradicts the capex-cut framing",
-        "Memory + fiber LTAs (Samsung, SNDK, Sumitomo) contract the supply chain his other themes ride",
-        "OpenAI-vs-Mag7 and Grok 4.5 read as healthy frontier competition, not demand risk"
+        "AAPL reportedly shopping for AI chip companies \u2014 a potential unpriced fifth capex wave",
+        "His read: Apple learned from Google cutting Meta off \u2014 self-reliance beats renting",
+        "META Iris chip to mass production in September via AVGO/TSMC; 14GW compute by 2027",
+        "Meta's memory LTAs (Samsung, SNDK) directly underwrite the memory upcycle",
+        "Hyperscaler capex at the high end of projections; market keeps selling the news"
       ],
       "tickers": [
+        "AAPL",
         "META",
-        "AMZN",
         "GOOGL",
-        "MSFT"
+        "MSFT",
+        "AMZN"
       ],
       "sourceThesisIds": [
+        "h_11fa0500a43edbbf",
+        "h_d11968fac60e79dd",
+        "h_2c13160eead5f0f3",
+        "h_05faa8a8788a2cb1",
+        "h_abafede3f1b850bd",
+        "h_6bf88df291b0d0c8",
+        "h_061b5ccd49c3a139",
         "h_6f58883d2e2c5a6e",
         "h_747bfa58a26cca31",
         "h_d087ebd537bedd40",
         "h_530410ca5ca0e6c1",
         "h_5459f5d7ade0192e",
+        "h_2c315427900a28ca",
         "h_79f9aaff84f7f697",
         "h_2909dadab30949b5",
         "h_73d38658dc26c0d9",
+        "h_97ce243eb386cc9e",
         "h_1815078828b9f257",
         "h_34534f43456cd196",
         "h_85395dd0fa8acb89",
@@ -1222,16 +1252,11 @@
         "h_c3784b027db8669f",
         "h_2e879b7947e4586e",
         "h_06c1b1dfc8ba3b53",
-        "h_d81fe21a14bdd892",
-        "h_1793f6bef2c43658",
-        "h_29e60f0da3d1925a",
-        "h_af8d7a1453dad76f",
-        "h_fa1af2184880e3d2",
-        "h_e7720e250de56618",
-        "h_05968d27cdabc404"
+        "h_bebbef0482f407da",
+        "h_d81fe21a14bdd892"
       ],
-      "thesesCount": 36,
-      "lastSynthesized": "2026-07-12T08:44:59Z",
+      "thesesCount": 40,
+      "lastSynthesized": "2026-07-16T10:43:21Z",
       "dailyMentions": {
         "days": [
           "2026-06-02",
@@ -1269,7 +1294,8 @@
           "2026-07-08",
           "2026-07-11",
           "2026-07-13",
-          "2026-07-14"
+          "2026-07-14",
+          "2026-07-16"
         ],
         "counts": [
           0,
@@ -1285,8 +1311,6 @@
           0,
           0,
           0,
-          1,
-          1,
           0,
           0,
           0,
@@ -1295,19 +1319,22 @@
           0,
           0,
           0,
-          4,
           0,
-          4,
+          0,
+          0,
+          0,
+          5,
           6,
           4,
           1,
           3,
           3,
           1,
-          3,
           5,
-          0,
-          0
+          5,
+          1,
+          1,
+          5
         ]
       }
     }
