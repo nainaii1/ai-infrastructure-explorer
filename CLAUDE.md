@@ -138,13 +138,19 @@ not throwaway config.
   `var(--display)`; the Design system section + `docs/DESIGN.md` brought current;
   Phase 6 boxes ticked in `docs/EXECUTION.md`).
 - **Live counts** (approximate, check `ingest/store/*.json` for current):
-  ~109 tickers tracked (23 core / 21 watch / 65 radar after focus-weighting),
+  ~110 tickers tracked (27 core / 17 watch / 66 radar after focus-weighting),
   10 categorized layers + an `unsorted` triage bucket (one Core name, RDDT,
   is still unsorted — it doesn't cleanly fit any of the 10 categories;
-  remaining unsorted are Watch/Radar tier), 170 ingested theses, 15 desk
-  verdicts (reviewed 2026-07-06), 10 brain digests synthesized (8
-  re-synthesized 2026-07-06 via Claude Code per the v4 workaround above;
-  materials/glass carried forward — no new theses that pass).
+  remaining unsorted are Watch/Radar tier), 221 ingested theses, 17 desk
+  verdicts (reviewed 2026-07-16; roster is "top 15 by score + sticky
+  act/accumulate holdovers"), 10 brain digests (9 re-synthesized 2026-07-16
+  via Claude Code per the v4 workaround above; fabs carried forward).
+- **Symbol canonicalization** (2026-07-16): `base.json` carries
+  `tickerAliases` (e.g. `SIVEF → SIVE`, mentions merge) and `themeTags`
+  (e.g. `DRAM`, `SPCX` — theme markers, never ticker records).
+  `scorer.canonicalize_theses()` applies both before any
+  priority/tier computation, and `bot.py` skips auto-creating ticker stubs
+  for them.
 - **Signal Digest** ⛔ superseded (2026-07-06) by the **Coverage memo** feature
   in the v7 upgrade (`docs/EXECUTION.md` Phase 2). The memo
   (`ingest/store/memos.json` → `memo.html`, authored via the weekly review /

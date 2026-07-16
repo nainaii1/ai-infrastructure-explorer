@@ -1,8 +1,8 @@
 {
   "meta": {
-    "version": "1.236",
+    "version": "1.241",
     "schemaVersion": 1,
-    "lastUpdated": "2026-07-16T06:23:32Z",
+    "lastUpdated": "2026-07-16T14:33:08Z",
     "source": "ingest"
   },
   "countries": {
@@ -202,5 +202,12 @@
     "icon": "<circle cx=\"12\" cy=\"12\" r=\"8\"/><path d=\"M12 8v5\"/><circle cx=\"12\" cy=\"16\" r=\".5\"/>",
     "layer": 0,
     "tooltip": "Auto-added tickers ingested from posts that have not been categorized yet — triage with review.py."
-  }
+  },
+  "tickerAliases": {
+    "SIVEF": "SIVE"
+  },
+  "themeTags": [
+    "DRAM",
+    "SPCX"
+  ]
 }

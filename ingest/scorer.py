@@ -47,6 +47,32 @@ def _parse_dt(s):
     return None
 
 
+def canonicalize_theses(theses, aliases=None, theme_tags=None):
+    """Return a new thesis list with each post's ticker symbols cleaned for
+    scoring: alias symbols remapped to their canonical listing (SIVEF -> SIVE,
+    duplicates collapsed) and theme tags dropped (pseudo-tickers like DRAM or
+    SPCX that name a theme, not a tradable stock). Original records are never
+    mutated and post text is untouched — this only affects counting.
+
+    Config lives in base.json ("tickerAliases", "themeTags"); callers load it
+    and pass it in so this stays a pure function.
+    """
+    aliases = aliases or {}
+    excluded = set(theme_tags or [])
+    out = []
+    for th in theses:
+        seen = set()
+        syms = []
+        for sym in th.get("tickers", []):
+            canon = aliases.get(sym, sym)
+            if canon in excluded or canon in seen:
+                continue
+            seen.add(canon)
+            syms.append(canon)
+        out.append({**th, "tickers": syms})
+    return out
+
+
 def compute_priorities(theses, now=None, half_life_days=HALF_LIFE_DAYS):
     """Return a list of {ticker, score, mentions, convictionHits, lastMentioned}
     ranked by score descending (then mentions)."""

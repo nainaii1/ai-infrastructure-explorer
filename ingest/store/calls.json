@@ -1,7 +1,7 @@
 {
   "meta": {
     "schemaVersion": 1,
-    "updatedAt": "2026-07-12T08:40:00Z",
+    "updatedAt": "2026-07-16T00:00:00Z",
     "author": "claude-desk",
     "benchmark": "SMH",
     "disclaimer": "The calls ledger tracks the desk's own dated suggestions against a buy-the-index benchmark. Stamped forward-only, never retro-fitted. Personal research tool - not investment advice."
@@ -28,6 +28,28 @@
       "benchmark": {
         "symbol": "SMH",
         "priceAtCall": 611.03
+      }
+    },
+    {
+      "id": "c_SNDK_2026-07-16",
+      "ticker": "SNDK",
+      "kind": "new-position",
+      "calledAt": "2026-07-16",
+      "entryPrice": 1615.0,
+      "entryCurrency": "USD",
+      "stanceAtCall": "accumulate",
+      "memoId": "m_SNDK_2026w29",
+      "thesisIds": [
+        "h_c0e79065f90fc60c",
+        "h_2c13160eead5f0f3",
+        "h_abafede3f1b850bd"
+      ],
+      "closedAt": null,
+      "exitPrice": null,
+      "outcome": "open",
+      "benchmark": {
+        "symbol": "SMH",
+        "priceAtCall": 590.77
       }
     }
   ]

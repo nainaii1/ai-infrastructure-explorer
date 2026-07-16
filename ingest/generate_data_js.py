@@ -110,7 +110,11 @@ def build_data():
                 if snap.get(f) is not None:
                     t[f] = snap[f]
 
-    priorities = scorer.compute_priorities(theses)
+    # Canonicalize symbols before counting (SIVEF -> SIVE; DRAM/SPCX are
+    # theme tags, not tickers) so aliases don't split a name's mention count.
+    canonical_theses = scorer.canonicalize_theses(
+        theses, base.get("tickerAliases"), base.get("themeTags"))
+    priorities = scorer.compute_priorities(canonical_theses)
     by_symbol = {p["ticker"]: p for p in priorities}
     for t in tickers:
         p = by_symbol.get(t["ticker"])

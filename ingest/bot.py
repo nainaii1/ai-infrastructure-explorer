@@ -143,7 +143,14 @@ def ingest_message(text, source_url="", posted_at=None):
 
     known_upper = {k.upper() for k in known}
     added = []
+    # Alias symbols (SIVEF) and theme tags (DRAM, SPCX) never become ticker
+    # records — scoring canonicalizes them via base.json config instead.
+    base = _load("base.json")
+    non_tickers = {s.upper() for s in (base.get("themeTags") or [])}
+    non_tickers |= {s.upper() for s in (base.get("tickerAliases") or {})}
     for sym in thesis["tickers"]:
+        if sym.upper() in non_tickers:
+            continue
         if sym.upper() not in known_upper:
             tickers.append({
                 "ticker": sym,
