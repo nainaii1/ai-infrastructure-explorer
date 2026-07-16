@@ -246,7 +246,11 @@ def sync(store=STORE, now=None, write=True):
     base = json.loads((store / "base.json").read_text(encoding="utf-8"))
     existing = _load_optional(store / "vault.json", {})
 
-    priorities = scorer.compute_priorities(theses)
+    # Same symbol canonicalization as generate_data_js (aliases merge,
+    # theme tags drop) so vault tiers match the app's tiers.
+    canonical_theses = scorer.canonicalize_theses(
+        theses, base.get("tickerAliases"), base.get("themeTags"))
+    priorities = scorer.compute_priorities(canonical_theses)
     vault = build_vault(
         existing,
         tickers,

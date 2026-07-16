@@ -100,3 +100,43 @@ class TestAssignTiers(unittest.TestCase):
         theses = [thesis(["A"], "2026-06-20T00:00:00Z")]
         tiers = self._tiers(theses, ["A", "B", "C"])
         self.assertEqual(sorted(tiers.keys()), ["A", "B", "C"])
+
+
+class TestCanonicalize(unittest.TestCase):
+    """canonicalize_theses: alias remap + theme-tag drop, no mutation."""
+
+    def test_alias_remaps_to_canonical_symbol(self):
+        theses = [thesis(["SIVEF"], "2026-06-20T00:00:00Z")]
+        out = scorer.canonicalize_theses(theses, aliases={"SIVEF": "SIVE"})
+        self.assertEqual(out[0]["tickers"], ["SIVE"])
+
+    def test_alias_collapses_duplicate_in_same_post(self):
+        theses = [thesis(["SIVE", "SIVEF"], "2026-06-20T00:00:00Z")]
+        out = scorer.canonicalize_theses(theses, aliases={"SIVEF": "SIVE"})
+        self.assertEqual(out[0]["tickers"], ["SIVE"])
+
+    def test_theme_tag_dropped(self):
+        theses = [thesis(["MU", "DRAM"], "2026-06-20T00:00:00Z")]
+        out = scorer.canonicalize_theses(theses, theme_tags=["DRAM"])
+        self.assertEqual(out[0]["tickers"], ["MU"])
+
+    def test_originals_not_mutated(self):
+        theses = [thesis(["SIVEF", "DRAM"], "2026-06-20T00:00:00Z")]
+        scorer.canonicalize_theses(
+            theses, aliases={"SIVEF": "SIVE"}, theme_tags=["DRAM"])
+        self.assertEqual(theses[0]["tickers"], ["SIVEF", "DRAM"])
+
+    def test_no_config_is_identity(self):
+        theses = [thesis(["MU"], "2026-06-20T00:00:00Z")]
+        out = scorer.canonicalize_theses(theses)
+        self.assertEqual(out[0]["tickers"], ["MU"])
+
+    def test_alias_mentions_merge_in_priorities(self):
+        theses = [
+            thesis(["SIVE"], "2026-06-20T00:00:00Z"),
+            thesis(["SIVEF"], "2026-06-21T00:00:00Z"),
+        ]
+        out = scorer.canonicalize_theses(theses, aliases={"SIVEF": "SIVE"})
+        ranked = scorer.compute_priorities(out, now=NOW)
+        self.assertEqual(ranked[0]["ticker"], "SIVE")
+        self.assertEqual(ranked[0]["mentions"], 2)
