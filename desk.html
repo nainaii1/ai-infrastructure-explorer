@@ -2620,7 +2620,7 @@
         tr.appendChild(pctCell(t.chg1y));
 
         var mTd = el("td", "num");
-        var mc = fmtMcap(t.marketCap);
+        var mc = fmtMcap(t.marketCap, t.currency);
         if (mc) { mTd.textContent = mc; }
         else { mTd.appendChild(el("span", "wl-muted", t.marketCapTier || "—")); }
         tr.appendChild(mTd);

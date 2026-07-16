@@ -115,8 +115,17 @@ def _parse_sheet_rows(csv_text):
     return out
 
 
+def _cache_busted(url):
+    """Append a unique query param so Google's CDN can't serve a stale cached
+    copy of the CSV export. Without this, edits to the sheet (a new row, a
+    fixed formula) may not appear for several minutes on a plain fetch."""
+    sep = "&" if "?" in url else "?"
+    return "{}{}_cb={}".format(url, sep, int(datetime.now(timezone.utc).timestamp()))
+
+
 def _fetch_csv(url):
-    req = urllib.request.Request(url, headers={"User-Agent": UA})
+    req = urllib.request.Request(_cache_busted(url),
+                                 headers={"User-Agent": UA, "Cache-Control": "no-cache"})
     with urllib.request.urlopen(req, timeout=30, context=SSL_CTX) as resp:
         return resp.read().decode("utf-8")
 
