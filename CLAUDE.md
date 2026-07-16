@@ -30,8 +30,12 @@ not throwaway config.
 - **v1 — Supply Chain Map** ✅ done. Value-chain layer stack (not an SVG arc —
   see "Map rendering" below), grouped into Demand/Chip/Supply flow zones,
   click-to-filter, ticker cards.
-- **v2 — Watchlist** ✅ done. Sortable table, weekly Yahoo price fetch via a
-  local server (`ingest/serve.py`), ratings persist to localStorage.
+- **v2 — Watchlist** ✅ done. Sortable table (Price/7D/1M/1Y/MktCap), ratings
+  persist to localStorage. Prices come from the operator's **Google Sheet**
+  (GOOGLEFINANCE formulas; CSV export downloaded by `ingest/fetch_prices.py`
+  — Yahoo/FMP retired 2026-07-16 after chronic 429s). Refresh: launchd agent
+  twice daily, `refresh-prices.command`, or the button via `ingest/serve.py`.
+  See `docs/GUIDE.md` §4.
 - **v3 — Thesis tab + ingest pipeline** ✅ done. Telegram bot (`ingest/bot.py`)
   captures posts → `theses.json`, auto-grows `tickers.json`, computes a
   priority ranking (`scorer.py`).
@@ -134,13 +138,19 @@ not throwaway config.
   `var(--display)`; the Design system section + `docs/DESIGN.md` brought current;
   Phase 6 boxes ticked in `docs/EXECUTION.md`).
 - **Live counts** (approximate, check `ingest/store/*.json` for current):
-  ~109 tickers tracked (23 core / 21 watch / 65 radar after focus-weighting),
+  ~110 tickers tracked (27 core / 17 watch / 66 radar after focus-weighting),
   10 categorized layers + an `unsorted` triage bucket (one Core name, RDDT,
   is still unsorted — it doesn't cleanly fit any of the 10 categories;
-  remaining unsorted are Watch/Radar tier), 170 ingested theses, 15 desk
-  verdicts (reviewed 2026-07-06), 10 brain digests synthesized (8
-  re-synthesized 2026-07-06 via Claude Code per the v4 workaround above;
-  materials/glass carried forward — no new theses that pass).
+  remaining unsorted are Watch/Radar tier), 221 ingested theses, 17 desk
+  verdicts (reviewed 2026-07-16; roster is "top 15 by score + sticky
+  act/accumulate holdovers"), 10 brain digests (9 re-synthesized 2026-07-16
+  via Claude Code per the v4 workaround above; fabs carried forward).
+- **Symbol canonicalization** (2026-07-16): `base.json` carries
+  `tickerAliases` (e.g. `SIVEF → SIVE`, mentions merge) and `themeTags`
+  (e.g. `DRAM`, `SPCX` — theme markers, never ticker records).
+  `scorer.canonicalize_theses()` applies both before any
+  priority/tier computation, and `bot.py` skips auto-creating ticker stubs
+  for them.
 - **Signal Digest** ⛔ superseded (2026-07-06) by the **Coverage memo** feature
   in the v7 upgrade (`docs/EXECUTION.md` Phase 2). The memo
   (`ingest/store/memos.json` → `memo.html`, authored via the weekly review /
@@ -372,8 +382,8 @@ ai-supply-desk/
 └── ingest/                     THE BACKEND — Python tooling that regenerates data.js
     ├── bot.py                   Telegram ingest (forward a post -> thesis)
     ├── synthesize.py            the "Brain" — Claude-synthesized theme digests (needs ANTHROPIC_API_KEY)
-    ├── fetch_prices.py          weekly Yahoo price fetch
-    ├── serve.py                 tiny local server (Yahoo fetch needs http://, not file://)
+    ├── fetch_prices.py          price fetch from the operator's Google Sheet (GOOGLEFINANCE)
+    ├── serve.py                 tiny local server (the Fetch-prices button needs http://, not file://)
     ├── parser.py / scorer.py / fetcher.py / review.py / generate_data_js.py
     ├── store/*.json             source of truth (base, tickers, theses, brain, verdicts, pending_tickers, prices)
     ├── tests/                   unittest suite — python3 -m unittest discover -s ingest/tests

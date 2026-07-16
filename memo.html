@@ -297,7 +297,7 @@
           var mcapItem = el("div", "snap-item");
           mcapItem.appendChild(el("span", "snap-label", "Market cap"));
           var mv = el("div", "snap-value");
-          mv.appendChild(el("span", "mono", AIE.fmtMcap(t.marketCap)));
+          mv.appendChild(el("span", "mono", AIE.fmtMcap(t.marketCap, t.currency)));
           mcapItem.appendChild(mv);
           snap.appendChild(mcapItem);
         }
