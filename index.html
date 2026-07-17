@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI Supply Desk — Private Coverage</title>
+  <title>Coverage — AI Infrastructure Explorer</title>
 
   <!-- ⚡ favicon: inline SVG data URI (no external request, works on file://) -->
   <link
@@ -254,10 +254,10 @@
         { href: "desk.html#chapter-watchlist", label: "The Watchlist", value: String(tickers.length),
           sub: "names priced & tiered", shape: "ring",
           bg: "#d7f0e8", ink: "#14614f", subc: "#37796a", shapec: "#34c1a4" },
-        { href: "desk.html#chapter-thesis", label: "The Evidence", value: String(theses.length),
+        { href: "desk.html#chapter-evidence", label: "The Evidence", value: String(theses.length),
           sub: "sourced theses", shape: "square",
           bg: "#e7e2fb", ink: "#4a3a8f", subc: "#6a5cae", shapec: "#9a86ef" },
-        { href: "desk.html#chapter-brain", label: "The Synthesis", value: String(digestCount),
+        { href: "desk.html#chapter-synthesis", label: "The Synthesis", value: String(digestCount),
           sub: "per-theme digests", dark: true }
       ];
       var tilesEl = document.getElementById("chapterTiles");
@@ -289,7 +289,7 @@
       // ---- Colophon: disclaimer straight from desk.meta (fallback if absent). ----
       var colo = document.getElementById("colophon");
       if (colo) {
-        colo.appendChild(el("strong", null, "AI Supply Desk"));
+        colo.appendChild(el("strong", null, "AI Infrastructure Explorer"));
         colo.appendChild(document.createTextNode(" — "));
         colo.appendChild(document.createTextNode(
           dmeta.disclaimer ||
@@ -342,7 +342,7 @@
         tr.appendChild(titleCell);
 
         var rCell = el("td");
-        if (o.rating) rCell.appendChild(el("span", "aie-badge aie-stance--" + o.rating, o.rating));
+        if (o.rating) rCell.appendChild(el("span", "aie-badge aie-stance--" + o.rating, AIE.stanceLabel(o.rating)));
         else rCell.appendChild(document.createTextNode("—"));
         tr.appendChild(rCell);
 
@@ -456,7 +456,7 @@
           var themes = themesInMemos(memos);
           var groups = [];
           if (kinds.length > 1) groups.push(renderFilterGroup("Kind", "kind", kinds));
-          if (ratings.length > 1) groups.push(renderFilterGroup("Rating", "rating", ratings));
+          if (ratings.length > 1) groups.push(renderFilterGroup("Rating", "rating", ratings, AIE.stanceLabel));
           if (themes.length > 1) groups.push(renderFilterGroup("Theme", "theme", themes, themeLabel));
           groups.forEach(function (g, i) {
             if (i) filtersEl.appendChild(el("span", "lf-sep"));

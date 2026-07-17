@@ -197,6 +197,17 @@
   }
 
   /* ==========================================================================
+     Display labels for desk stances and user ratings. The DATA VALUES stay
+     "watch" (verdicts.json / localStorage untouched); only the on-screen word
+     changes, so the three meanings of "watch" (conviction tier / desk stance /
+     user rating) never collide on one card. CSS classes keep the data value.
+     ======================================================================== */
+  var STANCE_LABELS = { watch: "wait" };
+  function stanceLabel(stance) { return STANCE_LABELS[stance] || stance; }
+  var RATING_LABELS = { watch: "following" };
+  function ratingLabel(rating) { return RATING_LABELS[rating] || rating; }
+
+  /* ==========================================================================
      Category-color helpers. Colors live in data.js (rule #4).
      ======================================================================== */
   function categoryColor(id, fallback) {
@@ -239,7 +250,7 @@
     nav.setAttribute("aria-label", "Site");
     var inner = mk("div", "aie-nav-inner");
 
-    var wordmark = mk("a", "aie-wordmark", "AI Supply Desk");
+    var wordmark = mk("a", "aie-wordmark", "AI Infrastructure Explorer");
     wordmark.setAttribute("href", "index.html");
     inner.appendChild(wordmark);
 
@@ -637,6 +648,8 @@
     fmtPct: fmtPct,
     fmtDate: fmtDate,
     categoryColor: categoryColor,
+    stanceLabel: stanceLabel,
+    ratingLabel: ratingLabel,
     paintGradientBorder: paintGradientBorder,
     renderNav: renderNav,
     linkForTicker: linkForTicker,

@@ -201,7 +201,7 @@
     "color": "#94a3b8",
     "icon": "<circle cx=\"12\" cy=\"12\" r=\"8\"/><path d=\"M12 8v5\"/><circle cx=\"12\" cy=\"16\" r=\".5\"/>",
     "layer": 0,
-    "tooltip": "Auto-added tickers ingested from posts that have not been categorized yet — triage with review.py."
+    "tooltip": "Auto-added tickers from captured posts that have not been categorized yet — triaged in the weekly review."
   },
   "tickerAliases": {
     "SIVEF": "SIVE"

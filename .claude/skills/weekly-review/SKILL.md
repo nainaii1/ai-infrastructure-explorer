@@ -116,6 +116,10 @@ further without the operator asking.
    grouped by category and run them through
    `synthesize.synthesize_all()` with an injected `call_fn` (see
    `docs/GUIDE.md` §3) so output stays byte-identical to an API run.
+   Set `brain.json` `meta.model` to a short human-readable provenance string
+   (e.g. `"weekly desk review"`) — it may surface in tooling, and pipeline
+   jargon like "injected call_fn" must never be written there. The UI itself
+   renders only the date + "weekly desk review".
 
 6. **Bump `base.json` `meta.version`** (e.g. 1.78 → 1.79) and set
    `meta.lastUpdated` — this is what makes the app re-seed localStorage.

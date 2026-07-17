@@ -586,6 +586,15 @@
       opacity: 1;
       margin-top: 9px;
     }
+    /* Category subtitle, revealed with the drill-down (collapsed rows show
+       only the short layer name). */
+    .layer-detail-sub {
+      display: block;
+      font-weight: 600;
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
     .layer-detail-label {
       display: inline-block;
       font-family: var(--mono);
@@ -1297,11 +1306,9 @@
           <p class="hero-tagline">Follow the signal chain, <span class="grad">not the headlines.</span></p>
           <p class="hero-lede">A field guide to the AI hardware supply chain — one analyst's
             public calls, captured at the source, ranked by conviction, and challenged by a
-            weekly second opinion. Read it top to bottom: terrain, names, evidence, synthesis.</p>
+            weekly second opinion. Read it top to bottom: map, watchlist, evidence, synthesis.</p>
         </div>
-        <div class="unf-hero-art" id="deskHeroArt">
-          <span class="unf-art-cap aie-label">Your signal<br>in motion</span>
-        </div>
+        <div class="unf-hero-art" id="deskHeroArt"></div>
       </div>
       <!-- Focus — the week's one headline (desk.meta.focus), the hero's lead
            card. Hidden entirely when absent; AIE.renderFocusCard handles both
@@ -1312,7 +1319,7 @@
       <!-- Latest signal — demoted to a compact secondary slot (Focus leads
            the hero now); the eyebrow links into Chapter 03 for the full feed. -->
       <div class="hero-latest hero-latest--compact" id="heroLatest" hidden>
-        <a class="hl-eyebrow-link" href="#chapter-thesis" data-target="chapter-thesis">
+        <a class="hl-eyebrow-link" href="#chapter-evidence" data-target="chapter-evidence">
           <span class="hl-eyebrow">Latest signal</span><span class="hl-arrow" aria-hidden="true">→</span>
         </a>
         <div id="heroLatestCard"></div>
@@ -1326,8 +1333,8 @@
         <span class="capsule-pill" id="capsulePill" aria-hidden="true"></span>
         <a class="capsule-link" href="#chapter-map" data-target="chapter-map"><span class="cl-index">01</span>Map</a>
         <a class="capsule-link" href="#chapter-watchlist" data-target="chapter-watchlist"><span class="cl-index">02</span>Watchlist</a>
-        <a class="capsule-link" href="#chapter-thesis" data-target="chapter-thesis"><span class="cl-index">03</span>Evidence</a>
-        <a class="capsule-link" href="#chapter-brain" data-target="chapter-brain"><span class="cl-index">04</span>Synthesis</a>
+        <a class="capsule-link" href="#chapter-evidence" data-target="chapter-evidence"><span class="cl-index">03</span>Evidence</a>
+        <a class="capsule-link" href="#chapter-synthesis" data-target="chapter-synthesis"><span class="cl-index">04</span>Synthesis</a>
       </nav>
     </div>
 
@@ -1336,7 +1343,7 @@
            by renderPipeline()/renderCrossSection() from AIE_DATA. -->
       <section class="chapter" id="chapter-map">
         <header class="chapter-head reveal">
-          <span class="chapter-eyebrow">Chapter 01 · Terrain</span>
+          <span class="chapter-eyebrow">Chapter 01</span>
           <h2 class="chapter-title">The Map</h2>
           <p class="chapter-lede">How a GPU gets made, and who gets paid along the way.
             Trace the flow from raw supply to the demand hub — tap any layer to see
@@ -1372,7 +1379,7 @@
              expands in place to the full dossier card (U7). -->
         <div class="cards-section">
           <div class="cards-ledger">
-            <span class="ledger-eyebrow">Holdings</span>
+            <span class="ledger-eyebrow">Coverage</span>
             <span class="ledger-scope" id="cardScope"></span>
             <!-- "What @aleabitoreddit prioritizes" — mention chips from
                  AIE_DATA.priorities, riding the ledger row as a horizontal
@@ -1391,7 +1398,7 @@
       <!-- Chapter 02: The Watchlist. -->
       <section class="chapter" id="chapter-watchlist">
         <header class="chapter-head reveal">
-          <span class="chapter-eyebrow">Chapter 02 · Names</span>
+          <span class="chapter-eyebrow">Chapter 02</span>
           <h2 class="chapter-title">The Watchlist</h2>
           <p class="chapter-lede">Every tracked name with its weekly price snapshot,
             conviction tier, and the desk's second opinion. Sort it, filter it,
@@ -1444,9 +1451,9 @@
       </section>
 
       <!-- Chapter 03: The Evidence — the raw captured theses. -->
-      <section class="chapter" id="chapter-thesis">
+      <section class="chapter" id="chapter-evidence">
         <header class="chapter-head reveal">
-          <span class="chapter-eyebrow">Chapter 03 · Evidence</span>
+          <span class="chapter-eyebrow">Chapter 03</span>
           <h2 class="chapter-title">The Evidence</h2>
           <p class="chapter-lede">The source material: every captured call, verbatim
             and linked to its original post. Conviction is scored from the language
@@ -1466,9 +1473,9 @@
       <!-- Chapter 04: The Synthesis. Per-theme digests built by renderBrain()
            from AIE_DATA.brain (produced by ingest/synthesize.py). Each digest
            expands to reveal the raw source theses behind it. -->
-      <section class="chapter" id="chapter-brain">
+      <section class="chapter" id="chapter-synthesis">
         <header class="chapter-head reveal">
-          <span class="chapter-eyebrow">Chapter 04 · Synthesis</span>
+          <span class="chapter-eyebrow">Chapter 04</span>
           <h2 class="chapter-title">The Synthesis</h2>
           <p class="chapter-lede">The Brain reads every thesis per theme and writes
             one narrative digest — where the conviction is, what the key points are,
@@ -1864,7 +1871,10 @@
         var main = el("div", "layer-main");
         var title = el("div", "layer-title");
         title.appendChild(document.createTextNode(opts.title + " "));
-        if (opts.sub) title.appendChild(el("span", "layer-sub", "· " + opts.sub));
+        // Subtitle inline only where there's no drill-down (the hub card);
+        // category bands reveal it inside the expanded detail instead, so a
+        // collapsed row reads as one short name.
+        if (opts.sub && !opts.angle) title.appendChild(el("span", "layer-sub", "· " + opts.sub));
         main.appendChild(title);
         if (opts.desc) main.appendChild(el("p", "layer-desc", opts.desc));
         // Investor angle — revealed when the layer is selected (see .is-active CSS).
@@ -1872,6 +1882,7 @@
         if (opts.angle) {
           var detail = el("div", "layer-detail");
           var detailInner = el("div", "layer-detail-inner");
+          if (opts.sub) detailInner.appendChild(el("span", "layer-detail-sub", opts.sub));
           detailInner.appendChild(el("span", "layer-detail-label", "What to watch"));
           detailInner.appendChild(el("p", "layer-detail-text", opts.angle));
           detail.appendChild(detailInner);
@@ -2161,7 +2172,7 @@
         var badges = el("div", "tk-tile-badges");
         badges.appendChild(el("span", "tier-badge " + tierOf(ticker), tierOf(ticker)));
         if (ticker.verdict) {
-          badges.appendChild(el("span", "vd-stance " + ticker.verdict.stance, ticker.verdict.stance));
+          badges.appendChild(el("span", "vd-stance " + ticker.verdict.stance, AIE.stanceLabel(ticker.verdict.stance)));
         }
         tile.appendChild(badges);
 
@@ -2315,7 +2326,7 @@
           var vd = el("div", "tk-verdict");
           var vh = el("div", "tk-verdict-head");
           vh.appendChild(el("span", "tk-verdict-label", "Claude's desk view"));
-          vh.appendChild(el("span", "vd-stance " + v.stance, v.stance));
+          vh.appendChild(el("span", "vd-stance " + v.stance, AIE.stanceLabel(v.stance)));
           if (v.updatedAt) vh.appendChild(el("span", "tk-verdict-label", v.updatedAt));
           vd.appendChild(vh);
           function vBlock(label, text) {
@@ -2634,7 +2645,7 @@
 
         var dTd = document.createElement("td");
         if (t.verdict) {
-          var vs = el("span", "vd-stance " + t.verdict.stance, t.verdict.stance);
+          var vs = el("span", "vd-stance " + t.verdict.stance, AIE.stanceLabel(t.verdict.stance));
           vs.title = t.verdict.view
             + (t.verdict.execution ? "\n\nExecution: " + t.verdict.execution : "")
             + (t.verdict.changesMind ? "\n\nChanges my mind: " + t.verdict.changesMind : "");
@@ -2660,7 +2671,7 @@
         var rTd = document.createElement("td");
         var sel = document.createElement("select"); sel.className = "wl-rating";
         WL_RATINGS.forEach(function (opt) {
-          var o = document.createElement("option"); o.value = opt; o.textContent = opt; sel.appendChild(o);
+          var o = document.createElement("option"); o.value = opt; o.textContent = AIE.ratingLabel(opt); sel.appendChild(o);
         });
         sel.value = ratingFor(t.ticker);
         sel.addEventListener("change", function () { setRating(t.ticker, sel.value); });
@@ -3033,9 +3044,10 @@
           ));
         }
         if (metaEl) {
+          // Friendly provenance only — the raw brain.meta.model string is an
+          // internal detail (model id / pipeline note) and stays out of the UI.
           metaEl.textContent = (brain.meta && brain.meta.generatedAt)
-            ? ("synthesized " + brain.meta.generatedAt.slice(0, 10)
-               + (brain.meta.model ? " · " + brain.meta.model : ""))
+            ? ("synthesized " + AIE.fmtDate(brain.meta.generatedAt.slice(0, 10)) + " · weekly desk review")
             : "";
         }
 
@@ -3153,6 +3165,11 @@
       }
 
       // Boot
+      // Old chapter anchors (pre-rename) still land in the right place.
+      var LEGACY_HASHES = { "#chapter-thesis": "#chapter-evidence", "#chapter-brain": "#chapter-synthesis" };
+      if (LEGACY_HASHES[window.location.hash]) {
+        window.location.hash = LEGACY_HASHES[window.location.hash];
+      }
       AIE.seed();
       AIE.paintGradientBorder();
       AIE.renderNav("desk");

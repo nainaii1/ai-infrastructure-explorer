@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Coverage memo — AI Supply Desk</title>
+  <title>Coverage memo — AI Infrastructure Explorer</title>
 
   <!-- ⚡ favicon: inline SVG data URI (no external request, works on file://) -->
   <link
@@ -330,7 +330,7 @@
           var stanceItem = el("div", "snap-item");
           stanceItem.appendChild(el("span", "snap-label", "Desk stance"));
           var sv = el("div", "snap-value");
-          sv.appendChild(el("span", "aie-badge aie-stance--" + t.verdict.stance, t.verdict.stance));
+          sv.appendChild(el("span", "aie-badge aie-stance--" + t.verdict.stance, AIE.stanceLabel(t.verdict.stance)));
           stanceItem.appendChild(sv);
           snap.appendChild(stanceItem);
         }
@@ -462,7 +462,7 @@
          Main render.
          ================================================================== */
       function renderMemo(memo, memos) {
-        document.title = (memo.title || "Coverage memo") + " — AI Supply Desk";
+        document.title = (memo.title || "Coverage memo") + " — AI Infrastructure Explorer";
 
         var grid = el("div", "memo-grid");
         var article = el("article", "memo-article");
@@ -499,7 +499,7 @@
 
         var headmeta = el("div", "memo-headmeta");
         if (memo.rating) {
-          headmeta.appendChild(el("span", "aie-badge aie-stance--" + memo.rating, memo.rating));
+          headmeta.appendChild(el("span", "aie-badge aie-stance--" + memo.rating, AIE.stanceLabel(memo.rating)));
         }
         var pub = memo.publishedAt ? AIE.fmtDate(memo.publishedAt) : null;
         var upd = memo.updatedAt ? AIE.fmtDate(memo.updatedAt) : null;
@@ -583,7 +583,7 @@
         actions.appendChild(a1); actions.appendChild(a2);
         box.appendChild(actions);
         main.appendChild(box);
-        document.title = "Memo not found — AI Supply Desk";
+        document.title = "Memo not found — AI Infrastructure Explorer";
       }
 
       /* ==================================================================
@@ -594,7 +594,7 @@
         var deskMeta = (DATA.desk && DATA.desk.meta) || {};
         var colo = document.getElementById("colophon");
         if (!colo) return;
-        colo.appendChild(el("strong", null, "AI Supply Desk"));
+        colo.appendChild(el("strong", null, "AI Infrastructure Explorer"));
         colo.appendChild(document.createTextNode(" — "));
         colo.appendChild(document.createTextNode(
           memoMeta.disclaimer || deskMeta.disclaimer ||
