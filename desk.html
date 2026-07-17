@@ -704,7 +704,6 @@
       overflow: hidden;
       text-overflow: ellipsis;
     }
-    .tk-tile-spark { flex: 0 0 auto; margin-left: auto; color: var(--accent); opacity: 0.85; }
     .tk-tile-co {
       font-size: 11.5px;
       color: var(--muted);
@@ -868,11 +867,6 @@
        real daily price history lands). Shared by ticker cards, watchlist rows. */
     .spark-svg { display: block; overflow: visible; }
     .spark-path { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
-    .tk-trend { display: flex; align-items: center; gap: 8px; color: var(--accent); }
-    .tk-trend-label {
-      font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--muted);
-    }
 
     /* Empty state (e.g. Networking has zero tickers in v1). */
     .cards-empty {
@@ -969,6 +963,15 @@
     .vd-stance.accumulate { background: var(--sem-accumulate-bg); color: var(--sem-accumulate-fg); }
     .vd-stance.watch      { background: var(--sem-watch-bg); color: var(--sem-watch-fg); }
     .vd-stance.pass       { background: color-mix(in srgb, var(--muted) 16%, var(--card)); color: var(--muted); }
+    /* Watchlist stance badge doubles as the expander for the verdict row. */
+    .vd-stance--btn { border: 0; cursor: pointer; font: inherit; }
+    .wl-verdict-row td {
+      padding: 0 12px 12px;
+      background: color-mix(in srgb, var(--accent, var(--muted)) 4%, var(--card));
+    }
+    .wl-verdict { max-width: 720px; padding: 10px 4px 0; }
+    .wl-verdict p { margin: 6px 0 0; font-size: 12.5px; line-height: 1.55; color: var(--text); }
+    .wl-verdict p b { color: var(--ink); }
     .tk-verdict {
       margin-top: 12px; padding: 12px 14px; border-radius: 10px;
       background: color-mix(in srgb, var(--accent) 4%, var(--bg));
@@ -1417,10 +1420,6 @@
             </div>
           </div>
           <div class="wl-controls">
-            <div class="view-toggle" id="wlViewToggle" role="tablist" aria-label="Watchlist view">
-              <button type="button" class="vt-btn" data-view="flat" aria-selected="true">Flat</button>
-              <button type="button" class="vt-btn" data-view="grouped" aria-selected="false">Grouped</button>
-            </div>
             <div class="wl-tiers" id="wlTiers"></div>
             <div class="wl-filters" id="wlFilters"></div>
           </div>
@@ -1438,7 +1437,6 @@
                   <th data-key="chg1m" class="num">1M</th>
                   <th data-key="chg1y" class="num">1Y</th>
                   <th data-key="marketCap" class="num">Mkt Cap</th>
-                  <th class="wl-nosort">Trend (sample)</th>
                   <th data-key="deskStance">Desk</th>
                   <th class="wl-nosort">Note</th>
                   <th data-key="rating">Rating</th>
@@ -1529,50 +1527,16 @@
       var fmtMcap = AIE.fmtMcap;
 
       /* ----------------------------------------------------------
-         Sparkline — deterministic per-seed synthetic trend line, used
-         as a "Trend (sample)" placeholder until real daily price/mention
-         history is wired in. Same seed always draws the same shape.
+         Sparkline path helpers — used by the Brain's REAL per-theme
+         mention-count sparklines. (The synthetic "Trend (sample)"
+         placeholder sparkline was removed 18 Jul 2026: no fabricated
+         trend lines anywhere in the app.)
          ---------------------------------------------------------- */
-      function mulberry32(seed) {
-        var t = seed >>> 0;
-        return function () {
-          t += 0x6D2B79F5;
-          var r = Math.imul(t ^ (t >>> 15), 1 | t);
-          r ^= r + Math.imul(r ^ (r >>> 7), 61 | r);
-          return ((r ^ (r >>> 14)) >>> 0) / 4294967296;
-        };
-      }
-      function hashStr(str) {
-        var h = 0;
-        for (var i = 0; i < str.length; i++) h = (Math.imul(31, h) + str.charCodeAt(i)) | 0;
-        return Math.abs(h);
-      }
-      function sparkValues(seedStr, n) {
-        var rng = mulberry32(hashStr(seedStr));
-        var v = 50, out = [];
-        for (var i = 0; i < n; i++) { v += (rng() - 0.48) * 14; v = Math.max(8, Math.min(92, v)); out.push(v); }
-        return out;
-      }
       function sparkPath(values, w, h) {
         var step = w / (values.length - 1);
         return "M" + values.map(function (v, i) {
           return (i * step).toFixed(1) + "," + (h - (v / 100) * h).toFixed(1);
         }).join(" L");
-      }
-      // Build an inline <svg><path> sparkline seeded from `seedStr` (e.g. a ticker symbol).
-      function sparkSVG(seedStr, w, h) {
-        var ns = "http://www.w3.org/2000/svg";
-        var svg = document.createElementNS(ns, "svg");
-        svg.setAttribute("viewBox", "0 0 " + w + " " + h);
-        svg.setAttribute("width", w);
-        svg.setAttribute("height", h);
-        svg.setAttribute("aria-hidden", "true");
-        svg.classList.add("spark-svg");
-        var path = document.createElementNS(ns, "path");
-        path.setAttribute("d", sparkPath(sparkValues(seedStr, 16), w, h));
-        path.setAttribute("class", "spark-path");
-        svg.appendChild(path);
-        return svg;
       }
       // Scale small integer counts (e.g. daily mention counts) onto the same
       // 8-92 visual range sparkValues() uses, so the line isn't flat-lined.
@@ -2162,9 +2126,6 @@
           top.appendChild(iconWrap);
         }
         top.appendChild(el("span", "tk-tile-sym", ticker.ticker));
-        var spark = el("span", "tk-tile-spark");
-        spark.appendChild(sparkSVG(ticker.ticker, 56, 20));
-        top.appendChild(spark);
         tile.appendChild(top);
 
         tile.appendChild(el("div", "tk-tile-co", ticker.company || ""));
@@ -2300,14 +2261,6 @@
         badges.appendChild(tier);
         card.appendChild(badges);
 
-        // Trend (sample) — synthetic sparkline placeholder until real daily
-        // price history lands; seeded from the ticker so it's stable per card.
-        var trend = el("div", "tk-trend");
-        trend.style.setProperty("color", accent);
-        trend.appendChild(el("span", "tk-trend-label", "Trend (sample)"));
-        trend.appendChild(sparkSVG(ticker.ticker, 70, 26));
-        card.appendChild(trend);
-
         // Body: two labeled prose blocks
         var body = el("dl", "tk-body");
         function row(label, value) {
@@ -2327,7 +2280,7 @@
           var vh = el("div", "tk-verdict-head");
           vh.appendChild(el("span", "tk-verdict-label", "Claude's desk view"));
           vh.appendChild(el("span", "vd-stance " + v.stance, AIE.stanceLabel(v.stance)));
-          if (v.updatedAt) vh.appendChild(el("span", "tk-verdict-label", v.updatedAt));
+          if (v.updatedAt) vh.appendChild(el("span", "tk-verdict-label", AIE.fmtDate(String(v.updatedAt).slice(0, 10))));
           vd.appendChild(vh);
           function vBlock(label, text) {
             if (!text) return;
@@ -2521,7 +2474,8 @@
       ];
       // Watchlist opens focused on Core (highest-conviction names) so the
       // table is short by default; Signal/Watch/Radar/All are one chip away.
-      var wlState = { key: "category", dir: 1, view: "flat", categoryFilter: null, tierFilter: "core" };
+      // Always grouped by category — column sorts apply within each group.
+      var wlState = { key: "category", dir: 1, categoryFilter: null, tierFilter: "core" };
 
       function wlTickers() { return (DATA && DATA.tickers) ? DATA.tickers.slice() : []; }
 
@@ -2602,6 +2556,35 @@
         return td;
       }
 
+      // Full-width verdict detail row, inserted under a watchlist row when the
+      // stance badge is clicked (view / execution / what changes the mind).
+      function makeVerdictDetailRow(t) {
+        var v = t.verdict;
+        var tr = document.createElement("tr");
+        tr.className = "wl-verdict-row";
+        var td = document.createElement("td");
+        td.colSpan = 11;
+        var box = el("div", "wl-verdict");
+        var head = el("div", "tk-verdict-head");
+        head.appendChild(el("span", "tk-verdict-label", "Claude's desk view"));
+        head.appendChild(el("span", "vd-stance " + v.stance, AIE.stanceLabel(v.stance)));
+        if (v.updatedAt) head.appendChild(el("span", "tk-verdict-label", AIE.fmtDate(String(v.updatedAt).slice(0, 10))));
+        box.appendChild(head);
+        function vBlock(label, text) {
+          if (!text) return;
+          var p = el("p");
+          p.appendChild(el("b", null, label + " — "));
+          p.appendChild(document.createTextNode(text));
+          box.appendChild(p);
+        }
+        vBlock("View", v.view);
+        vBlock("Execution", v.execution);
+        vBlock("Changes my mind", v.changesMind);
+        td.appendChild(box);
+        tr.appendChild(td);
+        return tr;
+      }
+
       function makeWatchlistRow(t) {
         var cat = DATA.categories[t.category];
         var tr = document.createElement("tr");
@@ -2636,19 +2619,26 @@
         else { mTd.appendChild(el("span", "wl-muted", t.marketCapTier || "—")); }
         tr.appendChild(mTd);
 
-        // Trend (sample) — synthetic sparkline placeholder until real daily
-        // price history lands.
-        var trendTd = document.createElement("td");
-        trendTd.style.color = cat ? cat.color : "#94a3b8";
-        trendTd.appendChild(sparkSVG(t.ticker, 60, 22));
-        tr.appendChild(trendTd);
-
         var dTd = document.createElement("td");
         if (t.verdict) {
-          var vs = el("span", "vd-stance " + t.verdict.stance, AIE.stanceLabel(t.verdict.stance));
-          vs.title = t.verdict.view
-            + (t.verdict.execution ? "\n\nExecution: " + t.verdict.execution : "")
-            + (t.verdict.changesMind ? "\n\nChanges my mind: " + t.verdict.changesMind : "");
+          // Expandable verdict: clicking the stance badge opens a full-width
+          // detail row under this one (view / execution / changes-my-mind),
+          // replacing the old tooltip-only reveal.
+          var vs = el("button", "vd-stance vd-stance--btn " + t.verdict.stance, AIE.stanceLabel(t.verdict.stance));
+          vs.type = "button";
+          vs.title = "Show the desk view";
+          vs.setAttribute("aria-expanded", "false");
+          vs.addEventListener("click", function (ev) {
+            ev.stopPropagation();
+            var next = tr.nextElementSibling;
+            if (next && next.classList.contains("wl-verdict-row")) {
+              next.remove();
+              vs.setAttribute("aria-expanded", "false");
+              return;
+            }
+            tr.parentNode.insertBefore(makeVerdictDetailRow(t), tr.nextSibling);
+            vs.setAttribute("aria-expanded", "true");
+          });
           dTd.appendChild(vs);
         } else {
           dTd.appendChild(el("span", "wl-muted", "—"));
@@ -2723,35 +2713,36 @@
 
         body.innerHTML = "";
 
-        if (wlState.view === "grouped") {
-          categoriesByLayerAsc().forEach(function (catId) {
-            var rows = filtered.filter(function (t) { return t.category === catId; });
-            if (!rows.length) return;
-            var cat = DATA.categories[catId];
-            rows.sort(function (a, b) {
-              var am = (a.priority && a.priority.mentions) || 0;
-              var bm = (b.priority && b.priority.mentions) || 0;
-              if (am !== bm) return bm - am;
-              return a.ticker < b.ticker ? -1 : 1;
-            });
-            var subtotal = document.createElement("tr");
-            subtotal.className = "wl-subtotal";
-            subtotal.style.background = "color-mix(in srgb, " + cat.color + " 6%, white)";
-            var td = document.createElement("td");
-            td.colSpan = 11;
-            td.appendChild(el("b", null, cat.label));
-            td.appendChild(document.createTextNode(" · " + rows.length + (rows.length === 1 ? " ticker" : " tickers")));
-            subtotal.appendChild(td);
-            body.appendChild(subtotal);
-            rows.forEach(function (t) { body.appendChild(makeWatchlistRow(t)); });
-          });
-        } else {
-          filtered.slice().sort(wlCompare).forEach(function (t) { body.appendChild(makeWatchlistRow(t)); });
-        }
+        // Always grouped by category. Default order within a group is
+        // mention-count; clicking any sortable column re-orders the rows
+        // inside each group instead.
+        var sortIsDefault = wlState.key === "category";
+        var byMentions = function (a, b) {
+          var am = (a.priority && a.priority.mentions) || 0;
+          var bm = (b.priority && b.priority.mentions) || 0;
+          if (am !== bm) return bm - am;
+          return a.ticker < b.ticker ? -1 : 1;
+        };
+        categoriesByLayerAsc().forEach(function (catId) {
+          var rows = filtered.filter(function (t) { return t.category === catId; });
+          if (!rows.length) return;
+          var cat = DATA.categories[catId];
+          rows.sort(sortIsDefault ? byMentions : wlCompare);
+          var subtotal = document.createElement("tr");
+          subtotal.className = "wl-subtotal";
+          subtotal.style.background = "color-mix(in srgb, " + cat.color + " 6%, white)";
+          var td = document.createElement("td");
+          td.colSpan = 11;
+          td.appendChild(el("b", null, cat.label));
+          td.appendChild(document.createTextNode(" · " + rows.length + (rows.length === 1 ? " ticker" : " tickers")));
+          subtotal.appendChild(td);
+          body.appendChild(subtotal);
+          rows.forEach(function (t) { body.appendChild(makeWatchlistRow(t)); });
+        });
 
-        // Sort-direction arrow on the active header (flat view only).
+        // Sort-direction arrow on the active header.
         document.querySelectorAll(".wl-table thead th .arrow").forEach(function (a) { a.remove(); });
-        if (wlState.view === "flat") {
+        if (!sortIsDefault) {
           var activeTh = document.querySelector('.wl-table thead th[data-key="' + wlState.key + '"]');
           if (activeTh) activeTh.appendChild(el("span", "arrow", wlState.dir > 0 ? "▲" : "▼"));
         }
@@ -2795,17 +2786,6 @@
             var k = th.getAttribute("data-key");
             if (wlState.key === k) { wlState.dir = -wlState.dir; }
             else { wlState.key = k; wlState.dir = 1; }
-            renderWatchlist();
-          });
-        });
-      }
-
-      function initWatchlistViewToggle() {
-        var buttons = Array.prototype.slice.call(document.querySelectorAll("#wlViewToggle .vt-btn"));
-        buttons.forEach(function (btn) {
-          btn.addEventListener("click", function () {
-            wlState.view = btn.getAttribute("data-view");
-            buttons.forEach(function (b) { b.setAttribute("aria-selected", b === btn ? "true" : "false"); });
             renderWatchlist();
           });
         });
@@ -3185,7 +3165,6 @@
       renderWatchlist();
       renderWlRecent();
       initWatchlistSort();
-      initWatchlistViewToggle();
       initWatchlistFetch();
       renderTheses();
       renderBrain();
