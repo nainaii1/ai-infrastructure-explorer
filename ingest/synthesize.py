@@ -1,16 +1,21 @@
 """Synthesize per-category THEME DIGESTS from the thesis store ("the brain").
 
 Reads ingest/store/{base,theses,tickers}.json, groups theses by supply-chain
-category (thesis -> tickers -> category), asks Claude for one structured digest
+category (thesis -> tickers -> category), asks an LLM for one structured digest
 per category, writes ingest/store/brain.json, then regenerates data.js.
 
 Manual trigger only:  python3 ingest/synthesize.py
 
-The core pipeline stays stdlib-only; THIS script is the sole consumer of the
-anthropic SDK and the import is guarded (lazy, inside _get_client) so the rest
-of the pipeline never depends on it being installed. The pure functions below
-(group_theses_by_category / build_prompt / validate_digest / synthesize_all)
-take an injected call_fn and are fully unit-tested without network or SDK.
+Backends, picked from ingest/.env (first match wins):
+  1. OPENROUTER_API_KEY  -> OpenRouter chat-completions (stdlib urllib, no SDK;
+     model from --model / OPENROUTER_MODEL / DEFAULT_OPENROUTER_MODEL)
+  2. ANTHROPIC_API_KEY   -> Anthropic Messages API (anthropic SDK, lazy import)
+  3. neither             -> exit with a pointer to the in-session Claude Code
+     path (weekly review injects call_fn; see docs/GUIDE.md §3)
+
+The pure functions below (group_theses_by_category / build_prompt /
+validate_digest / synthesize_all) take an injected call_fn and are fully
+unit-tested without network or SDK.
 """
 
 import os
@@ -18,15 +23,21 @@ import sys
 import json
 import argparse
 import pathlib
+import urllib.request
+import urllib.error
 from datetime import datetime, timezone
 
 import generate_data_js as gen
 from dotenv_util import _parse_dotenv, _load_dotenv  # noqa: F401 (re-exported for tests)
+from fetch_prices import _ssl_context  # verified-SSL context with CA-bundle fallback
 
 ING = pathlib.Path(__file__).resolve().parent
 STORE = ING / "store"
 
 DEFAULT_MODEL = "claude-opus-4-8"
+OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
+DEFAULT_OPENROUTER_MODEL = "nousresearch/hermes-4-405b"
+OPENROUTER_TIMEOUT = 120  # seconds per category call
 MAX_THESES_PER_CATEGORY = 40   # cost/context guard: most-recent N per theme
 MAX_THESIS_CHARS = 4000        # clip pathological post text
 MAX_KEY_POINTS = 6
@@ -327,15 +338,72 @@ def call_claude(client, model, system, user, max_tokens=MAX_OUTPUT_TOKENS):
     return _extract_json(text)
 
 
+def call_openrouter(model, system, user, api_key, max_tokens=MAX_OUTPUT_TOKENS):
+    """One OpenRouter chat-completions call -> parsed JSON dict.
+
+    Stdlib-only (urllib + verified SSL); the system prompt's JSON-only contract
+    plus _extract_json/validate_digest do the shape enforcement, so this works
+    with any chat model regardless of native structured-output support.
+    Network-bound; mocked in tests.
+    """
+    payload = json.dumps({
+        "model": model,
+        "max_tokens": max_tokens,
+        "messages": [
+            {"role": "system", "content": system},
+            {"role": "user", "content": user},
+        ],
+    }).encode("utf-8")
+    req = urllib.request.Request(
+        OPENROUTER_URL,
+        data=payload,
+        headers={
+            "Authorization": "Bearer {}".format(api_key),
+            "Content-Type": "application/json",
+        },
+        method="POST",
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=OPENROUTER_TIMEOUT, context=_ssl_context()) as resp:
+            body = json.loads(resp.read().decode("utf-8"))
+    except urllib.error.HTTPError as exc:
+        detail = ""
+        try:
+            detail = exc.read().decode("utf-8", "replace")[:300]
+        except Exception:
+            pass
+        raise RuntimeError("OpenRouter HTTP {}: {}".format(exc.code, detail or exc.reason))
+    choices = body.get("choices") or []
+    if not choices:
+        raise RuntimeError("OpenRouter returned no choices: {}".format(str(body)[:300]))
+    content = ((choices[0].get("message") or {}).get("content")) or ""
+    return _extract_json(content)
+
+
 # --------------------------- orchestration / CLI ---------------------------
 
+def pick_backend(model_arg=None, env=None):
+    """Decide (backend, model) from the environment: 'openrouter', 'anthropic',
+    or (None, None) when no key is set. Pure — testable without network."""
+    env = env if env is not None else os.environ
+    if env.get("OPENROUTER_API_KEY"):
+        return "openrouter", (model_arg or env.get("OPENROUTER_MODEL")
+                              or DEFAULT_OPENROUTER_MODEL)
+    if env.get("ANTHROPIC_API_KEY"):
+        return "anthropic", (model_arg or env.get("ANTHROPIC_MODEL") or DEFAULT_MODEL)
+    return None, None
+
+
 def run(dry_run=False, only=None, model=None):
-    _load_dotenv()  # pick up ANTHROPIC_API_KEY / ANTHROPIC_MODEL from ingest/.env
+    _load_dotenv()  # pick up OPENROUTER_/ANTHROPIC_ keys + models from ingest/.env
     base = _load("base.json")
     theses = _load("theses.json")
     tickers = _load("tickers.json")
     categories = base["categories"]
-    model = model or os.environ.get("ANTHROPIC_MODEL") or DEFAULT_MODEL
+    backend, model = pick_backend(model)
+    if model is None:
+        # dry-run display fallback when no key is configured
+        model = os.environ.get("OPENROUTER_MODEL") or os.environ.get("ANTHROPIC_MODEL") or DEFAULT_MODEL
 
     if dry_run:
         groups = group_theses_by_category(theses, tickers, categories)
@@ -351,11 +419,24 @@ def run(dry_run=False, only=None, model=None):
             print("  {:<14} theses={:<3} promptChars={}".format(cid, len(capped), chars))
         return None
 
-    prev = _load_optional("brain.json", {}).get("digests", [])
-    client = _get_client()
+    if backend is None:
+        sys.exit("No API key set (OPENROUTER_API_KEY or ANTHROPIC_API_KEY in "
+                 "ingest/.env). Alternatively open Claude Code and say "
+                 "\"refresh the brain\" — the weekly review runs this pipeline "
+                 "in-session, no key needed (docs/GUIDE.md §3).")
 
-    def call_fn(system, user):
-        return call_claude(client, model, system, user)
+    prev = _load_optional("brain.json", {}).get("digests", [])
+
+    if backend == "openrouter":
+        api_key = os.environ["OPENROUTER_API_KEY"]
+
+        def call_fn(system, user):
+            return call_openrouter(model, system, user, api_key)
+    else:
+        client = _get_client()
+
+        def call_fn(system, user):
+            return call_claude(client, model, system, user)
 
     brain = synthesize_all(theses, tickers, categories, call_fn, model=model,
                            only=only, prev_digests=prev)
@@ -375,7 +456,8 @@ def main():
     ap.add_argument("--dry-run", action="store_true",
                     help="group + show the plan; no API calls, no writes")
     ap.add_argument("--only", help="comma-separated category ids to (re)synthesize")
-    ap.add_argument("--model", help="override ANTHROPIC_MODEL / default")
+    ap.add_argument("--model", help="override the backend's model "
+                    "(OPENROUTER_MODEL / ANTHROPIC_MODEL / defaults)")
     args = ap.parse_args()
     only = {s.strip() for s in args.only.split(",")} if args.only else None
     run(dry_run=args.dry_run, only=only, model=args.model)

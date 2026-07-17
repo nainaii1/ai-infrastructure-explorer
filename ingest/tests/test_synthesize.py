@@ -1,4 +1,5 @@
 import sys
+import json
 import pathlib
 import unittest
 
@@ -277,6 +278,74 @@ class TestParseDotenv(unittest.TestCase):
 
     def test_value_may_contain_equals(self):
         self.assertEqual(synthesize._parse_dotenv("URL=a=b=c\n")["URL"], "a=b=c")
+
+
+class TestPickBackend(unittest.TestCase):
+    def test_openrouter_wins_when_both_keys_set(self):
+        backend, model = synthesize.pick_backend(env={
+            "OPENROUTER_API_KEY": "or-key", "ANTHROPIC_API_KEY": "an-key"})
+        self.assertEqual(backend, "openrouter")
+        self.assertEqual(model, synthesize.DEFAULT_OPENROUTER_MODEL)
+
+    def test_openrouter_model_env_and_cli_override(self):
+        env = {"OPENROUTER_API_KEY": "k", "OPENROUTER_MODEL": "meta-llama/llama-3-70b"}
+        self.assertEqual(synthesize.pick_backend(env=env)[1], "meta-llama/llama-3-70b")
+        self.assertEqual(synthesize.pick_backend("x/y", env=env)[1], "x/y")
+
+    def test_anthropic_when_only_anthropic_key(self):
+        backend, model = synthesize.pick_backend(env={"ANTHROPIC_API_KEY": "k"})
+        self.assertEqual(backend, "anthropic")
+        self.assertEqual(model, synthesize.DEFAULT_MODEL)
+
+    def test_no_keys_means_no_backend(self):
+        self.assertEqual(synthesize.pick_backend(env={}), (None, None))
+
+
+class TestCallOpenrouter(unittest.TestCase):
+    """call_openrouter with urllib mocked out — asserts request shape and
+    response parsing, no network."""
+
+    class _FakeResp:
+        def __init__(self, payload):
+            self._payload = payload
+        def read(self):
+            return json.dumps(self._payload).encode("utf-8")
+        def __enter__(self):
+            return self
+        def __exit__(self, *exc):
+            return False
+
+    def test_parses_choice_content_and_sends_auth(self):
+        captured = {}
+        def fake_urlopen(req, timeout=None, context=None):
+            captured["url"] = req.full_url
+            captured["auth"] = req.get_header("Authorization")
+            captured["body"] = json.loads(req.data.decode("utf-8"))
+            return self._FakeResp({"choices": [{"message": {
+                "content": 'noise {"narrative":"n","conviction":"high","keyPoints":["k"],"tickers":["AAOI"]} tail'}}]})
+        orig = synthesize.urllib.request.urlopen
+        synthesize.urllib.request.urlopen = fake_urlopen
+        try:
+            out = synthesize.call_openrouter("test/model", "sys", "user", "sk-or-123")
+        finally:
+            synthesize.urllib.request.urlopen = orig
+        self.assertEqual(captured["url"], synthesize.OPENROUTER_URL)
+        self.assertEqual(captured["auth"], "Bearer sk-or-123")
+        self.assertEqual(captured["body"]["model"], "test/model")
+        self.assertEqual(captured["body"]["messages"][0]["role"], "system")
+        self.assertEqual(out["conviction"], "high")
+        self.assertEqual(out["tickers"], ["AAOI"])
+
+    def test_empty_choices_raises(self):
+        def fake_urlopen(req, timeout=None, context=None):
+            return self._FakeResp({"choices": []})
+        orig = synthesize.urllib.request.urlopen
+        synthesize.urllib.request.urlopen = fake_urlopen
+        try:
+            with self.assertRaises(RuntimeError):
+                synthesize.call_openrouter("m", "s", "u", "k")
+        finally:
+            synthesize.urllib.request.urlopen = orig
 
 
 class TestRenderSafety(unittest.TestCase):
