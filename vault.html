@@ -32,6 +32,8 @@
       font-size: 34px; line-height: 1.1; letter-spacing: -0.02em;
       color: var(--ink); margin: 0 0 8px;
     }
+    .vlt-viewtoggle { display: flex; gap: 6px; margin-top: 10px; }
+    .vlt-viewtoggle .aie-chip { text-decoration: none; }
     .vlt-count {
       font-family: var(--mono); font-size: 12px; letter-spacing: .04em;
       color: var(--muted); margin: 0 0 22px;
@@ -378,6 +380,20 @@
       /* ==================================================================
          INDEX VIEW  (?view=index — the default)
          ================================================================== */
+      // List ↔ Graph — one "Vault" nav entry, two in-page views. The graph
+      // keeps its ?view=graph URL so old links still land correctly.
+      function viewToggle(active) {
+        var wrap = el("div", "vlt-viewtoggle");
+        [{ id: "list", label: "List", href: "vault.html" },
+         { id: "graph", label: "Graph", href: "vault.html?view=graph" }].forEach(function (v) {
+          var a = el("a", "aie-chip" + (v.id === active ? " is-active" : ""), v.label);
+          a.href = v.href;
+          if (v.id === active) a.setAttribute("aria-current", "page");
+          wrap.appendChild(a);
+        });
+        return wrap;
+      }
+
       function renderIndex() {
         AIE.renderNav("vault");
         document.title = "Vault — AI Infrastructure Explorer";
@@ -397,6 +413,7 @@
         var lc = meta.linkCount != null ? meta.linkCount : 0;
         head.appendChild(el("p", "vlt-count",
           pc + (pc === 1 ? " page" : " pages") + " · " + lc + (lc === 1 ? " link" : " links")));
+        head.appendChild(viewToggle("list"));
         hero.appendChild(head);
         var art = el("div", "unf-hero-art");
         if (AIE.artVault) art.innerHTML = AIE.artVault();
@@ -731,7 +748,7 @@
       }
 
       function renderGraph() {
-        AIE.renderNav("graph");
+        AIE.renderNav("vault");
         document.title = "Graph — AI Infrastructure Explorer";
         var main = document.getElementById("vaultMain");
         main.textContent = "";
@@ -747,6 +764,7 @@
         var lc = meta.linkCount != null ? meta.linkCount : 0;
         hleft.appendChild(el("p", "vlt-count",
           pc + (pc === 1 ? " page" : " pages") + " · " + lc + (lc === 1 ? " link" : " links")));
+        hleft.appendChild(viewToggle("graph"));
         head.appendChild(hleft);
         main.appendChild(head);
 

@@ -225,10 +225,9 @@
      element or selector (default "#topNav"). No-op if the mount is absent.
      ======================================================================== */
   var NAV_PAGES = [
-    { page: "coverage",    label: "Coverage",    href: "index.html" },
     { page: "desk",        label: "Desk",        href: "desk.html" },
+    { page: "coverage",    label: "Coverage",    href: "index.html" },
     { page: "vault",       label: "Vault",       href: "vault.html" },
-    { page: "graph",       label: "Graph",       href: "vault.html?view=graph" },
     { page: "performance", label: "Performance", href: "performance.html", disabled: true }
   ];
 
@@ -251,7 +250,7 @@
     var inner = mk("div", "aie-nav-inner");
 
     var wordmark = mk("a", "aie-wordmark", "AI Infrastructure Explorer");
-    wordmark.setAttribute("href", "index.html");
+    wordmark.setAttribute("href", "desk.html");
     inner.appendChild(wordmark);
 
     inner.appendChild(mk("span", "aie-label aie-kicker", "Private Coverage · Not Advice"));
