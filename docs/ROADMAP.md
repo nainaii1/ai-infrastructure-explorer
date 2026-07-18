@@ -78,8 +78,9 @@ He tweets → you forward to the Telegram bot (or backfill from signal bots)
 
 ### HIGH — affects daily use
 
-**1. Bot must be started from the project directory**
-Create a `start_bot.sh` convenience script (cd + env + launch). Still not built.
+**1. Bot must be started from the project directory** — ✅ FIXED 18 Jul 2026
+`desk.command` (double-clickable menu: start bot / refresh prices / serve /
+status) handles cd + env + launch. Supersedes the planned `start_bot.sh`.
 
 **2. `ingest/.env` iCloud sync**
 `.env` can hit sync conflicts under iCloud Drive. Workaround: `export

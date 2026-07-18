@@ -9,14 +9,15 @@ a weekly "second opinion" from Claude on the names that matter most.
 > Personal project, just for me. Not investment advice.
 
 ## 🚀 Quick start
-**Just open the app:** double-click **`index.html`** — the front page. From
-there, **"Desk"** in the top nav opens the field guide (the map, watchlist,
-evidence, and synthesis). It works completely offline — no internet, no
-server, nothing to install. Everything it shows lives in one file, `data.js`;
-the shared look and helpers live in `shared/`.
+**Just open the app:** double-click **`desk.html`** — the Desk is the front
+door (map, watchlist, evidence, synthesis). "Coverage" in the top nav is the
+memo index. It works completely offline — no internet, no server, nothing to
+install. Everything it shows lives in one file, `data.js`; the shared look
+and helpers live in `shared/`.
 
-**To add new ideas, refresh prices, or update the AI summaries** → read
-**[docs/GUIDE.md](docs/GUIDE.md)**. It also answers the #1 question people
+**Backend chores** (capture bot, prices, local server, status): double-click
+**`desk.command`** and pick from the menu. For the full story read
+**[docs/GUIDE.md](docs/GUIDE.md)** — it also answers the #1 question people
 ask: *"I messaged the bot and nothing replied — why?"*
 
 ## What it does

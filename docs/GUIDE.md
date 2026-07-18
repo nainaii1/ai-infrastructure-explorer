@@ -67,14 +67,23 @@ ALLOWED_TELEGRAM_USER_ID=987654321
 (`ingest/.env` is gitignored — it is never committed or pushed.)
 
 ### Step 4 — Run the bot
-In a terminal (copy only the command lines, not the ` ``` ` fences):
+**The easy way (no terminal commands):** double-click **`desk.command`** in
+the project folder and pick **1**. It loads `.env` and starts the bot for you.
+**Leave that window open** — the bot replies only while it's running.
+
+The same menu also does prices (**2**), the local server (**3**), and a
+status check (**4** — is the bot up, how fresh are prices, what's awaiting
+triage).
+
+<details><summary>The manual way (what option 1 runs for you)</summary>
+
 ```bash
 cd ~/Documents/Claude/ai-supply-desk
 set -a; . ./ingest/.env; set +a     # load the token into this terminal
 python3 ingest/bot.py
 ```
 You should see: `Bot polling. Only Telegram user id 987654321 is processed. Ctrl-C to stop.`
-**Leave this terminal open.** The bot replies only while this is running.
+</details>
 
 ### Step 5 — Use it
 - **Forward** an @aleabitoreddit post to your bot, **or paste text** (include the

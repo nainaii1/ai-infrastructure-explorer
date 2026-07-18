@@ -31,10 +31,20 @@ further without the operator asking.
    and diff against last week: which names entered/left Core, which theses
    are new since `verdicts.json`'s `meta.reviewedAt`.
 
-3. **Triage Core-tier unsorted names**: any Core/Watch ticker still in
-   `category: "unsorted"` gets classified via
-   `python3 ingest/review.py classify SYM --category <id> --company "..." ...`
-   (Radar-tier unsorted can wait.)
+3. **Triage unsorted names — propose, confirm, apply** (the operator never
+   types `review.py` flags himself):
+   - Read every ticker with `category: "unsorted"` in `tickers.json` and the
+     candidates in `pending_tickers.json`. Core/Watch-tier unsorted names are
+     mandatory this pass; Radar-tier and pending candidates are triaged
+     opportunistically (batch the obvious ones, skip the noise).
+   - Present ONE batch table to the operator: symbol → proposed
+     category / company / market / tier, plus a one-line "what/why". Only
+     propose facts you can ground in the captured theses or verifiable
+     knowledge — an unknown company gets flagged "needs your input", never
+     invented.
+   - After the operator confirms/edits the batch, apply it with
+     `python3 ingest/review.py classify ...` / `approve` / `reject` calls
+     (review.py stays the low-level tool; this step is its front-end).
 
 4. **Update `ingest/store/verdicts.json`** (the heart of the pass):
    - For each Core name (top 12–15 by score): re-read its theses, then write
