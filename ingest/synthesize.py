@@ -29,7 +29,7 @@ from datetime import datetime, timezone
 
 import generate_data_js as gen
 from dotenv_util import _parse_dotenv, _load_dotenv  # noqa: F401 (re-exported for tests)
-from fetch_prices import _ssl_context  # verified-SSL context with CA-bundle fallback
+from store_io import ssl_context as _ssl_context  # verified SSL, CA-bundle fallback
 
 ING = pathlib.Path(__file__).resolve().parent
 STORE = ING / "store"
@@ -63,28 +63,16 @@ DIGEST_SCHEMA = {
 
 # --------------------------- store I/O ---------------------------
 
-def _load(name):
-    return json.loads((STORE / name).read_text(encoding="utf-8"))
-
-
-def _load_optional(name, default):
-    path = STORE / name
-    if not path.exists():
-        return default
-    try:
-        return json.loads(path.read_text(encoding="utf-8"))
-    except (ValueError, OSError):
-        return default
+from store_io import (  # noqa: E402
+    load_json as _load,
+    load_json_optional as _load_optional,
+    now_iso as _now_iso,
+)
+from store_io import save_json as _save_json  # noqa: E402
 
 
 def _save(name, data):
-    (STORE / name).write_text(
-        json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
-    )
-
-
-def _now_iso():
-    return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    _save_json(name, data, trailing_newline=True)
 
 
 # --------------------------- pure core ---------------------------

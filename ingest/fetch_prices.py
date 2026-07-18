@@ -14,7 +14,6 @@ Tickers missing from the sheet are reported, never guessed.
 """
 
 import os
-import ssl
 import csv
 import io
 import json
@@ -24,6 +23,7 @@ from datetime import datetime, timezone
 
 import generate_data_js as gen
 from dotenv_util import _load_dotenv
+from store_io import load_json as _load, save_json, ssl_context as _ssl_context
 
 ING = pathlib.Path(__file__).resolve().parent
 STORE = ING / "store"
@@ -43,34 +43,11 @@ CHG_COLUMNS = {"Chg1W": "chg7d", "Chg1M": "chg1m", "Chg1Y": "chg1y"}
 BENCHMARK_SYMBOLS = ("SMH",)
 
 
-def _ssl_context():
-    """A verifying SSL context backed by a real CA bundle. Some Python builds
-    (notably python.org macOS) ship without a configured store, so fall back to
-    the system bundle / certifi. Verification stays ON in every case."""
-    candidates = [ssl.get_default_verify_paths().cafile, "/etc/ssl/cert.pem"]
-    try:
-        import certifi
-        candidates.append(certifi.where())
-    except Exception:
-        pass
-    for ca in candidates:
-        if ca and os.path.exists(ca):
-            try:
-                return ssl.create_default_context(cafile=ca)
-            except Exception:
-                continue
-    return ssl.create_default_context()
-
-
 SSL_CTX = _ssl_context()
 
 
-def _load(name):
-    return json.loads((STORE / name).read_text(encoding="utf-8"))
-
-
 def _save(name, data):
-    (STORE / name).write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+    save_json(name, data)
 
 
 def _num(raw):

@@ -20,17 +20,14 @@ import argparse
 import pathlib
 
 import generate_data_js as gen
+from store_io import load_json as _load, save_json
 
 ING = pathlib.Path(__file__).resolve().parent
 STORE = ING / "store"
 
 
-def _load(name):
-    return json.loads((STORE / name).read_text(encoding="utf-8"))
-
-
 def _save(name, data):
-    (STORE / name).write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+    save_json(name, data)
 
 
 def _apply_fields(ticker, args):

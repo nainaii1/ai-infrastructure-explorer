@@ -63,13 +63,7 @@ def _blank_note_fields():
     return {"note": "", "noteUpdatedAt": None}
 
 
-def _load_optional(path, default):
-    if not path.exists():
-        return default
-    try:
-        return json.loads(path.read_text(encoding="utf-8"))
-    except (ValueError, OSError):
-        return default
+from store_io import load_path_optional as _load_optional  # noqa: E402
 
 
 def _desired_pages(tickers, priorities, categories, glossary):

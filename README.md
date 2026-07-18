@@ -71,11 +71,13 @@ project — you don't need to open those unless you're curious.
 ## 🗺️ Where things live
 ```
 ai-supply-desk/
-├── index.html          THE FRONT PAGE — open this file to start (+ coverage ledger)
-├── desk.html           THE FIELD GUIDE — map, watchlist, evidence, synthesis
+├── desk.html           THE DESK (front door) — map, watchlist, evidence, synthesis
+├── index.html          COVERAGE — the memo ledger (+ the week's Focus card)
 ├── memo.html           COVERAGE MEMOS — full research notes per name (?ticker=)
-├── vault.html          THE VAULT — knowledge base + graph view (?view=graph)
+├── vault.html          THE VAULT — knowledge base, List/Graph views (?view=graph)
 ├── performance.html    THE TRACK RECORD — dated calls vs the SMH benchmark
+├── design.html         DESIGN REFERENCE — live style guide (not in the nav; open directly)
+├── desk.command        BACKEND MENU — double-click: start bot / prices / serve / status
 ├── shared/             the shared look + helpers used by every page
 │   ├── theme.css        design tokens + components
 │   └── common.js        shared logic (window.AIE)

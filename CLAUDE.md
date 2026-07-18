@@ -8,16 +8,20 @@ robotics, hyperscalers), plus a sourced thesis feed, an AI-synthesized "brain"
 digest of one analyst's (@aleabitoreddit) views, and a **Desk layer** — Claude's
 weekly second opinion + execution suggestion on the highest-conviction names.
 
-**Multi-page editorial site** (v7 "Private Coverage" upgrade — supersedes the
-single-page v6): a warm serif front page (`index.html`, the coverage index) leads
-into the **Field Guide** (`desk.html`) — one continuous chaptered scroll: a hero
-prologue (signal chain + live counts + latest thesis) then four chapters — 01 The
-Map, 02 The Watchlist, 03 The Evidence (thesis feed), 04 The Synthesis (Brain) —
-navigated by a floating frosted-paper capsule nav with a sliding pill (scrollspy;
-bottom-floating on mobile), under a shared top masthead. Later pages (`memo.html`,
-`vault.html`, `performance.html`) are on the roadmap — see `docs/EXECUTION.md`.
+**Multi-page editorial site** (v7 "Private Coverage" upgrade, fully shipped
+2026-07-15; brand unified as **AI Infrastructure Explorer** 2026-07-18): the
+**Desk** (`desk.html`) is the front door — one continuous chaptered scroll
+(hero, then 01 The Map, 02 The Watchlist, 03 The Evidence, 04 The Synthesis)
+with a floating capsule nav. Around it: `index.html` (**Coverage** — the memo
+ledger), `memo.html` (memo reader), `vault.html` (knowledge vault, List/Graph
+views in one nav entry), `performance.html` (calls ledger, nav-gated until ≥3
+calls), `design.html` (design reference, unlinked from main nav). Top nav:
+Desk · Coverage · Vault · Performance.
 The signal chain is: analyst tweets → captured theses → conviction tiers →
 Claude's desk verdicts → operator decision.
+Vocabulary rule: desk stance `watch` DISPLAYS as "wait" and user rating
+`watch` as "following" (`AIE.stanceLabel`/`AIE.ratingLabel` in
+`shared/common.js`) — data values stay `watch`; never render them raw.
 
 This is **not** related to any trading desk or market-brief project. Standalone
 personal research tool. Single-user, local-first. Not investment advice.
@@ -88,8 +92,10 @@ not throwaway config.
   a JS-measured `max-height` (see `AIE.setDrilldownOpen()` in
   `shared/common.js`) — robust regardless of ancestor layout, with a resize
   listener to re-measure anything currently open.
-- **v7 — "Private Coverage" editorial multi-page upgrade** 🚧 Phase 1 done
-  (2026-07-08). The single-page app split into a multi-page vanilla site with a
+- **v7 — "Private Coverage" editorial multi-page upgrade** ✅ ALL SIX PHASES
+  DONE (2026-07-15; see README/ROADMAP for the shipped summary — the phase
+  notes below are history, kept for context).
+  Phase 1 done (2026-07-08). The single-page app split into a multi-page vanilla site with a
   shared design system, all still `file://`-safe and framework-free. Shipped in
   Phase 1 (`docs/EXECUTION.md` P1–P5): (1) `shared/theme.css` — warm editorial
   "paper" design tokens + shared components (top masthead, ledger table, chips,
@@ -112,7 +118,7 @@ not throwaway config.
   NVDA, AAOI, JBL — rating always mirrors the desk stance). `.claude/skills/`
   is now tracked in git (gitignore exception).
   **Phases 3–5 (knowledge Vault + graph, cross-linking, performance
-  hooks) are the remaining roadmap — see `docs/EXECUTION.md`.**
+  hooks) ✅ done (2026-07-13/14).**
   **Phase 6 — "Unpacked" rebrand ✅ done (2026-07-15, U1–U8):** a
   Samsung-Unpacked aesthetic — cool neutral-grey canvas, bold geometric display
   type, ONE blue→violet brand-gradient accent used sparingly, true-black "event

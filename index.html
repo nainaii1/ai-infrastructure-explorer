@@ -188,6 +188,10 @@
         colo.appendChild(document.createTextNode(
           dmeta.disclaimer ||
           "Personal research tool — not investment advice."));
+        colo.appendChild(document.createTextNode(" · "));
+        var designLink = el("a", null, "Design reference");
+        designLink.href = "design.html";
+        colo.appendChild(designLink);
       }
 
       /* ================================================================

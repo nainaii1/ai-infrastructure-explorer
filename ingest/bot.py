@@ -25,14 +25,15 @@ import argparse
 import pathlib
 import urllib.parse
 import urllib.request
-import ssl
-ssl._create_default_https_context = ssl._create_unverified_context
 from datetime import datetime, timezone
 
 import parser as msgparser
 import generate_data_js as gen
 import fetcher
 from dotenv_util import _load_dotenv
+from store_io import load_json as _load, save_json, now_iso as _now_iso, ssl_context
+
+SSL_CTX = ssl_context()  # verified — never disable certificate checks globally
 
 ING = pathlib.Path(__file__).resolve().parent
 STORE = ING / "store"
@@ -84,16 +85,8 @@ def _format_reply(summary):
     return "\n".join(lines)
 
 
-def _load(name):
-    return json.loads((STORE / name).read_text(encoding="utf-8"))
-
-
 def _save(name, data):
-    (STORE / name).write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
-
-
-def _now_iso():
-    return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    save_json(name, data)
 
 
 def _bump_version():
@@ -196,7 +189,7 @@ def ingest_message(text, source_url="", posted_at=None):
 def _api(token, method, **params):
     url = API_URL.format(token=token, method=method)
     data = urllib.parse.urlencode(params).encode()
-    with urllib.request.urlopen(url, data=data, timeout=60) as resp:
+    with urllib.request.urlopen(url, data=data, timeout=60, context=SSL_CTX) as resp:
         return json.loads(resp.read().decode())
 
 

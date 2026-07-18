@@ -11,6 +11,10 @@ import re
 import urllib.request
 from datetime import datetime, timezone
 
+from store_io import ssl_context
+
+_SSL_CTX = ssl_context()  # verified — bot.py no longer disables checks globally
+
 _STATUS_RE = re.compile(r"(?:twitter\.com|x\.com)/([^/?#\s]+)/status/(\d+)")
 _FXTWITTER = "https://api.fxtwitter.com/{username}/status/{tweet_id}"
 
@@ -34,7 +38,7 @@ def fetch_tweet(url):
 
     api_url = _FXTWITTER.format(username=username, tweet_id=tweet_id)
     try:
-        with urllib.request.urlopen(api_url, timeout=10) as resp:
+        with urllib.request.urlopen(api_url, timeout=10, context=_SSL_CTX) as resp:
             data = json.loads(resp.read().decode("utf-8"))
     except Exception as exc:
         print("fetcher: fxtwitter request failed:", exc)
