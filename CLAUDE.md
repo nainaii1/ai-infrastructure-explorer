@@ -8,17 +8,25 @@ robotics, hyperscalers), plus a sourced thesis feed, an AI-synthesized "brain"
 digest of one analyst's (@aleabitoreddit) views, and a **Desk layer** — Claude's
 weekly second opinion + execution suggestion on the highest-conviction names.
 
-**Multi-page editorial site** (v7 "Private Coverage" upgrade, fully shipped
-2026-07-15; brand unified as **AI Infrastructure Explorer** 2026-07-18): the
-**Desk** (`desk.html`) is the front door — one continuous chaptered scroll
-(hero, then 01 The Map, 02 The Watchlist, 03 The Evidence, 04 The Synthesis)
-with a floating capsule nav. Around it: `index.html` (**Coverage** — the memo
-ledger), `memo.html` (memo reader), `vault.html` (knowledge vault, List/Graph
-views in one nav entry), `performance.html` (calls ledger, nav-gated until ≥3
-calls), `design.html` (design reference, unlinked from main nav). Top nav:
-Desk · Coverage · Vault · Performance.
+**Multi-page site** (v7 "Private Coverage" shipped 2026-07-15; brand unified
+as **AI Infrastructure Explorer** 2026-07-18; **v8 "analysis tool, not
+product" 2026-07-18**): the **Desk** (`desk.html`) is the front door — a
+chaptered scroll that opens on **01 The Watchlist**, then **02 The Map**, then
+**03 The Synthesis**, under a compact "desk strip" of live counts (no hero, no
+art, no Focus card). Around it: `index.html` (**Coverage** — the memo ledger,
+no Focus card), `memo.html` (memo reader), `vault.html` (knowledge vault,
+List/Graph views in one nav entry), `performance.html` (calls ledger, nav-gated
+until ≥3 calls), `design.html` (design reference, unlinked from main nav). Top
+nav: Desk · Coverage · Vault · Performance.
 The signal chain is: analyst tweets → captured theses → conviction tiers →
 Claude's desk verdicts → operator decision.
+**v8 removed** the Evidence chapter (raw thesis feed) — theses still live in the
+data and render only where cited: memo sources, vault "Cited theses", and
+Synthesis drill-downs (all via `AIE.makeThesisCard`). It also removed the Focus
+card everywhere and all hero art (`renderFocusCard`, `artCoverage/Desk/Vault/
+Performance`, `tileShape` are gone from `shared/common.js`; `chipSpark` remains
+for the memo accent). The week's headline now lives only in the weekly-review
+report, not the app.
 Vocabulary rule: desk stance `watch` DISPLAYS as "wait" and user rating
 `watch` as "following" (`AIE.stanceLabel`/`AIE.ratingLabel` in
 `shared/common.js`) — data values stay `watch`; never render them raw.

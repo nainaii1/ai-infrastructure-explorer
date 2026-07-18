@@ -23,24 +23,23 @@ ask: *"I messaged the bot and nothing replied — why?"*
 ## What it does
 It's a small multi-page site (plain HTML — every page opens by double-click):
 
-- **The front page** (`index.html`) — a short editorial cover: what the desk
-  is, the live counts, when it was last reviewed, plus the **coverage ledger**
-  — every research memo the desk has written, filterable by kind and rating.
-- **The field guide** (`desk.html`) — one long scrolling page, not a set of
-  separate tabs. At the top: a quick summary (how many ideas captured, how many
-  names tracked, the newest signal). Scroll down through four chapters, followed
-  everywhere by a floating pill-shaped nav bar so you can jump around:
-- **01 · The Map** — the supply chain laid out visually: who supplies →
-  what NVIDIA makes → who buys it. Click any piece to see what to watch and
+- **The Desk** (`desk.html`) — the front door and main working surface. One
+  scrolling page that opens straight onto the watchlist, with a compact strip
+  of live counts up top (theses / names / verdicts / last reviewed) and a
+  floating pill nav to jump between three chapters:
+- **01 · The Watchlist** — a sortable table of every tracked stock: price,
+  how it moved this week/month/year, market cap, the desk's verdict, and your
+  own rating. Opens already narrowed to the highest-conviction names.
+- **02 · The Map** — the supply chain laid out visually: who supplies →
+  what NVIDIA makes → who buys it. Click any layer to see what to watch and
   which companies sit there.
-- **02 · The Watchlist** — a sortable table of every tracked stock: price,
-  how it moved this week/month, market cap, and your own rating. Opens
-  already narrowed to the highest-conviction names so it isn't overwhelming.
-- **03 · The Evidence** — the actual source posts, kept as receipts. Only
-  the 10 most recent show by default; older ones are one click away.
-- **04 · The Synthesis** — Claude reads all the evidence and writes one
+- **03 · The Synthesis** — Claude reads all the captured theses and writes one
   short summary per theme: what the story is, how confident, which stocks
-  matter.
+  matter. Expand any digest to see the source posts behind it.
+- **Coverage** (`index.html`) — the memo ledger: every research memo the desk
+  has written, filterable by kind and rating. (The raw thesis feed is no longer
+  a page of its own — posts live in the data and show up cited under memos,
+  vault pages, and Synthesis digests.)
 - **Coverage memos** (`memo.html`) — full research notes on the
   highest-conviction names: thesis, why own it, risks, bottom line, with the
   source posts cited underneath and live price/tier/stance pulled in at the top.
