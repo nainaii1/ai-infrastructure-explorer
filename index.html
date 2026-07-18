@@ -18,14 +18,12 @@
     /* Front-page-only layout. Tokens + components come from theme.css —
        nothing here redefines a token or an .aie-* component. */
     .front { padding: 0 0 8px; }
-    .front-eyebrow { margin: 0 0 14px; }
-    /* Focus card spacing only — the look itself is the shared .aie-focus
-       component in theme.css (used identically on desk.html's hero). */
-    .front-focus { margin: 0 0 28px; }
+    .front-eyebrow { margin: 0 0 10px; }
+    .front-header { margin: 0 0 8px; }
     .front-headline {
-      margin: 0 0 20px;
+      margin: 0 0 12px;
       font-family: var(--display);
-      font-size: clamp(30px, 5vw, 46px);
+      font-size: clamp(22px, 3vw, 28px);
       font-weight: 700;
       letter-spacing: -0.02em;
       line-height: 1.1;
@@ -125,10 +123,6 @@
   <div id="topNav"></div>
 
   <main class="aie-wrap front">
-    <!-- Focus — the week's one headline (desk.meta.focus). Hidden entirely
-         when absent; AIE.renderFocusCard handles both states. -->
-    <section class="aie-focus front-focus" id="focusCard" hidden></section>
-
     <!-- Page header — this page is the memo index, nothing more. The Desk
          (desk.html) is the front door; this is the reading room. -->
     <header class="front-header">
@@ -176,9 +170,6 @@
       var tickers = DATA.tickers || [];
       var desk = DATA.desk || {};
       var dmeta = desk.meta || {};
-
-      // ---- Focus card: the week's one headline (desk.meta.focus). ----
-      AIE.renderFocusCard("#focusCard", dmeta.focus);
 
       // ---- Colophon: disclaimer straight from desk.meta (fallback if absent). ----
       var colo = document.getElementById("colophon");

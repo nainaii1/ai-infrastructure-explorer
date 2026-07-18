@@ -21,16 +21,11 @@
     .vault-shell { padding: 32px 0 8px; }
 
     /* ---- Index: header + filters ---- */
-    /* Compact two-column Unpacked hero (title left, gem art right). */
-    .vlt-hero { padding: 6px 0 4px; margin-bottom: 18px; }
-    .vlt-hero .vlt-head { align-self: center; }
-    .vlt-hero .vlt-count { margin-bottom: 0; }
-    .vlt-hero .unf-hero-art { max-width: 340px; }
     .vlt-head { margin: 0 0 6px; }
     .vlt-title {
       font-family: var(--display); font-weight: 700;
-      font-size: 34px; line-height: 1.1; letter-spacing: -0.02em;
-      color: var(--ink); margin: 0 0 8px;
+      font-size: 22px; line-height: 1.1; letter-spacing: -0.02em;
+      color: var(--ink); margin: 0 0 6px;
     }
     .vlt-viewtoggle { display: flex; gap: 6px; margin-top: 10px; }
     .vlt-viewtoggle .aie-chip { text-decoration: none; }
@@ -406,7 +401,6 @@
         }
 
         var meta = VAULT.meta || {};
-        var hero = el("div", "vlt-hero unf-hero");
         var head = el("div", "vlt-head");
         head.appendChild(el("h1", "vlt-title", "The Vault"));
         var pc = meta.pageCount != null ? meta.pageCount : PAGES.length;
@@ -414,11 +408,7 @@
         head.appendChild(el("p", "vlt-count",
           pc + (pc === 1 ? " page" : " pages") + " · " + lc + (lc === 1 ? " link" : " links")));
         head.appendChild(viewToggle("list"));
-        hero.appendChild(head);
-        var art = el("div", "unf-hero-art");
-        if (AIE.artVault) art.innerHTML = AIE.artVault();
-        hero.appendChild(art);
-        main.appendChild(hero);
+        main.appendChild(head);
 
         // Type filter chips — only types that actually exist, in canonical order.
         var present = {};
