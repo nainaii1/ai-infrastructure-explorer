@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vault — AI Supply Desk</title>
+  <title>Vault — AI Infrastructure Explorer</title>
 
   <!-- ⚡ favicon: inline SVG data URI (no external request, works on file://) -->
   <link
@@ -21,17 +21,14 @@
     .vault-shell { padding: 32px 0 8px; }
 
     /* ---- Index: header + filters ---- */
-    /* Compact two-column Unpacked hero (title left, gem art right). */
-    .vlt-hero { padding: 6px 0 4px; margin-bottom: 18px; }
-    .vlt-hero .vlt-head { align-self: center; }
-    .vlt-hero .vlt-count { margin-bottom: 0; }
-    .vlt-hero .unf-hero-art { max-width: 340px; }
     .vlt-head { margin: 0 0 6px; }
     .vlt-title {
       font-family: var(--display); font-weight: 700;
-      font-size: 34px; line-height: 1.1; letter-spacing: -0.02em;
-      color: var(--ink); margin: 0 0 8px;
+      font-size: 22px; line-height: 1.1; letter-spacing: -0.02em;
+      color: var(--ink); margin: 0 0 6px;
     }
+    .vlt-viewtoggle { display: flex; gap: 6px; margin-top: 10px; }
+    .vlt-viewtoggle .aie-chip { text-decoration: none; }
     .vlt-count {
       font-family: var(--mono); font-size: 12px; letter-spacing: .04em;
       color: var(--muted); margin: 0 0 22px;
@@ -378,9 +375,23 @@
       /* ==================================================================
          INDEX VIEW  (?view=index — the default)
          ================================================================== */
+      // List ↔ Graph — one "Vault" nav entry, two in-page views. The graph
+      // keeps its ?view=graph URL so old links still land correctly.
+      function viewToggle(active) {
+        var wrap = el("div", "vlt-viewtoggle");
+        [{ id: "list", label: "List", href: "vault.html" },
+         { id: "graph", label: "Graph", href: "vault.html?view=graph" }].forEach(function (v) {
+          var a = el("a", "aie-chip" + (v.id === active ? " is-active" : ""), v.label);
+          a.href = v.href;
+          if (v.id === active) a.setAttribute("aria-current", "page");
+          wrap.appendChild(a);
+        });
+        return wrap;
+      }
+
       function renderIndex() {
         AIE.renderNav("vault");
-        document.title = "Vault — AI Supply Desk";
+        document.title = "Vault — AI Infrastructure Explorer";
         var main = document.getElementById("vaultMain");
         main.textContent = "";
 
@@ -390,21 +401,14 @@
         }
 
         var meta = VAULT.meta || {};
-        var hero = el("div", "vlt-hero unf-hero");
         var head = el("div", "vlt-head");
         head.appendChild(el("h1", "vlt-title", "The Vault"));
         var pc = meta.pageCount != null ? meta.pageCount : PAGES.length;
         var lc = meta.linkCount != null ? meta.linkCount : 0;
         head.appendChild(el("p", "vlt-count",
           pc + (pc === 1 ? " page" : " pages") + " · " + lc + (lc === 1 ? " link" : " links")));
-        hero.appendChild(head);
-        var art = el("div", "unf-hero-art");
-        if (AIE.artVault) art.innerHTML = AIE.artVault();
-        var cap = el("span", "unf-art-cap aie-label");
-        cap.innerHTML = "Every page<br>connected";
-        art.appendChild(cap);
-        hero.appendChild(art);
-        main.appendChild(hero);
+        head.appendChild(viewToggle("list"));
+        main.appendChild(head);
 
         // Type filter chips — only types that actually exist, in canonical order.
         var present = {};
@@ -491,7 +495,7 @@
          ================================================================== */
       function renderPage(page) {
         AIE.renderNav("vault");
-        document.title = (page.title || "Vault") + " — AI Supply Desk";
+        document.title = (page.title || "Vault") + " — AI Infrastructure Explorer";
         var main = document.getElementById("vaultMain");
         main.textContent = "";
 
@@ -711,7 +715,7 @@
         actions.appendChild(a1); actions.appendChild(a2);
         box.appendChild(actions);
         main.appendChild(box);
-        document.title = "Page not found — AI Supply Desk";
+        document.title = "Page not found — AI Infrastructure Explorer";
       }
 
       /* ==================================================================
@@ -734,8 +738,8 @@
       }
 
       function renderGraph() {
-        AIE.renderNav("graph");
-        document.title = "Graph — AI Supply Desk";
+        AIE.renderNav("vault");
+        document.title = "Graph — AI Infrastructure Explorer";
         var main = document.getElementById("vaultMain");
         main.textContent = "";
 
@@ -749,8 +753,8 @@
         var pc = meta.pageCount != null ? meta.pageCount : PAGES.length;
         var lc = meta.linkCount != null ? meta.linkCount : 0;
         hleft.appendChild(el("p", "vlt-count",
-          pc + (pc === 1 ? " page" : " pages") + " · " + lc + (lc === 1 ? " link" : " links") +
-          " · every page and what it touches"));
+          pc + (pc === 1 ? " page" : " pages") + " · " + lc + (lc === 1 ? " link" : " links")));
+        hleft.appendChild(viewToggle("graph"));
         head.appendChild(hleft);
         main.appendChild(head);
 
@@ -1272,7 +1276,7 @@
         var deskMeta = (DATA.desk && DATA.desk.meta) || {};
         var colo = document.getElementById("colophon");
         if (!colo) return;
-        colo.appendChild(el("strong", null, "AI Supply Desk"));
+        colo.appendChild(el("strong", null, "AI Infrastructure Explorer"));
         colo.appendChild(document.createTextNode(" — "));
         colo.appendChild(document.createTextNode(
           memoMeta.disclaimer || deskMeta.disclaimer ||

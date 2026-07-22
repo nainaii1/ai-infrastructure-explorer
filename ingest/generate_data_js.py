@@ -28,18 +28,7 @@ HEADER = (
 )
 
 
-def _load(name):
-    return json.loads((STORE / name).read_text(encoding="utf-8"))
-
-
-def _load_optional(name, default):
-    path = STORE / name
-    if not path.exists():
-        return default
-    try:
-        return json.loads(path.read_text(encoding="utf-8"))
-    except (ValueError, OSError):
-        return default
+from store_io import load_json as _load, load_json_optional as _load_optional  # noqa: E402
 
 
 PRICE_FIELDS = ("price", "currency", "chg7d", "chg1m", "chg1y", "marketCap", "asOf")

@@ -31,10 +31,20 @@ further without the operator asking.
    and diff against last week: which names entered/left Core, which theses
    are new since `verdicts.json`'s `meta.reviewedAt`.
 
-3. **Triage Core-tier unsorted names**: any Core/Watch ticker still in
-   `category: "unsorted"` gets classified via
-   `python3 ingest/review.py classify SYM --category <id> --company "..." ...`
-   (Radar-tier unsorted can wait.)
+3. **Triage unsorted names — propose, confirm, apply** (the operator never
+   types `review.py` flags himself):
+   - Read every ticker with `category: "unsorted"` in `tickers.json` and the
+     candidates in `pending_tickers.json`. Core/Watch-tier unsorted names are
+     mandatory this pass; Radar-tier and pending candidates are triaged
+     opportunistically (batch the obvious ones, skip the noise).
+   - Present ONE batch table to the operator: symbol → proposed
+     category / company / market / tier, plus a one-line "what/why". Only
+     propose facts you can ground in the captured theses or verifiable
+     knowledge — an unknown company gets flagged "needs your input", never
+     invented.
+   - After the operator confirms/edits the batch, apply it with
+     `python3 ingest/review.py classify ...` / `approve` / `reject` calls
+     (review.py stays the low-level tool; this step is its front-end).
 
 4. **Update `ingest/store/verdicts.json`** (the heart of the pass):
    - For each Core name (top 12–15 by score): re-read its theses, then write
@@ -51,15 +61,10 @@ further without the operator asking.
    - Names that dropped out of Core: remove their verdict (the UI hides
      verdicts for absent names automatically via the stamp).
 
-4a. **Author the week's Focus headline** in `ingest/store/verdicts.json`
-   `meta.focus`: `{ headline, dek, updatedAt, tickers[] }`. One story only —
-   the single most decision-relevant development from this pass, not a
-   roundup. `headline` short and declarative (desk voice, no hedging).
-   `dek` one line of supporting context. `tickers` the 1-3 names the story
-   is actually about. On a quiet week with nothing headline-worthy, leave
-   `meta.focus` as-is (a stale-but-true headline beats a manufactured one) —
-   never invent a story to fill the slot. Bump `updatedAt` only when the
-   headline itself changes.
+   (No Focus card any more — the v8 app is a dense analysis tool, not an
+   editorial product. The week's one headline goes in the report to the
+   operator at step 8, not into the store. `meta.focus` may still exist in
+   verdicts.json but nothing renders it; leave it alone, don't hand-edit it.)
 
 4b. **Write/refresh coverage memos** in `ingest/store/memos.json` — only for
    Core names whose **stance changed** in step 4 or that gained **≥3 new
@@ -116,6 +121,10 @@ further without the operator asking.
    grouped by category and run them through
    `synthesize.synthesize_all()` with an injected `call_fn` (see
    `docs/GUIDE.md` §3) so output stays byte-identical to an API run.
+   Set `brain.json` `meta.model` to a short human-readable provenance string
+   (e.g. `"weekly desk review"`) — it may surface in tooling, and pipeline
+   jargon like "injected call_fn" must never be written there. The UI itself
+   renders only the date + "weekly desk review".
 
 6. **Bump `base.json` `meta.version`** (e.g. 1.78 → 1.79) and set
    `meta.lastUpdated` — this is what makes the app re-seed localStorage.
@@ -126,8 +135,11 @@ further without the operator asking.
    - Open the app (preview server or `index.html`) and confirm: tier counts
      changed as expected, verdict badges render, no console errors.
 
-8. **Report to the operator**: tier moves (who entered/left Core), stance
-   changes vs last week, and the 2–3 sentences that matter this week.
+8. **Report to the operator**: lead with **the week's one headline** — the
+   single most decision-relevant development from this pass, short and
+   declarative (this is what used to be the Focus card; it now lives only in
+   the report). Then: tier moves (who entered/left Core), stance changes vs
+   last week, and the 2–3 sentences that matter this week.
 
 ## Hard rules
 

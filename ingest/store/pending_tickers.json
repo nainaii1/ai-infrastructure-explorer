@@ -45,7 +45,7 @@
     "candidate": "MC",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:37:23Z",
-    "count": 20
+    "count": 23
   },
   {
     "candidate": "MF",
@@ -57,7 +57,7 @@
     "candidate": "MLCC",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:37:23Z",
-    "count": 5
+    "count": 6
   },
   {
     "candidate": "MOCVD",
@@ -129,13 +129,13 @@
     "candidate": "PCB",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:39:18Z",
-    "count": 4
+    "count": 5
   },
   {
     "candidate": "TW",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:39:18Z",
-    "count": 4
+    "count": 5
   },
   {
     "candidate": "WUS",
@@ -153,7 +153,7 @@
     "candidate": "DRAM",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:39:49Z",
-    "count": 3
+    "count": 4
   },
   {
     "candidate": "NAND",
@@ -177,7 +177,7 @@
     "candidate": "SK",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:39:49Z",
-    "count": 13
+    "count": 17
   },
   {
     "candidate": "SMIC",
@@ -225,7 +225,7 @@
     "candidate": "GS",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:42:10Z",
-    "count": 6
+    "count": 9
   },
   {
     "candidate": "PCL",
@@ -291,7 +291,7 @@
     "candidate": "EML",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:44:22Z",
-    "count": 13
+    "count": 15
   },
   {
     "candidate": "QD",
@@ -411,7 +411,7 @@
     "candidate": "CW",
     "sourceUrl": "",
     "firstSeen": "2026-06-30T07:39:56Z",
-    "count": 24
+    "count": 26
   },
   {
     "candidate": "ERIC",
@@ -423,7 +423,7 @@
     "candidate": "GF",
     "sourceUrl": "",
     "firstSeen": "2026-06-30T07:39:56Z",
-    "count": 1
+    "count": 2
   },
   {
     "candidate": "GFS",
@@ -495,13 +495,13 @@
     "candidate": "NET",
     "sourceUrl": "",
     "firstSeen": "2026-06-30T07:39:57Z",
-    "count": 1
+    "count": 2
   },
   {
     "candidate": "SEC",
     "sourceUrl": "",
     "firstSeen": "2026-06-30T07:39:57Z",
-    "count": 1
+    "count": 2
   },
   {
     "candidate": "ZTE",
@@ -621,7 +621,7 @@
     "candidate": "ARR",
     "sourceUrl": "",
     "firstSeen": "2026-06-30T07:48:15Z",
-    "count": 4
+    "count": 5
   },
   {
     "candidate": "BS",
@@ -639,7 +639,7 @@
     "candidate": "FAU",
     "sourceUrl": "",
     "firstSeen": "2026-06-30T07:49:19Z",
-    "count": 2
+    "count": 3
   },
   {
     "candidate": "HBF",
@@ -687,7 +687,7 @@
     "candidate": "ASP",
     "sourceUrl": "",
     "firstSeen": "2026-06-30T07:53:06Z",
-    "count": 7
+    "count": 9
   },
   {
     "candidate": "RF",
@@ -729,7 +729,7 @@
     "candidate": "HVM",
     "sourceUrl": "",
     "firstSeen": "2026-07-01T14:56:53Z",
-    "count": 7
+    "count": 8
   },
   {
     "candidate": "CWTC",
@@ -909,7 +909,7 @@
     "candidate": "TBH",
     "sourceUrl": "",
     "firstSeen": "2026-07-03T10:09:15Z",
-    "count": 1
+    "count": 2
   },
   {
     "candidate": "JV",
@@ -1005,7 +1005,7 @@
     "candidate": "TA",
     "sourceUrl": "",
     "firstSeen": "2026-07-03T13:23:24Z",
-    "count": 2
+    "count": 3
   },
   {
     "candidate": "VRT",
@@ -1191,7 +1191,7 @@
     "candidate": "SCALE",
     "sourceUrl": "",
     "firstSeen": "2026-07-06T15:31:53Z",
-    "count": 1
+    "count": 2
   },
   {
     "candidate": "EV",
@@ -1209,7 +1209,7 @@
     "candidate": "PT",
     "sourceUrl": "",
     "firstSeen": "2026-07-08T13:00:36Z",
-    "count": 1
+    "count": 2
   },
   {
     "candidate": "ABC",
@@ -1221,7 +1221,7 @@
     "candidate": "KOSPI",
     "sourceUrl": "",
     "firstSeen": "2026-07-08T13:04:04Z",
-    "count": 1
+    "count": 2
   },
   {
     "candidate": "NYT",
@@ -1281,19 +1281,19 @@
     "candidate": "TDK",
     "sourceUrl": "",
     "firstSeen": "2026-07-13T07:26:27Z",
-    "count": 1
+    "count": 2
   },
   {
     "candidate": "ADR",
     "sourceUrl": "",
     "firstSeen": "2026-07-13T07:27:08Z",
-    "count": 1
+    "count": 2
   },
   {
     "candidate": "CCL",
     "sourceUrl": "",
     "firstSeen": "2026-07-13T07:27:08Z",
-    "count": 1
+    "count": 2
   },
   {
     "candidate": "CXMT",
@@ -1323,7 +1323,7 @@
     "candidate": "ER",
     "sourceUrl": "",
     "firstSeen": "2026-07-14T09:36:28Z",
-    "count": 1
+    "count": 4
   },
   {
     "candidate": "CPI",
@@ -1335,6 +1335,96 @@
     "candidate": "SLC",
     "sourceUrl": "",
     "firstSeen": "2026-07-16T06:23:28Z",
+    "count": 1
+  },
+  {
+    "candidate": "GW",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-22T15:24:22Z",
+    "count": 2
+  },
+  {
+    "candidate": "RMB",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-22T15:25:41Z",
+    "count": 1
+  },
+  {
+    "candidate": "ABF",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-22T15:26:50Z",
+    "count": 1
+  },
+  {
+    "candidate": "AVX",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-22T15:26:50Z",
+    "count": 1
+  },
+  {
+    "candidate": "HDI",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-22T15:26:50Z",
+    "count": 1
+  },
+  {
+    "candidate": "HVLP",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-22T15:26:50Z",
+    "count": 1
+  },
+  {
+    "candidate": "ITEQ",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-22T15:26:50Z",
+    "count": 1
+  },
+  {
+    "candidate": "KEMET",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-22T15:26:50Z",
+    "count": 1
+  },
+  {
+    "candidate": "KOA",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-22T15:26:50Z",
+    "count": 1
+  },
+  {
+    "candidate": "TUC",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-22T15:26:50Z",
+    "count": 1
+  },
+  {
+    "candidate": "AYAR",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-22T15:28:34Z",
+    "count": 1
+  },
+  {
+    "candidate": "ESUN",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-22T15:28:34Z",
+    "count": 1
+  },
+  {
+    "candidate": "SF",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-22T15:28:34Z",
+    "count": 1
+  },
+  {
+    "candidate": "UAL",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-22T15:28:34Z",
+    "count": 1
+  },
+  {
+    "candidate": "GLM",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-22T15:28:59Z",
     "count": 1
   }
 ]

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI Supply Desk — Private Coverage</title>
+  <title>Coverage — AI Infrastructure Explorer</title>
 
   <!-- ⚡ favicon: inline SVG data URI (no external request, works on file://) -->
   <link
@@ -18,27 +18,16 @@
     /* Front-page-only layout. Tokens + components come from theme.css —
        nothing here redefines a token or an .aie-* component. */
     .front { padding: 0 0 8px; }
-    .front-eyebrow { margin: 0 0 14px; }
-    /* Focus card spacing only — the look itself is the shared .aie-focus
-       component in theme.css (used identically on desk.html's hero). */
-    .front-focus { margin: 0 0 28px; }
+    .front-eyebrow { margin: 0 0 10px; }
+    .front-header { margin: 0 0 8px; }
     .front-headline {
-      margin: 0 0 20px;
+      margin: 0 0 12px;
       font-family: var(--display);
-      font-size: clamp(30px, 5vw, 46px);
+      font-size: clamp(22px, 3vw, 28px);
       font-weight: 700;
       letter-spacing: -0.02em;
       line-height: 1.1;
       color: var(--ink);
-    }
-    /* The one brand-gradient text moment on this page. Solid fallback first,
-       so a browser without background-clip:text still reads the phrase. */
-    .front-headline .grad {
-      color: var(--brand-ink);
-      background: var(--brand-grad);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
     }
     /* Standfirst — serif body, 17px / 1.65 (theme.css body default; restated
        here so the measure/colour read as an editorial standfirst). */
@@ -50,6 +39,7 @@
       color: var(--text);
     }
     .standfirst b { font-weight: 600; color: var(--ink); }
+    .standfirst a { color: var(--brand-ink, var(--ink)); }
 
     /* Coverage ledger — reserved shell (P8 fills it with real rows). */
     .ledger-section { margin: 44px 0 0; }
@@ -133,40 +123,19 @@
   <div id="topNav"></div>
 
   <main class="aie-wrap front">
-    <!-- Focus — the week's one headline (desk.meta.focus). Hidden entirely
-         when absent; AIE.renderFocusCard handles both states. -->
-    <section class="aie-focus front-focus" id="focusCard" hidden></section>
-
-    <!-- Two-column Unpacked hero: copy left, gem art right. -->
-    <section class="unf-hero">
-      <div class="unf-hero-copy">
-        <p class="aie-label front-eyebrow">Personal coverage desk / 2026</p>
-        <h1 class="front-headline">The AI supply chain,<br><span class="grad">unfolded.</span></h1>
-        <p class="standfirst" id="standfirst"><!-- short standfirst at boot --></p>
-        <div class="unf-cta">
-          <a class="unf-pill" href="desk.html#chapter-watchlist">Review the desk <span class="glyph">↗</span></a>
-          <a class="unf-pill unf-pill--ghost" href="desk.html#chapter-map">Explore the map <span class="glyph">→</span></a>
-        </div>
-      </div>
-      <div class="unf-hero-art" id="heroArt">
-        <span class="unf-art-cap aie-label">Your signal<br>in motion</span>
-      </div>
-    </section>
-
-    <!-- Stat rail: three live counts + a brand-gradient action tile. -->
-    <section class="unf-stats" id="statRail" aria-label="The desk at a glance"><!-- built at boot --></section>
-
-    <!-- At a glance: the field-guide chapters as colored soft-tiles. -->
-    <section class="unf-section" aria-label="Field guide chapters">
-      <p class="aie-label">At a glance</p>
-      <h2 class="unf-section-title">Every number has a next move.</h2>
-      <div class="unf-tiles" id="chapterTiles"><!-- built at boot --></div>
-    </section>
+    <!-- Page header — this page is the memo index, nothing more. The Desk
+         (desk.html) is the front door; this is the reading room. -->
+    <header class="front-header">
+      <p class="aie-label front-eyebrow">Personal coverage desk / 2026</p>
+      <h1 class="front-headline">Coverage</h1>
+      <p class="standfirst">Published memos and desk verdicts, newest first.
+        The working desk lives at <a href="desk.html">the Desk</a>.</p>
+    </header>
 
     <!-- Coverage ledger — memo rows + "verdict only" stubs, built at boot. -->
     <section class="ledger-section" aria-label="Coverage and market notes">
       <div class="ledger-head">
-        <span class="aie-label">Coverage &amp; market notes</span>
+        <span class="aie-label">Memos &amp; market notes</span>
         <span class="ledger-count" id="ledgerCount">No entries yet</span>
       </div>
       <div class="ledger-filters" id="ledgerFilters"></div>
@@ -198,102 +167,22 @@
         if (text != null) n.textContent = text;
         return n;
       }
-      // ---- Live counts (rule: don't hardcode a number the data knows). ----
       var tickers = DATA.tickers || [];
-      var theses = DATA.theses || [];
-      var cats = DATA.categories || {};
-      var layers = Object.keys(cats).filter(function (id) { return id !== "unsorted"; }).length;
-      var coreCount = tickers.filter(function (t) { return t.tier === "core"; }).length;
-      var watchCount = tickers.filter(function (t) { return t.tier === "watch"; }).length;
       var desk = DATA.desk || {};
       var dmeta = desk.meta || {};
-      var verdictCount = (desk.verdicts || []).length;
-      var digestCount = ((DATA.brain || {}).digests || []).length;
-
-      // ---- Focus card: the week's one headline (desk.meta.focus). ----
-      AIE.renderFocusCard("#focusCard", dmeta.focus);
-
-      // ---- Hero: short standfirst + injected gem art. ----
-      var sf = document.getElementById("standfirst");
-      if (sf) sf.textContent =
-        "A decisive read on the AI hardware supply chain — the suppliers beneath " +
-        "NVIDIA and the hyperscalers, ranked by conviction and built for the next " +
-        "move, not the last print.";
-
-      var art = document.getElementById("heroArt");
-      if (art) art.insertAdjacentHTML("afterbegin", AIE.artCoverage());
-
-      // ---- Stat rail: three live counts + a brand-gradient action tile. ----
-      function stat(label, value, sub) {
-        var d = el("div", "unf-stat");
-        d.appendChild(el("span", "st-label", label));
-        d.appendChild(el("div", "st-value", value));
-        d.appendChild(el("span", "st-sub", sub));
-        return d;
-      }
-      var rail = document.getElementById("statRail");
-      if (rail) {
-        rail.appendChild(stat("Names tracked", String(tickers.length),
-          coreCount + " core · " + watchCount + " watch"));
-        rail.appendChild(stat("Sourced theses", String(theses.length),
-          "captured from public calls"));
-        rail.appendChild(stat("Desk verdicts", String(verdictCount),
-          dmeta.reviewedAt ? "reviewed " + AIE.fmtDate(dmeta.reviewedAt) : "second opinions"));
-        var action = el("a", "unf-stat unf-stat--action");
-        action.href = "desk.html";
-        action.appendChild(el("span", "act-title", "Unfold the position"));
-        action.appendChild(el("span", "act-arrow", "↗"));
-        rail.appendChild(action);
-      }
-
-      // ---- Field-guide chapters as colored soft-tiles. ----
-      var TILES = [
-        { href: "desk.html#chapter-map", label: "The Map", value: String(layers),
-          sub: "layers, Supply → Demand", shape: "arc",
-          bg: "#dfe8fb", ink: "#23408f", subc: "#52619d", shapec: "#7aa0f0" },
-        { href: "desk.html#chapter-watchlist", label: "The Watchlist", value: String(tickers.length),
-          sub: "names priced & tiered", shape: "ring",
-          bg: "#d7f0e8", ink: "#14614f", subc: "#37796a", shapec: "#34c1a4" },
-        { href: "desk.html#chapter-thesis", label: "The Evidence", value: String(theses.length),
-          sub: "sourced theses", shape: "square",
-          bg: "#e7e2fb", ink: "#4a3a8f", subc: "#6a5cae", shapec: "#9a86ef" },
-        { href: "desk.html#chapter-brain", label: "The Synthesis", value: String(digestCount),
-          sub: "per-theme digests", dark: true }
-      ];
-      var tilesEl = document.getElementById("chapterTiles");
-      if (tilesEl) {
-        TILES.forEach(function (t) {
-          var a = el("a", "unf-tile" + (t.dark ? " unf-tile--dark" : ""));
-          a.href = t.href;
-          if (!t.dark) {
-            a.style.setProperty("--tile-bg", t.bg);
-            a.style.setProperty("--tile-ink", t.ink);
-            a.style.setProperty("--tile-sub", t.subc);
-          }
-          a.appendChild(el("span", "tile-label", t.label));
-          a.appendChild(el("div", "tile-value", t.value));
-          a.appendChild(el("span", "tile-sub", t.sub));
-          if (t.dark) {
-            var foot = el("div", "tile-foot");
-            var pill = el("span", "unf-pill unf-pill--sm", "Open synthesis ");
-            pill.appendChild(el("span", "glyph", "↗"));
-            foot.appendChild(pill);
-            a.appendChild(foot);
-          } else {
-            a.insertAdjacentHTML("beforeend", AIE.tileShape(t.shape, t.shapec));
-          }
-          tilesEl.appendChild(a);
-        });
-      }
 
       // ---- Colophon: disclaimer straight from desk.meta (fallback if absent). ----
       var colo = document.getElementById("colophon");
       if (colo) {
-        colo.appendChild(el("strong", null, "AI Supply Desk"));
+        colo.appendChild(el("strong", null, "AI Infrastructure Explorer"));
         colo.appendChild(document.createTextNode(" — "));
         colo.appendChild(document.createTextNode(
           dmeta.disclaimer ||
           "Personal research tool — not investment advice."));
+        colo.appendChild(document.createTextNode(" · "));
+        var designLink = el("a", null, "Design reference");
+        designLink.href = "design.html";
+        colo.appendChild(designLink);
       }
 
       /* ================================================================
@@ -342,7 +231,7 @@
         tr.appendChild(titleCell);
 
         var rCell = el("td");
-        if (o.rating) rCell.appendChild(el("span", "aie-badge aie-stance--" + o.rating, o.rating));
+        if (o.rating) rCell.appendChild(el("span", "aie-badge aie-stance--" + o.rating, AIE.stanceLabel(o.rating)));
         else rCell.appendChild(document.createTextNode("—"));
         tr.appendChild(rCell);
 
@@ -456,7 +345,7 @@
           var themes = themesInMemos(memos);
           var groups = [];
           if (kinds.length > 1) groups.push(renderFilterGroup("Kind", "kind", kinds));
-          if (ratings.length > 1) groups.push(renderFilterGroup("Rating", "rating", ratings));
+          if (ratings.length > 1) groups.push(renderFilterGroup("Rating", "rating", ratings, AIE.stanceLabel));
           if (themes.length > 1) groups.push(renderFilterGroup("Theme", "theme", themes, themeLabel));
           groups.forEach(function (g, i) {
             if (i) filtersEl.appendChild(el("span", "lf-sep"));

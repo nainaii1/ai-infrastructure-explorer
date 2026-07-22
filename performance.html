@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Performance — AI Supply Desk</title>
+  <title>Performance — AI Infrastructure Explorer</title>
 
   <!-- ⚡ favicon: inline SVG data URI (no external request, works on file://) -->
   <link
@@ -18,19 +18,15 @@
     /* performance.html-only layout. Tokens + components come from theme.css. */
 
     .perf-shell { padding: 32px 0 8px; }
-    /* Two-column Unpacked hero (title left, rising-curve art right). */
-    .perf-hero { padding: 4px 0 2px; margin-bottom: 22px; }
-    .perf-hero-copy { min-width: 0; align-self: center; }
-    .perf-hero .perf-sub { margin-bottom: 0; }
-    .perf-hero .unf-hero-art { max-width: 360px; }
+    .perf-head { margin-bottom: 16px; }
     .perf-title {
       font-family: var(--display); font-weight: 700;
-      font-size: 34px; line-height: 1.1; letter-spacing: -0.02em;
-      color: var(--ink); margin: 0 0 8px;
+      font-size: 22px; line-height: 1.1; letter-spacing: -0.02em;
+      color: var(--ink); margin: 0 0 6px;
     }
     .perf-sub {
       font-family: var(--mono); font-size: 12px; letter-spacing: .04em;
-      color: var(--muted); margin: 0 0 26px;
+      color: var(--muted); margin: 0;
     }
 
     /* Ledger numerics. */
@@ -168,23 +164,15 @@
         var main = document.getElementById("perfMain");
         main.textContent = "";
 
-        // Two-column hero: title + summary left, rising-curve art right.
-        var hero = el("div", "perf-hero unf-hero");
-        var copy = el("div", "perf-hero-copy");
-        copy.appendChild(el("h1", "perf-title", "Performance"));
+        // Compact header: title + one-line summary. No art (analysis tool).
+        var head = el("div", "perf-head");
+        head.appendChild(el("h1", "perf-title", "Performance"));
         var open = CALLS.filter(function (c) { return !c.closedAt; }).length;
-        copy.appendChild(el("p", "perf-sub",
+        head.appendChild(el("p", "perf-sub",
           CALLS.length + (CALLS.length === 1 ? " call" : " calls") +
           " · " + open + " open · benchmark " + BENCH_SYM +
           (BENCH && BENCH.asOf ? " · prices as of " + AIE.fmtDate(BENCH.asOf) : "")));
-        hero.appendChild(copy);
-        var art = el("div", "unf-hero-art");
-        if (AIE.artPerformance) art.innerHTML = AIE.artPerformance();
-        var cap = el("span", "unf-art-cap aie-label");
-        cap.innerHTML = "Calls vs<br>the index";
-        art.appendChild(cap);
-        hero.appendChild(art);
-        main.appendChild(hero);
+        main.appendChild(head);
 
         var table = el("table", "aie-ledger");
         var thead = el("thead");
@@ -273,7 +261,7 @@
       function renderColophon() {
         var meta = STORE.meta || {};
         var colo = document.getElementById("colophon");
-        colo.appendChild(el("strong", null, "AI Supply Desk"));
+        colo.appendChild(el("strong", null, "AI Infrastructure Explorer"));
         colo.appendChild(document.createTextNode(" — " + (meta.disclaimer ||
           "Personal research tool — not investment advice.")));
       }

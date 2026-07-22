@@ -1,7 +1,21 @@
 # Roadmap & Status — AI Infrastructure Explorer
 
-_Last updated: 2026-07-15 (Phase 6 "Unpacked" rebrand shipped — v7 upgrade complete). Living document — update as things ship or change._
+_Last updated: 2026-07-18 (v8 "analysis tool, not product" shipped). Living document — update as things ship or change._
 
+> **v8 — "analysis tool, not product" (✅ 2026-07-18).** Deliberate
+> de-productization after an operator review: the site is a personal analysis
+> desk, not a landing page. Changes: the **Desk opens on the Watchlist** (order
+> is now Watchlist → Map → Synthesis) under a one-line "desk strip" of live
+> counts — the whole hero (H1, tagline, art, count-up animation) is gone. The
+> **Evidence chapter was removed**; theses stay in the data and render only
+> where cited (memo sources, vault "Cited theses", Synthesis drill-downs). The
+> **Focus card was removed everywhere** (Desk + Coverage); its weekly headline
+> now lives only in the weekly-review report. All **page hero art removed**
+> (`renderFocusCard` + `art*` + `tileShape` deleted from `shared/common.js`;
+> `chipSpark` kept). Density pass on chapter/page headers. Color system, memo
+> reading surface, and the vault graph untouched. Dead `.unf-*`/`.aie-focus`
+> rules remain in `theme.css` (harmless; optional future cleanup).
+>
 > **Private Coverage upgrade (v7) — ✅ all six phases shipped.** Multi-page split,
 > memo-style coverage notes, Obsidian-style knowledge Vault + graph, minimal
 > performance hooks, and the "Unpacked" cool rebrand. The authoritative **phase
@@ -78,8 +92,9 @@ He tweets → you forward to the Telegram bot (or backfill from signal bots)
 
 ### HIGH — affects daily use
 
-**1. Bot must be started from the project directory**
-Create a `start_bot.sh` convenience script (cd + env + launch). Still not built.
+**1. Bot must be started from the project directory** — ✅ FIXED 18 Jul 2026
+`desk.command` (double-clickable menu: start bot / refresh prices / serve /
+status) handles cd + env + launch. Supersedes the planned `start_bot.sh`.
 
 **2. `ingest/.env` iCloud sync**
 `.env` can hit sync conflicts under iCloud Drive. Workaround: `export

@@ -67,14 +67,23 @@ ALLOWED_TELEGRAM_USER_ID=987654321
 (`ingest/.env` is gitignored — it is never committed or pushed.)
 
 ### Step 4 — Run the bot
-In a terminal (copy only the command lines, not the ` ``` ` fences):
+**The easy way (no terminal commands):** double-click **`desk.command`** in
+the project folder and pick **1**. It loads `.env` and starts the bot for you.
+**Leave that window open** — the bot replies only while it's running.
+
+The same menu also does prices (**2**), the local server (**3**), and a
+status check (**4** — is the bot up, how fresh are prices, what's awaiting
+triage).
+
+<details><summary>The manual way (what option 1 runs for you)</summary>
+
 ```bash
 cd ~/Documents/Claude/ai-supply-desk
 set -a; . ./ingest/.env; set +a     # load the token into this terminal
 python3 ingest/bot.py
 ```
 You should see: `Bot polling. Only Telegram user id 987654321 is processed. Ctrl-C to stop.`
-**Leave this terminal open.** The bot replies only while this is running.
+</details>
 
 ### Step 5 — Use it
 - **Forward** an @aleabitoreddit post to your bot, **or paste text** (include the
@@ -94,14 +103,25 @@ an LLM. Two ways:
 
 - **Ask Claude Code** to "refresh the brain" — it reads the theses and rewrites
   `brain.json` + `data.js`. No API key, no cost beyond your Claude usage.
-- **Run it yourself** (once a Gemini/Anthropic backend is wired in):
+- **Run it yourself with an API key** (added 18 Jul 2026):
   ```bash
   cd ~/Documents/Claude/ai-supply-desk
   python3 ingest/synthesize.py --dry-run   # preview grouping, no spend
   python3 ingest/synthesize.py             # real run → brain.json + data.js
   ```
-  It auto-loads `ingest/.env`, so just put your key there first. `--only photonics,memory`
-  refreshes specific themes without touching the others.
+  It auto-loads `ingest/.env` and picks the backend from what's filled in:
+  1. `OPENROUTER_API_KEY` → **OpenRouter** (recommended: cheap, no SDK to
+     install). Get a key at https://openrouter.ai/keys, put it in `ingest/.env`
+     yourself, and optionally set `OPENROUTER_MODEL` to any model id from
+     https://openrouter.ai/models (default: `nousresearch/hermes-4-405b` —
+     check current pricing before a full run).
+  2. `ANTHROPIC_API_KEY` → Anthropic (needs `pip install anthropic`).
+
+  Either way the same guardrails run: the injection firewall around thesis
+  text, and `validate_digest()` never trusting the model for ids, categories,
+  or out-of-universe tickers. `--only photonics,memory` refreshes specific
+  themes without touching the others. The Brain is the only thing the key is
+  for — desk verdicts, memos, and vault notes stay with the weekly review.
 
 ---
 
