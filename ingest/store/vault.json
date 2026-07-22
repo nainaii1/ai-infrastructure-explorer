@@ -1,9 +1,9 @@
 {
   "meta": {
     "schemaVersion": 1,
-    "syncedAt": "2026-07-16T14:33:08Z",
-    "pageCount": 62,
-    "linkCount": 187
+    "syncedAt": "2026-07-22T17:13:38Z",
+    "pageCount": 63,
+    "linkCount": 196
   },
   "pages": [
     {
@@ -46,8 +46,8 @@
           "watchCount": 0
         }
       },
-      "note": "The fabrication and equipment layer was ground zero for the week's contagion \u2014 Samsung's guidance triggered a rout in which [[intc]] was the worst S&P 500 performer and the equipment names sold off hard. [[aleabitoreddit]]'s read is consistent with his cross-sector frame: indiscriminate selling into a leverage-driven tape while the fundamentals (record memory profits, sold-out capacity) held.\n\n[[tsm]] is the gravitational center of the layer; [[gfs]] and [[tsem]] the specialty-foundry expressions; [[intc]] the turnaround/optionality name. The layer gates everything downstream \u2014 the [[accelerators]] that [[nvda]] designs are only as available as the fab and [[advanced-packaging]] capacity behind them.",
-      "noteUpdatedAt": "2026-07-12T00:00:00Z"
+      "note": "The fabrication and equipment layer was ground zero for the week's contagion \u2014 Samsung's guidance triggered a rout in which [[intc]] was the worst S&P 500 performer and the equipment names sold off hard. [[aleabitoreddit]]'s read is consistent with his cross-sector frame: indiscriminate selling into a leverage-driven tape while the fundamentals (record memory profits, sold-out capacity) held.\n\n[[tsm]] is the gravitational center of the layer; [[gfs]] and [[tsem]] the specialty-foundry expressions; [[intc]] the turnaround/optionality name. The layer gates everything downstream \u2014 the [[accelerators]] that [[nvda]] designs are only as available as the fab and [[advanced-packaging]] capacity behind them.\n\nThe 22 Jul review added a second act to that story: the crash resolved into a historic single-day recovery ([[tsem]] +10.4%, [[intc]] +8.2%), vindicating the deleveraging-not-fundamentals read. [[intc]] entered the desk's verdict roster on crash-week mention volume \u2014 as a context name, not a thesis. The forward-looking fab event is AMD's SF disclosure (Jul 22\u201323): Jefferies expects MI500 scale-up CPO details, and [[gfs]] is reportedly involved via GF SCALE \u2014 a named win there would be the first public anchor customer for the silicon-photonics platform story.",
+      "noteUpdatedAt": "2026-07-22T00:00:00Z"
     },
     {
       "slug": "glass",
@@ -119,14 +119,15 @@
           "axti",
           "mu",
           "rpi",
+          "skhy",
           "sndk"
         ],
         "stats": {
           "label": "AI Memory",
           "flowRole": "supply",
-          "memberCount": 4,
+          "memberCount": 5,
           "coreCount": 3,
-          "watchCount": 1
+          "watchCount": 2
         }
       },
       "note": "The [[hbm]] memory upcycle is a high-conviction supply theme, and it got a clean real-world stress test this week: Samsung pre-announced record Q2 operating profit up ~1,800% Y/Y \u2014 on his telling the most profitable quarter in the world \u2014 and the stock still fell ~7% after a +150% YTD run. [[aleabitoreddit]] reads that as priced-to-perfection profit-taking, not a fundamentals break, and notes the same Samsung print was the actual trigger for the broader chip rout.\n\n[[mu]] is the liquid US expression of the DRAM/HBM cycle; [[sndk]] the NAND leg; [[axti]] the upstream substrate/materials feed (torque he also pairs with the [[photonics]] sleeve); [[rpi]] rounds out the group. The through-line is [[hbm]] scarcity \u2014 stacked memory bonded next to the GPU is the scarcest ingredient in every accelerator the [[hyperscalers]] are buying.\n\nThe 16 Jul 2026 review made memory the week's Focus: TrendForce confirmed 13\u201318% server-DRAM contract hikes for Q3 with Samsung seeking 20%, [[mu]] disclosed 16+ long-term agreements, and [[sndk]]'s supply deal with [[meta]] was confirmed \u2014 while memory equities sold off into all of it. The desk opened SNDK coverage on that disconnect. The structural nuance worth keeping: SK Hynix reportedly scrapped LTA price caps while Micron kept ceilings-and-floors, so the same upcycle is captured very differently across the complex.",
@@ -145,8 +146,8 @@
           "label": "Neoclouds",
           "flowRole": "demand",
           "memberCount": 2,
-          "coreCount": 1,
-          "watchCount": 1
+          "coreCount": 2,
+          "watchCount": 0
         }
       },
       "note": "The independent GPU-cloud layer \u2014 the [[neocloud]] model that rents accelerated compute outside the big [[hyperscalers]]. The 'Meta is cutting capex' narrative [[aleabitoreddit]] fought for weeks broke down publicly: SemiAnalysis, the same firm whose bear notes hit [[photonics]], now says Meta's datacenter compute will accelerate with 2027 capex 'shockingly high.'\n\n[[nbis]] is the core liquid expression; [[iren]] the crossover from crypto-mining infrastructure into AI hosting. The theme rides directly on hyperscaler and enterprise compute demand \u2014 if the capex-cut narrative is wrong, these are the highest-beta way to be right.",
@@ -232,8 +233,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 47,
-          "lastMentioned": "2026-07-16T14:21:51Z",
+          "mentions": 53,
+          "lastMentioned": "2026-07-22T15:28:50Z",
           "category": "photonics",
           "market": "US",
           "marketCapTier": "Small",
@@ -276,8 +277,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 8,
-          "lastMentioned": "2026-07-16T06:22:18Z",
+          "mentions": 10,
+          "lastMentioned": "2026-07-22T15:28:50Z",
           "category": "materials",
           "market": "US",
           "marketCapTier": "Small",
@@ -320,8 +321,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 20,
-          "lastMentioned": "2026-07-08T13:01:43Z",
+          "mentions": 25,
+          "lastMentioned": "2026-07-22T15:29:08Z",
           "category": "accelerators",
           "market": "US",
           "marketCapTier": "Mega",
@@ -407,8 +408,8 @@
         ],
         "stats": {
           "tier": "watch",
-          "mentions": 7,
-          "lastMentioned": "2026-07-13T07:27:07Z",
+          "mentions": 8,
+          "lastMentioned": "2026-07-22T15:28:33Z",
           "category": "networking",
           "market": "",
           "marketCapTier": "",
@@ -429,8 +430,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 24,
-          "lastMentioned": "2026-07-13T07:26:27Z",
+          "mentions": 25,
+          "lastMentioned": "2026-07-22T15:28:50Z",
           "category": "memory",
           "market": "US",
           "marketCapTier": "Small",
@@ -459,8 +460,8 @@
           "company": "Agility Robotics"
         }
       },
-      "note": "",
-      "noteUpdatedAt": null
+      "note": "Agility rotated off the desk's verdict roster in the 22 Jul 2026 review \u2014 zero new theses in a crash-dominated week let its priority score slip below the top-15 line, and a watch stance carries no sticky holdover protection. Nothing changed in the underlying story: the IBK actuator-capacity framing, the SPAC-structure caution, and the funded-Amazon-deployment upgrade trigger all stand exactly as the last verdict left them, and the [[robotics]] theme digest still carries the thesis.\n\nThe name re-enters coverage the same way it left \u2014 on score. A robotics news cycle or a dedicated post from [[aleabitoreddit]] would do it; the operator can also re-add it by request, as [[mu]] once was.",
+      "noteUpdatedAt": "2026-07-22T00:00:00Z"
     },
     {
       "slug": "cohr",
@@ -515,8 +516,8 @@
         ],
         "stats": {
           "tier": "watch",
-          "mentions": 9,
-          "lastMentioned": "2026-07-11T16:24:01Z",
+          "mentions": 10,
+          "lastMentioned": "2026-07-22T15:23:43Z",
           "category": "unsorted",
           "market": "",
           "marketCapTier": "",
@@ -537,8 +538,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 18,
-          "lastMentioned": "2026-07-14T09:35:43Z",
+          "mentions": 20,
+          "lastMentioned": "2026-07-22T15:28:33Z",
           "category": "fabs",
           "market": "",
           "marketCapTier": "",
@@ -567,8 +568,8 @@
           "company": "Alphabet"
         }
       },
-      "note": "Alphabet joined the verdict roster in the 16 Jul 2026 review on tier math alone \u2014 and the desk verdict says so: every mention in the corpus is contextual, never a mispricing argument. [[aleabitoreddit]] uses Google as the demand gauge of the AI buildout: the compute-constrained hyperscaler, the party that cut Meta off and taught the industry the cost of renting, and (this week) the counterfactual he believes pushed $AAPL toward AI-chip acquisitions. Watch stance; the upgrade trigger is a dedicated TPU-supply-chain thesis with named suppliers.",
-      "noteUpdatedAt": "2026-07-16T00:00:00Z"
+      "note": "Alphabet joined the verdict roster in the 16 Jul 2026 review on tier math alone \u2014 and the desk verdict says so: every mention in the corpus is contextual, never a mispricing argument. [[aleabitoreddit]] uses Google as the demand gauge of the AI buildout: the compute-constrained hyperscaler, the party that cut Meta off and taught the industry the cost of renting, and (this week) the counterfactual he believes pushed $AAPL toward AI-chip acquisitions. Watch stance; the upgrade trigger is a dedicated TPU-supply-chain thesis with named suppliers.\n\nRotated off the verdict roster in the 22 Jul 2026 review, one week after entering: the contextual mentions decayed and [[intc]] took the tier-math slot with the same context-name treatment. The demand-gauge framing survives the rotation \u2014 the desk still reads his Google mentions as evidence of structural compute hunger, just without a standing verdict attached.",
+      "noteUpdatedAt": "2026-07-22T00:00:00Z"
     },
     {
       "slug": "hood",
@@ -602,16 +603,16 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 14,
-          "lastMentioned": "2026-07-13T07:27:07Z",
+          "mentions": 18,
+          "lastMentioned": "2026-07-22T15:28:50Z",
           "category": "fabs",
           "market": "US",
           "marketCapTier": "Large",
           "company": "Intel Corporation"
         }
       },
-      "note": "",
-      "noteUpdatedAt": null
+      "note": "Intel entered the verdict roster in the 22 Jul 2026 review on tier math \u2014 crash-week mention volume, not a dedicated thesis. The desk's memo is blunt about the distinction: the corpus uses Intel as an instrument, not an idea. Its CEO's line that there is 'no relief in memory supply or pricing until at least 2028' is load-bearing evidence in the [[memory]] shortage case that anchors the [[mu]] and [[sndk]] positions, and 'INTC to LITE' is the span of [[aleabitoreddit]]'s market-bottom gauge for the whole semis complex.\n\nThe precedent is [[googl]], which entered the same way in the 16 Jul review and rotated off a week later when its contextual mentions decayed. Expect the same here unless a dedicated Intel thesis appears \u2014 foundry wins, advanced-packaging exposure, or CPO-adjacent capacity would make it analyzable inside this workflow. Until then the stance is watch, explicitly as a context name.",
+      "noteUpdatedAt": "2026-07-22T00:00:00Z"
     },
     {
       "slug": "iqe",
@@ -645,9 +646,9 @@
           "aleabitoreddit"
         ],
         "stats": {
-          "tier": "watch",
-          "mentions": 7,
-          "lastMentioned": "2026-07-05T15:16:13Z",
+          "tier": "core",
+          "mentions": 11,
+          "lastMentioned": "2026-07-22T15:28:14Z",
           "category": "neoclouds",
           "market": "",
           "marketCapTier": "",
@@ -668,8 +669,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 22,
-          "lastMentioned": "2026-07-14T09:36:28Z",
+          "mentions": 23,
+          "lastMentioned": "2026-07-22T15:22:40Z",
           "category": "photonics",
           "market": "US",
           "marketCapTier": "Large",
@@ -690,8 +691,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 43,
-          "lastMentioned": "2026-07-16T06:22:18Z",
+          "mentions": 48,
+          "lastMentioned": "2026-07-22T15:28:50Z",
           "category": "photonics",
           "market": "US",
           "marketCapTier": "Mid",
@@ -734,8 +735,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 26,
-          "lastMentioned": "2026-07-16T09:55:59Z",
+          "mentions": 27,
+          "lastMentioned": "2026-07-22T15:25:14Z",
           "category": "hyperscalers",
           "market": "US",
           "marketCapTier": "Mega",
@@ -756,8 +757,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 19,
-          "lastMentioned": "2026-07-08T13:01:43Z",
+          "mentions": 22,
+          "lastMentioned": "2026-07-22T15:28:50Z",
           "category": "networking",
           "market": "US",
           "marketCapTier": "Large",
@@ -800,8 +801,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 20,
-          "lastMentioned": "2026-07-16T14:21:43Z",
+          "mentions": 22,
+          "lastMentioned": "2026-07-22T15:28:50Z",
           "category": "memory",
           "market": "US",
           "marketCapTier": "Large",
@@ -822,8 +823,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 22,
-          "lastMentioned": "2026-07-14T16:59:42Z",
+          "mentions": 27,
+          "lastMentioned": "2026-07-22T15:28:50Z",
           "category": "neoclouds",
           "market": "US",
           "marketCapTier": "Mid",
@@ -866,8 +867,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 50,
-          "lastMentioned": "2026-07-16T06:22:06Z",
+          "mentions": 54,
+          "lastMentioned": "2026-07-22T15:29:08Z",
           "category": "accelerators",
           "market": "US",
           "marketCapTier": "Mega",
@@ -909,8 +910,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 19,
-          "lastMentioned": "2026-07-16T06:22:18Z",
+          "mentions": 20,
+          "lastMentioned": "2026-07-22T15:22:40Z",
           "category": "photonics",
           "market": "US",
           "marketCapTier": "Small",
@@ -930,8 +931,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 6,
-          "lastMentioned": "2026-07-07T07:09:04Z",
+          "mentions": 7,
+          "lastMentioned": "2026-07-22T15:23:21Z",
           "category": "unsorted",
           "market": "",
           "marketCapTier": "",
@@ -995,8 +996,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 82,
-          "lastMentioned": "2026-07-16T14:21:51Z",
+          "mentions": 90,
+          "lastMentioned": "2026-07-22T15:28:50Z",
           "category": "photonics",
           "market": "SE",
           "marketCapTier": "Small",
@@ -1005,6 +1006,28 @@
       },
       "note": "Sivers Semiconductors is [[aleabitoreddit]]'s single highest-conviction name \u2014 'probably my favorite stock right now' \u2014 and the highest-torque bet in the [[photonics]] sleeve. He reiterated it straight into the -4% to -10% sector washout he calls indiscriminate margin-cascade selling, treating the dip as one of his planned accumulation tranches rather than a reason to trim.\n\nThe substance beneath the conviction: a [[jbl]] 1.6T laser-optics qualification window (per a JPM fireside chat) and the broader CW-laser [[chokepoint]] that underpins the whole optical thesis. The desk stance is **accumulate** on the staggered plan; the standing risk is concentration and talking-his-book, since he pairs it so heavily with [[aaoi]].",
       "noteUpdatedAt": "2026-07-12T00:00:00Z"
+    },
+    {
+      "slug": "skhy",
+      "type": "ticker",
+      "title": "SKHY \u00b7 SK Hynix Inc",
+      "auto": {
+        "refs": [
+          "memory",
+          "aleabitoreddit"
+        ],
+        "stats": {
+          "tier": "watch",
+          "mentions": 2,
+          "lastMentioned": "2026-07-22T15:26:21Z",
+          "category": "memory",
+          "market": "KR",
+          "marketCapTier": "Large",
+          "company": "SK Hynix Inc"
+        }
+      },
+      "note": "",
+      "noteUpdatedAt": null
     },
     {
       "slug": "smtc",
@@ -1039,8 +1062,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 15,
-          "lastMentioned": "2026-07-16T09:55:59Z",
+          "mentions": 16,
+          "lastMentioned": "2026-07-22T15:28:50Z",
           "category": "memory",
           "market": "",
           "marketCapTier": "",
@@ -1083,8 +1106,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 18,
-          "lastMentioned": "2026-07-14T16:59:09Z",
+          "mentions": 19,
+          "lastMentioned": "2026-07-22T15:28:50Z",
           "category": "fabs",
           "market": "US",
           "marketCapTier": "Mid",
@@ -1127,8 +1150,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 19,
-          "lastMentioned": "2026-07-14T09:35:43Z",
+          "mentions": 20,
+          "lastMentioned": "2026-07-22T15:25:41Z",
           "category": "fabs",
           "market": "TW",
           "marketCapTier": "Mega",
