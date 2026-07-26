@@ -173,3 +173,29 @@ class TestDirection(unittest.TestCase):
         r = scorer.compute_priorities(theses, now=NOW)[0]
         self.assertEqual(r["score"], 0.0)
         self.assertEqual(r["net"], -1.0)
+
+    def test_research_bull_adds_nothing(self):
+        analyst = [thesis(["MU"], "2026-06-26T00:00:00Z", direction="bull")]
+        plus_research = analyst + [
+            thesis(["MU"], "2026-06-26T00:00:00Z",
+                   direction="bull", source="research")
+        ]
+        a = scorer.compute_priorities(analyst, now=NOW)[0]
+        b = scorer.compute_priorities(plus_research, now=NOW)[0]
+        self.assertEqual(a["score"], b["score"])
+        self.assertEqual(b["mentions"], 2)
+
+    def test_research_bear_still_subtracts(self):
+        base = [thesis(["GFS"], "2026-06-26T00:00:00Z", direction="bull")]
+        with_bear = base + [
+            thesis(["GFS"], "2026-06-26T00:00:00Z",
+                   direction="bear", source="research")
+        ]
+        self.assertEqual(
+            scorer.compute_priorities(with_bear, now=NOW)[0]["score"], 0.0)
+
+    def test_analyst_bull_still_adds(self):
+        one = [thesis(["LITE"], "2026-06-26T00:00:00Z", direction="bull")]
+        two = one + [thesis(["LITE"], "2026-06-26T00:00:00Z", direction="bull")]
+        self.assertEqual(scorer.compute_priorities(one, now=NOW)[0]["score"], 1.0)
+        self.assertEqual(scorer.compute_priorities(two, now=NOW)[0]["score"], 2.0)
