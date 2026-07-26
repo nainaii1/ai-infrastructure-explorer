@@ -2,6 +2,8 @@ import sys
 import re
 import json
 import pathlib
+import subprocess
+import tempfile
 import unittest
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))
@@ -94,6 +96,37 @@ class TestTiersAndDesk(unittest.TestCase):
         for v in verdicts:
             if v["ticker"] in by_sym:
                 self.assertEqual(by_sym[v["ticker"]].get("verdict"), v)
+
+    def test_priority_block_survives_a_net_negative_zero_score(self):
+        # Regression for the `if p and p["score"] > 0` gate: a name argued
+        # against on every mention floors to score 0.0, which used to make it
+        # indistinguishable from "never mentioned" — the priority block (and
+        # its mentions/lastMentioned) disappeared entirely. Being discussed
+        # and being net-positive are different facts; only mentions should
+        # gate the block.
+        d = gen.build_data()
+        sym = d["tickers"][0]["ticker"]
+        orig_load = gen._load
+
+        def fake(name):
+            if name == "theses.json":
+                return [
+                    {"tickers": [sym], "postedAt": "2026-07-01T00:00:00Z",
+                     "conviction": "normal", "source": "x", "direction": "bear"}
+                    for _ in range(5)
+                ]
+            return orig_load(name)
+
+        gen._load = fake
+        try:
+            d2 = gen.build_data()
+        finally:
+            gen._load = orig_load
+
+        t = next(x for x in d2["tickers"] if x["ticker"] == sym)
+        self.assertIn("priority", t)
+        self.assertEqual(t["priority"]["score"], 0.0)
+        self.assertEqual(t["priority"]["mentions"], 5)
 
 
 class TestMemos(unittest.TestCase):
@@ -197,6 +230,204 @@ class TestCalls(unittest.TestCase):
     def test_benchmark_quote_none_when_unpriced(self):
         d = self._with_fake({"meta": {"benchmark": "SMH"}, "calls": []}, {})
         self.assertIsNone(d["benchmarkQuote"])
+
+
+class TestCompletenessGuard(unittest.TestCase):
+    def test_build_data_keys_match_required_keys_exactly(self):
+        # Equality, not subset: a key added to build_data() and forgotten in
+        # REQUIRED_KEYS is exactly the kind of drift this guard exists to catch,
+        # and a one-directional assertIn check would never notice it.
+        d = gen.build_data()
+        self.assertEqual(
+            set(d.keys()), set(gen.REQUIRED_KEYS),
+            "build_data() output and REQUIRED_KEYS have drifted apart"
+        )
+
+    def test_missing_key_raises_and_names_it(self):
+        d = gen.build_data()
+        del d["calls"]
+        with self.assertRaises(RuntimeError) as ctx:
+            gen._assert_complete(d)
+        self.assertIn("calls", str(ctx.exception))
+
+    def test_emptied_store_backed_key_raises(self):
+        # verdicts.json is non-empty in this repo, so an empty desk block in a
+        # built payload means assembly lost it.
+        d = gen.build_data()
+        d["desk"] = {}
+        with self.assertRaises(RuntimeError) as ctx:
+            gen._assert_complete(d)
+        self.assertIn("verdicts.json", str(ctx.exception))
+
+    def test_none_benchmark_quote_is_allowed(self):
+        # benchmarkQuote is legitimately None when SMH has no price row; the
+        # guard checks presence, not truthiness, for non-store-backed keys.
+        d = gen.build_data()
+        d["benchmarkQuote"] = None
+        gen._assert_complete(d)
+
+    def test_corrupt_store_file_raises_runtimeerror_naming_the_file(self):
+        # _load_optional swallows bad JSON and returns {} — which would make a
+        # corrupt verdicts.json look "legitimately empty" to the completeness
+        # check and pass silently. _read_store_or_empty must not make that
+        # mistake: a present-but-broken file has to raise RuntimeError (NOT
+        # the bare ValueError json.loads raises — bot.py's ingest_message
+        # only catches RuntimeError from write_data_js, so anything else
+        # escapes into its generic "ingest error"/"Skipped" handler, exactly
+        # the misleading message this guard exists to prevent).
+        #
+        # Uses a scratch store directory, never the real one: ingest/store/
+        # is hand-authored, source-of-truth data with no backup — no test may
+        # ever write to it.
+        orig_store = gen.STORE
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            tmp_store = pathlib.Path(tmp_dir)
+            (tmp_store / "verdicts.json").write_text("{not valid json", encoding="utf-8")
+            gen.STORE = tmp_store
+            try:
+                with self.assertRaises(RuntimeError) as ctx:
+                    gen._read_store_or_empty("verdicts.json")
+                self.assertIn("verdicts.json", str(ctx.exception))
+            finally:
+                gen.STORE = orig_store
+
+
+class TestFreshnessGuard(unittest.TestCase):
+    def setUp(self):
+        # Snapshot so a test's mutations to the process-wide baseline dict
+        # can't leak into other tests regardless of run order.
+        self._orig_baseline = dict(gen._SOURCE_HASHES_BASELINE)
+
+    def tearDown(self):
+        gen._SOURCE_HASHES_BASELINE.clear()
+        gen._SOURCE_HASHES_BASELINE.update(self._orig_baseline)
+
+    def test_fresh_process_passes(self):
+        gen._assert_fresh()  # establishes/confirms baseline; no raise
+        gen._assert_fresh()  # second call compares against it; still no raise
+
+    def test_stale_module_raises_and_names_it(self):
+        gen._assert_fresh()  # ensure a baseline is actually established first
+        # Simulate scorer.py's contents having changed since this process
+        # first saw it: the recorded baseline no longer matches reality.
+        gen._SOURCE_HASHES_BASELINE["scorer.py"] = "0" * 64
+        with self.assertRaises(RuntimeError) as ctx:
+            gen._assert_fresh()
+        self.assertIn("scorer.py", str(ctx.exception))
+
+    def test_unrecordable_baseline_is_retried_not_skipped_forever(self):
+        # A file that fails to hash on its first sighting (a transient read
+        # hiccup) must not be permanently treated as "unknown, skip forever" —
+        # the next call has to try again and actually establish a baseline.
+        gen._SOURCE_HASHES_BASELINE.pop("scorer.py", None)
+        orig_safe_hash = gen._safe_hash
+
+        def fail_for_scorer(path):
+            if pathlib.Path(path).name == "scorer.py":
+                return None
+            return orig_safe_hash(path)
+
+        gen._safe_hash = fail_for_scorer
+        try:
+            gen._assert_fresh()
+            self.assertNotIn("scorer.py", gen._SOURCE_HASHES_BASELINE)
+        finally:
+            gen._safe_hash = orig_safe_hash
+
+        gen._assert_fresh()  # real _safe_hash this time -> baseline established
+        self.assertIn("scorer.py", gen._SOURCE_HASHES_BASELINE)
+
+    def test_baseline_populated_at_import_before_any_assert_fresh_call(self):
+        # Pins capture timing, not comparison: a fresh interpreter that only
+        # imports generate_data_js, and never calls _assert_fresh(), must
+        # already have a baseline recorded for generate_data_js.py itself —
+        # the module that actually broke on 2026-07-26. Run in a subprocess
+        # so no other test's _assert_fresh() call (which would also populate
+        # it) can hide a regression to lazy-only capture.
+        script = (
+            "import sys; sys.path.insert(0, {ing!r}); "
+            "import generate_data_js as gen; "
+            "assert 'generate_data_js.py' in gen._SOURCE_HASHES_BASELINE, "
+            "gen._SOURCE_HASHES_BASELINE"
+        ).format(ing=str(gen.ING))
+        result = subprocess.run(
+            [sys.executable, "-c", script], capture_output=True, text=True)
+        self.assertEqual(result.returncode, 0, result.stderr)
+
+
+class TestWriteDataJsGuardWiring(unittest.TestCase):
+    def test_write_data_js_refuses_incomplete_payload_and_writes_nothing(self):
+        # Proves _assert_complete is actually wired into write_data_js, not
+        # just defined and unused: delete the _assert_complete(data) call
+        # from write_data_js and this test fails, because tmp_path ends up
+        # written despite the incomplete payload.
+        bad = gen.build_data()
+        del bad["calls"]
+        orig_data_js = gen.DATA_JS
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            tmp_path = pathlib.Path(tmp_dir) / "data.js"
+            gen.DATA_JS = tmp_path
+            try:
+                with self.assertRaises(RuntimeError):
+                    gen.write_data_js(data=bad)
+                self.assertFalse(
+                    tmp_path.exists(),
+                    "write_data_js wrote a file despite an incomplete payload"
+                )
+            finally:
+                gen.DATA_JS = orig_data_js
+
+
+class TestWriteDataJsFreshnessWiring(unittest.TestCase):
+    def setUp(self):
+        self._orig_baseline = dict(gen._SOURCE_HASHES_BASELINE)
+
+    def tearDown(self):
+        gen._SOURCE_HASHES_BASELINE.clear()
+        gen._SOURCE_HASHES_BASELINE.update(self._orig_baseline)
+
+    def test_write_data_js_refuses_when_stale_and_writes_nothing(self):
+        # Proves _assert_fresh is actually wired into write_data_js, not just
+        # defined and unused: delete the _assert_fresh() call from
+        # write_data_js and this test fails, because tmp_path ends up written
+        # even though the process is (simulated) stale. This is the guard
+        # that matters most — it's the one the 2026-07-26 incident actually
+        # needed — so its wiring gets its own dedicated proof, same as
+        # _assert_complete's above.
+        good = gen.build_data()
+        gen._assert_fresh()  # establish a real baseline first
+        gen._SOURCE_HASHES_BASELINE["scorer.py"] = "0" * 64  # force "stale"
+
+        orig_data_js = gen.DATA_JS
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            tmp_path = pathlib.Path(tmp_dir) / "data.js"
+            gen.DATA_JS = tmp_path
+            try:
+                with self.assertRaises(RuntimeError) as ctx:
+                    gen.write_data_js(data=good)
+                self.assertIn("scorer.py", str(ctx.exception))
+                self.assertFalse(
+                    tmp_path.exists(),
+                    "write_data_js wrote a file despite a stale process"
+                )
+            finally:
+                gen.DATA_JS = orig_data_js
+
+
+
+
+class TestPriorityStamp(unittest.TestCase):
+    def test_ticker_priority_stamp_carries_direction_fields(self):
+        # The ticker card reads t["priority"], not the top-level priorities
+        # array, so bearMentions has to be mirrored here or the "N against"
+        # count can never reach the UI it was added for.
+        d = gen.build_data()
+        stamped = [t for t in d["tickers"] if t.get("priority")]
+        self.assertTrue(stamped, "no ticker carried a priority stamp")
+        for field in ("score", "net", "attention", "mentions",
+                      "bullMentions", "bearMentions", "convictionHits",
+                      "lastMentioned"):
+            self.assertIn(field, stamped[0]["priority"])
 
 
 if __name__ == "__main__":

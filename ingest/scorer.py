@@ -1,22 +1,83 @@
 """Composite priority scoring — ranks what the author prioritizes.
 
-    score = sum(recency_weight * focus_weight) * (1 + CONVICTION_WEIGHT * conviction_hits)
+    net   = sum(recency_weight * focus_weight * direction_weight)
+    score = max(net, 0)
 
 Recency uses exponential decay with a configurable half-life, so a ticker the
-author mentions often AND recently AND with conviction language rises to the top.
+author mentions often AND recently rises to the top. Conviction language no
+longer lifts a score at all (see CONVICTION_WEIGHT), though conviction hits are
+still counted and still drive tiers.
 
 Focus weight (1/sqrt(tickers-in-post)) discounts names buried in long list-posts:
 a ticker that shows up in a 12-name Bloomberg-selloff dump counts far less than
 one in a dedicated single-name thesis. This keeps mention-heavy digest baskets
-from inflating the conviction tiers. Pure and deterministic; unit-tested in
-tests/test_scorer.py.
+from inflating the conviction tiers.
+
+Direction weight (see _direction_weight) signs each mention: bull/neutral
+analyst posts count +1, bear posts count -1, so a name the author keeps
+defending while arguing against it nets out rather than climbing the rank
+purely on mention volume. `score` floors at zero (a net-negative name still
+ranks, just at the bottom) but `net` itself is exposed unclamped so callers
+can see when attention is negative, not merely low. Pure and deterministic;
+unit-tested in tests/test_scorer.py.
 """
 
 import math
 from datetime import datetime, timezone
 
 HALF_LIFE_DAYS = 14.0
-CONVICTION_WEIGHT = 0.5
+
+# Retired 2026-07-26 (operator sign-off). `conviction` is assigned by keyword
+# match in parser.py against phrases like "top pick" and "high conviction". It
+# fired on 17 of 258 posts and multiplied a score by up to 6x — SIVE scored
+# 91.11 on 10 hits, versus ~15 without (14.99 when measured on 2026-07-26; it
+# drifts with recency decay). That is rhetoric driving a ranking.
+# Kept as a constant, not deleted, so this is reversible by restoring 0.5.
+# Note: assign_tiers still reads convictionHits directly, so tiers are
+# unaffected by this change.
+CONVICTION_WEIGHT = 0.0
+
+# Signed contribution of one mention. Research findings may subtract but never
+# add: the same model that writes the desk verdicts must not be able to agree
+# with itself three times and inflate a rank. Analyst bull and neutral posts
+# both weigh 1.0, so migrating undirected theses to "neutral" changes no score.
+RESEARCH_SOURCE = "research"
+
+# The only directions a thesis can express.
+VALID_DIRECTIONS = {"bull", "bear", "neutral"}
+
+# A present-but-unrecognized direction — a typo ("bearish", "BEAR", "short"),
+# an empty string, a future value nobody wired up yet. Kept distinct from
+# "neutral" because the two must score differently: see _direction_weight.
+UNKNOWN_DIRECTION = "unknown"
+
+
+def _normalize_direction(thesis):
+    """The single source of truth for what a thesis's direction "really" is.
+
+    Absent key -> "neutral": that is every one of the migrated records, which
+    must keep scoring exactly as they did before directions existed.
+    Present but unrecognized -> "unknown", which is NOT the same thing. These
+    records get hand-authored by an agent, and a typo'd "bearish" was meant as
+    a bear; scoring it as neutral would contribute +1.0 and swing the score two
+    points the wrong way. Distinguishing the two lets a bad value fall back to
+    "no opinion" instead of silently becoming the vote it was not.
+    """
+    raw = thesis.get("direction")
+    if raw is None:
+        return "neutral"
+    return raw if raw in VALID_DIRECTIONS else UNKNOWN_DIRECTION
+
+
+def _direction_weight(thesis):
+    direction = _normalize_direction(thesis)
+    if direction == UNKNOWN_DIRECTION:
+        return 0.0          # can't read it, so it doesn't get a vote
+    if direction == "bear":
+        return -1.0
+    if thesis.get("source") == RESEARCH_SOURCE:
+        return 0.0
+    return 1.0
 
 # Tier thresholds on *focus-weighted* mentions — signal, not price targets. A
 # name is "core" when the author keeps coming back to it in a focused way (or
@@ -74,8 +135,10 @@ def canonicalize_theses(theses, aliases=None, theme_tags=None):
 
 
 def compute_priorities(theses, now=None, half_life_days=HALF_LIFE_DAYS):
-    """Return a list of {ticker, score, mentions, convictionHits, lastMentioned}
-    ranked by score descending (then mentions)."""
+    """Return a list of {ticker, score, net, attention, mentions, bullMentions,
+    bearMentions, weightedMentions, convictionHits, lastMentioned} ranked by
+    score descending, then net (so a net-negative name doesn't out-rank a
+    less-hated one just because both floor to score 0), then raw mentions."""
     now = now or datetime.now(timezone.utc)
     agg = {}
 
@@ -86,15 +149,30 @@ def compute_priorities(theses, now=None, half_life_days=HALF_LIFE_DAYS):
         is_high = th.get("conviction") == "high"
         syms = th.get("tickers", [])
         focus = _focus_weight(len(syms))
+        direction = _normalize_direction(th)
+        is_research = th.get("source") == RESEARCH_SOURCE
+        signed = weight * focus * _direction_weight(th)
         for sym in syms:
             a = agg.setdefault(
                 sym,
                 {"mentions": 0, "weighted": 0.0, "recency": 0.0,
+                 "net": 0.0, "bull": 0, "bear": 0,
                  "convictionHits": 0, "lastMentioned": None},
             )
             a["mentions"] += 1              # raw count, for display ("12x mentioned")
-            a["weighted"] += focus          # focus-weighted count, for tiering
-            a["recency"] += weight * focus  # recency + focus, for the priority score
+            # Research findings never create coverage — only analyst attention
+            # feeds the focus-weighted count that assign_tiers() gates on.
+            # Without this, a model could zero its own score contribution via
+            # RESEARCH_SOURCE and still promote a name to "core" through
+            # weightedMentions, which the score guard never touches.
+            if not is_research:
+                a["weighted"] += focus
+            a["recency"] += weight * focus  # recency + focus, for `attention`
+            a["net"] += signed
+            if direction == "bear":
+                a["bear"] += 1
+            elif direction == "bull":
+                a["bull"] += 1
             if is_high:
                 a["convictionHits"] += 1
             current = _parse_dt(a["lastMentioned"])
@@ -103,17 +181,21 @@ def compute_priorities(theses, now=None, half_life_days=HALF_LIFE_DAYS):
 
     ranked = []
     for sym, a in agg.items():
-        score = a["recency"] * (1 + CONVICTION_WEIGHT * a["convictionHits"])
+        score = max(a["net"] * (1 + CONVICTION_WEIGHT * a["convictionHits"]), 0.0)
         ranked.append({
             "ticker": sym,
             "score": round(score, 4),
+            "net": round(a["net"], 4),
+            "attention": round(a["recency"], 4),
             "mentions": a["mentions"],
+            "bullMentions": a["bull"],
+            "bearMentions": a["bear"],
             "weightedMentions": round(a["weighted"], 4),
             "convictionHits": a["convictionHits"],
             "lastMentioned": a["lastMentioned"],
         })
 
-    ranked.sort(key=lambda r: (r["score"], r["mentions"]), reverse=True)
+    ranked.sort(key=lambda r: (r["score"], r["net"], r["mentions"]), reverse=True)
     return ranked
 
 
