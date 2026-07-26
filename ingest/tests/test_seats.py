@@ -118,5 +118,58 @@ class TestValidateFinding(unittest.TestCase):
         self.assertEqual(f["confidence"], "low")
 
 
+class TestFindingToThesis(unittest.TestCase):
+    def _thesis(self, **over):
+        f = seats.validate_finding(dict(GOOD, **over), "semi-expert", ALLOWED)
+        return seats.finding_to_thesis(f, now=NOW)
+
+    def test_source_is_research_so_the_scorer_treats_it_asymmetrically(self):
+        self.assertEqual(self._thesis()["source"], scorer.RESEARCH_SOURCE)
+
+    def test_author_is_the_seat_not_the_analyst(self):
+        self.assertEqual(self._thesis()["author"], "semi-expert")
+
+    def test_conviction_is_never_high(self):
+        # convictionHits gate tiers. A research thesis must never claim high
+        # conviction, belt-and-braces alongside the scorer guard.
+        self.assertEqual(self._thesis()["conviction"], "normal")
+
+    def test_direction_and_verification_ride_along(self):
+        t = self._thesis()
+        self.assertEqual(t["direction"], "bear")
+        self.assertEqual(t["verification"], "verified")
+
+    def test_ticker_list_is_exactly_the_reviewed_name(self):
+        self.assertEqual(self._thesis()["tickers"], ["SIVE"])
+
+    def test_source_url_is_the_first_basis_entry(self):
+        self.assertEqual(self._thesis()["sourceUrl"], GOOD["basis"][0])
+
+    def test_id_is_stable_for_the_same_finding(self):
+        self.assertEqual(self._thesis()["id"], self._thesis()["id"])
+
+    def test_id_differs_for_a_different_finding(self):
+        self.assertNotEqual(self._thesis()["id"],
+                            self._thesis(finding="Something else entirely.")["id"])
+
+    def test_text_names_the_seat_so_the_feed_is_readable(self):
+        self.assertIn("Semiconductor expert", self._thesis()["text"])
+
+    def test_a_research_thesis_scores_zero_when_bullish(self):
+        self.assertEqual(scorer._direction_weight(self._thesis(direction="bull")), 0.0)
+
+    def test_a_research_thesis_subtracts_when_bearish(self):
+        self.assertEqual(scorer._direction_weight(self._thesis()), -1.0)
+
+    def test_an_uncited_finding_is_visible_but_inert(self):
+        # The verification rule end to end: no basis -> unverified -> forced
+        # neutral -> research neutral weighs 0.0. It reaches the brief and
+        # cannot move a single number.
+        t = self._thesis(basis=[])
+        self.assertEqual(t["verification"], "unverified")
+        self.assertEqual(t["direction"], "neutral")
+        self.assertEqual(scorer._direction_weight(t), 0.0)
+
+
 if __name__ == "__main__":
     unittest.main()

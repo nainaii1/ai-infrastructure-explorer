@@ -14,6 +14,7 @@ inflate its rank or buy it tier coverage.
 """
 
 import scorer
+import parser as msgparser
 
 # Seat mandates. Each is differentiated by the QUESTION it must answer, not by
 # what it is allowed to read. Naming a seat "semi-expert" does not create
@@ -162,4 +163,33 @@ def validate_finding(raw, seat, allowed_tickers):
         "basis": basis,
         "verification": verification,
         "confidence": confidence,
+    }
+
+
+def finding_to_thesis(finding, now):
+    """Build the thesis record a validated finding becomes.
+
+    `now` is required rather than defaulted so this stays pure and testable —
+    the caller stamps the time.
+
+    conviction is hard-coded "normal": convictionHits gate tiers in
+    assign_tiers, and although scorer now excludes research from that count,
+    writing "high" here would be a second way in if that guard ever regresses.
+    """
+    label = SEATS[finding["seat"]]["label"]
+    text = "{}: {}".format(label, finding["finding"])
+    source_url = finding["basis"][0] if finding["basis"] else ""
+    return {
+        "id": msgparser.derive_source_id(text, source_url, now),
+        "source": scorer.RESEARCH_SOURCE,
+        "author": finding["seat"],
+        "sourceUrl": source_url,
+        "postedAt": now,
+        "ingestedAt": now,
+        "text": text,
+        "tickers": [finding["ticker"]],
+        "conviction": "normal",
+        "tags": ["research", finding["seat"]],
+        "direction": finding["direction"],
+        "verification": finding["verification"],
     }
