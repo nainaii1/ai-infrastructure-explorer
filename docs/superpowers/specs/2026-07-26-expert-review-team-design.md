@@ -187,8 +187,11 @@ score     = max(net, 0.0)
 
 Two deliberate asymmetries:
 
-- **`neutral` weighs 1.0**, so the 258 migrated theses behave exactly as they
-  do today. Migration changes no score.
+- **`neutral` weighs 1.0**, so the direction migration on its own is
+  score-neutral: 258 theses defaulting to `neutral` produce exactly today's
+  numbers. The **only** thing that re-ranks in Phase 1 is the retirement of
+  the conviction multiplier, below. Keeping those two effects separable
+  matters — if the rankings shift, there is exactly one cause to point at.
 - **Research findings can subtract but never add.** A bear finding corrects a
   score; a bull finding is recorded, displayed and citable but contributes
   0.0. Without this, the same model that writes the verdict could agree with
@@ -209,7 +212,7 @@ The priority record gains four fields for the UI:
 
 so a ticker card can render "93 mentions · 3 against".
 
-### Conviction multiplier — DECISION REQUIRED
+### Conviction multiplier — RETIRED (signed off 2026-07-26)
 
 `CONVICTION_WEIGHT` is `0.5` per hit, and `conviction` is assigned by keyword
 match in `parser.py` against phrases such as "top pick", "high conviction",
@@ -228,10 +231,15 @@ Removing it is a **significant one-time re-rank, not a cleanup**:
 
 Leaves the top 15: GFS, JBL, MRVL, POET. Enters: AXTI, CCXI, COHR, SNDK.
 
-**Recommendation: retire it.** A keyword match on rhetoric should not multiply
-a score sixfold, and the direction signal plus later hit-rate weighting are
-strictly better instruments. The re-rank is best read as a correction — the
-four departing names were riding conviction phrasing rather than evidence.
+**Decision: retired.** A keyword match on rhetoric should not multiply a score
+sixfold, and the direction signal plus later hit-rate weighting are strictly
+better instruments. The re-rank is best read as a correction — the four
+departing names were riding conviction phrasing rather than evidence.
+
+Implementation: set `CONVICTION_WEIGHT = 0.0` rather than deleting the code
+path, so the decision is reversible by changing one constant. The re-rank
+lands the moment Phase 1 ships, and the operator should expect his top 15 to
+look different that week.
 
 **The `conviction` field itself is kept as captured data.** Only its role as a
 score multiplier is retired. This decision is reversible by restoring one
@@ -296,8 +304,13 @@ New cases in `ingest/tests`, alongside the existing 112 which must continue to
 pass:
 
 - a `bear` thesis lowers a score; a `neutral` thesis reproduces today's value
-- migration: absent `direction` reads as `neutral`, and re-scoring the current
-  258 theses returns byte-identical priorities
+- migration: absent `direction` reads as `neutral`; with `CONVICTION_WEIGHT`
+  held at its old `0.5`, re-scoring the current 258 theses returns
+  byte-identical priorities — proving the direction change alone is inert
+- conviction retirement: with `CONVICTION_WEIGHT = 0.0`, SIVE scores 15.19
+  (from 91.11) and the top 15 loses GFS, JBL, MRVL, POET while gaining AXTI,
+  CCXI, COHR, SNDK — asserted against these exact figures so the one-time
+  re-rank is pinned rather than assumed
 - an `unverified` finding cannot set a non-neutral direction
 - a `bull` thesis with `source: "research"` contributes 0.0, while the same
   thesis with `source: "x"` contributes its full weight
@@ -328,12 +341,12 @@ re-rank. Phase 4 cannot be rushed — it is gated on real judged outcomes.
 - Every seat output is capped at 150 words; the synthesis is one page.
 - Practice 9.0 (daily kill-trigger monitoring) is deferred, and is only worth
   building if the operator begins acting on the tool.
+- **The conviction multiplier is retired** (operator sign-off 2026-07-26),
+  accepting the one-time re-rank of four names in and four out of the top 15.
+  Implemented as `CONVICTION_WEIGHT = 0.0` so it stays reversible.
 
-## Open question for the operator
-
-**Retire the conviction multiplier?** The recommendation is yes, but it
-re-ranks four names in and four out of the top 15, so it needs explicit
-sign-off rather than being assumed.
+No open questions remain. This design is approved and ready for
+`writing-plans`.
 
 ---
 
