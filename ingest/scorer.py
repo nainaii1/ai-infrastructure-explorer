@@ -52,6 +52,23 @@ VALID_DIRECTIONS = {"bull", "bear", "neutral"}
 UNKNOWN_DIRECTION = "unknown"
 
 
+def _is_research(thesis):
+    """True when a thesis is a desk research finding rather than an analyst post.
+
+    Case-insensitive on purpose. These records are hand-authored by an agent,
+    and a miscased "Research" must not silently revert the name to full analyst
+    treatment — that would restore both the score weight and the tier coverage
+    the asymmetry exists to withhold, which is the wrong direction to fail in.
+    An absent or None source still reads as analyst: that is every one of the
+    258 captured posts, and they are genuinely his.
+
+    One definition, two call sites (_direction_weight and compute_priorities),
+    so the two can never drift apart.
+    """
+    source = thesis.get("source")
+    return isinstance(source, str) and source.strip().lower() == RESEARCH_SOURCE
+
+
 def _normalize_direction(thesis):
     """The single source of truth for what a thesis's direction "really" is.
 
@@ -75,7 +92,7 @@ def _direction_weight(thesis):
         return 0.0          # can't read it, so it doesn't get a vote
     if direction == "bear":
         return -1.0
-    if thesis.get("source") == RESEARCH_SOURCE:
+    if _is_research(thesis):
         return 0.0
     return 1.0
 
@@ -136,7 +153,8 @@ def canonicalize_theses(theses, aliases=None, theme_tags=None):
 
 def compute_priorities(theses, now=None, half_life_days=HALF_LIFE_DAYS):
     """Return a list of {ticker, score, net, attention, mentions, bullMentions,
-    bearMentions, weightedMentions, convictionHits, lastMentioned} ranked by
+    bearMentions, researchMentions, weightedMentions, convictionHits,
+    lastMentioned} ranked by
     score descending, then net (so a net-negative name doesn't out-rank a
     less-hated one just because both floor to score 0), then raw mentions."""
     now = now or datetime.now(timezone.utc)
@@ -150,7 +168,7 @@ def compute_priorities(theses, now=None, half_life_days=HALF_LIFE_DAYS):
         syms = th.get("tickers", [])
         focus = _focus_weight(len(syms))
         direction = _normalize_direction(th)
-        is_research = th.get("source") == RESEARCH_SOURCE
+        is_research = _is_research(th)
         signed = weight * focus * _direction_weight(th)
         for sym in syms:
             a = agg.setdefault(
@@ -216,8 +234,10 @@ def assign_tiers(symbols, priorities):
     tiers = {}
     for sym in symbols:
         p = by_symbol.get(sym)
-        # Fall back to raw mentions if weightedMentions is absent (older data).
-        weighted = p.get("weightedMentions", p.get("mentions", 0)) if p else 0
+        # No fallback to `mentions`: mentions counts desk research, so an
+        # absent weightedMentions must read as zero attention, not as research
+        # attention. Every caller computes fresh rows that carry the field.
+        weighted = p.get("weightedMentions", 0) if p else 0
         hits = p["convictionHits"] if p else 0
         if weighted >= TIER_CORE_MIN_MENTIONS or hits >= TIER_CORE_MIN_CONVICTION_HITS:
             tiers[sym] = "core"

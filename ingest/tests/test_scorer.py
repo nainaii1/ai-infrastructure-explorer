@@ -372,5 +372,40 @@ class TestConvictionRetired(unittest.TestCase):
         self.assertEqual(scorer.assign_tiers(["A"], pri)["A"], "core")
 
 
+class TestResearchSourceIsFailSafe(unittest.TestCase):
+    def test_miscased_research_source_is_still_research(self):
+        # These records are hand-authored by an agent. A miscased "Research"
+        # must not revert the name to full analyst treatment — that would hand
+        # back both the score weight and the tier coverage the asymmetry
+        # exists to withhold.
+        for spelling in ("research", "Research", "RESEARCH", " research "):
+            with self.subTest(source=spelling):
+                theses = [
+                    thesis(["Z"], "2026-06-26T00:00:00Z",
+                           conviction="high", direction="bull", source=spelling),
+                    thesis(["Z"], "2026-06-25T00:00:00Z",
+                           conviction="high", direction="bull", source=spelling),
+                ]
+                pri = scorer.compute_priorities(theses, now=NOW)
+                self.assertEqual(pri[0]["convictionHits"], 0)
+                self.assertEqual(pri[0]["weightedMentions"], 0.0)
+                self.assertEqual(scorer.assign_tiers(["Z"], pri)["Z"], "radar")
+
+    def test_absent_source_still_reads_as_analyst(self):
+        # Every one of the captured posts predates the field and is genuinely
+        # his, so absent must keep full weight.
+        th = {"tickers": ["Z"], "postedAt": "2026-06-26T00:00:00Z",
+              "conviction": "normal"}
+        r = scorer.compute_priorities([th], now=NOW)[0]
+        self.assertEqual(r["net"], 1.0)
+        self.assertEqual(r["researchMentions"], 0)
+
+    def test_tiers_do_not_fall_back_to_raw_mentions(self):
+        # `mentions` counts research, so a row missing weightedMentions must
+        # read as zero attention rather than as research attention.
+        rows = [{"ticker": "Z", "mentions": 6, "convictionHits": 0}]
+        self.assertEqual(scorer.assign_tiers(["Z"], rows)["Z"], "radar")
+
+
 if __name__ == "__main__":
     unittest.main()
