@@ -2,6 +2,7 @@ import sys
 import re
 import json
 import pathlib
+import subprocess
 import tempfile
 import unittest
 
@@ -304,6 +305,23 @@ class TestFreshnessGuard(unittest.TestCase):
 
         gen._assert_fresh()  # real _safe_hash this time -> baseline established
         self.assertIn("scorer.py", gen._SOURCE_HASHES_BASELINE)
+
+    def test_baseline_populated_at_import_before_any_assert_fresh_call(self):
+        # Pins capture timing, not comparison: a fresh interpreter that only
+        # imports generate_data_js, and never calls _assert_fresh(), must
+        # already have a baseline recorded for generate_data_js.py itself —
+        # the module that actually broke on 2026-07-26. Run in a subprocess
+        # so no other test's _assert_fresh() call (which would also populate
+        # it) can hide a regression to lazy-only capture.
+        script = (
+            "import sys; sys.path.insert(0, {ing!r}); "
+            "import generate_data_js as gen; "
+            "assert 'generate_data_js.py' in gen._SOURCE_HASHES_BASELINE, "
+            "gen._SOURCE_HASHES_BASELINE"
+        ).format(ing=str(gen.ING))
+        result = subprocess.run(
+            [sys.executable, "-c", script], capture_output=True, text=True)
+        self.assertEqual(result.returncode, 0, result.stderr)
 
 
 class TestWriteDataJsGuardWiring(unittest.TestCase):

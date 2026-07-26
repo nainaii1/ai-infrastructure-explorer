@@ -87,10 +87,11 @@ def _format_reply(summary):
         lines.append("⚠️ But the website file was NOT updated. Your post is")
         lines.append("saved and safe — it just won't show up on the site yet.")
         lines.append("Reason: " + summary["data_js_error"])
-        lines.append("To fix it, stop this bot, open Terminal, and run:")
+        lines.append("First try: stop this bot, open Terminal, and run:")
         lines.append("cd {}".format(gen.ROOT))
         lines.append("python3 ingest/generate_data_js.py")
-        lines.append("Then start the bot again.")
+        lines.append("Then start the bot again. If you get the same reason")
+        lines.append("again, the file it names is broken and needs fixing by hand.")
     return "\n".join(lines)
 
 
@@ -192,12 +193,14 @@ def ingest_message(text, source_url="", posted_at=None):
     result = {"id": thesis["id"], "tickers": thesis["tickers"], "added": added, "queued": queued}
     try:
         gen.write_data_js()
-    except RuntimeError as exc:
+    except Exception as exc:
         # The thesis above is already saved to disk — only the regeneration
-        # step failed (e.g. this bot process is holding stale code; see
-        # generate_data_js._assert_fresh). Report that precisely instead of
-        # falling into the generic "ingest error" handler in run_bot(), which
-        # would say "Skipped" even though nothing was skipped.
+        # step failed, and that's true regardless of which exception type
+        # (stale code, a corrupt store file, a bad icon, disk full, ...).
+        # Report that precisely instead of falling into the generic "ingest
+        # error" handler in run_bot(), which would say "Skipped" even though
+        # nothing was skipped. KeyboardInterrupt/SystemExit are BaseException,
+        # not Exception, so they still propagate as they should.
         result["data_js_error"] = str(exc)
     return result
 

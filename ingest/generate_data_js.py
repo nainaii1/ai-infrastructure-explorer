@@ -227,15 +227,22 @@ def _watched_sources():
         if not file:
             continue
         path = pathlib.Path(file)
-        if path.parent == ING:
+        if path.resolve().parent == ING:
             watched[path.name] = path
     return watched
 
 
-# Hash recorded the first time this process successfully read each watched
-# file — see _assert_fresh for why this is populated lazily rather than once
-# at this module's own import.
-_SOURCE_HASHES_BASELINE = {}
+# Hash recorded for each watched file that was already importable when this
+# module itself was imported — including generate_data_js.py, the module
+# that actually broke on 2026-07-26. Anything imported later (store_io,
+# parser, fetcher, ...) has no entry yet and gets one on its first sighting
+# in _assert_fresh: importing a module reads its current disk content, so a
+# baseline taken the first time _assert_fresh sees it is still a true one —
+# there's no window in which that module could have gone stale first.
+_SOURCE_HASHES_BASELINE = {
+    name: h for name, path in _watched_sources().items()
+    if (h := _safe_hash(path)) is not None
+}
 
 
 def _assert_fresh():
@@ -243,17 +250,13 @@ def _assert_fresh():
 
     See the 2026-07-26 incident in the module docstring above — this is the
     "stale process" half of that guard. Hashes every ingest module this
-    process has imported and compares against the hash recorded the first
-    time this process saw that file.
-
-    Baselines are captured lazily, on first call, rather than at this
-    module's own import: bot.py finishes importing all of its own modules
-    (store_io, parser, fetcher, ...) before it ever calls into ingest, so a
-    first call made here sees the process's *complete* module set, not just
-    the two this file happens to `import` directly. A file that couldn't be
-    hashed on its first sighting (a transient read hiccup) is left
-    unrecorded rather than permanently marked "unknown, skip forever" — the
-    next call tries again until a baseline actually sticks.
+    process has imported and compares against the hash recorded as its
+    baseline (captured at this module's own import for whatever was already
+    loaded then, or on first sighting here for anything imported later — see
+    _SOURCE_HASHES_BASELINE above). A file that couldn't be hashed on its
+    first sighting (a transient read hiccup) is left unrecorded rather than
+    permanently marked "unknown, skip forever" — the next call tries again
+    until a baseline actually sticks.
     """
     stale = []
     for name, path in _watched_sources().items():
