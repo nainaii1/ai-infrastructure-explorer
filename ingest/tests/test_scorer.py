@@ -199,3 +199,16 @@ class TestDirection(unittest.TestCase):
         two = one + [thesis(["LITE"], "2026-06-26T00:00:00Z", direction="bull")]
         self.assertEqual(scorer.compute_priorities(one, now=NOW)[0]["score"], 1.0)
         self.assertEqual(scorer.compute_priorities(two, now=NOW)[0]["score"], 2.0)
+
+    def test_attention_and_direction_counts_exposed(self):
+        theses = [
+            thesis(["SIVE"], "2026-06-26T00:00:00Z", direction="bull"),
+            thesis(["SIVE"], "2026-06-26T00:00:00Z", direction="bull"),
+            thesis(["SIVE"], "2026-06-26T00:00:00Z", direction="bear"),
+        ]
+        r = scorer.compute_priorities(theses, now=NOW)[0]
+        self.assertEqual(r["attention"], 3.0)
+        self.assertEqual(r["net"], 1.0)
+        self.assertEqual(r["bullMentions"], 2)
+        self.assertEqual(r["bearMentions"], 1)
+        self.assertEqual(r["mentions"], 3)
