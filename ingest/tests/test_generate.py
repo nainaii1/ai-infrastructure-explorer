@@ -97,6 +97,37 @@ class TestTiersAndDesk(unittest.TestCase):
             if v["ticker"] in by_sym:
                 self.assertEqual(by_sym[v["ticker"]].get("verdict"), v)
 
+    def test_priority_block_survives_a_net_negative_zero_score(self):
+        # Regression for the `if p and p["score"] > 0` gate: a name argued
+        # against on every mention floors to score 0.0, which used to make it
+        # indistinguishable from "never mentioned" — the priority block (and
+        # its mentions/lastMentioned) disappeared entirely. Being discussed
+        # and being net-positive are different facts; only mentions should
+        # gate the block.
+        d = gen.build_data()
+        sym = d["tickers"][0]["ticker"]
+        orig_load = gen._load
+
+        def fake(name):
+            if name == "theses.json":
+                return [
+                    {"tickers": [sym], "postedAt": "2026-07-01T00:00:00Z",
+                     "conviction": "normal", "source": "x", "direction": "bear"}
+                    for _ in range(5)
+                ]
+            return orig_load(name)
+
+        gen._load = fake
+        try:
+            d2 = gen.build_data()
+        finally:
+            gen._load = orig_load
+
+        t = next(x for x in d2["tickers"] if x["ticker"] == sym)
+        self.assertIn("priority", t)
+        self.assertEqual(t["priority"]["score"], 0.0)
+        self.assertEqual(t["priority"]["mentions"], 5)
+
 
 class TestMemos(unittest.TestCase):
     def test_memos_key_absent_defaults_to_empty(self):

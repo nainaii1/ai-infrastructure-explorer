@@ -1,3 +1,4 @@
+import math
 import sys
 import pathlib
 import unittest
@@ -59,10 +60,6 @@ class TestPriority(unittest.TestCase):
 
     def test_empty_input(self):
         self.assertEqual(scorer.compute_priorities([], now=NOW), [])
-
-
-if __name__ == "__main__":
-    unittest.main()
 
 
 class TestAssignTiers(unittest.TestCase):
@@ -212,3 +209,79 @@ class TestDirection(unittest.TestCase):
         self.assertEqual(r["bullMentions"], 2)
         self.assertEqual(r["bearMentions"], 1)
         self.assertEqual(r["mentions"], 3)
+
+    def test_research_never_inflates_weighted_or_tier(self):
+        # Reviewer-found gap: research posts already zero out score/net, but
+        # weightedMentions (what assign_tiers reads) accumulated regardless of
+        # source. Five research-sourced bull posts used to promote a name to
+        # "core" while its score sat at 0.0 — research correcting a score is
+        # fine; research creating coverage on its own is the exact self-dealing
+        # the model must not be able to do.
+        theses = [
+            thesis(["ZETA"], "2026-06-26T00:00:00Z", direction="bull", source="research")
+            for _ in range(5)
+        ]
+        priorities = scorer.compute_priorities(theses, now=NOW)
+        r = priorities[0]
+        self.assertEqual(r["score"], 0.0)
+        self.assertEqual(r["net"], 0.0)
+        self.assertEqual(r["mentions"], 5)          # raw count still honest
+        self.assertEqual(r["weightedMentions"], 0.0)  # but contributes no tiering signal
+        tiers = scorer.assign_tiers(["ZETA"], priorities)
+        self.assertEqual(tiers["ZETA"], "radar")
+
+    def test_unknown_direction_values_normalize_to_neutral(self):
+        # A typo like "bearish" or "BEAR" must not silently count as a bullish
+        # vote while going untallied in bullMentions/bearMentions — it has to
+        # land exactly where an explicit "neutral" would, so the record never
+        # shows a nonzero net with zero direction counts to explain it.
+        for bad in ("bearish", "BEAR", "short", "gibberish"):
+            with self.subTest(direction=bad):
+                weird = [thesis(["QQQQ"], "2026-06-26T00:00:00Z", direction=bad)]
+                neutral = [thesis(["QQQQ"], "2026-06-26T00:00:00Z", direction="neutral")]
+                r_weird = scorer.compute_priorities(weird, now=NOW)[0]
+                r_neutral = scorer.compute_priorities(neutral, now=NOW)[0]
+                self.assertEqual(r_weird["score"], r_neutral["score"])
+                self.assertEqual(r_weird["net"], r_neutral["net"])
+                self.assertEqual(r_weird["bullMentions"], 0)
+                self.assertEqual(r_weird["bearMentions"], 0)
+                self.assertEqual(r_weird["mentions"], 1)
+
+    def test_bear_mention_in_list_post_subtracts_only_its_focus_share(self):
+        # A bear vote buried in a 12-name dump should cost a name its
+        # focus-discounted share (~0.289), not a full -1.0 — otherwise a
+        # refactor that drops `focus` from the `signed` product (leaving only
+        # weight * direction_weight) would sail through every other test in
+        # this file untouched.
+        dedicated_bull = thesis(["POET"], "2026-06-26T00:00:00Z", direction="bull")
+        dump_tickers = ["POET"] + [f"X{i}" for i in range(11)]  # 12 names total
+        bear_in_dump = thesis(dump_tickers, "2026-06-26T00:00:00Z", direction="bear")
+
+        r = scorer.compute_priorities([dedicated_bull, bear_in_dump], now=NOW)
+        poet = next(x for x in r if x["ticker"] == "POET")
+
+        expected_net = round(1.0 - (1.0 / math.sqrt(12)), 4)
+        self.assertEqual(poet["net"], expected_net)
+        self.assertGreater(poet["net"], 0.0)  # sanity: NOT fully cancelled
+
+    def test_assign_tiers_uses_weighted_mentions_not_score(self):
+        # Every other tier test uses neutral theses, where score and
+        # weightedMentions rise together — a refactor that swapped
+        # assign_tiers to gate on `score` instead of `weightedMentions` would
+        # still pass all of them. Five dedicated bear posts give
+        # weightedMentions=5.0 (core-eligible attention) while net/score sit
+        # at 0.0 (nothing to rank) — tier must still come out "core".
+        theses = [
+            thesis(["POET"], f"2026-06-{20 + i}T00:00:00Z", direction="bear")
+            for i in range(5)
+        ]
+        priorities = scorer.compute_priorities(theses, now=NOW)
+        p = priorities[0]
+        self.assertEqual(p["score"], 0.0)
+        self.assertEqual(p["weightedMentions"], 5.0)
+        tiers = scorer.assign_tiers(["POET"], priorities)
+        self.assertEqual(tiers["POET"], "core")
+
+
+if __name__ == "__main__":
+    unittest.main()

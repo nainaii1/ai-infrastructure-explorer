@@ -148,7 +148,14 @@ def build_data():
     by_symbol = {p["ticker"]: p for p in priorities}
     for t in tickers:
         p = by_symbol.get(t["ticker"])
-        if p and p["score"] > 0:
+        # A priority row only exists for a symbol that appeared in at least one
+        # thesis (mentions >= 1 by construction of compute_priorities), so `p`
+        # truthy already means "mentioned". Gating on score > 0 used to drop
+        # this block entirely for a net-negative (bear-heavy) name — its score
+        # floors at 0.0, so "12x mentioned, argued against every time" used to
+        # render identically to "never mentioned." Score can be zero; being
+        # discussed cannot.
+        if p:
             t["priority"] = {
                 "score": p["score"],
                 "mentions": p["mentions"],

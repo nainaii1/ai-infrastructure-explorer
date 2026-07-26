@@ -32,9 +32,27 @@ CONVICTION_WEIGHT = 0.5
 # both weigh 1.0, so migrating undirected theses to "neutral" changes no score.
 RESEARCH_SOURCE = "research"
 
+# The only directions a thesis can express. Anything else — a typo ("bearish",
+# "BEAR", "short"), an empty string, a future value nobody wired up yet — is
+# normalized to "neutral" rather than rejected: these records get hand-authored
+# by an agent, and a bad value in one post should degrade to "no opinion", not
+# take down the run or silently masquerade as a real vote.
+VALID_DIRECTIONS = {"bull", "bear", "neutral"}
+
+
+def _normalize_direction(thesis):
+    """The single source of truth for what a thesis's direction "really" is.
+
+    Both null-handling (absent key -> neutral) and vocabulary validation
+    (unrecognized string -> neutral) live here so every caller sees the same
+    three values and none can drift out of sync with the others.
+    """
+    direction = thesis.get("direction") or "neutral"
+    return direction if direction in VALID_DIRECTIONS else "neutral"
+
 
 def _direction_weight(thesis):
-    direction = thesis.get("direction") or "neutral"
+    direction = _normalize_direction(thesis)
     if direction == "bear":
         return -1.0
     if thesis.get("source") == RESEARCH_SOURCE:
@@ -97,8 +115,10 @@ def canonicalize_theses(theses, aliases=None, theme_tags=None):
 
 
 def compute_priorities(theses, now=None, half_life_days=HALF_LIFE_DAYS):
-    """Return a list of {ticker, score, mentions, convictionHits, lastMentioned}
-    ranked by score descending (then mentions)."""
+    """Return a list of {ticker, score, net, attention, mentions, bullMentions,
+    bearMentions, weightedMentions, convictionHits, lastMentioned} ranked by
+    score descending, then net (so a net-negative name doesn't out-rank a
+    less-hated one just because both floor to score 0), then raw mentions."""
     now = now or datetime.now(timezone.utc)
     agg = {}
 
@@ -109,7 +129,8 @@ def compute_priorities(theses, now=None, half_life_days=HALF_LIFE_DAYS):
         is_high = th.get("conviction") == "high"
         syms = th.get("tickers", [])
         focus = _focus_weight(len(syms))
-        direction = th.get("direction") or "neutral"
+        direction = _normalize_direction(th)
+        is_research = th.get("source") == RESEARCH_SOURCE
         signed = weight * focus * _direction_weight(th)
         for sym in syms:
             a = agg.setdefault(
@@ -119,8 +140,14 @@ def compute_priorities(theses, now=None, half_life_days=HALF_LIFE_DAYS):
                  "convictionHits": 0, "lastMentioned": None},
             )
             a["mentions"] += 1              # raw count, for display ("12x mentioned")
-            a["weighted"] += focus          # focus-weighted count, for tiering
-            a["recency"] += weight * focus  # recency + focus, for the priority score
+            # Research findings never create coverage — only analyst attention
+            # feeds the focus-weighted count that assign_tiers() gates on.
+            # Without this, a model could zero its own score contribution via
+            # RESEARCH_SOURCE and still promote a name to "core" through
+            # weightedMentions, which the score guard never touches.
+            if not is_research:
+                a["weighted"] += focus
+            a["recency"] += weight * focus  # recency + focus, for `attention`
             a["net"] += signed
             if direction == "bear":
                 a["bear"] += 1
@@ -148,7 +175,7 @@ def compute_priorities(theses, now=None, half_life_days=HALF_LIFE_DAYS):
             "lastMentioned": a["lastMentioned"],
         })
 
-    ranked.sort(key=lambda r: (r["score"], r["mentions"]), reverse=True)
+    ranked.sort(key=lambda r: (r["score"], r["net"], r["mentions"]), reverse=True)
     return ranked
 
 
