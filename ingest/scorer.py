@@ -1,10 +1,12 @@
 """Composite priority scoring — ranks what the author prioritizes.
 
     net   = sum(recency_weight * focus_weight * direction_weight)
-    score = max(net * (1 + CONVICTION_WEIGHT * conviction_hits), 0)
+    score = max(net, 0)
 
 Recency uses exponential decay with a configurable half-life, so a ticker the
-author mentions often AND recently AND with conviction language rises to the top.
+author mentions often AND recently rises to the top. Conviction language no
+longer lifts a score at all (see CONVICTION_WEIGHT), though conviction hits are
+still counted and still drive tiers.
 
 Focus weight (1/sqrt(tickers-in-post)) discounts names buried in long list-posts:
 a ticker that shows up in a 12-name Bloomberg-selloff dump counts far less than
@@ -24,7 +26,15 @@ import math
 from datetime import datetime, timezone
 
 HALF_LIFE_DAYS = 14.0
-CONVICTION_WEIGHT = 0.5
+
+# Retired 2026-07-26 (operator sign-off). `conviction` is assigned by keyword
+# match in parser.py against phrases like "top pick" and "high conviction". It
+# fired on 17 of 258 posts and multiplied a score by up to 6x — SIVE scored
+# 91.11 on 10 hits, versus 15.19 without. That is rhetoric driving a ranking.
+# Kept as a constant, not deleted, so this is reversible by restoring 0.5.
+# Note: assign_tiers still reads convictionHits directly, so tiers are
+# unaffected by this change.
+CONVICTION_WEIGHT = 0.0
 
 # Signed contribution of one mention. Research findings may subtract but never
 # add: the same model that writes the desk verdicts must not be able to agree

@@ -42,12 +42,18 @@ class TestPriority(unittest.TestCase):
         self.assertEqual(ranked["AAOI"]["mentions"], 2)
         self.assertEqual(ranked["MU"]["mentions"], 1)
 
-    def test_conviction_boosts_score(self):
+    def test_conviction_no_longer_boosts_score_but_is_still_counted(self):
+        # Superseded 2026-07-26 (Task 6, operator sign-off): this test used to
+        # assertGreater(boosted, base) because CONVICTION_WEIGHT=0.5 multiplied
+        # score by up to 6x on keyword-matched rhetoric alone. That multiplier
+        # is retired (CONVICTION_WEIGHT=0.0) — conviction language must no
+        # longer move score, only convictionHits (which assign_tiers reads
+        # directly). See TestConvictionRetired below for the full coverage.
         base = scorer.compute_priorities([thesis(["X"], "2026-06-25T00:00:00Z")], now=NOW)
         boosted = scorer.compute_priorities(
             [thesis(["X"], "2026-06-25T00:00:00Z", conviction="high")], now=NOW
         )
-        self.assertGreater(boosted[0]["score"], base[0]["score"])
+        self.assertEqual(boosted[0]["score"], base[0]["score"])
         self.assertEqual(boosted[0]["convictionHits"], 1)
 
     def test_last_mentioned_is_most_recent(self):
@@ -304,6 +310,32 @@ class TestDirection(unittest.TestCase):
         r = scorer.compute_priorities(
             [thesis(["X"], "2026-06-26T00:00:00Z")], now=NOW)[0]
         self.assertEqual(r["net"], 1.0)
+
+
+class TestConvictionRetired(unittest.TestCase):
+    def test_conviction_language_no_longer_multiplies_score(self):
+        plain = [thesis(["X"], "2026-06-26T00:00:00Z")]
+        loud = [thesis(["X"], "2026-06-26T00:00:00Z", conviction="high")]
+        self.assertEqual(
+            scorer.compute_priorities(plain, now=NOW)[0]["score"],
+            scorer.compute_priorities(loud, now=NOW)[0]["score"],
+        )
+
+    def test_conviction_hits_are_still_counted(self):
+        loud = [thesis(["X"], "2026-06-26T00:00:00Z", conviction="high")]
+        self.assertEqual(
+            scorer.compute_priorities(loud, now=NOW)[0]["convictionHits"], 1)
+
+    def test_conviction_hits_still_drive_tiers(self):
+        # assign_tiers reads convictionHits directly, never score, so retiring
+        # the multiplier must not move any ticker between tiers. Two hits is
+        # core even though weightedMentions (2) is below the core floor of 5.
+        theses = [
+            thesis(["A"], "2026-06-26T00:00:00Z", conviction="high"),
+            thesis(["A"], "2026-06-25T00:00:00Z", conviction="high"),
+        ]
+        pri = scorer.compute_priorities(theses, now=NOW)
+        self.assertEqual(scorer.assign_tiers(["A"], pri)["A"], "core")
 
 
 if __name__ == "__main__":
