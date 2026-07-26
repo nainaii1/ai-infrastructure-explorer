@@ -92,3 +92,74 @@ def build_seat_prompt(seat, ticker, theses):
     else:
         lines.append("The analyst has said nothing about this name.")
     return system, "\n".join(lines)
+
+
+CONFIDENCES = ("high", "medium", "low")
+DEFAULT_CONFIDENCE = "low"
+MAX_BASIS = 5
+
+
+def _coerce_str(value):
+    return value.strip() if isinstance(value, str) else ""
+
+
+def _clean_basis(raw):
+    """Keep only http(s) URLs. A citation that is not a link is not a citation."""
+    out = []
+    if isinstance(raw, list):
+        for item in raw:
+            url = _coerce_str(item)
+            if url.startswith("http://") or url.startswith("https://"):
+                out.append(url)
+    return out[:MAX_BASIS]
+
+
+def validate_finding(raw, seat, allowed_tickers):
+    """Coerce one seat's JSON into a trusted finding, or return None to drop it.
+
+    THE VERIFICATION RULE lives here: a finding with no citable basis is marked
+    unverified AND forced to direction "neutral". Because scorer weighs a
+    research neutral at exactly 0.0, an unverified finding is visible in the
+    brief and cannot move a single number. That is the guard against the model
+    asserting something it cannot support.
+
+    Never trusts the model for the seat name, the ticker universe, or the
+    direction vocabulary — all three are checked against the caller's values.
+    """
+    if not isinstance(raw, dict):
+        return None
+
+    finding = _coerce_str(raw.get("finding"))
+    if not finding:
+        return None
+
+    ticker = _coerce_str(raw.get("ticker")).upper()
+    if ticker not in {t.upper() for t in allowed_tickers}:
+        return None
+
+    words = finding.split()
+    if len(words) > MAX_FINDING_WORDS:
+        finding = " ".join(words[:MAX_FINDING_WORDS])
+
+    direction = _coerce_str(raw.get("direction")).lower()
+    if direction not in scorer.VALID_DIRECTIONS:
+        direction = "neutral"
+
+    basis = _clean_basis(raw.get("basis"))
+    verification = "verified" if basis else "unverified"
+    if not basis:
+        direction = "neutral"
+
+    confidence = _coerce_str(raw.get("confidence")).lower()
+    if confidence not in CONFIDENCES:
+        confidence = DEFAULT_CONFIDENCE
+
+    return {
+        "seat": seat,                 # the caller's, never the model's
+        "ticker": ticker,
+        "direction": direction,
+        "finding": finding,
+        "basis": basis,
+        "verification": verification,
+        "confidence": confidence,
+    }

@@ -55,5 +55,68 @@ class TestBuildPrompt(unittest.TestCase):
         self.assertLessEqual(user.count("post "), seats.MAX_THESES_IN_PROMPT)
 
 
+GOOD = {
+    "seat": "semi-expert",
+    "ticker": "SIVE",
+    "direction": "bear",
+    "finding": "Fab-light capacity assumes an unsigned Win Semi allocation.",
+    "basis": ["https://www.sec.gov/Archives/edgar/data/1/x.htm"],
+    "confidence": "high",
+}
+ALLOWED = {"SIVE", "MU", "LITE"}
+
+
+class TestValidateFinding(unittest.TestCase):
+    def test_good_finding_passes_through(self):
+        f = seats.validate_finding(GOOD, "semi-expert", ALLOWED)
+        self.assertEqual(f["direction"], "bear")
+        self.assertEqual(f["verification"], "verified")
+        self.assertEqual(f["ticker"], "SIVE")
+
+    def test_empty_basis_forces_unverified_and_neutral(self):
+        f = seats.validate_finding(dict(GOOD, basis=[]), "semi-expert", ALLOWED)
+        self.assertEqual(f["verification"], "unverified")
+        self.assertEqual(f["direction"], "neutral")
+
+    def test_non_url_basis_is_rejected_entirely(self):
+        f = seats.validate_finding(
+            dict(GOOD, basis=["I read it somewhere", "trust me"]),
+            "semi-expert", ALLOWED)
+        self.assertEqual(f["basis"], [])
+        self.assertEqual(f["verification"], "unverified")
+        self.assertEqual(f["direction"], "neutral")
+
+    def test_unknown_direction_becomes_neutral(self):
+        f = seats.validate_finding(dict(GOOD, direction="bearish"),
+                                   "semi-expert", ALLOWED)
+        self.assertEqual(f["direction"], "neutral")
+
+    def test_seat_is_taken_from_the_caller_not_the_model(self):
+        f = seats.validate_finding(dict(GOOD, seat="pm"), "semi-expert", ALLOWED)
+        self.assertEqual(f["seat"], "semi-expert")
+
+    def test_out_of_universe_ticker_is_rejected(self):
+        self.assertIsNone(
+            seats.validate_finding(dict(GOOD, ticker="TSLA"), "semi-expert", ALLOWED))
+
+    def test_empty_finding_text_is_rejected(self):
+        self.assertIsNone(
+            seats.validate_finding(dict(GOOD, finding="  "), "semi-expert", ALLOWED))
+
+    def test_non_dict_is_rejected(self):
+        self.assertIsNone(seats.validate_finding("nope", "semi-expert", ALLOWED))
+        self.assertIsNone(seats.validate_finding(None, "semi-expert", ALLOWED))
+
+    def test_overlong_finding_is_truncated_to_the_word_cap(self):
+        f = seats.validate_finding(dict(GOOD, finding=" ".join(["word"] * 200)),
+                                   "semi-expert", ALLOWED)
+        self.assertEqual(len(f["finding"].split()), seats.MAX_FINDING_WORDS)
+
+    def test_unknown_confidence_becomes_low(self):
+        f = seats.validate_finding(dict(GOOD, confidence="certain"),
+                                   "semi-expert", ALLOWED)
+        self.assertEqual(f["confidence"], "low")
+
+
 if __name__ == "__main__":
     unittest.main()
