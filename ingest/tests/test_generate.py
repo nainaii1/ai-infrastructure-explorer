@@ -234,44 +234,84 @@ class TestCompletenessGuard(unittest.TestCase):
         d["benchmarkQuote"] = None
         gen._assert_complete(d)
 
-    def test_corrupt_store_file_raises_instead_of_reading_as_empty(self):
+    def test_corrupt_store_file_raises_runtimeerror_naming_the_file(self):
         # _load_optional swallows bad JSON and returns {} — which would make a
         # corrupt verdicts.json look "legitimately empty" to the completeness
         # check and pass silently. _read_store_or_empty must not make that
-        # mistake: a present-but-broken file has to raise, not disappear.
-        real_path = gen.STORE / "verdicts.json"
-        real_text = real_path.read_text(encoding="utf-8")
-        real_path.write_text("{not valid json", encoding="utf-8")
-        try:
-            with self.assertRaises(ValueError):
-                gen._read_store_or_empty("verdicts.json")
-        finally:
-            real_path.write_text(real_text, encoding="utf-8")
+        # mistake: a present-but-broken file has to raise RuntimeError (NOT
+        # the bare ValueError json.loads raises — bot.py's ingest_message
+        # only catches RuntimeError from write_data_js, so anything else
+        # escapes into its generic "ingest error"/"Skipped" handler, exactly
+        # the misleading message this guard exists to prevent).
+        #
+        # Uses a scratch store directory, never the real one: ingest/store/
+        # is hand-authored, source-of-truth data with no backup — no test may
+        # ever write to it.
+        orig_store = gen.STORE
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            tmp_store = pathlib.Path(tmp_dir)
+            (tmp_store / "verdicts.json").write_text("{not valid json", encoding="utf-8")
+            gen.STORE = tmp_store
+            try:
+                with self.assertRaises(RuntimeError) as ctx:
+                    gen._read_store_or_empty("verdicts.json")
+                self.assertIn("verdicts.json", str(ctx.exception))
+            finally:
+                gen.STORE = orig_store
 
 
 class TestFreshnessGuard(unittest.TestCase):
+    def setUp(self):
+        # Snapshot so a test's mutations to the process-wide baseline dict
+        # can't leak into other tests regardless of run order.
+        self._orig_baseline = dict(gen._SOURCE_HASHES_BASELINE)
+
+    def tearDown(self):
+        gen._SOURCE_HASHES_BASELINE.clear()
+        gen._SOURCE_HASHES_BASELINE.update(self._orig_baseline)
+
     def test_fresh_process_passes(self):
-        gen._assert_fresh()  # source files haven't changed since import; no raise
+        gen._assert_fresh()  # establishes/confirms baseline; no raise
+        gen._assert_fresh()  # second call compares against it; still no raise
 
     def test_stale_module_raises_and_names_it(self):
-        orig = dict(gen._SOURCE_MTIMES_AT_IMPORT)
-        # Simulate scorer.py having changed on disk after this process
-        # imported it: recorded (import-time) mtime no longer matches reality.
-        gen._SOURCE_MTIMES_AT_IMPORT["scorer.py"] = orig["scorer.py"] - 1000
+        gen._assert_fresh()  # ensure a baseline is actually established first
+        # Simulate scorer.py's contents having changed since this process
+        # first saw it: the recorded baseline no longer matches reality.
+        gen._SOURCE_HASHES_BASELINE["scorer.py"] = "0" * 64
+        with self.assertRaises(RuntimeError) as ctx:
+            gen._assert_fresh()
+        self.assertIn("scorer.py", str(ctx.exception))
+
+    def test_unrecordable_baseline_is_retried_not_skipped_forever(self):
+        # A file that fails to hash on its first sighting (a transient read
+        # hiccup) must not be permanently treated as "unknown, skip forever" —
+        # the next call has to try again and actually establish a baseline.
+        gen._SOURCE_HASHES_BASELINE.pop("scorer.py", None)
+        orig_safe_hash = gen._safe_hash
+
+        def fail_for_scorer(path):
+            if pathlib.Path(path).name == "scorer.py":
+                return None
+            return orig_safe_hash(path)
+
+        gen._safe_hash = fail_for_scorer
         try:
-            with self.assertRaises(RuntimeError) as ctx:
-                gen._assert_fresh()
-            self.assertIn("scorer.py", str(ctx.exception))
+            gen._assert_fresh()
+            self.assertNotIn("scorer.py", gen._SOURCE_HASHES_BASELINE)
         finally:
-            gen._SOURCE_MTIMES_AT_IMPORT.clear()
-            gen._SOURCE_MTIMES_AT_IMPORT.update(orig)
+            gen._safe_hash = orig_safe_hash
+
+        gen._assert_fresh()  # real _safe_hash this time -> baseline established
+        self.assertIn("scorer.py", gen._SOURCE_HASHES_BASELINE)
 
 
 class TestWriteDataJsGuardWiring(unittest.TestCase):
     def test_write_data_js_refuses_incomplete_payload_and_writes_nothing(self):
-        # Proves the guard is actually wired into write_data_js, not just
-        # defined and unused: delete the _assert_complete(data) call from
-        # write_data_js and this test fails, because tmp_path ends up written.
+        # Proves _assert_complete is actually wired into write_data_js, not
+        # just defined and unused: delete the _assert_complete(data) call
+        # from write_data_js and this test fails, because tmp_path ends up
+        # written despite the incomplete payload.
         bad = gen.build_data()
         del bad["calls"]
         orig_data_js = gen.DATA_JS
@@ -284,6 +324,42 @@ class TestWriteDataJsGuardWiring(unittest.TestCase):
                 self.assertFalse(
                     tmp_path.exists(),
                     "write_data_js wrote a file despite an incomplete payload"
+                )
+            finally:
+                gen.DATA_JS = orig_data_js
+
+
+class TestWriteDataJsFreshnessWiring(unittest.TestCase):
+    def setUp(self):
+        self._orig_baseline = dict(gen._SOURCE_HASHES_BASELINE)
+
+    def tearDown(self):
+        gen._SOURCE_HASHES_BASELINE.clear()
+        gen._SOURCE_HASHES_BASELINE.update(self._orig_baseline)
+
+    def test_write_data_js_refuses_when_stale_and_writes_nothing(self):
+        # Proves _assert_fresh is actually wired into write_data_js, not just
+        # defined and unused: delete the _assert_fresh() call from
+        # write_data_js and this test fails, because tmp_path ends up written
+        # even though the process is (simulated) stale. This is the guard
+        # that matters most — it's the one the 2026-07-26 incident actually
+        # needed — so its wiring gets its own dedicated proof, same as
+        # _assert_complete's above.
+        good = gen.build_data()
+        gen._assert_fresh()  # establish a real baseline first
+        gen._SOURCE_HASHES_BASELINE["scorer.py"] = "0" * 64  # force "stale"
+
+        orig_data_js = gen.DATA_JS
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            tmp_path = pathlib.Path(tmp_dir) / "data.js"
+            gen.DATA_JS = tmp_path
+            try:
+                with self.assertRaises(RuntimeError) as ctx:
+                    gen.write_data_js(data=good)
+                self.assertIn("scorer.py", str(ctx.exception))
+                self.assertFalse(
+                    tmp_path.exists(),
+                    "write_data_js wrote a file despite a stale process"
                 )
             finally:
                 gen.DATA_JS = orig_data_js

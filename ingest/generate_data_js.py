@@ -4,11 +4,33 @@ SECURITY: every value is serialized with json.dumps, so any quotes,
 </script>, or backticks inside ingested post text are escaped and cannot
 break out of the data literal. ensure_ascii=True keeps data.js pure-ASCII,
 which is the safest thing to ship over file:// across editors/encodings.
+
+THE 2026-07-26 INCIDENT (referenced by _assert_fresh and _assert_complete
+below — this is the one place it's told in full): a long-running bot.py
+process (started 30 June) held a June-era copy of this module in memory.
+Every ingest regenerated data.js using that stale code, which silently
+dropped six top-level keys (glossary, desk, memos, vault, calls,
+benchmarkQuote) on every write, for four days — breaking the memo reader,
+vault, glossary and performance page. Nothing warned, because ticker-level
+verdicts are stamped onto ticker records and survived, so the watchlist
+still looked healthy. write_data_js() now refuses to write in either
+failure mode that produced this:
+  - _assert_fresh()    — this PROCESS is stale: its in-memory copy of an
+                         ingest module no longer matches what's on disk.
+  - _assert_complete() — this PAYLOAD is incomplete: even correctly-loaded
+                         code produced a build_data() result missing a
+                         required block.
+Both checks are necessary. A stale copy of *this* module has a stale
+REQUIRED_KEYS too, so it would agree with its own stale build_data() output
+and _assert_complete alone would never notice — which is exactly how the
+2026-07-26 truncation slipped through undetected for four days.
 """
 
+import hashlib
 import json
 import pathlib
 import re
+import sys
 import xml.etree.ElementTree as ET
 
 import scorer
@@ -51,32 +73,6 @@ STORE_BACKED = {
     "calls": "calls.json",
 }
 
-
-def _safe_mtime(path):
-    """stat() a source file for freshness comparison.
-
-    Returns None (rather than raising) when the file can't be read right now
-    — a transient issue here must not itself become "the error", masking
-    whatever real problem write_data_js was trying to report.
-    """
-    try:
-        return pathlib.Path(path).stat().st_mtime
-    except OSError:
-        return None
-
-
-# Modules a long-running process (bot.py) imports once and keeps in memory
-# for days. If any of these .py files change on disk after that import, the
-# process is running stale code — this is the actual 2026-07-26 failure
-# mechanism. Note this is a different check from _assert_complete: a stale
-# copy of this very module has a stale REQUIRED_KEYS too, so it would agree
-# with its own stale build_data() and never notice a missing key on its own.
-_WATCHED_SOURCES = {
-    "generate_data_js.py": __file__,
-    "scorer.py": scorer.__file__,
-    "vault_sync.py": vault_sync.__file__,
-}
-_SOURCE_MTIMES_AT_IMPORT = {name: _safe_mtime(path) for name, path in _WATCHED_SOURCES.items()}
 
 _ICON_ELEMENTS = {"path", "circle", "line", "rect", "polyline", "ellipse"}
 _ICON_ATTRIBUTES = {
@@ -199,55 +195,116 @@ def build_data():
     }
 
 
+def _safe_hash(path):
+    """Hash a source file's bytes for freshness comparison.
+
+    Returns None (rather than raising) when the file can't be read right now
+    — a transient issue here must not itself become "the error", masking
+    whatever real problem write_data_js was trying to report. A content
+    hash rather than an mtime: a touch, a no-op save, or a stash/checkout
+    round-trip all bump mtime without the process's in-memory copy actually
+    being wrong, which would make this guard cry wolf — and a guard that
+    cries wolf is a guard the owner turns off.
+    """
+    try:
+        return hashlib.sha256(pathlib.Path(path).read_bytes()).hexdigest()
+    except OSError:
+        return None
+
+
+def _watched_sources():
+    """Every currently-imported module whose source file lives directly in
+    ingest/ (ING) — i.e. this backend's own code, not its tests or the store.
+
+    Scanning sys.modules instead of a hardcoded filename list means a new
+    ingest module (store_io.py, parser.py, fetcher.py, ...) is automatically
+    covered the moment something imports it, with no separate list to
+    remember to update as the backend grows.
+    """
+    watched = {}
+    for mod in list(sys.modules.values()):
+        file = getattr(mod, "__file__", None)
+        if not file:
+            continue
+        path = pathlib.Path(file)
+        if path.parent == ING:
+            watched[path.name] = path
+    return watched
+
+
+# Hash recorded the first time this process successfully read each watched
+# file — see _assert_fresh for why this is populated lazily rather than once
+# at this module's own import.
+_SOURCE_HASHES_BASELINE = {}
+
+
+def _assert_fresh():
+    """Refuse to write when this process is running outdated ingest code.
+
+    See the 2026-07-26 incident in the module docstring above — this is the
+    "stale process" half of that guard. Hashes every ingest module this
+    process has imported and compares against the hash recorded the first
+    time this process saw that file.
+
+    Baselines are captured lazily, on first call, rather than at this
+    module's own import: bot.py finishes importing all of its own modules
+    (store_io, parser, fetcher, ...) before it ever calls into ingest, so a
+    first call made here sees the process's *complete* module set, not just
+    the two this file happens to `import` directly. A file that couldn't be
+    hashed on its first sighting (a transient read hiccup) is left
+    unrecorded rather than permanently marked "unknown, skip forever" — the
+    next call tries again until a baseline actually sticks.
+    """
+    stale = []
+    for name, path in _watched_sources().items():
+        current = _safe_hash(path)
+        if name not in _SOURCE_HASHES_BASELINE:
+            if current is not None:
+                _SOURCE_HASHES_BASELINE[name] = current
+            continue
+        if current is not None and current != _SOURCE_HASHES_BASELINE[name]:
+            stale.append(name)
+    if stale:
+        raise RuntimeError(
+            "This process is running outdated code for: %s (the file's "
+            "contents have changed since this process started). Restart it "
+            "— e.g. stop and restart bot.py — so it picks up the current "
+            "code, then try again." % ", ".join(stale)
+        )
+
+
 def _read_store_or_empty(filename):
     """Read store/<filename> as JSON; {} if the file doesn't exist (never
-    populated yet — legitimately empty), but RAISE if it exists and is
-    corrupt. Unlike _load_optional, which collapses "missing" and "broken"
-    into the same falsy default, this keeps a corrupt store file from being
-    silently treated as an empty-but-fine one by _assert_complete below.
+    populated yet — legitimately empty). Raises RuntimeError, naming the
+    file, if it exists but isn't valid JSON.
+
+    Raising RuntimeError specifically (not letting json.loads' ValueError
+    escape) matters: bot.py only catches RuntimeError from write_data_js, so
+    a corrupt store file must surface as one of those or it falls through to
+    bot.py's generic exception handler and produces exactly the misleading
+    "Skipped" message this whole guard exists to prevent.
     """
     path = STORE / filename
     if not path.exists():
         return {}
-    return json.loads(path.read_text(encoding="utf-8"))
-
-
-def _assert_fresh():
-    """Refuse to write when this process is running stale generator code.
-
-    A long-running process (bot.py) imports generate_data_js/scorer/vault_sync
-    once at startup and keeps running for days. If any of those .py files
-    change on disk afterward, the in-memory module is stale — but a stale
-    module's own REQUIRED_KEYS still matches its own stale build_data()
-    output, so _assert_complete alone cannot see the drift (this is exactly
-    how the 2026-07-26 truncation slipped through). This check instead
-    compares each watched module's on-disk mtime now against what was
-    recorded when this module was first imported.
-    """
-    stale = []
-    for name, path in _WATCHED_SOURCES.items():
-        recorded = _SOURCE_MTIMES_AT_IMPORT.get(name)
-        current = _safe_mtime(path)
-        if recorded is not None and current is not None and current != recorded:
-            stale.append(name)
-    if stale:
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except ValueError as exc:
         raise RuntimeError(
-            "This process is running an outdated copy of: %s (the file on disk "
-            "has changed since this process started). Restart it — e.g. stop "
-            "and restart bot.py — so it picks up the current code, then try "
-            "again." % ", ".join(stale)
-        )
+            "store/%s is corrupted and could not be read as JSON (%s). This "
+            "file needs to be fixed by hand — data.js cannot be regenerated "
+            "until it is." % (filename, exc)
+        ) from exc
 
 
 def _assert_complete(data):
     """Refuse to write a data.js that is missing a required top-level block.
 
-    Checks structural completeness only: that the assembled payload actually
-    has every key build_data() is contracted to emit, and that a store-backed
-    key isn't empty when its source file on disk has content. This is the
-    half of the 2026-07-26 guard that catches a payload built by *correct*
-    code from going out truncated; it does not by itself detect a stale
-    in-memory generator module — see _assert_fresh for that.
+    See the 2026-07-26 incident in the module docstring above — this is the
+    "incomplete payload" half of that guard. Checks structural completeness
+    only: that the assembled payload has every key build_data() is
+    contracted to emit, and that a store-backed key isn't empty when its
+    source file on disk has content.
     """
     missing = [k for k in REQUIRED_KEYS if k not in data]
     if missing:
@@ -274,14 +331,24 @@ def render(data):
 
 
 def write_data_js(data=None):
+    # Freshness first, before anything else touches the store: vault_sync.sync()
+    # below writes ingest/store/vault.json, and a stale vault_sync is exactly
+    # the process this guard exists to stop — it must not get a chance to
+    # mutate the operator's store before we refuse to proceed.
+    _assert_fresh()
     if data is None:
         # Refresh the vault store from current tickers/tiers (preserving notes)
         # before assembling, so data.js always ships an up-to-date vault.
         vault_sync.sync()
         data = build_data()
-    _assert_fresh()
     _assert_complete(data)
-    DATA_JS.write_text(render(data), encoding="utf-8")
+    try:
+        DATA_JS.write_text(render(data), encoding="utf-8")
+    except OSError as exc:
+        raise RuntimeError(
+            "Could not write %s (%s). Check available disk space and file "
+            "permissions, then try again." % (DATA_JS, exc)
+        ) from exc
     return DATA_JS
 
 
