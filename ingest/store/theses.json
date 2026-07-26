@@ -4109,5 +4109,166 @@
     ],
     "conviction": "normal",
     "tags": []
+  },
+  {
+    "id": "h_9439b0d72f63b510",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-26T08:58:59Z",
+    "ingestedAt": "2026-07-26T08:58:59Z",
+    "text": "$GOOGL\n reported earnings today:\n\nEPS: $9.11 actual vs $2.91 expected - retail reactions to EPS blowout is kinda just accounting noise, since \n$SPCX\n, Anthropic, and others were likely large contributors. \n\nRevenue: $119.7B actual vs. $116.98B expected\n\nGoogle Cloud Revenue: $24.77B +82% Y/Y, vs. 63-65% expected ($22.2-$22.6B) - this is a very large beat and most material part so far. \n\nCloud Operating Income: ~$8.81B, implying 35.6% margin vs. 32.9% Q1. \n\nCapex: $44.92B vs ~$44.15B (basically in line).\n\nSo initial read through is Google Cloud accelerating growth with expanding margins is genuinely bullish for AI demand.\n\nTheir former $180-$190B capex guidance is already extremely large, and as long as we get around these numbers in the earnings call + forward projections... \n\nShould be good to go for \n$LITE\n and the other optics/networking trade. (eg. last earnings, they said DC and networking would be ~40% of capex spend). \n\nHyperscaler earnings transcripts are probably the most important thing to pay attention to with the AI capex trade. \n\nAnd that should be in 3 minutes.",
+    "tickers": [
+      "GOOGL",
+      "LITE",
+      "SPCX"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_e058d73c4a701a0e",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-26T08:59:09Z",
+    "ingestedAt": "2026-07-26T08:59:09Z",
+    "text": "$GOOGL\n now has 950M monthly Gemini users and processes 22B API tokens/min. \n\nCompared to 750M back in February. \n\nAbsurd growth adding 200 million more users in a few months.  Kinda explains why they ran out of compute, then cut allocations to \n$META\n and others. \n\nVery unlikely AI capex will slow down given.",
+    "tickers": [
+      "GOOGL",
+      "META"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_de442f605ff6b388",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-26T08:59:33Z",
+    "ingestedAt": "2026-07-26T08:59:33Z",
+    "text": "$GOOGL\n updates FY 2026 capex guidance:\n\nTo $195B-$205B. Up from $180B-$190B. \n\nGoogle is also expected to significantly increase capex in 2027.  \n\nThis is perhaps the most bullish read through on upstream semis from a hyperscaler.",
+    "tickers": [
+      "GOOGL"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_9e7879b77bd2930a",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-26T08:59:47Z",
+    "ingestedAt": "2026-07-26T08:59:47Z",
+    "text": "Just some notes from \n$TSLA\n transcripts:\n\nElon Musk: \"I think Optimus will be the biggest product ever\" from Q2 earnings transcripts.\n\nEven from Q1, Elon Stated: \"I think Optimus will be our biggest product. Not just Tesla's biggest product ever, but probably the biggest product ever.\n\nAnd I remain convinced of that conclusion\". \n\nIt's very rare to see such high conviction reiterated from Elon regarding humanoids both directionally and TAM-wise.\n\nIn terms of upstream suppliers opportunities, Karn Budhiraj, VP of \n$TSLA\n supply chains stated: \n\n\"We’re seeing the same level of investment going to memory and also new specific items like metal injection molded parts, flexible printed circuits, and all sorts of nonlinear technologies...\" \n\nAnd that they had to build new supply chains from scratch. So would be interesting to look at for new supply chain supplier opportunities apart from the known ones.  \n\nJust pulled older slides and it looks like capacity targets for Fremont are 1M and Giga Texas was 10M, so at scale, \n$TSLA\n seems to be the clear US leader. If you're looking at that S-Curve opportunity ramp. \n\nOn a side note, Elon also gave a shoutout to \n$MU\n with likely reasonably priced LTAs, given his statement: \n\n\"We really appreciate Micron making room for Tesla in the years to come and giving us actually a very significant allocation on reasonable terms given the pretty insane pricing of memory these days.\" (Just for structural memory demand).  \n\nElon also gave a shoutout to Panasonic which had invested many billions in increasing battery cell production (will need to do deeper DD into Panasonic after this), then Samsung and \n$TSM\n. \n\nJust takeaways from Tesla earnings TLDR: \n\nElon tends to be directionally correct on where the future is heading, such as with EV or Space. \n\nHe seems extremely bullish on humanoids.",
+    "tickers": [
+      "MU",
+      "TSLA",
+      "TSM"
+    ],
+    "conviction": "high",
+    "tags": []
+  },
+  {
+    "id": "h_ab7eca244c2c4d4d",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-26T09:00:33Z",
+    "ingestedAt": "2026-07-26T09:00:33Z",
+    "text": "$INTC\n and \n$AMD\n to sign CPU LTAs with Chinese customers for AI DCs (Reuters). \n\n- Prices of some CPU products have risen more than 40% in China since the start of the year from sources. \n\n- Month-on-month increases topping 10% for some products\n\nCPUs were already a bottleneck, following CPU ratios due to AI inference... \n\nBut the broader trend of LTAs seems to be appearing from: \n\n- Memory, with \n$MU\n, Samsung, \n$SNDK\n, and SK Hynix signing DRAM/NAND LTAs.\n\n- Photonics, with \n$LITE\n, \n$COHR\n signing EML LTAs. And recent Trendforce reports that \n$AMD\n and hyperscalers are now pursuing CW LTAs. \n\nAnd I'm sure there's many more from MLCCs to all the way to substrates. \n\n+1 for the bottleneck investors... hard to be a \"bubble that pops\" if you have take or pay demand spanning multiple years.",
+    "tickers": [
+      "AMD",
+      "COHR",
+      "INTC",
+      "LITE",
+      "MU",
+      "SNDK"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_05a1093088c3cff9",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-26T09:01:16Z",
+    "ingestedAt": "2026-07-26T09:01:16Z",
+    "text": "From \n$AMD\n Advancing AI, channel checks:\n\nHelios networking partners told me they expect AMD to pursue CPO for future generations of Helios scale up networking. \n\nAnd expects other hyperscalers + industry to go down the CPO route.\n\nOne AI infra executive at a company involved in a hyperscaler CPO programs said they had seen no indication of CPO scale up supply chain delays.\n\nPushing back on recent 3rd party delay reports.\n\nThis was informal commentary, not official AMD or partner guidance.",
+    "tickers": [
+      "AMD"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_0c8b779e5549fefc",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-26T09:01:27Z",
+    "ingestedAt": "2026-07-26T09:01:27Z",
+    "text": "Main thing was executive commentary on CPO thematically. Regarding \n$AMD\n + hyperscaler adoption + timelines. \n\nChecks were very positive for the CPO segment that sold off on delay news. \n\nAnd very positive for $SIVE in that segment, since they're the laser supplier for Ayar, \n$GFS\n, that are both linked with possible \n$AMD\n CPO routes. \n\nBut couldn't get direct supplier confirmation since that's confidential.",
+    "tickers": [
+      "AMD",
+      "GFS",
+      "SIVE"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_68d9e73b418bb672",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-26T09:02:03Z",
+    "ingestedAt": "2026-07-26T09:02:03Z",
+    "text": "Not exactly for \n$AAOI\n (they're working on CPO too, just a little further behind in commercialization).\n\nThere's a podcast that featured the $SIVE CEO recently called: \"Market Insights: Photonics & AI\".\n\nMost interesting take was: \n\n\"Pluggables will be around for the next 10 years\".\n\nThere's a lot of CPO + RNG/MRC optimization TAM cannablization arguments for pluggables recently, but looks like it's here to stay.\n\nAnd that there's going to be multiple architecture paths going forward (CEO also NPO alongside CPO as an major opportunity in the next 5 years). \n\nAs for challenges: Vickram stated manufacturing capacity + availability of raw material is the main bottleneck. Likely referencing the existing bottlenecks with upstream CW laser ramp. \n\nFrom the podcast, seems like a large focus was on pluggable markets due to larger near-term TAM (which is understandable with \n$JBL\n + other players), with CPO being the north star. \n\nSo it might be interesting if $SIVE M&A ambitions were to acquire more pluggable optical transceiver IP, like what \n$LITE\n did with Cloud Light.\n\nBut TLDR:\n\nLot of different paths moving forward, pluggable here to stay, CPO seems like North Star for where industry is heading. \n\nFeels like there's room for every qualified laser supplier given the industry demand is growing faster than what they can all collectively make.",
+    "tickers": [
+      "AAOI",
+      "JBL",
+      "LITE",
+      "SIVE"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_023a8919cf975106",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-26T09:02:16Z",
+    "ingestedAt": "2026-07-26T09:02:16Z",
+    "text": "There you have it, \n$GOOGL\n Waymo to explore split with \n$UBER\n per FT.\n\nMy view last year was that Uber partnering with Waymo was a bad choice… since Uber would just serve as a distribution funnel that Google needed as they scale up.\n\nAnd that \n$NBIS\n Avride, other neutral players, or vertical integration would be the optimal path forward.\n\nNow their own partner Waymo looks to be the strongest disruptor to Uber.",
+    "tickers": [
+      "GOOGL",
+      "NBIS",
+      "UBER"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_cdc1513b37dc8a51",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-26T09:02:54Z",
+    "ingestedAt": "2026-07-26T09:02:54Z",
+    "text": "Rosenblatt June 30 note identified AMD as the likely first \n$AAOI\n CPO customer. I wouldn't quite say they aren't remotely close. \n\n$LITE\n / \n$COHR\n / $SIVE just look like your top 3 right now in terms of CPO laser visibility per the recent Morgan Stanley note.",
+    "tickers": [
+      "AAOI",
+      "AMD",
+      "COHR",
+      "LITE",
+      "SIVE"
+    ],
+    "conviction": "normal",
+    "tags": []
   }
 ]

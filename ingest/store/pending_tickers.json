@@ -153,13 +153,13 @@
     "candidate": "DRAM",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:39:49Z",
-    "count": 4
+    "count": 5
   },
   {
     "candidate": "NAND",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:39:49Z",
-    "count": 13
+    "count": 14
   },
   {
     "candidate": "OP",
@@ -177,7 +177,7 @@
     "candidate": "SK",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:39:49Z",
-    "count": 17
+    "count": 18
   },
   {
     "candidate": "SMIC",
@@ -291,7 +291,7 @@
     "candidate": "EML",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:44:22Z",
-    "count": 15
+    "count": 16
   },
   {
     "candidate": "QD",
@@ -411,7 +411,7 @@
     "candidate": "CW",
     "sourceUrl": "",
     "firstSeen": "2026-06-30T07:39:56Z",
-    "count": 26
+    "count": 28
   },
   {
     "candidate": "ERIC",
@@ -525,7 +525,7 @@
     "candidate": "IP",
     "sourceUrl": "",
     "firstSeen": "2026-06-30T07:39:58Z",
-    "count": 6
+    "count": 7
   },
   {
     "candidate": "MSA",
@@ -657,7 +657,7 @@
     "candidate": "NPO",
     "sourceUrl": "",
     "firstSeen": "2026-06-30T07:49:19Z",
-    "count": 6
+    "count": 7
   },
   {
     "candidate": "SKC",
@@ -801,7 +801,7 @@
     "candidate": "FT",
     "sourceUrl": "",
     "firstSeen": "2026-07-02T08:33:21Z",
-    "count": 1
+    "count": 2
   },
   {
     "candidate": "WF",
@@ -1197,7 +1197,7 @@
     "candidate": "EV",
     "sourceUrl": "",
     "firstSeen": "2026-07-06T15:32:42Z",
-    "count": 2
+    "count": 3
   },
   {
     "candidate": "GAAP",
@@ -1233,13 +1233,13 @@
     "candidate": "MRC",
     "sourceUrl": "",
     "firstSeen": "2026-07-11T17:59:31Z",
-    "count": 1
+    "count": 2
   },
   {
     "candidate": "RNG",
     "sourceUrl": "",
     "firstSeen": "2026-07-11T17:59:31Z",
-    "count": 1
+    "count": 2
   },
   {
     "candidate": "UHP",
@@ -1425,6 +1425,18 @@
     "candidate": "GLM",
     "sourceUrl": "",
     "firstSeen": "2026-07-22T15:28:59Z",
+    "count": 1
+  },
+  {
+    "candidate": "FY",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-26T08:59:33Z",
+    "count": 1
+  },
+  {
+    "candidate": "VP",
+    "sourceUrl": "",
+    "firstSeen": "2026-07-26T08:59:47Z",
     "count": 1
   }
 ]
