@@ -199,5 +199,35 @@ class TestCalls(unittest.TestCase):
         self.assertIsNone(d["benchmarkQuote"])
 
 
+class TestCompletenessGuard(unittest.TestCase):
+    def test_build_data_has_every_required_key(self):
+        d = gen.build_data()
+        for key in gen.REQUIRED_KEYS:
+            self.assertIn(key, d, "build_data() dropped %r" % key)
+
+    def test_missing_key_raises_and_names_it(self):
+        d = gen.build_data()
+        del d["calls"]
+        with self.assertRaises(RuntimeError) as ctx:
+            gen._assert_complete(d)
+        self.assertIn("calls", str(ctx.exception))
+
+    def test_emptied_store_backed_key_raises(self):
+        # verdicts.json is non-empty in this repo, so an empty desk block in a
+        # built payload means assembly lost it.
+        d = gen.build_data()
+        d["desk"] = {}
+        with self.assertRaises(RuntimeError) as ctx:
+            gen._assert_complete(d)
+        self.assertIn("verdicts.json", str(ctx.exception))
+
+    def test_none_benchmark_quote_is_allowed(self):
+        # benchmarkQuote is legitimately None when SMH has no price row; the
+        # guard checks presence, not truthiness, for non-store-backed keys.
+        d = gen.build_data()
+        d["benchmarkQuote"] = None
+        gen._assert_complete(d)
+
+
 if __name__ == "__main__":
     unittest.main()

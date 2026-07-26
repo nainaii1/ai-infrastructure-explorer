@@ -33,6 +33,24 @@ from store_io import load_json as _load, load_json_optional as _load_optional  #
 
 PRICE_FIELDS = ("price", "currency", "chg7d", "chg1m", "chg1y", "marketCap", "asOf")
 
+# Every top-level key build_data() is contracted to emit. A payload missing any
+# of these is refused rather than written — see _assert_complete.
+REQUIRED_KEYS = (
+    "meta", "countries", "categories", "center", "mapIntro", "glossary",
+    "zones", "tickers", "theses", "priorities", "brain", "desk", "memos",
+    "vault", "calls", "benchmarkQuote",
+)
+
+# Keys whose content comes from a store file. If the file has content, the
+# assembled block must too.
+STORE_BACKED = {
+    "brain": "brain.json",
+    "desk": "verdicts.json",
+    "memos": "memos.json",
+    "vault": "vault.json",
+    "calls": "calls.json",
+}
+
 _ICON_ELEMENTS = {"path", "circle", "line", "rect", "polyline", "ellipse"}
 _ICON_ATTRIBUTES = {
     "d", "cx", "cy", "r", "x", "y", "x1", "y1", "x2", "y2",
@@ -154,6 +172,32 @@ def build_data():
     }
 
 
+def _assert_complete(data):
+    """Refuse to write a data.js that has silently lost a block.
+
+    On 2026-07-26 a long-running bot.py held a June-era module in memory and
+    rewrote data.js without six top-level keys on every ingest, breaking the
+    memo reader, vault, glossary and performance page for days. Nothing warned,
+    because ticker-level verdicts are stamped onto ticker records and survived,
+    so the watchlist still looked healthy. This makes that failure loud.
+    """
+    missing = [k for k in REQUIRED_KEYS if k not in data]
+    if missing:
+        raise RuntimeError(
+            "data.js assembly is missing top-level keys: %s. If a long-running "
+            "process produced this, restart it — it is probably holding a stale "
+            "module." % ", ".join(missing)
+        )
+    for key, filename in STORE_BACKED.items():
+        if not (STORE / filename).exists():
+            continue
+        if _load_optional(filename, {}) and not data.get(key):
+            raise RuntimeError(
+                "store/%s has content but data['%s'] is empty — refusing to "
+                "write a truncated data.js." % (filename, key)
+            )
+
+
 def render(data):
     js = json.dumps(data, ensure_ascii=True, indent=2)
     # Defense-in-depth: escape angle brackets so a "</script>" inside post text
@@ -169,6 +213,7 @@ def write_data_js(data=None):
         # before assembling, so data.js always ships an up-to-date vault.
         vault_sync.sync()
         data = build_data()
+    _assert_complete(data)
     DATA_JS.write_text(render(data), encoding="utf-8")
     return DATA_JS
 
