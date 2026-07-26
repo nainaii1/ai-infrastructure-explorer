@@ -149,3 +149,27 @@ class TestCanonicalize(unittest.TestCase):
         ranked = scorer.compute_priorities(out, now=NOW)
         self.assertEqual(ranked[0]["ticker"], "SIVE")
         self.assertEqual(ranked[0]["mentions"], 2)
+
+
+class TestDirection(unittest.TestCase):
+    def test_absent_direction_scores_as_neutral(self):
+        implicit = [thesis(["NVDA"], "2026-06-26T00:00:00Z")]
+        explicit = [thesis(["NVDA"], "2026-06-26T00:00:00Z", direction="neutral")]
+        self.assertEqual(
+            scorer.compute_priorities(implicit, now=NOW)[0]["score"],
+            scorer.compute_priorities(explicit, now=NOW)[0]["score"],
+        )
+
+    def test_bear_cancels_an_equal_bull(self):
+        bull = [thesis(["AAOI"], "2026-06-26T00:00:00Z", direction="bull")]
+        mixed = bull + [thesis(["AAOI"], "2026-06-26T00:00:00Z", direction="bear")]
+        only_bull = scorer.compute_priorities(bull, now=NOW)[0]
+        both = scorer.compute_priorities(mixed, now=NOW)[0]
+        self.assertEqual(only_bull["score"], 1.0)
+        self.assertEqual(both["score"], 0.0)
+
+    def test_score_floors_at_zero_while_net_goes_negative(self):
+        theses = [thesis(["POET"], "2026-06-26T00:00:00Z", direction="bear")]
+        r = scorer.compute_priorities(theses, now=NOW)[0]
+        self.assertEqual(r["score"], 0.0)
+        self.assertEqual(r["net"], -1.0)

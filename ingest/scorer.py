@@ -1,6 +1,7 @@
 """Composite priority scoring — ranks what the author prioritizes.
 
-    score = sum(recency_weight * focus_weight) * (1 + CONVICTION_WEIGHT * conviction_hits)
+    net   = sum(recency_weight * focus_weight * direction_weight)
+    score = max(net * (1 + CONVICTION_WEIGHT * conviction_hits), 0)
 
 Recency uses exponential decay with a configurable half-life, so a ticker the
 author mentions often AND recently AND with conviction language rises to the top.
@@ -8,8 +9,15 @@ author mentions often AND recently AND with conviction language rises to the top
 Focus weight (1/sqrt(tickers-in-post)) discounts names buried in long list-posts:
 a ticker that shows up in a 12-name Bloomberg-selloff dump counts far less than
 one in a dedicated single-name thesis. This keeps mention-heavy digest baskets
-from inflating the conviction tiers. Pure and deterministic; unit-tested in
-tests/test_scorer.py.
+from inflating the conviction tiers.
+
+Direction weight (see _direction_weight) signs each mention: bull/neutral
+analyst posts count +1, bear posts count -1, so a name the author keeps
+defending while arguing against it nets out rather than climbing the rank
+purely on mention volume. `score` floors at zero (a net-negative name still
+ranks, just at the bottom) but `net` itself is exposed unclamped so callers
+can see when attention is negative, not merely low. Pure and deterministic;
+unit-tested in tests/test_scorer.py.
 """
 
 import math
@@ -17,6 +25,21 @@ from datetime import datetime, timezone
 
 HALF_LIFE_DAYS = 14.0
 CONVICTION_WEIGHT = 0.5
+
+# Signed contribution of one mention. Research findings may subtract but never
+# add: the same model that writes the desk verdicts must not be able to agree
+# with itself three times and inflate a rank. Analyst bull and neutral posts
+# both weigh 1.0, so migrating undirected theses to "neutral" changes no score.
+RESEARCH_SOURCE = "research"
+
+
+def _direction_weight(thesis):
+    direction = thesis.get("direction") or "neutral"
+    if direction == "bear":
+        return -1.0
+    if thesis.get("source") == RESEARCH_SOURCE:
+        return 0.0
+    return 1.0
 
 # Tier thresholds on *focus-weighted* mentions — signal, not price targets. A
 # name is "core" when the author keeps coming back to it in a focused way (or
@@ -86,15 +109,23 @@ def compute_priorities(theses, now=None, half_life_days=HALF_LIFE_DAYS):
         is_high = th.get("conviction") == "high"
         syms = th.get("tickers", [])
         focus = _focus_weight(len(syms))
+        direction = th.get("direction") or "neutral"
+        signed = weight * focus * _direction_weight(th)
         for sym in syms:
             a = agg.setdefault(
                 sym,
                 {"mentions": 0, "weighted": 0.0, "recency": 0.0,
+                 "net": 0.0, "bull": 0, "bear": 0,
                  "convictionHits": 0, "lastMentioned": None},
             )
             a["mentions"] += 1              # raw count, for display ("12x mentioned")
             a["weighted"] += focus          # focus-weighted count, for tiering
             a["recency"] += weight * focus  # recency + focus, for the priority score
+            a["net"] += signed
+            if direction == "bear":
+                a["bear"] += 1
+            elif direction == "bull":
+                a["bull"] += 1
             if is_high:
                 a["convictionHits"] += 1
             current = _parse_dt(a["lastMentioned"])
@@ -103,10 +134,11 @@ def compute_priorities(theses, now=None, half_life_days=HALF_LIFE_DAYS):
 
     ranked = []
     for sym, a in agg.items():
-        score = a["recency"] * (1 + CONVICTION_WEIGHT * a["convictionHits"])
+        score = max(a["net"] * (1 + CONVICTION_WEIGHT * a["convictionHits"]), 0.0)
         ranked.append({
             "ticker": sym,
             "score": round(score, 4),
+            "net": round(a["net"], 4),
             "mentions": a["mentions"],
             "weightedMentions": round(a["weighted"], 4),
             "convictionHits": a["convictionHits"],
