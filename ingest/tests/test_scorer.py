@@ -9,8 +9,17 @@ import scorer  # noqa: E402
 NOW = datetime(2026, 6, 26, tzinfo=timezone.utc)
 
 
-def thesis(tickers, posted_at, conviction="normal"):
-    return {"tickers": tickers, "postedAt": posted_at, "conviction": conviction}
+def thesis(tickers, posted_at, conviction="normal", direction=None, source="x"):
+    """Build a thesis fixture.
+
+    direction=None omits the key entirely, which is how all 258 migrated
+    records look — the scorer must read that as "neutral".
+    """
+    t = {"tickers": tickers, "postedAt": posted_at,
+         "conviction": conviction, "source": source}
+    if direction is not None:
+        t["direction"] = direction
+    return t
 
 
 class TestPriority(unittest.TestCase):
