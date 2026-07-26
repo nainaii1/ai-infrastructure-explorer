@@ -82,6 +82,13 @@ def _format_reply(summary):
         lines.append("Queued for review: " + ", ".join(queued))
     if not tickers and not added:
         lines.append("(no tickers detected — saved as note)")
+    if "data_js_error" in summary:
+        lines.append("")
+        lines.append("⚠️ But the website file was NOT updated. Your post is")
+        lines.append("saved and safe — it just won't show up on the site yet.")
+        lines.append("To fix it: stop this bot, then in Terminal run:")
+        lines.append("python3 ingest/generate_data_js.py")
+        lines.append("Then start the bot again.")
     return "\n".join(lines)
 
 
@@ -179,9 +186,18 @@ def ingest_message(text, source_url="", posted_at=None):
     _save("theses.json", theses)
     _save("pending_tickers.json", pending)
     _bump_version()
-    gen.write_data_js()
 
-    return {"id": thesis["id"], "tickers": thesis["tickers"], "added": added, "queued": queued}
+    result = {"id": thesis["id"], "tickers": thesis["tickers"], "added": added, "queued": queued}
+    try:
+        gen.write_data_js()
+    except RuntimeError as exc:
+        # The thesis above is already saved to disk — only the regeneration
+        # step failed (e.g. this bot process is holding stale code; see
+        # generate_data_js._assert_fresh). Report that precisely instead of
+        # falling into the generic "ingest error" handler in run_bot(), which
+        # would say "Skipped" even though nothing was skipped.
+        result["data_js_error"] = str(exc)
+    return result
 
 
 # --------------------------- live Telegram mode ---------------------------

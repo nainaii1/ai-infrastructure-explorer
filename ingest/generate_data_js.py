@@ -51,6 +51,33 @@ STORE_BACKED = {
     "calls": "calls.json",
 }
 
+
+def _safe_mtime(path):
+    """stat() a source file for freshness comparison.
+
+    Returns None (rather than raising) when the file can't be read right now
+    — a transient issue here must not itself become "the error", masking
+    whatever real problem write_data_js was trying to report.
+    """
+    try:
+        return pathlib.Path(path).stat().st_mtime
+    except OSError:
+        return None
+
+
+# Modules a long-running process (bot.py) imports once and keeps in memory
+# for days. If any of these .py files change on disk after that import, the
+# process is running stale code — this is the actual 2026-07-26 failure
+# mechanism. Note this is a different check from _assert_complete: a stale
+# copy of this very module has a stale REQUIRED_KEYS too, so it would agree
+# with its own stale build_data() and never notice a missing key on its own.
+_WATCHED_SOURCES = {
+    "generate_data_js.py": __file__,
+    "scorer.py": scorer.__file__,
+    "vault_sync.py": vault_sync.__file__,
+}
+_SOURCE_MTIMES_AT_IMPORT = {name: _safe_mtime(path) for name, path in _WATCHED_SOURCES.items()}
+
 _ICON_ELEMENTS = {"path", "circle", "line", "rect", "polyline", "ellipse"}
 _ICON_ATTRIBUTES = {
     "d", "cx", "cy", "r", "x", "y", "x1", "y1", "x2", "y2",
@@ -172,14 +199,55 @@ def build_data():
     }
 
 
-def _assert_complete(data):
-    """Refuse to write a data.js that has silently lost a block.
+def _read_store_or_empty(filename):
+    """Read store/<filename> as JSON; {} if the file doesn't exist (never
+    populated yet — legitimately empty), but RAISE if it exists and is
+    corrupt. Unlike _load_optional, which collapses "missing" and "broken"
+    into the same falsy default, this keeps a corrupt store file from being
+    silently treated as an empty-but-fine one by _assert_complete below.
+    """
+    path = STORE / filename
+    if not path.exists():
+        return {}
+    return json.loads(path.read_text(encoding="utf-8"))
 
-    On 2026-07-26 a long-running bot.py held a June-era module in memory and
-    rewrote data.js without six top-level keys on every ingest, breaking the
-    memo reader, vault, glossary and performance page for days. Nothing warned,
-    because ticker-level verdicts are stamped onto ticker records and survived,
-    so the watchlist still looked healthy. This makes that failure loud.
+
+def _assert_fresh():
+    """Refuse to write when this process is running stale generator code.
+
+    A long-running process (bot.py) imports generate_data_js/scorer/vault_sync
+    once at startup and keeps running for days. If any of those .py files
+    change on disk afterward, the in-memory module is stale — but a stale
+    module's own REQUIRED_KEYS still matches its own stale build_data()
+    output, so _assert_complete alone cannot see the drift (this is exactly
+    how the 2026-07-26 truncation slipped through). This check instead
+    compares each watched module's on-disk mtime now against what was
+    recorded when this module was first imported.
+    """
+    stale = []
+    for name, path in _WATCHED_SOURCES.items():
+        recorded = _SOURCE_MTIMES_AT_IMPORT.get(name)
+        current = _safe_mtime(path)
+        if recorded is not None and current is not None and current != recorded:
+            stale.append(name)
+    if stale:
+        raise RuntimeError(
+            "This process is running an outdated copy of: %s (the file on disk "
+            "has changed since this process started). Restart it — e.g. stop "
+            "and restart bot.py — so it picks up the current code, then try "
+            "again." % ", ".join(stale)
+        )
+
+
+def _assert_complete(data):
+    """Refuse to write a data.js that is missing a required top-level block.
+
+    Checks structural completeness only: that the assembled payload actually
+    has every key build_data() is contracted to emit, and that a store-backed
+    key isn't empty when its source file on disk has content. This is the
+    half of the 2026-07-26 guard that catches a payload built by *correct*
+    code from going out truncated; it does not by itself detect a stale
+    in-memory generator module — see _assert_fresh for that.
     """
     missing = [k for k in REQUIRED_KEYS if k not in data]
     if missing:
@@ -189,9 +257,7 @@ def _assert_complete(data):
             "module." % ", ".join(missing)
         )
     for key, filename in STORE_BACKED.items():
-        if not (STORE / filename).exists():
-            continue
-        if _load_optional(filename, {}) and not data.get(key):
+        if _read_store_or_empty(filename) and not data.get(key):
             raise RuntimeError(
                 "store/%s has content but data['%s'] is empty — refusing to "
                 "write a truncated data.js." % (filename, key)
@@ -213,6 +279,7 @@ def write_data_js(data=None):
         # before assembling, so data.js always ships an up-to-date vault.
         vault_sync.sync()
         data = build_data()
+    _assert_fresh()
     _assert_complete(data)
     DATA_JS.write_text(render(data), encoding="utf-8")
     return DATA_JS

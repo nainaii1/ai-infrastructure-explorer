@@ -2,6 +2,7 @@ import sys
 import re
 import json
 import pathlib
+import tempfile
 import unittest
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))
@@ -200,10 +201,15 @@ class TestCalls(unittest.TestCase):
 
 
 class TestCompletenessGuard(unittest.TestCase):
-    def test_build_data_has_every_required_key(self):
+    def test_build_data_keys_match_required_keys_exactly(self):
+        # Equality, not subset: a key added to build_data() and forgotten in
+        # REQUIRED_KEYS is exactly the kind of drift this guard exists to catch,
+        # and a one-directional assertIn check would never notice it.
         d = gen.build_data()
-        for key in gen.REQUIRED_KEYS:
-            self.assertIn(key, d, "build_data() dropped %r" % key)
+        self.assertEqual(
+            set(d.keys()), set(gen.REQUIRED_KEYS),
+            "build_data() output and REQUIRED_KEYS have drifted apart"
+        )
 
     def test_missing_key_raises_and_names_it(self):
         d = gen.build_data()
@@ -227,6 +233,60 @@ class TestCompletenessGuard(unittest.TestCase):
         d = gen.build_data()
         d["benchmarkQuote"] = None
         gen._assert_complete(d)
+
+    def test_corrupt_store_file_raises_instead_of_reading_as_empty(self):
+        # _load_optional swallows bad JSON and returns {} — which would make a
+        # corrupt verdicts.json look "legitimately empty" to the completeness
+        # check and pass silently. _read_store_or_empty must not make that
+        # mistake: a present-but-broken file has to raise, not disappear.
+        real_path = gen.STORE / "verdicts.json"
+        real_text = real_path.read_text(encoding="utf-8")
+        real_path.write_text("{not valid json", encoding="utf-8")
+        try:
+            with self.assertRaises(ValueError):
+                gen._read_store_or_empty("verdicts.json")
+        finally:
+            real_path.write_text(real_text, encoding="utf-8")
+
+
+class TestFreshnessGuard(unittest.TestCase):
+    def test_fresh_process_passes(self):
+        gen._assert_fresh()  # source files haven't changed since import; no raise
+
+    def test_stale_module_raises_and_names_it(self):
+        orig = dict(gen._SOURCE_MTIMES_AT_IMPORT)
+        # Simulate scorer.py having changed on disk after this process
+        # imported it: recorded (import-time) mtime no longer matches reality.
+        gen._SOURCE_MTIMES_AT_IMPORT["scorer.py"] = orig["scorer.py"] - 1000
+        try:
+            with self.assertRaises(RuntimeError) as ctx:
+                gen._assert_fresh()
+            self.assertIn("scorer.py", str(ctx.exception))
+        finally:
+            gen._SOURCE_MTIMES_AT_IMPORT.clear()
+            gen._SOURCE_MTIMES_AT_IMPORT.update(orig)
+
+
+class TestWriteDataJsGuardWiring(unittest.TestCase):
+    def test_write_data_js_refuses_incomplete_payload_and_writes_nothing(self):
+        # Proves the guard is actually wired into write_data_js, not just
+        # defined and unused: delete the _assert_complete(data) call from
+        # write_data_js and this test fails, because tmp_path ends up written.
+        bad = gen.build_data()
+        del bad["calls"]
+        orig_data_js = gen.DATA_JS
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            tmp_path = pathlib.Path(tmp_dir) / "data.js"
+            gen.DATA_JS = tmp_path
+            try:
+                with self.assertRaises(RuntimeError):
+                    gen.write_data_js(data=bad)
+                self.assertFalse(
+                    tmp_path.exists(),
+                    "write_data_js wrote a file despite an incomplete payload"
+                )
+            finally:
+                gen.DATA_JS = orig_data_js
 
 
 if __name__ == "__main__":
