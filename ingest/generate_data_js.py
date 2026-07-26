@@ -156,9 +156,16 @@ def build_data():
         # render identically to "never mentioned." Score can be zero; being
         # discussed cannot.
         if p:
+            # Mirrors the fields a ticker card renders. `net` and the direction
+            # counts ride along so a card can say "93 mentions, 3 against" —
+            # the top-level `priorities` array is not what the card reads.
             t["priority"] = {
                 "score": p["score"],
+                "net": p["net"],
+                "attention": p["attention"],
                 "mentions": p["mentions"],
+                "bullMentions": p["bullMentions"],
+                "bearMentions": p["bearMentions"],
                 "convictionHits": p["convictionHits"],
                 "lastMentioned": p["lastMentioned"],
             }

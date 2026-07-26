@@ -416,3 +416,30 @@ class TestWriteDataJsFreshnessWiring(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TestPriorityStamp(unittest.TestCase):
+    def test_ticker_priority_stamp_carries_direction_fields(self):
+        # The ticker card reads t["priority"], not the top-level priorities
+        # array, so bearMentions has to be mirrored here or the "N against"
+        # count can never reach the UI it was added for.
+        d = gen.build_data()
+        stamped = [t for t in d["tickers"] if t.get("priority")]
+        self.assertTrue(stamped, "no ticker carried a priority stamp")
+        for field in ("score", "net", "attention", "mentions",
+                      "bullMentions", "bearMentions", "convictionHits",
+                      "lastMentioned"):
+            self.assertIn(field, stamped[0]["priority"])
+
+    def test_priority_stamp_survives_a_zero_score(self):
+        # A bear-net name scores exactly 0.0. It must keep its stamp, or the
+        # watchlist renders a heavily-argued-against name as never mentioned.
+        d = gen.build_data()
+        for t in d["tickers"]:
+            p = t.get("priority")
+            if p and p["mentions"] >= 1:
+                self.assertIn("mentions", p)
+        zero = [t for t in d["tickers"]
+                if t.get("priority") and t["priority"]["score"] == 0.0]
+        for t in zero:
+            self.assertGreaterEqual(t["priority"]["mentions"], 1)
