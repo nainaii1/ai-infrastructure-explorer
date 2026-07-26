@@ -313,7 +313,9 @@ so newly-ingested tickers and theses surface. Categories / center / countries
                   verdict: { ticker, stance, view, execution, changesMind,
                              basedOnThesisIds[], updatedAt } } ],
   theses:     [ { id, source, author, sourceUrl, postedAt, ingestedAt, text,
-                  tickers[], conviction, tags[] } ],
+                  tickers[], conviction, tags[],
+                  // optional, since 2026-07-26 — read by scorer.py:
+                  direction } ],   // "bull" | "bear" | "neutral", LOWERCASE
   priorities: [ { ticker, score, net, attention, mentions, bullMentions,
                   bearMentions, weightedMentions, convictionHits,
                   lastMentioned } ],
@@ -329,6 +331,15 @@ so newly-ingested tickers and theses surface. Categories / center / countries
                               basedOnThesisIds[], updatedAt } ] }
 }
 ```
+- `direction` → **exactly** `bull`, `bear` or `neutral`, lowercase. Omit the key
+  entirely for an undirected post — absent reads as `neutral` and carries full
+  weight, which is how all pre-2026-07-26 theses score. **Anything else scores
+  0.0 and is silently ignored**, so a typo like `"bearish"` or `"BEAR"` throws
+  the bear case away rather than counting it backwards. Nothing validates this
+  at write time yet — get it right when authoring. A thesis written with
+  `source: "research"` contributes 0 to the score and to `weightedMentions`
+  regardless of direction unless it is `bear`: outside research can only
+  correct a name downward, never inflate its rank or buy it tier coverage.
 - `category` → a key in `AIE_DATA.categories` (currently: `photonics | memory |
   fabs | neoclouds | materials | networking | glass | robotics | accelerators
   | hyperscalers | unsorted`). `unsorted` is a triage bucket, not a real

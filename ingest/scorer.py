@@ -30,7 +30,8 @@ HALF_LIFE_DAYS = 14.0
 # Retired 2026-07-26 (operator sign-off). `conviction` is assigned by keyword
 # match in parser.py against phrases like "top pick" and "high conviction". It
 # fired on 17 of 258 posts and multiplied a score by up to 6x — SIVE scored
-# 91.11 on 10 hits, versus 15.19 without. That is rhetoric driving a ranking.
+# 91.11 on 10 hits, versus ~15 without (14.99 when measured on 2026-07-26; it
+# drifts with recency decay). That is rhetoric driving a ranking.
 # Kept as a constant, not deleted, so this is reversible by restoring 0.5.
 # Note: assign_tiers still reads convictionHits directly, so tiers are
 # unaffected by this change.

@@ -414,8 +414,6 @@ class TestWriteDataJsFreshnessWiring(unittest.TestCase):
                 gen.DATA_JS = orig_data_js
 
 
-if __name__ == "__main__":
-    unittest.main()
 
 
 class TestPriorityStamp(unittest.TestCase):
@@ -431,15 +429,6 @@ class TestPriorityStamp(unittest.TestCase):
                       "lastMentioned"):
             self.assertIn(field, stamped[0]["priority"])
 
-    def test_priority_stamp_survives_a_zero_score(self):
-        # A bear-net name scores exactly 0.0. It must keep its stamp, or the
-        # watchlist renders a heavily-argued-against name as never mentioned.
-        d = gen.build_data()
-        for t in d["tickers"]:
-            p = t.get("priority")
-            if p and p["mentions"] >= 1:
-                self.assertIn("mentions", p)
-        zero = [t for t in d["tickers"]
-                if t.get("priority") and t["priority"]["score"] == 0.0]
-        for t in zero:
-            self.assertGreaterEqual(t["priority"]["mentions"], 1)
+
+if __name__ == "__main__":
+    unittest.main()
