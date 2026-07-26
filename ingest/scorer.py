@@ -32,27 +32,36 @@ CONVICTION_WEIGHT = 0.5
 # both weigh 1.0, so migrating undirected theses to "neutral" changes no score.
 RESEARCH_SOURCE = "research"
 
-# The only directions a thesis can express. Anything else — a typo ("bearish",
-# "BEAR", "short"), an empty string, a future value nobody wired up yet — is
-# normalized to "neutral" rather than rejected: these records get hand-authored
-# by an agent, and a bad value in one post should degrade to "no opinion", not
-# take down the run or silently masquerade as a real vote.
+# The only directions a thesis can express.
 VALID_DIRECTIONS = {"bull", "bear", "neutral"}
+
+# A present-but-unrecognized direction — a typo ("bearish", "BEAR", "short"),
+# an empty string, a future value nobody wired up yet. Kept distinct from
+# "neutral" because the two must score differently: see _direction_weight.
+UNKNOWN_DIRECTION = "unknown"
 
 
 def _normalize_direction(thesis):
     """The single source of truth for what a thesis's direction "really" is.
 
-    Both null-handling (absent key -> neutral) and vocabulary validation
-    (unrecognized string -> neutral) live here so every caller sees the same
-    three values and none can drift out of sync with the others.
+    Absent key -> "neutral": that is every one of the migrated records, which
+    must keep scoring exactly as they did before directions existed.
+    Present but unrecognized -> "unknown", which is NOT the same thing. These
+    records get hand-authored by an agent, and a typo'd "bearish" was meant as
+    a bear; scoring it as neutral would contribute +1.0 and swing the score two
+    points the wrong way. Distinguishing the two lets a bad value fall back to
+    "no opinion" instead of silently becoming the vote it was not.
     """
-    direction = thesis.get("direction") or "neutral"
-    return direction if direction in VALID_DIRECTIONS else "neutral"
+    raw = thesis.get("direction")
+    if raw is None:
+        return "neutral"
+    return raw if raw in VALID_DIRECTIONS else UNKNOWN_DIRECTION
 
 
 def _direction_weight(thesis):
     direction = _normalize_direction(thesis)
+    if direction == UNKNOWN_DIRECTION:
+        return 0.0          # can't read it, so it doesn't get a vote
     if direction == "bear":
         return -1.0
     if thesis.get("source") == RESEARCH_SOURCE:

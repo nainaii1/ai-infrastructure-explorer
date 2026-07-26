@@ -230,19 +230,20 @@ class TestDirection(unittest.TestCase):
         tiers = scorer.assign_tiers(["ZETA"], priorities)
         self.assertEqual(tiers["ZETA"], "radar")
 
-    def test_unknown_direction_values_normalize_to_neutral(self):
-        # A typo like "bearish" or "BEAR" must not silently count as a bullish
-        # vote while going untallied in bullMentions/bearMentions — it has to
-        # land exactly where an explicit "neutral" would, so the record never
-        # shows a nonzero net with zero direction counts to explain it.
+    def test_unknown_direction_does_not_score_like_neutral(self):
+        # Superseded an earlier test that asserted the opposite. Normalizing a
+        # typo to "neutral" gives it +1.0 — but "bearish" was meant as a bear,
+        # so that swings the score two points the wrong way. An unreadable
+        # direction must be inert, which is strictly different from neutral.
         for bad in ("bearish", "BEAR", "short", "gibberish"):
             with self.subTest(direction=bad):
                 weird = [thesis(["QQQQ"], "2026-06-26T00:00:00Z", direction=bad)]
                 neutral = [thesis(["QQQQ"], "2026-06-26T00:00:00Z", direction="neutral")]
                 r_weird = scorer.compute_priorities(weird, now=NOW)[0]
                 r_neutral = scorer.compute_priorities(neutral, now=NOW)[0]
-                self.assertEqual(r_weird["score"], r_neutral["score"])
-                self.assertEqual(r_weird["net"], r_neutral["net"])
+                self.assertEqual(r_weird["net"], 0.0)
+                self.assertEqual(r_neutral["net"], 1.0)
+                self.assertNotEqual(r_weird["net"], r_neutral["net"])
                 self.assertEqual(r_weird["bullMentions"], 0)
                 self.assertEqual(r_weird["bearMentions"], 0)
                 self.assertEqual(r_weird["mentions"], 1)
@@ -281,6 +282,28 @@ class TestDirection(unittest.TestCase):
         self.assertEqual(p["weightedMentions"], 5.0)
         tiers = scorer.assign_tiers(["POET"], priorities)
         self.assertEqual(tiers["POET"], "core")
+
+    def test_unrecognized_direction_is_inert_not_a_bull_vote(self):
+        # "bearish" was meant as a bear. Falling back to neutral would score it
+        # +1.0 and swing the result two points the wrong way, so a direction we
+        # cannot read contributes nothing at all.
+        for typo in ("bearish", "BEAR", "short", ""):
+            with self.subTest(direction=typo):
+                r = scorer.compute_priorities(
+                    [thesis(["X"], "2026-06-26T00:00:00Z", direction=typo)],
+                    now=NOW)[0]
+                self.assertEqual(r["net"], 0.0)
+                self.assertEqual(r["bullMentions"], 0)
+                self.assertEqual(r["bearMentions"], 0)
+                self.assertEqual(r["mentions"], 1)
+
+    def test_absent_direction_is_not_treated_as_malformed(self):
+        # The migrated records have no direction key at all. Absent must keep
+        # its full 1.0 weight, or re-scoring the existing store would silently
+        # zero every historical mention.
+        r = scorer.compute_priorities(
+            [thesis(["X"], "2026-06-26T00:00:00Z")], now=NOW)[0]
+        self.assertEqual(r["net"], 1.0)
 
 
 if __name__ == "__main__":
