@@ -66,7 +66,17 @@ not throwaway config.
   mentions or 2+ high-conviction hits) / `watch` / `radar` (one-off
   name-drops). Mentions are focus-weighted by `1/√(tickers-in-post)` so a name
   buried in a 12-ticker digest dump can't inflate the tiers (ROADMAP issue #4,
-  fixed 2026-07-03). The **Map** defaults to **Signal (Core+Watch)**; the
+  fixed 2026-07-03).
+  Since 2026-07-26 the priority *score* is **direction-aware**: each mention is
+  signed (`bull`/`neutral` +1, `bear` −1), a present-but-unreadable direction
+  is inert (0, so a typo'd `"bearish"` can't become a bull vote), and
+  research-sourced theses (`source: "research"`) contribute 0 to both the score
+  and `weightedMentions` — outside research can correct a name downward but can
+  never inflate its rank or buy it tier coverage. The **conviction multiplier
+  is retired** (`CONVICTION_WEIGHT = 0.0`, reversible): keyword-matched rhetoric
+  was multiplying scores up to 6×. **Tiers are unaffected** — `assign_tiers`
+  reads `convictionHits` and `weightedMentions` directly, never the score.
+  The **Map** defaults to **Signal (Core+Watch)**; the
   **Watchlist** opens focused on **Core** only (it's the decision surface —
   keeps the table short); Watch/Radar/All/Signal are one chip away everywhere,
   Radar always hidden until asked for.
@@ -297,13 +307,16 @@ so newly-ingested tickers and theses surface. Categories / center / countries
                   // optional, merged from prices.json:
                   price, currency, chg7d, chg1m, marketCap, asOf,
                   // optional, merged from scorer.py:
-                  priority: { score, mentions, convictionHits, lastMentioned },
+                  priority: { score, net, attention, mentions, bullMentions,
+                              bearMentions, convictionHits, lastMentioned },
                   // optional, stamped from verdicts.json (Core names only):
                   verdict: { ticker, stance, view, execution, changesMind,
                              basedOnThesisIds[], updatedAt } } ],
   theses:     [ { id, source, author, sourceUrl, postedAt, ingestedAt, text,
                   tickers[], conviction, tags[] } ],
-  priorities: [ { ticker, score, mentions, convictionHits, lastMentioned } ],
+  priorities: [ { ticker, score, net, attention, mentions, bullMentions,
+                  bearMentions, weightedMentions, convictionHits,
+                  lastMentioned } ],
   brain:      { meta: { generatedAt, model, thesesConsidered,
                         categoriesSynthesized, schemaVersion, failures? },
                 digests: [ { category, narrative, conviction, keyPoints[],

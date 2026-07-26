@@ -1,6 +1,41 @@
 # Roadmap & Status — AI Infrastructure Explorer
 
-_Last updated: 2026-07-18 (v8 "analysis tool, not product" shipped). Living document — update as things ship or change._
+_Last updated: 2026-07-26 (direction-aware scoring shipped). Living document — update as things ship or change._
+
+> **Expert review team, Phase 1 — direction-aware scoring (✅ 2026-07-26).**
+> Theses carry an optional `direction` (`bull`/`bear`/`neutral`), and
+> `scorer.compute_priorities` now sums a **signed** contribution per mention, so
+> a bear thesis lowers a score instead of raising it. A present-but-unreadable
+> direction is inert rather than defaulting to a bull vote. Research-sourced
+> theses (`source: "research"`) contribute 0 to both the score and
+> `weightedMentions` — outside research can correct a name downward but can
+> never inflate its rank or buy it tier coverage.
+> The **conviction multiplier is retired** (`CONVICTION_WEIGHT = 0.0`,
+> reversible by restoring 0.5): keyword-matched rhetoric was multiplying scores
+> by up to 6×. Real effect — SIVE falls **91.11 → 14.99**, its lead over the
+> next name drops from 2.7× to 1.6×, the top 15 loses GFS/JBL/MRVL/POET and
+> gains AXTI/CCXI/COHR/SNDK. **Tiers are unchanged** (28 core / 17 watch /
+> 75 radar) because `assign_tiers` reads `convictionHits` and
+> `weightedMentions` directly, never the score.
+> `write_data_js` now refuses to write a payload missing an expected top-level
+> block, and checks that the running process is not holding stale source — see
+> **Fixed** below.
+> Spec: `docs/superpowers/specs/2026-07-26-expert-review-team-design.md`.
+> Plan: `docs/superpowers/plans/2026-07-26-direction-aware-scoring.md`.
+> **Not yet built — Phases 2–5:** the three review seats (`semi-expert`,
+> `fundamental`, `pm`), `claims.json` and claim judging, the performance-page
+> split into Calls and Claims, hit-rate weighting (gated on 20+ judged claims
+> per source), and the scheduled overnight run.
+>
+> **Fixed 2026-07-26 — `data.js` was being silently truncated.** A `bot.py`
+> process running since 30 June held a stale generator module in memory and
+> rewrote `data.js` on every ingest using June-era code, dropping `glossary`,
+> `desk`, `memos`, `vault`, `calls` and `benchmarkQuote`. The memo reader,
+> vault, glossary and performance page were broken for four days with no
+> signal, because ticker-level verdicts are stamped onto ticker records and
+> survived — so the watchlist still looked healthy. `write_data_js` now hashes
+> its own source modules at import and refuses to write if they have changed on
+> disk. **Restart `bot.py` after editing anything under `ingest/`.**
 
 > **v8 — "analysis tool, not product" (✅ 2026-07-18).** Deliberate
 > de-productization after an operator review: the site is a personal analysis

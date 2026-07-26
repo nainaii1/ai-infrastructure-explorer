@@ -1,9 +1,17 @@
 # Expert Review Team — Design Spec ("Practice 8.5")
 
-_Written 2026-07-26. Status: **approved design, not yet implemented** — no code
-exists for this feature. This document is the terminal artifact of a
-brainstorming session; the next step is `writing-plans` to turn it into an
-implementation plan._
+_Written 2026-07-26. Status: **Phase 1 shipped 2026-07-26; Phases 2–5 not yet
+built.** The "Problem" section below describes the state before Phase 1 and is
+kept as the historical record — the scoring formula it quotes is no longer what
+`scorer.py` computes. Plan:
+`docs/superpowers/plans/2026-07-26-direction-aware-scoring.md`._
+
+**What shipped (Phase 1):** the `direction` field and its neutral default,
+direction-aware signed scoring, the research-source asymmetry, the retired
+conviction multiplier, and a `data.js` completeness + source-freshness guard.
+
+**What has not (Phases 2–5):** the three review seats, `claims.json` and claim
+judging, the performance-page split, hit-rate weighting, and the scheduled run.
 
 ## Problem
 
@@ -307,10 +315,12 @@ pass:
 - migration: absent `direction` reads as `neutral`; with `CONVICTION_WEIGHT`
   held at its old `0.5`, re-scoring the current 258 theses returns
   byte-identical priorities — proving the direction change alone is inert
-- conviction retirement: with `CONVICTION_WEIGHT = 0.0`, SIVE scores 15.19
-  (from 91.11) and the top 15 loses GFS, JBL, MRVL, POET while gaining AXTI,
-  CCXI, COHR, SNDK — asserted against these exact figures so the one-time
-  re-rank is pinned rather than assumed
+- conviction retirement: unit-tested against synthetic fixtures — a `high`
+  conviction thesis scores identically to a `normal` one, while
+  `convictionHits` is still counted and still drives tiers. The real-store
+  re-rank (SIVE 91.11 → 14.99; GFS/JBL/MRVL/POET out, AXTI/CCXI/COHR/SNDK in)
+  is a one-time manual verification, not a permanent assertion — the store
+  grows weekly and pinned counts would rot
 - an `unverified` finding cannot set a non-neutral direction
 - a `bull` thesis with `source: "research"` contributes 0.0, while the same
   thesis with `source: "x"` contributes its full weight
