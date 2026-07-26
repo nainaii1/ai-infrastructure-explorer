@@ -156,7 +156,7 @@ def compute_priorities(theses, now=None, half_life_days=HALF_LIFE_DAYS):
             a = agg.setdefault(
                 sym,
                 {"mentions": 0, "weighted": 0.0, "recency": 0.0,
-                 "net": 0.0, "bull": 0, "bear": 0,
+                 "net": 0.0, "bull": 0, "bear": 0, "research": 0,
                  "convictionHits": 0, "lastMentioned": None},
             )
             a["mentions"] += 1              # raw count, for display ("12x mentioned")
@@ -173,8 +173,14 @@ def compute_priorities(theses, now=None, half_life_days=HALF_LIFE_DAYS):
                 a["bear"] += 1
             elif direction == "bull":
                 a["bull"] += 1
-            if is_high:
+            # Conviction hits gate tiers directly in assign_tiers, so research
+            # must be excluded here too. Guarding only `weighted` left this
+            # path open: two research posts marked "high" promoted a name to
+            # core with a score of 0.0 (verified 2026-07-26).
+            if is_high and not is_research:
                 a["convictionHits"] += 1
+            if is_research:
+                a["research"] += 1
             current = _parse_dt(a["lastMentioned"])
             if current is None or (posted and posted > current):
                 a["lastMentioned"] = th.get("postedAt")
@@ -190,6 +196,7 @@ def compute_priorities(theses, now=None, half_life_days=HALF_LIFE_DAYS):
             "mentions": a["mentions"],
             "bullMentions": a["bull"],
             "bearMentions": a["bear"],
+            "researchMentions": a["research"],
             "weightedMentions": round(a["weighted"], 4),
             "convictionHits": a["convictionHits"],
             "lastMentioned": a["lastMentioned"],

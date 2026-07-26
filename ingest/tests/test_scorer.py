@@ -311,6 +311,40 @@ class TestDirection(unittest.TestCase):
             [thesis(["X"], "2026-06-26T00:00:00Z")], now=NOW)[0]
         self.assertEqual(r["net"], 1.0)
 
+    def test_research_conviction_hits_do_not_promote_a_tier(self):
+        # Verified hole, 2026-07-26: two research theses with conviction
+        # "high" gave score 0.0 and weightedMentions 0.0 but convictionHits 2,
+        # and assign_tiers promotes on 2 hits — so the model could write its
+        # own name into Core straight past the weightedMentions guard.
+        theses = [
+            thesis(["Z"], "2026-06-26T00:00:00Z",
+                   conviction="high", direction="bull", source="research"),
+            thesis(["Z"], "2026-06-25T00:00:00Z",
+                   conviction="high", direction="bull", source="research"),
+        ]
+        pri = scorer.compute_priorities(theses, now=NOW)
+        self.assertEqual(pri[0]["convictionHits"], 0)
+        self.assertEqual(scorer.assign_tiers(["Z"], pri)["Z"], "radar")
+
+    def test_analyst_conviction_hits_still_promote_a_tier(self):
+        theses = [
+            thesis(["Z"], "2026-06-26T00:00:00Z", conviction="high"),
+            thesis(["Z"], "2026-06-25T00:00:00Z", conviction="high"),
+        ]
+        pri = scorer.compute_priorities(theses, now=NOW)
+        self.assertEqual(pri[0]["convictionHits"], 2)
+        self.assertEqual(scorer.assign_tiers(["Z"], pri)["Z"], "core")
+
+    def test_research_mentions_are_counted_separately(self):
+        theses = [
+            thesis(["Z"], "2026-06-26T00:00:00Z", direction="bull"),
+            thesis(["Z"], "2026-06-26T00:00:00Z",
+                   direction="bear", source="research"),
+        ]
+        r = scorer.compute_priorities(theses, now=NOW)[0]
+        self.assertEqual(r["mentions"], 2)
+        self.assertEqual(r["researchMentions"], 1)
+
 
 class TestConvictionRetired(unittest.TestCase):
     def test_conviction_language_no_longer_multiplies_score(self):
