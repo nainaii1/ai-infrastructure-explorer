@@ -472,5 +472,108 @@ class TestSelectCoverage(unittest.TestCase):
             self.assertEqual(dropped, ["AAA", "BBB"], cap)
 
 
+class TestRunSeats(unittest.TestCase):
+    def _call_fn(self, direction="bear"):
+        """A stand-in model that answers about whatever ticker it was asked."""
+        def call_fn(system, user):
+            sym = user.split("\n")[0].split(": ")[1].strip()
+            return dict(GOOD, ticker=sym, direction=direction)
+        return call_fn
+
+    def test_one_thesis_per_seat_per_ticker(self):
+        out = seats.run_seats(["SIVE", "MU"], {}, self._call_fn(),
+                              allowed_tickers=ALLOWED, now=NOW)
+        self.assertEqual(len(out["theses"]), 6)
+        self.assertEqual(out["meta"]["seatsRun"], 3)
+        self.assertEqual(out["meta"]["tickersCovered"], 2)
+        # A bare count of 6 would also pass if one seat ran six times, which is
+        # what the test name actually claims does not happen.
+        self.assertEqual(
+            sorted((t["author"], t["tickers"][0]) for t in out["theses"]),
+            sorted((seat, sym) for seat in seats.SEATS for sym in ("SIVE", "MU")))
+
+    def test_a_failing_seat_does_not_abort_the_run(self):
+        calls = {"n": 0}
+
+        def flaky(system, user):
+            calls["n"] += 1
+            if calls["n"] == 1:
+                raise RuntimeError("boom")
+            sym = user.split("\n")[0].split(": ")[1].strip()
+            return dict(GOOD, ticker=sym)
+
+        out = seats.run_seats(["SIVE"], {}, flaky,
+                              allowed_tickers=ALLOWED, now=NOW)
+        self.assertEqual(len(out["theses"]), 2)
+        self.assertEqual(len(out["meta"]["failures"]), 1)
+        self.assertEqual(out["meta"]["failures"][0]["ticker"], "SIVE")
+        self.assertIn("boom", out["meta"]["failures"][0]["error"])
+
+    def test_a_rejected_finding_is_dropped_not_written(self):
+        def bad(system, user):
+            return {"finding": "", "ticker": "SIVE"}
+
+        out = seats.run_seats(["SIVE"], {}, bad,
+                              allowed_tickers=ALLOWED, now=NOW)
+        self.assertEqual(out["theses"], [])
+        self.assertEqual(out["meta"]["rejected"], 3)
+
+    def test_a_finding_about_another_ticker_is_never_written(self):
+        # The injection this closes end to end: a seat asked about SIVE reads a
+        # forwarded post that talks it into reporting on MU instead. Both names
+        # are in-universe, so only the caller's ticker pin catches it. The
+        # finding must be dropped and counted, never written against MU.
+        def wrong_name(system, user):
+            return dict(GOOD, ticker="MU", direction="bear")
+
+        out = seats.run_seats(["SIVE"], {}, wrong_name,
+                              allowed_tickers=ALLOWED, now=NOW)
+        self.assertEqual(out["theses"], [])
+        self.assertEqual(out["meta"]["rejected"], 3)
+        self.assertEqual(out["meta"]["written"], 0)
+
+    def test_every_written_thesis_is_research_sourced(self):
+        out = seats.run_seats(["SIVE"], {}, self._call_fn(),
+                              allowed_tickers=ALLOWED, now=NOW)
+        self.assertTrue(out["theses"])
+        for t in out["theses"]:
+            self.assertEqual(t["source"], scorer.RESEARCH_SOURCE)
+
+    def test_theses_by_ticker_reaches_the_prompt(self):
+        seen = {}
+
+        def spy(system, user):
+            seen["user"] = user
+            return dict(GOOD, ticker="SIVE")
+
+        seats.run_seats(["SIVE"],
+                        {"SIVE": [thesis("fab-light ramp", ["SIVE"])]},
+                        spy, allowed_tickers=ALLOWED, now=NOW)
+        self.assertIn("fab-light ramp", seen["user"])
+
+    def test_a_ticker_with_no_context_still_gets_reviewed(self):
+        # theses_by_ticker is keyed by canonical symbol; a name the analyst has
+        # never posted about is exactly the case the seats exist for.
+        out = seats.run_seats(["LITE"], {"SIVE": []}, self._call_fn(),
+                              allowed_tickers=ALLOWED, now=NOW)
+        self.assertEqual(len(out["theses"]), 3)
+        self.assertEqual(out["meta"]["rejected"], 0)
+
+    def test_only_seats_restricts_the_run(self):
+        out = seats.run_seats(["SIVE"], {}, self._call_fn(),
+                              allowed_tickers=ALLOWED, now=NOW,
+                              only_seats=["pm"])
+        self.assertEqual(out["meta"]["seatsRun"], 1)
+        self.assertEqual(len(out["theses"]), 1)
+        self.assertEqual(out["theses"][0]["author"], "pm")
+
+    def test_meta_counts_agree_with_what_was_written(self):
+        out = seats.run_seats(["SIVE", "MU"], {}, self._call_fn(),
+                              allowed_tickers=ALLOWED, now=NOW)
+        self.assertEqual(out["meta"]["written"], len(out["theses"]))
+        self.assertEqual(out["meta"]["generatedAt"], NOW)
+        self.assertEqual(out["meta"]["failures"], [])
+
+
 if __name__ == "__main__":
     unittest.main()

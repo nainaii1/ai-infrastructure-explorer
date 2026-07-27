@@ -22,6 +22,7 @@ a finding land on another.
 """
 
 import hashlib
+import sys
 import urllib.parse
 
 import scorer
@@ -392,3 +393,70 @@ def select_coverage(priorities, verdicts, theses, since, cap=MAX_COVERAGE):
 
     dropped = [t for t in ranked if t not in selected]
     return selected, dropped
+
+
+def run_seats(tickers, theses_by_ticker, call_fn, *, allowed_tickers, now,
+              only_seats=None):
+    """Run every seat over every ticker. Returns {theses, meta}.
+
+    `call_fn(system, user) -> dict` is injected so this module never touches
+    the network — a Claude Code session supplies it (see synthesize.py for the
+    same pattern and docs/GUIDE.md section 3).
+
+    CALLER CONTRACT, same as select_coverage: `theses_by_ticker` must be keyed
+    by CANONICAL symbols, i.e. built from theses already run through
+    scorer.canonicalize_theses(). Un-canonicalized, the posts an analyst tagged
+    "SIVEF" sit under a key no reviewed ticker matches, and the seat reviews
+    SIVE with an empty context sheet while believing it has seen everything the
+    analyst said.
+
+    One seat failing on one ticker is isolated: it is recorded in
+    meta.failures and the run continues. A run is three seats over up to a
+    dozen names, so aborting on the first bad response throws away every
+    finding after it; recording the gap keeps the rest and still tells the
+    operator exactly which questions went unanswered.
+
+    A typo in `only_seats` matches no seat rather than raising, which fails
+    inert in the safe direction — nothing is written, and meta.seatsRun shows
+    the shortfall.
+
+    A finding that fails validation is counted in meta.rejected and simply not
+    written — a bad finding must never become a thesis. Note that validation is
+    given the CALLER's ticker, never the model's: a seat asked about one name
+    cannot file a finding against another, however persuasive the forwarded
+    posts in its prompt were (see validate_finding's TICKER PIN note).
+    """
+    seat_keys = [s for s in SEATS if not only_seats or s in only_seats]
+    out = []
+    failures = []
+    rejected = 0
+
+    for ticker in tickers:
+        context = theses_by_ticker.get(ticker, [])
+        for seat in seat_keys:
+            system, user = build_seat_prompt(seat, ticker, context)
+            try:
+                raw = call_fn(system, user)
+            except Exception as exc:  # noqa: BLE001 — isolate this one call
+                failures.append({"seat": seat, "ticker": ticker,
+                                 "error": str(exc)})
+                print("WARN seat {} failed on {}: {}".format(seat, ticker, exc),
+                      file=sys.stderr)
+                continue
+            finding = validate_finding(raw, seat, ticker, allowed_tickers)
+            if finding is None:
+                rejected += 1
+                continue
+            out.append(finding_to_thesis(finding, now))
+
+    return {
+        "theses": out,
+        "meta": {
+            "generatedAt": now,
+            "seatsRun": len(seat_keys),
+            "tickersCovered": len(tickers),
+            "written": len(out),
+            "rejected": rejected,
+            "failures": failures,
+        },
+    }
