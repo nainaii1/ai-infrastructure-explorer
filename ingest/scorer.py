@@ -52,7 +52,7 @@ VALID_DIRECTIONS = {"bull", "bear", "neutral"}
 UNKNOWN_DIRECTION = "unknown"
 
 
-def _is_research(thesis):
+def is_research(thesis):
     """True when a thesis is a desk research finding rather than an analyst post.
 
     Case-insensitive on purpose. These records are hand-authored by an agent,
@@ -62,8 +62,11 @@ def _is_research(thesis):
     An absent or None source still reads as analyst: that is every one of the
     258 captured posts, and they are genuinely his.
 
-    One definition, two call sites (_direction_weight and compute_priorities),
-    so the two can never drift apart.
+    Public (no leading underscore) because this is a shared rule, not a private
+    helper: three call sites now, and one of them is in another module —
+    seats.select_coverage, which excludes research from the coverage aggregate
+    for the same reason the other two exclude it from score and tier. One
+    definition so the three can never drift apart.
     """
     source = thesis.get("source")
     return isinstance(source, str) and source.strip().lower() == RESEARCH_SOURCE
@@ -92,7 +95,7 @@ def _direction_weight(thesis):
         return 0.0          # can't read it, so it doesn't get a vote
     if direction == "bear":
         return -1.0
-    if _is_research(thesis):
+    if is_research(thesis):
         return 0.0
     return 1.0
 
@@ -168,7 +171,7 @@ def compute_priorities(theses, now=None, half_life_days=HALF_LIFE_DAYS):
         syms = th.get("tickers", [])
         focus = _focus_weight(len(syms))
         direction = _normalize_direction(th)
-        is_research = _is_research(th)
+        research = is_research(th)   # local name differs: `is_research` is the function
         signed = weight * focus * _direction_weight(th)
         for sym in syms:
             a = agg.setdefault(
@@ -183,7 +186,7 @@ def compute_priorities(theses, now=None, half_life_days=HALF_LIFE_DAYS):
             # Without this, a model could zero its own score contribution via
             # RESEARCH_SOURCE and still promote a name to "core" through
             # weightedMentions, which the score guard never touches.
-            if not is_research:
+            if not research:
                 a["weighted"] += focus
             a["recency"] += weight * focus  # recency + focus, for `attention`
             a["net"] += signed
@@ -195,9 +198,9 @@ def compute_priorities(theses, now=None, half_life_days=HALF_LIFE_DAYS):
             # must be excluded here too. Guarding only `weighted` left this
             # path open: two research posts marked "high" promoted a name to
             # core with a score of 0.0 (verified 2026-07-26).
-            if is_high and not is_research:
+            if is_high and not research:
                 a["convictionHits"] += 1
-            if is_research:
+            if research:
                 a["research"] += 1
             current = _parse_dt(a["lastMentioned"])
             if current is None or (posted and posted > current):

@@ -270,13 +270,58 @@ MAX_COVERAGE = 12
 NEW_THESIS_TRIGGER = 3
 
 
+def _day(value):
+    """The date portion of a timestamp, so mixed store formats compare.
+
+    verdicts.json carries both "2026-07-06" and "2026-07-22T00:00:00Z", and
+    scorer._parse_dt accepts both, so both are legitimate. A lexical compare
+    between the two shapes is wrong: date-only "2026-07-22" sorts BELOW
+    "2026-07-22T00:00:00Z" and would be silently excluded. Coverage runs
+    weekly, so intra-day precision is irrelevant.
+
+    A missing, empty or non-string value yields "". What that means depends
+    entirely on which side of the comparison it lands on, and the two are NOT
+    symmetric — see select_coverage, which rejects an empty `since` outright:
+
+      * on a RECORD's date, "" sorts below every real cutoff, so the record is
+        excluded. That is the inert direction and the correct one.
+      * on the `since` cutoff, "" sorts below every record, so EVERY record
+        passes. That is failing open, and there is no inert reading of a
+        missing cutoff, so the caller must be told instead.
+    """
+    return value[:10] if isinstance(value, str) else ""
+
+
 def select_coverage(priorities, verdicts, theses, since, cap=MAX_COVERAGE):
     """Pick which names the seats review this run. Returns (selected, dropped).
 
+    CALLER CONTRACT — both inputs must be pre-processed, because this module is
+    pure and can load neither base.json nor the tier assignments:
+
+    * `priorities` must ALREADY be filtered to the candidate set you want
+      reviewed (in practice the Core-tier rows). This function has no tier
+      awareness, so handing it the full ~110-name ranking would let the
+      remainder fill pull `radar` one-off name-drops into an expensive
+      three-seat review. It also defines `dropped`: the names that genuinely
+      lost the cap, which is what the caller reports to the operator. Pass the
+      whole ranking and `dropped` becomes ~98 names of noise instead.
+    * `theses` must ALREADY be canonicalized via scorer.canonicalize_theses().
+      Un-canonicalized, three posts tagged SIVEF do not trigger `busy` for
+      SIVE, and a post tagged with both double-counts.
+
     Priority order, because the cap is tight and decisions matter more than
-    coverage: names whose stance moved at the last review, then names the
-    analyst has posted about at least NEW_THESIS_TRIGGER times since, then the
-    highest-scoring remainder.
+    coverage: names whose stance actually moved at the last review, then names
+    the analyst has posted about at least NEW_THESIS_TRIGGER times since, then
+    the highest-ranked remainder.
+
+    A stance change is only detectable when a verdict carries `previousStance`
+    differing from its current `stance`. That field is OPTIONAL and not yet
+    written — the weekly-review skill is expected to start stamping it. Until
+    it does, no verdict qualifies and `busy`/`ranked` do the work. This is
+    deliberate: verdicts.json stores only the current stance with no history,
+    and the skill rewrites `updatedAt` on every Core verdict whether or not the
+    stance moved, so keying off `updatedAt` alone selected 13 of 17 names and
+    silently ate the entire cap, making `busy` and `ranked` unreachable.
 
     Reviewing every Core name weekly is deliberately rejected — roughly three
     times the cost for names where no decision is pending. `dropped` is
@@ -286,23 +331,49 @@ def select_coverage(priorities, verdicts, theses, since, cap=MAX_COVERAGE):
     ranked = [p["ticker"] for p in priorities]
     rank_of = {t: i for i, t in enumerate(ranked)}
 
-    changed = [v["ticker"] for v in verdicts
-               if (v.get("updatedAt") or "") >= since and v.get("ticker") in rank_of]
+    since_day = _day(since)
+    if not since_day:
+        # Deliberately loud, and deliberately NOT the inert treatment the
+        # record side gets. An unreadable date on a record excludes that
+        # record; an unreadable `since` opens every gate, so failing quietly
+        # here would review everything ever posted and call it a weekly run.
+        # A caller with no cutoff is a bug in the caller: run_seats reads this
+        # from verdicts.json meta.reviewedAt, and .get() yields None the day
+        # that key is absent or renamed.
+        raise ValueError(
+            "select_coverage: `since` must be a non-empty date or ISO "
+            "timestamp string, got {!r}".format(since))
 
+    if cap <= 0:
+        return [], list(ranked)
+
+    changed = []
+    for v in verdicts:
+        if _day(v.get("updatedAt")) < since_day:
+            continue
+        # Absent/empty/non-string on either side reads as "no known change"
+        # and does not qualify — the field is optional, so it must fail inert.
+        current = _coerce_str(v.get("stance")).lower()
+        previous = _coerce_str(v.get("previousStance")).lower()
+        if not current or not previous or current == previous:
+            continue
+        if v.get("ticker") in rank_of:
+            changed.append(v["ticker"])
+
+    # Research findings never buy coverage: one research thesis per seat per
+    # covered name lands in the feed stamped with the run's timestamp, so
+    # counting them would make every reviewed name qualify as busy on the next
+    # run forever — ratcheting itself into a tight cap and crowding out names
+    # nobody has looked at. This is the coverage aggregate's version of the
+    # scorer asymmetry: research can correct a name, never promote it.
+    # scorer.is_research (not a source == "research" comparison) so a miscased
+    # "Research" still reads as research rather than failing back to full
+    # analyst treatment.
     counts = {}
     for th in theses:
-        # Research findings never buy coverage. run_seats writes exactly
-        # NEW_THESIS_TRIGGER of them per covered name, stamped with the run's
-        # timestamp, so counting them would make every reviewed name qualify
-        # as busy on the next run forever — ratcheting itself into a tight cap
-        # and crowding out names nobody has looked at. This is the coverage
-        # aggregate's version of the scorer asymmetry: research can correct a
-        # name, never promote it. scorer._is_research (not a source ==
-        # "research" comparison) so a miscased "Research" still reads as
-        # research rather than failing back to full analyst treatment.
-        if scorer._is_research(th):
+        if scorer.is_research(th):
             continue
-        if (th.get("postedAt") or "") < since:
+        if _day(th.get("postedAt")) < since_day:
             continue
         for sym in th.get("tickers", []):
             counts[sym] = counts.get(sym, 0) + 1

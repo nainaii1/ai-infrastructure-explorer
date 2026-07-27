@@ -266,12 +266,68 @@ class TestSelectCoverage(unittest.TestCase):
     def _pri(self, pairs):
         return [{"ticker": t, "score": s} for t, s in pairs]
 
+    def _verdict(self, ticker, updated_at="2026-07-25T00:00:00Z",
+                 stance="act", previous="watch"):
+        """A verdict whose stance genuinely moved, unless told otherwise.
+
+        `previous=None` omits previousStance entirely — the shape of all 17
+        records in the live store today.
+        """
+        v = {"ticker": ticker, "updatedAt": updated_at, "stance": stance}
+        if previous is not None:
+            v["previousStance"] = previous
+        return v
+
     def test_stance_changes_come_first(self):
         pri = self._pri([("AAA", 90), ("BBB", 80), ("CCC", 1)])
-        verdicts = [{"ticker": "CCC", "updatedAt": "2026-07-25T00:00:00Z"}]
         picked, _ = seats.select_coverage(
-            pri, verdicts, [], since="2026-07-20", cap=2)
+            pri, [self._verdict("CCC")], [], since="2026-07-20", cap=2)
         self.assertEqual(picked[0], "CCC")
+
+    def test_an_unchanged_stance_does_not_qualify(self):
+        # The live failure mode: the weekly-review skill rewrites updatedAt on
+        # every Core verdict whether or not the stance moved, so a fresh
+        # timestamp alone must not buy a review slot.
+        pri = self._pri([("AAA", 90), ("CCC", 1)])
+        verdicts = [self._verdict("CCC", stance="act", previous="act")]
+        picked, _ = seats.select_coverage(
+            pri, verdicts, [], since="2026-07-20", cap=1)
+        self.assertEqual(picked, ["AAA"])
+
+    def test_a_previous_stance_differing_only_in_case_does_not_qualify(self):
+        # verdicts.json is agent-authored, so "act" vs "Act" is a realistic
+        # typo. Without .lower() the same word reads as a stance change and
+        # buys a review slot — failing open on exactly the input invariant 3
+        # exists for.
+        pri = self._pri([("AAA", 90), ("CCC", 1)])
+        verdicts = [self._verdict("CCC", stance="act", previous="Act")]
+        picked, _ = seats.select_coverage(
+            pri, verdicts, [], since="2026-07-20", cap=1)
+        self.assertEqual(picked, ["AAA"])
+
+    def test_a_missing_since_is_rejected_rather_than_failing_open(self):
+        # An unreadable date on a RECORD excludes that record. An unreadable
+        # `since` would open every gate, so there is no inert answer and the
+        # caller has to be told. run_seats reads this from verdicts.json
+        # meta.reviewedAt, where .get() yields None if the key is ever
+        # renamed — that must not silently review everything ever posted.
+        pri = self._pri([("AAA", 90), ("OLD", 1)])
+        theses = [thesis("t%d" % i, ["OLD"], "2019-01-01T00:00:00Z")
+                  for i in range(seats.NEW_THESIS_TRIGGER)]
+        for bad in (None, "", 20260720):
+            with self.assertRaises(ValueError, msg=repr(bad)) as ctx:
+                seats.select_coverage(pri, [], theses, since=bad, cap=1)
+            self.assertIn("since", str(ctx.exception))
+
+    def test_a_missing_previous_stance_does_not_qualify(self):
+        # Fails inert until the weekly-review skill starts stamping the field:
+        # no history recorded means no *known* change, not an assumed one.
+        # Every record in the live store has this shape today.
+        pri = self._pri([("AAA", 90), ("CCC", 1)])
+        verdicts = [self._verdict("CCC", previous=None)]
+        picked, _ = seats.select_coverage(
+            pri, verdicts, [], since="2026-07-20", cap=1)
+        self.assertEqual(picked, ["AAA"])
 
     def test_names_with_enough_new_theses_come_next(self):
         pri = self._pri([("AAA", 90), ("DDD", 2)])
@@ -296,11 +352,10 @@ class TestSelectCoverage(unittest.TestCase):
 
     def test_no_duplicates_when_a_name_qualifies_twice(self):
         pri = self._pri([("AAA", 90)])
-        verdicts = [{"ticker": "AAA", "updatedAt": "2026-07-25T00:00:00Z"}]
         theses = [thesis("t%d" % i, ["AAA"], "2026-07-24T00:00:00Z")
                   for i in range(5)]
         picked, _ = seats.select_coverage(
-            pri, verdicts, theses, since="2026-07-20", cap=12)
+            pri, [self._verdict("AAA")], theses, since="2026-07-20", cap=12)
         self.assertEqual(picked, ["AAA"])
 
     def test_a_stance_change_outranks_a_different_busy_name(self):
@@ -310,21 +365,22 @@ class TestSelectCoverage(unittest.TestCase):
         # the stance change. Without a busy name that is NOT the changed name,
         # swapping the group order goes undetected.
         pri = self._pri([("AAA", 90), ("CCC", 2), ("DDD", 1)])
-        verdicts = [{"ticker": "CCC", "updatedAt": "2026-07-25T00:00:00Z"}]
         theses = [thesis("t%d" % i, ["DDD"], "2026-07-24T00:00:00Z")
                   for i in range(3)]
         picked, _ = seats.select_coverage(
-            pri, verdicts, theses, since="2026-07-20", cap=1)
+            pri, [self._verdict("CCC")], theses, since="2026-07-20", cap=1)
         self.assertEqual(picked, ["CCC"])
 
     def test_a_verdict_for_a_dropped_ticker_is_ignored(self):
         # verdicts.json outlives the ranking: a name re-tiered out of
         # priorities still has a verdict record. It must neither KeyError in
         # the rank sort nor appear in the selection.
+        # The verdict must otherwise fully qualify (fresh + a real stance
+        # change), or the membership guard is never reached and this test
+        # would pass for the wrong reason.
         pri = self._pri([("AAA", 90)])
-        verdicts = [{"ticker": "GONE", "updatedAt": "2026-07-25T00:00:00Z"}]
         picked, dropped = seats.select_coverage(
-            pri, verdicts, [], since="2026-07-20", cap=12)
+            pri, [self._verdict("GONE")], [], since="2026-07-20", cap=12)
         self.assertEqual(picked, ["AAA"])
         self.assertNotIn("GONE", picked)
         self.assertNotIn("GONE", dropped)
@@ -350,7 +406,7 @@ class TestSelectCoverage(unittest.TestCase):
         self.assertEqual(picked, ["RRR"])
 
     def test_miscased_research_source_still_does_not_qualify(self):
-        # Fails inert, via scorer._is_research: a hand-authored "Research"
+        # Fails inert, via scorer.is_research: a hand-authored "Research"
         # must not buy coverage that lowercase "research" is denied.
         pri = self._pri([("AAA", 90), ("RRR", 1)])
         research = [dict(thesis("t%d" % i, ["RRR"], "2026-07-24T00:00:00Z"),
@@ -361,13 +417,59 @@ class TestSelectCoverage(unittest.TestCase):
         self.assertEqual(picked, ["AAA"])
 
     def test_old_verdicts_and_old_theses_do_not_qualify(self):
+        # The verdict carries a real stance change, so only its stale date
+        # keeps it out — otherwise the cutoff would go untested.
         pri = self._pri([("AAA", 90), ("ZZZ", 1)])
-        verdicts = [{"ticker": "ZZZ", "updatedAt": "2026-07-01T00:00:00Z"}]
+        verdicts = [self._verdict("ZZZ", updated_at="2026-07-01T00:00:00Z")]
         theses = [thesis("t%d" % i, ["ZZZ"], "2026-07-01T00:00:00Z")
                   for i in range(9)]
         picked, _ = seats.select_coverage(
             pri, verdicts, theses, since="2026-07-20", cap=1)
         self.assertEqual(picked, ["AAA"])
+
+    def test_date_only_timestamps_compare_against_a_full_iso_since(self):
+        # XFAB really has updatedAt "2026-07-06" while the rest are full ISO,
+        # and scorer._parse_dt accepts both. Lexically "2026-07-22" sorts BELOW
+        # "2026-07-22T00:00:00Z", so a same-day date-only record would be
+        # silently dropped if the two sides were not made commensurable.
+        pri = self._pri([("AAA", 90), ("CCC", 1)])
+        verdicts = [self._verdict("CCC", updated_at="2026-07-22")]
+        picked, _ = seats.select_coverage(
+            pri, verdicts, [], since="2026-07-22T00:00:00Z", cap=1)
+        self.assertEqual(picked, ["CCC"])
+
+    def test_a_date_only_since_still_admits_full_iso_records(self):
+        # The mirror image: date-only on the `since` side, full ISO in the
+        # store. Same-day must still qualify.
+        pri = self._pri([("AAA", 90), ("CCC", 1)])
+        theses = [thesis("t%d" % i, ["CCC"], "2026-07-20T09:30:00Z")
+                  for i in range(seats.NEW_THESIS_TRIGGER)]
+        picked, _ = seats.select_coverage(
+            pri, [], theses, since="2026-07-20", cap=1)
+        self.assertEqual(picked, ["CCC"])
+
+    def test_one_short_of_the_trigger_does_not_qualify(self):
+        # Pins the lower boundary: >= 3 and >= 2 are otherwise
+        # indistinguishable, since every other test uses exactly the trigger.
+        pri = self._pri([("AAA", 90), ("DDD", 1)])
+        theses = [thesis("t%d" % i, ["DDD"], "2026-07-24T00:00:00Z")
+                  for i in range(seats.NEW_THESIS_TRIGGER - 1)]
+        picked, _ = seats.select_coverage(
+            pri, [], theses, since="2026-07-20", cap=1)
+        self.assertEqual(picked, ["AAA"])
+
+    def test_a_non_positive_cap_selects_nothing(self):
+        # A qualifying name in the FIRST group is what makes this bite: with
+        # every group empty the loop's own `len(selected) >= cap` check breaks
+        # on 0 >= 0 before appending, so the bug hides. With a stance change
+        # present, the append precedes the length check and one name leaks out.
+        pri = self._pri([("AAA", 90), ("BBB", 80)])
+        verdicts = [self._verdict("AAA")]
+        for cap in (0, -1):
+            picked, dropped = seats.select_coverage(
+                pri, verdicts, [], since="2026-07-20", cap=cap)
+            self.assertEqual(picked, [], cap)
+            self.assertEqual(dropped, ["AAA", "BBB"], cap)
 
 
 if __name__ == "__main__":
