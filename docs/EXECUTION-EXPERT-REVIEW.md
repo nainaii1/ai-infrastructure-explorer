@@ -1,0 +1,203 @@
+# Execution Guide — Expert Review Team
+
+_Created 2026-07-26. This is the to-do doc for the expert-review-team programme:
+tick boxes as sessions land. One prompt = one Claude Code session = one commit._
+
+**Goal:** stop the desk being downstream of exactly one analyst. All 258 captured
+theses come from one long-only investor, so the store contains no bear case and
+nothing outside his field of view can enter. Three expert seats research a
+shortlist each week and write checked findings back into the thesis feed; over
+time a claims ledger measures who has actually been right.
+
+**Spec:** `docs/superpowers/specs/2026-07-26-expert-review-team-design.md`
+**Plans:** `docs/superpowers/plans/2026-07-26-direction-aware-scoring.md` (Phase 1),
+`docs/superpowers/plans/2026-07-26-expert-review-seats.md` (Phase 2)
+
+For the v7 "Private Coverage" upgrade — a separate, completed programme — see
+`docs/EXECUTION.md`.
+
+## How to use this doc
+
+1. Work top to bottom; each session assumes the previous one landed.
+2. Open a fresh Claude Code session per prompt and paste the prompt verbatim.
+3. After each session run its verification checklist, tick the box, commit.
+4. **Read "Invariants" below before touching `scorer.py` or `seats.py`.** Every
+   one of them was found by a review catching a defect that passed its own
+   tests. They are cheap to break and expensive to notice.
+
+---
+
+## Status
+
+| Phase | What | State |
+|---|---|---|
+| 1 | Direction-aware scoring, retired conviction multiplier, `data.js` guard | ✅ shipped 2026-07-26 |
+| 2 | The three seats, verification rule, research theses in the feed | 🔵 **60% — P2-3/4/5 remain** |
+| 3 | `claims.json`, claim judging, performance-page split | ⬜ not started |
+| 4 | Hit-rate weighting | ⬜ blocked on 20+ judged claims per source |
+| 5 | Scheduled overnight run | ⬜ not started |
+
+**Branch:** `feat/expert-review-seats`, 6 commits, not pushed.
+**Tests:** 188 passing.
+
+### Phase 2 detail
+
+- [x] **P2-1** — research theses cannot buy tier coverage via `convictionHits`;
+      `researchMentions` exposed; the `source` check fails inert, not open.
+      Commits `76b7102`, `933f9db`.
+- [x] **P2-2** — `ingest/seats.py` core: `SEATS`, `build_seat_prompt`,
+      `validate_finding` (the verification rule), `finding_to_thesis`. Plus the
+      security round: injection firewall, ticker pinning, real-host citations,
+      `r_` id namespace. Commits `caf090f`, `49006ef`, `31402a4`, `eb8c6d1`.
+- [ ] **P2-3** — orchestration: `select_coverage`, `run_seats`,
+      `merge_research_theses`. Plan Tasks 5–7.
+- [ ] **P2-4** — stop crediting research findings to the analyst. Plan Task 8.
+- [ ] **P2-5** — the `/pre-review` skill and docs. Plan Tasks 9–10.
+
+---
+
+## Invariants — do not regress these
+
+Each of these was a live defect at some point in Phase 1 or 2. They are listed
+in the order they were found, which is roughly the order of how easy they are to
+reintroduce.
+
+1. **`assign_tiers` never reads `score`.** It gates on `weightedMentions` and
+   `convictionHits` only. Retiring the conviction multiplier therefore moved no
+   ticker between tiers, and that is intentional.
+2. **Research can subtract but never add.** All three paths are guarded: the
+   score (`_direction_weight` returns 0.0 for a research bull), `weightedMentions`
+   (skipped entirely), and `convictionHits` (skipped entirely). The second and
+   third were each found *after* the first was fixed — if you add a fourth
+   aggregate, guard it too.
+3. **An unreadable value fails inert, never toward a vote.** A typo'd
+   `"bearish"` scores 0.0 rather than falling back to `neutral` (+1.0). A
+   miscased `"Research"` still counts as research rather than reverting to full
+   analyst weight. Both records are hand-authored by an agent, so typos are the
+   expected case.
+4. **An uncited finding cannot move a number.** Empty or unciteable `basis` →
+   `verification: "unverified"` → `direction` forced to `"neutral"` → weight
+   exactly 0.0. Visible in the brief, inert in the maths.
+5. **Forwarded posts are untrusted input.** They are third-party social media
+   text, and the seat reading them has web access and writes to the rankings.
+   The thesis block is delimited, clipped to `MAX_THESIS_CHARS`, and the system
+   prompt says to ignore instructions inside it. The ticker is pinned from the
+   caller so an injection is inert even if the model falls for it.
+6. **`seats.py` and `synthesize.py` are pure.** No network, no file I/O, no API
+   client. Intelligence arrives through an injected `call_fn(system, user)`,
+   because the operator has no API key. Adding an SDK import breaks the whole
+   pattern.
+7. **No test may write anything under `ingest/store/`.** Those are real
+   financial records. A Phase 1 test overwrote the hand-authored
+   `verdicts.json` and restored it non-atomically; a crash mid-test would have
+   destroyed it. Monkeypatch `gen.STORE` to a `TemporaryDirectory` instead.
+8. **Restart `bot.py` after editing anything under `ingest/`.** A long-running
+   bot holds stale modules and silently rewrote `data.js` without six
+   top-level blocks for four days. `write_data_js` now refuses to run from
+   stale source, but only by raising.
+9. **Clear `__pycache__` between mutation runs.** Stale bytecode has produced a
+   false "the guard still works" reading in this repo.
+
+---
+
+## Remaining sessions
+
+### P2-3 — Orchestration
+
+Plan Tasks 5–7. Adds `select_coverage`, `run_seats` and `merge_research_theses`
+to `ingest/seats.py`.
+
+**Prompt:**
+
+> Read `docs/superpowers/plans/2026-07-26-expert-review-seats.md` Tasks 5, 6 and 7,
+> and `docs/EXECUTION-EXPERT-REVIEW.md` "Invariants". Implement all three tasks
+> TDD, committing after each. `ingest/seats.py` must stay pure — no network, no
+> file I/O. `run_seats` takes an injected `call_fn`, isolates per-call failures,
+> and counts rejected findings without writing them. `merge_research_theses` must
+> never modify an analyst thesis, even on an id collision. Note that
+> `validate_finding` now takes `(raw, seat, ticker, allowed_tickers)` — the plan
+> text predates the ticker-pinning fix, so pass the caller's ticker through.
+> Mutation-test each guard: break it, confirm a test goes red, restore.
+
+- [ ] Landed. **Verify:** full suite green; `seats.py` still has no I/O
+      (`grep -nE "open\(|urllib|requests|import os" ingest/seats.py` returns
+      nothing); a seat failing on one ticker does not abort the run; an analyst
+      thesis survives an id collision unchanged.
+
+### P2-4 — Stop crediting research to the analyst
+
+Plan Task 8, **plus one surface the plan does not name.**
+
+**Prompt:**
+
+> Read `docs/superpowers/plans/2026-07-26-expert-review-seats.md` Task 8. Pass
+> `researchMentions` through the per-ticker priority stamp in
+> `ingest/generate_data_js.py`, and fix the `desk.html` tooltip that would credit
+> desk research findings to @aleabitoreddit. **Also fix `ingest/vault_sync.py:99`**,
+> which copies `p.get("mentions", 0)` into the vault ticker page stats rendered as
+> "Mentions" at `vault.html:576` — same misattribution, different surface, not in
+> the plan. Bump `base.json` `meta.version`, regenerate `data.js`, and verify in
+> the browser that the tooltip reads correctly with zero research theses present.
+
+- [ ] Landed. **Verify:** `for k in glossary desk memos vault calls benchmarkQuote; do grep -c "^  \"$k\"" data.js; done`
+      returns six `1`s; tooltip splits analyst from research; browser console clean.
+
+### P2-5 — The `/pre-review` skill and docs
+
+Plan Tasks 9–10.
+
+**Prompt:**
+
+> Read `docs/superpowers/plans/2026-07-26-expert-review-seats.md` Tasks 9 and 10.
+> Create `.claude/skills/pre-review/SKILL.md`, add step 0 to the weekly-review
+> skill, and update `CLAUDE.md`, `docs/ROADMAP.md` and the spec status header.
+> The skill must state the basis rule as absolute — an empty `basis` is the
+> correct answer when no primary source exists, never an invented citation — and
+> must tell the operator which names the coverage cap dropped.
+
+- [ ] Landed. **Verify:** `/pre-review` appears in the skill list; weekly-review
+      step 0 points at it; no doc still describes the old scoring formula.
+
+### Phase 3 — The memory
+
+Not yet planned. Needs its own spec pass and plan before any code.
+
+Scope: `ingest/store/claims.json`; extracting dated, testable predictions from
+findings and from the analyst's posts; judging them when their date arrives; hit
+rate reported alongside the **unfalsifiable share**, so a source cannot score
+well by being vague; splitting `performance.html` into Calls and Claims.
+
+- [ ] Plan written
+- [ ] Landed
+
+### Phase 4 — Hit-rate weighting
+
+**Blocked, deliberately.** `source_weight = clamp(0.5 + hit_rate, 0.5, 1.5)`,
+applied per thesis by author, and gated so a source keeps a weight of exactly
+1.0 until it has **at least 20 judged claims**. Expect three to six months of
+Phase 3 running before this does anything real. Do not start early — three
+lucky calls must not reweight the book.
+
+- [ ] Unblocked (20+ judged claims exist)
+- [ ] Landed
+
+### Phase 5 — Scheduled run
+
+The seats run unattended the night before the weekly review, covering at most 12
+names, logging whatever the cap dropped.
+
+- [ ] Landed
+
+---
+
+## What is deliberately not built
+
+- **Claims in the seat output.** The spec's seat shape includes a `claims`
+  array; Phase 2 drops it because `claims.json` does not exist until Phase 3.
+  Capturing predictions with nowhere to put them is speculative.
+- **Practice 9.0 — daily kill-trigger monitoring.** Only worth building if the
+  operator starts acting on the tool, which he currently does not.
+- **A real tenth out of ten.** Every seat is the same model with a different
+  instruction. A genuine 10 needs humans with different incentives, expert
+  network calls, channel checks, proprietary data. 9 is the honest ceiling for
+  a one-person desk.

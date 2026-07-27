@@ -183,6 +183,11 @@ not throwaway config.
   (`docs/superpowers/specs/2026-07-03-signal-digest-design.md`) is kept for
   history only — do not build it. Tweet discovery still stays fully manual
   (Telegram bots can't read other bots' messages).
+- **Expert review team programme** (spec Phase 1 shipped, Phase 2 in
+  progress): the live to-do doc with per-session prompts and the list of
+  hard-won invariants is `docs/EXECUTION-EXPERT-REVIEW.md`. Read its
+  "Invariants" section before touching `ingest/scorer.py` or
+  `ingest/seats.py`.
 - **For full history / open issues / next steps:** see `docs/ROADMAP.md`
   (living doc, update it whenever status changes).
 - **For a full design-system reference** (color tokens, type scale, spacing,
