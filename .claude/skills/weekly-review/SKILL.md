@@ -22,6 +22,13 @@ further without the operator asking.
 
 ## Procedure
 
+0. **Run `/pre-review` first** (unless the operator says to skip it). The three
+   expert seats research this week's shortlist and write checked outside
+   research into the thesis feed, so the verdicts below are written with a bear
+   case on the table rather than from one analyst's posts alone. If it was
+   skipped, say so at the top of the report — a review with no counter-evidence
+   is a weaker review and the operator should know which kind he got.
+
 1. **Refresh prices** (needs network):
    `python3 ingest/fetch_prices.py`
    If it fails (offline/rate-limited), continue — prices are cosmetic to this pass.
@@ -48,9 +55,17 @@ further without the operator asking.
 
 4. **Update `ingest/store/verdicts.json`** (the heart of the pass):
    - For each Core name (top 12–15 by score): re-read its theses, then write
-     or update `{ticker, stance, view, execution, changesMind,
+     or update `{ticker, stance, previousStance, view, execution, changesMind,
      basedOnThesisIds, updatedAt}`.
    - `stance` ∈ `act | accumulate | watch | pass`.
+   - **`previousStance` is the stance this ticker carried before you touched
+     it this week** — copy the old `stance` value across before overwriting it,
+     and set it equal to the new `stance` when the call did not move. Omit it
+     only on a name's very first verdict. This is the only record that a stance
+     *changed*: `updatedAt` cannot tell you, because this step rewrites it on
+     every Core name whether or not the call moved. `/pre-review` picks the
+     names whose stance moved first, so a missing or stale `previousStance`
+     silently costs those names their place in the shortlist.
    - `view` must take a position on the analyst's take — agree with evidence
      or push back (bias check: is he talking his book? is the mention count
      inflated by list-posts?).
