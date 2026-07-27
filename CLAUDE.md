@@ -88,6 +88,24 @@ not throwaway config.
   (`.claude/skills/weekly-review/SKILL.md`) in a Claude Code session — no
   API key needed. Verdicts are capped at the top 12–15 Core names by design
   (token budget). Latest pass: 2026-07-06, 15 Core names covered.
+- **Expert review seats** ✅ done (2026-07-27, spec Phase 2). Three reviewers —
+  `semi-expert` (is the technical claim true?), `fundamental` (do the numbers
+  work?), `pm` (is this a good bet at this price?) — research a shortlist of up
+  to 12 names before each weekly review and write findings into `theses.json`
+  as `source: "research"` theses. `ingest/seats.py` is pure and takes an
+  injected `call_fn`, exactly like `synthesize.py`, so it runs in a Claude Code
+  session with no API key. **The verification rule:** a finding with no citable
+  primary source is marked `unverified` and forced to `direction: "neutral"` —
+  visible in the brief, and worth exactly 0.0 to any score. Research can correct
+  a name downward but can never inflate its rank, buy it tier coverage, add
+  conviction hits, or be counted as analyst attention (it is excluded from
+  `analystMentions`, `attention` and `lastMentioned`). Findings are pinned to
+  the ticker the seat was *asked* about, not the one the answer claims, so a
+  forwarded post cannot talk a seat into filing against a different name.
+  Shortlist order is stance-changed → 3+ new analyst theses → score, with the
+  names the cap dropped always reported. Run via the **`/pre-review` skill**;
+  `/weekly-review` stamps `previousStance` on every verdict so a stance
+  *change* is detectable at all.
 - **v6 — "Field Guide" redesign** ✅ done (2026-07-03). Tabs dissolved into one
   chaptered scroll: hero prologue (signal-chain stat nodes with count-up,
   Core/Watch/Radar barbell bar, "Latest signal" card), numbered chapter heads,
@@ -312,18 +330,20 @@ so newly-ingested tickers and theses surface. Categories / center / countries
                   // optional, merged from prices.json:
                   price, currency, chg7d, chg1m, marketCap, asOf,
                   // optional, merged from scorer.py:
-                  priority: { score, net, attention, mentions, bullMentions,
+                  priority: { score, net, attention, mentions, analystMentions,
+                              researchMentions, bullMentions,
                               bearMentions, convictionHits, lastMentioned },
                   // optional, stamped from verdicts.json (Core names only):
-                  verdict: { ticker, stance, view, execution, changesMind,
-                             basedOnThesisIds[], updatedAt } } ],
+                  verdict: { ticker, stance, previousStance, view, execution,
+                             changesMind, basedOnThesisIds[], updatedAt } } ],
   theses:     [ { id, source, author, sourceUrl, postedAt, ingestedAt, text,
                   tickers[], conviction, tags[],
                   // optional, since 2026-07-26 — read by scorer.py:
-                  direction } ],   // "bull" | "bear" | "neutral", LOWERCASE
-  priorities: [ { ticker, score, net, attention, mentions, bullMentions,
-                  bearMentions, weightedMentions, convictionHits,
-                  lastMentioned } ],
+                  direction,        // "bull" | "bear" | "neutral", LOWERCASE
+                  verification } ], // "verified" | "unverified" (research only)
+  priorities: [ { ticker, score, net, attention, mentions, analystMentions,
+                  bullMentions, bearMentions, researchMentions,
+                  weightedMentions, convictionHits, lastMentioned } ],
   brain:      { meta: { generatedAt, model, thesesConsidered,
                         categoriesSynthesized, schemaVersion, failures? },
                 digests: [ { category, narrative, conviction, keyPoints[],
@@ -345,6 +365,22 @@ so newly-ingested tickers and theses surface. Categories / center / countries
   `source: "research"` contributes 0 to the score and to `weightedMentions`
   regardless of direction unless it is `bear`: outside research can only
   correct a name downward, never inflate its rank or buy it tier coverage.
+- `verification` → `verified` | `unverified`, on research theses only. A
+  finding the seat could not tie to a citable primary source is stamped
+  `unverified` and forced to `direction: "neutral"`, so it is visible in the
+  brief but worth exactly 0.0 to any number.
+- `analystMentions` → `mentions` minus `researchMentions`, derived once in
+  `scorer.compute_priorities`. **Anything the UI labels "@aleabitoreddit" must
+  read this, never `mentions`** — the raw total counts the desk's own research
+  findings, so using it credits our work to him. `attention` and
+  `lastMentioned` exclude research for the same reason (and because `attention`
+  is an aggregate, which research may subtract from but never add to).
+- `previousStance` → the stance a verdict carried before the current weekly
+  pass overwrote it, written by `/weekly-review`. It is the only record that a
+  stance *changed*: `updatedAt` cannot tell you, because the weekly pass
+  rewrites it on every Core name whether or not the call moved. `/pre-review`
+  picks stance-changed names first, and a verdict missing this field simply
+  does not qualify (fail inert) rather than matching everything.
 - `category` → a key in `AIE_DATA.categories` (currently: `photonics | memory |
   fabs | neoclouds | materials | networking | glass | robotics | accelerators
   | hyperscalers | unsorted`). `unsorted` is a triage bucket, not a real

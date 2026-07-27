@@ -1,17 +1,26 @@
 # Expert Review Team — Design Spec ("Practice 8.5")
 
-_Written 2026-07-26. Status: **Phase 1 shipped 2026-07-26; Phases 2–5 not yet
+_Written 2026-07-26. Status: **Phases 1–2 shipped 2026-07-27; Phases 3–5 not yet
 built.** The "Problem" section below describes the state before Phase 1 and is
 kept as the historical record — the scoring formula it quotes is no longer what
-`scorer.py` computes. Plan:
-`docs/superpowers/plans/2026-07-26-direction-aware-scoring.md`._
+`scorer.py` computes. Plans:
+`docs/superpowers/plans/2026-07-26-direction-aware-scoring.md`,
+`docs/superpowers/plans/2026-07-26-expert-review-seats.md`._
 
 **What shipped (Phase 1):** the `direction` field and its neutral default,
 direction-aware signed scoring, the research-source asymmetry, the retired
 conviction multiplier, and a `data.js` completeness + source-freshness guard.
 
-**What has not (Phases 2–5):** the three review seats, `claims.json` and claim
-judging, the performance-page split, hit-rate weighting, and the scheduled run.
+**What shipped (Phase 2):** the three review seats (`semi-expert`,
+`fundamental`, `pm`) in the pure `ingest/seats.py`, seat prompt building,
+finding validation with the verification rule, research theses written back
+into the store, coverage selection with a reported cap, and the `/pre-review`
+skill that drives it all with an injected `call_fn`.
+
+**What has not (Phases 3–5):** `claims.json` and claim judging, the
+performance-page split, hit-rate weighting, and the scheduled run. The seat
+output's `claims` array is deferred to Phase 3 with them — `claims.json` does
+not exist yet, so a seat has nowhere to file one.
 
 ## Problem
 

@@ -1,6 +1,6 @@
 # Roadmap & Status — AI Infrastructure Explorer
 
-_Last updated: 2026-07-26 (direction-aware scoring shipped). Living document — update as things ship or change._
+_Last updated: 2026-07-27 (expert review seats, Phase 2, shipped). Living document — update as things ship or change._
 
 > **Expert review team, Phase 1 — direction-aware scoring (✅ 2026-07-26).**
 > Theses carry an optional `direction` (`bull`/`bear`/`neutral`), and
@@ -22,10 +22,31 @@ _Last updated: 2026-07-26 (direction-aware scoring shipped). Living document —
 > **Fixed** below.
 > Spec: `docs/superpowers/specs/2026-07-26-expert-review-team-design.md`.
 > Plan: `docs/superpowers/plans/2026-07-26-direction-aware-scoring.md`.
-> **Not yet built — Phases 2–5:** the three review seats (`semi-expert`,
-> `fundamental`, `pm`), `claims.json` and claim judging, the performance-page
-> split into Calls and Claims, hit-rate weighting (gated on 20+ judged claims
-> per source), and the scheduled overnight run.
+> Phase 2 shipped 2026-07-27 — see the entry directly below.
+>
+> **Expert review team, Phase 2 — the three seats (✅ 2026-07-27).**
+> `ingest/seats.py` runs `semi-expert`, `fundamental` and `pm` over a shortlist
+> of up to 12 names (stance changes first, then names with 3+ new analyst
+> theses, then by score — drops are reported, never silent). Findings become
+> `source: "research"` theses. Pure module with an injected `call_fn`, so no
+> API key is needed; driven by the new `/pre-review` skill.
+> **The verification rule:** no citable primary source means `unverified` and a
+> forced `neutral` direction, which scores exactly 0.0 — visible but inert.
+> Findings are pinned to the ticker the seat was *asked* about, so a forwarded
+> third-party post cannot talk a seat into filing a finding against a different
+> name in the book.
+> Also closed three holes found in review: two research theses marked
+> `conviction: "high"` promoted a name to Core past the `weightedMentions`
+> guard; research counted as the analyst's own `mentions`, `attention` and
+> `lastMentioned` on the ticker tooltip, the priority strip, the watchlist
+> ordering and the vault ticker pages; and the shortlist's "stance changed"
+> tier matched any verdict the weekly pass had rewritten, which on live data
+> was 13 of 17 names and would have consumed the entire cap. Stance changes are
+> now detected from a `previousStance` field that `/weekly-review` stamps.
+> **Not yet built — Phases 3–5:** `claims.json` and claim judging, the
+> performance-page split into Calls and Claims, hit-rate weighting (gated on
+> 20+ judged claims per source), and the scheduled overnight run. The seat
+> output's `claims` array is deferred to Phase 3 with them.
 >
 > **Fixed 2026-07-26 — `data.js` was being silently truncated.** A `bot.py`
 > process running since 30 June held a stale generator module in memory and

@@ -32,13 +32,13 @@ For the v7 "Private Coverage" upgrade — a separate, completed programme — se
 | Phase | What | State |
 |---|---|---|
 | 1 | Direction-aware scoring, retired conviction multiplier, `data.js` guard | ✅ shipped 2026-07-26 |
-| 2 | The three seats, verification rule, research theses in the feed | 🔵 **60% — P2-3/4/5 remain** |
+| 2 | The three seats, verification rule, research theses in the feed | ✅ shipped 2026-07-27 |
 | 3 | `claims.json`, claim judging, performance-page split | ⬜ not started |
 | 4 | Hit-rate weighting | ⬜ blocked on 20+ judged claims per source |
 | 5 | Scheduled overnight run | ⬜ not started |
 
-**Branch:** `feat/expert-review-seats`, 6 commits, not pushed.
-**Tests:** 188 passing.
+**Branch:** `feat/expert-review-seats`, 13 commits, not pushed.
+**Tests:** 235 passing.
 
 ### Phase 2 detail
 
@@ -49,10 +49,14 @@ For the v7 "Private Coverage" upgrade — a separate, completed programme — se
       `validate_finding` (the verification rule), `finding_to_thesis`. Plus the
       security round: injection firewall, ticker pinning, real-host citations,
       `r_` id namespace. Commits `caf090f`, `49006ef`, `31402a4`, `eb8c6d1`.
-- [ ] **P2-3** — orchestration: `select_coverage`, `run_seats`,
-      `merge_research_theses`. Plan Tasks 5–7.
-- [ ] **P2-4** — stop crediting research findings to the analyst. Plan Task 8.
-- [ ] **P2-5** — the `/pre-review` skill and docs. Plan Tasks 9–10.
+- [x] **P2-3** — orchestration: `select_coverage`, `run_seats`,
+      `merge_research_theses`. Plan Tasks 5–7. Commits `5834022`, `5d961d9`,
+      `66f2189`, `cfafed1`, `0e5308c`, `de1de7f`.
+- [x] **P2-4** — stop crediting research findings to the analyst. Plan Task 8,
+      plus three surfaces the plan did not name: the priority strip, the
+      watchlist ordering, and `vault_sync.py`. Commit `5b69cf2`.
+- [x] **P2-5** — the `/pre-review` skill and docs. Plan Tasks 9–10.
+      Commit `a15a7ce` + this docs pass.
 
 ---
 
@@ -97,66 +101,52 @@ reintroduce.
    stale source, but only by raising.
 9. **Clear `__pycache__` between mutation runs.** Stale bytecode has produced a
    false "the guard still works" reading in this repo.
+10. **Research is not the analyst's attention either.** Invariant 2 covers the
+    maths; this covers attribution. `analystMentions`, `attention` and
+    `lastMentioned` all exclude research, and every UI label that names
+    @aleabitoreddit reads `analystMentions`, never the raw `mentions` total.
+    The split is derived once in `compute_priorities` rather than subtracted at
+    each call site, because four call sites is four chances to forget. Found
+    2026-07-27: the ticker tooltip, the priority strip, the watchlist ordering
+    and the vault ticker pages were all crediting desk findings to him, and
+    `attention` was being incremented by research outright.
+11. **A timestamp being rewritten is not a change.** `/weekly-review` stamps a
+    fresh `updatedAt` on every Core verdict whether or not the call moved, so
+    "stance changed since `since`" cannot be inferred from it — on the live
+    store that matched 13 of 17 names and would have silently consumed the
+    entire coverage cap, leaving the other two selection tiers unreachable. A
+    real change is detected from `previousStance`, and a verdict missing that
+    field does not qualify rather than matching everything.
+12. **A cutoff has no inert reading, so it must raise.** On a *record*, an
+    unreadable date fails inert and the record is excluded. On the `since`
+    argument, "unreadable" would open every gate — `select_coverage` raises
+    instead. This regressed once: normalizing dates for comparison turned a
+    loud `TypeError` on `since=None` into silent selection of a 2019 thesis.
+    Guard the inputs a caller controls differently from the data it passes.
+13. **A guard no mutation can make bite is decorative — delete it or fix the
+    test.** Three tests in this phase passed for the wrong reason and were
+    caught only by mutation: a count assertion that one seat running six times
+    would also satisfy, a `cap <= 0` test that passed because the loop broke
+    before the leak, and an id-collision guard that was simply unreachable.
+    Two were fixed; the third was removed as dead code.
 
 ---
 
 ## Remaining sessions
 
-### P2-3 — Orchestration
+### P2-3, P2-4, P2-5 — shipped 2026-07-27
 
-Plan Tasks 5–7. Adds `select_coverage`, `run_seats` and `merge_research_theses`
-to `ingest/seats.py`.
+The per-session prompts that stood here have been removed now that the work is
+done; the commits and what each one covered are in the Phase 2 detail list
+above, and the durable lessons are in **Invariants** 10–13. Two corrections
+worth carrying forward, because the plan text still has the older versions:
 
-**Prompt:**
-
-> Read `docs/superpowers/plans/2026-07-26-expert-review-seats.md` Tasks 5, 6 and 7,
-> and `docs/EXECUTION-EXPERT-REVIEW.md` "Invariants". Implement all three tasks
-> TDD, committing after each. `ingest/seats.py` must stay pure — no network, no
-> file I/O. `run_seats` takes an injected `call_fn`, isolates per-call failures,
-> and counts rejected findings without writing them. `merge_research_theses` must
-> never modify an analyst thesis, even on an id collision. Note that
-> `validate_finding` now takes `(raw, seat, ticker, allowed_tickers)` — the plan
-> text predates the ticker-pinning fix, so pass the caller's ticker through.
-> Mutation-test each guard: break it, confirm a test goes red, restore.
-
-- [ ] Landed. **Verify:** full suite green; `seats.py` still has no I/O
-      (`grep -nE "open\(|urllib|requests|import os" ingest/seats.py` returns
-      nothing); a seat failing on one ticker does not abort the run; an analyst
-      thesis survives an id collision unchanged.
-
-### P2-4 — Stop crediting research to the analyst
-
-Plan Task 8, **plus one surface the plan does not name.**
-
-**Prompt:**
-
-> Read `docs/superpowers/plans/2026-07-26-expert-review-seats.md` Task 8. Pass
-> `researchMentions` through the per-ticker priority stamp in
-> `ingest/generate_data_js.py`, and fix the `desk.html` tooltip that would credit
-> desk research findings to @aleabitoreddit. **Also fix `ingest/vault_sync.py:99`**,
-> which copies `p.get("mentions", 0)` into the vault ticker page stats rendered as
-> "Mentions" at `vault.html:576` — same misattribution, different surface, not in
-> the plan. Bump `base.json` `meta.version`, regenerate `data.js`, and verify in
-> the browser that the tooltip reads correctly with zero research theses present.
-
-- [ ] Landed. **Verify:** `for k in glossary desk memos vault calls benchmarkQuote; do grep -c "^  \"$k\"" data.js; done`
-      returns six `1`s; tooltip splits analyst from research; browser console clean.
-
-### P2-5 — The `/pre-review` skill and docs
-
-Plan Tasks 9–10.
-
-**Prompt:**
-
-> Read `docs/superpowers/plans/2026-07-26-expert-review-seats.md` Tasks 9 and 10.
-> Create `.claude/skills/pre-review/SKILL.md`, add step 0 to the weekly-review
-> skill, and update `CLAUDE.md`, `docs/ROADMAP.md` and the spec status header.
-> The skill must state the basis rule as absolute — an empty `basis` is the
-> correct answer when no primary source exists, never an invented citation — and
-> must tell the operator which names the coverage cap dropped.
-
-- [ ] Landed. **Verify:** `/pre-review` appears in the skill list; weekly-review
-      step 0 points at it; no doc still describes the old scoring formula.
+- `validate_finding` takes `(raw, seat, ticker, allowed_tickers)`. The ticker is
+  pinned from the caller, so a prompt injection cannot land a finding on a
+  different name. The plan's Task 6 body calls it with three arguments.
+- `select_coverage` has a caller contract the plan does not state: `theses`
+  must be canonicalized, `priorities` must be pre-filtered to the candidate
+  (Core) set, and `since` must be a non-empty date string.
 
 ### Phase 3 — The memory
 
