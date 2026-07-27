@@ -99,16 +99,21 @@ _Last updated: 2026-07-27 (expert review seats, Phase 2, shipped). Living docume
 
 | | |
 |---|---|
-| Tickers tracked | ~109 — now tiered: **23 Core / 21 Watch / 65 Radar** (check `data.js` tiers for exact) |
+_Measured from `ingest/store/*.json` and `data.js` on 2026-07-27._
+
+| | |
+|---|---|
+| Tickers tracked | **120** — tiered **28 Core / 17 Watch / 75 Radar** (after focus-weighting and canonicalization) |
 | Categorized layers | 10 (`photonics, memory, fabs, neoclouds, materials, networking, glass, robotics, accelerators, hyperscalers`) |
-| Unsorted (needs triage) | ~10 Watch-tier names (CRCL, EWY, VPG, RKLB, NVTS, HOOD, SMTC, SPCX, DRAM) **+ 1 Core-tier name (RDDT)** still unsorted — RDDT doesn't cleanly fit any of the 10 categories (Reddit/AI-training-data play), left in triage rather than misclassified |
-| Theses ingested | 170 |
-| Brain digests | 10 themes; 8 re-synthesized 2026-07-06 (manual Claude Code pass, 90 new theses since prior run), materials/glass carried forward unchanged (no new theses) |
-| **Desk verdicts** | **15 Core names** with Claude's stance + execution note (`ingest/store/verdicts.json`, reviewed 2026-07-06). Stance moves this pass: AAOI/LITE/AXTI watch→accumulate (SemiAnalysis photonics washout + Nomura InP price-hike confirmation), TSLA dropped out of Core (verdict removed), XFAB/AMZN/GFS added |
-| GitHub repo | Public — github.com/nainaii1/ai-infrastructure-explorer, branch `feat/brain-synthesis` |
+| Unsorted (needs triage) | **55** names in the `unsorted` bucket: **1 Core (RDDT)**, 7 Watch (ASTS, CRCL, EWY, HOOD, NVTS, RKLB, VPG), 47 Radar. RDDT is the only one that matters — it doesn't cleanly fit any of the 10 categories (Reddit/AI-training-data play), so it's left in triage rather than misclassified. The Radar tail is mostly one-off name-drops and is not worth triaging by hand. Note `DRAM` and `SPCX` are `themeTags` in `base.json`, not tickers — they no longer count toward any name's mentions, though a stale `SPCX` ticker record still exists at Radar |
+| Theses ingested | **258** — all `source: "x"`, author `aleabitoreddit`. No research theses written yet; the seats have not been run |
+| Brain digests | 10 themes, generated 2026-07-22 — 9 re-synthesized that day, `robotics` carried forward from 2026-07-16 |
+| **Desk verdicts** | **17 Core names** (`ingest/store/verdicts.json`, reviewed 2026-07-22): 9 `accumulate`, 8 `watch`. Roster rule is "top 15 by score + sticky act/accumulate holdovers". Stance *moves* are not recoverable for this pass — `previousStance` did not exist when it was written; the next `/weekly-review` starts recording them |
+| GitHub repo | Public — github.com/nainaii1/ai-infrastructure-explorer, working branch `feat/expert-review-seats` |
 
 Counts drift constantly as posts get ingested — trust `ingest/store/*.json` /
-`git log` over this file when they disagree.
+`git log` over this file when they disagree. Regenerate the tier split with
+`python3 ingest/generate_data_js.py` and read it back from `data.js`.
 
 ---
 

@@ -181,14 +181,17 @@ not throwaway config.
   `--serif` alias deleted from `shared/theme.css` and every use switched to
   `var(--display)`; the Design system section + `docs/DESIGN.md` brought current;
   Phase 6 boxes ticked in `docs/EXECUTION.md`).
-- **Live counts** (approximate, check `ingest/store/*.json` for current):
-  ~110 tickers tracked (27 core / 17 watch / 66 radar after focus-weighting),
-  10 categorized layers + an `unsorted` triage bucket (one Core name, RDDT,
-  is still unsorted — it doesn't cleanly fit any of the 10 categories;
-  remaining unsorted are Watch/Radar tier), 221 ingested theses, 17 desk
-  verdicts (reviewed 2026-07-16; roster is "top 15 by score + sticky
-  act/accumulate holdovers"), 10 brain digests (9 re-synthesized 2026-07-16
-  via Claude Code per the v4 workaround above; fabs carried forward).
+- **Live counts** (measured 2026-07-27; check `ingest/store/*.json` for current):
+  120 tickers tracked (28 core / 17 watch / 75 radar after focus-weighting),
+  10 categorized layers + an `unsorted` triage bucket holding 55 names — one
+  Core (RDDT, which doesn't cleanly fit any of the 10 categories), 7 Watch, and
+  a 47-name Radar tail of one-off name-drops not worth triaging by hand.
+  258 ingested theses, all still analyst-sourced — no research theses written
+  yet, so every `researchMentions` is 0 and the seats have not been run.
+  17 desk verdicts (reviewed 2026-07-22, 9 accumulate / 8 watch; roster is
+  "top 15 by score + sticky act/accumulate holdovers"), 10 brain digests
+  (generated 2026-07-22 — 9 re-synthesized that day via Claude Code per the v4
+  workaround above, `robotics` carried forward from 2026-07-16).
 - **Symbol canonicalization** (2026-07-16): `base.json` carries
   `tickerAliases` (e.g. `SIVEF → SIVE`, mentions merge) and `themeTags`
   (e.g. `DRAM`, `SPCX` — theme markers, never ticker records).
