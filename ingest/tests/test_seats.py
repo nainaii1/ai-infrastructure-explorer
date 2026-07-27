@@ -262,5 +262,56 @@ class TestFindingToThesis(unittest.TestCase):
         self.assertEqual(scorer._direction_weight(t), 0.0)
 
 
+class TestSelectCoverage(unittest.TestCase):
+    def _pri(self, pairs):
+        return [{"ticker": t, "score": s} for t, s in pairs]
+
+    def test_stance_changes_come_first(self):
+        pri = self._pri([("AAA", 90), ("BBB", 80), ("CCC", 1)])
+        verdicts = [{"ticker": "CCC", "updatedAt": "2026-07-25T00:00:00Z"}]
+        picked, _ = seats.select_coverage(
+            pri, verdicts, [], since="2026-07-20", cap=2)
+        self.assertEqual(picked[0], "CCC")
+
+    def test_names_with_enough_new_theses_come_next(self):
+        pri = self._pri([("AAA", 90), ("DDD", 2)])
+        theses = [thesis("t%d" % i, ["DDD"], "2026-07-24T00:00:00Z")
+                  for i in range(3)]
+        picked, _ = seats.select_coverage(
+            pri, [], theses, since="2026-07-20", cap=1)
+        self.assertEqual(picked, ["DDD"])
+
+    def test_remainder_fills_by_score(self):
+        pri = self._pri([("AAA", 90), ("BBB", 80), ("CCC", 70)])
+        picked, _ = seats.select_coverage(pri, [], [], since="2026-07-20", cap=2)
+        self.assertEqual(picked, ["AAA", "BBB"])
+
+    def test_cap_is_respected_and_drops_are_reported(self):
+        pri = self._pri([("A%d" % i, 100 - i) for i in range(20)])
+        picked, dropped = seats.select_coverage(
+            pri, [], [], since="2026-07-20", cap=12)
+        self.assertEqual(len(picked), 12)
+        self.assertEqual(len(dropped), 8)
+        self.assertNotIn(picked[0], dropped)
+
+    def test_no_duplicates_when_a_name_qualifies_twice(self):
+        pri = self._pri([("AAA", 90)])
+        verdicts = [{"ticker": "AAA", "updatedAt": "2026-07-25T00:00:00Z"}]
+        theses = [thesis("t%d" % i, ["AAA"], "2026-07-24T00:00:00Z")
+                  for i in range(5)]
+        picked, _ = seats.select_coverage(
+            pri, verdicts, theses, since="2026-07-20", cap=12)
+        self.assertEqual(picked, ["AAA"])
+
+    def test_old_verdicts_and_old_theses_do_not_qualify(self):
+        pri = self._pri([("AAA", 90), ("ZZZ", 1)])
+        verdicts = [{"ticker": "ZZZ", "updatedAt": "2026-07-01T00:00:00Z"}]
+        theses = [thesis("t%d" % i, ["ZZZ"], "2026-07-01T00:00:00Z")
+                  for i in range(9)]
+        picked, _ = seats.select_coverage(
+            pri, verdicts, theses, since="2026-07-20", cap=1)
+        self.assertEqual(picked, ["AAA"])
+
+
 if __name__ == "__main__":
     unittest.main()

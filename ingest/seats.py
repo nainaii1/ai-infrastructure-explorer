@@ -264,3 +264,49 @@ def finding_to_thesis(finding, now):
         "direction": finding["direction"],
         "verification": finding["verification"],
     }
+
+
+MAX_COVERAGE = 12
+NEW_THESIS_TRIGGER = 3
+
+
+def select_coverage(priorities, verdicts, theses, since, cap=MAX_COVERAGE):
+    """Pick which names the seats review this run. Returns (selected, dropped).
+
+    Priority order, because the cap is tight and decisions matter more than
+    coverage: names whose stance moved at the last review, then names the
+    analyst has posted about at least NEW_THESIS_TRIGGER times since, then the
+    highest-scoring remainder.
+
+    Reviewing every Core name weekly is deliberately rejected — roughly three
+    times the cost for names where no decision is pending. `dropped` is
+    returned so the caller can log what the cap cut; silent truncation reads
+    as full coverage when it is not.
+    """
+    ranked = [p["ticker"] for p in priorities]
+    rank_of = {t: i for i, t in enumerate(ranked)}
+
+    changed = [v["ticker"] for v in verdicts
+               if (v.get("updatedAt") or "") >= since and v.get("ticker") in rank_of]
+
+    counts = {}
+    for th in theses:
+        if (th.get("postedAt") or "") < since:
+            continue
+        for sym in th.get("tickers", []):
+            counts[sym] = counts.get(sym, 0) + 1
+    busy = [t for t, n in counts.items()
+            if n >= NEW_THESIS_TRIGGER and t in rank_of]
+
+    selected = []
+    for group in (changed, busy, ranked):
+        for sym in sorted(group, key=lambda s: rank_of[s]):
+            if sym not in selected:
+                selected.append(sym)
+            if len(selected) >= cap:
+                break
+        if len(selected) >= cap:
+            break
+
+    dropped = [t for t in ranked if t not in selected]
+    return selected, dropped
