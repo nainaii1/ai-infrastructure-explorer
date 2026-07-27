@@ -14,6 +14,7 @@ offline (read-only, last-fetched prices); the button only needs this server.
 No secrets, no third-party deps.
 """
 
+import os
 import sys
 import json
 import pathlib
@@ -23,7 +24,8 @@ import fetch_prices
 
 ING = pathlib.Path(__file__).resolve().parent
 ROOT = ING.parent
-PORT = 8765
+# 8765 unless PORT says otherwise, so a second copy can run when 8765 is taken.
+PORT = int(os.environ.get("PORT") or 8765)
 
 
 class Handler(SimpleHTTPRequestHandler):

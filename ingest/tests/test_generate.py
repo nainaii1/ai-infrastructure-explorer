@@ -429,6 +429,25 @@ class TestPriorityStamp(unittest.TestCase):
                       "lastMentioned"):
             self.assertIn(field, stamped[0]["priority"])
 
+    def test_the_analyst_research_split_reaches_the_ticker_stamp(self):
+        # desk.html reads t["priority"], not the top-level priorities array,
+        # so the split has to be mirrored here or the ticker tooltip cannot
+        # tell the analyst's posts from the desk's own findings.
+        d = gen.build_data()
+        stamped = [t for t in d["tickers"] if t.get("priority")]
+        self.assertTrue(stamped, "no ticker carried a priority stamp")
+        for field in ("analystMentions", "researchMentions"):
+            self.assertIn(field, stamped[0]["priority"])
+
+    def test_stamped_analyst_and_research_counts_sum_to_mentions(self):
+        d = gen.build_data()
+        for t in d["tickers"]:
+            p = t.get("priority")
+            if not p:
+                continue
+            self.assertEqual(p["analystMentions"] + p["researchMentions"],
+                             p["mentions"], t["ticker"])
+
 
 if __name__ == "__main__":
     unittest.main()

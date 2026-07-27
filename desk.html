@@ -1994,8 +1994,17 @@
         badges.appendChild(market);
 
         if (ticker.priority) {
+          // `mentions` is the raw total and counts the desk's own research
+          // findings. Anything attributed to the analyst reads analystMentions
+          // — crediting our findings to him would be a lie.
+          var research = ticker.priority.researchMentions || 0;
+          var analyst = ticker.priority.analystMentions != null
+            ? ticker.priority.analystMentions
+            : ticker.priority.mentions - research;
           var prio = el("span", "tk-badge tk-prio", ticker.priority.mentions + "× mentioned");
-          prio.title = "Mentioned " + ticker.priority.mentions + "× by @aleabitoreddit"
+          prio.title = "Mentioned " + analyst + "× by @aleabitoreddit"
+            + (research ? " · " + research + " desk research finding" + (research === 1 ? "" : "s") : "")
+            + (ticker.priority.bearMentions ? " · " + ticker.priority.bearMentions + " against" : "")
             + (ticker.priority.convictionHits ? " · " + ticker.priority.convictionHits + " with high-conviction language" : "");
           badges.appendChild(prio);
         }
@@ -2201,10 +2210,19 @@
         // signal (most names mentioned once) a rank would be misleading, so we
         // show mention counts as tags for you to consider, sorted by emphasis.
         strip.appendChild(el("span", "ps-label", "Mentioned by @aleabitoreddit"));
-        pri.slice(0, 10).forEach(function (p) {
+        // This strip is what HE raised, so it counts and filters on
+        // analystMentions. A name carrying only desk research findings has
+        // nothing to say here and is left out rather than shown as "0×".
+        var analystOf = function (p) {
+          return p.analystMentions != null
+            ? p.analystMentions
+            : p.mentions - (p.researchMentions || 0);
+        };
+        pri.filter(function (p) { return analystOf(p) > 0; })
+           .slice(0, 10).forEach(function (p) {
           var chip = el("span", "ps-chip");
           chip.appendChild(el("span", "ps-sym", p.ticker));
-          chip.appendChild(el("span", "ps-meta", p.mentions + "×"));
+          chip.appendChild(el("span", "ps-meta", analystOf(p) + "×"));
           strip.appendChild(chip);
         });
       }
@@ -2466,12 +2484,21 @@
         body.innerHTML = "";
 
         // Always grouped by category. Default order within a group is
-        // mention-count; clicking any sortable column re-orders the rows
-        // inside each group instead.
+        // analyst mention-count; clicking any sortable column re-orders the
+        // rows inside each group instead. Analyst, not raw: ranking on the
+        // total would let the desk's own research findings lift a name above
+        // one the analyst actually talked about more.
         var sortIsDefault = wlState.key === "category";
+        var mentionsOf = function (t) {
+          var p = t.priority;
+          if (!p) return 0;
+          return p.analystMentions != null
+            ? p.analystMentions
+            : (p.mentions || 0) - (p.researchMentions || 0);
+        };
         var byMentions = function (a, b) {
-          var am = (a.priority && a.priority.mentions) || 0;
-          var bm = (b.priority && b.priority.mentions) || 0;
+          var am = mentionsOf(a);
+          var bm = mentionsOf(b);
           if (am !== bm) return bm - am;
           return a.ticker < b.ticker ? -1 : 1;
         };

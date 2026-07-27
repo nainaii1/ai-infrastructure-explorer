@@ -155,9 +155,9 @@ def canonicalize_theses(theses, aliases=None, theme_tags=None):
 
 
 def compute_priorities(theses, now=None, half_life_days=HALF_LIFE_DAYS):
-    """Return a list of {ticker, score, net, attention, mentions, bullMentions,
-    bearMentions, researchMentions, weightedMentions, convictionHits,
-    lastMentioned} ranked by
+    """Return a list of {ticker, score, net, attention, mentions,
+    analystMentions, bullMentions, bearMentions, researchMentions,
+    weightedMentions, convictionHits, lastMentioned} ranked by
     score descending, then net (so a net-negative name doesn't out-rank a
     less-hated one just because both floor to score 0), then raw mentions."""
     now = now or datetime.now(timezone.utc)
@@ -188,7 +188,11 @@ def compute_priorities(theses, now=None, half_life_days=HALF_LIFE_DAYS):
             # weightedMentions, which the score guard never touches.
             if not research:
                 a["weighted"] += focus
-            a["recency"] += weight * focus  # recency + focus, for `attention`
+            # `attention` is an aggregate, so the asymmetry applies here too:
+            # research may subtract but never add. It is also presented as the
+            # analyst's attention, which desk findings are not.
+            if not research:
+                a["recency"] += weight * focus  # recency + focus, for `attention`
             a["net"] += signed
             if direction == "bear":
                 a["bear"] += 1
@@ -202,9 +206,13 @@ def compute_priorities(theses, now=None, half_life_days=HALF_LIFE_DAYS):
                 a["convictionHits"] += 1
             if research:
                 a["research"] += 1
-            current = _parse_dt(a["lastMentioned"])
-            if current is None or (posted and posted > current):
-                a["lastMentioned"] = th.get("postedAt")
+            # "Last mentioned" is rendered as "Last cited" on the analyst's own
+            # vault page, so a finding the desk wrote today must not become his
+            # most recent word on the name.
+            if not research:
+                current = _parse_dt(a["lastMentioned"])
+                if current is None or (posted and posted > current):
+                    a["lastMentioned"] = th.get("postedAt")
 
     ranked = []
     for sym, a in agg.items():
@@ -215,6 +223,10 @@ def compute_priorities(theses, now=None, half_life_days=HALF_LIFE_DAYS):
             "net": round(a["net"], 4),
             "attention": round(a["recency"], 4),
             "mentions": a["mentions"],
+            # Derived here, once, rather than left to each surface to subtract:
+            # every "by @aleabitoreddit" label in the app reads this, and a
+            # subtraction repeated at four call sites is four chances to forget.
+            "analystMentions": a["mentions"] - a["research"],
             "bullMentions": a["bull"],
             "bearMentions": a["bear"],
             "researchMentions": a["research"],

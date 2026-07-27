@@ -164,6 +164,10 @@ def build_data():
                 "net": p["net"],
                 "attention": p["attention"],
                 "mentions": p["mentions"],
+                # Analyst vs desk-research split. Anything the UI labels
+                # "@aleabitoreddit" must read analystMentions, never mentions.
+                "analystMentions": p["analystMentions"],
+                "researchMentions": p["researchMentions"],
                 "bullMentions": p["bullMentions"],
                 "bearMentions": p["bearMentions"],
                 "convictionHits": p["convictionHits"],

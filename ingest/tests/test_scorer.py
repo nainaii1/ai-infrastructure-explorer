@@ -407,5 +407,60 @@ class TestResearchSourceIsFailSafe(unittest.TestCase):
         self.assertEqual(scorer.assign_tiers(["Z"], rows)["Z"], "radar")
 
 
+class TestResearchIsNotAnalystAttention(unittest.TestCase):
+    """Everything the app labels "@aleabitoreddit" must exclude desk research.
+
+    The tier and score guards already exist. These cover the *attribution*
+    surfaces: a count, a recency figure or a date presented as the analyst's
+    must not silently include findings the desk wrote itself.
+    """
+
+    def _rows(self, theses):
+        return {r["ticker"]: r for r in scorer.compute_priorities(theses, now=NOW)}
+
+    def test_analyst_mentions_exclude_research(self):
+        theses = [
+            thesis(["MU"], "2026-06-20T00:00:00Z"),
+            thesis(["MU"], "2026-06-21T00:00:00Z"),
+            thesis(["MU"], "2026-06-22T00:00:00Z", source="research"),
+            thesis(["MU"], "2026-06-23T00:00:00Z", source="research"),
+        ]
+        r = self._rows(theses)["MU"]
+        self.assertEqual(r["mentions"], 4)          # raw total, unchanged
+        self.assertEqual(r["researchMentions"], 2)
+        self.assertEqual(r["analystMentions"], 2)   # what the tooltip may claim
+
+    def test_a_miscased_research_source_still_does_not_count_as_analyst(self):
+        theses = [thesis(["MU"], "2026-06-20T00:00:00Z", source="Research")]
+        r = self._rows(theses)["MU"]
+        self.assertEqual(r["analystMentions"], 0)
+
+    def test_research_adds_no_attention(self):
+        # attention is an aggregate; research may subtract but never add.
+        analyst_only = self._rows([thesis(["MU"], "2026-06-20T00:00:00Z")])["MU"]
+        with_research = self._rows([
+            thesis(["MU"], "2026-06-20T00:00:00Z"),
+            thesis(["MU"], "2026-06-20T00:00:00Z", source="research"),
+        ])["MU"]
+        self.assertEqual(with_research["attention"], analyst_only["attention"])
+        research_only = self._rows(
+            [thesis(["MU"], "2026-06-20T00:00:00Z", source="research")])["MU"]
+        self.assertEqual(research_only["attention"], 0.0)
+
+    def test_last_mentioned_ignores_research(self):
+        # The vault renders this as "Last cited" on the analyst's own page. A
+        # desk finding written today must not become his most recent word.
+        theses = [
+            thesis(["MU"], "2026-06-20T00:00:00Z"),
+            thesis(["MU"], "2026-06-25T00:00:00Z", source="research"),
+        ]
+        self.assertEqual(self._rows(theses)["MU"]["lastMentioned"],
+                         "2026-06-20T00:00:00Z")
+
+    def test_a_research_only_name_has_no_last_mentioned(self):
+        theses = [thesis(["MU"], "2026-06-25T00:00:00Z", source="research")]
+        self.assertIsNone(self._rows(theses)["MU"]["lastMentioned"])
+
+
 if __name__ == "__main__":
     unittest.main()
