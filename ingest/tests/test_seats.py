@@ -567,6 +567,22 @@ class TestRunSeats(unittest.TestCase):
         self.assertEqual(len(out["theses"]), 1)
         self.assertEqual(out["theses"][0]["author"], "pm")
 
+    def test_written_theses_are_stamped_with_the_caller_s_now(self):
+        # `now` is not cosmetic: it lands in postedAt, ingestedAt AND the
+        # thesis id, and merge_research_theses dedupes on that id. A run that
+        # stamped its own clock instead of the caller's would write records
+        # that re-merge as new every week.
+        out = seats.run_seats(["SIVE"], {}, self._call_fn(),
+                              allowed_tickers=ALLOWED, now=NOW)
+        self.assertTrue(out["theses"])
+        for t in out["theses"]:
+            self.assertEqual(t["postedAt"], NOW)
+            self.assertEqual(t["ingestedAt"], NOW)
+        expected = seats.finding_to_thesis(
+            seats.validate_finding(dict(GOOD, ticker="SIVE"), "pm", "SIVE",
+                                   ALLOWED), NOW)
+        self.assertIn(expected["id"], [t["id"] for t in out["theses"]])
+
     def test_meta_counts_agree_with_what_was_written(self):
         out = seats.run_seats(["SIVE", "MU"], {}, self._call_fn(),
                               allowed_tickers=ALLOWED, now=NOW)
