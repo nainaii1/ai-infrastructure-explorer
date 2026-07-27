@@ -291,6 +291,17 @@ def select_coverage(priorities, verdicts, theses, since, cap=MAX_COVERAGE):
 
     counts = {}
     for th in theses:
+        # Research findings never buy coverage. run_seats writes exactly
+        # NEW_THESIS_TRIGGER of them per covered name, stamped with the run's
+        # timestamp, so counting them would make every reviewed name qualify
+        # as busy on the next run forever — ratcheting itself into a tight cap
+        # and crowding out names nobody has looked at. This is the coverage
+        # aggregate's version of the scorer asymmetry: research can correct a
+        # name, never promote it. scorer._is_research (not a source ==
+        # "research" comparison) so a miscased "Research" still reads as
+        # research rather than failing back to full analyst treatment.
+        if scorer._is_research(th):
+            continue
         if (th.get("postedAt") or "") < since:
             continue
         for sym in th.get("tickers", []):

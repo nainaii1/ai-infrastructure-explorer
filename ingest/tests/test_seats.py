@@ -303,6 +303,63 @@ class TestSelectCoverage(unittest.TestCase):
             pri, verdicts, theses, since="2026-07-20", cap=12)
         self.assertEqual(picked, ["AAA"])
 
+    def test_a_stance_change_outranks_a_different_busy_name(self):
+        # The docstring's central ordering claim. CCC (stance moved) and DDD
+        # (3 new posts) both qualify, but by different routes and from the
+        # bottom of the ranking; cap=1 means only one can win and it must be
+        # the stance change. Without a busy name that is NOT the changed name,
+        # swapping the group order goes undetected.
+        pri = self._pri([("AAA", 90), ("CCC", 2), ("DDD", 1)])
+        verdicts = [{"ticker": "CCC", "updatedAt": "2026-07-25T00:00:00Z"}]
+        theses = [thesis("t%d" % i, ["DDD"], "2026-07-24T00:00:00Z")
+                  for i in range(3)]
+        picked, _ = seats.select_coverage(
+            pri, verdicts, theses, since="2026-07-20", cap=1)
+        self.assertEqual(picked, ["CCC"])
+
+    def test_a_verdict_for_a_dropped_ticker_is_ignored(self):
+        # verdicts.json outlives the ranking: a name re-tiered out of
+        # priorities still has a verdict record. It must neither KeyError in
+        # the rank sort nor appear in the selection.
+        pri = self._pri([("AAA", 90)])
+        verdicts = [{"ticker": "GONE", "updatedAt": "2026-07-25T00:00:00Z"}]
+        picked, dropped = seats.select_coverage(
+            pri, verdicts, [], since="2026-07-20", cap=12)
+        self.assertEqual(picked, ["AAA"])
+        self.assertNotIn("GONE", picked)
+        self.assertNotIn("GONE", dropped)
+
+    def test_research_theses_never_qualify_a_name_as_busy(self):
+        # Invariant 2 applied to the coverage aggregate. run_seats writes
+        # exactly NEW_THESIS_TRIGGER research theses per covered name, so
+        # counting them would make every reviewed name self-qualify forever
+        # and ratchet itself into the cap. Same count of analyst posts must
+        # still qualify, or this test would pass on a broken trigger.
+        pri = self._pri([("AAA", 90), ("RRR", 1)])
+        n = seats.NEW_THESIS_TRIGGER
+        research = [dict(thesis("t%d" % i, ["RRR"], "2026-07-24T00:00:00Z"),
+                         source=scorer.RESEARCH_SOURCE) for i in range(n)]
+        picked, _ = seats.select_coverage(
+            pri, [], research, since="2026-07-20", cap=1)
+        self.assertEqual(picked, ["AAA"])
+
+        analyst = [thesis("t%d" % i, ["RRR"], "2026-07-24T00:00:00Z")
+                   for i in range(n)]
+        picked, _ = seats.select_coverage(
+            pri, [], analyst, since="2026-07-20", cap=1)
+        self.assertEqual(picked, ["RRR"])
+
+    def test_miscased_research_source_still_does_not_qualify(self):
+        # Fails inert, via scorer._is_research: a hand-authored "Research"
+        # must not buy coverage that lowercase "research" is denied.
+        pri = self._pri([("AAA", 90), ("RRR", 1)])
+        research = [dict(thesis("t%d" % i, ["RRR"], "2026-07-24T00:00:00Z"),
+                         source="Research")
+                    for i in range(seats.NEW_THESIS_TRIGGER)]
+        picked, _ = seats.select_coverage(
+            pri, [], research, since="2026-07-20", cap=1)
+        self.assertEqual(picked, ["AAA"])
+
     def test_old_verdicts_and_old_theses_do_not_qualify(self):
         pri = self._pri([("AAA", 90), ("ZZZ", 1)])
         verdicts = [{"ticker": "ZZZ", "updatedAt": "2026-07-01T00:00:00Z"}]
