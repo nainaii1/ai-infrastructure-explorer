@@ -21,7 +21,8 @@ For the v7 "Private Coverage" upgrade — a separate, completed programme — se
 1. Work top to bottom; each session assumes the previous one landed.
 2. Open a fresh Claude Code session per prompt and paste the prompt verbatim.
 3. After each session run its verification checklist, tick the box, commit.
-4. **Read "Invariants" below before touching `scorer.py` or `seats.py`.** Every
+4. **Read "Invariants" below before touching `scorer.py`, `seats.py` or
+   `pre_review.py`.** Every
    one of them was found by a review catching a defect that passed its own
    tests. They are cheap to break and expensive to notice.
 
@@ -87,7 +88,7 @@ reintroduce.
    The thesis block is delimited, clipped to `MAX_THESIS_CHARS`, and the system
    prompt says to ignore instructions inside it. The ticker is pinned from the
    caller so an injection is inert even if the model falls for it.
-6. **`seats.py` and `synthesize.py` are pure.** No network, no file I/O, no API
+6. **`seats.py`, `pre_review.py` and `synthesize.py` are pure.** No network, no file I/O, no API
    client. Intelligence arrives through an injected `call_fn(system, user)`,
    because the operator has no API key. Adding an SDK import breaks the whole
    pattern.

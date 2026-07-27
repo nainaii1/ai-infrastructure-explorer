@@ -25,11 +25,14 @@ _Last updated: 2026-07-27 (expert review seats, Phase 2, shipped). Living docume
 > Phase 2 shipped 2026-07-27 — see the entry directly below.
 >
 > **Expert review team, Phase 2 — the three seats (✅ 2026-07-27).**
-> `ingest/seats.py` runs `semi-expert`, `fundamental` and `pm` over a shortlist
-> of up to 12 names (stance changes first, then names with 3+ new analyst
-> theses, then by score — drops are reported, never silent). Findings become
-> `source: "research"` theses. Pure module with an injected `call_fn`, so no
-> API key is needed; driven by the new `/pre-review` skill.
+> `ingest/pre_review.py` runs the `ingest/seats.py` seats — `semi-expert`,
+> `fundamental` and `pm` — over a shortlist of up to 12 names (stance changes
+> first, then names with 3+ new analyst theses, then by score — drops are
+> reported, never silent). Findings become `source: "research"` theses. Both
+> modules are pure and take an injected `call_fn`, so no API key is needed;
+> driven by the new `/pre-review` skill. `seats.py` was split in two on
+> 2026-07-27 when it passed the ~350-line threshold: it now holds only what a
+> seat is and what a finding must satisfy, while `pre_review.py` holds the pass.
 > **The verification rule:** no citable primary source means `unverified` and a
 > forced `neutral` direction, which scores exactly 0.0 — visible but inert.
 > Findings are pinned to the ticker the seat was *asked* about, so a forwarded

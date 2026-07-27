@@ -92,9 +92,11 @@ not throwaway config.
   `semi-expert` (is the technical claim true?), `fundamental` (do the numbers
   work?), `pm` (is this a good bet at this price?) — research a shortlist of up
   to 12 names before each weekly review and write findings into `theses.json`
-  as `source: "research"` theses. `ingest/seats.py` is pure and takes an
-  injected `call_fn`, exactly like `synthesize.py`, so it runs in a Claude Code
-  session with no API key. **The verification rule:** a finding with no citable
+  as `source: "research"` theses. Two pure modules: `ingest/seats.py` (what a
+  seat is, and what a finding must satisfy) and `ingest/pre_review.py` (one
+  pass — select coverage, run the seats, merge the findings). Both take an
+  injected `call_fn`, exactly like `synthesize.py`, so they run in a Claude
+  Code session with no API key. **The verification rule:** a finding with no citable
   primary source is marked `unverified` and forced to `direction: "neutral"` —
   visible in the brief, and worth exactly 0.0 to any score. Research can correct
   a name downward but can never inflate its rank, buy it tier coverage, add
@@ -205,7 +207,7 @@ not throwaway config.
   progress): the live to-do doc with per-session prompts and the list of
   hard-won invariants is `docs/EXECUTION-EXPERT-REVIEW.md`. Read its
   "Invariants" section before touching `ingest/scorer.py` or
-  `ingest/seats.py`.
+  `ingest/seats.py` or `ingest/pre_review.py`.
 - **For full history / open issues / next steps:** see `docs/ROADMAP.md`
   (living doc, update it whenever status changes).
 - **For a full design-system reference** (color tokens, type scale, spacing,
@@ -461,6 +463,8 @@ ai-supply-desk/
 └── ingest/                     THE BACKEND — Python tooling that regenerates data.js
     ├── bot.py                   Telegram ingest (forward a post -> thesis)
     ├── synthesize.py            the "Brain" — Claude-synthesized theme digests (needs ANTHROPIC_API_KEY)
+    ├── seats.py                  the three expert seats: prompts + finding validation (pure)
+    ├── pre_review.py             one review pass: select coverage, run the seats, merge findings (pure)
     ├── fetch_prices.py          price fetch from the operator's Google Sheet (GOOGLEFINANCE)
     ├── serve.py                 tiny local server (the Fetch-prices button needs http://, not file://)
     ├── parser.py / scorer.py / fetcher.py / review.py / generate_data_js.py

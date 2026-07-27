@@ -24,12 +24,24 @@ different questions actually get asked, and forced outside research so new
 facts enter the store. Never present a finding as though a domain engineer
 reviewed it.
 
+## Where the code lives
+
+Two pure modules, split on 2026-07-27 when one file got too long to read:
+
+- `ingest/seats.py` — what a seat IS and what a finding must satisfy:
+  `SEATS`, `build_seat_prompt`, `validate_finding`, `finding_to_thesis`.
+- `ingest/pre_review.py` — what happens on a run: `select_coverage`,
+  `run_seats`, `merge_research_theses`. This is the one you call.
+
+Neither touches the network or the filesystem. You supply the intelligence
+through `call_fn`, and you do the reading and writing of the store yourself.
+
 ## Procedure
 
 1. **Refresh prices** (needs network): `python3 ingest/fetch_prices.py`.
    Continue if it fails — prices are context here, not the point.
 
-2. **Pick the shortlist.** `seats.select_coverage` has a caller contract and
+2. **Pick the shortlist.** `pre_review.select_coverage` has a caller contract and
    will not silently paper over a breach of it:
 
    - `theses` must already be canonicalized —
@@ -45,7 +57,7 @@ reviewed it.
      there is no safe reading of "no cutoff".
 
    Then call
-   `seats.select_coverage(core_priorities, verdicts, canonical_theses, since, cap=12)`.
+   `pre_review.select_coverage(core_priorities, verdicts, canonical_theses, since, cap=12)`.
    Report the returned `dropped` list to the operator — never let a cap read as
    full coverage.
 
@@ -62,9 +74,9 @@ reviewed it.
    call:
 
    ```
-   seats.run_seats(selected, theses_by_ticker, call_fn,
-                   allowed_tickers=<every symbol in tickers.json>,
-                   now=<ISO timestamp you stamp once for the run>)
+   pre_review.run_seats(selected, theses_by_ticker, call_fn,
+                        allowed_tickers=<every symbol in tickers.json>,
+                        now=<ISO timestamp you stamp once for the run>)
    ```
 
    `call_fn(system, user) -> dict` is where you do the work: search for primary
@@ -88,7 +100,7 @@ reviewed it.
    citation to avoid it.**
 
 4. **Write the findings.** Merge with
-   `seats.merge_research_theses(existing, out["theses"])`, save `theses.json`,
+   `pre_review.merge_research_theses(existing, out["theses"])`, save `theses.json`,
    bump `base.json` `meta.version` and `meta.lastUpdated`, and regenerate:
    `python3 ingest/generate_data_js.py`.
 

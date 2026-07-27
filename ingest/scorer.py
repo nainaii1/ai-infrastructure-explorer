@@ -63,10 +63,11 @@ def is_research(thesis):
     258 captured posts, and they are genuinely his.
 
     Public (no leading underscore) because this is a shared rule, not a private
-    helper: three call sites now, and one of them is in another module —
-    seats.select_coverage, which excludes research from the coverage aggregate
-    for the same reason the other two exclude it from score and tier. One
-    definition so the three can never drift apart.
+    helper: three call sites now, and two of them are in other modules —
+    pre_review.select_coverage and pre_review.merge_research_theses, which
+    exclude research from the coverage aggregate and gate what may enter the
+    thesis store, for the same reason the other call sites exclude it from
+    score and tier. One definition so they can never drift apart.
     """
     source = thesis.get("source")
     return isinstance(source, str) and source.strip().lower() == RESEARCH_SOURCE
