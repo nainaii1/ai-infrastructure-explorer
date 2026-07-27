@@ -460,3 +460,52 @@ def run_seats(tickers, theses_by_ticker, call_fn, *, allowed_tickers, now,
             "failures": failures,
         },
     }
+
+
+def merge_research_theses(existing, incoming):
+    """Return a new list with `incoming` research theses merged into `existing`.
+
+    Re-running a review replaces that run's own findings rather than stacking
+    duplicates, because finding_to_thesis derives a stable id from the seat,
+    the ticker and the finding text.
+
+    An analyst thesis is never modified or replaced, even on an id collision:
+    the analyst feed is the operator's captured record and this module has no
+    business editing it. On a clash the incoming research finding is dropped.
+
+    Two guards beyond that, because this function is the only door research
+    findings use to reach the store:
+
+    - Incoming records must be research-sourced. One that is not would land in
+      the analyst feed carrying full score and tier weight, which is the
+      research asymmetry running backwards. A caller passing one has a bug
+      rather than untrusted data, so it raises instead of failing quietly.
+    - Incoming records must carry a non-empty id, because dedupe is by id. An
+      id-less finding cannot be matched on a re-run, so it would stack a fresh
+      copy into the store every week.
+
+    Because of that second guard the incoming id is always a non-empty string,
+    so an id-less record on the existing side can never be matched against one
+    and needs no guard of its own.
+    """
+    out = [dict(t) for t in existing]
+    by_id = {t.get("id"): i for i, t in enumerate(out)}
+
+    for th in incoming:
+        if not scorer.is_research(th):
+            raise ValueError(
+                "merge_research_theses: incoming thesis {!r} is not "
+                "research-sourced (source={!r})".format(
+                    th.get("id"), th.get("source")))
+        tid = th.get("id")
+        if not isinstance(tid, str) or not tid:
+            raise ValueError(
+                "merge_research_theses: incoming thesis needs a non-empty "
+                "string id for dedupe, got {!r}".format(tid))
+        idx = by_id.get(tid)
+        if idx is None:
+            by_id[tid] = len(out)
+            out.append(dict(th))
+        elif scorer.is_research(out[idx]):
+            out[idx] = dict(th)
+    return out

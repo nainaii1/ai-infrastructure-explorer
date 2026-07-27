@@ -591,5 +591,84 @@ class TestRunSeats(unittest.TestCase):
         self.assertEqual(out["meta"]["failures"], [])
 
 
+class TestMerge(unittest.TestCase):
+    def _research(self, text="x", ident="r1", **kw):
+        rec = {"id": ident, "source": "research", "author": "pm",
+               "text": text, "tickers": ["MU"], "postedAt": NOW,
+               "direction": "bear", "verification": "verified"}
+        rec.update(kw)
+        return rec
+
+    def test_new_research_is_appended(self):
+        existing = [thesis("analyst post", ["MU"])]
+        merged = seats.merge_research_theses(existing, [self._research()])
+        self.assertEqual(len(merged), 2)
+
+    def test_analyst_theses_are_never_modified(self):
+        analyst = thesis("analyst post", ["MU"])
+        merged = seats.merge_research_theses([analyst], [self._research()])
+        self.assertEqual(merged[0], analyst)
+
+    def test_duplicate_research_id_replaces_not_duplicates(self):
+        existing = [self._research(text="old")]
+        merged = seats.merge_research_theses(existing, [self._research(text="new")])
+        self.assertEqual(len(merged), 1)
+        self.assertEqual(merged[0]["text"], "new")
+
+    def test_research_cannot_overwrite_an_analyst_thesis_with_the_same_id(self):
+        analyst = dict(thesis("analyst post", ["MU"]), id="clash")
+        incoming = dict(self._research(ident="clash"), text="research")
+        merged = seats.merge_research_theses([analyst], [incoming])
+        self.assertEqual(len(merged), 1)
+        self.assertEqual(merged[0]["text"], "analyst post")
+
+    def test_input_list_is_not_mutated(self):
+        existing = [thesis("analyst post", ["MU"])]
+        seats.merge_research_theses(existing, [self._research()])
+        self.assertEqual(len(existing), 1)
+
+    def test_the_existing_records_themselves_are_not_mutated(self):
+        # Copying the list but sharing the dicts would let a later edit of the
+        # merged output reach back into the caller's store objects.
+        existing = [thesis("analyst post", ["MU"])]
+        merged = seats.merge_research_theses(existing, [self._research()])
+        merged[0]["text"] = "tampered"
+        self.assertEqual(existing[0]["text"], "analyst post")
+
+    def test_a_miscased_research_source_is_still_replaceable(self):
+        # The guard must ask scorer.is_research, not compare the string. A
+        # record written "Research" is still ours, so re-running a review has
+        # to replace it rather than treat it as an untouchable analyst post
+        # and silently drop the fresh finding.
+        existing = [self._research(text="old", source="Research")]
+        merged = seats.merge_research_theses(existing, [self._research(text="new")])
+        self.assertEqual(len(merged), 1)
+        self.assertEqual(merged[0]["text"], "new")
+
+    def test_a_non_research_incoming_thesis_is_refused(self):
+        # This function is the only door research findings use to reach the
+        # store. An incoming record that is not research-sourced would land in
+        # the analyst feed at full score and tier weight — invariant 2 in
+        # reverse. A caller passing one has a bug, so say so.
+        analyst_shaped = dict(self._research(), source="x")
+        with self.assertRaises(ValueError):
+            seats.merge_research_theses([], [analyst_shaped])
+
+    def test_incoming_without_an_id_is_refused(self):
+        # Dedupe is by id. A record with no id cannot be matched on a re-run,
+        # so it would stack a fresh duplicate into the store every week.
+        for bad in (None, ""):
+            with self.assertRaises(ValueError):
+                seats.merge_research_theses([], [self._research(ident=bad)])
+
+    def test_id_less_existing_records_are_left_alone(self):
+        # They cannot be matched (incoming ids are required non-empty strings)
+        # so they must simply survive the merge untouched, in order.
+        a = dict(thesis("first", ["MU"])); a.pop("id")
+        b = dict(thesis("second", ["MU"])); b.pop("id")
+        merged = seats.merge_research_theses([a, b], [self._research()])
+        self.assertEqual([t["text"] for t in merged], ["first", "second", "x"])
+
+
 if __name__ == "__main__":
     unittest.main()
