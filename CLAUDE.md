@@ -15,8 +15,7 @@ chaptered scroll that opens on **01 The Watchlist**, then **02 The Map**, then
 **03 The Synthesis**, under a compact "desk strip" of live counts (no hero, no
 art, no Focus card). Around it: `index.html` (**Coverage** — the memo ledger,
 no Focus card), `memo.html` (memo reader), `vault.html` (knowledge vault,
-List/Graph views in one nav entry), `performance.html` (calls ledger, nav-gated
-until ≥3 calls), `design.html` (design reference, unlinked from main nav). Top
+List/Graph views in one nav entry), `performance.html` (Calls + Claims ledgers), `design.html` (design reference, unlinked from main nav). Top
 nav: Desk · Coverage · Vault · Performance.
 The signal chain is: analyst tweets → captured theses → conviction tiers →
 Claude's desk verdicts → operator decision.
@@ -108,8 +107,8 @@ not throwaway config.
   names the cap dropped always reported. Run via the **`/pre-review` skill**;
   `/weekly-review` stamps `previousStance` on every verdict so a stance
   *change* is detectable at all.
-- **Claims ledger** 🔵 backend done (2026-07-28, spec Phase 3); **nothing
-  renders it yet**. `ingest/store/claims.json` records dated, testable
+- **Claims ledger** ✅ done (2026-07-28, spec Phase 3), rendered as the
+  **Claims** half of `performance.html`. `ingest/store/claims.json` records dated, testable
   predictions from the analyst, the desk and each seat, judged when their date
   arrives. Two pure modules' worth of rules live in `ingest/claims.py`:
   extraction (same injection firewall as the seats), judging, and scoring.

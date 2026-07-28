@@ -470,5 +470,27 @@ class TestClaimsBlock(unittest.TestCase):
             self.assertIn(call.get("source"), ("desk", "analyst"), call.get("id"))
 
 
+class TestClaimScores(unittest.TestCase):
+    def test_the_claims_block_carries_precomputed_scores(self):
+        d = gen.build_data()
+        self.assertIn("scores", d["claims"])
+
+    def test_no_score_can_carry_a_hit_rate_without_the_share(self):
+        # C2 enforced at the data layer, not by convention in the page: the
+        # two figures physically travel together, so no surface can render
+        # the flattering one alone.
+        d = gen.build_data()
+        for s in d["claims"]["scores"]:
+            self.assertIn("hitRate", s)
+            self.assertIn("unfalsifiableShare", s)
+            self.assertIn("rateIsMeaningful", s)
+
+    def test_there_is_a_score_for_every_source_present(self):
+        d = gen.build_data()
+        present = {c["source"] for c in d["claims"]["claims"]}
+        scored = {s["source"] for s in d["claims"]["scores"] if s["source"]}
+        self.assertEqual(present, scored)
+
+
 if __name__ == "__main__":
     unittest.main()

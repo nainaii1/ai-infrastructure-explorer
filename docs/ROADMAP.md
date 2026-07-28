@@ -1,6 +1,6 @@
 # Roadmap & Status — AI Infrastructure Explorer
 
-_Last updated: 2026-07-28 (claims ledger backend, Phase 3, shipped). Living document — update as things ship or change._
+_Last updated: 2026-07-28 (claims ledger + Claims page, Phase 3, shipped). Living document — update as things ship or change._
 
 > **Expert review team, Phase 1 — direction-aware scoring (✅ 2026-07-26).**
 > Theses carry an optional `direction` (`bull`/`bear`/`neutral`), and
@@ -48,7 +48,7 @@ _Last updated: 2026-07-28 (claims ledger backend, Phase 3, shipped). Living docu
 > now detected from a `previousStance` field that `/weekly-review` stamps.
 > Phase 3's backend shipped 2026-07-28 — see the entry directly below.
 >
-> **Expert review team, Phase 3 — the claims ledger (🔵 backend ✅, page ⬜).**
+> **Expert review team, Phase 3 — the claims ledger (✅ 2026-07-28).**
 > `ingest/store/claims.json` + `ingest/claims.py` record dated, testable
 > predictions from the analyst, the desk and each seat, and judge them when
 > their date arrives. `unfalsifiable` is a first-class outcome: a claim nothing
@@ -63,9 +63,13 @@ _Last updated: 2026-07-28 (claims ledger backend, Phase 3, shipped). Living docu
 > 0 judged because every deadline is still in the future. Over half of what
 > this desk's only source says cannot be tested. That is the number the ledger
 > was built to surface.
-> **Still to do in Phase 3:** the `performance.html` split into Calls and
-> Claims — nothing renders the ledger yet — and the remaining 62 focused posts
-> of the backfill.
+> `performance.html` now carries both ledgers: **Calls** (position actions vs
+> SMH, as before) and **Claims** (per-source scorecards + every prediction,
+> soonest deadline first). The hit rate and the untestable share are computed
+> together in Python and travel in one object, so no surface can show the
+> flattering figure alone; with nothing judged the card reads "No judged claims
+> yet" rather than 0%.
+> **Still to do in Phase 3:** the remaining 62 focused posts of the backfill.
 > **Not yet built — Phases 4–5:** hit-rate weighting (gated on 20+ judged
 > claims per source) and the scheduled overnight run.
 >

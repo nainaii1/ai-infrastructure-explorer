@@ -286,6 +286,12 @@ def extract_claims(items, call_fn, *, allowed_tickers, source):
 # can turn out to be untestable only once someone tries to test it.
 VERDICTS = ("correct", "wrong", "unfalsifiable")
 
+# Below this many judged claims a percentage is theatre, not a measurement:
+# 2-of-3 renders as "67%" and reads like a track record. Surfaces show raw
+# counts until the sample earns a rate. Phase 4 gates hit-rate WEIGHTING on
+# the same number, so there is one threshold, not two.
+MIN_JUDGED_FOR_RATE = 20
+
 
 def ripe_claims(claims_list, today):
     """The open claims whose judgeBy has arrived, oldest deadline first.
@@ -384,4 +390,5 @@ def score_claims(claims_list, source=None):
         "judged": judged,
         "hitRate": (counts["correct"] / judged) if judged else None,
         "unfalsifiableShare": (counts["unfalsifiable"] / total) if total else None,
+        "rateIsMeaningful": judged >= MIN_JUDGED_FOR_RATE,
     }

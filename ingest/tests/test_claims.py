@@ -470,6 +470,31 @@ class TestScoreClaims(unittest.TestCase):
         self.assertIn("unfalsifiableShare", claims.score_claims(self._set()))
 
 
+class TestRateMeaningfulness(unittest.TestCase):
+    """Small samples lie. A rate resting on three data points is not a rate."""
+
+    def _n(self, correct, wrong):
+        return ([open_claim(status="correct")] * correct +
+                [open_claim(status="wrong")] * wrong)
+
+    def test_a_rate_below_the_threshold_is_flagged_not_meaningful(self):
+        s = claims.score_claims(self._n(2, 1))
+        self.assertEqual(s["judged"], 3)
+        self.assertIsNotNone(s["hitRate"])
+        self.assertFalse(s["rateIsMeaningful"])
+
+    def test_a_rate_at_the_threshold_is_meaningful(self):
+        n = claims.MIN_JUDGED_FOR_RATE
+        s = claims.score_claims(self._n(n - 2, 2))
+        self.assertEqual(s["judged"], n)
+        self.assertTrue(s["rateIsMeaningful"])
+
+    def test_nothing_judged_is_never_meaningful(self):
+        s = claims.score_claims([open_claim(status="open")])
+        self.assertIsNone(s["hitRate"])
+        self.assertFalse(s["rateIsMeaningful"])
+
+
 class TestClaimsMoveNoNumber(unittest.TestCase):
     """C1 — in Phase 3 the ledger observes; it does not vote.
 

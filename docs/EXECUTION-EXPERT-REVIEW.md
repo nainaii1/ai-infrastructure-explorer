@@ -35,12 +35,12 @@ For the v7 "Private Coverage" upgrade — a separate, completed programme — se
 |---|---|---|
 | 1 | Direction-aware scoring, retired conviction multiplier, `data.js` guard | ✅ shipped 2026-07-26 |
 | 2 | The three seats, verification rule, research theses in the feed | ✅ shipped 2026-07-27 |
-| 3 | `claims.json`, claim judging, performance-page split | 🔵 backend shipped 2026-07-28; page not built |
+| 3 | `claims.json`, claim judging, performance-page split | ✅ shipped 2026-07-28 |
 | 4 | Hit-rate weighting | ⬜ blocked on 20+ judged claims per source |
 | 5 | Scheduled overnight run | ⬜ not started |
 
-**Branch:** `feat/claims-ledger`, 8 commits, not pushed.
-**Tests:** 300 passing.
+**Branch:** `feat/claims-ledger`, 9 commits, not pushed.
+**Tests:** 306 passing.
 
 ### Phase 2 detail
 
@@ -89,7 +89,7 @@ reintroduce.
    The thesis block is delimited, clipped to `MAX_THESIS_CHARS`, and the system
    prompt says to ignore instructions inside it. The ticker is pinned from the
    caller so an injection is inert even if the model falls for it.
-6. **`seats.py`, `pre_review.py` and `synthesize.py` are pure.** No network, no file I/O, no API
+6. **`seats.py`, `pre_review.py`, `claims.py` and `synthesize.py` are pure.** No network, no file I/O, no API
    client. Intelligence arrives through an injected `call_fn(system, user)`,
    because the operator has no API key. Adding an SDK import breaks the whole
    pattern.
@@ -185,9 +185,10 @@ Plan: `docs/superpowers/plans/2026-07-28-claims-ledger.md`.
 - [ ] **The remaining 62 focused posts.** Work list and batches were in the
       session scratchpad and are gone; regenerate by filtering theses to Core
       names with ≤3 tickers and skipping the ids already in `claims.json`.
-- [ ] **`performance.html` split into Calls and Claims.** Nothing renders the
-      ledger yet — this is the only user-visible piece of Phase 3, and it is
-      the next block.
+- [x] **`performance.html` split into Calls and Claims** (2026-07-28). Per-
+      source scorecards + a claims table sorted soonest-deadline-first. The
+      hit rate and the untestable share are precomputed together in Python and
+      travel in one object, so the page cannot render one without the other.
 
 Invariants C1-C4 for this phase are in the plan; the four general ones earned
 here are 10-13 above.

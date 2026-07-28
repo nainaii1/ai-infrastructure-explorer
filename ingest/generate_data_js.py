@@ -33,7 +33,9 @@ import re
 import sys
 import xml.etree.ElementTree as ET
 
+import claims as claims_mod
 import scorer
+import seats
 import vault_sync
 
 ING = pathlib.Path(__file__).resolve().parent
@@ -126,6 +128,22 @@ def build_data():
     vault = _load_optional("vault.json", {})    # {} until synced; {meta, pages} after (knowledge vault)
     calls = _load_optional("calls.json", {})    # {} until a first call is stamped; {meta, calls} after
     claims = _load_optional("claims.json", {})  # {} until the first claim; {meta, claims} after
+    # Precompute the per-source scores here rather than in the browser, so the
+    # hit rate and the unfalsifiable share physically travel together (plan
+    # C2). A page that recomputed them could render one without the other.
+    if claims.get("claims"):
+        rows = claims["claims"]
+        sources = sorted({c.get("source") for c in rows if c.get("source")})
+        # Display labels ride with the data (CLAUDE.md rule 4) so the page
+        # never hardcodes what a seat is called.
+        labels = {"analyst": "@aleabitoreddit", "desk": "The desk"}
+        for key, seat in seats.SEATS.items():
+            labels[key] = seat["label"]
+        meta = dict(claims.get("meta") or {},
+                    minJudgedForRate=claims_mod.MIN_JUDGED_FOR_RATE)
+        claims = dict(claims, meta=meta, sourceLabels=labels, scores=(
+            [claims_mod.score_claims(rows, source=s) for s in sources]
+            + [claims_mod.score_claims(rows)]))
 
     # Store-provided icon fragments are the only markup later assigned through
     # innerHTML. Validate every optional icon before it can reach data.js.

@@ -48,6 +48,62 @@
     .perf-outcome--wash { background: var(--sem-pass-bg);       color: var(--sem-pass-fg); }
     .perf-note { font-family: var(--sans); font-size: 12.5px; color: var(--muted); }
 
+    /* Section heads — the page carries two ledgers now: Calls and Claims. */
+    .perf-section { margin-top: 44px; }
+    .perf-section:first-of-type { margin-top: 26px; }
+    .perf-sec-head {
+      display: flex; align-items: baseline; gap: 12px;
+      flex-wrap: wrap; margin: 0 2px 14px;
+      padding-bottom: 10px; border-bottom: 1px solid var(--border);
+    }
+    .perf-sec-title {
+      font-family: var(--display); font-weight: 700; font-size: 17px;
+      letter-spacing: -0.01em; color: var(--ink); margin: 0;
+    }
+    .perf-sec-sub {
+      font-family: var(--mono); font-size: 11px; letter-spacing: .04em;
+      color: var(--muted); margin: 0;
+    }
+
+    /* Per-source scorecards. */
+    .perf-scores {
+      display: grid; gap: 12px; margin: 0 0 20px;
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    }
+    .perf-score {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--r-tile); padding: 14px 16px;
+    }
+    .perf-score-src {
+      font-family: var(--mono); font-size: 10px; font-weight: 700;
+      letter-spacing: .08em; text-transform: uppercase;
+      color: var(--muted); margin: 0 0 8px;
+    }
+    .perf-score-rate {
+      font-family: var(--display); font-weight: 700; font-size: 21px;
+      letter-spacing: -0.02em; color: var(--ink); line-height: 1.1; margin: 0;
+    }
+    .perf-score-rate.is-none { font-size: 14px; color: var(--muted); }
+    .perf-score-caption {
+      font-family: var(--sans); font-size: 12px; line-height: 1.45;
+      color: var(--muted); margin: 6px 0 0;
+    }
+    /* The untestable share sits directly under the rate, never elsewhere. */
+    .perf-score-share {
+      margin: 10px 0 0; padding-top: 10px;
+      border-top: 1px dashed var(--border);
+      font-family: var(--sans); font-size: 12px; line-height: 1.45;
+      color: var(--muted);
+    }
+    .perf-score-share b { font-family: var(--mono); color: var(--text); font-weight: 700; }
+
+    .perf-claim { font-family: var(--sans); font-size: 13px; line-height: 1.5; color: var(--text); }
+    .perf-claim-test { display: block; margin-top: 3px; font-size: 11.5px; color: var(--muted); }
+    .perf-src {
+      font-family: var(--mono); font-size: 10px; letter-spacing: .05em;
+      text-transform: uppercase; color: var(--muted); white-space: nowrap;
+    }
+
     /* Methodology line under the table. */
     .perf-method {
       font-family: var(--sans); font-size: 13px; line-height: 1.6;
@@ -76,6 +132,15 @@
 
     @media (max-width: 768px) {
       .perf-title { font-size: 28px; }
+      /* The shared ledger hides its header row and stacks cells on mobile, so
+         a bare date loses its meaning. Label the two date cells in THIS table
+         only — the Calls table's behaviour is left exactly as it was. */
+      .perf-claims tbody td[data-label]::before {
+        content: attr(data-label);
+        display: block; margin-bottom: 2px;
+        font-family: var(--mono); font-size: 9.5px; font-weight: 700;
+        letter-spacing: .08em; text-transform: uppercase; color: var(--muted);
+      }
     }
   </style>
 </head>
@@ -120,6 +185,12 @@
       var BENCH = DATA.benchmarkQuote || null;
       var BENCH_SYM = (STORE.meta && STORE.meta.benchmark) || "SMH";
 
+      var CLAIM_STORE = DATA.claims || {};
+      var CLAIMS = CLAIM_STORE.claims || [];
+      var SCORES = CLAIM_STORE.scores || [];
+      var SRC_LABELS = CLAIM_STORE.sourceLabels || {};
+      var MIN_JUDGED = (CLAIM_STORE.meta && CLAIM_STORE.meta.minJudgedForRate) || 20;
+
       function kindLabel(kind) {
         return { "new-position": "New position", "add-on-dip": "Add on dip",
                  "trim": "Trim", "exit": "Exit" }[kind] || kind || "—";
@@ -160,19 +231,43 @@
         return callReturn - benchReturn;
       }
 
-      function renderLedger() {
-        var main = document.getElementById("perfMain");
-        main.textContent = "";
+      function sectionHead(parent, title, sub) {
+        var sec = el("section", "perf-section");
+        var h = el("div", "perf-sec-head");
+        h.appendChild(el("h2", "perf-sec-title", title));
+        if (sub) h.appendChild(el("p", "perf-sec-sub", sub));
+        sec.appendChild(h);
+        parent.appendChild(sec);
+        return sec;
+      }
 
-        // Compact header: title + one-line summary. No art (analysis tool).
+      function renderHead(main) {
         var head = el("div", "perf-head");
         head.appendChild(el("h1", "perf-title", "Performance"));
         var open = CALLS.filter(function (c) { return !c.closedAt; }).length;
-        head.appendChild(el("p", "perf-sub",
-          CALLS.length + (CALLS.length === 1 ? " call" : " calls") +
-          " · " + open + " open · benchmark " + BENCH_SYM +
-          (BENCH && BENCH.asOf ? " · prices as of " + AIE.fmtDate(BENCH.asOf) : "")));
+        var bits = [];
+        if (CALLS.length) {
+          bits.push(CALLS.length + (CALLS.length === 1 ? " call" : " calls") +
+                    " · " + open + " open · benchmark " + BENCH_SYM);
+        }
+        if (CLAIMS.length) {
+          bits.push(CLAIMS.length + (CLAIMS.length === 1 ? " claim" : " claims"));
+        }
+        if (BENCH && BENCH.asOf) bits.push("prices as of " + AIE.fmtDate(BENCH.asOf));
+        head.appendChild(el("p", "perf-sub", bits.join(" · ")));
         main.appendChild(head);
+      }
+
+      function renderCalls(main) {
+        var sec = sectionHead(main, "Calls",
+          "position actions the desk stamped, versus buying " + BENCH_SYM);
+        if (!CALLS.length) {
+          sec.appendChild(el("p", "perf-method",
+            "No calls yet. The desk stamps one only when a verdict newly flips " +
+            "to act/accumulate, a dip-buy is declared, or a position is exited — " +
+            "forward-only, never back-dated."));
+          return;
+        }
 
         var table = el("table", "aie-ledger");
         var thead = el("thead");
@@ -230,7 +325,7 @@
           tbody.appendChild(tr);
         });
         table.appendChild(tbody);
-        main.appendChild(table);
+        sec.appendChild(table);
 
         var method = el("p", "perf-method");
         method.appendChild(document.createTextNode(
@@ -238,18 +333,162 @@
           "“Return” compares the stamped entry price to the latest weekly price fetch " +
           "(or the exit price once closed); “vs " + BENCH_SYM + "” subtracts what simply " +
           "buying the benchmark on the same day would have returned."));
-        main.appendChild(method);
+        sec.appendChild(method);
+      }
+
+      // --- Claims -------------------------------------------------------
+      // The one rule this section exists to honour: a hit rate is never shown
+      // without the share of claims that could never be judged at all. The two
+      // figures are precomputed together in Python (claims.score_claims) and
+      // travel in the same object, so this page cannot render one alone.
+
+      function scoreCard(s) {
+        var card = el("div", "perf-score");
+        card.appendChild(el("p", "perf-score-src",
+          s.source ? (SRC_LABELS[s.source] || s.source) : "All sources"));
+
+        if (s.hitRate == null) {
+          // NOT "0%". Nothing judged is no record, not a bad one.
+          card.appendChild(el("p", "perf-score-rate is-none", "No judged claims yet"));
+          card.appendChild(el("p", "perf-score-caption",
+            s.open + " still open · earliest verdict when its date arrives"));
+        } else if (!s.rateIsMeaningful) {
+          // Raw counts until the sample earns a percentage: 2-of-3 rendered
+          // as "67%" reads like a track record and is not one.
+          card.appendChild(el("p", "perf-score-rate",
+            s.correct + " of " + s.judged + " right"));
+          card.appendChild(el("p", "perf-score-caption",
+            "Too few judged for a rate (needs " + MIN_JUDGED + ") · " +
+            s.open + " still open"));
+        } else {
+          card.appendChild(el("p", "perf-score-rate",
+            Math.round(s.hitRate * 100) + "% hit rate"));
+          card.appendChild(el("p", "perf-score-caption",
+            s.correct + " right, " + s.wrong + " wrong of " + s.judged +
+            " judged · " + s.open + " still open"));
+        }
+
+        var share = el("p", "perf-score-share");
+        if (s.unfalsifiableShare == null) {
+          share.appendChild(document.createTextNode("No claims recorded."));
+        } else {
+          share.appendChild(el("b", null, Math.round(s.unfalsifiableShare * 100) + "%"));
+          share.appendChild(document.createTextNode(
+            " untestable — " + s.unfalsifiable + " of " + s.total +
+            " claims could never be judged either way."));
+        }
+        card.appendChild(share);
+        return card;
+      }
+
+      function statusOf(c) {
+        return { correct: "win", wrong: "loss", unfalsifiable: "wash" }[c.status] || "open";
+      }
+
+      function renderClaims(main) {
+        var sec = sectionHead(main, "Claims",
+          "dated predictions, judged when their date arrives");
+
+        if (!CLAIMS.length) {
+          sec.appendChild(el("p", "perf-method",
+            "No claims recorded yet. /pre-review extracts them from each seat's " +
+            "findings, and a backfill pass reads them out of the analyst's posts."));
+          return;
+        }
+
+        var scores = el("div", "perf-scores");
+        // The all-sources roll-up only earns its place once more than one
+        // source has claims; with a single source it is the same card twice.
+        var perSource = SCORES.filter(function (s) { return s.source; });
+        (perSource.length > 1 ? SCORES : perSource)
+          .forEach(function (s) { scores.appendChild(scoreCard(s)); });
+        sec.appendChild(scores);
+
+        var table = el("table", "aie-ledger perf-claims");
+        var thead = el("thead");
+        var hr = el("tr");
+        ["Made", "Ticker", "Source", "Claim", "Judge by", "Status"]
+          .forEach(function (h) { hr.appendChild(el("th", null, h)); });
+        thead.appendChild(hr);
+        table.appendChild(thead);
+
+        var tbody = el("tbody");
+        // Soonest deadline first — that is the actionable end of the ledger.
+        // Undated (unfalsifiable) claims sort last; they never become due.
+        CLAIMS.slice().sort(function (a, b) {
+          var aj = a.judgeBy || "9999", bj = b.judgeBy || "9999";
+          if (aj !== bj) return aj < bj ? -1 : 1;
+          return (a.madeAt || "") < (b.madeAt || "") ? -1 : 1;
+        }).forEach(function (c) {
+          var tr = el("tr");
+          var tdMade = el("td", "aie-ledger-date", c.madeAt ? AIE.fmtDate(c.madeAt) : "—");
+          tdMade.setAttribute("data-label", "Made");
+          tr.appendChild(tdMade);
+
+          var tdSym = el("td");
+          if (c.ticker) {
+            var chip = el("a", "aie-chip aie-chip--ticker aie-tickerchip", c.ticker);
+            chip.href = AIE.linkForTicker(c.ticker);
+            var t = tickerBySym[c.ticker];
+            if (t) {
+              var color = AIE.categoryColor(t.category, null);
+              if (color) chip.style.setProperty("--chip-accent", color);
+            }
+            tdSym.appendChild(chip);
+          } else {
+            tdSym.appendChild(el("span", "perf-src", "macro"));
+          }
+          tr.appendChild(tdSym);
+
+          tr.appendChild(el("td", null)).appendChild(
+            el("span", "perf-src", SRC_LABELS[c.source] || c.source));
+
+          var tdClaim = el("td");
+          tdClaim.appendChild(el("span", "perf-claim", c.claim));
+          if (c.testableBy) {
+            tdClaim.appendChild(el("span", "perf-claim-test", "Settled by: " + c.testableBy));
+          } else {
+            tdClaim.appendChild(el("span", "perf-claim-test",
+              "Nothing stated that could settle this."));
+          }
+          tr.appendChild(tdClaim);
+
+          var tdJudge = el("td");
+          tdJudge.setAttribute("data-label", "Judge by");
+          tdJudge.appendChild(el("span", "perf-num",
+            c.judgeBy ? AIE.fmtDate(c.judgeBy) : "never — untestable"));
+          tr.appendChild(tdJudge);
+
+          var tdStatus = el("td");
+          tdStatus.appendChild(el("span",
+            "perf-outcome perf-outcome--" + statusOf(c), c.status));
+          tr.appendChild(tdStatus);
+
+          tbody.appendChild(tr);
+        });
+        table.appendChild(tbody);
+        sec.appendChild(table);
+
+        var method = el("p", "perf-method");
+        method.appendChild(document.createTextNode(
+          "Hit rate is correct ÷ (correct + wrong). Open and unfalsifiable claims are " +
+          "excluded from that denominator, which is exactly why the untestable share is " +
+          "printed beside it — a source that only ever says untestable things would " +
+          "otherwise never be wrong. A claim is only marked right or wrong against a " +
+          "citable primary source; without one it stays open."));
+        sec.appendChild(method);
       }
 
       function renderEmpty() {
         var main = document.getElementById("perfMain");
         main.textContent = "";
         var box = el("div", "perf-empty");
-        box.appendChild(el("h1", null, "No calls on the ledger yet"));
+        box.appendChild(el("h1", null, "Nothing on the ledger yet"));
         box.appendChild(el("p", null,
-          "The desk stamps a call only when a verdict newly flips to act/accumulate, " +
-          "a dip-buy is declared, or a position is exited — forward-only, never " +
-          "back-dated. The first calls will appear after a qualifying weekly review."));
+          "Two records live here. Calls are stamped only when a verdict newly flips " +
+          "to act/accumulate, a dip-buy is declared, or a position is exited — " +
+          "forward-only, never back-dated. Claims are dated predictions, recorded " +
+          "when they are made and judged when their date arrives."));
         var actions = el("div", "perf-actions");
         var a1 = el("a", "primary", "The Desk"); a1.href = "desk.html";
         var a2 = el("a", null, "Coverage index"); a2.href = "index.html";
@@ -267,7 +506,15 @@
       }
 
       renderColophon();
-      if (CALLS.length) renderLedger(); else renderEmpty();
+      if (!CALLS.length && !CLAIMS.length) {
+        renderEmpty();
+      } else {
+        var main = document.getElementById("perfMain");
+        main.textContent = "";
+        renderHead(main);
+        renderCalls(main);
+        renderClaims(main);
+      }
     })();
   </script>
 </body>
