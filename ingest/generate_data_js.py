@@ -60,7 +60,7 @@ PRICE_FIELDS = ("price", "currency", "chg7d", "chg1m", "chg1y", "marketCap", "as
 REQUIRED_KEYS = (
     "meta", "countries", "categories", "center", "mapIntro", "glossary",
     "zones", "tickers", "theses", "priorities", "brain", "desk", "memos",
-    "vault", "calls", "benchmarkQuote",
+    "vault", "calls", "benchmarkQuote", "claims",
 )
 
 # Keys whose content comes from a store file. If the file has content, the
@@ -71,6 +71,7 @@ STORE_BACKED = {
     "memos": "memos.json",
     "vault": "vault.json",
     "calls": "calls.json",
+    "claims": "claims.json",
 }
 
 
@@ -124,6 +125,7 @@ def build_data():
     memos = _load_optional("memos.json", {})    # {} until authored; {meta, memos} after (coverage memos)
     vault = _load_optional("vault.json", {})    # {} until synced; {meta, pages} after (knowledge vault)
     calls = _load_optional("calls.json", {})    # {} until a first call is stamped; {meta, calls} after
+    claims = _load_optional("claims.json", {})  # {} until the first claim; {meta, claims} after
 
     # Store-provided icon fragments are the only markup later assigned through
     # innerHTML. Validate every optional icon before it can reach data.js.
@@ -207,6 +209,7 @@ def build_data():
         "memos": memos,
         "vault": vault,
         "calls": calls,
+        "claims": claims,
         # Latest benchmark quote (fetched by fetch_prices.py alongside the
         # tickers) so performance.html can compute vs-SMH without a fetch().
         "benchmarkQuote": prices.get((calls.get("meta") or {}).get("benchmark", "SMH")) or None,

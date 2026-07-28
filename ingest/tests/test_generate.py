@@ -449,5 +449,26 @@ class TestPriorityStamp(unittest.TestCase):
                              p["mentions"], t["ticker"])
 
 
+class TestClaimsBlock(unittest.TestCase):
+    def test_claims_is_a_top_level_block(self):
+        d = gen.build_data()
+        self.assertIn("claims", d)
+
+    def test_claims_is_guarded_against_silent_loss(self):
+        # Six blocks vanished from data.js for four days in July because
+        # nothing checked they were there. Every new block joins the guard.
+        self.assertIn("claims", gen.REQUIRED_KEYS)
+        with self.assertRaises(Exception):
+            gen._assert_complete({k: {} for k in gen.REQUIRED_KEYS
+                                  if k != "claims"})
+
+    def test_every_call_records_which_source_made_it(self):
+        # Phase 4 compares the desk's calls against the analyst's. A call with
+        # no source cannot be attributed to either.
+        d = gen.build_data()
+        for call in (d["calls"] or {}).get("calls", []):
+            self.assertIn(call.get("source"), ("desk", "analyst"), call.get("id"))
+
+
 if __name__ == "__main__":
     unittest.main()

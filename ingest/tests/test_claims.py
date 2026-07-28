@@ -470,5 +470,52 @@ class TestScoreClaims(unittest.TestCase):
         self.assertIn("unfalsifiableShare", claims.score_claims(self._set()))
 
 
+class TestClaimsMoveNoNumber(unittest.TestCase):
+    """C1 — in Phase 3 the ledger observes; it does not vote.
+
+    Hit-rate weighting is Phase 4 and is gated on real judged outcomes. Until
+    then a claim must not reach any score or tier, by any route. This is
+    invariant 2 in claims clothing: a new aggregate arrived, so it gets a
+    guard before anything can read it.
+    """
+
+    def test_the_scorer_does_not_import_or_read_claims(self):
+        import scorer
+        self.assertFalse(hasattr(scorer, "claims"))
+        src = pathlib.Path(scorer.__file__).read_text()
+        self.assertNotIn("import claims", src)
+        self.assertNotIn("claims.json", src)
+
+    def test_priorities_and_tiers_are_identical_with_and_without_claims(self):
+        import json
+        import scorer
+        import generate_data_js as gen
+
+        theses = json.loads((gen.STORE / "theses.json").read_text())
+        base = json.loads((gen.STORE / "base.json").read_text())
+        tickers = json.loads((gen.STORE / "tickers.json").read_text())
+        syms = [t["ticker"] for t in tickers]
+        canon = scorer.canonicalize_theses(
+            theses, base.get("tickerAliases"), base.get("themeTags"))
+
+        from datetime import datetime, timezone
+        fixed = datetime(2026, 7, 28, tzinfo=timezone.utc)
+        before = scorer.compute_priorities(canon, now=fixed)
+        before_tiers = scorer.assign_tiers(syms, before)
+
+        # A populated ledger, including judged claims, must change nothing.
+        ledger = [
+            claims.validate_claim(RAW, "pm", "AAOI", set(syms), MADE),
+            claims.validate_claim(raw(claim="Another one."), "analyst",
+                                  "SIVE", set(syms), MADE),
+        ]
+        ledger[0]["status"] = "correct"
+        self.assertTrue(all(ledger))
+
+        after = scorer.compute_priorities(canon, now=fixed)
+        self.assertEqual(before, after)
+        self.assertEqual(before_tiers, scorer.assign_tiers(syms, after))
+
+
 if __name__ == "__main__":
     unittest.main()

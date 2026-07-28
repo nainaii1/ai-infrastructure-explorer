@@ -15,6 +15,7 @@
       "entryPrice": 47.28,
       "entryCurrency": "SEK",
       "stanceAtCall": "accumulate",
+      "source": "desk",
       "memoId": "m_SIVE_2026w28",
       "thesisIds": [
         "h_be5adc50f7bbcc5f",
@@ -38,6 +39,7 @@
       "entryPrice": 1615.0,
       "entryCurrency": "USD",
       "stanceAtCall": "accumulate",
+      "source": "desk",
       "memoId": "m_SNDK_2026w29",
       "thesisIds": [
         "h_c0e79065f90fc60c",
