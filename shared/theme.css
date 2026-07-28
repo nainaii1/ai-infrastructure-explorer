@@ -18,31 +18,48 @@
    1. TOKENS
    ========================================================================== */
 :root {
-  /* --- Cool neutral "Unpacked" palette (EXECUTION.md Phase 6) ------------ */
-  --bg:        #f4f5f7;   /* cool neutral-grey canvas */
-  --card:      #ffffff;   /* pure white cards lift on the grey */
-  --border:    #e2e5ea;   /* cool hairline */
-  --ink:       #0b0d12;   /* near-black display ink */
-  --text:      #2a2e35;   /* body text — ink softened for long reading */
-  --muted:     #7c828c;   /* captions, small-caps labels, secondary meta */
+  /* --- Soft violet-tinted canvas (v9 "soft two-tone") -------------------
+     Every text pair below is measured, not eyeballed. Ratios in comments are
+     against --bg unless stated; the floor is 4.5:1 for text, 3:1 for UI. */
+  --bg:        #faf9fe;   /* soft violet-tinted canvas */
+  --card:      #ffffff;   /* pure white cards float on it */
+  --border:    #e6e2f2;   /* violet hairline */
+  --border-strong: #d5cfe8;  /* emphasised divider */
+  --ink:       #1b1436;   /* deep violet display ink — 16.7:1 */
+  --text:      #3b3557;   /* body — 10.9:1 */
+  --muted:     #6a6484;   /* captions / small-caps — 5.3:1 (was 3.55:1, failed AA) */
 
-  /* Derived neutrals for fills/hovers. Names kept — pages consume them. */
-  --paper-sink: #eceef1;  /* recessed rows / hover wash */
-  --paper-tint: #f0f2f5;  /* subtle zebra / header fill */
+  /* Derived neutrals for fills/hovers. Names kept — 4 pages consume them. */
+  --paper-sink: #f2f0fa;  /* recessed rows / hover wash */
+  --paper-tint: #f6f4fc;  /* subtle zebra / header fill */
 
-  /* True-black "event stage" dark surfaces (cross-section, vault graph). */
-  --stage:    #0a0a0c;
-  --stage-hi: #16161a;
+  /* Dark "stage" surfaces (map hub, cross-section, vault graph), violet-black. */
+  --stage:    #0e0a1c;
+  --stage-hi: #191330;
 
-  /* --- Brand accent — ONE blue→violet gradient, used sparingly ----------- */
-  --brand-a:    #2b6bf3;
-  --brand-b:    #7a3bf0;
-  --brand-grad: linear-gradient(100deg, var(--brand-a), var(--brand-b));
-  --brand-ink:  #3d55f2;  /* solid fallback where a gradient can't paint */
+  /* --- Brand: violet primary + teal secondary --------------------------- */
+  --violet:      #5b3ee0;  /* primary accent, links, key numbers — 6.5:1 on card */
+  --violet-hi:   #7c5cf0;  /* hover / gradient end — 4.5:1 on card */
+  --violet-wash: #efeafe;  /* tinted fills, section washes */
+  --teal:        #0f776f;  /* secondary accent WHEN IT CARRIES TEXT — ≥4.6:1 on
+                              every surface it can land on, incl. both washes */
+  --teal-ui:     #15a59a;  /* secondary for fills/marks only — 3.1:1, never text */
+  --teal-wash:   #e2f6f3;  /* second wash */
+
+  /* Legacy brand aliases — kept so existing --brand-* call sites keep working. */
+  --brand-a:    var(--violet);
+  --brand-b:    var(--teal-ui);
+  --brand-grad: linear-gradient(100deg, var(--violet), var(--teal-ui));
+  --brand-ink:  var(--violet);   /* solid fallback where a gradient can't paint */
+
+  /* --- Up / down. ONE pair, defined once. Previously declared with DIFFERENT
+     hexes on four pages (#4d6a2b/#a13d2f vs #16a34a/#dc2626). ------------- */
+  --pos: #1f7a45;   /* 4.9:1 on card */
+  --neg: #b23124;   /* 5.5:1 on card */
 
   /* --- Typography -------------------------------------------------------- */
-  /* Bold geometric sans display stack — hero, chapter heads, ledger titles.
-     Weight 700 / -0.02em tracking applied at use sites. No CDN fonts. */
+  /* Bold geometric sans display stack — the same geo-grotesque family as the
+     reference sites, just used far bigger. No CDN fonts (file:// hard rule). */
   --display: "Avenir Next", "Futura", -apple-system, "SF Pro Display",
              "Segoe UI", system-ui, sans-serif;
   /* System sans for data-dense surfaces (tables, map bands) — set per page. */
@@ -52,27 +69,43 @@
   --mono:  "SF Mono", ui-monospace, SFMono-Regular, Menlo, Monaco,
            "Cascadia Code", "Roboto Mono", monospace;
 
-  /* --- Radii & shadows (cool-tinted) ------------------------------------ */
-  --r-card:    20px;
-  --r-tile:    14px;
+  /* --- Type scale. Replaces 30 ad-hoc sizes. 11px is the FLOOR: nothing in
+     the app may set type smaller than --fs-2xs. ---------------------------- */
+  --fs-3xl:  44px;   /* page headline */
+  --fs-2xl:  34px;   /* section / memo title */
+  --fs-xl:   26px;   /* chapter head */
+  --fs-lg:   20px;   /* standfirst, card title */
+  --fs-md:   17px;   /* body */
+  --fs-sm:   15px;   /* dense body, table cell */
+  --fs-xs:   13px;   /* meta, caption */
+  --fs-2xs:  11px;   /* mono small-caps — the floor */
+  --fs-stat: clamp(38px, 6vw, 64px);  /* the big-number stat block */
+
+  /* --- Spacing scale (new — there were no spacing tokens at all) --------- */
+  --s-1:  4px;  --s-2:  8px;  --s-3: 12px;  --s-4: 16px;
+  --s-5: 24px;  --s-6: 32px;  --s-7: 48px;  --s-8: 72px;
+
+  /* --- Radii & shadows (softer, violet-tinted) -------------------------- */
+  --r-card:    28px;
+  --r-tile:    18px;
   --r-chip:    999px;
-  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05),
-               0 4px 14px rgba(15, 23, 42, 0.05);
-  --shadow-lg: 0 2px 6px rgba(15, 23, 42, 0.06),
-               0 18px 40px -18px rgba(15, 23, 42, 0.20);
+  --shadow-sm: 0 1px 2px rgba(27, 20, 54, 0.04),
+               0 6px 20px rgba(27, 20, 54, 0.05);
+  --shadow-lg: 0 2px 8px rgba(27, 20, 54, 0.05),
+               0 24px 56px -20px rgba(27, 20, 54, 0.18);
 
   /* --- Motion (UNCHANGED — inside 200-300ms, spring for pill/drilldowns) - */
   --dur:    240ms;
   --ease:   240ms ease;
   --spring: cubic-bezier(0.32, 0.72, 0.28, 1.15);
 
-  /* --- Semantic hue tokens (cool-tinted fills, same hue meaning) ---------
-     Green = act / core · Sky = accumulate · Amber = watch · Muted = pass /
-     radar. Fills recalibrated for the cool canvas; text keeps ≥4.5:1. */
-  --sem-act-bg:        #def0dd;  --sem-act-fg:        #256b39;  /* green  */
-  --sem-accumulate-bg: #dce9f9;  --sem-accumulate-fg: #1f5fa8;  /* sky    */
-  --sem-watch-bg:      #fbeecb;  --sem-watch-fg:      #8c5c0a;  /* amber  */
-  --sem-pass-bg:       #e8eaee;  --sem-pass-fg:       #7c828c;  /* muted  */
+  /* --- Semantic hue tokens, recalibrated to the violet canvas ------------
+     Green = act / core · Blue = accumulate · Amber = watch · Muted = pass /
+     radar. All four pairs measured ≥5.3:1. */
+  --sem-act-bg:        #dcf0e2;  --sem-act-fg:        #1f6b3d;  /* green 5.45 */
+  --sem-accumulate-bg: #e2e8fc;  --sem-accumulate-fg: #2b4fb8;  /* blue  5.90 */
+  --sem-watch-bg:      #fbeed2;  --sem-watch-fg:      #8a5310;  /* amber 5.49 */
+  --sem-pass-bg:       #eae7f2;  --sem-pass-fg:       #5f5a76;  /* muted 5.36 */
 }
 
 /* Ambient dash-scroll for the map's flow arrows (U7 wires this up). The
@@ -94,6 +127,22 @@
 html { scroll-behavior: smooth; }
 
 *, *::before, *::after { box-sizing: border-box; }
+
+/* ----------------------------------------------------------------------------
+   Focus ring — ONE rule for the whole site. Before v9 this existed only in
+   desk.html, so keyboard users got nothing on the other four pages.
+   :focus-visible (not :focus) so a mouse click never paints a ring.
+   -------------------------------------------------------------------------- */
+:focus-visible {
+  outline: 2px solid var(--violet);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+/* On the dark stage surfaces the violet ring disappears — go white there. */
+.aie-on-stage :focus-visible,
+.vlt-graph-wrap :focus-visible,
+.layer-hub:focus-visible,
+.map-cross :focus-visible { outline-color: #fff; }
 
 /* Editorial base. Pages may override font-family on data-dense containers. */
 body {
@@ -151,47 +200,9 @@ body {
   background: var(--brand-grad);
 }
 
-/* ============================================================================
-   3b. FOCUS CARD (Phase 6, U5)
-   The week's one headline — desk.meta.focus. Shared by index.html (full-width
-   lead) and desk.html (hero lead card); pages only add layout/spacing around
-   this block (margins, hero placement) — the look itself lives here.
-   ========================================================================== */
-.aie-focus {
-  position: relative;
-  padding: 22px 26px 24px;
-  border-radius: var(--r-card);
-  background: var(--card);
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow-sm);
-  overflow: hidden;
-}
-.aie-focus::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 3px;
-  background: var(--brand-grad);
-}
-.aie-focus-eyebrow { display: block; margin-bottom: 10px; }
-.aie-focus-headline {
-  margin: 0 0 8px;
-  font-family: var(--display);
-  font-size: clamp(22px, 3.4vw, 34px);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 1.15;
-  color: var(--ink);
-}
-.aie-focus-dek {
-  margin: 0 0 14px;
-  font-family: var(--display);
-  font-size: 15px;
-  line-height: 1.55;
-  color: var(--text);
-}
-.aie-focus-tickers { display: flex; flex-wrap: wrap; gap: 6px; }
-.aie-focus > *:last-child { margin-bottom: 0; }
+/* (3b. FOCUS CARD — deleted. v8 removed the desk Focus card on 18 Jul 2026;
+   renderFocusCard() went with it and no page has referenced .aie-focus since.
+   ~40 lines of dead CSS removed in the v9 redesign.) */
 
 /* ============================================================================
    4. TOP NAV / MASTHEAD
@@ -418,10 +429,12 @@ a.aie-chip.is-active:hover { color: #fff; }
   top: 0; left: 0; bottom: 0;
   width: 4px;
   background: var(--spine, var(--border));
-  transition: width var(--ease);
+  /* Grow via transform, not width — compositor-only, no layout on hover. */
+  transform-origin: left center;
+  transition: transform var(--ease);
 }
-.th-card:hover::before { width: 7px; }
-.th-card.high-conviction { --spine: #16a34a; }
+.th-card:hover::before { transform: scaleX(1.75); }   /* 4px -> 7px */
+.th-card.high-conviction { --spine: var(--pos); }
 .th-card-compact { background: var(--bg); }
 .th-card-meta {
   display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 10px;
