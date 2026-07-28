@@ -140,6 +140,33 @@ def coerce_str(value):
     return value.strip() if isinstance(value, str) else ""
 
 
+def day(value):
+    """The date portion of a timestamp, so mixed store formats compare.
+
+    Public and living here beside coerce_str because three modules now read
+    the same untrusted scalars by the same rules: pre_review compares store
+    timestamps, claims compares judgeBy against madeAt. One definition so
+    they cannot drift into disagreeing about what a date is.
+
+    verdicts.json carries both "2026-07-06" and "2026-07-22T00:00:00Z", and
+    scorer._parse_dt accepts both, so both are legitimate. A lexical compare
+    between the two shapes is wrong: date-only "2026-07-22" sorts BELOW
+    "2026-07-22T00:00:00Z" and would be silently excluded. Coverage runs
+    weekly, so intra-day precision is irrelevant.
+
+    A missing, empty or non-string value yields "". What that means depends
+    entirely on which side of the comparison it lands on, and the two are NOT
+    symmetric — see select_coverage, which rejects an empty `since` outright:
+
+      * on a RECORD's date, "" sorts below every real cutoff, so the record is
+        excluded. That is the inert direction and the correct one.
+      * on the `since` cutoff, "" sorts below every record, so EVERY record
+        passes. That is failing open, and there is no inert reading of a
+        missing cutoff, so the caller must be told instead.
+    """
+    return value[:10] if isinstance(value, str) else ""
+
+
 def _clean_basis(raw):
     """Keep only http(s) URLs with a real-looking host, deduped, capped at
     MAX_BASIS. A bare scheme ("https://") or a host with no dot ("https://x")

@@ -29,28 +29,6 @@ MAX_COVERAGE = 12
 NEW_THESIS_TRIGGER = 3
 
 
-def _day(value):
-    """The date portion of a timestamp, so mixed store formats compare.
-
-    verdicts.json carries both "2026-07-06" and "2026-07-22T00:00:00Z", and
-    scorer._parse_dt accepts both, so both are legitimate. A lexical compare
-    between the two shapes is wrong: date-only "2026-07-22" sorts BELOW
-    "2026-07-22T00:00:00Z" and would be silently excluded. Coverage runs
-    weekly, so intra-day precision is irrelevant.
-
-    A missing, empty or non-string value yields "". What that means depends
-    entirely on which side of the comparison it lands on, and the two are NOT
-    symmetric — see select_coverage, which rejects an empty `since` outright:
-
-      * on a RECORD's date, "" sorts below every real cutoff, so the record is
-        excluded. That is the inert direction and the correct one.
-      * on the `since` cutoff, "" sorts below every record, so EVERY record
-        passes. That is failing open, and there is no inert reading of a
-        missing cutoff, so the caller must be told instead.
-    """
-    return value[:10] if isinstance(value, str) else ""
-
-
 def select_coverage(priorities, verdicts, theses, since, cap=MAX_COVERAGE):
     """Pick which names the seats review this run. Returns (selected, dropped).
 
@@ -90,7 +68,7 @@ def select_coverage(priorities, verdicts, theses, since, cap=MAX_COVERAGE):
     ranked = [p["ticker"] for p in priorities]
     rank_of = {t: i for i, t in enumerate(ranked)}
 
-    since_day = _day(since)
+    since_day = seats.day(since)
     if not since_day:
         # Deliberately loud, and deliberately NOT the inert treatment the
         # record side gets. An unreadable date on a record excludes that
@@ -108,7 +86,7 @@ def select_coverage(priorities, verdicts, theses, since, cap=MAX_COVERAGE):
 
     changed = []
     for v in verdicts:
-        if _day(v.get("updatedAt")) < since_day:
+        if seats.day(v.get("updatedAt")) < since_day:
             continue
         # Absent/empty/non-string on either side reads as "no known change"
         # and does not qualify — the field is optional, so it must fail inert.
@@ -132,7 +110,7 @@ def select_coverage(priorities, verdicts, theses, since, cap=MAX_COVERAGE):
     for th in theses:
         if scorer.is_research(th):
             continue
-        if _day(th.get("postedAt")) < since_day:
+        if seats.day(th.get("postedAt")) < since_day:
             continue
         for sym in th.get("tickers", []):
             counts[sym] = counts.get(sym, 0) + 1
