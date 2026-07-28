@@ -68,6 +68,7 @@ It's a small multi-page site (plain HTML — every page opens by double-click):
 | I want to... | Open this |
 |---|---|
 | Just use the app | Nothing — double-click `index.html` |
+| **Know what to actually do each week** | **[docs/GUIDE.md](docs/GUIDE.md) → "Your routine, start to finish"** |
 | Add a new idea, refresh prices, or fix "the bot isn't replying" | [docs/GUIDE.md](docs/GUIDE.md) |
 | Run the weekly routine — second opinion, review, scoring predictions | [docs/GUIDE.md](docs/GUIDE.md) §6–§8 |
 | Remember why this project exists and what it's supposed to do | [docs/PRD.md](docs/PRD.md) |

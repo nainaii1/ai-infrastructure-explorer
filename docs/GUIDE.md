@@ -24,6 +24,63 @@ rewrites `data.js`, and the app reads `data.js` when you open/refresh it.
 
 ---
 
+## Your routine, start to finish
+
+If you only remember one page of this doc, remember this one. Three of the four
+things below are automatic or take seconds.
+
+### Every day — nothing, unless he posts (10 seconds)
+
+Forward his post to your Telegram bot. That's it. The bot saves it and updates
+the site by itself.
+
+**The bot only works while it's running on your Mac.** It is not a cloud
+service. If it stops replying, double-click **`desk.command`** → option **1**.
+
+> ⚠️ **Restart the bot after anything changes in `ingest/`.** A bot left
+> running holds an old copy of the code in memory. There's now a guard that
+> makes it refuse to save rather than corrupt your data — but "refuse to save"
+> looks like "the bot ignored me". If Claude Code has been working on this
+> project, restart the bot before you next forward anything.
+
+### Prices — automatic, nothing to do
+
+A scheduled job refreshes prices twice a day. If you want them *right now*:
+`desk.command` → option **2**.
+
+### Once a week — three commands, in this order
+
+Open Claude Code in this project and type them one at a time. Each one finishes
+before you start the next.
+
+| # | Type this | What it does | Roughly |
+|---|---|---|---|
+| 1 | `pre-review` | Three reviewers go and research the top names and file what they find, so the review below has a bear case in front of it | 10–20 min |
+| 2 | `weekly review` | Re-scores everything, updates the tiers, rewrites the desk's verdict on each Core name, refreshes the theme summaries | 15–30 min |
+| 3 | `judge claims` | Checks any prediction whose deadline has passed | Usually seconds |
+
+**The order matters for 1 and 2.** Run the review first and it writes its
+verdicts having seen only his (bullish) posts. If you skip step 1, the review
+tells you so at the top of its report, so you always know which kind you got.
+
+**Step 3 will usually say "nothing is due" and stop.** That is correct — it
+only does work when a deadline has actually arrived. The first one is
+31 Dec 2026.
+
+### Then look at the site
+
+Double-click **`desk.html`**. Nothing you did above reaches the browser until
+you open or refresh it.
+
+### Occasionally, only if you want it
+
+| Type this | What it does |
+|---|---|
+| `coverage-note SIVE` | Write or refresh the full research memo on one name |
+| `vault-note sive` | Write the knowledge-base page for one name or theme |
+
+---
+
 ## 1. Just view the app
 
 Double-click **`index.html`**. It works fully offline (no server, no internet).
