@@ -278,3 +278,110 @@ def extract_claims(items, call_fn, *, allowed_tickers, source):
             "failures": failures,
         },
     }
+
+
+# --- judging ---------------------------------------------------------------
+
+# What a judgement may conclude. "unfalsifiable" belongs here because a claim
+# can turn out to be untestable only once someone tries to test it.
+VERDICTS = ("correct", "wrong", "unfalsifiable")
+
+
+def ripe_claims(claims_list, today):
+    """The open claims whose judgeBy has arrived, oldest deadline first.
+
+    An unreadable judgeBy is NOT ripe. That fails inert: dragging a claim with
+    no readable deadline into a judging pass invites guessing at it, and a
+    guessed verdict is worse than an open one.
+
+    `today` is the caller's clock and must be readable — same reasoning as
+    select_coverage's `since`, so it raises rather than picking a default.
+    """
+    now = _as_date(today)
+    if not now:
+        raise ValueError(
+            "ripe_claims: `today` must be a YYYY-MM-DD date or ISO timestamp "
+            "string, got {!r}".format(today))
+    ripe = [c for c in claims_list
+            if c.get("status") == "open"
+            and _as_date(c.get("judgeBy"))
+            and _as_date(c.get("judgeBy")) <= now]
+    return sorted(ripe, key=lambda c: _as_date(c.get("judgeBy")))
+
+
+def apply_judgement(claim, raw, today):
+    """Return a new claim record with the judgement applied.
+
+    Raises if the claim is not ready to be judged — before its judgeBy, or
+    already decided (C4). Both are caller errors, and a silently re-decided
+    claim would destroy the only record of what was believed and how it
+    turned out.
+
+    A verdict outside VERDICTS leaves the claim open (invariant 3: an
+    unreadable value never becomes a vote). "correct" and "wrong" also
+    require a citable primary source, judged by exactly the rule the seats
+    use — no citation, no verdict, the claim stays open (C3). Only
+    "unfalsifiable" needs no citation, because nothing could settle it.
+    """
+    now = _as_date(today)
+    if not now:
+        raise ValueError(
+            "apply_judgement: `today` must be a YYYY-MM-DD date or ISO "
+            "timestamp string, got {!r}".format(today))
+    if claim.get("status") != "open":
+        raise ValueError(
+            "apply_judgement: claim {} is already {}; re-deciding it would "
+            "erase the record of what was believed".format(
+                claim.get("id"), claim.get("status")))
+    judge_by = _as_date(claim.get("judgeBy"))
+    if not judge_by or judge_by > now:
+        raise ValueError(
+            "apply_judgement: claim {} is not due until {!r} (today {})".format(
+                claim.get("id"), claim.get("judgeBy"), now))
+
+    out = dict(claim)
+    verdict = seats.coerce_str(raw.get("verdict") if isinstance(raw, dict)
+                               else None)
+    if verdict not in VERDICTS:
+        return out
+
+    evidence = seats.clean_basis(raw.get("basis"))
+    if verdict in ("correct", "wrong") and not evidence:
+        return out
+
+    out["status"] = verdict
+    out["judgedAt"] = now
+    out["evidence"] = evidence or None
+    return out
+
+
+def score_claims(claims_list, source=None):
+    """Hit rate AND unfalsifiable share for a set of claims.
+
+    Both come back from one call on purpose (C2): a hit rate shown without
+    the share lets a source look good by never saying anything testable.
+
+    hitRate is None — not 0.0 — when nothing has been judged. Zero reads as
+    "always wrong", and "no record yet" must not be mistaken for a bad one.
+    """
+    rows = [c for c in claims_list
+            if source is None or c.get("source") == source]
+    counts = {v: 0 for v in VALID_STATUS}
+    for c in rows:
+        status = c.get("status")
+        if status in counts:
+            counts[status] += 1
+
+    judged = counts["correct"] + counts["wrong"]
+    total = len(rows)
+    return {
+        "source": source,
+        "total": total,
+        "open": counts["open"],
+        "correct": counts["correct"],
+        "wrong": counts["wrong"],
+        "unfalsifiable": counts["unfalsifiable"],
+        "judged": judged,
+        "hitRate": (counts["correct"] / judged) if judged else None,
+        "unfalsifiableShare": (counts["unfalsifiable"] / total) if total else None,
+    }

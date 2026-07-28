@@ -167,12 +167,17 @@ def day(value):
     return value[:10] if isinstance(value, str) else ""
 
 
-def _clean_basis(raw):
+def clean_basis(raw):
     """Keep only http(s) URLs with a real-looking host, deduped, capped at
     MAX_BASIS. A bare scheme ("https://") or a host with no dot ("https://x")
     is not a citation — netloc must be non-empty and contain a dot. A URL to
     an invented-but-well-formed host is a fair residual (no network access to
     check); a scheme-only string is not.
+
+    Public because claims.apply_judgement applies the identical rule to the
+    evidence behind a judgement: a claim can only be called correct or wrong
+    on a citable source. One definition, so "what counts as a citation"
+    cannot drift between the seats and the ledger that scores them.
     """
     out = []
     if isinstance(raw, list):
@@ -234,7 +239,7 @@ def validate_finding(raw, seat, ticker, allowed_tickers):
     if direction not in scorer.VALID_DIRECTIONS:
         direction = "neutral"
 
-    basis = _clean_basis(raw.get("basis"))
+    basis = clean_basis(raw.get("basis"))
     verification = "verified" if basis else "unverified"
     if not basis:
         direction = "neutral"

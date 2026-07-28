@@ -321,5 +321,154 @@ class TestExtractClaims(unittest.TestCase):
                                   source="chief-vibes-officer")
 
 
+CITE = "https://www.sec.gov/Archives/edgar/data/1/x.htm"
+
+
+def open_claim(**kw):
+    c = claims.validate_claim(RAW, "pm", "AAOI", ALLOWED, MADE)
+    c.update(kw)
+    return c
+
+
+class TestRipeClaims(unittest.TestCase):
+    def test_a_claim_is_ripe_on_and_after_its_judge_by(self):
+        c = open_claim(judgeBy="2027-10-31")
+        for today in ("2027-10-31", "2027-11-01"):
+            self.assertEqual(claims.ripe_claims([c], today), [c], today)
+
+    def test_a_claim_is_not_ripe_before_its_judge_by(self):
+        c = open_claim(judgeBy="2027-10-31")
+        self.assertEqual(claims.ripe_claims([c], "2027-10-30"), [])
+
+    def test_an_unfalsifiable_claim_is_never_ripe(self):
+        c = open_claim(status="unfalsifiable", judgeBy=None)
+        self.assertEqual(claims.ripe_claims([c], "2099-01-01"), [])
+
+    def test_an_already_judged_claim_is_not_ripe(self):
+        c = open_claim(status="correct", judgedAt="2027-11-01")
+        self.assertEqual(claims.ripe_claims([c], "2099-01-01"), [])
+
+    def test_an_unreadable_judge_by_is_not_ripe(self):
+        # Fails inert: an unreadable date must not drag a claim into a
+        # judging pass that would then guess at it.
+        for bad in (None, "", "soon", 20271031):
+            c = open_claim(judgeBy=bad)
+            self.assertEqual(claims.ripe_claims([c], "2099-01-01"), [], repr(bad))
+
+    def test_an_unreadable_today_raises(self):
+        with self.assertRaises(ValueError):
+            claims.ripe_claims([open_claim()], "whenever")
+
+
+class TestApplyJudgement(unittest.TestCase):
+    def _judge(self, verdict, basis=(CITE,), today="2027-11-01", claim=None):
+        return claims.apply_judgement(
+            claim or open_claim(judgeBy="2027-10-31"),
+            {"verdict": verdict, "basis": list(basis), "evidenceNote": "n"},
+            today)
+
+    def test_a_cited_correct_verdict_is_recorded(self):
+        c = self._judge("correct")
+        self.assertEqual(c["status"], "correct")
+        self.assertEqual(c["judgedAt"], "2027-11-01")
+        self.assertEqual(c["evidence"], [CITE])
+
+    def test_a_cited_wrong_verdict_is_recorded(self):
+        self.assertEqual(self._judge("wrong")["status"], "wrong")
+
+    def test_an_uncited_correct_verdict_leaves_the_claim_open(self):
+        # C3. The desk is judging its own predictions, which is exactly when
+        # an invented citation is most tempting and least likely to be checked.
+        for basis in ([], ["not a url"], ["https://"], ["https://x"]):
+            c = self._judge("correct", basis=basis)
+            self.assertEqual(c["status"], "open", repr(basis))
+            self.assertIsNone(c["judgedAt"], repr(basis))
+
+    def test_an_uncited_wrong_verdict_also_leaves_it_open(self):
+        self.assertEqual(self._judge("wrong", basis=[])["status"], "open")
+
+    def test_unfalsifiable_needs_no_citation(self):
+        # Nothing could settle it, so there is nothing to cite. Recording it
+        # is the point (C2).
+        c = self._judge("unfalsifiable", basis=[])
+        self.assertEqual(c["status"], "unfalsifiable")
+        self.assertEqual(c["judgedAt"], "2027-11-01")
+
+    def test_an_unknown_verdict_leaves_the_claim_open(self):
+        for bad in ("right", "CORRECT", "", None, 7, "true"):
+            c = self._judge(bad)
+            self.assertEqual(c["status"], "open", repr(bad))
+
+    def test_judging_before_the_judge_by_date_raises(self):
+        with self.assertRaises(ValueError):
+            self._judge("correct", today="2027-10-30")
+
+    def test_re_judging_a_decided_claim_raises(self):
+        # C4. A silently flipped verdict destroys the only record of what the
+        # desk believed and how it turned out.
+        decided = open_claim(judgeBy="2027-10-31", status="correct",
+                             judgedAt="2027-11-01")
+        with self.assertRaises(ValueError):
+            self._judge("wrong", claim=decided)
+
+    def test_the_input_claim_is_not_mutated(self):
+        c = open_claim(judgeBy="2027-10-31")
+        self._judge("correct", claim=c)
+        self.assertEqual(c["status"], "open")
+        self.assertIsNone(c["judgedAt"])
+
+
+class TestScoreClaims(unittest.TestCase):
+    def _set(self):
+        return [
+            open_claim(status="correct"), open_claim(status="correct"),
+            open_claim(status="wrong"),
+            open_claim(status="open"),
+            open_claim(status="unfalsifiable"),
+        ]
+
+    def test_hit_rate_excludes_open_and_unfalsifiable(self):
+        s = claims.score_claims(self._set())
+        self.assertEqual(s["correct"], 2)
+        self.assertEqual(s["wrong"], 1)
+        self.assertEqual(s["judged"], 3)
+        self.assertAlmostEqual(s["hitRate"], 2 / 3)
+
+    def test_unfalsifiable_share_is_over_the_whole_set(self):
+        s = claims.score_claims(self._set())
+        self.assertEqual(s["total"], 5)
+        self.assertAlmostEqual(s["unfalsifiableShare"], 1 / 5)
+
+    def test_no_judged_claims_gives_a_null_hit_rate_not_zero(self):
+        # 0.0 reads as "always wrong". Nothing judged is not a bad record,
+        # it is no record, and the two must not look the same.
+        s = claims.score_claims([open_claim(status="open")])
+        self.assertIsNone(s["hitRate"])
+
+    def test_an_empty_set_is_all_null(self):
+        s = claims.score_claims([])
+        self.assertEqual(s["total"], 0)
+        self.assertIsNone(s["hitRate"])
+        self.assertIsNone(s["unfalsifiableShare"])
+
+    def test_a_source_that_only_says_untestable_things_scores_no_hit_rate(self):
+        s = claims.score_claims([open_claim(status="unfalsifiable")] * 4)
+        self.assertIsNone(s["hitRate"])
+        self.assertEqual(s["unfalsifiableShare"], 1.0)
+
+    def test_filtering_by_source(self):
+        mixed = [open_claim(status="correct"),
+                 open_claim(source="analyst", status="wrong")]
+        s = claims.score_claims(mixed, source="analyst")
+        self.assertEqual(s["source"], "analyst")
+        self.assertEqual(s["total"], 1)
+        self.assertEqual(s["wrong"], 1)
+        self.assertEqual(s["hitRate"], 0.0)
+
+    def test_the_share_always_comes_back_with_the_rate(self):
+        # C2: no caller can render a hit rate without the honesty figure.
+        self.assertIn("unfalsifiableShare", claims.score_claims(self._set()))
+
+
 if __name__ == "__main__":
     unittest.main()
