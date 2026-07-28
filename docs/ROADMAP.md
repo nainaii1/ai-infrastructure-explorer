@@ -107,7 +107,7 @@ _Last updated: 2026-07-28 (claims ledger + Claims page, Phase 3, shipped). Livin
 > - **Phase 2 ✅ (2026-07-12)** — coverage memos (`memos.json` → `memo.html`, ledger, skills).
 > - **Phase 3 ✅ (2026-07-12)** — knowledge Vault + graph (`vault.json`, index/page/graph views).
 > - **Phase 4 ✅** — site-wide cross-linking (`AIE.linkForTicker`, `$TICK` / `[[wikilink]]` markup).
-> - **Phase 5 ✅ (2026-07-12)** — performance hooks (`calls.json` + minimal page, greyed until 3+ calls).
+> - **Phase 5 ✅ (2026-07-12)** — performance hooks (`calls.json` + minimal page). The nav link was greyed until 3+ calls existed; that threshold was lowered to 1 on 2026-07-26 (`MIN_CALLS_FOR_NAV` in `shared/common.js`), so Performance is live.
 > - **Phase 6 ✅ (2026-07-15)** — "Unpacked" cool rebrand (U1–U8): cool neutral-grey canvas,
 >   geometric display type, ONE blue→violet brand gradient, true-black stage surfaces, data-owned
 >   category icons, the weekly Focus card, Chapter 01 ticker-tile grid + expand-in-place, and the
@@ -170,7 +170,7 @@ He tweets → you forward to the Telegram bot (or backfill from signal bots)
 | Thesis tab | ✅ Done | Date, conviction badge, source link, ticker chips |
 | Brain tab (per-theme AI digests) | ✅ Done | `synthesize.py`; refreshed via the weekly review when no API key |
 | Ticker triage CLI (`review.py`) | ✅ Done | Documented in GUIDE.md §5 |
-| Backfill & auto-capture guide | ✅ Done (2026-07-03) | GUIDE.md §7 — forward from existing signal bots; Telethon watcher documented as the future automation path |
+| Backfill & auto-capture guide | ✅ Done (2026-07-03) | GUIDE.md §9 — forward from existing signal bots; Telethon watcher documented as the future automation path |
 
 ---
 
@@ -242,7 +242,7 @@ design.
 
 1. **Backfill via signal-bot forwarding** — operator task, no code: forward
    the existing @aleabitoreddit alert-bot history into the ingest bot
-   (GUIDE.md §7). Priority: most recent months first.
+   (GUIDE.md §9). Priority: most recent months first.
 2. **First real `/weekly-review` cycle** (next week) — proves the loop and
    produces the first stance *changes*, which is where the value is.
 3. **`start_bot.sh`** + **SSL fix in `bot.py`** (issues 1 & 3).

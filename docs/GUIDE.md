@@ -210,10 +210,54 @@ from the store entirely.
 
 ---
 
-## 6. The weekly desk review (tiers + Claude's verdicts)
+## 6. The second opinion (`/pre-review`)
+
+**The problem this fixes.** Everything in this tool comes from one person. He
+is long-only and bullish by temperament, so the store has no bear case and
+nothing he hasn't looked at can ever get in. Reading his posts more carefully
+does not fix that — the missing information simply isn't there.
+
+**What a "seat" is.** Three reviewers, each being Claude with a different
+instruction and permission to go and look things up on the web:
+
+| Seat | The one question it has to answer |
+|---|---|
+| Semiconductor expert | Is the technical claim actually true? |
+| Fundamental analyst | Do the numbers work? |
+| Portfolio manager | Is this a good bet *at this price*? |
+
+**A seat is not an expert.** Calling one "semiconductor expert" does not create
+semiconductor expertise — it is the same model with a different brief. What the
+structure buys you is three separate passes, so three different questions
+genuinely get asked instead of one blurry one, and it is forced to go and find
+outside facts. Never treat a finding as if a chip engineer reviewed it.
+
+**How to run it.** Open Claude Code in this project and say **"pre-review"**
+(or `/pre-review`). Do this **before** the weekly review, so the verdicts get
+written with both sides on the table. It picks up to 12 names, researches each,
+and writes what it finds into the thesis feed marked `research` so you can
+always tell it apart from his posts.
+
+**The rule that keeps it honest.** A finding has to cite a real primary source
+— an SEC filing, an earnings-call transcript, company IR material. If it can't,
+the finding is recorded as **unverified** and made worth exactly zero to every
+number in the app. It still shows up in the brief so you can read it; it just
+can't move a ranking. **That is the correct outcome, not a failure.** The
+alternative is a model inventing a citation to look useful.
+
+**Outside research can only ever lower a name, never raise it.** A seat cannot
+promote a stock into Core, add to its mention count, or make it look like the
+analyst talked about it. This is deliberate: the same model writes the desk
+verdicts, and without that rule it could agree with itself three times and
+manufacture conviction out of nothing.
+
+## 7. The weekly desk review (tiers + Claude's verdicts)
 
 Once a week, open Claude Code in this project and say **"run the weekly
 review"** (it's a project skill: `.claude/skills/weekly-review/SKILL.md`).
+**Run `/pre-review` first** (section 6) so the verdicts are written with a bear
+case on the table rather than from his posts alone — the weekly review will say
+so at the top of its report if you skipped it.
 In one pass it refreshes prices, re-tiers every ticker
 (Core / Watch / Radar), refreshes Brain digests for themes with new theses,
 and rewrites **Claude's desk verdicts** — a second opinion on each Core name
@@ -233,7 +277,51 @@ review authors directly) and are capped at the **top 12–15 Core names** to
 keep each weekly session cheap. Everything is regenerated into `data.js`
 through the normal pipeline — never hand-edit `data.js`.
 
-## 7. Backfill & auto-capture (getting posts in with less manual work)
+## 8. Keeping score (`/judge-claims`)
+
+**What this is for.** Anyone can sound convincing. The only way to know whether
+a source is worth following is to write down what they predicted, with a date,
+and go back later to check. `ingest/store/claims.json` is that record, and the
+**Claims** half of the Performance page is where you read it.
+
+**Three things can happen to a claim:**
+
+| Outcome | What it means |
+|---|---|
+| **Open** | Its date hasn't arrived yet. Nothing to do. |
+| **Correct / Wrong** | The date came, someone checked, and there's a citation. |
+| **Untestable** | Nothing could ever settle it either way. |
+
+**"Untestable" is the interesting one.** "Sivers grows from a $1B company to
+$10B+" has no date and no test — it can never be wrong, so it can never be
+scored. Those claims are *recorded*, not thrown away, and the page always shows
+what share of a source's talk falls into that bucket.
+
+**Right now that share is 52% — 13 of the 25 claims captured so far.** Over
+half of what this desk's only source says cannot be checked even generously
+read. That is worth knowing, and it is the entire reason this ledger exists.
+
+**How to run it.** Say **"judge claims"** (or `/judge-claims`) in Claude Code.
+It only does work when a deadline has actually passed, so most weeks it will
+tell you there's nothing due and stop. The weekly review also tells you when
+claims have come ripe.
+
+**Why the page sometimes refuses to show a percentage:**
+
+- **"No judged claims yet"** — nothing has been checked. It deliberately does
+  *not* say 0%, because zero would read as "always wrong", and no record is not
+  a bad record.
+- **"2 of 3 right"** — fewer than 20 judged claims, so you get raw counts. A
+  percentage built on three data points looks like a track record and isn't one.
+- A real hit rate appears only past 20 judged claims, and **always** with the
+  untestable share printed next to it. A source who only ever says untestable
+  things would otherwise never be wrong and would look flawless.
+
+Nothing in this ledger moves any score or tier today. Letting a track record
+feed back into the rankings is a later phase, deliberately held until there are
+enough judged claims for it to mean anything.
+
+## 9. Backfill & auto-capture (getting posts in with less manual work)
 
 **Backfill from your existing signal bots.** If you already follow
 @aleabitoreddit alert bots on Telegram, just **forward their messages to
@@ -301,6 +389,41 @@ Prices need the local server — run `python3 ingest/serve.py` and use the app a
 ### "The Synthesis chapter says 'No brain digests yet.'"
 The summaries haven't been generated. Ask Claude Code to "refresh the brain," or run
 `python3 ingest/synthesize.py` (needs an API key in `ingest/.env`).
+
+### "The Performance page says 'No judged claims yet'. Is that a bug?"
+
+No — it's the honest answer. A claim can only be judged once its deadline has
+passed, and the earliest one in the ledger is **31 Dec 2026**. Until then there
+is genuinely nothing to score. The page refuses to print "0%" for this, because
+zero would read as "always wrong" when the truth is "not checked yet".
+
+### "Why does it say 52% untestable? That seems harsh."
+
+It's a count, not an opinion. Of the 25 claims captured from the analyst so
+far, 13 have no date and no test attached — things like "this grows into a
+$10B company" with no when and no threshold. Those can never be marked right
+or wrong. The number sits next to the hit rate on purpose: without it, a source
+who only ever says untestable things would look like they'd never been wrong.
+
+### "A seat said something and it didn't change any ranking."
+
+That's the design. Outside research can lower a name but never raise it, and a
+finding with no citable source is recorded as *unverified* and made worth
+exactly zero. You can still read it in the brief and on the ticker card — it
+just isn't allowed to move the numbers. Without that rule, the same model that
+writes the desk verdicts could agree with itself and manufacture conviction.
+
+### "Do I have to run `/pre-review` before the weekly review?"
+
+No, but you should. If you skip it, the weekly review says so at the top of its
+report, so you always know whether you're reading a review that had a bear case
+in front of it or one written from his posts alone.
+
+### "Nothing appeared in the Claims section after I ran /pre-review."
+
+Normal. Most findings and most posts contain no dated prediction at all, and
+the tooling is explicitly told **not** to invent a deadline to make a vague
+statement look testable. No claim is a real outcome, not a silent failure.
 
 ### "Do I need to `pip install` anything?"
 Only for the Brain (`synthesize.py` needs `anthropic`): `pip install -r ingest/requirements.txt`.

@@ -360,6 +360,27 @@ left padding keeps text clear of the spine.
 - `.bd-sources` — drill-down list of the source thesis cards, reusing
   `.th-card` in a compact/`--bg`-tinted variant (`.th-card-compact`).
 
+### Performance — Calls + Claims (`performance.html`, added 2026-07-28)
+- `.perf-section` + `.perf-sec-head` — the page carries two ledgers now, each
+  under a display-font heading with a mono sub-label and a hairline rule.
+- `.perf-scores` — `auto-fill, minmax(230px, 1fr)` grid of per-source cards.
+  The all-sources roll-up is suppressed while only one source has claims.
+- `.perf-score-rate` — the headline figure, with an `.is-none` variant that
+  drops to 14px muted text for "No judged claims yet". **The three states are
+  visually distinct on purpose:** no judged claims, raw counts under the
+  20-claim threshold, and a real percentage. Collapsing them would let an
+  absent record read as a bad one.
+- `.perf-score-share` — the untestable share, separated by a dashed rule and
+  **always rendered**. It is not optional styling: the hit rate and the share
+  are computed together upstream so this element can never be omitted.
+- `.perf-claims` — the claims table. Reuses the shared `.aie-ledger` plus the
+  existing `.perf-outcome--win/loss/wash/open` badges (correct → win,
+  wrong → loss, unfalsifiable → wash), so claim status and call outcome share
+  one visual language.
+- Mobile: the shared `.aie-ledger` hides its header row and stacks cells, so
+  the two date cells carry `data-label` and a `::before` under 768px. Scoped
+  to `.perf-claims` only — the Calls table keeps its existing behaviour.
+
 ---
 
 ## 7. Known inconsistencies (worth a decision, not a bug report)
@@ -367,6 +388,12 @@ left padding keeps text clear of the spine.
 A redesign is a natural point to either deliberately keep or resolve these —
 flagging them so they're a choice, not an oversight:
 
+0. **This inventory is still organised by the retired tab model.** The
+   headings above say "Tab 1 — Supply Chain Map", "Tab 2 — Watchlist" and so
+   on, but v6 dissolved the tabs into one chaptered scroll and v7 split the
+   app into six pages. The component descriptions are still accurate; only the
+   grouping is stale. Predates the 2026-07 expert-review work — worth a pass
+   whenever this doc is next opened for real design work.
 1. **Two different "accent spine" techniques.** `.layer-band`/`.tk-card` use
    an absolutely-positioned `::before` (lets the spine animate its `width`
    independently on hover). `.th-card`/`.bd-card` use plain `border-left`

@@ -36,6 +36,13 @@ It's a small multi-page site (plain HTML — every page opens by double-click):
 - **03 · The Synthesis** — Claude reads all the captured theses and writes one
   short summary per theme: what the story is, how confident, which stocks
   matter. Expand any digest to see the source posts behind it.
+- **A second opinion, on purpose.** Everything captured here comes from one
+  long-only analyst, so the data has no bear case by construction. Before each
+  weekly review, three reviewers — a semiconductor expert, a fundamental
+  analyst and a portfolio manager — research the top names and file what they
+  find. A finding that can't cite a real primary source is recorded but made
+  worth zero to every ranking, and outside research can only ever lower a
+  name, never raise it. Run it by saying **"pre-review"** in Claude Code.
 - **Coverage** (`index.html`) — the memo ledger: every research memo the desk
   has written, filterable by kind and rating. (The raw thesis feed is no longer
   a page of its own — posts live in the data and show up cited under memos,
@@ -47,10 +54,14 @@ It's a small multi-page site (plain HTML — every page opens by double-click):
   per company, theme, and concept, cross-linked with `[[wikilinks]]` and
   backlinks — plus a **Graph view** that draws the whole web as an
   interactive force-directed map (hover to trace, click for details).
-- **Performance** (`performance.html`) — the desk's track record: every
-  dated call with its entry price, current return, and whether it beat
-  simply buying the SMH semiconductor index that day. Stamped forward-only,
-  never back-dated; the nav link stays greyed until 3 real calls exist.
+- **Performance** (`performance.html`) — the track record, in two halves.
+  **Calls**: every dated position action with its entry price, current return,
+  and whether it beat simply buying the SMH semiconductor index that day —
+  stamped forward-only, never back-dated. **Claims**: every dated *prediction*
+  made by the analyst or by the desk, judged once its date arrives. The hit
+  rate is always shown next to the share of claims that could never be tested
+  at all, so nobody scores well by being vague. Score the ones that have come
+  due by saying **"judge claims"** in Claude Code.
 
 ## 📚 Which doc do I open?
 
@@ -58,6 +69,7 @@ It's a small multi-page site (plain HTML — every page opens by double-click):
 |---|---|
 | Just use the app | Nothing — double-click `index.html` |
 | Add a new idea, refresh prices, or fix "the bot isn't replying" | [docs/GUIDE.md](docs/GUIDE.md) |
+| Run the weekly routine — second opinion, review, scoring predictions | [docs/GUIDE.md](docs/GUIDE.md) §6–§8 |
 | Remember why this project exists and what it's supposed to do | [docs/PRD.md](docs/PRD.md) |
 | See what's built, what's coming next, and known issues | [docs/ROADMAP.md](docs/ROADMAP.md) |
 | Set up the Telegram bot for the first time | [docs/TELEGRAM_SETUP.md](docs/TELEGRAM_SETUP.md) |
@@ -74,7 +86,7 @@ ai-supply-desk/
 ├── index.html          COVERAGE — the memo ledger (+ the week's Focus card)
 ├── memo.html           COVERAGE MEMOS — full research notes per name (?ticker=)
 ├── vault.html          THE VAULT — knowledge base, List/Graph views (?view=graph)
-├── performance.html    THE TRACK RECORD — dated calls vs the SMH benchmark
+├── performance.html    THE TRACK RECORD — dated calls vs SMH, and the claims ledger
 ├── design.html         DESIGN REFERENCE — live style guide (not in the nav; open directly)
 ├── desk.command        BACKEND MENU — double-click: start bot / prices / serve / status
 ├── shared/             the shared look + helpers used by every page
@@ -93,6 +105,8 @@ ai-supply-desk/
 └── ingest/              THE BACKEND — the tools that update data.js
     ├── bot.py            the Telegram bot that captures new ideas
     ├── synthesize.py     writes the "Synthesis" summaries
+    ├── seats.py / pre_review.py   the three reviewers: the second-opinion pass
+    ├── claims.py         the claims ledger: record predictions, judge them later
     ├── fetch_prices.py / serve.py   weekly price updates + local server
     ├── parser.py  scorer.py  fetcher.py  review.py  generate_data_js.py
     ├── store/*.json      the actual saved data (tickers, ideas, summaries, …)
@@ -120,13 +134,24 @@ ai-supply-desk/
 
 ## Where things stand
 **The "Private Coverage" upgrade is complete** (all phases, Jul 2026): the
-warm editorial front page with its coverage ledger, the field guide (map /
-watchlist / evidence / synthesis), full coverage memos, the knowledge vault
-with its interactive graph view, site-wide cross-linking, and the
-forward-only performance ledger. Currently tracking 110+ companies, 200+
-captured ideas, 15 desk verdicts, and 6 coverage memos. See
-[docs/EXECUTION.md](docs/EXECUTION.md) and [docs/ROADMAP.md](docs/ROADMAP.md)
-for the full history.
+coverage ledger, the desk (map / watchlist / synthesis), full coverage memos,
+the knowledge vault with its interactive graph view, site-wide cross-linking,
+and the forward-only performance ledger.
+
+**The expert review team is live** (Phases 1–3, Jul 2026) — the fix for being
+downstream of exactly one person. Bearish views now lower a score instead of
+raising it; three reviewers research the top names before each weekly review
+and must cite a real source or count for nothing; and a claims ledger records
+dated predictions and scores them when their date arrives. The first
+measurement is worth knowing: **13 of the 25 analyst claims captured so far
+can never be tested either way — a 52% untestable share.**
+
+Currently tracking 120 companies, 258 captured ideas, 17 desk verdicts,
+6 coverage memos and 25 claims. Two phases remain and both are waiting rather
+than unbuilt: feeding a track record back into the rankings needs 20+ judged
+claims (the earliest deadline is Dec 2026), and running the reviewers
+unattended overnight needs a decision about API access. See
+[docs/ROADMAP.md](docs/ROADMAP.md) for the full history.
 
 ## Screenshots
 
