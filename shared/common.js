@@ -417,7 +417,9 @@
 
   // MEMO accent — a small chip glyph tinted with the ticker's category color.
   function chipSpark(color) {
-    var c = color || "#7c828c";
+    // Inline SVG resolves CSS custom properties in fill/stroke, so the
+    // fallback stays a token rather than a stale copy of the old palette.
+    var c = color || "var(--muted)";
     var pins = "", i, s;
     for (i = 0; i < 4; i++) {
       s = 11 + i * 6;                       // pin position along an edge
@@ -428,7 +430,7 @@
     }
     return '<svg class="memo-chip" viewBox="0 0 40 40" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">' +
       pins +
-      '<rect x="9" y="9" width="22" height="22" rx="5" fill="#ffffff" stroke="' + c + '" stroke-width="2"/>' +
+      '<rect x="9" y="9" width="22" height="22" rx="5" fill="var(--card)" stroke="' + c + '" stroke-width="2"/>' +
       '<rect x="15" y="15" width="10" height="10" rx="2.5" fill="' + c + '"/></svg>';
   }
 

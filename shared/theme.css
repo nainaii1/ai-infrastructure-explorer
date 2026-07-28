@@ -1,17 +1,30 @@
 /* ============================================================================
-   theme.css — "Unpacked" design tokens + shared components
-   (EXECUTION.md Phase 6, U2 — supersedes the warm editorial palette)
+   theme.css — v9 "soft two-tone" design tokens + shared components
+   (supersedes the v7 "Unpacked" cool-grey theme)
+
+   A soft violet-tinted canvas with a violet primary + teal secondary accent,
+   generous air and large soft radii — the language of phantom.com / aave.com,
+   applied to a dense research tool rather than a marketing site.
 
    Loaded by every page (index / desk / memo / vault / performance) via a plain
    <link>. Offline-first: no @import, no CDN fonts, file:// safe.
 
    HARD RULES honoured here:
    - Category colors are NEVER hardcoded — they stay a data-viz concern painted
-     at runtime from AIE_DATA.categories[id].color. The 3px top border is now
+     at runtime from AIE_DATA.categories[id].color. The 3px top border is
      BRAND chrome (--brand-grad, pure CSS); AIE.paintGradientBorder() is a
      kept-for-boot-order no-op.
    - Motion stays inside the 200-300ms rule and is gated on
      prefers-reduced-motion (see bottom of the Tokens block).
+
+   ACCESSIBILITY CONTRACT (the rule that shaped the palette):
+   - Body/label text pairs clear WCAG AA 4.5:1. UI fills clear 3:1.
+   - NO gradient text and NO white-on-gradient. The brand gradient runs from
+     6.5:1 (violet) to 3.05:1 (teal) against white, so anything relying on it
+     for legibility fails partway along its run. Gradients are for chrome and
+     fills only; text always sits on a measured solid.
+   - --fs-2xs (11px) is the type floor. Nothing may go smaller.
+   Verify with the contrast checker before shipping a token change.
    ========================================================================== */
 
 /* ============================================================================
@@ -150,7 +163,7 @@ body {
   background: var(--bg);
   color: var(--text);
   font-family: var(--display);
-  font-size: 17px;
+  font-size: var(--fs-md);
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -160,11 +173,12 @@ body {
    2. UTILITIES
    ========================================================================== */
 
-/* Small-caps label — uppercase mono, 0.08em tracking, 11px. Reused by the
-   nav kicker, ledger headers, section eyebrows, colophon. */
+/* Small-caps label — uppercase mono, 0.08em tracking. Reused by the nav
+   kicker, ledger headers, section eyebrows, colophon. --fs-2xs is the FLOOR;
+   nothing in the app may go smaller. */
 .aie-label {
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: var(--fs-2xs);
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -172,7 +186,122 @@ body {
 }
 
 /* Constrained editorial column. */
-.aie-wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+.aie-wrap { max-width: 1120px; margin: 0 auto; padding: 0 var(--s-5); }
+
+/* ----------------------------------------------------------------------------
+   Section rhythm. The single biggest lever on "does this feel airy" — reference
+   sites separate sections by ~72px, this app previously used ~40px.
+   -------------------------------------------------------------------------- */
+.aie-section { margin-top: var(--s-8); }
+.aie-section-head { margin-bottom: var(--s-5); }
+.aie-section-title {
+  margin: var(--s-2) 0 0;
+  font-family: var(--display);
+  font-size: var(--fs-2xl);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  color: var(--ink);
+}
+.aie-section-sub {
+  margin: var(--s-3) 0 0;
+  font-size: var(--fs-lg);
+  line-height: 1.5;
+  color: var(--muted);
+  max-width: 62ch;
+}
+
+/* ----------------------------------------------------------------------------
+   Pastel wash — a soft two-tone panel used SPARINGLY to separate a section
+   from the canvas. Borrowed from aave.com's gradient section backgrounds.
+   -------------------------------------------------------------------------- */
+.aie-wash {
+  background:
+    radial-gradient(ellipse 70% 120% at 8% 0%, var(--violet-wash), transparent 62%),
+    radial-gradient(ellipse 70% 120% at 96% 100%, var(--teal-wash), transparent 62%),
+    var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-card);
+  padding: var(--s-6);
+}
+
+/* ----------------------------------------------------------------------------
+   Big-number stat block — the one genuinely new component, and the design's
+   signature. Huge figure, small quiet label under it (aave.com's move).
+   Revived from the dead .unf-stat rail, which nothing rendered after v8.
+
+     <div class="aie-stat-grid">
+       <div class="aie-stat">
+         <span class="aie-stat-value">120</span>
+         <span class="aie-stat-label">Companies tracked</span>
+         <span class="aie-stat-note">across 10 layers</span>
+       </div>
+     </div>
+   -------------------------------------------------------------------------- */
+.aie-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: var(--s-3);
+}
+.aie-stat {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+  padding: var(--s-5) var(--s-5) var(--s-6);
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-tile);
+  min-width: 0;
+}
+.aie-stat-value {
+  font-family: var(--display);
+  font-size: var(--fs-stat);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+  color: var(--ink);
+  /* Numbers must not reflow as they change — tabular figures. */
+  font-variant-numeric: tabular-nums;
+}
+/* The lead figure on a page. Deliberately SOLID violet, not gradient text:
+   a violet->teal gradient runs from 6.5:1 down to 3.05:1 against white, so
+   part of every gradient headline would fail AA. --violet is 6.54:1 flat. */
+.aie-stat--lead .aie-stat-value { color: var(--violet); }
+.aie-stat--lead {
+  border-color: color-mix(in srgb, var(--violet) 28%, var(--border));
+  background:
+    radial-gradient(ellipse 120% 100% at 0% 0%, var(--violet-wash), transparent 70%),
+    var(--card);
+}
+.aie-stat-label {
+  font-family: var(--mono);
+  font-size: var(--fs-2xs);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.aie-stat-note {
+  font-size: var(--fs-xs);
+  line-height: 1.45;
+  color: var(--muted);
+}
+/* "No data yet" — must read as absent, never as a bad number. */
+.aie-stat-value.is-none {
+  font-size: var(--fs-lg);
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  color: var(--muted);
+}
+a.aie-stat {
+  text-decoration: none;
+  transition: border-color var(--ease), box-shadow var(--ease), transform var(--ease);
+}
+a.aie-stat:hover {
+  border-color: var(--violet);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
 
 /* Double hairline rule — two warm lines, the lower one lighter. Used under the
    masthead and to close sections. */
@@ -219,19 +348,20 @@ body {
 .aie-nav-inner {
   max-width: 1120px;
   margin: 0 auto;
-  padding: 14px 24px 12px;
+  padding: var(--s-4) var(--s-5) var(--s-3);
   display: flex;
   align-items: baseline;
-  gap: 18px;
+  gap: var(--s-4);
   flex-wrap: wrap;
 }
 
-/* Wordmark — the display brand, left. */
+/* Wordmark — the display brand, left. Bigger and heavier in v9: the reference
+   sites lead with a confident wordmark rather than a quiet one. */
 .aie-wordmark {
   font-family: var(--display);
-  font-size: 22px;
-  font-weight: 600;
-  letter-spacing: -0.01em;
+  font-size: var(--fs-xl);
+  font-weight: 700;
+  letter-spacing: -0.025em;
   color: var(--ink);
   text-decoration: none;
   line-height: 1;
@@ -246,27 +376,31 @@ body {
 
 .aie-nav-links {
   display: flex;
-  align-items: baseline;
-  gap: 18px;
+  align-items: center;
+  gap: var(--s-1);
   flex-wrap: wrap;
 }
+/* Pill nav links (v9) — the underline-tab language is retired. */
 .aie-nav-links a {
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: var(--fs-2xs);
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--muted);
   text-decoration: none;
-  padding-bottom: 3px;
-  border-bottom: 1.5px solid transparent;
-  transition: color var(--ease), border-color var(--ease);
+  padding: var(--s-2) var(--s-3);
+  border-radius: var(--r-chip);
+  transition: color var(--ease), background var(--ease);
 }
-.aie-nav-links a:hover { color: var(--ink); }
+.aie-nav-links a:hover { color: var(--ink); background: var(--paper-sink); }
 .aie-nav-links a.is-active {
-  color: var(--ink);
-  border-bottom-color: var(--ink);
+  color: #fff;
+  /* Solid violet, not the gradient: white on the gradient's teal end is
+     3.05:1 and would fail AA. White on --violet is 6.54:1. */
+  background: var(--violet);
 }
+.aie-nav-links a.is-active:hover { color: #fff; background: var(--violet); }
 /* Performance stays greyed / non-interactive until it has ≥3 calls. */
 .aie-nav-links a.is-disabled {
   color: color-mix(in srgb, var(--muted) 55%, transparent);
@@ -286,34 +420,40 @@ body {
   width: 100%;
   border-collapse: collapse;
   font-family: var(--sans);
-  font-size: 14px;
+  font-size: var(--fs-sm);
 }
 .aie-ledger thead th {
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: var(--fs-2xs);
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--muted);
   text-align: left;
-  padding: 0 14px 10px;
-  border-bottom: 1px solid var(--ink);
+  padding: 0 var(--s-4) var(--s-3);
+  border-bottom: 1px solid var(--border-strong);
 }
+/* Roomier rows — the single change that makes a dense ledger feel calm. */
 .aie-ledger tbody td {
-  padding: 13px 14px;
+  padding: var(--s-4);
   border-bottom: 1px solid var(--border);
   vertical-align: baseline;
 }
+/* Numbers must never reflow as they change. */
+.aie-ledger td, .aie-ledger th { font-variant-numeric: tabular-nums; }
 .aie-ledger tbody tr { transition: background var(--ease); }
-.aie-ledger tbody tr:hover { background: var(--paper-sink); }
+.aie-ledger tbody tr:hover { background: var(--violet-wash); }
 /* Row links: whole row acts as a link without underlining everything. */
 .aie-ledger tbody tr.is-link { cursor: pointer; }
 /* The title cell carries the display editorial voice. */
 .aie-ledger .aie-ledger-title {
   font-family: var(--display);
-  font-size: 16px;
+  font-size: var(--fs-md);
+  font-weight: 600;
+  letter-spacing: -0.01em;
   color: var(--ink);
 }
+.aie-ledger tbody tr.is-link:hover .aie-ledger-title { color: var(--violet); }
 .aie-ledger .aie-ledger-date { font-family: var(--mono); color: var(--muted); }
 /* Muted "verdict only" rows (a desk verdict but no memo yet). */
 .aie-ledger tbody tr.is-stub td { color: var(--muted); }
@@ -330,10 +470,10 @@ body {
   align-items: center;
   gap: 5px;
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: var(--fs-2xs);
   font-weight: 600;
   letter-spacing: 0.02em;
-  padding: 3px 9px;
+  padding: var(--s-1) var(--s-3);
   border-radius: var(--r-chip);
   background: var(--paper-tint);
   border: 1px solid var(--border);
@@ -342,7 +482,13 @@ body {
   white-space: nowrap;
   transition: background var(--ease), border-color var(--ease), color var(--ease);
 }
-a.aie-chip:hover { border-color: var(--muted); color: var(--ink); }
+a.aie-chip:hover, button.aie-chip:hover {
+  border-color: var(--violet);
+  color: var(--violet);
+  background: var(--violet-wash);
+}
+/* Filter chips are <button>s on index.html; keep them tap-friendly. */
+button.aie-chip { cursor: pointer; min-height: 30px; }
 
 /* Ticker chip: a small dot in the (runtime-supplied) category accent. */
 .aie-chip--ticker::before {
@@ -352,15 +498,21 @@ a.aie-chip:hover { border-color: var(--muted); color: var(--ink); }
   background: var(--chip-accent, var(--muted));
 }
 
-/* Filter chip toggle state — active = brand-gradient fill, white text (Phase 6,
-   U4). Shared so every filter toggle site-wide reads the same. */
+/* Filter chip toggle state. Solid violet, NOT the brand gradient: white on the
+   gradient's teal end measures 3.05:1 and fails AA. White on --violet is
+   6.54:1. Shared so every filter toggle site-wide reads the same. */
 .aie-chip.is-active {
-  background: var(--brand-grad);
-  border-color: transparent;
+  background: var(--violet);
+  border-color: var(--violet);
   color: #fff;
 }
-.aie-chip.is-active::before { background: #fff; }  /* ticker dot stays visible on the gradient */
-a.aie-chip.is-active:hover { color: #fff; }
+.aie-chip.is-active::before { background: #fff; }  /* ticker dot stays visible */
+a.aie-chip.is-active:hover,
+button.aie-chip.is-active:hover {
+  color: #fff;
+  background: var(--violet);
+  border-color: var(--violet);
+}
 
 /* ----------------------------------------------------------------------------
    Inline prose markup (shared by AIE.renderInline — memo.html, vault.html).
@@ -384,13 +536,13 @@ a.aie-chip.is-active:hover { color: #fff; }
 .aie-badge {
   display: inline-block;
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: var(--fs-2xs);   /* was 10px — below the v9 floor */
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  padding: 3px 8px;
-  border-radius: 6px;
-  line-height: 1;
+  padding: var(--s-1) var(--s-2);
+  border-radius: var(--r-chip);
+  line-height: 1.2;
 }
 
 /* Conviction tiers. */
@@ -435,26 +587,26 @@ a.aie-chip.is-active:hover { color: #fff; }
 }
 .th-card:hover::before { transform: scaleX(1.75); }   /* 4px -> 7px */
 .th-card.high-conviction { --spine: var(--pos); }
-.th-card-compact { background: var(--bg); }
+.th-card-compact { background: var(--bg); border-radius: var(--r-tile); }
 .th-card-meta {
   display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 10px;
 }
-.th-date   { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+.th-date   { font-family: var(--mono); font-size: var(--fs-2xs); color: var(--muted); }
 .th-source {
-  font-family: var(--mono); font-size: 11px; color: var(--muted);
+  font-family: var(--mono); font-size: var(--fs-2xs); color: var(--muted);
   text-decoration: none; margin-left: auto;
 }
 .th-source:hover { color: var(--ink); }
 .th-text {
   font-family: var(--sans);
-  font-size: 13.5px; line-height: 1.65; color: var(--text);
+  font-size: var(--fs-xs); line-height: 1.7; color: var(--text);
   white-space: pre-wrap; word-break: break-word; margin: 0 0 12px;
 }
 .th-tickers { display: flex; flex-wrap: wrap; gap: 6px; }
 .th-ticker {
   display: inline-flex; align-items: center;
-  font-family: var(--mono); font-size: 11px; font-weight: 700;
-  padding: 3px 8px; border-radius: 6px;
+  font-family: var(--mono); font-size: var(--fs-2xs); font-weight: 700;
+  padding: var(--s-1) var(--s-2); border-radius: var(--r-chip);
   text-decoration: none; cursor: pointer;
   background: color-mix(in srgb, var(--t-color, #94a3b8) 14%, white);
   color: color-mix(in srgb, var(--t-color, #94a3b8) 70%, black);
@@ -467,7 +619,7 @@ a.th-ticker:hover {
 /* Conviction badge on a thesis card — same hue vocabulary as tiers/stances
    (green = high, neutral = note). Values identical to desk.html's prior rule. */
 .th-conviction {
-  font-family: var(--mono); font-size: 10px; letter-spacing: .07em;
+  font-family: var(--mono); font-size: var(--fs-2xs); letter-spacing: .07em;
   text-transform: uppercase; font-weight: 700;
   padding: 2px 8px; border-radius: 999px;
 }
@@ -479,12 +631,12 @@ a.th-ticker:hover {
    ========================================================================== */
 .aie-colophon {
   max-width: 1120px;
-  margin: 64px auto 0;
-  padding: 24px;
+  margin: var(--s-8) auto 0;
+  padding: var(--s-5);
   border-top: 1px solid var(--border);
   font-family: var(--mono);
-  font-size: 11px;
-  line-height: 1.7;
+  font-size: var(--fs-2xs);
+  line-height: 1.8;
   letter-spacing: 0.02em;
   color: var(--muted);
 }
@@ -496,51 +648,71 @@ a.th-ticker:hover {
    9. RESPONSIVE — mobile breakpoint 768px
    ========================================================================== */
 @media (max-width: 768px) {
-  body { font-size: 16px; }
-  .aie-nav-inner { padding: 12px 18px 10px; gap: 12px; }
-  .aie-wordmark { font-size: 19px; }
+  body { font-size: var(--fs-md); }
+  .aie-nav-inner { padding: var(--s-3) var(--s-4) var(--s-2); gap: var(--s-3); }
+  .aie-wordmark { font-size: var(--fs-lg); }
   /* On narrow screens the kicker drops and links wrap under the wordmark. */
   .aie-nav .aie-kicker { display: none; }
   .aie-nav-spacer { flex-basis: 100%; height: 0; }
-  .aie-nav-links { gap: 14px; }
-  .aie-wrap, .aie-nav-inner, .aie-colophon { padding-left: 18px; padding-right: 18px; }
-  .aie-ledger thead { display: none; }         /* stack rows on mobile */
-  .aie-ledger tbody td { padding: 8px 4px; display: block; border: 0; }
-  .aie-ledger tbody tr { display: block; padding: 12px 4px; border-bottom: 1px solid var(--border); }
+  .aie-nav-links { gap: var(--s-1); margin-left: calc(var(--s-3) * -1); }
+  .aie-wrap, .aie-nav-inner, .aie-colophon {
+    padding-left: var(--s-4); padding-right: var(--s-4);
+  }
+
+  /* Section rhythm tightens but stays generous. */
+  .aie-section { margin-top: var(--s-7); }
+  .aie-wash { padding: var(--s-5); }
+
+  /* Stat blocks go two-up rather than one-up — they stay readable and the
+     page doesn't turn into an endless column of giant numbers. */
+  .aie-stat-grid { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: var(--s-2); }
+  .aie-stat { padding: var(--s-4) var(--s-4) var(--s-5); }
+  .aie-stat-value { font-size: clamp(30px, 11vw, 44px); }
+
+  /* Ledger stacks. Cells that need their column name carry data-label —
+     see the .aie-ledger-stacked rule below. */
+  .aie-ledger thead { display: none; }
+  .aie-ledger tbody td { padding: var(--s-2) var(--s-1); display: block; border: 0; }
+  .aie-ledger tbody tr {
+    display: block;
+    padding: var(--s-3) var(--s-1);
+    border-bottom: 1px solid var(--border);
+  }
+}
+
+/* ----------------------------------------------------------------------------
+   Stacked-ledger labels. The rule above hides <thead> on mobile, which leaves
+   bare values with no column name. Any <td data-label="Date"> gets its label
+   back. Previously this lived only in performance.html, so index.html's mobile
+   ledger shipped unlabelled.
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .aie-ledger tbody td[data-label]::before {
+    content: attr(data-label);
+    display: block;
+    font-family: var(--mono);
+    font-size: var(--fs-2xs);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 2px;
+  }
 }
 
 /* ============================================================================
-   10. UNPACKED SHOWCASE COMPONENTS
-   Samsung-Unpacked visual language, shared so every page speaks it:
-   a two-column gem hero, icon pill buttons, a stat rail capped by a
-   brand-gradient action tile, and colored soft-tiles with decorative corner
-   shapes. Brand chrome only — category colors keep their data-viz job.
+/* ============================================================================
+   10. PILL BUTTON
+   All that survives of the v7 "Unpacked" showcase block. The hero, stat rail,
+   section head and soft-tile components below it were rendered by no page
+   after v8's de-productization pass (18 Jul 2026) — ~120 lines of dead CSS,
+   removed in the v9 redesign. The stat rail's idea lives on, rebuilt as the
+   shared .aie-stat block in section 2.
    ========================================================================== */
-
-/* ---- Two-column hero: copy left, gem art right --------------------------- */
-.unf-hero {
-  display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-  gap: 40px;
-  align-items: center;
-  padding: 40px 0 4px;
-}
-.unf-hero-copy { min-width: 0; }
-.unf-hero-art { position: relative; align-self: center; }
-.unf-art-svg { display: block; width: 100%; height: auto; }
-/* Small mono caption tucked under the art (like "your position in motion"). */
-.unf-art-cap {
-  position: absolute; right: 6px; bottom: 8px;
-  text-align: right; line-height: 1.35;
-}
-
-/* Hero CTA row. */
-.unf-cta { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 30px; }
-
 /* ---- Icon pill button ---------------------------------------------------- */
 .unf-pill {
   display: inline-flex; align-items: center; gap: 9px;
-  font-family: var(--sans); font-size: 14px; font-weight: 600;
+  font-family: var(--sans); font-size: var(--fs-sm); font-weight: 600;
   letter-spacing: -0.01em; white-space: nowrap;
   padding: 12px 20px; border-radius: var(--r-chip);
   background: var(--ink); color: #fff; border: 1px solid var(--ink);
@@ -548,11 +720,11 @@ a.th-ticker:hover {
   transition: transform var(--ease), box-shadow var(--ease), filter var(--ease);
 }
 .unf-pill:hover { transform: translateY(-1px); box-shadow: var(--shadow-lg); }
-.unf-pill .glyph { color: #37e0c8; font-weight: 700; }
+.unf-pill .glyph { color: var(--teal-ui); font-weight: 700; }
 .unf-pill--brand { background: var(--brand-grad); border-color: transparent; }
 .unf-pill--brand:hover { filter: brightness(1.06); }
 .unf-pill--brand .glyph { color: #fff; }
-.unf-pill--sm { padding: 9px 16px; font-size: 13px; }
+.unf-pill--sm { padding: 9px 16px; font-size: var(--fs-xs); }
 /* Ghost = quiet text link with the same glyph vocabulary. */
 .unf-pill--ghost {
   background: none; border: 0; color: var(--text); padding: 12px 4px;
@@ -560,105 +732,6 @@ a.th-ticker:hover {
 .unf-pill--ghost:hover { transform: none; box-shadow: none; color: var(--ink); }
 .unf-pill--ghost .glyph { color: var(--brand-ink); }
 
-/* ---- Stat rail: columns split by hairlines, last cell a gradient tile ----- */
-.unf-stats {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr)) minmax(0, 0.7fr);
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--r-card);
-  box-shadow: var(--shadow-sm);
-  overflow: hidden;
-}
-.unf-stat { padding: 22px 26px 24px; border-left: 1px solid var(--border); }
-.unf-stat:first-child { border-left: 0; }
-.unf-stat .st-label {
-  font-family: var(--mono); font-size: 11px; font-weight: 600;
-  letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
-}
-.unf-stat .st-value {
-  font-family: var(--display); font-weight: 700; letter-spacing: -0.02em;
-  font-size: 30px; line-height: 1; color: var(--ink); margin: 14px 0 8px;
-}
-.unf-stat .st-sub { font-family: var(--sans); font-size: 12.5px; color: var(--muted); }
-.unf-stat .st-sub.is-down { color: #c0392b; }
-.unf-stat .st-sub.is-up   { color: #1f8f4e; }
-/* Brand-gradient action tile — the "unfold the position" call. */
-.unf-stat--action {
-  background: var(--brand-grad); border-left: 0; color: #fff;
-  display: flex; flex-direction: column; justify-content: space-between; gap: 16px;
-  text-decoration: none; transition: filter var(--ease);
-}
-.unf-stat--action:hover { filter: brightness(1.07); }
-.unf-stat--action .st-label { color: rgba(255, 255, 255, 0.85); }
-.unf-stat--action .act-title {
-  font-family: var(--mono); font-size: 12px; font-weight: 700;
-  letter-spacing: 0.06em; text-transform: uppercase; line-height: 1.4;
-}
-.unf-stat--action .act-arrow { align-self: flex-end; font-size: 20px; line-height: 1; }
-
-/* ---- Section head (Unpacked "big statement") ----------------------------- */
-.unf-section { margin: 46px 0 0; }
-.unf-section-title {
-  font-family: var(--display); font-weight: 700; letter-spacing: -0.02em;
-  font-size: clamp(26px, 3.4vw, 34px); line-height: 1.08; color: var(--ink);
-  margin: 6px 0 0;
-}
-
-/* ---- Colored soft-tiles with decorative corner shapes -------------------- */
-.unf-tiles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; margin-top: 20px; }
-.unf-tile {
-  position: relative; overflow: hidden; min-height: 196px;
-  padding: 22px 22px 24px; border-radius: var(--r-card);
-  background: var(--tile-bg, var(--paper-tint));
-  text-decoration: none; display: flex; flex-direction: column;
-  transition: transform var(--ease), box-shadow var(--ease);
-}
-.unf-tile:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
-.unf-tile .tile-label {
-  position: relative; z-index: 1;
-  font-family: var(--mono); font-size: 11px; font-weight: 600;
-  letter-spacing: 0.08em; text-transform: uppercase;
-  color: var(--tile-ink, var(--muted)); opacity: 0.9;
-}
-.unf-tile .tile-value {
-  position: relative; z-index: 1;
-  font-family: var(--display); font-weight: 700; letter-spacing: -0.02em;
-  font-size: 34px; line-height: 1; margin: 16px 0 8px;
-  color: var(--tile-ink, var(--ink));
-}
-.unf-tile .tile-sub {
-  position: relative; z-index: 1;
-  font-family: var(--sans); font-size: 12.5px; line-height: 1.45;
-  color: var(--tile-sub, var(--muted));
-}
-.unf-tile .tile-shape { position: absolute; right: -18px; bottom: -18px; width: 148px; height: 148px; pointer-events: none; z-index: 0; }
-.unf-tile .tile-foot { position: relative; z-index: 1; margin-top: auto; padding-top: 14px; }
-/* Dark queue card. */
-.unf-tile--dark { background: var(--ink); }
-.unf-tile--dark .tile-label { color: rgba(255, 255, 255, 0.7); }
-.unf-tile--dark .tile-value { color: #fff; }
-.unf-tile--dark .tile-sub   { color: rgba(255, 255, 255, 0.72); }
-
-/* ---- Responsive ---------------------------------------------------------- */
-@media (max-width: 900px) {
-  .unf-hero { grid-template-columns: 1fr; gap: 10px; }
-  .unf-hero-art { max-width: 420px; margin: 6px auto 0; order: 2; }
-  .unf-tiles { grid-template-columns: 1fr 1fr; }
-}
-@media (max-width: 720px) {
-  .unf-stats { grid-template-columns: 1fr 1fr; }
-  .unf-stat { border-left: 1px solid var(--border); }
-  .unf-stat:nth-child(odd) { border-left: 0; }
-  .unf-stat:nth-child(n+3) { border-top: 1px solid var(--border); }
-  .unf-stat--action { grid-column: 1 / -1; border-top: 0; }
-}
-@media (max-width: 460px) {
-  .unf-tiles { grid-template-columns: 1fr; }
-  .unf-stats { grid-template-columns: 1fr; }
-  .unf-stat { border-left: 0; border-top: 1px solid var(--border); }
-  .unf-stat:first-child { border-top: 0; }
-}
 
 /* ============================================================================
    VISUAL QA — static snippet (commented; not rendered)
