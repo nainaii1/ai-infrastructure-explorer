@@ -32,8 +32,10 @@ Two pure modules, split on 2026-07-27 when one file got too long to read:
   `SEATS`, `build_seat_prompt`, `validate_finding`, `finding_to_thesis`.
 - `ingest/pre_review.py` — what happens on a run: `select_coverage`,
   `run_seats`, `merge_research_theses`. This is the one you call.
+- `ingest/claims.py` — the claims ledger: `extract_claims`, `merge_claims`.
+  Judging the claims later is a separate pass, `/judge-claims`.
 
-Neither touches the network or the filesystem. You supply the intelligence
+None of them touch the network or the filesystem. You supply the intelligence
 through `call_fn`, and you do the reading and writing of the store yourself.
 
 ## Procedure
@@ -108,7 +110,25 @@ through `call_fn`, and you do the reading and writing of the store yourself.
    without a non-empty id, by raising. Both mean a bug upstream — do not catch
    and continue past either.
 
-5. **Report to the operator**, in this order:
+5. **Extract claims from this run's findings.** A finding that predicts
+   something dated and testable belongs in the claims ledger, so it can be
+   checked later. Build one item per finding —
+   `{"ticker", "text", "madeAt", "thesisId"}`, where `madeAt` is the run date
+   and `text` is the finding — and call:
+
+   ```
+   claims.extract_claims(items, call_fn, allowed_tickers=..., source=<seat>)
+   ```
+
+   `source` is the seat that made the finding, so a seat that is reliably
+   wrong can be told apart from one that is not. Merge with
+   `claims.merge_claims(existing, out["claims"])` and save `claims.json`.
+
+   A finding with no dated prediction in it yields no claim — that is normal.
+   Do not manufacture a `judgeBy` to make one: the unfalsifiable share is a
+   measurement, and padding it corrupts the thing being measured.
+
+6. **Report to the operator**, in this order:
    - Anything the seats found that CONTRADICTS the analyst — this is the
      entire reason the pass exists, so it leads.
    - Which names were covered, and which the cap dropped.

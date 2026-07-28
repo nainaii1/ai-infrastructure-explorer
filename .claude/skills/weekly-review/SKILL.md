@@ -29,6 +29,12 @@ further without the operator asking.
    skipped, say so at the top of the report — a review with no counter-evidence
    is a weaker review and the operator should know which kind he got.
 
+0b. **Report ripe claims, do not judge them.** Load `ingest/store/claims.json`
+   and call `claims.ripe_claims(ledger, today)`. If anything comes back, say
+   how many and point the operator at **`/judge-claims`** — judging needs real
+   research per claim and belongs in its own pass, not bolted onto the weekly.
+   If the ledger is empty or nothing is ripe, say nothing about it.
+
 1. **Refresh prices** (needs network):
    `python3 ingest/fetch_prices.py`
    If it fails (offline/rate-limited), continue — prices are cosmetic to this pass.
