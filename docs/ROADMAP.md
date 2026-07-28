@@ -1,6 +1,87 @@
 # Roadmap & Status — AI Infrastructure Explorer
 
-_Last updated: 2026-07-18 (v8 "analysis tool, not product" shipped). Living document — update as things ship or change._
+_Last updated: 2026-07-28 (claims ledger + Claims page, Phase 3, shipped). Living document — update as things ship or change._
+
+> **Expert review team, Phase 1 — direction-aware scoring (✅ 2026-07-26).**
+> Theses carry an optional `direction` (`bull`/`bear`/`neutral`), and
+> `scorer.compute_priorities` now sums a **signed** contribution per mention, so
+> a bear thesis lowers a score instead of raising it. A present-but-unreadable
+> direction is inert rather than defaulting to a bull vote. Research-sourced
+> theses (`source: "research"`) contribute 0 to both the score and
+> `weightedMentions` — outside research can correct a name downward but can
+> never inflate its rank or buy it tier coverage.
+> The **conviction multiplier is retired** (`CONVICTION_WEIGHT = 0.0`,
+> reversible by restoring 0.5): keyword-matched rhetoric was multiplying scores
+> by up to 6×. Real effect — SIVE falls **91.11 → 14.99**, its lead over the
+> next name drops from 2.7× to 1.6×, the top 15 loses GFS/JBL/MRVL/POET and
+> gains AXTI/CCXI/COHR/SNDK. **Tiers are unchanged** (28 core / 17 watch /
+> 75 radar) because `assign_tiers` reads `convictionHits` and
+> `weightedMentions` directly, never the score.
+> `write_data_js` now refuses to write a payload missing an expected top-level
+> block, and checks that the running process is not holding stale source — see
+> **Fixed** below.
+> Spec: `docs/superpowers/specs/2026-07-26-expert-review-team-design.md`.
+> Plan: `docs/superpowers/plans/2026-07-26-direction-aware-scoring.md`.
+> Phase 2 shipped 2026-07-27 — see the entry directly below.
+>
+> **Expert review team, Phase 2 — the three seats (✅ 2026-07-27).**
+> `ingest/pre_review.py` runs the `ingest/seats.py` seats — `semi-expert`,
+> `fundamental` and `pm` — over a shortlist of up to 12 names (stance changes
+> first, then names with 3+ new analyst theses, then by score — drops are
+> reported, never silent). Findings become `source: "research"` theses. Both
+> modules are pure and take an injected `call_fn`, so no API key is needed;
+> driven by the new `/pre-review` skill. `seats.py` was split in two on
+> 2026-07-27 when it passed the ~350-line threshold: it now holds only what a
+> seat is and what a finding must satisfy, while `pre_review.py` holds the pass.
+> **The verification rule:** no citable primary source means `unverified` and a
+> forced `neutral` direction, which scores exactly 0.0 — visible but inert.
+> Findings are pinned to the ticker the seat was *asked* about, so a forwarded
+> third-party post cannot talk a seat into filing a finding against a different
+> name in the book.
+> Also closed three holes found in review: two research theses marked
+> `conviction: "high"` promoted a name to Core past the `weightedMentions`
+> guard; research counted as the analyst's own `mentions`, `attention` and
+> `lastMentioned` on the ticker tooltip, the priority strip, the watchlist
+> ordering and the vault ticker pages; and the shortlist's "stance changed"
+> tier matched any verdict the weekly pass had rewritten, which on live data
+> was 13 of 17 names and would have consumed the entire cap. Stance changes are
+> now detected from a `previousStance` field that `/weekly-review` stamps.
+> Phase 3's backend shipped 2026-07-28 — see the entry directly below.
+>
+> **Expert review team, Phase 3 — the claims ledger (✅ 2026-07-28).**
+> `ingest/store/claims.json` + `ingest/claims.py` record dated, testable
+> predictions from the analyst, the desk and each seat, and judge them when
+> their date arrives. `unfalsifiable` is a first-class outcome: a claim nothing
+> could settle is recorded, not dropped, and the **unfalsifiable share comes
+> back from the same call as the hit rate** so no surface can show the
+> flattering number alone. `hitRate` is `None`, never `0.0`, when nothing has
+> been judged. Judging to correct/wrong needs a citable primary source; judging
+> early or re-deciding a judged claim raises. **A claim moves no score and no
+> tier** — a test asserts `scorer.py` never reads the ledger.
+> **Seeded 2026-07-28:** 25 analyst claims from 64 focused posts (list-dumps of
+> >3 tickers excluded), **13 of 25 unfalsifiable — a 52% unfalsifiable share**,
+> 0 judged because every deadline is still in the future. Over half of what
+> this desk's only source says cannot be tested. That is the number the ledger
+> was built to surface.
+> `performance.html` now carries both ledgers: **Calls** (position actions vs
+> SMH, as before) and **Claims** (per-source scorecards + every prediction,
+> soonest deadline first). The hit rate and the untestable share are computed
+> together in Python and travel in one object, so no surface can show the
+> flattering figure alone; with nothing judged the card reads "No judged claims
+> yet" rather than 0%.
+> **Still to do in Phase 3:** the remaining 62 focused posts of the backfill.
+> **Not yet built — Phases 4–5:** hit-rate weighting (gated on 20+ judged
+> claims per source) and the scheduled overnight run.
+>
+> **Fixed 2026-07-26 — `data.js` was being silently truncated.** A `bot.py`
+> process running since 30 June held a stale generator module in memory and
+> rewrote `data.js` on every ingest using June-era code, dropping `glossary`,
+> `desk`, `memos`, `vault`, `calls` and `benchmarkQuote`. The memo reader,
+> vault, glossary and performance page were broken for four days with no
+> signal, because ticker-level verdicts are stamped onto ticker records and
+> survived — so the watchlist still looked healthy. `write_data_js` now hashes
+> its own source modules at import and refuses to write if they have changed on
+> disk. **Restart `bot.py` after editing anything under `ingest/`.**
 
 > **v8 — "analysis tool, not product" (✅ 2026-07-18).** Deliberate
 > de-productization after an operator review: the site is a personal analysis
@@ -40,16 +121,21 @@ _Last updated: 2026-07-18 (v8 "analysis tool, not product" shipped). Living docu
 
 | | |
 |---|---|
-| Tickers tracked | ~109 — now tiered: **23 Core / 21 Watch / 65 Radar** (check `data.js` tiers for exact) |
+_Measured from `ingest/store/*.json` and `data.js` on 2026-07-27._
+
+| | |
+|---|---|
+| Tickers tracked | **120** — tiered **28 Core / 17 Watch / 75 Radar** (after focus-weighting and canonicalization) |
 | Categorized layers | 10 (`photonics, memory, fabs, neoclouds, materials, networking, glass, robotics, accelerators, hyperscalers`) |
-| Unsorted (needs triage) | ~10 Watch-tier names (CRCL, EWY, VPG, RKLB, NVTS, HOOD, SMTC, SPCX, DRAM) **+ 1 Core-tier name (RDDT)** still unsorted — RDDT doesn't cleanly fit any of the 10 categories (Reddit/AI-training-data play), left in triage rather than misclassified |
-| Theses ingested | 170 |
-| Brain digests | 10 themes; 8 re-synthesized 2026-07-06 (manual Claude Code pass, 90 new theses since prior run), materials/glass carried forward unchanged (no new theses) |
-| **Desk verdicts** | **15 Core names** with Claude's stance + execution note (`ingest/store/verdicts.json`, reviewed 2026-07-06). Stance moves this pass: AAOI/LITE/AXTI watch→accumulate (SemiAnalysis photonics washout + Nomura InP price-hike confirmation), TSLA dropped out of Core (verdict removed), XFAB/AMZN/GFS added |
-| GitHub repo | Public — github.com/nainaii1/ai-infrastructure-explorer, branch `feat/brain-synthesis` |
+| Unsorted (needs triage) | **55** names in the `unsorted` bucket: **1 Core (RDDT)**, 7 Watch (ASTS, CRCL, EWY, HOOD, NVTS, RKLB, VPG), 47 Radar. RDDT is the only one that matters — it doesn't cleanly fit any of the 10 categories (Reddit/AI-training-data play), so it's left in triage rather than misclassified. The Radar tail is mostly one-off name-drops and is not worth triaging by hand. Note `DRAM` and `SPCX` are `themeTags` in `base.json`, not tickers — they no longer count toward any name's mentions, though a stale `SPCX` ticker record still exists at Radar |
+| Theses ingested | **258** — all `source: "x"`, author `aleabitoreddit`. No research theses written yet; the seats have not been run |
+| Brain digests | 10 themes, generated 2026-07-22 — 9 re-synthesized that day, `robotics` carried forward from 2026-07-16 |
+| **Desk verdicts** | **17 Core names** (`ingest/store/verdicts.json`, reviewed 2026-07-22): 9 `accumulate`, 8 `watch`. Roster rule is "top 15 by score + sticky act/accumulate holdovers". Stance *moves* are not recoverable for this pass — `previousStance` did not exist when it was written; the next `/weekly-review` starts recording them |
+| GitHub repo | Public — github.com/nainaii1/ai-infrastructure-explorer, working branch `feat/expert-review-seats` |
 
 Counts drift constantly as posts get ingested — trust `ingest/store/*.json` /
-`git log` over this file when they disagree.
+`git log` over this file when they disagree. Regenerate the tier split with
+`python3 ingest/generate_data_js.py` and read it back from `data.js`.
 
 ---
 

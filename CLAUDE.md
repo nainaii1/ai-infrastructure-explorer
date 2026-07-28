@@ -15,8 +15,7 @@ chaptered scroll that opens on **01 The Watchlist**, then **02 The Map**, then
 **03 The Synthesis**, under a compact "desk strip" of live counts (no hero, no
 art, no Focus card). Around it: `index.html` (**Coverage** — the memo ledger,
 no Focus card), `memo.html` (memo reader), `vault.html` (knowledge vault,
-List/Graph views in one nav entry), `performance.html` (calls ledger, nav-gated
-until ≥3 calls), `design.html` (design reference, unlinked from main nav). Top
+List/Graph views in one nav entry), `performance.html` (Calls + Claims ledgers), `design.html` (design reference, unlinked from main nav). Top
 nav: Desk · Coverage · Vault · Performance.
 The signal chain is: analyst tweets → captured theses → conviction tiers →
 Claude's desk verdicts → operator decision.
@@ -66,7 +65,17 @@ not throwaway config.
   mentions or 2+ high-conviction hits) / `watch` / `radar` (one-off
   name-drops). Mentions are focus-weighted by `1/√(tickers-in-post)` so a name
   buried in a 12-ticker digest dump can't inflate the tiers (ROADMAP issue #4,
-  fixed 2026-07-03). The **Map** defaults to **Signal (Core+Watch)**; the
+  fixed 2026-07-03).
+  Since 2026-07-26 the priority *score* is **direction-aware**: each mention is
+  signed (`bull`/`neutral` +1, `bear` −1), a present-but-unreadable direction
+  is inert (0, so a typo'd `"bearish"` can't become a bull vote), and
+  research-sourced theses (`source: "research"`) contribute 0 to both the score
+  and `weightedMentions` — outside research can correct a name downward but can
+  never inflate its rank or buy it tier coverage. The **conviction multiplier
+  is retired** (`CONVICTION_WEIGHT = 0.0`, reversible): keyword-matched rhetoric
+  was multiplying scores up to 6×. **Tiers are unaffected** — `assign_tiers`
+  reads `convictionHits` and `weightedMentions` directly, never the score.
+  The **Map** defaults to **Signal (Core+Watch)**; the
   **Watchlist** opens focused on **Core** only (it's the decision surface —
   keeps the table short); Watch/Radar/All/Signal are one chip away everywhere,
   Radar always hidden until asked for.
@@ -78,6 +87,44 @@ not throwaway config.
   (`.claude/skills/weekly-review/SKILL.md`) in a Claude Code session — no
   API key needed. Verdicts are capped at the top 12–15 Core names by design
   (token budget). Latest pass: 2026-07-06, 15 Core names covered.
+- **Expert review seats** ✅ done (2026-07-27, spec Phase 2). Three reviewers —
+  `semi-expert` (is the technical claim true?), `fundamental` (do the numbers
+  work?), `pm` (is this a good bet at this price?) — research a shortlist of up
+  to 12 names before each weekly review and write findings into `theses.json`
+  as `source: "research"` theses. Two pure modules: `ingest/seats.py` (what a
+  seat is, and what a finding must satisfy) and `ingest/pre_review.py` (one
+  pass — select coverage, run the seats, merge the findings). Both take an
+  injected `call_fn`, exactly like `synthesize.py`, so they run in a Claude
+  Code session with no API key. **The verification rule:** a finding with no citable
+  primary source is marked `unverified` and forced to `direction: "neutral"` —
+  visible in the brief, and worth exactly 0.0 to any score. Research can correct
+  a name downward but can never inflate its rank, buy it tier coverage, add
+  conviction hits, or be counted as analyst attention (it is excluded from
+  `analystMentions`, `attention` and `lastMentioned`). Findings are pinned to
+  the ticker the seat was *asked* about, not the one the answer claims, so a
+  forwarded post cannot talk a seat into filing against a different name.
+  Shortlist order is stance-changed → 3+ new analyst theses → score, with the
+  names the cap dropped always reported. Run via the **`/pre-review` skill**;
+  `/weekly-review` stamps `previousStance` on every verdict so a stance
+  *change* is detectable at all.
+- **Claims ledger** ✅ done (2026-07-28, spec Phase 3), rendered as the
+  **Claims** half of `performance.html`. `ingest/store/claims.json` records dated, testable
+  predictions from the analyst, the desk and each seat, judged when their date
+  arrives. Two pure modules' worth of rules live in `ingest/claims.py`:
+  extraction (same injection firewall as the seats), judging, and scoring.
+  **`unfalsifiable` is a first-class outcome** — a claim nothing could settle
+  is recorded, not dropped, and `score_claims` returns the **unfalsifiable
+  share from the same call as the hit rate** so no surface can show the
+  flattering number without the honest one. `hitRate` is `None`, never `0.0`,
+  when nothing has been judged. A judgement to `correct`/`wrong` requires a
+  citable primary source (same rule as a seat finding); without one the claim
+  stays `open`. Judging before `judgeBy`, or re-deciding a judged claim,
+  raises. **A claim moves no score and no tier** — hit-rate weighting is
+  Phase 4, gated on ≥20 judged claims per source, and a test asserts
+  `scorer.py` neither imports `claims` nor reads `claims.json`. Run via
+  **`/judge-claims`**; `/pre-review` extracts claims from its own findings.
+  Seeded 2026-07-28 with 25 analyst claims from 64 focused posts —
+  **13 of 25 unfalsifiable (52%)**, 0 judged.
 - **v6 — "Field Guide" redesign** ✅ done (2026-07-03). Tabs dissolved into one
   chaptered scroll: hero prologue (signal-chain stat nodes with count-up,
   Core/Watch/Radar barbell bar, "Latest signal" card), numbered chapter heads,
@@ -151,14 +198,17 @@ not throwaway config.
   `--serif` alias deleted from `shared/theme.css` and every use switched to
   `var(--display)`; the Design system section + `docs/DESIGN.md` brought current;
   Phase 6 boxes ticked in `docs/EXECUTION.md`).
-- **Live counts** (approximate, check `ingest/store/*.json` for current):
-  ~110 tickers tracked (27 core / 17 watch / 66 radar after focus-weighting),
-  10 categorized layers + an `unsorted` triage bucket (one Core name, RDDT,
-  is still unsorted — it doesn't cleanly fit any of the 10 categories;
-  remaining unsorted are Watch/Radar tier), 221 ingested theses, 17 desk
-  verdicts (reviewed 2026-07-16; roster is "top 15 by score + sticky
-  act/accumulate holdovers"), 10 brain digests (9 re-synthesized 2026-07-16
-  via Claude Code per the v4 workaround above; fabs carried forward).
+- **Live counts** (measured 2026-07-27; check `ingest/store/*.json` for current):
+  120 tickers tracked (28 core / 17 watch / 75 radar after focus-weighting),
+  10 categorized layers + an `unsorted` triage bucket holding 55 names — one
+  Core (RDDT, which doesn't cleanly fit any of the 10 categories), 7 Watch, and
+  a 47-name Radar tail of one-off name-drops not worth triaging by hand.
+  258 ingested theses, all still analyst-sourced — no research theses written
+  yet, so every `researchMentions` is 0 and the seats have not been run.
+  17 desk verdicts (reviewed 2026-07-22, 9 accumulate / 8 watch; roster is
+  "top 15 by score + sticky act/accumulate holdovers"), 10 brain digests
+  (generated 2026-07-22 — 9 re-synthesized that day via Claude Code per the v4
+  workaround above, `robotics` carried forward from 2026-07-16).
 - **Symbol canonicalization** (2026-07-16): `base.json` carries
   `tickerAliases` (e.g. `SIVEF → SIVE`, mentions merge) and `themeTags`
   (e.g. `DRAM`, `SPCX` — theme markers, never ticker records).
@@ -173,6 +223,11 @@ not throwaway config.
   (`docs/superpowers/specs/2026-07-03-signal-digest-design.md`) is kept for
   history only — do not build it. Tweet discovery still stays fully manual
   (Telegram bots can't read other bots' messages).
+- **Expert review team programme** (spec Phase 1 shipped, Phase 2 in
+  progress): the live to-do doc with per-session prompts and the list of
+  hard-won invariants is `docs/EXECUTION-EXPERT-REVIEW.md`. Read its
+  "Invariants" section before touching `ingest/scorer.py` or
+  `ingest/seats.py` or `ingest/pre_review.py`.
 - **For full history / open issues / next steps:** see `docs/ROADMAP.md`
   (living doc, update it whenever status changes).
 - **For a full design-system reference** (color tokens, type scale, spacing,
@@ -297,18 +352,30 @@ so newly-ingested tickers and theses surface. Categories / center / countries
                   // optional, merged from prices.json:
                   price, currency, chg7d, chg1m, marketCap, asOf,
                   // optional, merged from scorer.py:
-                  priority: { score, mentions, convictionHits, lastMentioned },
+                  priority: { score, net, attention, mentions, analystMentions,
+                              researchMentions, bullMentions,
+                              bearMentions, convictionHits, lastMentioned },
                   // optional, stamped from verdicts.json (Core names only):
-                  verdict: { ticker, stance, view, execution, changesMind,
-                             basedOnThesisIds[], updatedAt } } ],
+                  verdict: { ticker, stance, previousStance, view, execution,
+                             changesMind, basedOnThesisIds[], updatedAt } } ],
   theses:     [ { id, source, author, sourceUrl, postedAt, ingestedAt, text,
-                  tickers[], conviction, tags[] } ],
-  priorities: [ { ticker, score, mentions, convictionHits, lastMentioned } ],
+                  tickers[], conviction, tags[],
+                  // optional, since 2026-07-26 — read by scorer.py:
+                  direction,        // "bull" | "bear" | "neutral", LOWERCASE
+                  verification } ], // "verified" | "unverified" (research only)
+  priorities: [ { ticker, score, net, attention, mentions, analystMentions,
+                  bullMentions, bearMentions, researchMentions,
+                  weightedMentions, convictionHits, lastMentioned } ],
   brain:      { meta: { generatedAt, model, thesesConsidered,
                         categoriesSynthesized, schemaVersion, failures? },
                 digests: [ { category, narrative, conviction, keyPoints[],
                              tickers[], sourceThesisIds[], thesesCount,
                              lastSynthesized } ] },
+  claims:     { meta: { schemaVersion, updatedAt, disclaimer },
+                claims: [ { id, source: "analyst"|"desk"|<seat>, ticker|null,
+                            claim, testableBy, madeAt, judgeBy|null, thesisId,
+                            status: "open"|"correct"|"wrong"|"unfalsifiable",
+                            judgedAt, evidence } ] },
   desk:       { meta: { reviewedAt, reviewer, thesesConsidered, coverage,
                         cadence, disclaimer },
                 verdicts: [ { ticker, stance: "act"|"accumulate"|"watch"|"pass",
@@ -316,6 +383,39 @@ so newly-ingested tickers and theses surface. Categories / center / countries
                               basedOnThesisIds[], updatedAt } ] }
 }
 ```
+- `direction` → **exactly** `bull`, `bear` or `neutral`, lowercase. Omit the key
+  entirely for an undirected post — absent reads as `neutral` and carries full
+  weight, which is how all pre-2026-07-26 theses score. **Anything else scores
+  0.0 and is silently ignored**, so a typo like `"bearish"` or `"BEAR"` throws
+  the bear case away rather than counting it backwards. Nothing validates this
+  at write time yet — get it right when authoring. A thesis written with
+  `source: "research"` contributes 0 to the score and to `weightedMentions`
+  regardless of direction unless it is `bear`: outside research can only
+  correct a name downward, never inflate its rank or buy it tier coverage.
+- `verification` → `verified` | `unverified`, on research theses only. A
+  finding the seat could not tie to a citable primary source is stamped
+  `unverified` and forced to `direction: "neutral"`, so it is visible in the
+  brief but worth exactly 0.0 to any number.
+- `analystMentions` → `mentions` minus `researchMentions`, derived once in
+  `scorer.compute_priorities`. **Anything the UI labels "@aleabitoreddit" must
+  read this, never `mentions`** — the raw total counts the desk's own research
+  findings, so using it credits our work to him. `attention` and
+  `lastMentioned` exclude research for the same reason (and because `attention`
+  is an aggregate, which research may subtract from but never add to).
+- `previousStance` → the stance a verdict carried before the current weekly
+  pass overwrote it, written by `/weekly-review`. It is the only record that a
+  stance *changed*: `updatedAt` cannot tell you, because the weekly pass
+  rewrites it on every Core name whether or not the call moved. `/pre-review`
+  picks stance-changed names first, and a verdict missing this field simply
+  does not qualify (fail inert) rather than matching everything.
+- `claims[].status` → `unfalsifiable` is an OUTCOME, not a parse failure. A
+  claim with no `judgeBy`, no `testableBy`, or a `judgeBy` on or before
+  `madeAt` is recorded as unfalsifiable rather than dropped: a source whose
+  predictions cannot be tested is telling the operator something, and the
+  share of them is reported next to the hit rate for exactly that reason.
+  `ticker` may be `null` for a macro claim. Ids are a content hash, so
+  re-extraction is idempotent. Nothing in `scorer.py` may read this block
+  until Phase 4.
 - `category` → a key in `AIE_DATA.categories` (currently: `photonics | memory |
   fabs | neoclouds | materials | networking | glass | robotics | accelerators
   | hyperscalers | unsorted`). `unsorted` is a triage bucket, not a real
@@ -396,6 +496,8 @@ ai-supply-desk/
 └── ingest/                     THE BACKEND — Python tooling that regenerates data.js
     ├── bot.py                   Telegram ingest (forward a post -> thesis)
     ├── synthesize.py            the "Brain" — Claude-synthesized theme digests (needs ANTHROPIC_API_KEY)
+    ├── seats.py                  the three expert seats: prompts + finding validation (pure)
+    ├── pre_review.py             one review pass: select coverage, run the seats, merge findings (pure)
     ├── fetch_prices.py          price fetch from the operator's Google Sheet (GOOGLEFINANCE)
     ├── serve.py                 tiny local server (the Fetch-prices button needs http://, not file://)
     ├── parser.py / scorer.py / fetcher.py / review.py / generate_data_js.py

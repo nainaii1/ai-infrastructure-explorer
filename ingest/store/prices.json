@@ -1,408 +1,408 @@
 {
   "AAOI": {
-    "price": 115.3,
-    "marketCap": 9291308095.0,
+    "price": 97.82,
+    "marketCap": 7849346758.0,
     "currency": "USD",
-    "chg7d": 3.06,
-    "chg1m": -31.1,
-    "chg1y": 294.32,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": -4.48,
+    "chg1m": -33.65,
+    "chg1y": 246.51,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "LITE": {
-    "price": 844.66,
-    "marketCap": 65905156860.0,
-    "currency": "USD",
-    "chg7d": 9.96,
-    "chg1m": -2.91,
-    "chg1y": 760.67,
-    "asOf": "2026-07-22T15:54:32Z"
-  },
-  "COHR": {
-    "price": 316.8,
-    "marketCap": 61954072939.0,
-    "currency": "USD",
-    "chg7d": 3.06,
-    "chg1m": -16.38,
-    "chg1y": 229.76,
-    "asOf": "2026-07-22T15:54:32Z"
-  },
-  "MU": {
-    "price": 972.34,
-    "marketCap": 1100119152741.0,
-    "currency": "USD",
-    "chg7d": 3.77,
-    "chg1m": -6.79,
-    "chg1y": 709.54,
-    "asOf": "2026-07-22T15:54:32Z"
-  },
-  "000660.KS": {
-    "price": 1830000.0,
-    "marketCap": 945834742859.0,
-    "currency": "KRW",
-    "chg7d": -0.81,
-    "chg1m": -27.41,
-    "chg1y": 513.07,
-    "asOf": "2026-07-22T15:54:32Z"
-  },
-  "AXTI": {
-    "price": 54.55,
-    "marketCap": 3569815726.0,
-    "currency": "USD",
-    "chg7d": 8.11,
-    "chg1m": -40.78,
-    "chg1y": 2211.44,
-    "asOf": "2026-07-22T15:54:32Z"
-  },
-  "NVDA": {
-    "price": 213.14,
-    "marketCap": 5140803607177.0,
-    "currency": "USD",
-    "chg7d": 4.72,
-    "chg1m": 4.15,
-    "chg1y": 24.86,
-    "asOf": "2026-07-22T15:54:32Z"
-  },
-  "TSEM": {
-    "price": 251.7,
-    "marketCap": 28419463992.0,
-    "currency": "USD",
-    "chg7d": 9.59,
-    "chg1m": -5.78,
-    "chg1y": 454.41,
-    "asOf": "2026-07-22T15:54:32Z"
-  },
-  "INTC": {
-    "price": 105.59,
-    "marketCap": 531323571594.0,
-    "currency": "USD",
-    "chg7d": 2.4,
-    "chg1m": -12.81,
-    "chg1y": 360.69,
-    "asOf": "2026-07-22T15:54:32Z"
-  },
-  "TSM": {
-    "price": 423.0,
-    "marketCap": 2193878502000.0,
-    "currency": "USD",
-    "chg7d": 0.34,
-    "chg1m": -2.12,
-    "chg1y": 78.52,
-    "asOf": "2026-07-22T15:54:32Z"
-  },
-  "NBIS": {
-    "price": 223.89,
-    "marketCap": 56386983451.0,
-    "currency": "USD",
-    "chg7d": 6.36,
-    "chg1m": -20.3,
-    "chg1y": 318.25,
-    "asOf": "2026-07-22T15:54:32Z"
-  },
-  "CRWV": {
-    "price": 83.44,
-    "marketCap": 45620589984.0,
-    "currency": "USD",
-    "chg7d": 0.16,
-    "chg1m": -27.58,
-    "chg1y": -40.65,
-    "asOf": "2026-07-22T15:54:32Z"
-  },
-  "AEHR": {
-    "price": 98.02,
-    "marketCap": 3188886409.0,
-    "currency": "USD",
-    "chg7d": 44.1,
-    "chg1m": -12.96,
-    "chg1y": 597.65,
-    "asOf": "2026-07-22T15:54:32Z"
-  },
-  "SOI.PA": {
-    "price": 96.02,
-    "marketCap": 3434112960.0,
-    "currency": "EUR",
-    "chg7d": -1.88,
-    "chg1m": -23.0,
-    "chg1y": 108.33,
-    "asOf": "2026-07-22T15:54:32Z"
-  },
-  "LPK.DE": {
-    "price": 16.9,
-    "marketCap": 412445861.0,
-    "currency": "EUR",
-    "chg7d": -1.46,
-    "chg1m": -33.98,
-    "chg1y": 94.25,
-    "asOf": "2026-07-22T15:54:32Z"
-  },
-  "JBL": {
-    "price": 322.08,
-    "marketCap": 33741414000.0,
-    "currency": "USD",
-    "chg7d": 0.04,
-    "chg1m": -14.11,
-    "chg1y": 47.22,
-    "asOf": "2026-07-22T15:54:32Z"
-  },
-  "POET": {
-    "price": 8.11,
-    "marketCap": 1398885637.0,
-    "currency": "USD",
-    "chg7d": 1.38,
-    "chg1m": -32.13,
-    "chg1y": 13.74,
-    "asOf": "2026-07-22T15:54:32Z"
-  },
-  "TSLA": {
-    "price": 378.51,
-    "marketCap": 1183057242899.0,
-    "currency": "USD",
-    "chg7d": -4.12,
-    "chg1m": -4.51,
-    "chg1y": 21.79,
-    "asOf": "2026-07-22T15:54:32Z"
-  },
-  "ASTS": {
-    "price": 63.28,
-    "marketCap": 24576043221.0,
-    "currency": "USD",
-    "chg7d": -6.36,
-    "chg1m": -25.93,
-    "chg1y": 23.79,
-    "asOf": "2026-07-22T15:54:32Z"
-  },
-  "CRCL": {
-    "price": 67.83,
-    "marketCap": 16883281464.0,
-    "currency": "USD",
-    "chg7d": 7.67,
-    "chg1m": -15.83,
-    "chg1y": -65.27,
-    "asOf": "2026-07-22T15:54:32Z"
-  },
-  "ETHA": {
-    "price": 14.66,
-    "marketCap": null,
-    "currency": "USD",
-    "chg7d": 9.65,
-    "chg1m": 12.17,
-    "chg1y": -36.4,
-    "asOf": "2026-07-22T15:54:32Z"
-  },
-  "EWY": {
-    "price": 171.58,
-    "marketCap": 12423942088.0,
-    "currency": "USD",
-    "chg7d": 2.12,
-    "chg1m": -16.34,
-    "chg1y": 134.82,
-    "asOf": "2026-07-22T15:54:32Z"
-  },
-  "IBIT": {
-    "price": 37.37,
-    "marketCap": 169501807694.0,
-    "currency": "USD",
-    "chg7d": 6.1,
-    "chg1m": 2.78,
-    "chg1y": -43.52,
-    "asOf": "2026-07-22T15:54:32Z"
-  },
-  "META": {
-    "price": 630.24,
-    "marketCap": 1599967985913.0,
-    "currency": "USD",
-    "chg7d": -4.03,
-    "chg1m": 11.04,
-    "chg1y": -11.28,
-    "asOf": "2026-07-22T15:54:32Z"
-  },
-  "MRVL": {
-    "price": 213.08,
-    "marketCap": 186932314062.0,
-    "currency": "USD",
-    "chg7d": -2.05,
-    "chg1m": -26.41,
-    "chg1y": 194.27,
-    "asOf": "2026-07-22T15:54:32Z"
-  },
-  "MSFT": {
-    "price": 389.13,
-    "marketCap": 2890255000972.0,
-    "currency": "USD",
-    "chg7d": -0.48,
-    "chg1m": 2.7,
-    "chg1y": -23.07,
-    "asOf": "2026-07-22T15:54:32Z"
-  },
-  "NFLX": {
-    "price": 70.3,
-    "marketCap": 292704084380.0,
-    "currency": "USD",
-    "chg7d": -4.78,
-    "chg1m": -8.65,
-    "chg1y": -44.22,
-    "asOf": "2026-07-22T15:54:32Z"
-  },
-  "RDDT": {
-    "price": 168.5,
-    "marketCap": 32448353085.0,
-    "currency": "USD",
-    "chg7d": -16.14,
-    "chg1m": 1.54,
-    "chg1y": 16.37,
-    "asOf": "2026-07-22T15:54:32Z"
-  },
-  "UPWK": {
-    "price": 8.86,
-    "marketCap": 1098693556.0,
+    "price": 711.96,
+    "marketCap": 55390482589.0,
     "currency": "USD",
     "chg7d": -2.85,
-    "chg1m": 9.79,
-    "chg1y": -31.48,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg1m": -14.01,
+    "chg1y": 585.63,
+    "asOf": "2026-07-28T10:35:26Z"
+  },
+  "COHR": {
+    "price": 271.31,
+    "marketCap": 74954570120.0,
+    "currency": "USD",
+    "chg7d": -2.27,
+    "chg1m": -28.83,
+    "chg1y": 171.64,
+    "asOf": "2026-07-28T10:35:26Z"
+  },
+  "MU": {
+    "price": 900.2,
+    "marketCap": 1016679592386.0,
+    "currency": "USD",
+    "chg7d": 6.04,
+    "chg1m": -14.41,
+    "chg1y": 695.02,
+    "asOf": "2026-07-28T10:35:26Z"
+  },
+  "000660.KS": {
+    "price": 1550000.0,
+    "marketCap": 1104689030000000.0,
+    "currency": "KRW",
+    "chg7d": -12.13,
+    "chg1m": -39.33,
+    "chg1y": 468.81,
+    "asOf": "2026-07-28T10:35:26Z"
+  },
+  "AXTI": {
+    "price": 47.88,
+    "marketCap": 3132461928.0,
+    "currency": "USD",
+    "chg7d": 4.4,
+    "chg1m": -38.54,
+    "chg1y": 1963.79,
+    "asOf": "2026-07-28T10:35:26Z"
+  },
+  "NVDA": {
+    "price": 196.51,
+    "marketCap": 4755541867065.0,
+    "currency": "USD",
+    "chg7d": -3.11,
+    "chg1m": -1.76,
+    "chg1y": 14.66,
+    "asOf": "2026-07-28T10:35:26Z"
+  },
+  "TSEM": {
+    "price": 224.21,
+    "marketCap": 74943278380.0,
+    "currency": "USD",
+    "chg7d": -4.22,
+    "chg1m": -20.68,
+    "chg1y": 349.32,
+    "asOf": "2026-07-28T10:35:26Z"
+  },
+  "INTC": {
+    "price": 91.67,
+    "marketCap": 462291800765.0,
+    "currency": "USD",
+    "chg7d": -3.55,
+    "chg1m": -30.7,
+    "chg1y": 294.11,
+    "asOf": "2026-07-28T10:35:26Z"
+  },
+  "TSM": {
+    "price": 399.09,
+    "marketCap": 2069869908660.0,
+    "currency": "USD",
+    "chg7d": 0.18,
+    "chg1m": -8.55,
+    "chg1y": 67.09,
+    "asOf": "2026-07-28T10:35:26Z"
+  },
+  "NBIS": {
+    "price": 187.88,
+    "marketCap": 47702376267.0,
+    "currency": "USD",
+    "chg7d": 5.72,
+    "chg1m": -31.74,
+    "chg1y": 258.76,
+    "asOf": "2026-07-28T10:35:26Z"
+  },
+  "CRWV": {
+    "price": 70.79,
+    "marketCap": 38620922036.0,
+    "currency": "USD",
+    "chg7d": -3.31,
+    "chg1m": -33.04,
+    "chg1y": -43.33,
+    "asOf": "2026-07-28T10:35:26Z"
+  },
+  "AEHR": {
+    "price": 77.48,
+    "marketCap": 2516550509.0,
+    "currency": "USD",
+    "chg7d": -4.4,
+    "chg1m": -24.33,
+    "chg1y": 371.0,
+    "asOf": "2026-07-28T10:35:26Z"
+  },
+  "SOI.PA": {
+    "price": 98.44,
+    "marketCap": 3521396751.0,
+    "currency": "EUR",
+    "chg7d": 12.71,
+    "chg1m": -18.24,
+    "chg1y": 113.17,
+    "asOf": "2026-07-28T10:35:26Z"
+  },
+  "LPK.DE": {
+    "price": 14.1,
+    "marketCap": 345401223.0,
+    "currency": "EUR",
+    "chg7d": -6.0,
+    "chg1m": -47.39,
+    "chg1y": 62.07,
+    "asOf": "2026-07-28T10:35:26Z"
+  },
+  "JBL": {
+    "price": 311.49,
+    "marketCap": 32640132755.0,
+    "currency": "USD",
+    "chg7d": 3.48,
+    "chg1m": -16.49,
+    "chg1y": 39.56,
+    "asOf": "2026-07-28T10:35:26Z"
+  },
+  "POET": {
+    "price": 7.09,
+    "marketCap": 1223700703.0,
+    "currency": "USD",
+    "chg7d": -4.06,
+    "chg1m": -33.92,
+    "chg1y": 7.75,
+    "asOf": "2026-07-28T10:35:26Z"
+  },
+  "TSLA": {
+    "price": 309.22,
+    "marketCap": 968931597225.0,
+    "currency": "USD",
+    "chg7d": -18.81,
+    "chg1m": -18.97,
+    "chg1y": -5.87,
+    "asOf": "2026-07-28T10:35:26Z"
+  },
+  "ASTS": {
+    "price": 58.29,
+    "marketCap": 22623777460.0,
+    "currency": "USD",
+    "chg7d": 0.85,
+    "chg1m": -20.01,
+    "chg1y": 2.86,
+    "asOf": "2026-07-28T10:35:26Z"
+  },
+  "CRCL": {
+    "price": 65.67,
+    "marketCap": 16323985464.0,
+    "currency": "USD",
+    "chg7d": 8.62,
+    "chg1m": -13.23,
+    "chg1y": -69.61,
+    "asOf": "2026-07-28T10:35:26Z"
+  },
+  "ETHA": {
+    "price": 14.71,
+    "marketCap": null,
+    "currency": "USD",
+    "chg7d": 5.75,
+    "chg1m": 17.49,
+    "chg1y": -48.06,
+    "asOf": "2026-07-28T10:35:26Z"
+  },
+  "EWY": {
+    "price": 161.2,
+    "marketCap": 11662819779.0,
+    "currency": "USD",
+    "chg7d": -0.82,
+    "chg1m": -16.13,
+    "chg1y": 118.22,
+    "asOf": "2026-07-28T10:35:26Z"
+  },
+  "IBIT": {
+    "price": 36.77,
+    "marketCap": 172959835911.0,
+    "currency": "USD",
+    "chg7d": 1.16,
+    "chg1m": 4.13,
+    "chg1y": -44.57,
+    "asOf": "2026-07-28T10:35:26Z"
+  },
+  "META": {
+    "price": 593.87,
+    "marketCap": 1507493254615.0,
+    "currency": "USD",
+    "chg7d": -8.07,
+    "chg1m": 5.63,
+    "chg1y": -16.7,
+    "asOf": "2026-07-28T10:35:26Z"
+  },
+  "MRVL": {
+    "price": 189.17,
+    "marketCap": 165668709367.0,
+    "currency": "USD",
+    "chg7d": 0.26,
+    "chg1m": -32.21,
+    "chg1y": 158.92,
+    "asOf": "2026-07-28T10:35:26Z"
+  },
+  "MSFT": {
+    "price": 389.1,
+    "marketCap": 2890404103839.0,
+    "currency": "USD",
+    "chg7d": -1.2,
+    "chg1m": 4.05,
+    "chg1y": -23.71,
+    "asOf": "2026-07-28T10:35:26Z"
+  },
+  "NFLX": {
+    "price": 70.4,
+    "marketCap": 293141311953.0,
+    "currency": "USD",
+    "chg7d": 2.1,
+    "chg1m": -3.32,
+    "chg1y": -42.92,
+    "asOf": "2026-07-28T10:35:26Z"
+  },
+  "RDDT": {
+    "price": 179.23,
+    "marketCap": 34503387247.0,
+    "currency": "USD",
+    "chg7d": -1.08,
+    "chg1m": 8.21,
+    "chg1y": 22.52,
+    "asOf": "2026-07-28T10:35:26Z"
+  },
+  "UPWK": {
+    "price": 9.26,
+    "marketCap": 1143777634.0,
+    "currency": "USD",
+    "chg7d": 2.21,
+    "chg1m": 12.79,
+    "chg1y": -30.79,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "VPG": {
-    "price": 112.38,
-    "marketCap": 1495431434.0,
+    "price": 102.31,
+    "marketCap": 1360824254.0,
     "currency": "USD",
-    "chg7d": 6.35,
-    "chg1m": -15.79,
-    "chg1y": 311.5,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": -1.52,
+    "chg1m": -23.75,
+    "chg1y": 266.31,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "RKLB": {
-    "price": 72.66,
-    "marketCap": 43529571145.0,
+    "price": 66.94,
+    "marketCap": 40042184048.0,
     "currency": "USD",
-    "chg7d": -5.3,
-    "chg1m": -32.71,
-    "chg1y": 62.91,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": -1.01,
+    "chg1m": -29.63,
+    "chg1y": 41.85,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "SIVE": {
-    "price": 37.76,
-    "marketCap": 12523567891.0,
+    "price": 29.64,
+    "marketCap": 9830476297.0,
     "currency": "SEK",
-    "chg7d": -11.78,
-    "chg1m": -62.94,
-    "chg1y": 888.48,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": -11.47,
+    "chg1m": -66.15,
+    "chg1y": 633.66,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "IBM": {
-    "price": 209.72,
-    "marketCap": 197479321967.0,
+    "price": 216.28,
+    "marketCap": 203764848509.0,
     "currency": "USD",
-    "chg7d": -27.74,
-    "chg1m": -20.06,
-    "chg1y": -25.82,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": 1.7,
+    "chg1m": -18.37,
+    "chg1y": -24.03,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "IONQ": {
-    "price": 35.85,
-    "marketCap": 13370524122.0,
+    "price": 35.92,
+    "marketCap": 13407857716.0,
     "currency": "USD",
-    "chg7d": -7.79,
-    "chg1m": -34.45,
-    "chg1y": -13.55,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": 3.28,
+    "chg1m": -37.91,
+    "chg1y": -19.15,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "QBTS": {
-    "price": 17.68,
-    "marketCap": 6562435003.0,
+    "price": 19.51,
+    "marketCap": 7223679450.0,
     "currency": "USD",
-    "chg7d": -5.25,
-    "chg1m": -22.86,
-    "chg1y": 9.47,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": 16.62,
+    "chg1m": -22.05,
+    "chg1y": 6.09,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "RGTI": {
-    "price": 15.5,
-    "marketCap": 5154175648.0,
+    "price": 15.64,
+    "marketCap": 5198715782.0,
     "currency": "USD",
-    "chg7d": 0.91,
-    "chg1m": -23.46,
-    "chg1y": 21.86,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": 10.84,
+    "chg1m": -26.5,
+    "chg1y": -2.74,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "NVTS": {
-    "price": 13.07,
-    "marketCap": 3229803271.0,
+    "price": 11.41,
+    "marketCap": 74977153600.0,
     "currency": "USD",
-    "chg7d": 1.55,
-    "chg1m": -41.5,
-    "chg1y": 109.79,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": -0.44,
+    "chg1m": -46.68,
+    "chg1y": 34.71,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "AMZN": {
-    "price": 243.86,
-    "marketCap": 2623465541726.0,
+    "price": 231.39,
+    "marketCap": 2489087676334.0,
     "currency": "USD",
-    "chg7d": -1.4,
-    "chg1m": 2.68,
-    "chg1y": 7.74,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": -6.41,
+    "chg1m": -1.16,
+    "chg1y": 0.91,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "AVGO": {
-    "price": 392.26,
-    "marketCap": 1866066047898.0,
+    "price": 383.22,
+    "marketCap": 1823199813407.0,
     "currency": "USD",
-    "chg7d": 2.14,
-    "chg1m": -0.16,
-    "chg1y": 39.62,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": 3.34,
+    "chg1m": 0.81,
+    "chg1y": 32.97,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "AMAT": {
-    "price": 560.44,
-    "marketCap": 445247672803.0,
+    "price": 516.89,
+    "marketCap": 410389737585.0,
     "currency": "USD",
-    "chg7d": -2.6,
-    "chg1m": -5.48,
-    "chg1y": 181.22,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": -2.41,
+    "chg1m": -11.78,
+    "chg1y": 168.36,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "AAPL": {
-    "price": 325.26,
-    "marketCap": 4778235378282.0,
+    "price": 336.91,
+    "marketCap": 4948315142286.0,
     "currency": "USD",
-    "chg7d": 2.51,
-    "chg1m": 9.9,
-    "chg1y": 55.54,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": 0.95,
+    "chg1m": 14.48,
+    "chg1y": 58.56,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "ASML": {
-    "price": 1807.77,
-    "marketCap": 700482670806.0,
+    "price": 1655.26,
+    "marketCap": 540360947487.0,
     "currency": "USD",
-    "chg7d": 4.74,
-    "chg1m": -3.22,
-    "chg1y": 119.65,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": -5.28,
+    "chg1m": -6.93,
+    "chg1y": 130.0,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "LRCX": {
-    "price": 319.44,
-    "marketCap": 399119727017.0,
+    "price": 291.61,
+    "marketCap": 364678990991.0,
     "currency": "USD",
-    "chg7d": -3.18,
-    "chg1m": -14.63,
-    "chg1y": 216.06,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": -6.92,
+    "chg1m": -21.47,
+    "chg1y": 186.62,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "LWLG": {
-    "price": 7.09,
-    "marketCap": 1095505976.0,
+    "price": 6.13,
+    "marketCap": 944507965.0,
     "currency": "USD",
-    "chg7d": 9.58,
-    "chg1m": -23.6,
-    "chg1y": 395.8,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": -1.61,
+    "chg1m": -33.8,
+    "chg1y": 197.57,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "ALMU": {
-    "price": 16.55,
-    "marketCap": 303502370.0,
+    "price": 14.84,
+    "marketCap": 271555530.0,
     "currency": "USD",
-    "chg7d": 2.03,
-    "chg1m": -33.43,
-    "chg1y": -3.5,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": 1.64,
+    "chg1m": -32.05,
+    "chg1y": -16.44,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "SMHD": {
     "price": 2.37,
@@ -411,119 +411,119 @@
     "asOf": "2026-07-14T17:04:16Z"
   },
   "VECO": {
-    "price": 55.9,
-    "marketCap": 3405667579.0,
+    "price": 48.49,
+    "marketCap": 2959513547.0,
     "currency": "USD",
-    "chg7d": 0.25,
-    "chg1m": -26.23,
-    "chg1y": 169.4,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": -7.23,
+    "chg1m": -35.21,
+    "chg1y": 127.01,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "HIMX": {
-    "price": 13.76,
-    "marketCap": 2401530662.0,
+    "price": 12.73,
+    "marketCap": 2219569644.0,
     "currency": "USD",
-    "chg7d": -3.57,
-    "chg1m": -18.82,
-    "chg1y": 44.08,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": -0.55,
+    "chg1m": -24.09,
+    "chg1y": 32.74,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "ARM": {
-    "price": 286.02,
-    "marketCap": 306153893565.0,
+    "price": 266.33,
+    "marketCap": 284461199398.0,
     "currency": "USD",
-    "chg7d": -4.34,
-    "chg1m": -31.72,
-    "chg1y": 94.43,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": -0.32,
+    "chg1m": -27.31,
+    "chg1y": 64.48,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "GOOGL": {
-    "price": 347.8,
-    "marketCap": 4229245701949.0,
+    "price": 326.56,
+    "marketCap": 3990158235769.0,
     "currency": "USD",
-    "chg7d": -1.34,
-    "chg1m": -4.4,
-    "chg1y": 91.1,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": -5.83,
+    "chg1m": -5.65,
+    "chg1y": 71.78,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "HOOD": {
-    "price": 105.65,
-    "marketCap": 95174286334.0,
+    "price": 95.65,
+    "marketCap": 86133314189.0,
     "currency": "USD",
-    "chg7d": -3.83,
-    "chg1m": 0.43,
-    "chg1y": 6.14,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": -4.31,
+    "chg1m": -7.36,
+    "chg1y": -8.33,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "SMTC": {
-    "price": 138.46,
-    "marketCap": 12918203573.0,
+    "price": 121.52,
+    "marketCap": 11319723789.0,
     "currency": "USD",
-    "chg7d": 4.77,
-    "chg1m": -7.82,
-    "chg1y": 187.92,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": -2.75,
+    "chg1m": -25.58,
+    "chg1y": 129.02,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "SPCX": {
-    "price": 124.56,
-    "marketCap": 943093210320.0,
+    "price": 113.5,
+    "marketCap": 859353559500.0,
     "currency": "USD",
-    "chg7d": -10.48,
-    "chg1m": -35.06,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": -8.46,
+    "chg1m": -27.29,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "AEVA": {
-    "price": 17.38,
-    "marketCap": 1175484010.0,
+    "price": 15.53,
+    "marketCap": 1047948541.0,
     "currency": "USD",
-    "chg7d": -7.6,
-    "chg1m": -26.01,
-    "chg1y": -34.42,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": -7.06,
+    "chg1m": -34.03,
+    "chg1y": -41.55,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "AMD": {
-    "price": 554.78,
-    "marketCap": 905309139904.0,
+    "price": 494.95,
+    "marketCap": 807065489904.0,
     "currency": "USD",
-    "chg7d": 3.82,
-    "chg1m": 8.25,
-    "chg1y": 256.52,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": -0.16,
+    "chg1m": -4.79,
+    "chg1y": 215.25,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "MTSI": {
-    "price": 284.88,
-    "marketCap": 21716065387.0,
+    "price": 263.08,
+    "marketCap": 20071890147.0,
     "currency": "USD",
-    "chg7d": -3.18,
-    "chg1m": -22.4,
-    "chg1y": 107.49,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": -1.6,
+    "chg1m": -29.31,
+    "chg1y": 87.14,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "SNDK": {
-    "price": 1597.35,
-    "marketCap": 205985500000.0,
+    "price": 1278.23,
+    "marketCap": 189292694338.0,
     "currency": "USD",
-    "chg7d": -4.58,
-    "chg1m": -18.45,
-    "chg1y": 3639.12,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": -5.65,
+    "chg1m": -34.9,
+    "chg1y": 2971.93,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "EOS": {
-    "price": 21.91,
-    "marketCap": 1169220554.0,
+    "price": 21.25,
+    "marketCap": 1132965212.0,
     "currency": "USD",
-    "chg7d": -1.08,
-    "chg1m": 0.32,
-    "chg1y": -9.09,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": -2.25,
+    "chg1m": -1.07,
+    "chg1y": -11.97,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "CBRS": {
-    "price": 219.66,
-    "marketCap": 50033101856.0,
+    "price": 188.61,
+    "marketCap": 42726294963.0,
     "currency": "USD",
-    "chg7d": 7.35,
-    "chg1m": 2.8,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": 9.11,
+    "chg1m": -16.81,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "AGLT": {
     "price": 1,
@@ -532,21 +532,21 @@
     "asOf": "2026-07-02T21:02:04Z"
   },
   "BRUN": {
-    "price": 25.2,
-    "marketCap": 1926285441.0,
+    "price": 19.36,
+    "marketCap": 1479290096.0,
     "currency": "USD",
-    "chg7d": -1.87,
-    "chg1m": -28.49,
-    "chg1y": 146.33,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": -20.72,
+    "chg1m": -44.51,
+    "chg1y": 88.69,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "CCXI": {
-    "price": 14.85,
-    "marketCap": 824365588.0,
+    "price": 13.72,
+    "marketCap": 764204014.0,
     "currency": "USD",
-    "chg7d": 3.56,
-    "chg1m": 43.76,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": -5.18,
+    "chg1m": 31.67,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "WLAC": {
     "price": 18.83,
@@ -555,66 +555,66 @@
     "asOf": "2026-07-14T17:04:16Z"
   },
   "BOT": {
-    "price": 28.53,
-    "marketCap": 675763308.0,
+    "price": 25.97,
+    "marketCap": 615126961.0,
     "currency": "USD",
-    "chg7d": -12.0,
-    "chg1m": -11.84,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": -11.0,
+    "chg1m": -12.59,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "BULL": {
-    "price": 8.1,
-    "marketCap": 4307731672.0,
+    "price": 7.54,
+    "marketCap": 4009912223.0,
     "currency": "USD",
-    "chg7d": 11.26,
-    "chg1m": 13.76,
-    "chg1y": -33.22,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": 4.29,
+    "chg1m": 13.55,
+    "chg1y": -48.43,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "DJT": {
-    "price": 9.72,
-    "marketCap": 2694759374.0,
+    "price": 9.56,
+    "marketCap": 2647678444.0,
     "currency": "USD",
-    "chg7d": 14.08,
-    "chg1m": 20.0,
-    "chg1y": -45.82,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": -1.04,
+    "chg1m": 21.32,
+    "chg1y": -50.34,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "IREN": {
-    "price": 42.6,
-    "marketCap": 15288656071.0,
+    "price": 36.29,
+    "marketCap": 12969273350.0,
     "currency": "USD",
-    "chg7d": 9.29,
-    "chg1m": -26.69,
-    "chg1y": 152.37,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": 7.94,
+    "chg1m": -33.68,
+    "chg1y": 99.94,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "QQQ": {
-    "price": 708.75,
-    "marketCap": 276737809472.0,
+    "price": 682.12,
+    "marketCap": 266401895881.0,
     "currency": "USD",
-    "chg7d": -0.42,
-    "chg1m": -1.9,
-    "chg1y": 27.31,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": -1.9,
+    "chg1m": -4.42,
+    "chg1y": 20.91,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "GFS": {
-    "price": 59.2,
-    "marketCap": 32466619414.0,
+    "price": 53.18,
+    "marketCap": 29179914029.0,
     "currency": "USD",
-    "chg7d": -7.41,
-    "chg1m": -26.59,
-    "chg1y": 47.04,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": -7.48,
+    "chg1m": -36.23,
+    "chg1y": 31.05,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "SOI": {
-    "price": 0.16,
-    "marketCap": 107490973.0,
+    "price": 0.17,
+    "marketCap": 110850106.0,
     "currency": "CAD",
-    "chg7d": 0.0,
-    "chg1m": -15.79,
-    "chg1y": 100.0,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": 13.33,
+    "chg1m": -5.56,
+    "chg1y": 142.86,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "DRAM": {
     "price": 5.9,
@@ -624,344 +624,344 @@
     "asOf": "2026-07-16T10:01:27Z"
   },
   "BABA": {
-    "price": 116.46,
-    "marketCap": 278994277496.0,
+    "price": 115.0,
+    "marketCap": 74954570120.0,
     "currency": "USD",
-    "chg7d": 3.66,
-    "chg1m": 8.4,
-    "chg1y": -0.44,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": 0.03,
+    "chg1m": 12.09,
+    "chg1y": -4.38,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "KLAC": {
-    "price": 215.95,
-    "marketCap": 282168455574.0,
+    "price": 203.36,
+    "marketCap": 265644084797.0,
     "currency": "USD",
-    "chg7d": -2.83,
-    "chg1m": -9.54,
-    "chg1y": 130.59,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": -4.41,
+    "chg1m": -16.82,
+    "chg1y": 116.85,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "ASX": {
-    "price": 40.39,
-    "marketCap": 90283201540.0,
+    "price": 36.55,
+    "marketCap": 81699703300.0,
     "currency": "USD",
-    "chg7d": -0.42,
-    "chg1m": 7.88,
-    "chg1y": 292.9,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": -4.84,
+    "chg1m": -8.1,
+    "chg1y": 248.76,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "BE": {
-    "price": 227.98,
-    "marketCap": 65029540167.0,
+    "price": 188.18,
+    "marketCap": 53526632200.0,
     "currency": "USD",
-    "chg7d": -2.36,
-    "chg1m": -20.0,
-    "chg1y": 800.75,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": -12.46,
+    "chg1m": -41.56,
+    "chg1y": 642.03,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "FCEL": {
-    "price": 22.51,
-    "marketCap": 1790022980.0,
+    "price": 21.49,
+    "marketCap": 1718215309.0,
     "currency": "USD",
-    "chg7d": 17.98,
-    "chg1m": 12.33,
-    "chg1y": 337.94,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": 16.16,
+    "chg1m": -1.51,
+    "chg1y": 300.93,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "OUST": {
-    "price": 40.88,
-    "marketCap": 2732387324.0,
+    "price": 35.14,
+    "marketCap": 2358247818.0,
     "currency": "USD",
-    "chg7d": 2.12,
-    "chg1m": 0.39,
-    "chg1y": 44.45,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": -5.13,
+    "chg1m": -22.19,
+    "chg1y": 19.85,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "MELI": {
-    "price": 1804.94,
-    "marketCap": 91640475063.0,
+    "price": 1819.74,
+    "marketCap": 92255685838.0,
     "currency": "USD",
-    "chg7d": -3.34,
-    "chg1m": 10.61,
-    "chg1y": -24.48,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": 0.32,
+    "chg1m": 14.91,
+    "chg1y": -23.51,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "GLW": {
-    "price": 158.52,
-    "marketCap": 136634900028.0,
+    "price": 143.36,
+    "marketCap": 123380992525.0,
     "currency": "USD",
-    "chg7d": -13.43,
-    "chg1m": -9.62,
-    "chg1y": 201.83,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": -7.28,
+    "chg1m": -26.13,
+    "chg1y": 165.97,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "TER": {
-    "price": 372.12,
-    "marketCap": 58272013250.0,
+    "price": 334.77,
+    "marketCap": 53412190057.0,
     "currency": "USD",
-    "chg7d": 9.09,
-    "chg1m": -8.92,
-    "chg1y": 300.0,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": 3.85,
+    "chg1m": -20.32,
+    "chg1y": 253.06,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "QCOM": {
-    "price": 177.02,
-    "marketCap": 186763537719.0,
+    "price": 170.04,
+    "marketCap": 179222152923.0,
     "currency": "USD",
-    "chg7d": -3.78,
-    "chg1m": -16.88,
-    "chg1y": 14.72,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": -1.01,
+    "chg1m": -16.7,
+    "chg1y": 6.96,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "NOK": {
-    "price": 10.4,
-    "marketCap": 60379980445.0,
+    "price": 9.28,
+    "marketCap": 46534948332.0,
     "currency": "USD",
-    "chg7d": -11.04,
-    "chg1m": -24.8,
-    "chg1y": 118.95,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": -8.3,
+    "chg1m": -32.26,
+    "chg1y": 95.37,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "COIN": {
-    "price": 169.64,
-    "marketCap": 44838377176.0,
+    "price": 167.49,
+    "marketCap": 44127034090.0,
     "currency": "USD",
-    "chg7d": 7.8,
-    "chg1m": 2.86,
-    "chg1y": -56.28,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": 6.6,
+    "chg1m": 5.89,
+    "chg1y": -59.51,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "CIFR": {
-    "price": 23.7,
-    "marketCap": 9739458852.0,
+    "price": 21.65,
+    "marketCap": 8855915023.0,
     "currency": "USD",
-    "chg7d": 17.97,
-    "chg1m": -10.06,
-    "chg1y": 296.98,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": 23.29,
+    "chg1m": -21.67,
+    "chg1y": 246.4,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "WULF": {
-    "price": 20.26,
-    "marketCap": 10061789594.0,
+    "price": 17.98,
+    "marketCap": 8909675921.0,
     "currency": "USD",
-    "chg7d": -3.02,
-    "chg1m": -27.28,
-    "chg1y": 316.02,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": -0.99,
+    "chg1m": -37.53,
+    "chg1y": 260.32,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "ALAB": {
-    "price": 335.17,
-    "marketCap": 57395936361.0,
+    "price": 282.52,
+    "marketCap": 48426158024.0,
     "currency": "USD",
-    "chg7d": -7.42,
-    "chg1m": -10.54,
-    "chg1y": 262.9,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": -6.95,
+    "chg1m": -28.84,
+    "chg1y": 131.78,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "ORCL": {
-    "price": 125.63,
-    "marketCap": 362104006772.0,
+    "price": 119.9,
+    "marketCap": 345368477295.0,
     "currency": "USD",
-    "chg7d": -4.49,
-    "chg1m": -31.55,
-    "chg1y": -46.53,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": -5.15,
+    "chg1m": -27.4,
+    "chg1y": -50.77,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "ACMR": {
-    "price": 91.93,
-    "marketCap": 6355307717.0,
+    "price": 79.97,
+    "marketCap": 5526685199.0,
     "currency": "USD",
-    "chg7d": -2.29,
-    "chg1m": -4.43,
-    "chg1y": 212.05,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": -4.71,
+    "chg1m": -19.32,
+    "chg1y": 163.06,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "CAMT": {
-    "price": 157.76,
-    "marketCap": 7326939587.0,
+    "price": 151.46,
+    "marketCap": 7066595317.0,
     "currency": "USD",
-    "chg7d": 15.34,
-    "chg1m": -11.44,
-    "chg1y": 73.46,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": 3.63,
+    "chg1m": -10.59,
+    "chg1y": 60.63,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "DASH": {
-    "price": 179.09,
-    "marketCap": 78091686666.0,
+    "price": 184.37,
+    "marketCap": 80333454591.0,
     "currency": "USD",
-    "chg7d": -5.53,
-    "chg1m": 8.11,
-    "chg1y": -24.36,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": 0.12,
+    "chg1m": 7.49,
+    "chg1y": -23.35,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "JD": {
-    "price": 30.25,
-    "marketCap": 42668138595.0,
+    "price": 30.95,
+    "marketCap": 349750405199.0,
     "currency": "USD",
-    "chg7d": 4.74,
-    "chg1m": 8.38,
-    "chg1y": -5.59,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": 4.49,
+    "chg1m": 18.49,
+    "chg1y": -7.34,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "UBER": {
-    "price": 70.88,
-    "marketCap": 144018629250.0,
+    "price": 68.18,
+    "marketCap": 138787140441.0,
     "currency": "USD",
-    "chg7d": -4.55,
-    "chg1m": -0.04,
-    "chg1y": -23.13,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": -5.91,
+    "chg1m": -2.14,
+    "chg1y": -25.21,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "SHAZ": {
-    "price": 74.35,
-    "marketCap": 2635195649.0,
+    "price": 58.79,
+    "marketCap": 2081461158.0,
     "currency": "USD",
-    "chg7d": 8.92,
-    "chg1m": -12.58,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": -7.62,
+    "chg1m": -30.31,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "BWA": {
-    "price": 64.39,
-    "marketCap": 13229904600.0,
+    "price": 63.68,
+    "marketCap": 13061716894.0,
     "currency": "USD",
-    "chg7d": 1.18,
-    "chg1m": -8.72,
-    "chg1y": 84.02,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": 1.99,
+    "chg1m": -9.7,
+    "chg1y": 79.99,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "ENS": {
-    "price": 202.07,
-    "marketCap": 7366688435.0,
+    "price": 190.24,
+    "marketCap": 6935412469.0,
     "currency": "USD",
-    "chg7d": 0.49,
-    "chg1m": -11.25,
-    "chg1y": 134.72,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": -3.21,
+    "chg1m": -14.85,
+    "chg1y": 114.74,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "ETN": {
-    "price": 407.38,
-    "marketCap": 158344819538.0,
+    "price": 398.64,
+    "marketCap": 154791917687.0,
     "currency": "USD",
-    "chg7d": 1.12,
-    "chg1m": -0.55,
-    "chg1y": 12.5,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": -0.34,
+    "chg1m": -1.64,
+    "chg1y": 6.69,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "VRT": {
-    "price": 299.83,
-    "marketCap": 115328637175.0,
+    "price": 287.6,
+    "marketCap": 110469635704.0,
     "currency": "USD",
-    "chg7d": -1.97,
-    "chg1m": -5.59,
-    "chg1y": 135.4,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": -0.68,
+    "chg1m": -9.65,
+    "chg1y": 127.87,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "SIMO": {
-    "price": 286.77,
-    "marketCap": 9728589879.0,
+    "price": 244.45,
+    "marketCap": 8307305583.0,
     "currency": "USD",
-    "chg7d": -4.25,
-    "chg1m": -6.63,
-    "chg1y": 302.94,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": -7.52,
+    "chg1m": -23.37,
+    "chg1y": 227.37,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "FDX": {
-    "price": 319.34,
-    "marketCap": 76182346884.0,
+    "price": 310.79,
+    "marketCap": 73527042090.0,
     "currency": "USD",
-    "chg7d": 1.78,
-    "chg1m": -2.02,
-    "chg1y": 71.93,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": -0.7,
+    "chg1m": -2.03,
+    "chg1y": 70.98,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "FORD": {
-    "price": 14.37,
-    "marketCap": 57260023583.0,
+    "price": 14.68,
+    "marketCap": 58495279776.0,
     "currency": "USD",
-    "chg7d": 3.75,
-    "chg1m": 2.94,
-    "chg1y": 24.2,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": 3.16,
+    "chg1m": 4.86,
+    "chg1y": 29.8,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "GM": {
-    "price": 82.43,
-    "marketCap": 74279168461.0,
+    "price": 87.04,
+    "marketCap": 76373370659.0,
     "currency": "USD",
-    "chg7d": 7.44,
-    "chg1m": 3.58,
-    "chg1y": 56.38,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": 14.42,
+    "chg1m": 10.25,
+    "chg1y": 63.58,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "FN": {
-    "price": 521.92,
-    "marketCap": 18704915329.0,
+    "price": 470.82,
+    "marketCap": 74977153600.0,
     "currency": "USD",
-    "chg7d": 9.96,
-    "chg1m": -10.69,
-    "chg1y": 73.13,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": -1.58,
+    "chg1m": -19.32,
+    "chg1y": 52.12,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "HIMS": {
-    "price": 32.66,
-    "marketCap": 7570981155.0,
+    "price": 30.24,
+    "marketCap": 6999277771.0,
     "currency": "USD",
-    "chg7d": -5.0,
-    "chg1m": 2.41,
-    "chg1y": -35.28,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": -7.92,
+    "chg1m": -8.25,
+    "chg1y": -36.47,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "SMH": {
-    "price": 590.1,
+    "price": 548.55,
     "marketCap": null,
     "currency": "USD",
-    "chg7d": 0.77,
-    "chg1m": -5.43,
-    "chg1y": 102.92,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": -1.43,
+    "chg1m": -11.82,
+    "chg1y": 88.82,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "XPEV": {
-    "price": 12.95,
-    "marketCap": 12727529480.0,
+    "price": 12.78,
+    "marketCap": 94963901031.0,
     "currency": "USD",
-    "chg7d": 0.0,
-    "chg1m": -3.65,
-    "chg1y": -27.73,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": -5.54,
+    "chg1m": 0.16,
+    "chg1y": -29.93,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "AMKR": {
-    "price": 67.64,
-    "marketCap": 16761132368.0,
+    "price": 60.71,
+    "marketCap": 15048339248.0,
     "currency": "USD",
-    "chg7d": 2.39,
-    "chg1m": -21.74,
-    "chg1y": 213.73,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": -3.54,
+    "chg1m": -29.99,
+    "chg1y": 176.58,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "XFAB": {
-    "price": 7.49,
-    "marketCap": 980341904.0,
+    "price": 6.62,
+    "marketCap": 865187065.0,
     "currency": "EUR",
-    "chg7d": -7.53,
-    "chg1m": -21.82,
-    "chg1y": 9.34,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": -7.02,
+    "chg1m": -30.97,
+    "chg1y": -1.93,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "IQE": {
-    "price": 48.75,
-    "marketCap": 644219508.0,
+    "price": 42.12,
+    "marketCap": 560657320.0,
     "currency": "GBX",
-    "chg7d": 23.42,
-    "chg1m": -12.79,
-    "chg1y": 371.47,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": 14.15,
+    "chg1m": -15.42,
+    "chg1y": 327.18,
+    "asOf": "2026-07-28T10:35:26Z"
   },
   "CATL": {
-    "price": 372.26,
-    "marketCap": 2025050341000.0,
+    "price": 390.86,
+    "marketCap": 2029055111000.0,
     "currency": "CNY",
-    "chg7d": 3.68,
-    "chg1m": -6.7,
-    "chg1y": 39.03,
-    "asOf": "2026-07-22T15:54:32Z"
+    "chg7d": 8.57,
+    "chg1m": -0.42,
+    "chg1y": 39.76,
+    "asOf": "2026-07-28T10:35:26Z"
   }
 }

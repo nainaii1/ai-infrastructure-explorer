@@ -231,9 +231,10 @@
     { page: "performance", label: "Performance", href: "performance.html", disabled: true }
   ];
 
-  // Performance stays greyed until the calls ledger has a real track record
-  // (>=3 stamped calls) — an empty performance page never ships.
-  var MIN_CALLS_FOR_NAV = 3;
+  // Performance is nav-live as soon as there is ANY stamped call (operator
+  // decision, 2026-07-26). The page is the desk's scorecard — hiding a losing
+  // record behind a threshold is exactly the feedback loop it exists to close.
+  var MIN_CALLS_FOR_NAV = 1;
   function performanceEnabled() {
     var d = data();
     var calls = (d && d.calls && d.calls.calls) || [];

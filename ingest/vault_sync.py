@@ -97,7 +97,10 @@ def _desired_pages(tickers, priorities, categories, glossary):
         p = prio_by_sym.get(sym, {})
         stats = {
             "tier": tier,
-            "mentions": p.get("mentions", 0),
+            # A ticker page hangs off the analyst's person page, so this stat
+            # reads as his. Desk research findings are not his — analystMentions,
+            # never the raw total.
+            "mentions": p.get("analystMentions", 0),
             "lastMentioned": p.get("lastMentioned"),
             "category": cat,
             "market": t.get("market"),

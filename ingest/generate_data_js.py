@@ -4,14 +4,38 @@ SECURITY: every value is serialized with json.dumps, so any quotes,
 </script>, or backticks inside ingested post text are escaped and cannot
 break out of the data literal. ensure_ascii=True keeps data.js pure-ASCII,
 which is the safest thing to ship over file:// across editors/encodings.
+
+THE 2026-07-26 INCIDENT (referenced by _assert_fresh and _assert_complete
+below — this is the one place it's told in full): a long-running bot.py
+process (started 30 June) held a June-era copy of this module in memory.
+Every ingest regenerated data.js using that stale code, which silently
+dropped six top-level keys (glossary, desk, memos, vault, calls,
+benchmarkQuote) on every write, for four days — breaking the memo reader,
+vault, glossary and performance page. Nothing warned, because ticker-level
+verdicts are stamped onto ticker records and survived, so the watchlist
+still looked healthy. write_data_js() now refuses to write in either
+failure mode that produced this:
+  - _assert_fresh()    — this PROCESS is stale: its in-memory copy of an
+                         ingest module no longer matches what's on disk.
+  - _assert_complete() — this PAYLOAD is incomplete: even correctly-loaded
+                         code produced a build_data() result missing a
+                         required block.
+Both checks are necessary. A stale copy of *this* module has a stale
+REQUIRED_KEYS too, so it would agree with its own stale build_data() output
+and _assert_complete alone would never notice — which is exactly how the
+2026-07-26 truncation slipped through undetected for four days.
 """
 
+import hashlib
 import json
 import pathlib
 import re
+import sys
 import xml.etree.ElementTree as ET
 
+import claims as claims_mod
 import scorer
+import seats
 import vault_sync
 
 ING = pathlib.Path(__file__).resolve().parent
@@ -32,6 +56,26 @@ from store_io import load_json as _load, load_json_optional as _load_optional  #
 
 
 PRICE_FIELDS = ("price", "currency", "chg7d", "chg1m", "chg1y", "marketCap", "asOf")
+
+# Every top-level key build_data() is contracted to emit. A payload missing any
+# of these is refused rather than written — see _assert_complete.
+REQUIRED_KEYS = (
+    "meta", "countries", "categories", "center", "mapIntro", "glossary",
+    "zones", "tickers", "theses", "priorities", "brain", "desk", "memos",
+    "vault", "calls", "benchmarkQuote", "claims",
+)
+
+# Keys whose content comes from a store file. If the file has content, the
+# assembled block must too.
+STORE_BACKED = {
+    "brain": "brain.json",
+    "desk": "verdicts.json",
+    "memos": "memos.json",
+    "vault": "vault.json",
+    "calls": "calls.json",
+    "claims": "claims.json",
+}
+
 
 _ICON_ELEMENTS = {"path", "circle", "line", "rect", "polyline", "ellipse"}
 _ICON_ATTRIBUTES = {
@@ -83,6 +127,23 @@ def build_data():
     memos = _load_optional("memos.json", {})    # {} until authored; {meta, memos} after (coverage memos)
     vault = _load_optional("vault.json", {})    # {} until synced; {meta, pages} after (knowledge vault)
     calls = _load_optional("calls.json", {})    # {} until a first call is stamped; {meta, calls} after
+    claims = _load_optional("claims.json", {})  # {} until the first claim; {meta, claims} after
+    # Precompute the per-source scores here rather than in the browser, so the
+    # hit rate and the unfalsifiable share physically travel together (plan
+    # C2). A page that recomputed them could render one without the other.
+    if claims.get("claims"):
+        rows = claims["claims"]
+        sources = sorted({c.get("source") for c in rows if c.get("source")})
+        # Display labels ride with the data (CLAUDE.md rule 4) so the page
+        # never hardcodes what a seat is called.
+        labels = {"analyst": "@aleabitoreddit", "desk": "The desk"}
+        for key, seat in seats.SEATS.items():
+            labels[key] = seat["label"]
+        meta = dict(claims.get("meta") or {},
+                    minJudgedForRate=claims_mod.MIN_JUDGED_FOR_RATE)
+        claims = dict(claims, meta=meta, sourceLabels=labels, scores=(
+            [claims_mod.score_claims(rows, source=s) for s in sources]
+            + [claims_mod.score_claims(rows)]))
 
     # Store-provided icon fragments are the only markup later assigned through
     # innerHTML. Validate every optional icon before it can reach data.js.
@@ -107,10 +168,28 @@ def build_data():
     by_symbol = {p["ticker"]: p for p in priorities}
     for t in tickers:
         p = by_symbol.get(t["ticker"])
-        if p and p["score"] > 0:
+        # A priority row only exists for a symbol that appeared in at least one
+        # thesis (mentions >= 1 by construction of compute_priorities), so `p`
+        # truthy already means "mentioned". Gating on score > 0 used to drop
+        # this block entirely for a net-negative (bear-heavy) name — its score
+        # floors at 0.0, so "12x mentioned, argued against every time" used to
+        # render identically to "never mentioned." Score can be zero; being
+        # discussed cannot.
+        if p:
+            # Mirrors the fields a ticker card renders. `net` and the direction
+            # counts ride along so a card can say "93 mentions, 3 against" —
+            # the top-level `priorities` array is not what the card reads.
             t["priority"] = {
                 "score": p["score"],
+                "net": p["net"],
+                "attention": p["attention"],
                 "mentions": p["mentions"],
+                # Analyst vs desk-research split. Anything the UI labels
+                # "@aleabitoreddit" must read analystMentions, never mentions.
+                "analystMentions": p["analystMentions"],
+                "researchMentions": p["researchMentions"],
+                "bullMentions": p["bullMentions"],
+                "bearMentions": p["bearMentions"],
                 "convictionHits": p["convictionHits"],
                 "lastMentioned": p["lastMentioned"],
             }
@@ -148,10 +227,140 @@ def build_data():
         "memos": memos,
         "vault": vault,
         "calls": calls,
+        "claims": claims,
         # Latest benchmark quote (fetched by fetch_prices.py alongside the
         # tickers) so performance.html can compute vs-SMH without a fetch().
         "benchmarkQuote": prices.get((calls.get("meta") or {}).get("benchmark", "SMH")) or None,
     }
+
+
+def _safe_hash(path):
+    """Hash a source file's bytes for freshness comparison.
+
+    Returns None (rather than raising) when the file can't be read right now
+    — a transient issue here must not itself become "the error", masking
+    whatever real problem write_data_js was trying to report. A content
+    hash rather than an mtime: a touch, a no-op save, or a stash/checkout
+    round-trip all bump mtime without the process's in-memory copy actually
+    being wrong, which would make this guard cry wolf — and a guard that
+    cries wolf is a guard the owner turns off.
+    """
+    try:
+        return hashlib.sha256(pathlib.Path(path).read_bytes()).hexdigest()
+    except OSError:
+        return None
+
+
+def _watched_sources():
+    """Every currently-imported module whose source file lives directly in
+    ingest/ (ING) — i.e. this backend's own code, not its tests or the store.
+
+    Scanning sys.modules instead of a hardcoded filename list means a new
+    ingest module (store_io.py, parser.py, fetcher.py, ...) is automatically
+    covered the moment something imports it, with no separate list to
+    remember to update as the backend grows.
+    """
+    watched = {}
+    for mod in list(sys.modules.values()):
+        file = getattr(mod, "__file__", None)
+        if not file:
+            continue
+        path = pathlib.Path(file)
+        if path.resolve().parent == ING:
+            watched[path.name] = path
+    return watched
+
+
+# Hash recorded for each watched file that was already importable when this
+# module itself was imported — including generate_data_js.py, the module
+# that actually broke on 2026-07-26. Anything imported later (store_io,
+# parser, fetcher, ...) has no entry yet and gets one on its first sighting
+# in _assert_fresh: importing a module reads its current disk content, so a
+# baseline taken the first time _assert_fresh sees it is still a true one —
+# there's no window in which that module could have gone stale first.
+_SOURCE_HASHES_BASELINE = {
+    name: h for name, path in _watched_sources().items()
+    if (h := _safe_hash(path)) is not None
+}
+
+
+def _assert_fresh():
+    """Refuse to write when this process is running outdated ingest code.
+
+    See the 2026-07-26 incident in the module docstring above — this is the
+    "stale process" half of that guard. Hashes every ingest module this
+    process has imported and compares against the hash recorded as its
+    baseline (captured at this module's own import for whatever was already
+    loaded then, or on first sighting here for anything imported later — see
+    _SOURCE_HASHES_BASELINE above). A file that couldn't be hashed on its
+    first sighting (a transient read hiccup) is left unrecorded rather than
+    permanently marked "unknown, skip forever" — the next call tries again
+    until a baseline actually sticks.
+    """
+    stale = []
+    for name, path in _watched_sources().items():
+        current = _safe_hash(path)
+        if name not in _SOURCE_HASHES_BASELINE:
+            if current is not None:
+                _SOURCE_HASHES_BASELINE[name] = current
+            continue
+        if current is not None and current != _SOURCE_HASHES_BASELINE[name]:
+            stale.append(name)
+    if stale:
+        raise RuntimeError(
+            "This process is running outdated code for: %s (the file's "
+            "contents have changed since this process started). Restart it "
+            "— e.g. stop and restart bot.py — so it picks up the current "
+            "code, then try again." % ", ".join(stale)
+        )
+
+
+def _read_store_or_empty(filename):
+    """Read store/<filename> as JSON; {} if the file doesn't exist (never
+    populated yet — legitimately empty). Raises RuntimeError, naming the
+    file, if it exists but isn't valid JSON.
+
+    Raising RuntimeError specifically (not letting json.loads' ValueError
+    escape) matters: bot.py only catches RuntimeError from write_data_js, so
+    a corrupt store file must surface as one of those or it falls through to
+    bot.py's generic exception handler and produces exactly the misleading
+    "Skipped" message this whole guard exists to prevent.
+    """
+    path = STORE / filename
+    if not path.exists():
+        return {}
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except ValueError as exc:
+        raise RuntimeError(
+            "store/%s is corrupted and could not be read as JSON (%s). This "
+            "file needs to be fixed by hand — data.js cannot be regenerated "
+            "until it is." % (filename, exc)
+        ) from exc
+
+
+def _assert_complete(data):
+    """Refuse to write a data.js that is missing a required top-level block.
+
+    See the 2026-07-26 incident in the module docstring above — this is the
+    "incomplete payload" half of that guard. Checks structural completeness
+    only: that the assembled payload has every key build_data() is
+    contracted to emit, and that a store-backed key isn't empty when its
+    source file on disk has content.
+    """
+    missing = [k for k in REQUIRED_KEYS if k not in data]
+    if missing:
+        raise RuntimeError(
+            "data.js assembly is missing top-level keys: %s. If a long-running "
+            "process produced this, restart it — it is probably holding a stale "
+            "module." % ", ".join(missing)
+        )
+    for key, filename in STORE_BACKED.items():
+        if _read_store_or_empty(filename) and not data.get(key):
+            raise RuntimeError(
+                "store/%s has content but data['%s'] is empty — refusing to "
+                "write a truncated data.js." % (filename, key)
+            )
 
 
 def render(data):
@@ -164,12 +373,24 @@ def render(data):
 
 
 def write_data_js(data=None):
+    # Freshness first, before anything else touches the store: vault_sync.sync()
+    # below writes ingest/store/vault.json, and a stale vault_sync is exactly
+    # the process this guard exists to stop — it must not get a chance to
+    # mutate the operator's store before we refuse to proceed.
+    _assert_fresh()
     if data is None:
         # Refresh the vault store from current tickers/tiers (preserving notes)
         # before assembling, so data.js always ships an up-to-date vault.
         vault_sync.sync()
         data = build_data()
-    DATA_JS.write_text(render(data), encoding="utf-8")
+    _assert_complete(data)
+    try:
+        DATA_JS.write_text(render(data), encoding="utf-8")
+    except OSError as exc:
+        raise RuntimeError(
+            "Could not write %s (%s). Check available disk space and file "
+            "permissions, then try again." % (DATA_JS, exc)
+        ) from exc
     return DATA_JS
 
 

@@ -171,5 +171,36 @@ class TestSlugify(unittest.TestCase):
         self.assertEqual(vs.slugify("!!!"), "page")
 
 
+class TestResearchIsNotCreditedToTheAnalyst(unittest.TestCase):
+    """A ticker page hangs off the analyst's own person page.
+
+    Its "Mentions" and "Last cited" stats are read as his, so a finding the
+    desk wrote itself must not appear in either.
+    """
+
+    THESES_WITH_RESEARCH = THESES + [
+        {"id": "r1", "postedAt": "2026-07-11", "conviction": "normal",
+         "tickers": ["AAOI"], "source": "research"},
+    ]
+
+    def _stats(self, theses):
+        priorities = vs.scorer.compute_priorities(theses, now=FIXED_NOW)
+        vault = vs.build_vault({}, TICKERS, priorities, CATEGORIES, GLOSSARY,
+                               now=FIXED_NOW)
+        page = next(p for p in vault["pages"] if p["slug"] == "aaoi")
+        return page["auto"]["stats"]
+
+    def test_mentions_stat_excludes_research(self):
+        plain = self._stats(THESES)
+        with_research = self._stats(self.THESES_WITH_RESEARCH)
+        self.assertEqual(with_research["mentions"], plain["mentions"])
+
+    def test_last_cited_is_not_moved_by_a_research_finding(self):
+        # The research finding is dated after every analyst post on AAOI.
+        plain = self._stats(THESES)
+        with_research = self._stats(self.THESES_WITH_RESEARCH)
+        self.assertEqual(with_research["lastMentioned"], plain["lastMentioned"])
+
+
 if __name__ == "__main__":
     unittest.main()
