@@ -11,7 +11,8 @@ time a claims ledger measures who has actually been right.
 
 **Spec:** `docs/superpowers/specs/2026-07-26-expert-review-team-design.md`
 **Plans:** `docs/superpowers/plans/2026-07-26-direction-aware-scoring.md` (Phase 1),
-`docs/superpowers/plans/2026-07-26-expert-review-seats.md` (Phase 2)
+`docs/superpowers/plans/2026-07-26-expert-review-seats.md` (Phase 2),
+`docs/superpowers/plans/2026-07-28-claims-ledger.md` (Phase 3)
 
 For the v7 "Private Coverage" upgrade — a separate, completed programme — see
 `docs/EXECUTION.md`.
@@ -21,8 +22,8 @@ For the v7 "Private Coverage" upgrade — a separate, completed programme — se
 1. Work top to bottom; each session assumes the previous one landed.
 2. Open a fresh Claude Code session per prompt and paste the prompt verbatim.
 3. After each session run its verification checklist, tick the box, commit.
-4. **Read "Invariants" below before touching `scorer.py`, `seats.py` or
-   `pre_review.py`.** Every
+4. **Read "Invariants" below before touching `scorer.py`, `seats.py`,
+   `pre_review.py` or `claims.py`.** Every
    one of them was found by a review catching a defect that passed its own
    tests. They are cheap to break and expensive to notice.
 
@@ -34,12 +35,12 @@ For the v7 "Private Coverage" upgrade — a separate, completed programme — se
 |---|---|---|
 | 1 | Direction-aware scoring, retired conviction multiplier, `data.js` guard | ✅ shipped 2026-07-26 |
 | 2 | The three seats, verification rule, research theses in the feed | ✅ shipped 2026-07-27 |
-| 3 | `claims.json`, claim judging, performance-page split | ⬜ not started |
+| 3 | `claims.json`, claim judging, performance-page split | 🔵 backend shipped 2026-07-28; page not built |
 | 4 | Hit-rate weighting | ⬜ blocked on 20+ judged claims per source |
 | 5 | Scheduled overnight run | ⬜ not started |
 
-**Branch:** `feat/expert-review-seats`, 13 commits, not pushed.
-**Tests:** 235 passing.
+**Branch:** `feat/claims-ledger`, 8 commits, not pushed.
+**Tests:** 300 passing.
 
 ### Phase 2 detail
 
@@ -130,6 +131,28 @@ reintroduce.
     would also satisfy, a `cap <= 0` test that passed because the loop broke
     before the leak, and an id-collision guard that was simply unreachable.
     Two were fixed; the third was removed as dead code.
+14. **A claim moves no number until Phase 4.** Hit-rate weighting is gated on
+    ≥20 judged claims per source, so until then `claims.json` is observed and
+    never read by `scorer.py`. Two tests hold the line: one asserts scorer
+    neither imports `claims` nor names `claims.json`, the other proves
+    priorities and tiers are byte-identical with a populated ledger present.
+    This is invariant 2's shape again — a new aggregate arrived, so it got a
+    guard before anything could read it.
+15. **`unfalsifiable` is an outcome, not a parse failure.** A claim nothing
+    could settle is recorded, never dropped, and `score_claims` returns the
+    unfalsifiable share from the same call as the hit rate so no surface can
+    show the flattering number alone. The extraction prompt explicitly forbids
+    inventing a `judgeBy`: a manufactured settlement date understates how vague
+    a source is, which is the one thing this ledger measures.
+16. **An absent number must not look like a bad one.** `hitRate` is `None`, not
+    `0.0`, when nothing has been judged — zero reads as "always wrong". Same
+    family as invariant 3: an absent value never gets to masquerade as a real
+    one.
+17. **Judging is where a citation gets invented.** `correct`/`wrong` require a
+    citable primary source by exactly `seats.clean_basis`'s rule; without one
+    the claim stays `open`. Judging before `judgeBy` or re-deciding a judged
+    claim raises — a silently flipped verdict destroys the only record of what
+    the desk believed at the time, which is the entire asset.
 
 ---
 
@@ -151,15 +174,23 @@ worth carrying forward, because the plan text still has the older versions:
 
 ### Phase 3 — The memory
 
-Not yet planned. Needs its own spec pass and plan before any code.
+Plan: `docs/superpowers/plans/2026-07-28-claims-ledger.md`.
 
-Scope: `ingest/store/claims.json`; extracting dated, testable predictions from
-findings and from the analyst's posts; judging them when their date arrives; hit
-rate reported alongside the **unfalsifiable share**, so a source cannot score
-well by being vague; splitting `performance.html` into Calls and Claims.
+- [x] Plan written
+- [x] **Backend landed 2026-07-28** — `claims.json`, `ingest/claims.py`
+      (extract / judge / score), `/judge-claims`, extraction inside
+      `/pre-review`, `source` on every call, C1 guard.
+- [x] **Bounded backfill** — 25 analyst claims from 64 of 126 focused posts.
+      **52% unfalsifiable share**, 0 judged (all deadlines future).
+- [ ] **The remaining 62 focused posts.** Work list and batches were in the
+      session scratchpad and are gone; regenerate by filtering theses to Core
+      names with ≤3 tickers and skipping the ids already in `claims.json`.
+- [ ] **`performance.html` split into Calls and Claims.** Nothing renders the
+      ledger yet — this is the only user-visible piece of Phase 3, and it is
+      the next block.
 
-- [ ] Plan written
-- [ ] Landed
+Invariants C1-C4 for this phase are in the plan; the four general ones earned
+here are 10-13 above.
 
 ### Phase 4 — Hit-rate weighting
 

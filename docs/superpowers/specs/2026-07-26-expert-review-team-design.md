@@ -1,7 +1,7 @@
 # Expert Review Team — Design Spec ("Practice 8.5")
 
-_Written 2026-07-26. Status: **Phases 1–2 shipped 2026-07-27; Phases 3–5 not yet
-built.** The "Problem" section below describes the state before Phase 1 and is
+_Written 2026-07-26. Status: **Phases 1–2 shipped 2026-07-27; Phase 3's backend
+shipped 2026-07-28 (its page is not built); Phases 4–5 not yet built.** The "Problem" section below describes the state before Phase 1 and is
 kept as the historical record — the scoring formula it quotes is no longer what
 `scorer.py` computes. Plans:
 `docs/superpowers/plans/2026-07-26-direction-aware-scoring.md`,
@@ -17,10 +17,13 @@ finding validation with the verification rule, research theses written back
 into the store, coverage selection with a reported cap, and the `/pre-review`
 skill that drives it all with an injected `call_fn`.
 
-**What has not (Phases 3–5):** `claims.json` and claim judging, the
-performance-page split, hit-rate weighting, and the scheduled run. The seat
-output's `claims` array is deferred to Phase 3 with them — `claims.json` does
-not exist yet, so a seat has nowhere to file one.
+**What shipped (Phase 3, backend only):** `claims.json`, `ingest/claims.py`
+(extraction, judging, hit rate + unfalsifiable share), the `/judge-claims`
+skill, claim extraction inside `/pre-review`, `source` on every call, and a
+25-claim analyst backfill. Claims are recorded but nothing renders them.
+
+**What has not (Phase 3's page, Phases 4–5):** the `performance.html` split
+into Calls and Claims, hit-rate weighting, and the scheduled run.
 
 ## Problem
 

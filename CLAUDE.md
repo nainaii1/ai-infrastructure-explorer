@@ -108,6 +108,24 @@ not throwaway config.
   names the cap dropped always reported. Run via the **`/pre-review` skill**;
   `/weekly-review` stamps `previousStance` on every verdict so a stance
   *change* is detectable at all.
+- **Claims ledger** 🔵 backend done (2026-07-28, spec Phase 3); **nothing
+  renders it yet**. `ingest/store/claims.json` records dated, testable
+  predictions from the analyst, the desk and each seat, judged when their date
+  arrives. Two pure modules' worth of rules live in `ingest/claims.py`:
+  extraction (same injection firewall as the seats), judging, and scoring.
+  **`unfalsifiable` is a first-class outcome** — a claim nothing could settle
+  is recorded, not dropped, and `score_claims` returns the **unfalsifiable
+  share from the same call as the hit rate** so no surface can show the
+  flattering number without the honest one. `hitRate` is `None`, never `0.0`,
+  when nothing has been judged. A judgement to `correct`/`wrong` requires a
+  citable primary source (same rule as a seat finding); without one the claim
+  stays `open`. Judging before `judgeBy`, or re-deciding a judged claim,
+  raises. **A claim moves no score and no tier** — hit-rate weighting is
+  Phase 4, gated on ≥20 judged claims per source, and a test asserts
+  `scorer.py` neither imports `claims` nor reads `claims.json`. Run via
+  **`/judge-claims`**; `/pre-review` extracts claims from its own findings.
+  Seeded 2026-07-28 with 25 analyst claims from 64 focused posts —
+  **13 of 25 unfalsifiable (52%)**, 0 judged.
 - **v6 — "Field Guide" redesign** ✅ done (2026-07-03). Tabs dissolved into one
   chaptered scroll: hero prologue (signal-chain stat nodes with count-up,
   Core/Watch/Radar barbell bar, "Latest signal" card), numbered chapter heads,
@@ -354,6 +372,11 @@ so newly-ingested tickers and theses surface. Categories / center / countries
                 digests: [ { category, narrative, conviction, keyPoints[],
                              tickers[], sourceThesisIds[], thesesCount,
                              lastSynthesized } ] },
+  claims:     { meta: { schemaVersion, updatedAt, disclaimer },
+                claims: [ { id, source: "analyst"|"desk"|<seat>, ticker|null,
+                            claim, testableBy, madeAt, judgeBy|null, thesisId,
+                            status: "open"|"correct"|"wrong"|"unfalsifiable",
+                            judgedAt, evidence } ] },
   desk:       { meta: { reviewedAt, reviewer, thesesConsidered, coverage,
                         cadence, disclaimer },
                 verdicts: [ { ticker, stance: "act"|"accumulate"|"watch"|"pass",
@@ -386,6 +409,14 @@ so newly-ingested tickers and theses surface. Categories / center / countries
   rewrites it on every Core name whether or not the call moved. `/pre-review`
   picks stance-changed names first, and a verdict missing this field simply
   does not qualify (fail inert) rather than matching everything.
+- `claims[].status` → `unfalsifiable` is an OUTCOME, not a parse failure. A
+  claim with no `judgeBy`, no `testableBy`, or a `judgeBy` on or before
+  `madeAt` is recorded as unfalsifiable rather than dropped: a source whose
+  predictions cannot be tested is telling the operator something, and the
+  share of them is reported next to the hit rate for exactly that reason.
+  `ticker` may be `null` for a macro claim. Ids are a content hash, so
+  re-extraction is idempotent. Nothing in `scorer.py` may read this block
+  until Phase 4.
 - `category` → a key in `AIE_DATA.categories` (currently: `photonics | memory |
   fabs | neoclouds | materials | networking | glass | robotics | accelerators
   | hyperscalers | unsorted`). `unsorted` is a triage bucket, not a real

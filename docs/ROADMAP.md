@@ -1,6 +1,6 @@
 # Roadmap & Status — AI Infrastructure Explorer
 
-_Last updated: 2026-07-27 (expert review seats, Phase 2, shipped). Living document — update as things ship or change._
+_Last updated: 2026-07-28 (claims ledger backend, Phase 3, shipped). Living document — update as things ship or change._
 
 > **Expert review team, Phase 1 — direction-aware scoring (✅ 2026-07-26).**
 > Theses carry an optional `direction` (`bull`/`bear`/`neutral`), and
@@ -46,10 +46,28 @@ _Last updated: 2026-07-27 (expert review seats, Phase 2, shipped). Living docume
 > tier matched any verdict the weekly pass had rewritten, which on live data
 > was 13 of 17 names and would have consumed the entire cap. Stance changes are
 > now detected from a `previousStance` field that `/weekly-review` stamps.
-> **Not yet built — Phases 3–5:** `claims.json` and claim judging, the
-> performance-page split into Calls and Claims, hit-rate weighting (gated on
-> 20+ judged claims per source), and the scheduled overnight run. The seat
-> output's `claims` array is deferred to Phase 3 with them.
+> Phase 3's backend shipped 2026-07-28 — see the entry directly below.
+>
+> **Expert review team, Phase 3 — the claims ledger (🔵 backend ✅, page ⬜).**
+> `ingest/store/claims.json` + `ingest/claims.py` record dated, testable
+> predictions from the analyst, the desk and each seat, and judge them when
+> their date arrives. `unfalsifiable` is a first-class outcome: a claim nothing
+> could settle is recorded, not dropped, and the **unfalsifiable share comes
+> back from the same call as the hit rate** so no surface can show the
+> flattering number alone. `hitRate` is `None`, never `0.0`, when nothing has
+> been judged. Judging to correct/wrong needs a citable primary source; judging
+> early or re-deciding a judged claim raises. **A claim moves no score and no
+> tier** — a test asserts `scorer.py` never reads the ledger.
+> **Seeded 2026-07-28:** 25 analyst claims from 64 focused posts (list-dumps of
+> >3 tickers excluded), **13 of 25 unfalsifiable — a 52% unfalsifiable share**,
+> 0 judged because every deadline is still in the future. Over half of what
+> this desk's only source says cannot be tested. That is the number the ledger
+> was built to surface.
+> **Still to do in Phase 3:** the `performance.html` split into Calls and
+> Claims — nothing renders the ledger yet — and the remaining 62 focused posts
+> of the backfill.
+> **Not yet built — Phases 4–5:** hit-rate weighting (gated on 20+ judged
+> claims per source) and the scheduled overnight run.
 >
 > **Fixed 2026-07-26 — `data.js` was being silently truncated.** A `bot.py`
 > process running since 30 June held a stale generator module in memory and
