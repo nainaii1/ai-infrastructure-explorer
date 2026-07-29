@@ -224,11 +224,14 @@
      · page links. `activePage` is one of the page ids below; `mount` is an
      element or selector (default "#topNav"). No-op if the mount is absent.
      ======================================================================== */
+  // v9 labels. "Coverage" is retired — it read as trade jargon and said
+  // nothing about what the page holds. The page id stays "coverage" so every
+  // renderNav("coverage") call site and #anchor keeps working.
   var NAV_PAGES = [
-    { page: "desk",        label: "Desk",        href: "desk.html" },
-    { page: "coverage",    label: "Coverage",    href: "index.html" },
-    { page: "vault",       label: "Vault",       href: "vault.html" },
-    { page: "performance", label: "Performance", href: "performance.html", disabled: true }
+    { page: "desk",        label: "Today",  href: "desk.html" },
+    { page: "coverage",    label: "Notes",  href: "index.html" },
+    { page: "vault",       label: "Vault",  href: "vault.html" },
+    { page: "performance", label: "Record", href: "performance.html", disabled: true }
   ];
 
   // Performance is nav-live as soon as there is ANY stamped call (operator
@@ -254,7 +257,7 @@
     wordmark.setAttribute("href", "desk.html");
     inner.appendChild(wordmark);
 
-    inner.appendChild(mk("span", "aie-label aie-kicker", "Private Coverage · Not Advice"));
+    inner.appendChild(mk("span", "aie-label aie-kicker", "My own research · Not advice"));
     inner.appendChild(mk("span", "aie-nav-spacer"));
 
     var links = mk("div", "aie-nav-links");

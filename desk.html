@@ -51,29 +51,44 @@
     }
 
     /* ============================================================
-       Desk strip — compact live-count line + tier split bar.
+       Desk hero (v9) — a claim, one plain line, then big numbers.
+       Replaces the old mono status strip + unlabelled tier bar, which
+       opened the page with metadata instead of a message.
        ============================================================ */
-    .desk-strip { padding: 18px 0 6px; }
-    .ds-line {
-      font-family: var(--mono);
-      font-size: 12px;
-      letter-spacing: 0.02em;
-      color: var(--text);
-      margin-bottom: 10px;
-      font-variant-numeric: tabular-nums;
+    .desk-hero { padding: var(--s-6) 0 var(--s-2); }
+    .dh-claim {
+      margin: 0;
+      max-width: 17ch;
+      font-family: var(--display);
+      font-size: clamp(34px, 5.2vw, 56px);
+      font-weight: 700;
+      letter-spacing: -0.035em;
+      line-height: 1.02;
+      color: var(--ink);
     }
-
-
-    /* Conviction barbell: one bar, three segments (core/watch/radar). */
-    .hero-barbell { margin-bottom: 14px; }
-    .hb-bar {
-      display: flex;
-      height: 10px;
-      border-radius: 999px;
-      overflow: hidden;
-      background: var(--border);
+    /* One lavender italic phrase, the way aave.com sets "Trusted by Default".
+       --violet-soft is 3.08:1, below the 4.5 body-text floor — legal HERE and
+       only here because this is large text (>=24px bold), whose floor is 3:1.
+       Never use it at body size. */
+    .dh-claim em {
+      font-style: italic;
+      font-weight: 700;
+      color: var(--violet-soft);
     }
-    .hb-seg { transition: flex-grow 600ms var(--spring); }
+    .dh-sub {
+      margin: var(--s-4) 0 0;
+      max-width: 56ch;
+      font-size: var(--fs-lg);
+      line-height: 1.5;
+      color: var(--muted);
+    }
+    .dh-stats { margin-top: var(--s-6); }
+
+    @media (max-width: 768px) {
+      .desk-hero { padding-top: var(--s-5); }
+      .dh-claim { max-width: none; }
+      .dh-sub { font-size: var(--fs-md); }
+    }
 
 
     /* ============================================================
@@ -113,7 +128,7 @@
       left: 0;
       height: calc(100% - 8px);
       border-radius: 999px;
-      background: var(--brand-grad);
+      background: var(--violet);
       transition: transform var(--dur) var(--spring), width var(--dur) var(--spring);
       will-change: transform, width;
       opacity: 0; /* shown once JS measures the active link */
@@ -127,7 +142,7 @@
       gap: 7px;
       padding: 8px 16px;
       border-radius: 999px;
-      font-size: 13px;
+      font-size: var(--fs-xs);
       font-weight: 600;
       letter-spacing: -0.01em;
       color: var(--muted);
@@ -135,19 +150,8 @@
       white-space: nowrap;
       transition: color var(--ease);
     }
-    .capsule-link .cl-index {
-      font-family: var(--mono);
-      font-size: 9.5px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      opacity: 0.65;
-    }
     .capsule-link:hover { color: var(--ink); }
     .capsule-link.is-active { color: #fff; }
-    .capsule-link:focus-visible {
-      outline: 2px solid var(--muted);
-      outline-offset: 2px;
-    }
 
     /* ============================================================
        Chapters — always-visible sections in pedagogical order.
@@ -1162,12 +1166,14 @@
   <div id="topNav"></div>
 
   <div class="app">
-    <!-- Desk strip: one compact line of live counts + the tier split bar.
-         Rendered by renderDeskStrip() from AIE_DATA. No hero, no art —
-         this is an analysis tool; the nav wordmark is the only brand mark. -->
-    <header class="desk-strip">
-      <div class="ds-line" id="deskStripLine"></div>
-      <div class="hero-barbell" id="heroBarbell"></div>
+    <!-- Desk hero: a claim, one plain line, then the numbers that matter.
+         Counts are rendered by renderDeskHero() from AIE_DATA — nothing here
+         is hardcoded, so the panel can never drift from the store. -->
+    <header class="desk-hero">
+      <h1 class="dh-claim">Know what the buildout <em>needs next</em>.</h1>
+      <p class="dh-sub">Every company feeding NVIDIA's chips, ranked by how
+        often they actually come up.</p>
+      <div class="aie-stat-grid dh-stats" id="deskStats"></div>
     </header>
 
     <!-- Floating capsule nav — anchors so hash navigation works even
@@ -1175,9 +1181,9 @@
     <div class="capsule-wrap">
       <nav class="capsule-nav" id="capsuleNav" aria-label="Chapters">
         <span class="capsule-pill" id="capsulePill" aria-hidden="true"></span>
-        <a class="capsule-link" href="#chapter-watchlist" data-target="chapter-watchlist"><span class="cl-index">01</span>Watchlist</a>
-        <a class="capsule-link" href="#chapter-map" data-target="chapter-map"><span class="cl-index">02</span>Map</a>
-        <a class="capsule-link" href="#chapter-synthesis" data-target="chapter-synthesis"><span class="cl-index">03</span>Synthesis</a>
+        <a class="capsule-link" href="#chapter-watchlist" data-target="chapter-watchlist">Watchlist</a>
+        <a class="capsule-link" href="#chapter-map" data-target="chapter-map">The chain</a>
+        <a class="capsule-link" href="#chapter-synthesis" data-target="chapter-synthesis">Themes</a>
       </nav>
     </div>
 
@@ -1185,11 +1191,11 @@
       <!-- Chapter 01: The Watchlist. -->
       <section class="chapter" id="chapter-watchlist">
         <header class="chapter-head reveal">
-          <span class="chapter-eyebrow">Chapter 01</span>
-          <h2 class="chapter-title">The Watchlist</h2>
-          <p class="chapter-lede">Every tracked name with its weekly price snapshot,
-            conviction tier, and the desk's second opinion. Sort it, filter it,
-            rate it — your ratings persist.</p>
+          <span class="chapter-eyebrow">The names</span>
+          <h2 class="chapter-title">What I'm watching</h2>
+          <p class="chapter-lede">Every name I track, with last week's price, how
+            strongly it keeps coming up, and my call on it. Sort it, filter it, rate
+            it — your ratings stick.</p>
         </header>
         <div class="wl-section">
           <div class="wl-recent" id="wlRecent" hidden></div>
@@ -1237,11 +1243,11 @@
            by renderPipeline()/renderCrossSection() from AIE_DATA. -->
       <section class="chapter" id="chapter-map">
         <header class="chapter-head reveal">
-          <span class="chapter-eyebrow">Chapter 02</span>
-          <h2 class="chapter-title">The Map</h2>
-          <p class="chapter-lede">How a GPU gets made, and who gets paid along the way.
-            Trace the flow from raw supply to the demand hub — tap any layer to see
-            what to watch and who plays there.</p>
+          <span class="chapter-eyebrow">The chain</span>
+          <h2 class="chapter-title">How a GPU gets made</h2>
+          <p class="chapter-lede">And who gets paid along the way. Follow it from raw
+            supply up to the companies buying the compute. Tap any layer to see what
+            to watch and who plays there.</p>
         </header>
         <div class="map-section">
           <div class="map-header">
@@ -1294,11 +1300,11 @@
            expands to reveal the raw source theses behind it. -->
       <section class="chapter" id="chapter-synthesis">
         <header class="chapter-head reveal">
-          <span class="chapter-eyebrow">Chapter 03</span>
-          <h2 class="chapter-title">The Synthesis</h2>
-          <p class="chapter-lede">The Brain reads every thesis per theme and writes
-            one narrative digest — where the conviction is, what the key points are,
-            and the receipts behind each claim.</p>
+          <span class="chapter-eyebrow">The themes</span>
+          <h2 class="chapter-title">What each theme is saying</h2>
+          <p class="chapter-lede">Every post on a theme, read and boiled down to one
+            summary: where the conviction sits, the points that matter, and the
+            original posts behind each claim.</p>
         </header>
         <div class="th-header">
           <div class="wl-ledger">
@@ -1493,45 +1499,53 @@
          Prologue — signal chain counts, conviction barbell, and the
          latest captured thesis. All numbers read live from AIE_DATA.
          ---------------------------------------------------------- */
-      function renderDeskStrip() {
+      /* Desk hero counts. Three figures, each read live from AIE_DATA:
+         what to act on (the lead — it is the only one implying a decision),
+         how many names carry real conviction, and how much reading sits under
+         it all. The old mono status strip and the green/amber/grey bar are
+         gone: the bar never said what it measured, and its colours were
+         hardcoded old-palette hexes rather than tokens. */
+      function renderDeskHero() {
         if (!DATA) return;
+        var host = document.getElementById("deskStats");
+        if (!host) return;
+
         var tickers = DATA.tickers || [];
         var theses = DATA.theses || [];
         var tiers = { core: 0, watch: 0, radar: 0 };
         tickers.forEach(function (t) { tiers[tierOf(t)] = (tiers[tierOf(t)] || 0) + 1; });
-        var verdictCount = tickers.filter(function (t) { return t.verdict; }).length;
 
-        // One line of live counts — no hero, no animation.
-        var line = document.getElementById("deskStripLine");
-        if (line) {
-          var bits = [
-            theses.length + " theses",
-            tickers.length + " names (" + tiers.core + " core / " + tiers.watch + " watch / " + tiers.radar + " radar)",
-            verdictCount + " verdicts"
-          ];
-          var reviewedAt = DATA.desk && DATA.desk.meta && DATA.desk.meta.reviewedAt;
-          if (reviewedAt) bits.push("reviewed " + AIE.fmtDate(reviewedAt.slice(0, 10)));
-          line.textContent = bits.join(" \u00b7 ");
+        // "Worth acting on" = the desk says act or accumulate.
+        var verdicts = tickers.filter(function (t) { return t.verdict; });
+        var actionable = verdicts.filter(function (t) {
+          var st = t.verdict.stance;
+          return st === "act" || st === "accumulate";
+        }).length;
+        var waiting = verdicts.length - actionable;
+
+        var reviewedAt = DATA.desk && DATA.desk.meta && DATA.desk.meta.reviewedAt;
+        var reviewedNote = reviewedAt
+          ? "reviewed " + AIE.fmtDate(reviewedAt.slice(0, 10))
+          : null;
+
+        function stat(value, label, note, lead) {
+          var d = el("div", "aie-stat" + (lead ? " aie-stat--lead" : ""));
+          d.appendChild(el("span", "aie-stat-value", value));
+          d.appendChild(el("span", "aie-stat-label", label));
+          if (note) d.appendChild(el("span", "aie-stat-note", note));
+          return d;
         }
 
-        // Conviction split — Core / Watch / Radar as one thin bar.
-        var bb = document.getElementById("heroBarbell");
-        if (bb) {
-          bb.innerHTML = "";
-          var segs = [
-            { id: "core", color: "#16a34a" },
-            { id: "watch", color: "#f59e0b" },
-            { id: "radar", color: "#c7c7cc" }
-          ];
-          var bar = el("div", "hb-bar");
-          segs.forEach(function (sg) {
-            var seg = el("span", "hb-seg");
-            seg.style.flexGrow = String(tiers[sg.id] || 0);
-            seg.style.background = sg.color;
-            bar.appendChild(seg);
-          });
-          bb.appendChild(bar);
-        }
+        host.innerHTML = "";
+        host.appendChild(stat(
+          String(actionable), "Worth acting on",
+          waiting ? waiting + " more worth waiting on" : "nothing on the fence",
+          true));
+        host.appendChild(stat(
+          String(tiers.core), "Names I watch closely",
+          "of " + tickers.length + " tracked"));
+        host.appendChild(stat(
+          String(theses.length), "Posts read", reviewedNote));
       }
 
       /* Colophon freshness stamps — data version, prices as-of, desk review. */
@@ -2784,7 +2798,7 @@
       AIE.seed();
       AIE.paintGradientBorder();
       AIE.renderNav("desk");
-      renderDeskStrip();
+      renderDeskHero();
       initMapViewToggle();
       renderMap();
       renderCards(null);

@@ -50,10 +50,25 @@
   --stage:    #0e0a1c;
   --stage-hi: #191330;
 
-  /* --- Brand: violet primary + teal secondary --------------------------- */
-  --violet:      #5b3ee0;  /* primary accent, links, key numbers — 6.5:1 on card */
+  /* --- Brand: soft lavender primary + teal secondary --------------------
+     A LAVENDER RAMP, not one purple. The reference sites get their softness
+     from atmosphere (gradient canvas, tinted icons) while keeping display
+     type near-black — a pale purple used for text is illegible: Phantom's
+     own #ab9ff2 measures 2.34:1 on white. So:
+       --violet       text-safe accent (links, small labels, active fills)
+       --violet-soft  DECORATIVE only — icons, bar fills, large display
+                      accents. 3.06:1: never put small text in it.
+       --violet-wash  tints and section washes                              */
+  --violet:      #6a4ee8;  /* softened from #5b3ee0 — still 5.43:1 on card */
   --violet-hi:   #7c5cf0;  /* hover / gradient end — 4.5:1 on card */
-  --violet-wash: #efeafe;  /* tinted fills, section washes */
+  --violet-soft: #8775ec;  /* decorative lavender — ≥3.05:1 on every surface */
+  --violet-wash: #f0ecfe;  /* tinted fills, section washes */
+
+  /* Canvas gradient stops (viewport-anchored on body, Aave-style). The lower
+     lower stop is as deep as it can go while --violet, --teal and --muted all
+     still clear AA against it (4.60 / 4.58 / 4.73). */
+  --canvas-top: #fbfaff;
+  --canvas-bot: #eeeafc;
   --teal:        #0f776f;  /* secondary accent WHEN IT CARRIES TEXT — ≥4.6:1 on
                               every surface it can land on, incl. both washes */
   --teal-ui:     #15a59a;  /* secondary for fills/marks only — 3.1:1, never text */
@@ -160,7 +175,12 @@ html { scroll-behavior: smooth; }
 /* Editorial base. Pages may override font-family on data-dense containers. */
 body {
   margin: 0;
+  /* Solid first as the fallback, then the soft lavender wash. Anchored to the
+     viewport so a long page never drifts past the measured bottom stop. */
   background: var(--bg);
+  background-image: linear-gradient(
+    180deg, var(--canvas-top) 0%, var(--bg) 40%, var(--canvas-bot) 100%);
+  background-attachment: fixed;
   color: var(--text);
   font-family: var(--display);
   font-size: var(--fs-md);
@@ -263,16 +283,23 @@ body {
   /* Numbers must not reflow as they change — tabular figures. */
   font-variant-numeric: tabular-nums;
 }
-/* The lead figure on a page. Deliberately SOLID violet, not gradient text:
-   a violet->teal gradient runs from 6.5:1 down to 3.05:1 against white, so
-   part of every gradient headline would fail AA. --violet is 6.54:1 flat. */
-.aie-stat--lead .aie-stat-value { color: var(--violet); }
+/* Stat VALUES stay near-black, as on the reference sites — the lavender does
+   atmosphere (tint, icon), not legibility work. NO gradient text: the brand
+   gradient runs 6.5:1 -> 3.05:1 on white, so it fails AA partway along. */
 .aie-stat--lead {
-  border-color: color-mix(in srgb, var(--violet) 28%, var(--border));
+  border-color: color-mix(in srgb, var(--violet-soft) 45%, var(--border));
   background:
-    radial-gradient(ellipse 120% 100% at 0% 0%, var(--violet-wash), transparent 70%),
+    radial-gradient(ellipse 130% 110% at 0% 0%, var(--violet-wash), transparent 72%),
     var(--card);
 }
+/* Small lavender glyph above the figure (Aave's stat-card mark). */
+.aie-stat-icon {
+  width: 22px; height: 22px;
+  color: var(--violet-soft);
+  margin-bottom: var(--s-1);
+}
+.aie-stat-icon svg { width: 100%; height: 100%; display: block; }
+.aie-stat--lead .aie-stat-icon { color: var(--violet); }
 .aie-stat-label {
   font-family: var(--mono);
   font-size: var(--fs-2xs);
