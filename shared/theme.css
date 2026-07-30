@@ -72,15 +72,16 @@
   --violet-soft: #8775ec;  /* decorative lavender — ≥3.05:1 on every surface */
   --violet-wash: #f0ecfe;  /* tinted fills, section washes */
 
-  /* Canvas gradient stops (viewport-anchored on body, Aave-style). The lower
-     lower stop is as deep as it can go while --violet, --teal and --muted all
-     still clear AA against it (4.60 / 4.58 / 4.73). */
-  --canvas-top: #fbfaff;
-  --canvas-bot: #eeeafc;
   --teal:        #0f776f;  /* secondary accent WHEN IT CARRIES TEXT — ≥4.6:1 on
                               every surface it can land on, incl. both washes */
   --teal-ui:     #15a59a;  /* secondary for fills/marks only — 3.1:1, never text */
   --teal-wash:   #e2f6f3;  /* second wash */
+
+  /* Canvas gradient stops (viewport-anchored on body, Aave-style). The lower
+     stop is as deep as it can go while --violet, --teal and --muted all still
+     clear AA against it (4.60 / 4.58 / 4.73). */
+  --canvas-top: #fbfaff;
+  --canvas-bot: #eeeafc;
 
   /* Legacy brand aliases — kept so existing --brand-* call sites keep working. */
   --brand-a:    var(--violet);
@@ -756,7 +757,7 @@ a.th-ticker:hover {
 }
 .unf-pill:hover { transform: translateY(-1px); box-shadow: var(--shadow-lg); }
 .unf-pill .glyph { color: var(--teal-ui); font-weight: 700; }
-.unf-pill--brand { background: var(--brand-grad); border-color: transparent; }
+.unf-pill--brand { background: var(--violet); border-color: var(--violet); }
 .unf-pill--brand:hover { filter: brightness(1.06); }
 .unf-pill--brand .glyph { color: #fff; }
 .unf-pill--sm { padding: 9px 16px; font-size: var(--fs-xs); }

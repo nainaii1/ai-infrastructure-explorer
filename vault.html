@@ -24,13 +24,13 @@
     .vlt-head { margin: 0 0 6px; }
     .vlt-title {
       font-family: var(--display); font-weight: 700;
-      font-size: 22px; line-height: 1.1; letter-spacing: -0.02em;
+      font-size: var(--fs-xl); line-height: 1.1; letter-spacing: -0.02em;
       color: var(--ink); margin: 0 0 6px;
     }
     .vlt-viewtoggle { display: flex; gap: 6px; margin-top: 10px; }
     .vlt-viewtoggle .aie-chip { text-decoration: none; }
     .vlt-count {
-      font-family: var(--mono); font-size: 12px; letter-spacing: .04em;
+      font-family: var(--mono); font-size: var(--fs-xs); letter-spacing: .04em;
       color: var(--muted); margin: 0 0 22px;
     }
     .vlt-filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 22px; }
@@ -45,14 +45,14 @@
       transition: background var(--ease);
     }
     .vlt-row:hover { background: var(--paper-sink); }
-    .vlt-row-title { font-family: var(--display); font-size: 16.5px; color: var(--ink); flex: 1 1 auto; min-width: 0; }
-    .vlt-row-title .vlt-sub { font-family: var(--mono); font-size: 11px; color: var(--muted); margin-left: 8px; }
+    .vlt-row-title { font-family: var(--display); font-size: var(--fs-md); color: var(--ink); flex: 1 1 auto; min-width: 0; }
+    .vlt-row-title .vlt-sub { font-family: var(--mono); font-size: var(--fs-2xs); color: var(--muted); margin-left: 8px; }
     .vlt-row-meta { display: flex; align-items: center; gap: 12px; flex: 0 0 auto; }
-    .vlt-updated { font-family: var(--mono); font-size: 11px; color: var(--muted); min-width: 82px; text-align: right; }
+    .vlt-updated { font-family: var(--mono); font-size: var(--fs-2xs); color: var(--muted); min-width: 82px; text-align: right; }
 
     /* Stub / enriched status badges (warm-tinted, reuse the semantic palette). */
     .vlt-status {
-      font-family: var(--mono); font-size: 10px; font-weight: 700;
+      font-family: var(--mono); font-size: var(--fs-2xs); font-weight: 700;
       letter-spacing: .06em; text-transform: uppercase;
       padding: 3px 8px; border-radius: 6px; line-height: 1;
     }
@@ -63,13 +63,13 @@
     .vlt-article { max-width: 720px; }
     .vlt-eyebrow { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin: 0 0 14px; }
     .vlt-back {
-      font-family: var(--mono); font-size: 11px; letter-spacing: .04em;
+      font-family: var(--mono); font-size: var(--fs-2xs); letter-spacing: .04em;
       color: var(--muted); text-decoration: none;
     }
     .vlt-back:hover { color: var(--ink); }
     .vlt-page-title {
       font-family: var(--display); font-weight: 700;
-      font-size: 38px; line-height: 1.12; letter-spacing: -0.02em;
+      font-size: var(--fs-2xl); line-height: 1.12; letter-spacing: -0.02em;
       color: var(--ink); margin: 0 0 18px;
     }
 
@@ -82,44 +82,44 @@
     }
     .vlt-stat { display: flex; flex-direction: column; gap: 6px; }
     .vlt-stat-label {
-      font-family: var(--mono); font-size: 10px; font-weight: 600;
+      font-family: var(--mono); font-size: var(--fs-2xs); font-weight: 600;
       letter-spacing: .08em; text-transform: uppercase; color: var(--muted);
     }
     .vlt-stat-value {
-      font-family: var(--sans); font-size: 15px; font-weight: 600; color: var(--ink);
+      font-family: var(--sans); font-size: var(--fs-sm); font-weight: 600; color: var(--ink);
       display: flex; align-items: center; gap: 8px;
     }
     .vlt-stat-value .mono { font-family: var(--mono); font-weight: 600; }
-    .vlt-chg { font-family: var(--mono); font-size: 12px; font-weight: 600; }
-    .vlt-chg.up { color: #4d6a2b; }
-    .vlt-chg.down { color: #a13d2f; }
+    .vlt-chg { font-family: var(--mono); font-size: var(--fs-xs); font-weight: 600; }
+    .vlt-chg.up { color: var(--pos); }
+    .vlt-chg.down { color: var(--neg); }
 
     /* Note prose (serif 17/1.65 per house style). */
     .vlt-note { margin: 0 0 8px; }
     .vlt-p {
-      font-family: var(--display); font-size: 17px; line-height: 1.65;
+      font-family: var(--display); font-size: var(--fs-md); line-height: 1.65;
       color: var(--text); margin: 0 0 16px;
     }
     .vlt-p:last-child { margin-bottom: 0; }
     .vlt-p strong { font-weight: 700; color: var(--ink); }
     .vlt-note-empty {
-      font-family: var(--sans); font-size: 14.5px; line-height: 1.6; color: var(--muted);
+      font-family: var(--sans); font-size: var(--fs-sm); line-height: 1.6; color: var(--muted);
       margin: 0; padding: 16px 18px; background: var(--paper-sink);
       border-radius: 10px; border: 1px dashed var(--border);
     }
     .vlt-note-empty code {
-      font-family: var(--mono); font-size: 12.5px;
+      font-family: var(--mono); font-size: var(--fs-xs);
       background: var(--card); padding: 1px 6px; border-radius: 4px;
     }
 
     /* Auto sections: memos / theses / backlinks. */
     .vlt-sec { margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--border); }
     .vlt-sec-title {
-      font-family: var(--mono); font-size: 11px; font-weight: 600;
+      font-family: var(--mono); font-size: var(--fs-2xs); font-weight: 600;
       letter-spacing: .08em; text-transform: uppercase; color: var(--muted);
       margin: 0 0 16px;
     }
-    .vlt-sec-empty { font-family: var(--sans); font-size: 13.5px; color: var(--muted); margin: 0; }
+    .vlt-sec-empty { font-family: var(--sans); font-size: var(--fs-xs); color: var(--muted); margin: 0; }
     .vlt-sources { display: flex; flex-direction: column; gap: 12px; }
 
     /* Linked-memo list (mirrors memo.html's prior-memo rows). */
@@ -130,14 +130,14 @@
       text-decoration: none; color: var(--text);
     }
     .vlt-memos a:hover .vm-title { color: var(--ink); }
-    .vm-date { font-family: var(--mono); font-size: 11px; color: var(--muted); min-width: 82px; flex: 0 0 auto; }
-    .vm-title { font-family: var(--display); font-size: 15.5px; color: var(--ink); }
-    .vm-kind { font-family: var(--mono); font-size: 10px; color: var(--muted); }
+    .vm-date { font-family: var(--mono); font-size: var(--fs-2xs); color: var(--muted); min-width: 82px; flex: 0 0 auto; }
+    .vm-title { font-family: var(--display); font-size: var(--fs-sm); color: var(--ink); }
+    .vm-kind { font-family: var(--mono); font-size: var(--fs-2xs); color: var(--muted); }
 
     /* Backlink / member chips. */
     .vlt-links { display: flex; flex-wrap: wrap; gap: 8px; }
     .vlt-linkchip {
-      font-family: var(--mono); font-size: 12px;
+      font-family: var(--mono); font-size: var(--fs-xs);
       color: var(--text); text-decoration: none;
       padding: 5px 11px; border: 1px solid var(--border); border-radius: 999px;
       transition: border-color var(--ease), color var(--ease), background var(--ease);
@@ -174,7 +174,7 @@
     }
     .vlt-glegend button {
       display: flex; align-items: center; gap: 8px;
-      font-family: var(--mono); font-size: 10px; font-weight: 600;
+      font-family: var(--mono); font-size: var(--fs-2xs); font-weight: 600;
       letter-spacing: .07em; text-transform: uppercase;
       color: rgba(226, 232, 240, 0.85);
       background: rgba(22, 22, 26, 0.6);
@@ -197,7 +197,7 @@
     }
     .vlt-gzoom button {
       width: 32px; height: 32px;
-      font-family: var(--mono); font-size: 14px; line-height: 1;
+      font-family: var(--mono); font-size: var(--fs-sm); line-height: 1;
       color: rgba(226, 232, 240, 0.9);
       background: rgba(22, 22, 26, 0.6);
       border: 1px solid rgba(255, 255, 255, 0.14);
@@ -217,34 +217,34 @@
     .vlt-gpanel[hidden] { display: none; }
     .vlt-gpanel-close {
       position: absolute; top: 8px; right: 10px;
-      font-family: var(--mono); font-size: 13px; color: var(--muted);
+      font-family: var(--mono); font-size: var(--fs-xs); color: var(--muted);
       background: none; border: 0; cursor: pointer; padding: 4px;
     }
     .vlt-gpanel-close:hover { color: var(--ink); }
     .vlt-gpanel-title {
-      font-family: var(--display); font-weight: 700; font-size: 17px;
+      font-family: var(--display); font-weight: 700; font-size: var(--fs-md);
       line-height: 1.25; letter-spacing: -0.01em; color: var(--ink); margin: 8px 0 10px;
     }
     .vlt-gpanel-stats { display: flex; flex-direction: column; gap: 7px; margin: 0 0 14px; }
     .vlt-gpanel-row { display: flex; justify-content: space-between; gap: 10px; align-items: baseline; }
     .vlt-gpanel-row .k {
-      font-family: var(--mono); font-size: 10px; font-weight: 600;
+      font-family: var(--mono); font-size: var(--fs-2xs); font-weight: 600;
       letter-spacing: .07em; text-transform: uppercase; color: var(--muted);
     }
-    .vlt-gpanel-row .v { font-family: var(--sans); font-size: 12.5px; font-weight: 600; color: var(--ink); text-align: right; }
+    .vlt-gpanel-row .v { font-family: var(--sans); font-size: var(--fs-xs); font-weight: 600; color: var(--ink); text-align: right; }
     .vlt-gpanel-links { display: flex; flex-direction: column; gap: 6px; }
     .vlt-gpanel-links a {
-      font-family: var(--mono); font-size: 11px; font-weight: 600;
+      font-family: var(--mono); font-size: var(--fs-2xs); font-weight: 600;
       letter-spacing: .05em; text-transform: uppercase; text-decoration: none;
       color: var(--text); padding: 8px 12px;
       border: 1px solid var(--border); border-radius: var(--r-chip); text-align: center;
       transition: border-color var(--ease), color var(--ease), background var(--ease);
     }
     .vlt-gpanel-links a:hover { border-color: var(--muted); color: var(--ink); background: var(--paper-sink); }
-    .vlt-gpanel-links a.primary { background: var(--brand-grad); border-color: transparent; color: #fff; }
+    .vlt-gpanel-links a.primary { background: var(--violet); border-color: var(--violet); color: #fff; }
 
     .vlt-ghint {
-      font-family: var(--mono); font-size: 11px; letter-spacing: .03em;
+      font-family: var(--mono); font-size: var(--fs-2xs); letter-spacing: .03em;
       color: var(--muted); margin: 12px 2px 0;
     }
 
@@ -266,25 +266,25 @@
       border: 1px solid var(--border); border-radius: var(--r-card);
       box-shadow: var(--shadow-sm);
     }
-    .vlt-empty h1 { font-family: var(--display); font-weight: 700; font-size: 28px; letter-spacing: -0.02em; color: var(--ink); margin: 0 0 12px; }
-    .vlt-empty p { font-family: var(--sans); font-size: 15px; line-height: 1.6; color: var(--muted); margin: 0 0 22px; }
+    .vlt-empty h1 { font-family: var(--display); font-weight: 700; font-size: var(--fs-2xl); letter-spacing: -0.02em; color: var(--ink); margin: 0 0 12px; }
+    .vlt-empty p { font-family: var(--sans); font-size: var(--fs-sm); line-height: 1.6; color: var(--muted); margin: 0 0 22px; }
     .vlt-empty p code {
-      font-family: var(--mono); font-size: 13px;
+      font-family: var(--mono); font-size: var(--fs-xs);
       background: var(--paper-sink); padding: 1px 6px; border-radius: 4px;
     }
     .vlt-actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
     .vlt-actions a {
-      font-family: var(--mono); font-size: 11px; font-weight: 600;
+      font-family: var(--mono); font-size: var(--fs-2xs); font-weight: 600;
       letter-spacing: .06em; text-transform: uppercase; text-decoration: none;
       padding: 9px 16px; border-radius: var(--r-chip);
       border: 1px solid var(--border); color: var(--text);
       transition: border-color var(--ease), color var(--ease), background var(--ease);
     }
     .vlt-actions a:hover { border-color: var(--muted); color: var(--ink); background: var(--paper-sink); }
-    .vlt-actions a.primary { background: var(--brand-grad); border-color: transparent; color: #fff; }
+    .vlt-actions a.primary { background: var(--violet); border-color: var(--violet); color: #fff; }
 
     @media (max-width: 768px) {
-      .vlt-page-title { font-size: 30px; }
+      .vlt-page-title { font-size: var(--fs-2xl); }
       .vlt-updated { min-width: 64px; }
       .vlt-row { gap: 10px; }
     }
@@ -786,9 +786,9 @@
         }
         var TYPE_COLOR = {
           ticker:  token("--card", "#ffffff"),
-          person:  token("--sem-accumulate-bg", "#dde8ef"),
-          concept: token("--sem-watch-bg", "#f4e7c8"),
-          event:   token("--sem-act-bg", "#e4ecd7")
+          person:  token("--sem-accumulate-bg", "#e2e8fc"),
+          concept: token("--sem-watch-bg", "#fbeed2"),
+          event:   token("--sem-act-bg", "#dcf0e2")
         };
         function nodeColor(n) {
           if (n.type === "theme") return AIE.categoryColor(n.slug, TYPE_COLOR.concept);

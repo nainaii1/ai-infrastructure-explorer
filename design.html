@@ -71,7 +71,7 @@
     .rule p { margin: 0; font-family: var(--sans); font-size: 13.5px; line-height: 1.6; color: var(--muted); }
     .rule code { font-family: var(--mono); font-size: .9em; color: var(--text); }
     .motion-demo { display: flex; align-items: center; justify-content: center; min-height: 140px; background: var(--paper-tint); border: 1px solid var(--border); border-radius: var(--r-card); }
-    .motion-tile { width: 138px; padding: 18px; border-radius: var(--r-tile); background: var(--brand-grad); box-shadow: var(--shadow-sm); color: #fff; transition: transform var(--ease), box-shadow var(--ease); }
+    .motion-tile { width: 138px; padding: 18px; border-radius: var(--r-tile); background: var(--violet); box-shadow: var(--shadow-sm); color: #fff; transition: transform var(--ease), box-shadow var(--ease); }
     .motion-tile:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
     .motion-tile span { display: block; font-family: var(--mono); font-size: 10px; letter-spacing: .07em; text-transform: uppercase; opacity: .86; }
     .motion-tile strong { display: block; margin-top: 10px; font-family: var(--display); font-size: 21px; line-height: 1; }
@@ -206,7 +206,7 @@
       var neutral = [
         ["Canvas", "--bg", css("--bg")], ["Surface", "--card", css("--card")], ["Hairline", "--border", css("--border")],
         ["Display ink", "--ink", css("--ink")], ["Body text", "--text", css("--text")], ["Muted", "--muted", css("--muted")],
-        ["Brand", "--brand-grad", "blue → violet"]
+        ["Brand", "--brand-grad", "violet → teal"]
       ];
       var swatches = document.getElementById("neutralSwatches");
       neutral.forEach(function (item) {

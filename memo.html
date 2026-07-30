@@ -39,17 +39,17 @@
     .memo-chip-wrap .memo-chip { width: 30px; height: 30px; display: block; }
     .memo-title {
       font-family: var(--display); font-weight: 700;
-      font-size: 40px; line-height: 1.12; letter-spacing: -0.02em;
+      font-size: var(--fs-3xl); line-height: 1.12; letter-spacing: -0.02em;
       color: var(--ink); margin: 0 0 14px;
     }
     .memo-dek {
       font-family: var(--display);
-      font-size: 20px; line-height: 1.45; color: var(--muted);
+      font-size: var(--fs-lg); line-height: 1.45; color: var(--muted);
       margin: 0 0 20px;
     }
     .memo-headmeta {
       display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
-      font-family: var(--mono); font-size: 11px; letter-spacing: .04em; color: var(--muted);
+      font-family: var(--mono); font-size: var(--fs-2xs); letter-spacing: .04em; color: var(--muted);
       padding-bottom: 22px; border-bottom: 1px solid var(--border);
     }
     .memo-headmeta .sep { color: var(--border); }
@@ -63,30 +63,30 @@
     }
     .snap-item { display: flex; flex-direction: column; gap: 6px; }
     .snap-label {
-      font-family: var(--mono); font-size: 10px; font-weight: 600;
+      font-family: var(--mono); font-size: var(--fs-2xs); font-weight: 600;
       letter-spacing: .08em; text-transform: uppercase; color: var(--muted);
     }
     .snap-value {
-      font-family: var(--sans); font-size: 15px; font-weight: 600; color: var(--ink);
+      font-family: var(--sans); font-size: var(--fs-sm); font-weight: 600; color: var(--ink);
       display: flex; align-items: center; gap: 8px;
     }
     .snap-value .mono { font-family: var(--mono); font-weight: 600; }
     .snap-company { font-weight: 400; color: var(--muted); }
-    .snap-chg { font-family: var(--mono); font-size: 12px; font-weight: 600; }
-    .snap-chg.up   { color: #4d6a2b; }
-    .snap-chg.down { color: #a13d2f; }
-    .snap-note { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+    .snap-chg { font-family: var(--mono); font-size: var(--fs-xs); font-weight: 600; }
+    .snap-chg.up   { color: var(--pos); }
+    .snap-chg.down { color: var(--neg); }
+    .snap-note { font-family: var(--mono); font-size: var(--fs-xs); color: var(--muted); }
 
     /* ---- Sections ---- */
     .memo-section { margin: 32px 0; scroll-margin-top: 92px; }
     .memo-h2 {
       font-family: var(--display); font-weight: 700;
-      font-size: 24px; line-height: 1.2; letter-spacing: -0.02em;
+      font-size: var(--fs-xl); line-height: 1.2; letter-spacing: -0.02em;
       color: var(--ink); margin: 0 0 12px;
     }
     /* Body copy — 17px / 1.65 per spec. */
     .memo-p {
-      font-family: var(--display); font-size: 17px; line-height: 1.65;
+      font-family: var(--display); font-size: var(--fs-md); line-height: 1.65;
       color: var(--text); margin: 0 0 16px;
     }
     .memo-p:last-child { margin-bottom: 0; }
@@ -97,12 +97,12 @@
     /* ---- Right-rail TOC (desktop) ---- */
     .memo-toc { position: sticky; top: 84px; }
     .memo-toc-title {
-      font-family: var(--mono); font-size: 10px; font-weight: 600;
+      font-family: var(--mono); font-size: var(--fs-2xs); font-weight: 600;
       letter-spacing: .08em; text-transform: uppercase; color: var(--muted);
       margin: 0 0 12px;
     }
     .memo-toc a {
-      display: block; font-family: var(--mono); font-size: 12px; line-height: 1.35;
+      display: block; font-family: var(--mono); font-size: var(--fs-xs); line-height: 1.35;
       color: var(--muted); text-decoration: none;
       padding: 6px 0 6px 13px; border-left: 2px solid var(--border);
       transition: color var(--ease), border-color var(--ease);
@@ -114,7 +114,7 @@
     .memo-toc-mobile { display: none; margin: 0 0 26px; }
     .memo-toc-toggle {
       display: flex; align-items: center; justify-content: space-between; width: 100%;
-      font-family: var(--mono); font-size: 11px; font-weight: 600;
+      font-family: var(--mono); font-size: var(--fs-2xs); font-weight: 600;
       letter-spacing: .08em; text-transform: uppercase; color: var(--text);
       background: var(--card); border: 1px solid var(--border);
       border-radius: 10px; padding: 11px 14px; cursor: pointer;
@@ -124,7 +124,7 @@
     .drilldown { max-height: 0; overflow: hidden; transition: max-height var(--spring); }
     .memo-toc-mobile-inner { padding: 8px 2px 2px; }
     .memo-toc-mobile-inner a {
-      display: block; font-family: var(--mono); font-size: 12.5px;
+      display: block; font-family: var(--mono); font-size: var(--fs-xs);
       color: var(--muted); text-decoration: none;
       padding: 8px 0 8px 13px; border-left: 2px solid var(--border);
     }
@@ -133,12 +133,12 @@
     /* ---- Appendices: sources + prior memos ---- */
     .memo-appendix { margin-top: 44px; padding-top: 26px; border-top: 1px solid var(--border); }
     .memo-appendix-title {
-      font-family: var(--mono); font-size: 11px; font-weight: 600;
+      font-family: var(--mono); font-size: var(--fs-2xs); font-weight: 600;
       letter-spacing: .08em; text-transform: uppercase; color: var(--muted);
       margin: 0 0 16px;
     }
     .memo-sources { display: flex; flex-direction: column; gap: 12px; }
-    .memo-appendix-empty { font-family: var(--sans); font-size: 13.5px; color: var(--muted); margin: 0; }
+    .memo-appendix-empty { font-family: var(--sans); font-size: var(--fs-xs); color: var(--muted); margin: 0; }
 
     .memo-prior { list-style: none; margin: 0; padding: 0; }
     .memo-prior li { margin: 0; }
@@ -149,9 +149,9 @@
       transition: background var(--ease);
     }
     .memo-prior a:hover .mp-title { color: var(--ink); }
-    .mp-date { font-family: var(--mono); font-size: 11px; color: var(--muted); min-width: 82px; flex: 0 0 auto; }
-    .mp-title { font-family: var(--display); font-size: 15.5px; color: var(--ink); }
-    .mp-kind { font-family: var(--mono); font-size: 10px; color: var(--muted); }
+    .mp-date { font-family: var(--mono); font-size: var(--fs-2xs); color: var(--muted); min-width: 82px; flex: 0 0 auto; }
+    .mp-title { font-family: var(--display); font-size: var(--fs-sm); color: var(--ink); }
+    .mp-kind { font-family: var(--mono); font-size: var(--fs-2xs); color: var(--muted); }
 
     /* ---- Empty state ---- */
     .memo-empty {
@@ -160,30 +160,30 @@
       border: 1px solid var(--border); border-radius: var(--r-card);
       box-shadow: var(--shadow-sm);
     }
-    .memo-empty h1 { font-family: var(--display); font-weight: 700; font-size: 28px; letter-spacing: -0.02em; color: var(--ink); margin: 0 0 12px; }
-    .memo-empty p { font-family: var(--sans); font-size: 15px; line-height: 1.6; color: var(--muted); margin: 0 0 22px; }
+    .memo-empty h1 { font-family: var(--display); font-weight: 700; font-size: var(--fs-2xl); letter-spacing: -0.02em; color: var(--ink); margin: 0 0 12px; }
+    .memo-empty p { font-family: var(--sans); font-size: var(--fs-sm); line-height: 1.6; color: var(--muted); margin: 0 0 22px; }
     .memo-empty p code {
-      font-family: var(--mono); font-size: 13px;
+      font-family: var(--mono); font-size: var(--fs-xs);
       background: var(--paper-sink); padding: 1px 6px; border-radius: 4px;
     }
     .memo-actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
     .memo-actions a {
-      font-family: var(--mono); font-size: 11px; font-weight: 600;
+      font-family: var(--mono); font-size: var(--fs-2xs); font-weight: 600;
       letter-spacing: .06em; text-transform: uppercase; text-decoration: none;
       padding: 9px 16px; border-radius: var(--r-chip);
       border: 1px solid var(--border); color: var(--text);
       transition: border-color var(--ease), color var(--ease), background var(--ease);
     }
     .memo-actions a:hover { border-color: var(--muted); color: var(--ink); background: var(--paper-sink); }
-    .memo-actions a.primary { background: var(--brand-grad); border-color: transparent; color: #fff; }
+    .memo-actions a.primary { background: var(--violet); border-color: var(--violet); color: #fff; }
 
     /* ---- Responsive: 768px breakpoint ---- */
     @media (max-width: 768px) {
       .memo-grid { grid-template-columns: 1fr; gap: 0; }
       .memo-toc { display: none; }           /* hide the sticky right rail */
       .memo-toc-mobile { display: block; }    /* surface the Contents drill-down */
-      .memo-title { font-size: 30px; }
-      .memo-dek { font-size: 18px; }
+      .memo-title { font-size: var(--fs-2xl); }
+      .memo-dek { font-size: var(--fs-lg); }
       .memo-snap { gap: 12px 22px; }
     }
   </style>
@@ -486,7 +486,7 @@
         if (AIE.chipSpark) {
           var chipWrap = document.createElement("span");
           chipWrap.className = "memo-chip-wrap";
-          chipWrap.innerHTML = AIE.chipSpark(ecol || "#7c828c");
+          chipWrap.innerHTML = AIE.chipSpark(ecol || "var(--muted)");
           eyebrow.appendChild(chipWrap);
         }
         eyebrow.appendChild(el("span", "aie-label", kindLabel(memo.kind)));
