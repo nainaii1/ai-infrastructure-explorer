@@ -63,7 +63,7 @@
     .anatomy::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 4px; background: var(--brand-ink); }
     .anatomy-title { margin: 0 0 4px; font-family: var(--mono); font-size: 24px; font-weight: 700; color: var(--ink); }
     .anatomy p { max-width: 55ch; margin: 0; font-family: var(--sans); font-size: 13px; color: var(--muted); }
-    .callout { display: inline-block; margin: 14px 6px 0 0; padding: 4px 8px; border-radius: 6px; background: var(--paper-sink); font-family: var(--mono); font-size: 10px; color: var(--muted); }
+    .callout { display: inline-block; margin: 14px 6px 0 0; padding: 4px 8px; border-radius: 6px; background: var(--paper-sink); font-family: var(--mono); font-size: var(--fs-2xs); color: var(--muted); }
 
     .rules { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
     .rule { padding: 18px; border-radius: var(--r-tile); border: 1px solid var(--border); background: var(--card); }
@@ -98,7 +98,7 @@
       <div>
         <p class="aie-label">Internal reference / live system</p>
         <h1 class="design-title">The visual language,<br>made tangible.</h1>
-        <p class="design-dek">A working reference for AI Infrastructure Explorer’s current “Unpacked” design system: its tokens, component patterns, semantic signals, and responsive rules.</p>
+        <p class="design-dek">A working reference for AI Infrastructure Explorer’s current “soft two-tone” design system: its tokens, component patterns, semantic signals, and responsive rules. Every colour pair here is measured — see docs/DESIGN.md §2.</p>
       </div>
       <aside class="design-status">
         <p class="aie-label">Source of truth</p>
@@ -117,7 +117,7 @@
     <section class="design-section" id="foundations">
       <div class="design-section-head">
         <div><p class="aie-label">01 / Foundations</p><h2>Cool, quiet, precise.</h2></div>
-        <p class="design-section-note">A neutral canvas keeps research readable. The blue–violet gradient is reserved for brand-level moments; category colour explains the map.</p>
+        <p class="design-section-note">A soft lavender canvas keeps research readable. Violet carries every link, active state and CTA; the violet–teal gradient is text-free chrome only; category colour explains the map.</p>
       </div>
       <div class="design-grid" id="neutralSwatches"></div>
       <div style="height:14px"></div>
@@ -147,7 +147,7 @@
     <section class="design-section" id="components">
       <div class="design-section-head">
         <div><p class="aie-label">03 / Components</p><h2>Small vocabulary, repeated carefully.</h2></div>
-        <p class="design-section-note">Shared pieces should look identical across Coverage, Desk, Vault, Memo, and Performance.</p>
+        <p class="design-section-note">Shared pieces should look identical across Today, Notes, Vault, Memo and Record.</p>
       </div>
       <div class="design-grid">
         <div class="design-card"><h3>Chips</h3><div class="component-stack" id="chipDemo"></div><div class="component-stack"><span class="aie-chip is-active">Active filter</span><a class="aie-chip" href="#components">Quiet link</a></div></div>
@@ -237,7 +237,7 @@
       var row = el("tr", "is-link");
       row.appendChild(el("td", "aie-ledger-date", "14 Jul 2026"));
       var tickerCell = el("td"); var ticker = el("span", "aie-chip aie-chip--ticker", liveTicker ? liveTicker.ticker : "—"); if (lead) ticker.style.setProperty("--chip-accent", lead.color); tickerCell.appendChild(ticker); row.appendChild(tickerCell);
-      row.appendChild(el("td", null, "Coverage")); row.appendChild(el("td", "aie-ledger-title", "A quiet, clear decision surface"));
+      row.appendChild(el("td", null, "Note")); row.appendChild(el("td", "aie-ledger-title", "A quiet, clear decision surface"));
       var stanceCell = el("td"); stanceCell.appendChild(el("span", "aie-badge aie-stance--accumulate", "Accumulate")); row.appendChild(stanceCell); tbody.appendChild(row);
     }());
   </script>
