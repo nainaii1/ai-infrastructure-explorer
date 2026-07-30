@@ -167,7 +167,7 @@
     .chapter-eyebrow {
       display: block;
       font-family: var(--mono);
-      font-size: 10.5px;
+      font-size: var(--fs-2xs);
       font-weight: 700;
       letter-spacing: 0.18em;
       text-transform: uppercase;
@@ -186,7 +186,7 @@
     .chapter-lede {
       margin: 0;
       font-family: var(--display);
-      font-size: 13.5px;
+      font-size: var(--fs-xs);
       line-height: 1.6;
       color: var(--text);
       max-width: 60ch;
@@ -199,7 +199,7 @@
       margin-top: 64px;
       padding: 26px 0 8px;
       border-top: 1px solid var(--border);
-      font-size: 12.5px;
+      font-size: var(--fs-xs);
       line-height: 1.7;
       color: var(--muted);
       max-width: 70ch;
@@ -208,7 +208,7 @@
       display: block;
       margin-top: 10px;
       font-family: var(--mono);
-      font-size: 10.5px;
+      font-size: var(--fs-2xs);
       letter-spacing: 0.06em;
     }
 
@@ -232,7 +232,7 @@
       border-radius: 8px;
       color: var(--muted);
       font: inherit;
-      font-size: 13px;
+      font-size: var(--fs-xs);
       font-weight: 500;
       padding: 7px 14px;
       cursor: pointer;
@@ -250,7 +250,7 @@
     .mp-columns { display: flex; align-items: flex-start; gap: 14px; }
     .mp-col { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 10px; }
     .mp-col-label {
-      font-family: var(--mono); font-size: 10.5px; font-weight: 700;
+      font-family: var(--mono); font-size: var(--fs-2xs); font-weight: 700;
       letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
       margin-bottom: 2px;
     }
@@ -306,7 +306,7 @@
       min-width: 38px;
       text-align: center;
       font-family: var(--mono);
-      font-size: 11px;
+      font-size: var(--fs-2xs);
       font-weight: 700;
       letter-spacing: 0.06em;
       color: color-mix(in srgb, var(--accent) 70%, black);
@@ -317,13 +317,13 @@
     .layer-icon { flex: 0 0 auto; display: grid; place-items: center; color: var(--accent); }
     .layer-icon svg { display: block; }
     .layer-main { flex: 1 1 auto; min-width: 0; }
-    .layer-title { font-size: 15px; font-weight: 700; color: var(--accent); }
-    .layer-sub { font-weight: 500; font-size: 12px; color: var(--muted); }
-    .layer-desc { margin: 4px 0 0; font-size: 12.5px; line-height: 1.5; color: var(--text); }
+    .layer-title { font-size: var(--fs-sm); font-weight: 700; color: var(--accent); }
+    .layer-sub { font-weight: 500; font-size: var(--fs-xs); color: var(--muted); }
+    .layer-desc { margin: 4px 0 0; font-size: var(--fs-xs); line-height: 1.5; color: var(--text); }
     .layer-count {
       flex: 0 0 auto;
       font-family: var(--mono);
-      font-size: 11px;
+      font-size: var(--fs-2xs);
       letter-spacing: 0.04em;
       color: var(--muted);
       white-space: nowrap;
@@ -340,17 +340,17 @@
     }
     .layer-hub:hover { transform: none; background: var(--stage); border-color: var(--stage); box-shadow: none; }
     .layer-hub:hover::before { width: auto; height: 2px; }
-    .layer-hub .layer-index { color: #cbd5e1; background: rgba(255, 255, 255, 0.08); }
-    .layer-hub .layer-icon { color: #ffffff; }
-    .layer-hub .layer-title { color: #ffffff; }
-    .layer-hub .layer-sub { color: #94a3b8; }
-    .layer-hub .layer-desc { color: #cbd5e1; }
+    .layer-hub .layer-index { color: var(--on-stage); background: rgba(255, 255, 255, 0.08); }
+    .layer-hub .layer-icon { color: var(--on-stage); }
+    .layer-hub .layer-title { color: var(--on-stage); }
+    .layer-hub .layer-sub { color: var(--on-stage-dim); }
+    .layer-hub .layer-desc { color: var(--on-stage); }
 
     /* ---------- Pipeline framing: intro, flow rail, zones, detail ---------- */
     /* "How to read this map" line. Text injected from AIE_DATA.mapIntro. */
     .map-intro {
       margin: 0 0 16px;
-      font-size: 13px;
+      font-size: var(--fs-xs);
       line-height: 1.55;
       color: var(--muted);
       max-width: 72ch;
@@ -388,21 +388,21 @@
     .mc-bar { width: 100%; min-height: 4px; border-radius: 4px 4px 0 0; transition: filter var(--ease), outline var(--ease); }
     .mc-col:hover .mc-bar { filter: brightness(1.15); }
     .mc-col.is-active .mc-bar { outline: 2px solid #fff; outline-offset: -2px; }
-    .mc-count { font-family: var(--mono); font-size: 11px; color: #e2e8f0; }
+    .mc-count { font-family: var(--mono); font-size: var(--fs-2xs); color: var(--on-stage); }
     .mc-label {
-      font-family: var(--mono); font-size: 10px; letter-spacing: 0.05em;
-      color: #94a3b8; text-align: center; line-height: 1.3;
+      font-family: var(--mono); font-size: var(--fs-2xs); letter-spacing: 0.05em;
+      color: var(--on-stage-dim); text-align: center; line-height: 1.3;
     }
     /* Heat readout: median 7-day price change per category (from the
        weekly price snapshot merged into data.js). */
-    .mc-heat { font-family: var(--mono); font-size: 10px; font-weight: 700; }
-    .mc-heat.hot  { color: #4ade80; }
-    .mc-heat.cold { color: #f87171; }
-    .mc-heat.flat { color: #9aa1ac; }
+    .mc-heat { font-family: var(--mono); font-size: var(--fs-2xs); font-weight: 700; }
+    .mc-heat.hot  { color: var(--pos-stage); }
+    .mc-heat.cold { color: var(--neg-stage); }
+    .mc-heat.flat { color: var(--flat-stage); }
     .mc-legend {
       margin-top: 14px;
-      font-family: var(--mono); font-size: 10px; letter-spacing: 0.06em;
-      color: #9aa1ac;
+      font-family: var(--mono); font-size: var(--fs-2xs); letter-spacing: 0.06em;
+      color: var(--flat-stage);
     }
 
     /* Zone divider: groups the pipeline (Demand / Chip / Supply) or a date group. */
@@ -425,13 +425,13 @@
       content: "\25B2";
       position: absolute;
       left: -20px;
-      font-size: 8px;
+      font-size: var(--fs-2xs);
       line-height: 1;
       color: color-mix(in srgb, var(--ink) 55%, var(--muted));
     }
     .zone-label {
       font-family: var(--mono);
-      font-size: 10.5px;
+      font-size: var(--fs-2xs);
       font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
@@ -466,14 +466,14 @@
     .layer-detail-sub {
       display: block;
       font-weight: 600;
-      font-size: 12px;
+      font-size: var(--fs-xs);
       color: var(--muted);
       margin-bottom: 4px;
     }
     .layer-detail-label {
       display: inline-block;
       font-family: var(--mono);
-      font-size: 9.5px;
+      font-size: var(--fs-2xs);
       font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
@@ -482,7 +482,7 @@
     }
     .layer-detail-text {
       margin: 0;
-      font-size: 12.5px;
+      font-size: var(--fs-xs);
       line-height: 1.5;
       color: var(--text);
     }
@@ -507,14 +507,14 @@
     }
     .cards-ledger .ledger-eyebrow {
       font-family: var(--mono);
-      font-size: 11px;
+      font-size: var(--fs-2xs);
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--muted);
     }
     .cards-ledger .ledger-scope {
       font-family: var(--mono);
-      font-size: 11px;
+      font-size: var(--fs-2xs);
       letter-spacing: 0.04em;
       color: var(--ink);
       white-space: nowrap;
@@ -571,7 +571,7 @@
     .tk-tile-icon svg { display: block; }
     .tk-tile-sym {
       font-family: var(--mono);
-      font-size: 15px;
+      font-size: var(--fs-sm);
       font-weight: 700;
       letter-spacing: -0.01em;
       color: var(--accent);
@@ -580,7 +580,7 @@
       text-overflow: ellipsis;
     }
     .tk-tile-co {
-      font-size: 11.5px;
+      font-size: var(--fs-2xs);
       color: var(--muted);
       white-space: nowrap;
       overflow: hidden;
@@ -588,7 +588,7 @@
     }
     .tk-tile-badges { display: flex; align-items: center; gap: 5px; margin-top: auto; }
     .tk-tile-badges .tier-badge,
-    .tk-tile-badges .vd-stance { font-size: 9px; padding: 2px 7px; }
+    .tk-tile-badges .vd-stance { font-size: var(--fs-2xs); padding: 2px 7px; }
 
     /* Expand-in-place detail row — a full-width grid row inserted right after
        the clicked tile's row, animated by AIE.setDrilldownOpen (JS-measured
@@ -659,7 +659,7 @@
     .tk-head { display: flex; flex-direction: column; gap: 3px; }
     .tk-ticker {
       font-family: var(--mono);
-      font-size: 27px;
+      font-size: var(--fs-xl);
       font-weight: 700;
       line-height: 1;
       letter-spacing: -0.02em;
@@ -670,7 +670,7 @@
     }
     a.tk-ticker:hover { opacity: 0.72; text-decoration: underline; text-underline-offset: 4px; }
     .tk-company {
-      font-size: 13px;
+      font-size: var(--fs-xs);
       font-weight: 500;
       color: var(--muted);
     }
@@ -678,7 +678,7 @@
     /* Badge row. */
     .tk-badges { display: flex; flex-wrap: wrap; align-items: center; gap: 7px; }
     .tk-badge {
-      font-size: 11px;
+      font-size: var(--fs-2xs);
       font-weight: 600;
       line-height: 1;
       padding: 5px 9px;
@@ -704,7 +704,7 @@
     .tk-tier { display: inline-flex; align-items: center; gap: 6px; margin-left: auto; }
     .tk-tier-label {
       font-family: var(--mono);
-      font-size: 10px;
+      font-size: var(--fs-2xs);
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--muted);
@@ -725,7 +725,7 @@
     }
     .tk-body dt {
       font-family: var(--mono);
-      font-size: 10px;
+      font-size: var(--fs-2xs);
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: color-mix(in srgb, var(--accent) 60%, var(--muted));
@@ -733,7 +733,7 @@
     }
     .tk-body dd {
       margin: 0;
-      font-size: 13px;
+      font-size: var(--fs-xs);
       line-height: 1.5;
       color: var(--text);
     }
@@ -755,11 +755,11 @@
     .cards-empty h3 {
       margin: 0 0 6px;
       font-family: var(--mono);
-      font-size: 14px;
+      font-size: var(--fs-sm);
       letter-spacing: 0.02em;
       color: var(--ink);
     }
-    .cards-empty p { margin: 0; font-size: 13px; color: var(--muted); }
+    .cards-empty p { margin: 0; font-size: var(--fs-xs); color: var(--muted); }
 
     /* "What they prioritize" — mention-count chips, merged into the Holdings
        ledger row as a horizontal scroller (U7; was a standalone card strip). */
@@ -778,7 +778,7 @@
     .priority-strip .ps-label {
       flex: 0 0 auto;
       font-family: var(--mono);
-      font-size: 10px;
+      font-size: var(--fs-2xs);
       letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--muted);
@@ -794,12 +794,12 @@
       border: 1px solid var(--border);
       background: var(--bg);
       font-family: var(--mono);
-      font-size: 12px;
+      font-size: var(--fs-xs);
       white-space: nowrap;
     }
-    .ps-chip .ps-rank { color: var(--muted); font-size: 10px; }
+    .ps-chip .ps-rank { color: var(--muted); font-size: var(--fs-2xs); }
     .ps-chip .ps-sym { font-weight: 700; color: var(--ink); }
-    .ps-chip .ps-meta { color: var(--muted); font-size: 10px; }
+    .ps-chip .ps-meta { color: var(--muted); font-size: var(--fs-2xs); }
 
     /* Priority badge on a card (shown when the ticker has ingest-derived priority). */
     .tk-prio {
@@ -814,7 +814,7 @@
        uses the same vocabulary but now lives in shared/theme.css (7b) with the
        rest of the .th-card component. */
     .tier-badge, .bd-conviction {
-      font-family: var(--mono); font-size: 10px; letter-spacing: .07em;
+      font-family: var(--mono); font-size: var(--fs-2xs); letter-spacing: .07em;
       text-transform: uppercase; font-weight: 700;
       padding: 2px 8px; border-radius: 999px;
     }
@@ -830,7 +830,7 @@
 
     /* Desk verdict — Claude's weekly stance on a Core name. */
     .vd-stance {
-      font-family: var(--mono); font-size: 10px; letter-spacing: .06em;
+      font-family: var(--mono); font-size: var(--fs-2xs); letter-spacing: .06em;
       text-transform: uppercase; font-weight: 700;
       padding: 2px 8px; border-radius: 999px; white-space: nowrap;
     }
@@ -845,7 +845,7 @@
       background: color-mix(in srgb, var(--accent, var(--muted)) 4%, var(--card));
     }
     .wl-verdict { max-width: 720px; padding: 10px 4px 0; }
-    .wl-verdict p { margin: 6px 0 0; font-size: 12.5px; line-height: 1.55; color: var(--text); }
+    .wl-verdict p { margin: 6px 0 0; font-size: var(--fs-xs); line-height: 1.55; color: var(--text); }
     .wl-verdict p b { color: var(--ink); }
     .tk-verdict {
       margin-top: 12px; padding: 12px 14px; border-radius: 10px;
@@ -856,13 +856,13 @@
       display: flex; align-items: center; gap: 8px; margin-bottom: 8px;
     }
     .tk-verdict-label {
-      font-family: var(--mono); font-size: 9.5px; letter-spacing: .12em;
+      font-family: var(--mono); font-size: var(--fs-2xs); letter-spacing: .12em;
       text-transform: uppercase; color: var(--muted);
     }
-    .tk-verdict p { margin: 0 0 8px; font-size: 12.5px; line-height: 1.6; color: var(--text); }
+    .tk-verdict p { margin: 0 0 8px; font-size: var(--fs-xs); line-height: 1.6; color: var(--text); }
     .tk-verdict p:last-child { margin-bottom: 0; }
     .tk-verdict b {
-      font-family: var(--mono); font-size: 10px; letter-spacing: .08em;
+      font-family: var(--mono); font-size: var(--fs-2xs); letter-spacing: .08em;
       text-transform: uppercase; color: var(--muted); font-weight: 700;
       display: block; margin-bottom: 2px;
     }
@@ -879,7 +879,7 @@
     }
     .gl-eyebrow {
       display: block;
-      font-family: var(--mono); font-size: 10px; font-weight: 700;
+      font-family: var(--mono); font-size: var(--fs-2xs); font-weight: 700;
       letter-spacing: 0.16em; text-transform: uppercase;
       color: var(--muted); margin-bottom: 10px;
     }
@@ -889,9 +889,9 @@
     .gl-head .gl-eyebrow { margin-bottom: 0; }
     .gl-head .bd-toggle { margin-top: 0; margin-left: auto; }
     .gl-items { display: flex; flex-wrap: wrap; gap: 8px 22px; }
-    .gl-item { font-size: 12.5px; line-height: 1.55; color: var(--muted); }
+    .gl-item { font-size: var(--fs-xs); line-height: 1.55; color: var(--muted); }
     .gl-item dfn {
-      font-style: normal; font-family: var(--mono); font-size: 11.5px;
+      font-style: normal; font-family: var(--mono); font-size: var(--fs-2xs);
       font-weight: 700; color: var(--ink);
       border-bottom: 1px dotted var(--muted);
       margin-right: 6px;
@@ -903,31 +903,31 @@
       margin-bottom: 14px;
     }
     .wl-recent .wr-label {
-      font-family: var(--mono); font-size: 10px; font-weight: 700;
+      font-family: var(--mono); font-size: var(--fs-2xs); font-weight: 700;
       letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
     }
     .wr-chip {
       display: inline-flex; align-items: baseline; gap: 6px;
       padding: 4px 10px; border-radius: 999px;
-      border: 1px solid color-mix(in srgb, var(--accent, #94a3b8) 40%, var(--border));
-      background: color-mix(in srgb, var(--accent, #94a3b8) 8%, var(--card));
-      font-family: var(--mono); font-size: 11.5px; font-weight: 700;
-      color: color-mix(in srgb, var(--accent, #94a3b8) 70%, black);
+      border: 1px solid color-mix(in srgb, var(--accent, var(--muted)) 40%, var(--border));
+      background: color-mix(in srgb, var(--accent, var(--muted)) 8%, var(--card));
+      font-family: var(--mono); font-size: var(--fs-2xs); font-weight: 700;
+      color: color-mix(in srgb, var(--accent, var(--muted)) 70%, black);
     }
-    .wr-chip .wr-date { font-weight: 400; font-size: 10px; color: var(--muted); }
+    .wr-chip .wr-date { font-weight: 400; font-size: var(--fs-2xs); color: var(--muted); }
 
     /* Radar visibility toggle on the map's card ledger. */
     .tier-toggle {
       margin-left: auto; padding: 5px 12px; border-radius: 999px;
       border: 1px solid var(--border); background: var(--card);
-      font-family: var(--mono); font-size: 11px; color: var(--muted);
+      font-family: var(--mono); font-size: var(--fs-2xs); color: var(--muted);
       cursor: pointer; transition: color var(--ease), border-color var(--ease);
     }
     .tier-toggle:hover { color: var(--ink); border-color: var(--muted); }
 
     /* Watchlist tier chips reuse .filter-chip; desk review meta line. */
     .wl-tiers { display: flex; flex-wrap: wrap; gap: 6px; }
-    .wl-desk-meta { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+    .wl-desk-meta { font-family: var(--mono); font-size: var(--fs-2xs); color: var(--muted); }
 
     /* ---------- Thesis (Tab 3) ---------- */
     .th-header {
@@ -936,14 +936,14 @@
       padding-bottom: 10px; margin-bottom: 20px;
       border-bottom: 1px solid var(--border);
     }
-    .th-count { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+    .th-count { font-family: var(--mono); font-size: var(--fs-2xs); color: var(--muted); }
     .th-empty {
       padding: 56px 32px; text-align: center;
       background: var(--card); border: 1px solid var(--border); border-radius: var(--r-card);
     }
-    .th-empty-title { font-size: 16px; font-weight: 600; color: var(--text); margin: 0 0 6px; }
-    .th-empty-sub  { font-size: 13px; color: var(--muted); margin: 0; line-height: 1.6; }
-    .th-empty-sub code { font-family: var(--mono); font-size: 12px;
+    .th-empty-title { font-size: var(--fs-md); font-weight: 600; color: var(--text); margin: 0 0 6px; }
+    .th-empty-sub  { font-size: var(--fs-xs); color: var(--muted); margin: 0; line-height: 1.6; }
+    .th-empty-sub code { font-family: var(--mono); font-size: var(--fs-xs);
       background: rgba(15,23,42,.06); padding: 1px 5px; border-radius: 4px; }
     /* The .th-card component (spine, meta, text, ticker chips, conviction badge)
        now lives in shared/theme.css (7b) — reused by memo.html. Only desk-local
@@ -968,24 +968,24 @@
     }
     .bd-card:hover::before { width: 7px; }
     .bd-head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; }
-    .bd-title { font-size: 16px; font-weight: 600; color: var(--ink); }
-    .bd-sub { font-size: 12px; color: var(--muted); }
+    .bd-title { font-size: var(--fs-md); font-weight: 600; color: var(--ink); }
+    .bd-sub { font-size: var(--fs-xs); color: var(--muted); }
     .bd-conviction { margin-left: auto; }
     .bd-trend { display: flex; align-items: center; gap: 8px; margin: -2px 0 10px; }
     .bd-trend-label {
-      font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.1em;
+      font-family: var(--mono); font-size: var(--fs-2xs); letter-spacing: 0.1em;
       text-transform: uppercase; color: var(--muted);
     }
-    .bd-trend-arrow { font-family: var(--mono); font-size: 13px; font-weight: 700; }
+    .bd-trend-arrow { font-family: var(--mono); font-size: var(--fs-xs); font-weight: 700; }
     .bd-narrative {
-      font-size: 13.5px; line-height: 1.65; color: var(--text);
+      font-size: var(--fs-xs); line-height: 1.65; color: var(--text);
       white-space: pre-wrap; word-break: break-word; margin: 0 0 10px;
     }
     .bd-points { margin: 0 0 4px; padding-left: 18px; }
-    .bd-points li { font-size: 13px; line-height: 1.55; color: var(--text); margin: 2px 0; }
+    .bd-points li { font-size: var(--fs-xs); line-height: 1.55; color: var(--text); margin: 2px 0; }
     .bd-tickers { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
     .bd-toggle {
-      appearance: none; font: inherit; font-family: var(--mono); font-size: 11px;
+      appearance: none; font: inherit; font-family: var(--mono); font-size: var(--fs-2xs);
       color: var(--muted); background: none; border: 1px solid var(--border);
       border-radius: 999px; padding: 4px 11px; cursor: pointer; margin-top: 14px;
       transition: color var(--ease), border-color var(--ease);
@@ -1020,23 +1020,24 @@
     }
     .wl-ledger { display: flex; align-items: baseline; gap: 10px; }
     .wl-actions { display: flex; align-items: center; gap: 12px; }
-    .wl-asof { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+    .wl-asof { font-family: var(--mono); font-size: var(--fs-2xs); color: var(--muted); }
     .wl-fetch {
-      appearance: none; background: var(--ink); color: #fff;
-      border: 1px solid var(--ink); border-radius: 8px;
-      font: inherit; font-size: 13px; font-weight: 600; padding: 8px 14px;
-      cursor: pointer; transition: opacity var(--ease);
+      appearance: none; background: var(--violet); color: #fff;
+      border: 1px solid var(--violet); border-radius: var(--r-chip);
+      font-family: inherit; font-size: var(--fs-xs); font-weight: 600;
+      padding: var(--s-2) var(--s-4);
+      cursor: pointer; transition: filter var(--ease), transform var(--ease);
     }
-    .wl-fetch:hover { opacity: 0.88; }
+    .wl-fetch:hover { filter: brightness(1.08); transform: translateY(-1px); }
     .wl-fetch:disabled { opacity: 0.55; cursor: default; }
     .wl-hint {
       margin-bottom: 14px; padding: 10px 12px; border-radius: 8px;
       background: color-mix(in srgb, var(--brand-ink) 7%, var(--card));
       border: 1px solid color-mix(in srgb, var(--brand-ink) 28%, var(--border));
-      font-size: 12.5px; line-height: 1.5; color: var(--text);
+      font-size: var(--fs-xs); line-height: 1.5; color: var(--text);
     }
     .wl-hint code {
-      font-family: var(--mono); font-size: 12px;
+      font-family: var(--mono); font-size: var(--fs-xs);
       background: rgba(15, 23, 42, 0.06); padding: 1px 5px; border-radius: 4px;
     }
     /* Generic view-toggle pill (Flat/Grouped, Pipeline/Cross Section) — same
@@ -1047,18 +1048,18 @@
     }
     .vt-btn {
       appearance: none; background: none; border: none; font: inherit;
-      font-size: 12.5px; font-weight: 600; color: var(--muted);
+      font-size: var(--fs-xs); font-weight: 600; color: var(--muted);
       padding: 5px 14px; border-radius: var(--r-chip); cursor: pointer;
       transition: background var(--ease), color var(--ease);
     }
     .vt-btn:hover { color: var(--text); }
-    .vt-btn[aria-selected="true"] { background: var(--brand-grad); color: #fff; }
+    .vt-btn[aria-selected="true"] { background: var(--violet); color: #fff; }
     .vt-btn:focus-visible { outline: 2px solid var(--muted); outline-offset: 2px; }
 
     /* Generic filter chip — category filters on Watchlist + Thesis. */
     .filter-chip {
       appearance: none; background: var(--card); border: 1px solid var(--border);
-      border-radius: 999px; color: var(--muted); font: inherit; font-size: 12px;
+      border-radius: 999px; color: var(--muted); font: inherit; font-size: var(--fs-xs);
       font-weight: 600; padding: 5px 12px; cursor: pointer;
       transition: color var(--ease), border-color var(--ease), background var(--ease);
     }
@@ -1066,16 +1067,17 @@
     /* Active toggle: category filters keep their data-viz accent (--chip-accent);
        neutral filters (tier / signal / all) fall back to the brand gradient. */
     .filter-chip.is-active {
-      color: #fff; background: var(--chip-accent, var(--brand-grad));
-      border-color: var(--chip-accent, transparent);
+      color: var(--ink);
+      font-weight: 700;
+      background: color-mix(in srgb, var(--chip-accent, var(--violet)) 20%, var(--card));
+      border-color: var(--chip-accent, var(--violet));
     }
-    .filter-chip:focus-visible { outline: 2px solid var(--muted); outline-offset: 2px; }
 
     .wl-controls { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 14px; }
     .wl-filters { display: flex; flex-wrap: wrap; gap: 6px; }
     .wl-table thead th.wl-nosort { cursor: default; }
     .wl-subtotal td {
-      font-family: var(--mono); font-size: 11.5px; color: var(--text);
+      font-family: var(--mono); font-size: var(--fs-2xs); color: var(--text);
       padding-top: 8px; padding-bottom: 8px;
     }
 
@@ -1088,11 +1090,11 @@
       border-radius: var(--r-card); background: var(--card);
       box-shadow: var(--shadow-sm);
     }
-    .wl-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .wl-table { width: 100%; border-collapse: collapse; font-size: var(--fs-xs); }
     .wl-table th, .wl-table td { padding: 11px 14px; text-align: left; white-space: nowrap; }
     .wl-table thead th {
       background: var(--card);
-      font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em;
+      font-family: var(--mono); font-size: var(--fs-2xs); letter-spacing: 0.1em;
       text-transform: uppercase; color: var(--muted); font-weight: 700;
       cursor: pointer; user-select: none; border-bottom: 1px solid var(--border);
     }
@@ -1101,29 +1103,29 @@
     .wl-table thead th .arrow { margin-left: 4px; color: var(--ink); }
     .wl-table tbody tr { border-top: 1px solid var(--border); transition: background var(--ease); }
     .wl-table tbody tr:first-child { border-top: none; }
-    .wl-table tbody tr:hover { background: color-mix(in srgb, var(--accent, #94a3b8) 6%, var(--card)); }
+    .wl-table tbody tr:hover { background: color-mix(in srgb, var(--accent, var(--muted)) 6%, var(--card)); }
     .wl-cat { display: inline-flex; align-items: center; gap: 7px; }
     /* Category identity, codified (audit fix #6): spine on cards,
        dot in dense table rows — two deliberate forms of the same signal. */
-    .wl-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--accent, #94a3b8); flex: 0 0 auto; }
+    .wl-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--accent, var(--muted)); flex: 0 0 auto; }
     .wl-cat-label { color: var(--muted); }
-    .wl-sym { font-family: var(--mono); font-weight: 700; color: var(--accent, #1e293b); text-decoration: none; }
+    .wl-sym { font-family: var(--mono); font-weight: 700; color: var(--accent, var(--ink)); text-decoration: none; }
     a.wl-sym:hover { text-decoration: underline; text-underline-offset: 3px; }
     .wl-row-link { cursor: pointer; }
     .wl-note {
       display: inline-flex; align-items: baseline; gap: 6px;
-      font-family: var(--mono); font-size: 11px; font-weight: 700;
-      color: var(--accent, #1e293b); text-decoration: none;
+      font-family: var(--mono); font-size: var(--fs-2xs); font-weight: 700;
+      color: var(--accent, var(--ink)); text-decoration: none;
     }
     .wl-note:hover { text-decoration: underline; text-underline-offset: 3px; }
-    .wl-note-date { font-weight: 400; font-size: 10px; color: var(--muted); }
+    .wl-note-date { font-weight: 400; font-size: var(--fs-2xs); color: var(--muted); }
     .wl-price { font-weight: 600; }
-    .wl-cur { color: var(--muted); font-size: 10px; margin-left: 3px; }
-    .wl-pos { color: #16a34a; }
-    .wl-neg { color: #dc2626; }
+    .wl-cur { color: var(--muted); font-size: var(--fs-2xs); margin-left: 3px; }
+    .wl-pos { color: var(--pos); }
+    .wl-neg { color: var(--neg); }
     .wl-muted { color: var(--muted); }
     .wl-rating {
-      appearance: none; font: inherit; font-size: 12px; color: var(--text);
+      appearance: none; font: inherit; font-size: var(--fs-xs); color: var(--text);
       background: var(--bg); border: 1px solid var(--border);
       border-radius: 6px; padding: 4px 8px; cursor: pointer;
     }
@@ -1144,7 +1146,7 @@
         left: 0; right: 0;
         padding: 0 12px;
       }
-      .capsule-link { padding: 8px 12px; font-size: 12.5px; }
+      .capsule-link { padding: 8px 12px; font-size: var(--fs-xs); }
       .capsule-link .cl-index { display: none; }
       .chapter { padding-top: 32px; scroll-margin-top: 16px; }
 
@@ -1201,7 +1203,7 @@
           <div class="wl-recent" id="wlRecent" hidden></div>
           <div class="wl-header">
             <div class="wl-ledger">
-              <span class="ledger-eyebrow">Watchlist</span>
+              <span class="ledger-eyebrow">The names</span>
               <span class="ledger-scope" id="wlScope"></span>
             </div>
             <div class="wl-actions">
@@ -1256,7 +1258,7 @@
                 <button type="button" class="vt-btn" data-view="pipeline" aria-selected="true">Pipeline</button>
                 <button type="button" class="vt-btn" data-view="cross" aria-selected="false">Cross Section</button>
               </div>
-              <button type="button" class="map-show-all" id="mapShowAll">Show All</button>
+              <button type="button" class="map-show-all" id="mapShowAll">Show everything</button>
             </div>
           </div>
           <!-- "How to read this map" — copy comes from AIE_DATA.mapIntro (rule #4). -->
@@ -1876,7 +1878,7 @@
          (click / Enter / Space + aria-expanded) mirrors appendLayerBand. */
       function makeTile(ticker) {
         var cat = (DATA.categories && DATA.categories[ticker.category]) || null;
-        var accent = cat ? cat.color : "#64748b";
+        var accent = cat ? cat.color : "var(--muted)";
 
         var tile = el("article", "tk-tile");
         tile.style.setProperty("--accent", accent);
@@ -1981,7 +1983,7 @@
       function makeCardDetail(ticker) {
         var cat = (DATA.categories && DATA.categories[ticker.category]) || null;
         var country = (DATA.countries && DATA.countries[ticker.market]) || null;
-        var accent = cat ? cat.color : "#64748b";
+        var accent = cat ? cat.color : "var(--muted)";
 
         var card = el("article", "tk-card");
         card.style.setProperty("--accent", accent);
@@ -2019,12 +2021,12 @@
           prio.title = "Mentioned " + analyst + "× by @aleabitoreddit"
             + (research ? " · " + research + " desk research finding" + (research === 1 ? "" : "s") : "")
             + (ticker.priority.bearMentions ? " · " + ticker.priority.bearMentions + " against" : "")
-            + (ticker.priority.convictionHits ? " · " + ticker.priority.convictionHits + " with high-conviction language" : "");
+            + (ticker.priority.convictionHits ? " · " + ticker.priority.convictionHits + " where he sounded certain" : "");
           badges.appendChild(prio);
         }
 
         var tierBadge = el("span", "tier-badge " + tierOf(ticker), tierOf(ticker));
-        tierBadge.title = "Conviction tier from mention frequency + conviction language (ingest/scorer.py)";
+        tierBadge.title = "How strongly this name keeps coming up — from how often it is mentioned, and how certain the language was (ingest/scorer.py)";
         badges.appendChild(tierBadge);
 
         var tier = el("span", "tk-tier");
@@ -2053,7 +2055,7 @@
           var v = ticker.verdict;
           var vd = el("div", "tk-verdict");
           var vh = el("div", "tk-verdict-head");
-          vh.appendChild(el("span", "tk-verdict-label", "Claude's desk view"));
+          vh.appendChild(el("span", "tk-verdict-label", "My call"));
           vh.appendChild(el("span", "vd-stance " + v.stance, AIE.stanceLabel(v.stance)));
           if (v.updatedAt) vh.appendChild(el("span", "tk-verdict-label", AIE.fmtDate(String(v.updatedAt).slice(0, 10))));
           vd.appendChild(vh);
@@ -2249,12 +2251,14 @@
          to localStorage. "Fetch prices" calls the local serve.py.
          ---------------------------------------------------------- */
       var WL_RATINGS = ["watch", "owned", "passed"];
+      // Labels are display-only; the ids stay signal/core/watch/radar/all so
+      // wlState, the tier data and every filter path are untouched.
       var WL_TIER_CHIPS = [
-        { id: "signal", label: "Signal (Core + Watch)" },
-        { id: "core", label: "Core" },
-        { id: "watch", label: "Watch" },
-        { id: "radar", label: "Radar" },
-        { id: "all", label: "All" }
+        { id: "signal", label: "Names that matter" },
+        { id: "core", label: "Closest watch" },
+        { id: "watch", label: "Second tier" },
+        { id: "radar", label: "Mentioned once" },
+        { id: "all", label: "Everything" }
       ];
       // Watchlist opens focused on Core (highest-conviction names) so the
       // table is short by default; Signal/Watch/Radar/All are one chip away.
@@ -2350,7 +2354,7 @@
         td.colSpan = 11;
         var box = el("div", "wl-verdict");
         var head = el("div", "tk-verdict-head");
-        head.appendChild(el("span", "tk-verdict-label", "Claude's desk view"));
+        head.appendChild(el("span", "tk-verdict-label", "My call"));
         head.appendChild(el("span", "vd-stance " + v.stance, AIE.stanceLabel(v.stance)));
         if (v.updatedAt) head.appendChild(el("span", "tk-verdict-label", AIE.fmtDate(String(v.updatedAt).slice(0, 10))));
         box.appendChild(head);
@@ -2372,7 +2376,7 @@
       function makeWatchlistRow(t) {
         var cat = DATA.categories[t.category];
         var tr = document.createElement("tr");
-        tr.style.setProperty("--accent", cat ? cat.color : "#94a3b8");
+        tr.style.setProperty("--accent", cat ? cat.color : "var(--muted)");
 
         var cTd = document.createElement("td");
         var wrap = el("span", "wl-cat");
@@ -2487,7 +2491,7 @@
         if (deskMetaEl) {
           if (deskMeta && deskMeta.reviewedAt) {
             deskMetaEl.hidden = false;
-            deskMetaEl.textContent = "Desk verdicts reviewed " + deskMeta.reviewedAt.slice(0, 10)
+            deskMetaEl.textContent = "Calls last reviewed " + deskMeta.reviewedAt.slice(0, 10)
               + (deskMeta.coverage ? " · " + deskMeta.coverage : "")
               + (deskMeta.disclaimer ? " · " + deskMeta.disclaimer : "");
           } else {
@@ -2696,7 +2700,7 @@
         digests.forEach(function (d, di) {
           var cat = (DATA.categories && DATA.categories[d.category]) || null;
           var card = el("article", "bd-card");
-          card.style.setProperty("--accent", cat ? cat.color : "#94a3b8");
+          card.style.setProperty("--accent", cat ? cat.color : "var(--muted)");
           revealify(card, di);
 
           var head = el("div", "bd-head");
@@ -2704,13 +2708,13 @@
           if (cat && cat.subtitle) head.appendChild(el("span", "bd-sub", cat.subtitle));
           var cvl = (d.conviction === "high" || d.conviction === "medium" || d.conviction === "low")
             ? d.conviction : "medium";
-          head.appendChild(el("span", "bd-conviction " + cvl, cvl + " conviction"));
+          head.appendChild(el("span", "bd-conviction " + cvl, cvl + " confidence"));
           card.appendChild(head);
 
           var counts = d.dailyMentions && d.dailyMentions.counts;
           if (counts && counts.length) {
             var trend = el("div", "bd-trend");
-            trend.style.color = cat ? cat.color : "#94a3b8";
+            trend.style.color = cat ? cat.color : "var(--muted)";
             var ns = "http://www.w3.org/2000/svg";
             var svg = document.createElementNS(ns, "svg");
             svg.setAttribute("viewBox", "0 0 90 26");
@@ -2758,7 +2762,7 @@
             var built = false;
             var n = ids.length;
             var label = function (open) {
-              return (open ? "Hide " : "Show ") + n + (n === 1 ? " source thesis" : " source theses");
+              return (open ? "Hide " : "Show ") + n + (n === 1 ? " original post" : " original posts");
             };
             var toggle = el("button", "bd-toggle", label(false));
             toggle.setAttribute("type", "button");

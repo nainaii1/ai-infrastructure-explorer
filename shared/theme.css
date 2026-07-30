@@ -46,9 +46,17 @@
   --paper-sink: #f2f0fa;  /* recessed rows / hover wash */
   --paper-tint: #f6f4fc;  /* subtle zebra / header fill */
 
-  /* Dark "stage" surfaces (map hub, cross-section, vault graph), violet-black. */
-  --stage:    #0e0a1c;
-  --stage-hi: #191330;
+  /* Dark "stage" surfaces (map hub, cross-section, vault graph), violet-black.
+     Text ON a stage needs its own tokens — desk.html previously hardcoded
+     slate hexes (#cbd5e1 / #94a3b8 / #e2e8f0 / #4ade80 / #f87171) that a
+     theme change could never reach. All measured against --stage. */
+  --stage:        #0e0a1c;
+  --stage-hi:     #191330;
+  --on-stage:     #e9e5f6;  /* primary text on a stage — 15.8:1 */
+  --on-stage-dim: #a9a2c4;  /* secondary / labels        —  8.0:1 */
+  --pos-stage:    #5fd48a;  /* up, on a stage            — 10.5:1 */
+  --neg-stage:    #ff9a90;  /* down, on a stage          —  9.5:1 */
+  --flat-stage:   #9c95b8;  /* unchanged, on a stage     —  6.9:1 */
 
   /* --- Brand: soft lavender primary + teal secondary --------------------
      A LAVENDER RAMP, not one purple. The reference sites get their softness
