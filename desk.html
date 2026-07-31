@@ -245,137 +245,197 @@
     .map-header-actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 
     /* ---------- Pipeline view: 3 flow columns (Supply -> Chip -> Demand) ---------- */
-    .map-pipeline { display: flex; flex-direction: column; gap: 18px; }
+    .map-pipeline { display: flex; flex-direction: column; gap: var(--s-4); }
     .map-pipeline[hidden] { display: none; }
-    .mp-columns { display: flex; align-items: flex-start; gap: 14px; }
-    .mp-col { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 10px; }
-    .mp-col-label {
-      font-family: var(--mono); font-size: var(--fs-2xs); font-weight: 700;
-      letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
-      margin-bottom: 2px;
-    }
-    .mp-arrow { flex: 0 0 auto; align-self: center; padding-top: 46px; color: var(--muted); }
-    /* Ambient dash-scroll on the flow arrows (U7) — the aie-flow keyframes
-       live in theme.css (U2); its reduced-motion gate stops this too. */
-    .flow-dash { animation: aie-flow 1.4s linear infinite; }
-    .mp-hub { display: flex; justify-content: center; }
-    .mp-hub .layer-hub { width: 100%; max-width: 420px; }
 
     /* ============================================================
-       Chain zones — three stacked flow groups (Supply -> Chip -> Demand),
-       each a responsive grid of layer cards. Replaces the cramped
-       three-column pipeline: a layer now gets room for its description AND
-       the companies that sit in it, instead of pushing them to a detached
-       grid further down the page.
-       ============================================================ */
-    .chain-zone { margin-top: var(--s-7); }
-    .chain-zone:first-child { margin-top: var(--s-5); }
-    .chain-zone-head {
-      display: flex; align-items: baseline; gap: var(--s-3);
-      flex-wrap: wrap; margin-bottom: var(--s-4);
-    }
-    .chain-zone-title {
-      font-family: var(--display);
-      font-size: var(--fs-xl); font-weight: 700;
-      letter-spacing: -0.025em; color: var(--ink);
-    }
-    .chain-zone-note { font-size: var(--fs-sm); color: var(--muted); }
-    .chain-zone-note b { color: var(--ink); font-weight: 600; }
-    .chain-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(min(272px, 100%), 1fr));
-      gap: var(--s-4);
-    }
+       Chain schematic — modelled on the "Built for embedded yield"
+       diagram at aave.com/stable-vaults: soft panels holding small
+       white nodes, joined by dotted connectors, with a shared node
+       bridging the two sides.
 
-    /* A layer card. Accent color is set inline from data.js (--accent). */
-    .layer-band {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      gap: var(--s-3);
-      min-width: 0;
-      background: var(--card);
+       Theirs is a static SVG export (986x382, zero <text> elements —
+       every label outlined to a path). This is real HTML/CSS instead,
+       so the nodes stay clickable, selectable, screen-readable and
+       responsive, and they still drive the ticker filter.
+       ============================================================ */
+    /* panel | link | panel | link | panel — supply feeds the chip feeds demand */
+    .chain-diagram {
+      display: grid;
+      grid-template-columns: 1fr auto minmax(0, 0.9fr) auto 1fr;
+      align-items: stretch;   /* equal-height panels, as on the reference */
+      gap: var(--s-1);
+    }
+    /* The chip panel is the spine: it gets the emphasis, not a black slab. */
+    .chain-panel--chip {
+      background: var(--violet-wash);
+      border-color: color-mix(in srgb, var(--violet) 22%, var(--border));
+    }
+    .chain-panel {
+      display: flex; flex-direction: column;
+      background: var(--paper-tint);
       border: 1px solid var(--border);
       border-radius: var(--r-card);
       padding: var(--s-5);
-      cursor: pointer;
-      transition: transform var(--ease), box-shadow var(--ease),
-                  border-color var(--ease), background var(--ease);
+      min-width: 0;
     }
-    /* The old left spine is retired — the tinted icon tile carries the hue now.
-       .layer-hub still uses ::before for its gradient top hairline. */
-    .layer-band:hover {
-      transform: translateY(-3px);
-      border-color: color-mix(in srgb, var(--accent) 40%, var(--border));
-      box-shadow: var(--shadow-lg);
+    .chain-panel-label {
+      display: block; text-align: center;
+      font-family: var(--display); font-size: var(--fs-md); font-weight: 600;
+      letter-spacing: -0.01em; color: var(--ink);
+      margin-bottom: var(--s-5);
     }
-    .layer-band.is-active {
-      border-color: color-mix(in srgb, var(--accent) 60%, var(--border));
-      background: color-mix(in srgb, var(--accent) 7%, var(--card));
-      box-shadow: var(--shadow-lg);
+    .chain-nodes {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: var(--s-4) var(--s-3);
+      flex: 1 1 auto;
+      align-content: center;
     }
 
-    .layer-head { display: flex; align-items: center; gap: var(--s-3); }
-    /* Tinted square holding the category's line-art icon. The hue lives here
-       and in the ticker dots — never in the title, because a category colour
-       is a 3:1 UI colour and would fail AA as text. */
-    .layer-icon {
-      flex: 0 0 auto;
+    /* A node. White, small radius, thin outline — Aave's rx:12 box. */
+    .chain-node {
+      appearance: none;
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
+      min-width: 0;
+      padding: var(--s-3) var(--s-2);
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      cursor: pointer;
+      text-align: center;
+      font-family: inherit;
+      transition: border-color var(--ease), box-shadow var(--ease), transform var(--ease);
+    }
+    .chain-node:hover {
+      transform: translateY(-2px);
+      border-color: color-mix(in srgb, var(--accent) 50%, var(--border));
+      box-shadow: var(--shadow-sm);
+    }
+    .chain-node.is-active {
+      border-color: var(--accent);
+      background: color-mix(in srgb, var(--accent) 8%, var(--card));
+      box-shadow: var(--shadow-sm);
+    }
+    .cn-icon {
       display: grid; place-items: center;
-      width: 40px; height: 40px;
-      border-radius: 12px;
+      width: 30px; height: 30px; border-radius: 9px;
       color: color-mix(in srgb, var(--accent) 80%, black);
       background: color-mix(in srgb, var(--accent) 13%, var(--card));
     }
-    .layer-icon svg { display: block; }
-    .layer-index {
-      font-family: var(--mono); font-size: var(--fs-2xs); font-weight: 700;
-      letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+    .cn-icon svg { display: block; }
+    .cn-label {
+      font-size: var(--fs-xs); font-weight: 600; line-height: 1.25;
+      color: var(--ink); overflow-wrap: anywhere;
     }
-    .layer-count {
-      margin-left: auto;
-      font-family: var(--mono); font-size: var(--fs-2xs);
-      letter-spacing: 0.04em; color: var(--muted); white-space: nowrap;
+    /* Company count as a dot cluster — Aave draws its "Yield Adapters"
+       the same way, so a layer's weight reads before you read the number. */
+    .cn-dots { display: flex; flex-wrap: wrap; justify-content: center; gap: 3px; max-width: 84px; }
+    .cn-dots i {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: color-mix(in srgb, var(--accent) 55%, var(--card));
     }
-    .layer-count b { color: var(--ink); font-weight: 700; }
+    .cn-dots i.is-core { background: var(--accent); }
+    .cn-count {
+      font-family: var(--mono); font-size: var(--fs-2xs); color: var(--muted);
+    }
+    .chain-node.is-empty { border-style: dashed; }
+    .chain-node.is-empty .cn-count { font-style: italic; }
 
-    .layer-main { min-width: 0; }
-    .layer-title {
-      font-family: var(--display);
-      font-size: var(--fs-lg); font-weight: 700;
+    /* Triage: quiet, compact, clearly not one of the three real zones. */
+    .chain-panel--triage {
+      margin-top: var(--s-4);
+      background: transparent;
+      border-style: dashed;
+      padding: var(--s-4);
+    }
+    .chain-panel--triage .chain-panel-label {
+      font-size: var(--fs-xs); color: var(--muted); margin-bottom: var(--s-3);
+    }
+    .chain-panel--triage .chain-nodes {
+      grid-template-columns: repeat(auto-fit, minmax(120px, 160px));
+      justify-content: center;
+    }
+
+    /* The bridge: NVIDIA sits between supply and demand, where Aave puts
+       "Bridge Infrastructure". Replaces the old full-width black slab. */
+    .chain-bridge {
+      display: flex; flex-direction: column; align-items: center; gap: var(--s-2);
+      padding: var(--s-5) var(--s-4);
+      background: var(--card);
+      border: 1px solid var(--border-strong);
+      border-radius: var(--r-tile);
+      box-shadow: var(--shadow-sm);
+      max-width: 190px;
+      text-align: center;
+    }
+    .chain-bridge-icon {
+      display: grid; place-items: center;
+      width: 40px; height: 40px; border-radius: 12px;
+      color: var(--violet); background: var(--violet-wash);
+    }
+    .chain-bridge-title {
+      font-family: var(--display); font-size: var(--fs-md); font-weight: 700;
+      letter-spacing: -0.015em; color: var(--ink); line-height: 1.2;
+    }
+    .chain-bridge-sub { font-size: var(--fs-2xs); color: var(--muted); line-height: 1.4; }
+    .chain-bridge-chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px; }
+
+    /* Dotted connector. Aave's exact stroke: dasharray "0.2 8", width 3,
+       round caps — that is what makes it read as a dotted trail. */
+    .chain-link { display: grid; place-items: center; color: var(--violet-soft); padding: 0 var(--s-2); }
+    .chain-link svg { display: block; overflow: visible; }
+    .flow-dash {
+      stroke-dasharray: 0.2 8;
+      stroke-width: 3;
+      stroke-linecap: round;
+      animation: aie-flow 1.4s linear infinite;
+    }
+
+    /* Selected-layer detail, under the diagram. The nodes are deliberately
+       small, so the prose lives here rather than inside every node. */
+    .chain-detail {
+      margin-top: var(--s-4);
+      max-height: 0; opacity: 0; overflow: hidden;
+      transition: max-height var(--dur) var(--spring), opacity var(--ease);
+    }
+    .chain-detail.open { opacity: 1; }
+    .chain-detail-inner {
+      display: flex; flex-direction: column; gap: var(--s-3);
+      padding: var(--s-5);
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-card);
+    }
+    .cd-head { display: flex; align-items: center; gap: var(--s-3); flex-wrap: wrap; }
+    .cd-title {
+      font-family: var(--display); font-size: var(--fs-lg); font-weight: 700;
       letter-spacing: -0.02em; color: var(--ink);
     }
-    .layer-sub { display: block; font-weight: 500; font-size: var(--fs-xs); color: var(--muted); }
-    .layer-desc {
-      margin: var(--s-2) 0 0;
-      font-size: var(--fs-xs); line-height: 1.55; color: var(--text);
-      display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;
-      overflow: hidden;
+    .cd-sub { font-size: var(--fs-xs); color: var(--muted); }
+    .cd-count { margin-left: auto; font-family: var(--mono); font-size: var(--fs-2xs); color: var(--muted); }
+    .cd-count b { color: var(--ink); }
+    .cd-text { margin: 0; font-size: var(--fs-sm); line-height: 1.6; color: var(--text); }
+    .cd-watch-label {
+      font-family: var(--mono); font-size: var(--fs-2xs); font-weight: 700;
+      letter-spacing: .08em; text-transform: uppercase;
+      color: color-mix(in srgb, var(--accent) 75%, var(--muted));
+    }
+    .cd-tickers { display: flex; flex-wrap: wrap; gap: var(--s-1); }
+
+    @media (max-width: 900px) {
+      /* Stack the schematic; the connectors turn vertical. */
+      .chain-diagram { grid-template-columns: 1fr; }
+      .chain-link svg { transform: rotate(90deg); }
+      .chain-bridge { max-width: none; width: 100%; }
     }
 
-    /* Member companies, inline on the card — the point of the redesign. */
-    .layer-tickers { display: flex; flex-wrap: wrap; gap: var(--s-1); align-items: center; }
-    .layer-more {
-      font-family: var(--mono); font-size: var(--fs-2xs);
-      color: var(--muted); white-space: nowrap;
-    }
-    .layer-empty { font-size: var(--fs-xs); color: var(--muted); font-style: italic; }
+    /* (The v7 layer-band / layer-hub / zone-divider / layer-detail rules were
+       removed with the v9 schematic rewrite. The chain is drawn by
+       .chain-diagram > .chain-panel > .chain-node now, with .chain-detail
+       carrying the selected layer's prose. ~180 lines of dead CSS.) */
 
-    /* Demand hub band: true-black "event stage" surface, non-interactive, with a
-       brand-gradient hairline along its top edge (Phase 6, U4). */
-    .layer-hub { cursor: default; background: var(--stage); border-color: var(--stage); }
-    .layer-hub::before {
-      top: 0; left: 0; right: 0; bottom: auto;
-      width: auto; height: 2px;
-      background: var(--brand-grad);
-    }
-    .layer-hub:hover { transform: none; background: var(--stage); border-color: var(--stage); box-shadow: none; }
-    .layer-hub:hover::before { width: auto; height: 2px; }
-    .layer-hub .layer-index { color: var(--on-stage); background: rgba(255, 255, 255, 0.08); }
-    .layer-hub .layer-icon { color: var(--on-stage); }
-    .layer-hub .layer-title { color: var(--on-stage); }
-    .layer-hub .layer-sub { color: var(--on-stage-dim); }
-    .layer-hub .layer-desc { color: var(--on-stage); }
+
 
     /* ---------- Pipeline framing: intro, flow rail, zones, detail ---------- */
     /* "How to read this map" line. Text injected from AIE_DATA.mapIntro. */
@@ -436,41 +496,6 @@
       color: var(--flat-stage);
     }
 
-    /* Zone divider: groups the pipeline (Demand / Chip / Supply) or a date group. */
-    .zone-divider {
-      position: relative;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin: 8px 0 1px;
-      padding-left: 2px;
-    }
-    .zone-divider::after {
-      content: "";
-      flex: 1 1 auto;
-      height: 1px;
-      background: var(--border);
-    }
-    /* Upward flow marker sitting on the rail at each zone break. */
-    .zone-divider::before {
-      content: "\25B2";
-      position: absolute;
-      left: -20px;
-      font-size: var(--fs-2xs);
-      line-height: 1;
-      color: color-mix(in srgb, var(--ink) 55%, var(--muted));
-    }
-    .zone-label {
-      font-family: var(--mono);
-      font-size: var(--fs-2xs);
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--muted);
-      white-space: nowrap;
-    }
-    .zone-divider--muted .zone-label { color: color-mix(in srgb, var(--muted) 65%, transparent); }
-    .zone-divider--muted::before { content: ""; }
 
     /* Investor angle — collapsed until the layer is selected (.is-active).
        Unified drill-down: JS measures true content height and animates
@@ -480,43 +505,6 @@
        track a bounded "available space" instead of letting it size to
        content, so 1fr silently resolves to 0. max-height + a JS-measured
        pixel target sidesteps that ambiguity entirely. */
-    .layer-detail {
-      max-height: 0;
-      opacity: 0;
-      overflow: hidden;
-      margin-top: 0;
-      transition: max-height var(--dur) var(--spring),
-                  opacity var(--ease), margin-top var(--ease);
-    }
-    .layer-band.is-active .layer-detail {
-      opacity: 1;
-      margin-top: 9px;
-    }
-    /* Category subtitle, revealed with the drill-down (collapsed rows show
-       only the short layer name). */
-    .layer-detail-sub {
-      display: block;
-      font-weight: 600;
-      font-size: var(--fs-xs);
-      color: var(--muted);
-      margin-bottom: 4px;
-    }
-    .layer-detail-label {
-      display: inline-block;
-      font-family: var(--mono);
-      font-size: var(--fs-2xs);
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: color-mix(in srgb, var(--accent) 75%, var(--muted));
-      margin-bottom: 3px;
-    }
-    .layer-detail-text {
-      margin: 0;
-      font-size: var(--fs-xs);
-      line-height: 1.5;
-      color: var(--text);
-    }
 
     /* ============================================================
        Ticker cards (Tab 1, Section B) — research-dossier aesthetic.
@@ -1649,111 +1637,10 @@
         return counts;
       }
 
-      /* One layer card. The head row carries the tinted icon tile, the layer
-         index and the company count; the body carries the name, what it is,
-         and — the point of the v9 chain redesign — the companies that actually
-         sit in this layer, as chips with a "+N more" overflow. Previously the
-         companies lived in a detached grid further down the page, so a layer
-         and its members were never on screen together. */
-      function makeLayerBand(opts) {
-        // opts: { id, indexLabel, title, sub, desc, color, count, isHub, members }
-        var band = el("div", "layer-band" + (opts.isHub ? " layer-hub" : ""));
-        if (opts.icon) band.classList.add("has-icon");
-        band.setAttribute("role", "listitem");
-        if (opts.color) band.style.setProperty("--accent", opts.color);
-        if (opts.id) band.dataset.cat = opts.id;
-
-        var head = el("div", "layer-head");
-        if (opts.icon) {
-          var iconWrap = el("span", "layer-icon");
-          var icon = AIE.iconSVG(opts.icon, "currentColor", 22);
-          if (icon) iconWrap.appendChild(icon);
-          head.appendChild(iconWrap);
-        }
-        head.appendChild(el("span", "layer-index", opts.indexLabel));
-        if (!opts.isHub) {
-          var count = el("span", "layer-count");
-          count.appendChild(el("b", null, String(opts.count)));
-          count.appendChild(document.createTextNode(opts.count === 1 ? " company" : " companies"));
-          head.appendChild(count);
-        }
-        band.appendChild(head);
-
-        var main = el("div", "layer-main");
-        var title = el("div", "layer-title", opts.title);
-        main.appendChild(title);
-        if (opts.sub) title.appendChild(el("span", "layer-sub", opts.sub));
-        if (opts.desc) main.appendChild(el("p", "layer-desc", opts.desc));
-        band.appendChild(main);
-
-        // Member companies. Capped so a 20-name layer cannot blow the card out.
-        if (!opts.isHub) {
-          var members = opts.members || [];
-          var chips = el("div", "layer-tickers");
-          if (!members.length) {
-            chips.appendChild(el("span", "layer-empty", "nothing tracked here yet"));
-          } else {
-            var CAP = 5;
-            members.slice(0, CAP).forEach(function (t) {
-              var chip = el("span", "aie-chip aie-chip--ticker", t.ticker);
-              if (opts.color) chip.style.setProperty("--chip-accent", opts.color);
-              chips.appendChild(chip);
-            });
-            if (members.length > CAP) {
-              chips.appendChild(el("span", "layer-more", "+" + (members.length - CAP) + " more"));
-            }
-          }
-          band.appendChild(chips);
-        }
-
-        // Investor angle — revealed when the layer is selected (.is-active CSS).
-        if (opts.angle) {
-          var detail = el("div", "layer-detail");
-          var detailInner = el("div", "layer-detail-inner");
-          detailInner.appendChild(el("span", "layer-detail-label", "What to watch"));
-          detailInner.appendChild(el("p", "layer-detail-text", opts.angle));
-          detail.appendChild(detailInner);
-          band.appendChild(detail);
-        }
-        return band;
-      }
-
-      // A labeled break that chunks the pipeline into flow zones.
-      function makeZoneDivider(label, muted) {
-        var div = el("div", "zone-divider" + (muted ? " zone-divider--muted" : ""));
-        div.setAttribute("role", "presentation");
-        div.appendChild(el("span", "zone-label", label));
-        return div;
-      }
-
-      // A small dashed flow-arrow — used between the map's pipeline columns.
-      function makeFlowArrow(cls) {
-        var wrap = el("div", cls || "mp-arrow");
-        wrap.innerHTML = '<svg width="28" height="16" viewBox="0 0 28 16" aria-hidden="true">'
-          + '<line class="flow-dash" x1="1" y1="8" x2="20" y2="8" stroke="currentColor" stroke-width="2" stroke-dasharray="3 3"/>'
-          + '<path d="M15 2 L23 8 L15 14" fill="none" stroke="currentColor" stroke-width="2" '
-          + 'stroke-linejoin="round" stroke-linecap="round"/></svg>';
-        return wrap;
-      }
-
-      // Build one interactive, filterable layer card for a category id.
-      function appendLayerBand(container, id, counts, membersByCat) {
-        var c = DATA.categories[id];
-        var band = makeLayerBand({
-          id: id,
-          indexLabel: "Layer " + (c.layer != null ? c.layer : "?"),
-          title: c.label, sub: c.subtitle, desc: c.tooltip, angle: c.investorAngle,
-          color: c.color, icon: c.icon, count: counts[id] || 0,
-          members: (membersByCat && membersByCat[id]) || []
-        });
-        band.setAttribute("tabindex", "0");
-        band.setAttribute("aria-pressed", "false");
-        band.addEventListener("click", function () { setFilter(id); });
-        band.addEventListener("keydown", function (e) {
-          if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setFilter(id); }
-        });
-        container.appendChild(band);
-      }
+      /* (makeLayerBand / appendLayerBand / makeZoneDivider / makeFlowArrow were
+         removed with the v9 schematic rewrite — the chain is drawn by
+         makeChainNode + makeChainLink now, and the demand hub is the bridge
+         node rather than a full-width band.) */
 
       /* Tickers grouped by category, respecting the radar toggle, ranked so the
          highest-priority names show first inside a capped chip row. */
@@ -1779,6 +1666,63 @@
       /* Pipeline view — three flex columns (Supply -> Chip -> Demand), each a
          vertical stack of .layer-band cards sorted by `layer`; the NVIDIA +
          Hyperscalers hub sits centered below the row. */
+      /* A dotted connector, drawn with Aave's exact stroke: dasharray
+         "0.2 8" at width 3 with round caps, plus a small arrowhead. */
+      function makeChainLink(dir) {
+        var wrap = el("div", "chain-link");
+        wrap.setAttribute("aria-hidden", "true");
+        var head = dir === "left"
+          ? '<path d="M12 4 L6 11 L12 18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>'
+          : '<path d="M48 4 L54 11 L48 18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>';
+        wrap.innerHTML = '<svg width="58" height="22" viewBox="0 0 58 22">'
+          + '<line class="flow-dash" x1="2" y1="11" x2="52" y2="11" stroke="currentColor"/>'
+          + head + '</svg>';
+        return wrap;
+      }
+
+      /* One node in the schematic: icon, name, and a dot per company so a
+         layer's weight reads before you read the number. */
+      function makeChainNode(id, counts, membersByCat) {
+        var c = DATA.categories[id];
+        var members = (membersByCat && membersByCat[id]) || [];
+        var n = counts[id] || 0;
+
+        var node = el("button", "chain-node" + (n ? "" : " is-empty"));
+        node.type = "button";
+        node.dataset.cat = id;
+        node.style.setProperty("--accent", c.color);
+        node.setAttribute("aria-pressed", "false");
+
+        if (c.icon) {
+          var iw = el("span", "cn-icon");
+          var ic = AIE.iconSVG(c.icon, "currentColor", 18);
+          if (ic) iw.appendChild(ic);
+          node.appendChild(iw);
+        }
+        node.appendChild(el("span", "cn-label", c.label));
+
+        if (n) {
+          var DOT_CAP = 12;
+          var dots = el("span", "cn-dots");
+          members.slice(0, DOT_CAP).forEach(function (t) {
+            var d = el("i", tierOf(t) === "core" ? "is-core" : null);
+            dots.appendChild(d);
+          });
+          node.appendChild(dots);
+          node.appendChild(el("span", "cn-count",
+            n + (n === 1 ? " company" : " companies") + (n > DOT_CAP ? "" : "")));
+        } else {
+          node.appendChild(el("span", "cn-count", "none tracked"));
+        }
+
+        node.addEventListener("click", function () { setFilter(id); });
+        return node;
+      }
+
+      /* The chain schematic. Three panels — what feeds the chip, the chip,
+         who buys it — joined by dotted connectors, after the "Built for
+         embedded yield" diagram on aave.com/stable-vaults. NVIDIA is the
+         bridge node inside the chip panel rather than a black slab. */
       function renderPipeline() {
         var root = document.getElementById("mapPipeline");
         if (!root || !DATA || !DATA.categories || !DATA.center) return;
@@ -1789,72 +1733,114 @@
         var byLayerDesc = function (a, b) {
           return (DATA.categories[b].layer || 0) - (DATA.categories[a].layer || 0);
         };
-
-        // Three stacked zones rather than three cramped columns. The flow still
-        // reads top-to-bottom (what feeds the chip -> the chip -> who buys it),
-        // and each layer gets room for its description and its companies.
-        var zones = [
-          { role: "supply", title: "What feeds the chip",
-            note: "Raw inputs, packaging and interconnect." },
-          { role: "chip",   title: "The chip itself",
-            note: "Who designs it, who fabricates it, what wires it together." },
-          { role: "demand", title: "Who buys the compute",
-            note: "The clouds and platforms renting it out." }
-        ];
-
-        var placed = {};
-        zones.forEach(function (z) {
-          var ids = Object.keys(DATA.categories).filter(function (id) {
-            return DATA.categories[id].flowRole === z.role;
+        var idsFor = function (role) {
+          return Object.keys(DATA.categories).filter(function (id) {
+            return DATA.categories[id].flowRole === role;
           }).sort(byLayerDesc);
-          if (!ids.length) return;
+        };
 
-          var zone = el("section", "chain-zone");
-          var head = el("div", "chain-zone-head");
-          head.appendChild(el("h3", "chain-zone-title", z.title));
-          var note = el("span", "chain-zone-note");
-          var n = ids.reduce(function (a, id) { return a + (counts[id] || 0); }, 0);
-          note.appendChild(el("b", null, String(n)));
-          note.appendChild(document.createTextNode(
-            (n === 1 ? " company" : " companies") + " · " + z.note));
-          head.appendChild(note);
-          zone.appendChild(head);
+        var diagram = el("div", "chain-diagram");
+        var placed = {};
 
-          var grid = el("div", "chain-grid");
-          grid.setAttribute("role", "list");
-          ids.forEach(function (id) { placed[id] = true; appendLayerBand(grid, id, counts, members); });
-          zone.appendChild(grid);
-
-          // The demand hub closes the demand zone — it is where the flow lands.
-          if (z.role === "demand") {
-            var hubWrap = el("div", "mp-hub");
-            hubWrap.appendChild(makeLayerBand({
-              isHub: true, indexLabel: "The buyer",
-              title: DATA.center.title, sub: DATA.center.subtitle,
-              desc: DATA.center.tooltip, icon: DATA.center.icon
-            }));
-            zone.appendChild(hubWrap);
+        function panel(role, label, isChip) {
+          var pnl = el("div", "chain-panel" + (isChip ? " chain-panel--chip" : ""));
+          pnl.appendChild(el("span", "chain-panel-label", label));
+          if (isChip) {
+            var br = el("div", "chain-bridge");
+            if (DATA.center.icon) {
+              var bi = el("span", "chain-bridge-icon");
+              var bic = AIE.iconSVG(DATA.center.icon, "currentColor", 22);
+              if (bic) bi.appendChild(bic);
+              br.appendChild(bi);
+            }
+            br.appendChild(el("span", "chain-bridge-title", DATA.center.title));
+            if (DATA.center.subtitle) br.appendChild(el("span", "chain-bridge-sub", DATA.center.subtitle));
+            pnl.appendChild(br);
           }
-          root.appendChild(zone);
-        });
+          var nodes = el("div", "chain-nodes");
+          nodes.setAttribute("role", "list");
+          if (isChip) nodes.style.marginTop = "var(--s-4)";
+          idsFor(role).forEach(function (id) {
+            placed[id] = true;
+            nodes.appendChild(makeChainNode(id, counts, members));
+          });
+          pnl.appendChild(nodes);
+          return pnl;
+        }
 
-        // Anything without a flowRole (e.g. unsorted) drops into a triage zone.
+        diagram.appendChild(panel("supply", "What feeds the chip", false));
+        diagram.appendChild(makeChainLink("right"));
+        diagram.appendChild(panel("chip", "The chip", true));
+        diagram.appendChild(makeChainLink("right"));
+        diagram.appendChild(panel("demand", "Who buys the compute", false));
+        root.appendChild(diagram);
+
+        // Selected-layer detail, revealed under the diagram.
+        var detail = el("div", "chain-detail");
+        detail.id = "chainDetail";
+        detail.appendChild(el("div", "chain-detail-inner"));
+        root.appendChild(detail);
+
+        // Anything without a flowRole (e.g. unsorted) gets a quiet triage row.
         var leftover = Object.keys(DATA.categories)
           .filter(function (id) { return !placed[id]; })
           .sort(byLayerDesc);
         if (leftover.length) {
-          var tz = el("section", "chain-zone");
-          var th = el("div", "chain-zone-head");
-          th.appendChild(el("h3", "chain-zone-title", "Not sorted yet"));
-          th.appendChild(el("span", "chain-zone-note",
-            "Names that do not cleanly fit a layer."));
-          tz.appendChild(th);
-          var tg = el("div", "chain-grid");
-          tg.setAttribute("role", "list");
-          leftover.forEach(function (id) { appendLayerBand(tg, id, counts, members); });
-          tz.appendChild(tg);
+          var tz = el("div", "chain-panel chain-panel--triage");
+          tz.appendChild(el("span", "chain-panel-label", "Not sorted yet"));
+          var tn = el("div", "chain-nodes");
+          leftover.forEach(function (id) { tn.appendChild(makeChainNode(id, counts, members)); });
+          tz.appendChild(tn);
           root.appendChild(tz);
         }
+
+        renderChainDetail();
+      }
+
+      /* Fill (or clear) the detail panel under the schematic. The nodes are
+         deliberately small, so the prose lives here instead of in each node. */
+      function renderChainDetail() {
+        var wrap = document.getElementById("chainDetail");
+        if (!wrap) return;
+        var inner = wrap.querySelector(".chain-detail-inner");
+        var id = mapState.selectedId;
+        var c = id && DATA.categories && DATA.categories[id];
+        if (!c) {
+          wrap.classList.remove("open");
+          setDrilldownOpen(wrap, inner, false);
+          return;
+        }
+        inner.innerHTML = "";
+        inner.style.setProperty("--accent", c.color);
+
+        var head = el("div", "cd-head");
+        head.appendChild(el("span", "cd-title", c.label));
+        if (c.subtitle) head.appendChild(el("span", "cd-sub", c.subtitle));
+        var n = (getCategoryCounts()[id] || 0);
+        var cnt = el("span", "cd-count");
+        cnt.appendChild(el("b", null, String(n)));
+        cnt.appendChild(document.createTextNode(n === 1 ? " company tracked" : " companies tracked"));
+        head.appendChild(cnt);
+        inner.appendChild(head);
+
+        if (c.tooltip) inner.appendChild(el("p", "cd-text", c.tooltip));
+        if (c.investorAngle) {
+          inner.appendChild(el("span", "cd-watch-label", "What to watch"));
+          inner.appendChild(el("p", "cd-text", c.investorAngle));
+        }
+        var mem = getMembersByCategory()[id] || [];
+        if (mem.length) {
+          var chips = el("div", "cd-tickers");
+          mem.forEach(function (t) {
+            var chip = el("a", "aie-chip aie-chip--ticker", t.ticker);
+            chip.href = AIE.linkForTicker(t.ticker);
+            chip.style.setProperty("--chip-accent", c.color);
+            chips.appendChild(chip);
+          });
+          inner.appendChild(chips);
+        }
+        wrap.classList.add("open");
+        setDrilldownOpen(wrap, inner, true);
       }
 
       /* Cross Section view — one flex row of bar divs on a dark blueprint
@@ -1961,14 +1947,12 @@
           ? null
           : (mapState.selectedId === id ? null : id);
 
-        document.querySelectorAll(".layer-band[data-cat]").forEach(function (b) {
+        document.querySelectorAll(".chain-node[data-cat]").forEach(function (b) {
           var on = b.dataset.cat === mapState.selectedId;
           b.classList.toggle("is-active", on);
           b.setAttribute("aria-pressed", on ? "true" : "false");
-          var detail = b.querySelector(".layer-detail");
-          var detailInner = b.querySelector(".layer-detail-inner");
-          if (detail && detailInner) setDrilldownOpen(detail, detailInner, on);
         });
+        renderChainDetail();
         document.querySelectorAll(".mc-col[data-cat]").forEach(function (b) {
           var on = b.dataset.cat === mapState.selectedId;
           b.classList.toggle("is-active", on);
