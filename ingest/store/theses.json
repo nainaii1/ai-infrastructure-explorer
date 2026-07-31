@@ -4270,5 +4270,326 @@
     ],
     "conviction": "normal",
     "tags": []
+  },
+  {
+    "id": "h_442d898389c4471f",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-29T16:35:45Z",
+    "ingestedAt": "2026-07-29T16:35:45Z",
+    "text": "Just some TLDR news:\n\n- $CXMT IPO tomorrow if you like Chinese memory. \n\n- Samsung Electronics reportedly struggling to secure large FC-BGA substrates. Ibiden (4062) reportedly requested LTA guarantees, Samsung Electro-Mechanics sought prepayments. \n\n- Samsung + \n$AVGO\n sign memory + foundry AI framework through 2030, expected to exceed $200b\n\n- $SOI expects FY2027 silicon photonics revenue to double compared to the previous year, surpassing Morgan Stanley's 60% growth projection. Photonics thesis go brrr. \n\n- SK Group + \n$NVDA\n sign $500B+ partnership to build out AI DCs and HBM4 memory. \n\n- SKC Absolics glass core delay to 2027 from reports. Targeting final reliability testing EOY, mass production next year. So if you're curious, this does push back some ramps from $LPK and others (hence drop on ER). \n\n- \n$QCOM\n price hikes by double digits for smartphone processors, due to upstream supplier hike pricing.\n\n- \n$META\n expected to issue $12B in project-level/SPV financing for El Paso, Texas AI DC expansion \n\n- Naver announced a $10 billion investment from \n$NVDA\n and Brookfield to construct a 1GW-scale AI Factory. Near term plan is 200MW by 2028. (Nvidia $1B investment, Brookfield nonbinding $9B)\n\n- 64GB DDR5 server modules rises 146% versus end-June contract pricing\n\n- \n$INTC\n brought forward 14A process mass production  by a year, risk production H2 2027 and volume production in 2028, vs. 2029 HVM expectations. \n\n- Samsung Electro-Mechanics wins $200m MLCC order (existing bottleneck).  \n\n- \n$AMD\n (the Bandana bottleneck), announces Helios is in full production with shipments Q3 2026. Including an up to 2GW MI455X GPU deployment with Anthropic and a 6GW infrastructure rollout with OpenAI. Gave new >50% CAGR TAM to $220B by 2030 from $26b in 2025 for CPU market. \n\nRolls out optical interconnects for Mi500 in 2027. From channel checks, AMD is heading down to the CPO route (seems likely to use Ayar).  \n\n- \n$ORCL\n wins $7B Department of War enterprise software contract\n\n- JX metal doubles semi target capacity at its KR subsidary with a 4B yen investment, with operations to begin H2 2027, amid surging demand from major customers Samsung Electronics and SK Hynix\n\n- Tungsten hexafluoride spot prices surged 2.1-2.5x Y/Y following Japan's Kanto Denka and Chuo Gas announcing permanent production halts. Fluorinated liquid supply faces a vacuum as 3M plans to exit PFAS production. \n\n- From the four optical chipmaker earnings, Yuanjie/Eoptolink/TFC Optical/Dongshan Precision: no major order cuts, 1.6T shipments expected to accelerate into 2027. Optical chip suppliers expected to capture outsized margins from shortages. \n\n- Unitree Robotics Targets 30,000 Humanoid Robot Production Capacity by 2026. Read through on humanoid TAM scaling like \n$CCXI\n and others. \n\n- Energy storage lithium batteries orders increase first half orders by 2,900% apparently in China. Not as familiar with EVE Energy and other battery makers",
+    "tickers": [
+      "AMD",
+      "AVGO",
+      "CCXI",
+      "CXMT",
+      "INTC",
+      "LPK",
+      "META",
+      "NVDA",
+      "ORCL",
+      "QCOM",
+      "SOI"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_eb941a6b810a07bd",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-29T20:09:35Z",
+    "ingestedAt": "2026-07-29T20:09:35Z",
+    "text": "Nvidia in talks to backstop $250B worth of OpenAI DC financing.\n\n- Softbank’s SB energy develops 10 GW Ohio campus \n\n- OpenAI signs long term lease\n\n- \n$NVDA\n guarantees $250B in financing\n\n- OpenAI discussing separate agreement to buy up to $350B in Nvidia chips.\n\nNot quite sure if this circular financing is healthy long term, but given the massive size of AI infrastructure spending…\n\nFeels like capex beneficiaries will be extremely happy.",
+    "tickers": [
+      "NVDA"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_e9e580f0b54616ed",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-29T20:10:11Z",
+    "ingestedAt": "2026-07-29T20:10:11Z",
+    "text": "Wow, $CMXT is up a very normal +469.98% after going public today.\n\nNow valuing it at ~$487.31 billion, up from $85.5 billion. \n\nDid any of my Chinese followers buy into the IPO?\n\nAs for me personally, right now I just want to sit back and wait for the existing bullish logic to gradually play out, especially the CPO-related targets after the recent market pullback. I'm not planning to open any new positions for the time being, but I'll share a few more individual stock ideas a bit later.",
+    "tickers": [
+      "CMXT"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_c7235ee4c03ced94",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-29T20:10:30Z",
+    "ingestedAt": "2026-07-29T20:10:30Z",
+    "text": "FCC set to ban Chinese imports of humanoid and quadruped robots per Reuters.  \n\nTo protect American Humanoid/Robotics programs.\n\nAgility Robotics ( \n$CCXI\n ) and other US humanoid players should be happy to hear this.",
+    "tickers": [
+      "CCXI"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_0120b1d42bd787ed",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-29T20:10:32Z",
+    "ingestedAt": "2026-07-29T20:10:32Z",
+    "text": "I've been out if it recently, just recovering from 2 rounds of surgery. \n\nDrop was been surprising to say the least given \n$GOOGL\n hiked capex guidance last week.  \n\nWill need to check on rate hike odds, but my guess is just deleveraging.",
+    "tickers": [
+      "GOOGL"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_69684ea60ee93290",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-29T20:10:47Z",
+    "ingestedAt": "2026-07-29T20:10:48Z",
+    "text": "I personally see it as extreme short term deleveraging that overshot many individual names. \n\n- \n$BE\n to \n$TER\n reported blowout results, with Bloom reporting 166% Y/Y rev growth + expanding margins + raised 2026 guidance... Teradyne reported 104% Y/Y revenue growth with 300%+ EPS growth. \n\nYour leading optical players over in China reported amazing preliminary earnings + extremely strong read through for the Western photonics sector. \n\nThink earnings season tend to remind markets about continued AI acceleration. I'm expecting \n$LITE\n, \n$SNDK\n / SK Hynix, and sector leader ERs to continue that trend.   \n\nBut it does feel like markets are rewarding existing acceleration more rather than future growth a year out over near-term revisions as seen with \n$AMKR\n. \n\nBut as a TLDR, looks very positive for the themes I'm tracking.  \n\n- Then you have \n$GOOGL\n capex raised to $195-$205B, which is typically the biggest AI demand signal from hyperscalers. \n\n- 77% 0bps change est. next FOMC decision from prediction markets. Trump administration on Monday called for the Fed to lower interest rates. \n\nSo your 3x rate hikes fears this year seem kinda overblown. \n\n- Chinese fears from DUV to $CXMT overflooding are extremely overblown as well. We see this with every sector from time to time until people remember that lasers or HBM bottlenecks for a reason. \n\nAs for personal thoughts, it was unhealthy seeing everything rise up or down together, especially with these themes. But I'm personally not worried since I have full conviction in my names, especially optical interconnects like $SIVE or \n$AAOI\n. \n\n$META\n compute and \n$GOOGL\n GCP margins/growth shows increasing demand for \n$NBIS\n and similar neocloud business models. \n\n$META\n + other hyperscaler notes around LTAs with \n$SNDK\n and Samsung/SK Hynix, \n$MU\n point to structural memory demand. \n\nCan go on and on... \n\nBut when you have Jim Cramer telling every margined DC trader to \"sell everything\" at market open and news saying there's an AI bubble. \n\nI do hate it when others say \"it's dropping so sell\". My belief is that the important thing to look is accelerating revenue/EPS growth. And if that thesis stays in-tact with revenue acceleration in line with hyperscaler capex. \n\nTLDR: I see signs of AI demand / revenue acceleration, hyperscaler capex is one of the most important things to track. \n\nAnd my guess is that we'll see the theme recover broadly. But I can't predict what hour, day, or week that happens.",
+    "tickers": [
+      "AAOI",
+      "AMKR",
+      "BE",
+      "CXMT",
+      "GOOGL",
+      "LITE",
+      "META",
+      "MU",
+      "NBIS",
+      "SIVE",
+      "SNDK",
+      "TER"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_a3fbe3dfa6304803",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-29T20:15:02Z",
+    "ingestedAt": "2026-07-29T20:15:02Z",
+    "text": "US Gov to take 1% stake in \n$GFS\n, and award them $300m for the US CHIPS ACT.\n\nThis is actually a strong read through on $SIVE / \n$LITE\n, given this CHIPS ACT is specifically aimed at advancing CPO + Silicon Photonics. \n\n(For reference, Sivers and Lumentum were the only two public laser suppliers named in GFS presentation slides. Sivers laser arrays was named recently as a reference design in Globalfoundries SCALE for CPO).  \n\nPer US Gov announcement: \"GlobalFoundries will receive up to $300 million to accelerate domestic CPO R&D by two to three years\" (NIST)\n\nNever thought we'd see the US Gov / \n$INTC\n foundry playbook for CPO in specific...",
+    "tickers": [
+      "GFS",
+      "INTC",
+      "LITE",
+      "SIVE"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_72746de6df4b3dce",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-29T20:15:17Z",
+    "ingestedAt": "2026-07-29T20:15:17Z",
+    "text": "I don't own \n$GFS\n, but I'm personally it's surprised it's still down on the news US Gov is taking a direct stake in them for advancing CPO. \n\nSurprising to say the least, given everyone remembers \n$INTC\n as the latest foundry the US Gov liked.",
+    "tickers": [
+      "GFS",
+      "INTC"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_41c515e668e213e6",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-29T20:15:41Z",
+    "ingestedAt": "2026-07-29T20:15:41Z",
+    "text": "Global indiscriminate AI deleveraging right now, \n$AAOI\n is one of the high-beta names affected.\n\nI'd personally be surprised to say the least if they do $5.6B annualized revenue in 2027 (off of $471m/month projections), and remain a $6.3B company.\n\n$LITE\n annualized right now is ~$3.23B and they're a $48B company (but higher margins)",
+    "tickers": [
+      "AAOI",
+      "LITE"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_2d636896cf0553c2",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-30T04:01:03Z",
+    "ingestedAt": "2026-07-30T04:01:03Z",
+    "text": "$AXTI\n enters long term agreement with \n$LITE\n for InP substrates. \n\nLumentum has agreed to pay a deposit of $43.5M as a reservation for capacity.\n\n$AXTI\n secured LTA with \n$COHR\n earlier, with a $22.3M reservation payment.\n\nAs well as a LTA with \n$LITE\n today, totaling $87M ($43.5M + $43.5M) again to reserve capacity. \n\nConsidering that these are both of the two leading optical players, seems positive. \n\nThe actual details such as pricing of the contracts aren't known, so we'll find out more.",
+    "tickers": [
+      "AXTI",
+      "COHR",
+      "LITE"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_6cc7f046ffe02ade",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-30T04:01:39Z",
+    "ingestedAt": "2026-07-30T04:01:39Z",
+    "text": "Serenity\n\n@aleabitoreddit\n·\nOP\n$META\n↗\n$MSFT\n↗\n$AMD\n↗\n$NVDA\n↗\n$IREN\n↗\n$NBIS\n↗\n$GOOGL\n↗\nJust some takeaways from \n$META\n | \n$MSFT\n earnings calls:\n\nMicrosoft:\n- Expected to be FCF positive in 2027, despite the increase in capex (extremely positive for AI buildout that it's funded by operating income)\n- \"Free cash flow was $19.6 billion, reflecting higher capital expenditures\"\n- Quartely capex was $41B, roughly 2/3rds were \"short lived assets, primarily CPUs and GPUs\"\n- Expects capex spend will be over $50 billion for next quarter\n- Capex Guidance at ~$175 billion and 2027 capex roughly the same. Spending plans unchanged and in line. \n- \"Extending the estimated useful life of our data centers from 15 to 25 years\"\n- \"We will be among the first cloud providers to deploy next generation rack-scale AI infrastructure based on \n$AMD\n Helios and \n$NVDA\n Vera Rubin\"\n- \"Customer demand continues to exceed available capacity\"\n\nMeta:\n- Capex $130-$145 billion (narrowed range), from $125B-$145B. \n- Meta is receiving offers at a \"significant premium\" to what they paid for it (compute scarcity, positive for neoclouds like \n$IREN\n / \n$NBIS\n )\n- Expects significant portion of compute (like the 1 GW DC in El Paso) to develop internal models. \n- Meta has multiple ROI-positive uses for additional compute across its core business (internally, not Meta Compute)\n- \"Finally, we believe that overall industry capacity is going to remain tight for the foreseeable future\" \n- \"The industry has under-built historically for the wave of AI adoption, making existing capacity, including our own, extremely valuable\" - Susan Li\n\nTLDR:\n- \n$MSFT\n and \n$GOOGL\n largely sustaining AI capex buildout while remaining FCF positive or through operating incomes.\n- \n$META\n flags available compute materially below demand at least through 2027. And \n$MSFT\n also flags compute demand far exceeds supply. \n- All three hyperscaler capex largely in line with Google hiking capex figures.\n\nAI selloff seems extremely overblown now, hyperscalers continuing capex in line (with Microsoft being FCF positive) or even hiked with \n$GOOGL\n. \n\nCompute scarcity is visible throughout every single hyperscaler ER.",
+    "tickers": [
+      "AMD",
+      "GOOGL",
+      "IREN",
+      "META",
+      "MSFT",
+      "NBIS",
+      "NVDA"
+    ],
+    "conviction": "high",
+    "tags": []
+  },
+  {
+    "id": "h_ff290dbdf3dd8a82",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-30T04:01:48Z",
+    "ingestedAt": "2026-07-30T04:01:48Z",
+    "text": "True, right now markets just want FCF + large warchests or dividends/buybacks I guess, like \n$AAPL\n.\n\nI'd agree with Zuckerberg that although it compresses near term FCF, they'll be rewarded over time with long term growth. \n\nAs a shareholder, probably better to prioritize long term growth over a low-growth FCF then buybacks company as seen with \n$PYPL\n's returns.",
+    "tickers": [
+      "AAPL",
+      "PYPL"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_58ab72fe0a33550a",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-30T16:05:44Z",
+    "ingestedAt": "2026-07-30T16:05:44Z",
+    "text": "Just some interesting takeaways from $FORM \n earnings call on CPO:\n\nSince they attributed systems revenue nearly doubled due to: \"accelerating growth in co-packaged optics or CPO\". \n\nQ1 2026: \"we now expect 2026 CPO revenues to come in at the high end of the $10 million to $20 million range\"\n\nQ2 2026 (now): \"expect to exceed that range by the end of the third quarter, and to significantly exceed the $20 million level for the year overall.\"\n\nManagement stated \"We’re seeing some significant acceleration in this [CPO] business\". \n\nQ: CPO adoption outlook. Are we perhaps expecting the timeline to accelerate a little bit?\n\nA: \"What I would say is there’s acceleration here in the very short term.\" But management stated there's not a significant pull-in on timelines. \n\nCiting production infrastructure (not just R&D) for:\n\n- The growing volumes of CPO chips planned for later this year + test insertion for scale-up and scale-out switches. \n- Seems like that CPO piece flows through $TSM \n COUPE [ likely maps to $NVDA \n CPO products] - \"The CPO piece does flow through that 10% customer\"\n\nSo now, test is ramping given management cited growing volumes of CPO chips. \n\n\"The rapid recent growth of our CPO business is an exciting development, which we believe represents the very early stages of widespread adoption of silicon photonics in the broader semiconductor industry\"\n\nTLDR: Fundamentally, CPO as a theme is very early, and should start to go brrr soon since it's starting to show up in earnings now (equipment/test players usually appear up first before optical engines / laser volumes ramp). \n\nPersonally once all the deleveraging stops, I think markets will start to care more.",
+    "tickers": [
+      "FORM",
+      "NVDA",
+      "TSM"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_df3b8fcfcc0502c7",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-30T16:06:06Z",
+    "ingestedAt": "2026-07-30T16:06:06Z",
+    "text": "The $POET \n optical interposer piece is actually a very interesting update and talks about $SIVE.\n\nSince it's a material timeline upgrade wording for \"production\" EOY 2026, for Sivers + Poet.\n\nBack when Sivers did their PR it was \"production readiness\"",
+    "tickers": [
+      "POET",
+      "SIVE"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_e07b775686c9ce68",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-30T16:06:21Z",
+    "ingestedAt": "2026-07-30T16:06:21Z",
+    "text": "I don't think I (or anyone else) can accurately call the bottom. Otherwise they would just do weekly options if they knew. \n\nIt's hard to see some of the names drop any lower though, like $AAOI \n is close to 1x annualized fwd revenue/MC.  \n\n$POET \n dropped so much that it's roughly ~$800m cash to $1.08B MC. \n\nIn general, even Leopond finds current valuations extremely attractive, so he's raising more to buy the drop. Who knows though?\n\nBut medium-long term, for my own thesis, I expect them to play out once revenue projections hit earnings. \n\nI've reiterated end of H1 2027 for $AAOI \n in terms of revenue inflection.... H4 2026 for $NBIS \n revenue inflection, and so on for my own ests. \n\nOf course, lot of volatility in between then.",
+    "tickers": [
+      "AAOI",
+      "NBIS",
+      "POET"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "x_2082896789880119590",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2082896789880119590",
+    "postedAt": "2026-07-30T18:31:07Z",
+    "ingestedAt": "2026-07-31T07:15:33Z",
+    "text": "Did Citadel really just liquidate Situational Awareness…\n\nThen brought up entire markets the next day?\n\n$NBIS +26.25%\n$IREN +25.96%\n$SHAZ +22.82%\n$SNDK + 23.98%\n$BE +23.67%\n$SKHY +16.98%\n$INTC +12.16%\n\nAmid many others. This has gotta be one of the wildest liquidations I’ve seen. https://x.com/aleabitoreddit/status/2082896789880119590",
+    "tickers": [
+      "BE",
+      "INTC",
+      "IREN",
+      "NBIS",
+      "SHAZ",
+      "SKHY",
+      "SNDK"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "x_2082578803189268855",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2082578803189268855",
+    "postedAt": "2026-07-29T21:27:33Z",
+    "ingestedAt": "2026-07-31T07:15:58Z",
+    "text": "$AXTI enters long term agreement with $LITE for InP substrates. \n\nLumentum has agreed to pay a deposit of $43.5M as a reservation for capacity. https://x.com/aleabitoreddit/status/2082578803189268855",
+    "tickers": [
+      "AXTI",
+      "LITE"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "x_2082720873908494456",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2082720873908494456",
+    "postedAt": "2026-07-30T06:52:06Z",
+    "ingestedAt": "2026-07-31T07:22:39Z",
+    "text": "Just some interesting takeaways from $FORM earnings call on CPO:\n\nSince they attributed systems revenue nearly doubled due to: \"accelerating growth in co-packaged optics or CPO\". \n\nQ1 2026: \"we now expect 2026 CPO revenues to come in at the high end of the $10 million to $20 million range\"\n\nQ2 2026 (now): \"expect to exceed that range by the end of the third quarter, and to significantly exceed the $20 million level for the year overall.\"\n\nManagement stated \"We’re seeing some significant acceleration in this [CPO] business\". \n\nQ: CPO adoption outlook. Are we perhaps expecting the timeline to accelerate a little bit?\n\nA: \"What I would say is there’s acceleration here in the very short term.\" But management stated there's not a significant pull-in on timelines. \n\nCiting production infrastructure (not just R&D) for:\n\n- The growing volumes of CPO chips planned for later this year + test insertion for scale-up and scale-out switches. \n- Seems like that CPO piece flows through $TSM COUPE [ likely maps to $NVDA CPO products] - \"The CPO piece does flow through that 10% customer\"\n\nSo now, test is ramping given management cited growing volumes of CPO chips. \n\n\"The rapid recent growth of our CPO business is an exciting development, which we believe represents the very early stages of widespread adoption of silicon photonics in the broader semiconductor industry\"\n\nTLDR: Fundamentally, CPO as a theme is very early, and should start to go brrr soon since it's starting to show up in earnings now (equipment/test players usually appear up first before optical engines / laser volumes ramp). \n\nPersonally once all the deleveraging stops, I think markets will start to care more. https://x.com/aleabitoreddit/status/2082720873908494456",
+    "tickers": [
+      "FORM",
+      "NVDA",
+      "TSM"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "x_2082605568699871284",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2082605568699871284",
+    "postedAt": "2026-07-29T23:13:55Z",
+    "ingestedAt": "2026-07-31T07:22:43Z",
+    "text": "Just some takeaways from $META | $MSFT earnings calls:\n\nMicrosoft:\n- Expected to be FCF positive in 2027, despite the increase in capex (extremely positive for AI buildout that it's funded by operating income)\n- \"Free cash flow was $19.6 billion, reflecting higher capital expenditures\"\n- Quartely capex was $41B, roughly 2/3rds were \"short lived assets, primarily CPUs and GPUs\"\n- Expects capex spend will be over $50 billion for next quarter\n- Capex Guidance at ~$175 billion and 2027 capex roughly the same. Spending plans unchanged and in line. \n- \"Extending the estimated useful life of our data centers from 15 to 25 years\"\n- \"We will be among the first cloud providers to deploy next generation rack-scale AI infrastructure based on $AMD Helios and $NVDA Vera Rubin\"\n- \"Customer demand continues to exceed available capacity\"\n\nMeta:\n- Capex $130-$145 billion (narrowed range), from $125B-$145B. \n- Meta is receiving offers at a \"significant premium\" to what they paid for it (compute scarcity, positive for neoclouds like $IREN / $NBIS )\n- Expects significant portion of compute (like the 1 GW DC in El Paso) to develop internal models. \n- Meta has multiple ROI-positive uses for additional compute across its core business (internally, not Meta Compute)\n- \"Finally, we believe that overall industry capacity is going to remain tight for the foreseeable future\" \n- \"The industry has under-built historically for the wave of AI adoption, making existing capacity, including our own, extremely valuable\" - Susan Li\n\nTLDR:\n- $MSFT and $GOOGL largely sustaining AI capex buildout while remaining FCF positive or through operating incomes.\n- $META flags available compute materially below demand at least through 2027. And $MSFT also flags compute demand far exceeds supply. \n- All three hyperscaler capex largely in line with Google hiking capex figures.\n\nAI selloff seems extremely overblown now, hyperscalers continuing capex in line (with Microsoft being FCF positive) or even hiked with $GOOGL. \n\nCompute scarcity is visible throughout every single hyperscaler ER. https://x.com/aleabitoreddit/status/2082605568699871284",
+    "tickers": [
+      "AMD",
+      "GOOGL",
+      "IREN",
+      "META",
+      "MSFT",
+      "NBIS",
+      "NVDA"
+    ],
+    "conviction": "high",
+    "tags": []
   }
 ]

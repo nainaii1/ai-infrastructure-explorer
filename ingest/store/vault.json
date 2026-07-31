@@ -1,7 +1,7 @@
 {
   "meta": {
     "schemaVersion": 1,
-    "syncedAt": "2026-07-26T09:20:50Z",
+    "syncedAt": "2026-07-31T07:22:43Z",
     "pageCount": 63,
     "linkCount": 196
   },
@@ -82,8 +82,8 @@
           "label": "Hyperscalers",
           "flowRole": "demand",
           "memberCount": 5,
-          "coreCount": 3,
-          "watchCount": 2
+          "coreCount": 5,
+          "watchCount": 0
         }
       },
       "note": "The buyers of compute \u2014 and the center of the week's narrative war. [[aleabitoreddit]] framed the selloff as misinformation: a 1 July Bloomberg piece reported [[meta]] will *sell* its excess compute (becoming a [[neocloud]] competitor), which algorithms misread as capex-cutting. His long-standing 'Meta is not cutting' thesis got public support when Meta's 'Watermelon' model reportedly caught up to GPT 5.5 using an order of magnitude more compute.\n\n[[meta]] is the contested name; [[amzn]], [[googl]] and [[msft]] the other three legs of demand. Tracking them here is directional, not for the mega-caps themselves \u2014 hyperscaler capex is the tide that lifts the [[neoclouds]], [[photonics]] and [[memory]] suppliers downstream.",
@@ -233,8 +233,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 55,
-          "lastMentioned": "2026-07-26T09:02:54Z",
+          "mentions": 58,
+          "lastMentioned": "2026-07-30T16:06:21Z",
           "category": "photonics",
           "market": "US",
           "marketCapTier": "Small",
@@ -254,9 +254,9 @@
           "aleabitoreddit"
         ],
         "stats": {
-          "tier": "watch",
-          "mentions": 9,
-          "lastMentioned": "2026-07-16T06:23:06Z",
+          "tier": "core",
+          "mentions": 10,
+          "lastMentioned": "2026-07-30T04:01:48Z",
           "category": "hyperscalers",
           "market": "US",
           "marketCapTier": "Mega",
@@ -321,8 +321,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 29,
-          "lastMentioned": "2026-07-26T09:02:54Z",
+          "mentions": 32,
+          "lastMentioned": "2026-07-30T04:01:39Z",
           "category": "accelerators",
           "market": "US",
           "marketCapTier": "Mega",
@@ -408,8 +408,8 @@
         ],
         "stats": {
           "tier": "watch",
-          "mentions": 8,
-          "lastMentioned": "2026-07-22T15:28:33Z",
+          "mentions": 9,
+          "lastMentioned": "2026-07-29T16:35:45Z",
           "category": "networking",
           "market": "",
           "marketCapTier": "",
@@ -430,8 +430,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 25,
-          "lastMentioned": "2026-07-22T15:28:50Z",
+          "mentions": 27,
+          "lastMentioned": "2026-07-30T04:01:03Z",
           "category": "memory",
           "market": "US",
           "marketCapTier": "Small",
@@ -452,8 +452,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 21,
-          "lastMentioned": "2026-07-13T07:25:45Z",
+          "mentions": 23,
+          "lastMentioned": "2026-07-29T20:10:30Z",
           "category": "robotics",
           "market": "US",
           "marketCapTier": "Mid",
@@ -474,8 +474,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 19,
-          "lastMentioned": "2026-07-26T09:02:54Z",
+          "mentions": 20,
+          "lastMentioned": "2026-07-30T04:01:03Z",
           "category": "photonics",
           "market": "US",
           "marketCapTier": "Large",
@@ -538,8 +538,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 21,
-          "lastMentioned": "2026-07-26T09:01:27Z",
+          "mentions": 23,
+          "lastMentioned": "2026-07-29T20:15:17Z",
           "category": "fabs",
           "market": "",
           "marketCapTier": "",
@@ -560,8 +560,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 16,
-          "lastMentioned": "2026-07-26T09:02:16Z",
+          "mentions": 20,
+          "lastMentioned": "2026-07-30T04:01:39Z",
           "category": "hyperscalers",
           "market": "US",
           "marketCapTier": "Mega",
@@ -603,8 +603,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 19,
-          "lastMentioned": "2026-07-26T09:00:33Z",
+          "mentions": 23,
+          "lastMentioned": "2026-07-30T18:31:07Z",
           "category": "fabs",
           "market": "US",
           "marketCapTier": "Large",
@@ -647,8 +647,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 11,
-          "lastMentioned": "2026-07-22T15:28:14Z",
+          "mentions": 14,
+          "lastMentioned": "2026-07-30T18:31:07Z",
           "category": "neoclouds",
           "market": "",
           "marketCapTier": "",
@@ -691,8 +691,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 52,
-          "lastMentioned": "2026-07-26T09:02:54Z",
+          "mentions": 57,
+          "lastMentioned": "2026-07-30T04:01:03Z",
           "category": "photonics",
           "market": "US",
           "marketCapTier": "Mid",
@@ -735,8 +735,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 28,
-          "lastMentioned": "2026-07-26T08:59:09Z",
+          "mentions": 32,
+          "lastMentioned": "2026-07-30T04:01:39Z",
           "category": "hyperscalers",
           "market": "US",
           "marketCapTier": "Mega",
@@ -778,9 +778,9 @@
           "aleabitoreddit"
         ],
         "stats": {
-          "tier": "watch",
-          "mentions": 5,
-          "lastMentioned": "2026-07-16T06:22:55Z",
+          "tier": "core",
+          "mentions": 7,
+          "lastMentioned": "2026-07-30T04:01:39Z",
           "category": "hyperscalers",
           "market": "US",
           "marketCapTier": "Mega",
@@ -801,8 +801,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 24,
-          "lastMentioned": "2026-07-26T09:00:33Z",
+          "mentions": 25,
+          "lastMentioned": "2026-07-29T20:10:47Z",
           "category": "memory",
           "market": "US",
           "marketCapTier": "Large",
@@ -823,8 +823,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 28,
-          "lastMentioned": "2026-07-26T09:02:16Z",
+          "mentions": 33,
+          "lastMentioned": "2026-07-30T18:31:07Z",
           "category": "neoclouds",
           "market": "US",
           "marketCapTier": "Mid",
@@ -867,8 +867,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 54,
-          "lastMentioned": "2026-07-22T15:29:08Z",
+          "mentions": 60,
+          "lastMentioned": "2026-07-30T16:05:44Z",
           "category": "accelerators",
           "market": "US",
           "marketCapTier": "Mega",
@@ -910,8 +910,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 20,
-          "lastMentioned": "2026-07-22T15:22:40Z",
+          "mentions": 22,
+          "lastMentioned": "2026-07-30T16:06:21Z",
           "category": "photonics",
           "market": "US",
           "marketCapTier": "Small",
@@ -996,8 +996,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 93,
-          "lastMentioned": "2026-07-26T09:02:54Z",
+          "mentions": 96,
+          "lastMentioned": "2026-07-30T16:06:06Z",
           "category": "photonics",
           "market": "SE",
           "marketCapTier": "Small",
@@ -1018,8 +1018,8 @@
         ],
         "stats": {
           "tier": "watch",
-          "mentions": 2,
-          "lastMentioned": "2026-07-22T15:26:21Z",
+          "mentions": 3,
+          "lastMentioned": "2026-07-30T18:31:07Z",
           "category": "memory",
           "market": "KR",
           "marketCapTier": "Large",
@@ -1062,8 +1062,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 17,
-          "lastMentioned": "2026-07-26T09:00:33Z",
+          "mentions": 19,
+          "lastMentioned": "2026-07-30T18:31:07Z",
           "category": "memory",
           "market": "",
           "marketCapTier": "",
@@ -1150,8 +1150,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 21,
-          "lastMentioned": "2026-07-26T08:59:47Z",
+          "mentions": 23,
+          "lastMentioned": "2026-07-30T16:05:44Z",
           "category": "fabs",
           "market": "TW",
           "marketCapTier": "Mega",
