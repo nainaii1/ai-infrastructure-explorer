@@ -248,8 +248,13 @@ design.
 3. **`start_bot.sh`** + **SSL fix in `bot.py`** (issues 1 & 3).
 4. **List-post mention weighting** in `scorer.py` (issue 4) — makes tiers
    trustworthy enough to stop second-guessing counts.
-5. **Telethon watcher (`ingest/watcher.py`)** — full auto-capture from the
-   signal-bot chats; build when manual forwarding becomes the bottleneck.
+5. ~~**Telethon watcher (`ingest/watcher.py`)**~~ — ✅ **done 2026-07-30**, but
+   built against **X directly** rather than the signal-bot chats, which turned
+   out to be unnecessary: the public logged-out profile page renders fine in a
+   headless browser, so discovery costs nothing and needs no account. See
+   `docs/WATCHER.md`. Approve-first by design — posts queue into
+   `store/pending_posts.json` and reach `theses.json` only on a Telegram
+   button tap. **Tweet discovery is no longer manual.**
 6. **Radar-tier triage, gradually** — `review.py classify` a few per week;
    no urgency since Radar is hidden by default.
 7. **Watchlist verdict expandable rows** (issue 7).

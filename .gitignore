@@ -28,3 +28,6 @@ ingest/store/.bot_offset
 !docs/images/*.png
 !docs/images/*.jpg
 !docs/images/*.jpeg
+
+# --- Watcher runtime state ---
+ingest/store/.watcher_state.json

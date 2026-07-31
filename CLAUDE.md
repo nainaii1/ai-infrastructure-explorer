@@ -215,6 +215,34 @@ not throwaway config.
   `scorer.canonicalize_theses()` applies both before any
   priority/tier computation, and `bot.py` skips auto-creating ticker stubs
   for them.
+- **X watcher (auto-discovery)** ✅ done (2026-07-30). `ingest/watcher.py` +
+  `docs/WATCHER.md`. **Tweet discovery is no longer manual.** A headless
+  Playwright browser loads the PUBLIC (logged-out) `x.com/aleabitoreddit`
+  profile every 4h via `com.aie.watch-x.plist`, collects permalinks, and
+  queues them into `store/pending_posts.json`. Delivery is batched to the
+  `DELIVERY_HOURS` ({0, 12} local) so the operator gets two Telegram batches a
+  day, each post carrying ✅ Ingest / ❌ Skip inline buttons; `bot.handle_callback`
+  acts on the tap. **Nothing auto-ingests** — a post reaches `theses.json` only
+  on a tap. Three invariants, all load-bearing:
+  (1) **The browser supplies URLs only.** Post text always comes from
+  `fetcher.py`/fxtwitter, and `verify_post()` drops anything it can't confirm
+  (fail closed) — so no scraped DOM text and no model output can ever enter
+  the store. It also re-checks authorship against X and drops mismatches.
+  (2) **Foreign permalinks need a positive repost marker.** X renders
+  strangers' replies on his profile as thread context (observed live:
+  `/stockprodigyman/status/…` asking *him* a question); admitting those would
+  file another person's words as his thesis. Quote-posts are his own permalink
+  and are unaffected. Genuine reposts pass through with `author` set to the
+  ORIGINAL author — hence the new `author` kwarg on `ingest_message`.
+  (3) **The logged-out page is hard-capped at 6 posts** (measured; scrolling
+  cannot pass the "Sign up / Log in" wall). That cap, not preference, sets the
+  4-hourly poll: at ~11 posts/day a 12-hourly poll would sit at the ceiling and
+  lose posts silently. Hitting the cap raises an explicit overflow warning, and
+  24h with no posts found raises a staleness alarm — a broken watcher must
+  never look like a quiet week.
+  Playwright is the project's only heavy dependency and is needed ONLY by
+  `watcher.py`; the plist must call the python.org interpreter by absolute path
+  (Apple's `/usr/bin/python3` does not have it and launchd ignores shell PATH).
 - **Signal Digest** ⛔ superseded (2026-07-06) by the **Coverage memo** feature
   in the v7 upgrade (`docs/EXECUTION.md` Phase 2). The memo
   (`ingest/store/memos.json` → `memo.html`, authored via the weekly review /
@@ -270,48 +298,49 @@ not throwaway config.
    the ingest pipeline grows both over time. Don't assume a specific count in
    code or docs; read it from the store.
 
-## Design system (current — v7 "Unpacked" cool theme, Phase 6; supersedes the warm "editorial paper" theme, which superseded the v6 cleanroom / original cream themes). Values below are the shipped, current state (`docs/DESIGN.md` carries the full component reference).
+## Design system (current — v9 "soft two-tone", shipped 2026-07-31; supersedes v7 "Unpacked"). `docs/DESIGN.md` is the full reference and is current as of this version.
 Defined once in `shared/theme.css` (`:root` tokens + `.aie-*` components); every
-page (including `desk.html`) consumes them directly — U2 deleted the duplicate
-`desk.html` `:root`. Data-dense surfaces (watchlist table, map bands) stay
-system-sans; the display voice (hero + chapter heads, standfirst, ledger titles)
-is a bold geometric sans (`--display`).
-- Background `#f4f5f7` (cool neutral grey) · Card `#ffffff` · Border `#e2e5ea`
-- Text `#2a2e35` · Muted `#7c828c` · Ink (display) `#0b0d12`
-- Brand accent: ONE blue→violet gradient `--brand-grad` (`#2b6bf3`→`#7a3bf0`;
-  solid fallback `--brand-ink` `#3d55f2`), used sparingly — paints the 3px top
-  border and (from U4) at most one gradient-text moment per page. True-black
-  "event stage" dark surfaces: `--stage` `#0a0a0c` / `--stage-hi` `#16161a`
-  (cross-section, NVIDIA hub, vault graph).
-- Shadows: cool-tinted (`rgba(15,23,42,…)`) two-layer `--shadow-sm` /
-  `--shadow-lg`. Radii: `--r-card: 20px` · `--r-tile: 14px` · `--r-chip: 999px`.
-- Motion (unchanged, 200–300ms): `--ease: 240ms ease` + `--spring:
-  cubic-bezier(.32,.72,.28,1.15)` (capsule pill, drill-downs, reveals).
-  Reveals/count-up are entrance effects gated on `prefers-reduced-motion`.
-- Fonts: bold geometric display stack `--display: "Avenir Next", "Futura",
-  -apple-system, "SF Pro Display", …` (hero + chapter heads, standfirst, wordmark,
-  ledger titles; weight 700 / -0.02em at use sites). The old `--serif` alias is
-  gone (U8) — every site says `var(--display)`. Apple system sans (`--sans`) for
-  body/data-dense surfaces; genuine system monospace `--mono` (e.g. SF Mono) for
-  tickers, numbers, and small-caps labels (uppercase, 0.08em, ~11px) — no CDN fonts.
-- Category colors live in `data.js` (`categories[].color`) — see
-  `ingest/store/base.json` for the current 10 (deepened for the cool canvas in
-  U3): Photonics `#3b82f6`, Memory `#8b5cf6`, Fabs `#e08a00`, Neoclouds
-  `#16a34a`, Materials `#f97316`, Networking `#0d9488`, Glass `#0284c7`,
-  Robotics `#e11d48`, Accelerators `#76b900`, Hyperscalers `#6366f1`.
-- Tier/stance badges are cool-tinted (`--sem-*` tokens), same hue semantics:
-  core/act green, accumulate sky, watch amber, radar/pass muted.
-- **Top masthead** (`AIE.renderNav(activePage)`): display wordmark · `PRIVATE
-  COVERAGE · NOT ADVICE` small-caps · page links (Coverage / Desk / Vault /
-  Graph / Performance-greyed) · double-hairline rule. On `desk.html` the
-  masthead scrolls away and the capsule chapter nav pins near the top.
-- **3px brand-gradient top border** (blue→violet `--brand-grad`), full width,
-  pure CSS (`.gradient-border`). `AIE.paintGradientBorder()` is a
-  kept-for-boot-order no-op since U2 — category colors no longer paint the chrome.
-- ⚡ favicon via inline SVG data URI in `<head>` (no external request, `file://`-safe).
-- The true-black `--stage` (`#0a0a0c`) cross-section "blueprint" + NVIDIA hub
-  are intentional dark "event stage" surfaces kept against the cool canvas
-  (Phase 6, U2 — was the `#0f1b2e` blueprint navy).
+page consumes them directly. The language is phantom.com / aave.com — soft
+lavender canvas, big near-black display type, generous air, large soft radii —
+applied to a dense research tool: reading surfaces get the air and the big
+numbers, working surfaces (11-column watchlist, map, graph) keep their density.
+- Canvas: viewport-anchored lavender gradient `#fbfaff → #eeeafc` over
+  `--bg #faf9fe` · Card `#ffffff` · Border `#e6e2f2` / `--border-strong #d5cfe8`
+- Text: Ink `#1b1436` (16.7:1) · Text `#3b3557` (10.9:1) · Muted `#6a6484` (5.3:1)
+- Brand is a LAVENDER RAMP, not one purple: `--violet #6a4ee8` (5.43:1, text-safe
+  — links, active fills, every CTA) · `--violet-soft #8775ec` (3.05:1,
+  DECORATIVE only — icons, fills, large display type) · `--violet-wash #f0ecfe`.
+  Secondary `--teal #0f776f` (text-safe) / `--teal-ui #15a59a` (fills only).
+- **Accessibility contract (load-bearing, see `docs/DESIGN.md` §2):** text pairs
+  clear 4.5:1, UI/fill pairs 3:1. **No gradient text and no white-on-gradient** —
+  `--brand-grad` runs 6.5:1 → 3.05:1, so it paints text-free chrome ONLY (the 3px
+  top border, two 2px hub hairlines). A category hue never carries white text;
+  active category chips tint 20% into `--card` and keep `--ink`.
+  `--fs-2xs` (11px) is the type floor. One `:focus-visible` ring site-wide.
+  **All of this is enforced by `ingest/tests/test_contrast.py`** — a token change
+  that breaks AA fails the test run.
+- Scales (new in v9 — the app previously had 30 ad-hoc sizes and no spacing
+  tokens): `--fs-3xl 44 / 2xl 34 / xl 26 / lg 20 / md 17 / sm 15 / xs 13 /
+  2xs 11` + `--fs-stat clamp(38px,6vw,64px)`; `--s-1 4 … --s-8 72` (section
+  rhythm `--s-8`).
+- Shape/motion: `--r-card 28px` · `--r-tile 18px` · `--r-chip 999px`;
+  violet-tinted two-layer shadows; motion unchanged (`--dur 240ms`, `--spring`),
+  all entrance motion gated on `prefers-reduced-motion`.
+- Fonts: `--display` (Avenir Next / Futura / SF Pro Display) for headings AND
+  body, `--sans` for data-dense surfaces, `--mono` (SF Mono) for tickers,
+  numbers and small-caps labels. **No CDN fonts** — `file://` must work.
+- Signature component: **`.aie-stat` big-number block** (huge figure, quiet mono
+  label), used on the desk hero, the Notes front page and Performance.
+- Category colors stay data-owned in `base.json` (all ten clear 3:1; fabs,
+  materials and accelerators were darkened in v9 to `#c97c00` / `#ec6406` /
+  `#649d00`). Tier/stance badges use the `--sem-*` pairs, all ≥5.3:1.
+- Dark "stage" surfaces (map hub, cross-section, vault graph) have their own
+  measured text tokens: `--on-stage` 15.8:1, `--on-stage-dim` 8.0:1,
+  `--pos-stage` / `--neg-stage` / `--flat-stage`.
+- **Nav labels are Today · Notes · Vault · Record.** "Coverage" was retired in
+  v9; the internal page ids are unchanged (`index.html` is still `coverage`).
+  Voice is short, plain, first person — no jargon in any heading, button, column
+  header or empty state. Analytical prose is untouched.
 
 ## Architecture — two data layers
 **Static config** (categories, center node, countries, zones, mapIntro) → read
@@ -488,13 +517,15 @@ ai-supply-desk/
 ├── docs/
 │   ├── EXECUTION.md             v7 "Private Coverage" upgrade — phased prompt guide (the to-do doc)
 │   ├── GUIDE.md                 how to run everything + FAQ / troubleshooting (read first if stuck)
+│   ├── WATCHER.md               the X watcher — how it works, daily use, when it breaks
 │   ├── PRD.md                   product requirements
 │   ├── ROADMAP.md               what's built / open issues / next steps (living doc)
 │   ├── DESIGN.md                design-system reference (tokens/components) for redesign work
 │   ├── TELEGRAM_SETUP.md        pointer into GUIDE.md
 │   └── images/
 └── ingest/                     THE BACKEND — Python tooling that regenerates data.js
-    ├── bot.py                   Telegram ingest (forward a post -> thesis)
+    ├── bot.py                   Telegram ingest (forward a post -> thesis) + approve buttons
+    ├── watcher.py                X timeline watcher — discovers posts, queues them for approval
     ├── synthesize.py            the "Brain" — Claude-synthesized theme digests (needs ANTHROPIC_API_KEY)
     ├── seats.py                  the three expert seats: prompts + finding validation (pure)
     ├── pre_review.py             one review pass: select coverage, run the seats, merge findings (pure)

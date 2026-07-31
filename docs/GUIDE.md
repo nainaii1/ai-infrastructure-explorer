@@ -380,6 +380,18 @@ enough judged claims for it to mean anything.
 
 ## 9. Backfill & auto-capture (getting posts in with less manual work)
 
+> **Superseded 30 Jul 2026 — read `docs/WATCHER.md` first.** New posts now find
+> *you*: a headless browser reads the public X profile every 4 hours and sends
+> anything new to Telegram with ✅ Ingest / ❌ Skip buttons at midnight and
+> noon. It costs nothing and needs no API key or account. The manual-forwarding
+> routine below still works and is still the fallback if X ever closes the
+> logged-out view — but it is no longer the daily path.
+>
+> The conclusion at the end of this section — "building our own watcher on X
+> itself would need paid API access or scraping; not worth it" — turned out to
+> be **wrong**, which is why it got built. The logged-out profile page renders
+> fine without any account.
+
 **Backfill from your existing signal bots.** If you already follow
 @aleabitoreddit alert bots on Telegram, just **forward their messages to
 your ingest bot** — `bot.py` reads forwarded text exactly like a pasted
