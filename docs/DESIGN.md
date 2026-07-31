@@ -22,7 +22,7 @@ the primary button — with a teal secondary reserved for chrome and data marks.
 The design language is borrowed from [phantom.com](https://phantom.com) and
 [aave.com](https://aave.com), but applied to a dense research tool rather than a
 marketing site: reading surfaces get the air and the big numbers, while the
-working surfaces (the 11-column watchlist, the supply map, the vault graph) keep
+working surfaces (the watchlist, the supply map, the vault graph) keep
 their density because that density is what makes them useful.
 
 The signature component is the **big-number stat block** — a huge figure with a
@@ -209,12 +209,42 @@ Anything used by 2+ pages lives here and is never duplicated (hard rule #3).
 
 | Page | Opens with | Notable |
 |---|---|---|
-| `desk.html` — **Today** | Hero claim + 3 stat blocks, then a capsule nav (Watchlist · The chain · Themes) | The dense one. 11-column sortable watchlist, pipeline/cross-section map, ticker tiles with expand-in-place, theme digests |
+| `desk.html` — **Today** | Hero claim + 3 stat blocks, then a capsule nav (Watchlist · The chain · Themes) | The dense one. 9-column flat watchlist (see below), chain schematic / cross-section chart, ticker tiles with expand-in-place, theme digests |
 | `index.html` — **Notes** | "Everything I've written up." + 3 stat blocks | The memo ledger with type/call/layer filters |
 | `memo.html` | Memo title, live snapshot strip | Right-rail TOC with scrollspy; sources appendix |
 | `vault.html` — **Vault** | List or graph | The canvas force-directed graph is a dark-stage island |
 | `performance.html` — **Record** | Two ledgers: Calls and Claims | The hit-rate block has three deliberately distinct states — no judged claims / raw counts under threshold / a real percentage. Collapsing them would let an absent record read as a bad one. The untestable share is always rendered |
 | `design.html` | Live component gallery | Unlinked from main nav |
+
+### The watchlist (`desk.html`, chapter 01)
+
+The operator's decision surface, rebuilt in v9. It answers **"what moved"**, so
+it is flat, price-first and globally sorted.
+
+- **Flat, never grouped.** Sorting is one global pass over the filtered set.
+  Before v9 it ran inside a per-category loop, so a sort produced eleven
+  independent mini-rankings and never a top-of-book.
+- **One direction convention:** `dir` 1 ascending, −1 descending, for *every*
+  column including Desk. Missing values sort last in **both** directions —
+  absence is not a small number. The active column always shows its arrow and
+  carries `aria-sort`, so the table can never be ordered by something it doesn't
+  display.
+- **Default:** 7D descending over the Core tier (30 rows).
+- **9 columns:** Ticker · Company · 7D · 1M · 1Y · Price · Mkt Cap · Desk · Note.
+  Category is a dot on the ticker cell; Rating lives in the expanded row.
+- **Mkt Cap is display-only.** `prices.json` stores local-currency values with no
+  FX source, so a cross-market sort is arithmetically wrong (KRW ≈1300×
+  inflated). The header explains this rather than sorting incorrectly.
+- **Row click expands in place**, carrying the desk call, the company prose, the
+  analyst mention count and the rating control. It does not navigate:
+  `linkForTicker` resolves to this same page for most names, so the old row
+  click reloaded and reset the view.
+- **View state persists** to `aie_wl_view` (sort key, direction, both filters),
+  validated field by field on load so a stale value falls back to the default.
+  Expanded rows survive a re-render.
+- **No dead ends:** category chips are built from the tier-filtered set and show
+  live counts, zero-count chips are disabled, and an empty result renders its
+  reason plus a Clear filters button.
 
 Nav labels are **Today · Notes · Vault · Record**. "Coverage" was retired in v9 —
 it read as trade jargon and said nothing about what the page held. The internal
@@ -251,22 +281,24 @@ than one-up; the capsule nav becomes a fixed bottom bar with
 
 ## 8. Open items
 
-1. **`vault.html` still declares raw px type and hex.** It is excluded from the
+1. **Mkt Cap cannot be sorted without an FX source.** `ingest/store/prices.json`
+   carries only local-currency `marketCap`. Adding a `marketCapUSD` field (the
+   Google Sheet already has `GOOGLEFINANCE` available) would let the column
+   become sortable again; until then it is display-only by design.
+2. **`vault.html` still declares raw px type and hex.** It is excluded from the
    `test_pages_declare_no_raw_hex` list because its graph reads colours through
    `token(name, fallback)`. Worth revisiting when the canvas is repainted.
-2. **The vault graph canvas does not follow the theme.** Every node, edge and
+3. **The vault graph canvas does not follow the theme.** Every node, edge and
    label colour is a baked literal, and type colours are read **once** at render
    time via `getComputedStyle`. Its stale fallbacks were refreshed in v9, but a
    real repaint is a separate job.
-3. **Layout computed in JS.** These break if the surrounding CSS changes:
+4. **Layout computed in JS.** These break if the surrounding CSS changes:
    `insertDetailAfterRow()` reads `offsetTop` to find grid row boundaries
    (`desk.html`); `AIE.setDrilldownOpen` measures `scrollHeight` once and only
    re-measures on `resize` (no `ResizeObserver`); the capsule pill is positioned
    from `offsetWidth`/`offsetLeft`; scrollspy uses tuned magic numbers
    (`innerHeight * 0.45`, `rootMargin: "-72px 0px -75% 0px"`) paired with
    hardcoded `scroll-margin-top` values.
-4. **`.mc-bars` height coupling.** `desk.html` sets bar height from a JS literal
-   (`170`) that must stay in sync with the CSS `190px`.
 5. **`--spring` overshoots** (`cubic-bezier(.32,.72,.28,1.15)`). Deliberate, and
    close to what both reference sites do, but design linters flag it as dated.
    Worth a decision rather than a drift.
