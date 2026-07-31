@@ -43,7 +43,10 @@
   var STORAGE_KEYS = {
     tickers: "aie_tickers",
     theses: "aie_theses",
-    settings: "aie_settings"
+    settings: "aie_settings",
+    // Watchlist view state (sort key/direction + the two filters). A VIEW
+    // preference, not data — seeding never touches it.
+    wlView: "aie_wl_view"
   };
 
   function readJSON(key) {

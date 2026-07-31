@@ -1188,10 +1188,7 @@
     .wl-controls { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 14px; }
     .wl-filters { display: flex; flex-wrap: wrap; gap: 6px; }
     .wl-table thead th.wl-nosort { cursor: default; }
-    .wl-subtotal td {
-      font-family: var(--mono); font-size: var(--fs-2xs); color: var(--text);
-      padding-top: 8px; padding-bottom: 8px;
-    }
+    .wl-table thead th.wl-nosort:hover { color: var(--muted); }
 
     /* Natural page flow — no nested vertical scroll (the Watchlist opens
        focused on Core, so the table is short by default; expanding to
@@ -1204,11 +1201,16 @@
     }
     .wl-table { width: 100%; border-collapse: collapse; font-size: var(--fs-xs); }
     .wl-table th, .wl-table td { padding: 11px 14px; text-align: left; white-space: nowrap; }
+    /* Sticky header. The wrapper deliberately leaves overflow-y visible, so
+       this sticks against the PAGE scroll — 124 rows no longer scroll their
+       own column names away. */
     .wl-table thead th {
+      position: sticky; top: 0; z-index: 2;
       background: var(--card);
       font-family: var(--mono); font-size: var(--fs-2xs); letter-spacing: 0.1em;
       text-transform: uppercase; color: var(--muted); font-weight: 700;
-      cursor: pointer; user-select: none; border-bottom: 1px solid var(--border);
+      cursor: pointer; user-select: none;
+      box-shadow: inset 0 -1px 0 var(--border);
     }
     .wl-table thead th:hover { color: var(--text); }
     .wl-table thead th.num, .wl-table td.num { text-align: right; font-family: var(--mono); }
@@ -1216,11 +1218,18 @@
     .wl-table tbody tr { border-top: 1px solid var(--border); transition: background var(--ease); }
     .wl-table tbody tr:first-child { border-top: none; }
     .wl-table tbody tr:hover { background: color-mix(in srgb, var(--accent, var(--muted)) 6%, var(--card)); }
-    .wl-cat { display: inline-flex; align-items: center; gap: 7px; }
-    /* Category identity, codified (audit fix #6): spine on cards,
-       dot in dense table rows — two deliberate forms of the same signal. */
-    .wl-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--accent, var(--muted)); flex: 0 0 auto; }
-    .wl-cat-label { color: var(--muted); }
+    /* The category dot rides the ticker cell now that the Category column is
+       gone — the layer is still readable without a column repeating it on
+       every row. Hover the dot for the layer name. */
+    .wl-symwrap { display: inline-flex; align-items: center; gap: 8px; }
+    .wl-dot {
+      width: 9px; height: 9px; border-radius: 50%;
+      background: var(--accent, var(--muted)); flex: 0 0 auto; cursor: help;
+    }
+    .wl-company {
+      max-width: 24ch; overflow: hidden; text-overflow: ellipsis;
+      color: var(--text);
+    }
     .wl-sym { font-family: var(--mono); font-weight: 700; color: var(--accent, var(--ink)); text-decoration: none; }
     a.wl-sym:hover { text-decoration: underline; text-underline-offset: 3px; }
     .wl-row-link { cursor: pointer; }
@@ -1237,10 +1246,69 @@
     .wl-neg { color: var(--neg); }
     .wl-muted { color: var(--muted); }
     .wl-rating {
-      appearance: none; font: inherit; font-size: var(--fs-xs); color: var(--text);
+      appearance: none; font-family: inherit; font-size: var(--fs-xs); color: var(--text);
       background: var(--bg); border: 1px solid var(--border);
       border-radius: 6px; padding: 4px 8px; cursor: pointer;
     }
+
+    /* ---------- Expanded row ----------
+       Row click opens this instead of navigating. Holds the desk call, the
+       company prose, why the name is tracked, and the rating control that
+       used to be a column of 124 identical dropdowns. */
+    .wl-row-link.is-open { background: var(--violet-wash); }
+    .wl-detail-row td { padding: 0; white-space: normal; }
+    .wl-detail {
+      display: flex; flex-direction: column; gap: var(--s-3);
+      padding: var(--s-4) var(--s-5) var(--s-5);
+      background: var(--violet-wash);
+      border-left: 3px solid var(--accent, var(--violet));
+    }
+    .wl-detail-p {
+      margin: 0; font-family: var(--sans);
+      font-size: var(--fs-xs); line-height: 1.6; color: var(--text);
+      max-width: 92ch;
+    }
+    .wl-detail-p b { color: var(--ink); font-weight: 700; }
+    .wl-detail-foot {
+      display: flex; align-items: center; gap: var(--s-4);
+      flex-wrap: wrap; margin-top: var(--s-1);
+      padding-top: var(--s-3); border-top: 1px solid var(--border);
+    }
+    .wl-detail-meta { font-family: var(--mono); font-size: var(--fs-2xs); color: var(--muted); }
+    .wl-detail-meta b { color: var(--ink); }
+    .wl-detail-rating {
+      display: inline-flex; align-items: center; gap: var(--s-2); margin-left: auto;
+      font-family: var(--mono); font-size: var(--fs-2xs);
+      letter-spacing: .06em; text-transform: uppercase; color: var(--muted);
+    }
+
+    /* ---------- Empty state ----------
+       Six tier x category combinations can return nothing; the table used to
+       render a bare header inside a bordered card with no way out. */
+    .wl-empty-row td {
+      padding: var(--s-8) var(--s-5); text-align: center; white-space: normal;
+    }
+    .wl-empty-msg {
+      margin: 0 0 var(--s-4);
+      font-family: var(--display); font-size: var(--fs-lg); color: var(--muted);
+    }
+    .wl-empty-reset {
+      appearance: none; font-family: inherit; font-size: var(--fs-xs); font-weight: 600;
+      color: #fff; background: var(--violet); border: 1px solid var(--violet);
+      border-radius: var(--r-chip); padding: var(--s-2) var(--s-4); cursor: pointer;
+      transition: filter var(--ease);
+    }
+    .wl-empty-reset:hover { filter: brightness(1.08); }
+
+    /* Live count on a filter chip, so a chip never promises rows it can't
+       deliver. Zero-count chips render disabled. */
+    .fc-count {
+      margin-left: 6px; font-family: var(--mono); font-size: var(--fs-2xs);
+      color: var(--muted); font-weight: 400;
+    }
+    .filter-chip.is-active .fc-count { color: inherit; opacity: .75; }
+    .filter-chip:disabled { opacity: .4; cursor: not-allowed; }
+    .filter-chip:disabled:hover { border-color: var(--border); color: var(--muted); }
 
     /* ---------- Responsive (mobile breakpoint 768px) ----------
        The tile grid is auto-fill (minmax 168px) so it needs no per-breakpoint
@@ -1307,9 +1375,9 @@
         <header class="chapter-head reveal">
           <span class="chapter-eyebrow">The names</span>
           <h2 class="chapter-title">What I'm watching</h2>
-          <p class="chapter-lede">Every name I track, with last week's price, how
-            strongly it keeps coming up, and my call on it. Sort it, filter it, rate
-            it — your ratings stick.</p>
+          <p class="chapter-lede">Every name I track, with last week's move and my
+            call on it. Sort any column, narrow it by tier or layer, and open a row
+            for the full story — your ratings and your sort both stick.</p>
         </header>
         <div class="wl-section">
           <div class="wl-recent" id="wlRecent" hidden></div>
@@ -1332,18 +1400,21 @@
           <div class="wl-table-wrap">
             <table class="wl-table">
               <thead>
+                <!-- 9 columns, price-first: this table answers "what moved".
+                     Category is gone (the dot on the ticker carries the layer)
+                     and Rating is gone (it lives in the expanded row). Mkt Cap
+                     is deliberately unsortable — see its title. -->
                 <tr>
-                  <th data-key="category">Category</th>
                   <th data-key="ticker">Ticker</th>
                   <th data-key="company">Company</th>
-                  <th data-key="price" class="num">Price</th>
                   <th data-key="chg7d" class="num">7D</th>
                   <th data-key="chg1m" class="num">1M</th>
                   <th data-key="chg1y" class="num">1Y</th>
-                  <th data-key="marketCap" class="num">Mkt Cap</th>
+                  <th data-key="price" class="num">Price</th>
+                  <th class="num wl-nosort"
+                      title="Not sortable: market caps are in each company's own currency and there is no exchange-rate source, so a cross-market ranking would be arithmetically wrong.">Mkt Cap</th>
                   <th data-key="deskStance">Desk</th>
                   <th class="wl-nosort">Note</th>
-                  <th data-key="rating">Rating</th>
                 </tr>
               </thead>
               <tbody id="wlBody"></tbody>
@@ -2532,10 +2603,72 @@
         { id: "radar", label: "Mentioned once" },
         { id: "all", label: "Everything" }
       ];
-      // Watchlist opens focused on Core (highest-conviction names) so the
-      // table is short by default; Signal/Watch/Radar/All are one chip away.
-      // Always grouped by category — column sorts apply within each group.
-      var wlState = { key: "category", dir: 1, categoryFilter: null, tierFilter: "core" };
+      /* Watchlist view state.
+         FLAT and globally sorted — there is no grouping. The table answers
+         "what moved", so it opens on 7D descending over the Core tier (the
+         30 highest-conviction names); every other tier is one chip away.
+
+         dir: 1 = ascending, -1 = descending, for EVERY column including Desk.
+         The old code inverted the deskStance branch, so one arrow glyph meant
+         two opposite things depending on which header you clicked.
+
+         `open` holds the tickers whose detail row is expanded, so a sort or
+         filter re-render does not silently collapse them. */
+      var WL_DEFAULT_VIEW = { key: "chg7d", dir: -1, categoryFilter: null, tierFilter: "core" };
+      var wlState = {
+        key: WL_DEFAULT_VIEW.key,
+        dir: WL_DEFAULT_VIEW.dir,
+        categoryFilter: WL_DEFAULT_VIEW.categoryFilter,
+        tierFilter: WL_DEFAULT_VIEW.tierFilter,
+        open: {}
+      };
+
+      var WL_SORTABLE = ["ticker", "company", "chg7d", "chg1m", "chg1y", "price", "deskStance"];
+      var WL_TIER_IDS = ["signal", "core", "watch", "radar", "all"];
+
+      /* Restore the view. Validated field by field: a hand-edited or stale
+         localStorage value must not be able to put the table into a state the
+         UI can no longer represent (e.g. sorting by a column that no longer
+         exists after this rewrite). */
+      /* Own the key locally with a fallback. If a stale cached shared/common.js
+         is in play, STORAGE_KEYS.wlView is undefined and the naive version
+         writes to a localStorage key literally named "undefined". This app is
+         opened from file:// and served without cache-busting, so a stale
+         common.js is a realistic scenario, not a theoretical one. */
+      var WL_VIEW_KEY = (typeof STORAGE_KEYS === "object" && STORAGE_KEYS.wlView)
+        || "aie_wl_view";
+
+      function loadWlView() {
+        var saved = readJSON(WL_VIEW_KEY);
+        if (!saved || typeof saved !== "object") return;
+        if (WL_SORTABLE.indexOf(saved.key) !== -1) wlState.key = saved.key;
+        if (saved.dir === 1 || saved.dir === -1) wlState.dir = saved.dir;
+        if (WL_TIER_IDS.indexOf(saved.tierFilter) !== -1) wlState.tierFilter = saved.tierFilter;
+        if (saved.categoryFilter == null
+            || (DATA.categories && DATA.categories[saved.categoryFilter])) {
+          wlState.categoryFilter = saved.categoryFilter || null;
+        }
+      }
+      function saveWlView() {
+        try {
+          localStorage.setItem(WL_VIEW_KEY, JSON.stringify({
+            key: wlState.key, dir: wlState.dir,
+            categoryFilter: wlState.categoryFilter, tierFilter: wlState.tierFilter
+          }));
+        } catch (e) { /* storage may be unavailable on file:// */ }
+      }
+      // One place that mutates + persists + repaints, so no call site can
+      // change the view and forget to save it.
+      function setWlView(patch) {
+        Object.keys(patch).forEach(function (k) { wlState[k] = patch[k]; });
+        saveWlView();
+        renderWatchlist();
+      }
+
+      // Number of columns in the live <thead> — the detail row spans them all.
+      function wlColSpan() {
+        return document.querySelectorAll(".wl-table thead th").length || 9;
+      }
 
       function wlTickers() { return (DATA && DATA.tickers) ? DATA.tickers.slice() : []; }
 
@@ -2588,18 +2721,26 @@
       /* fmtNum() and fmtMcap() now live in shared/common.js; aliased near the
          top of this script. */
 
+      /* One comparator, one direction convention: dir 1 ascending, -1
+         descending, for every column. Desk ranks by stance strength and obeys
+         dir like everything else, so the header arrow is never backwards.
+
+         Missing values sort LAST in both directions on purpose: "no price" is
+         absence, not a small number, and flipping the arrow should not drag a
+         wall of em-dashes to the top. */
       function wlCompare(a, b) {
         var k = wlState.key;
+        var av, bv;
+
         if (k === "deskStance") {
-          var av = (a.verdict && STANCE_RANK[a.verdict.stance]) || 0;
-          var bv = (b.verdict && STANCE_RANK[b.verdict.stance]) || 0;
-          if (av !== bv) return (bv - av) * wlState.dir;
-          return a.ticker < b.ticker ? -1 : 1;
-        }
-        var numeric = (k === "price" || k === "chg7d" || k === "chg1m" || k === "chg1y" || k === "marketCap");
-        if (numeric) {
+          av = (a.verdict && STANCE_RANK[a.verdict.stance]) || 0;
+          bv = (b.verdict && STANCE_RANK[b.verdict.stance]) || 0;
+          // 0 means "no call" — treat it as missing so it stays at the bottom.
+          if ((av === 0) !== (bv === 0)) return av === 0 ? 1 : -1;
+          if (av !== bv) return (av - bv) * wlState.dir;
+        } else if (k === "chg7d" || k === "chg1m" || k === "chg1y" || k === "price") {
           var anull = a[k] == null, bnull = b[k] == null;
-          if (anull !== bnull) return anull ? 1 : -1;   // missing values always last
+          if (anull !== bnull) return anull ? 1 : -1;
           if (!anull && a[k] !== b[k]) return (a[k] - b[k]) * wlState.dir;
         } else {
           var as = String(a[k] || "").toLowerCase(), bs = String(b[k] || "").toLowerCase();
@@ -2616,30 +2757,84 @@
         return td;
       }
 
-      // Full-width verdict detail row, inserted under a watchlist row when the
-      // stance badge is clicked (view / execution / what changes the mind).
-      function makeVerdictDetailRow(t) {
-        var v = t.verdict;
+      /* Full-width detail row. Row click expands this in place rather than
+         navigating: linkForTicker resolves to this very page for most names,
+         so the old row-click was a self-navigation that reloaded and reset the
+         view. This is also where the Rating control lives now that the column
+         is gone — it is real user data (preserved across re-seeds by
+         common.js) and still needs an editable home. */
+      function makeRowDetailRow(t) {
         var tr = document.createElement("tr");
-        tr.className = "wl-verdict-row";
+        tr.className = "wl-detail-row";
         var td = document.createElement("td");
-        td.colSpan = 11;
-        var box = el("div", "wl-verdict");
-        var head = el("div", "tk-verdict-head");
-        head.appendChild(el("span", "tk-verdict-label", "My call"));
-        head.appendChild(el("span", "vd-stance " + v.stance, AIE.stanceLabel(v.stance)));
-        if (v.updatedAt) head.appendChild(el("span", "tk-verdict-label", AIE.fmtDate(String(v.updatedAt).slice(0, 10))));
-        box.appendChild(head);
-        function vBlock(label, text) {
-          if (!text) return;
-          var p = el("p");
-          p.appendChild(el("b", null, label + " — "));
-          p.appendChild(document.createTextNode(text));
-          box.appendChild(p);
+        td.colSpan = wlColSpan();
+        var box = el("div", "wl-detail");
+
+        var v = t.verdict;
+        if (v) {
+          var head = el("div", "tk-verdict-head");
+          head.appendChild(el("span", "tk-verdict-label", "My call"));
+          head.appendChild(el("span", "vd-stance " + v.stance, AIE.stanceLabel(v.stance)));
+          if (v.updatedAt) {
+            head.appendChild(el("span", "tk-verdict-label",
+              AIE.fmtDate(String(v.updatedAt).slice(0, 10))));
+          }
+          box.appendChild(head);
+          function vBlock(label, text) {
+            if (!text) return;
+            var pEl = el("p", "wl-detail-p");
+            pEl.appendChild(el("b", null, label + " — "));
+            pEl.appendChild(document.createTextNode(text));
+            box.appendChild(pEl);
+          }
+          vBlock("View", v.view);
+          vBlock("Execution", v.execution);
+          vBlock("Changes my mind", v.changesMind);
         }
-        vBlock("View", v.view);
-        vBlock("Execution", v.execution);
-        vBlock("Changes my mind", v.changesMind);
+
+        if (t.whatTheyDo) {
+          var w = el("p", "wl-detail-p");
+          w.appendChild(el("b", null, "What they do — "));
+          w.appendChild(document.createTextNode(t.whatTheyDo));
+          box.appendChild(w);
+        }
+        if (t.whyNVDA) {
+          var y = el("p", "wl-detail-p");
+          y.appendChild(el("b", null, "Why NVIDIA needs them — "));
+          y.appendChild(document.createTextNode(t.whyNVDA));
+          box.appendChild(y);
+        }
+
+        // Footer: why this name is in the table, and the rating control.
+        var foot = el("div", "wl-detail-foot");
+        var pr = t.priority;
+        if (pr) {
+          // analystMentions, never `mentions` — the raw total includes the
+          // desk's own research findings and would credit them to him.
+          var n = pr.analystMentions != null ? pr.analystMentions : 0;
+          var seen = el("span", "wl-detail-meta");
+          seen.appendChild(el("b", null, String(n)));
+          seen.appendChild(document.createTextNode(
+            (n === 1 ? " mention" : " mentions") +
+            (pr.lastMentioned ? " · last " + AIE.fmtDate(String(pr.lastMentioned).slice(0, 10)) : "")));
+          foot.appendChild(seen);
+        }
+        var ratingWrap = el("label", "wl-detail-rating");
+        ratingWrap.appendChild(el("span", null, "My rating"));
+        var sel = document.createElement("select");
+        sel.className = "wl-rating";
+        WL_RATINGS.forEach(function (opt) {
+          var o = document.createElement("option");
+          o.value = opt; o.textContent = AIE.ratingLabel(opt);
+          sel.appendChild(o);
+        });
+        sel.value = ratingFor(t.ticker);
+        sel.addEventListener("click", function (ev) { ev.stopPropagation(); });
+        sel.addEventListener("change", function () { setRating(t.ticker, sel.value); });
+        ratingWrap.appendChild(sel);
+        foot.appendChild(ratingWrap);
+        box.appendChild(foot);
+
         td.appendChild(box);
         tr.appendChild(td);
         return tr;
@@ -2648,19 +2843,27 @@
       function makeWatchlistRow(t) {
         var cat = DATA.categories[t.category];
         var tr = document.createElement("tr");
+        tr.className = "wl-row-link";
         tr.style.setProperty("--accent", cat ? cat.color : "var(--muted)");
 
-        var cTd = document.createElement("td");
-        var wrap = el("span", "wl-cat");
-        wrap.appendChild(el("span", "wl-dot"));
-        wrap.appendChild(el("span", "wl-cat-label", cat ? cat.label : (t.category || "—")));
-        cTd.appendChild(wrap); tr.appendChild(cTd);
-
+        // Ticker cell carries the category dot — the layer is still readable
+        // at a glance now that the Category column is gone.
         var tTd = document.createElement("td");
+        var tWrap = el("span", "wl-symwrap");
+        var dot = el("span", "wl-dot");
+        dot.title = cat ? cat.label : (t.category || "Unsorted");
+        tWrap.appendChild(dot);
         var symLink = el("a", "wl-sym", t.ticker);
         symLink.href = AIE.linkForTicker(t.ticker);
-        tTd.appendChild(symLink); tr.appendChild(tTd);
-        tr.appendChild(el("td", null, t.company || "—"));
+        tWrap.appendChild(symLink);
+        tTd.appendChild(tWrap);
+        tr.appendChild(tTd);
+
+        tr.appendChild(el("td", "wl-company", t.company || "—"));
+
+        tr.appendChild(pctCell(t.chg7d));
+        tr.appendChild(pctCell(t.chg1m));
+        tr.appendChild(pctCell(t.chg1y));
 
         var pTd = el("td", "num");
         if (t.price != null) {
@@ -2669,75 +2872,54 @@
         } else { pTd.appendChild(el("span", "wl-muted", "—")); }
         tr.appendChild(pTd);
 
-        tr.appendChild(pctCell(t.chg7d));
-        tr.appendChild(pctCell(t.chg1m));
-        tr.appendChild(pctCell(t.chg1y));
-
         var mTd = el("td", "num");
         var mc = fmtMcap(t.marketCap, t.currency);
         if (mc) { mTd.textContent = mc; }
-        else { mTd.appendChild(el("span", "wl-muted", t.marketCapTier || "—")); }
+        else { mTd.appendChild(el("span", "wl-muted", "—")); }
         tr.appendChild(mTd);
 
         var dTd = document.createElement("td");
         if (t.verdict) {
-          // Expandable verdict: clicking the stance badge opens a full-width
-          // detail row under this one (view / execution / changes-my-mind),
-          // replacing the old tooltip-only reveal.
-          var vs = el("button", "vd-stance vd-stance--btn " + t.verdict.stance, AIE.stanceLabel(t.verdict.stance));
-          vs.type = "button";
-          vs.title = "Show the desk view";
-          vs.setAttribute("aria-expanded", "false");
-          vs.addEventListener("click", function (ev) {
-            ev.stopPropagation();
-            var next = tr.nextElementSibling;
-            if (next && next.classList.contains("wl-verdict-row")) {
-              next.remove();
-              vs.setAttribute("aria-expanded", "false");
-              return;
-            }
-            tr.parentNode.insertBefore(makeVerdictDetailRow(t), tr.nextSibling);
-            vs.setAttribute("aria-expanded", "true");
-          });
-          dTd.appendChild(vs);
+          dTd.appendChild(el("span", "vd-stance " + t.verdict.stance,
+            AIE.stanceLabel(t.verdict.stance)));
         } else {
           dTd.appendChild(el("span", "wl-muted", "—"));
         }
         tr.appendChild(dTd);
 
-        // Note: link to the coverage memo (+ its date) when one exists.
         var nTd = document.createElement("td");
         var memo = memoForTicker(t.ticker);
         if (memo) {
           var noteLink = el("a", "wl-note", "Memo");
           noteLink.href = "memo.html?id=" + encodeURIComponent(memo.id);
-          if (memo.publishedAt) noteLink.appendChild(el("span", "wl-note-date", AIE.fmtDate(memo.publishedAt)));
+          if (memo.publishedAt) {
+            noteLink.appendChild(el("span", "wl-note-date", AIE.fmtDate(memo.publishedAt)));
+          }
           nTd.appendChild(noteLink);
         } else {
           nTd.appendChild(el("span", "wl-muted", "—"));
         }
         tr.appendChild(nTd);
 
-        var rTd = document.createElement("td");
-        var sel = document.createElement("select"); sel.className = "wl-rating";
-        WL_RATINGS.forEach(function (opt) {
-          var o = document.createElement("option"); o.value = opt; o.textContent = AIE.ratingLabel(opt); sel.appendChild(o);
-        });
-        sel.value = ratingFor(t.ticker);
-        sel.addEventListener("change", function () { setRating(t.ticker, sel.value); });
-        rTd.appendChild(sel); tr.appendChild(rTd);
-
-        // Whole-row click convenience — navigate to the ticker's best page, but
-        // let real interactive cells (the rating select, in-row links) act first.
-        tr.classList.add("wl-row-link");
+        // Row click expands in place. Real links still win.
+        tr.setAttribute("aria-expanded", wlState.open[t.ticker] ? "true" : "false");
         tr.addEventListener("click", function (ev) {
-          var tag = ev.target.tagName;
-          if (tag === "A" || tag === "SELECT" || tag === "OPTION") return;
-          if (ev.target.closest && ev.target.closest("a, select")) return;
-          window.location.href = AIE.linkForTicker(t.ticker);
+          if (ev.target.closest && ev.target.closest("a, select, option")) return;
+          toggleWlRow(t, tr);
         });
 
         return tr;
+      }
+
+      function toggleWlRow(t, tr) {
+        var openNow = !wlState.open[t.ticker];
+        if (openNow) { wlState.open[t.ticker] = true; }
+        else { delete wlState.open[t.ticker]; }
+        tr.setAttribute("aria-expanded", openNow ? "true" : "false");
+        tr.classList.toggle("is-open", openNow);
+        var next = tr.nextElementSibling;
+        if (next && next.classList.contains("wl-detail-row")) next.remove();
+        if (openNow) tr.parentNode.insertBefore(makeRowDetailRow(t), tr.nextSibling);
       }
 
       function renderWatchlist() {
@@ -2773,59 +2955,81 @@
 
         body.innerHTML = "";
 
-        // Always grouped by category. Default order within a group is
-        // analyst mention-count; clicking any sortable column re-orders the
-        // rows inside each group instead. Analyst, not raw: ranking on the
-        // total would let the desk's own research findings lift a name above
-        // one the analyst actually talked about more.
-        var sortIsDefault = wlState.key === "category";
-        var mentionsOf = function (t) {
-          var p = t.priority;
-          if (!p) return 0;
-          return p.analystMentions != null
-            ? p.analystMentions
-            : (p.mentions || 0) - (p.researchMentions || 0);
-        };
-        var byMentions = function (a, b) {
-          var am = mentionsOf(a);
-          var bm = mentionsOf(b);
-          if (am !== bm) return bm - am;
-          return a.ticker < b.ticker ? -1 : 1;
-        };
-        categoriesByLayerAsc().forEach(function (catId) {
-          var rows = filtered.filter(function (t) { return t.category === catId; });
-          if (!rows.length) return;
-          var cat = DATA.categories[catId];
-          rows.sort(sortIsDefault ? byMentions : wlCompare);
-          var subtotal = document.createElement("tr");
-          subtotal.className = "wl-subtotal";
-          subtotal.style.background = "color-mix(in srgb, " + cat.color + " 6%, white)";
-          var td = document.createElement("td");
-          td.colSpan = 11;
-          td.appendChild(el("b", null, cat.label));
-          td.appendChild(document.createTextNode(" · " + rows.length + (rows.length === 1 ? " ticker" : " tickers")));
-          subtotal.appendChild(td);
-          body.appendChild(subtotal);
-          rows.forEach(function (t) { body.appendChild(makeWatchlistRow(t)); });
-        });
+        /* FLAT and globally sorted. The old code sorted inside a per-category
+           loop, so "sort by 1Y" produced eleven independent mini-rankings and
+           never a top-of-book. */
+        var rows = filtered.slice().sort(wlCompare);
 
-        // Sort-direction arrow on the active header.
+        if (!rows.length) {
+          body.appendChild(makeWlEmptyRow());
+        } else {
+          rows.forEach(function (t) {
+            var tr = makeWatchlistRow(t);
+            if (wlState.open[t.ticker]) tr.classList.add("is-open");
+            body.appendChild(tr);
+            // Re-open anything the user had expanded before this render.
+            if (wlState.open[t.ticker]) body.appendChild(makeRowDetailRow(t));
+          });
+        }
+
+        // Sort arrow. Always drawn on the active column — the table can no
+        // longer be ordered by a criterion it doesn't show.
         document.querySelectorAll(".wl-table thead th .arrow").forEach(function (a) { a.remove(); });
-        if (!sortIsDefault) {
-          var activeTh = document.querySelector('.wl-table thead th[data-key="' + wlState.key + '"]');
-          if (activeTh) activeTh.appendChild(el("span", "arrow", wlState.dir > 0 ? "▲" : "▼"));
+        document.querySelectorAll(".wl-table thead th[data-key]").forEach(function (th) {
+          th.setAttribute("aria-sort", "none");
+        });
+        var activeTh = document.querySelector('.wl-table thead th[data-key="' + wlState.key + '"]');
+        if (activeTh) {
+          activeTh.appendChild(el("span", "arrow", wlState.dir > 0 ? "\u25b2" : "\u25bc"));
+          activeTh.setAttribute("aria-sort", wlState.dir > 0 ? "ascending" : "descending");
         }
       }
 
+      /* Empty state. Six tier x category combinations can legitimately return
+         nothing; the old table rendered a bare header row inside a bordered
+         card with no explanation and no way out. */
+      function makeWlEmptyRow() {
+        var tr = document.createElement("tr");
+        tr.className = "wl-empty-row";
+        var td = document.createElement("td");
+        td.colSpan = wlColSpan();
+
+        var tierLabel = (WL_TIER_CHIPS.filter(function (c) {
+          return c.id === wlState.tierFilter;
+        })[0] || {}).label || wlState.tierFilter;
+        var catLabel = wlState.categoryFilter
+          && DATA.categories[wlState.categoryFilter]
+          && DATA.categories[wlState.categoryFilter].label;
+
+        var msg = el("p", "wl-empty-msg",
+          catLabel
+            ? ("Nothing in " + catLabel + " is in \u201c" + tierLabel + "\u201d.")
+            : ("Nothing matches \u201c" + tierLabel + "\u201d."));
+        td.appendChild(msg);
+
+        var reset = el("button", "wl-empty-reset", "Clear filters");
+        reset.type = "button";
+        reset.addEventListener("click", function () {
+          setWlView({
+            tierFilter: WL_DEFAULT_VIEW.tierFilter,
+            categoryFilter: WL_DEFAULT_VIEW.categoryFilter
+          });
+        });
+        td.appendChild(reset);
+        tr.appendChild(td);
+        return tr;
+      }
+
       function renderWatchlistFilterChips() {
-        // Tier chips — conviction filter, defaulting to Signal (Core + Watch).
+        // Tier chips. Radio behaviour; the default is Core ("Closest watch").
         var tiersWrap = document.getElementById("wlTiers");
         if (tiersWrap) {
           tiersWrap.innerHTML = "";
           WL_TIER_CHIPS.forEach(function (tc) {
-            var chip = el("button", "filter-chip" + (wlState.tierFilter === tc.id ? " is-active" : ""), tc.label);
+            var chip = el("button",
+              "filter-chip" + (wlState.tierFilter === tc.id ? " is-active" : ""), tc.label);
             chip.type = "button";
-            chip.addEventListener("click", function () { wlState.tierFilter = tc.id; renderWatchlist(); });
+            chip.addEventListener("click", function () { setWlView({ tierFilter: tc.id }); });
             tiersWrap.appendChild(chip);
           });
         }
@@ -2834,17 +3038,35 @@
         if (!wrap || !DATA) return;
         wrap.innerHTML = "";
 
-        var allChip = el("button", "filter-chip" + (!wlState.categoryFilter ? " is-active" : ""), "All");
+        /* Category chips are built from the TIER-FILTERED set, so a chip's
+           count is what you would actually get. Chips that can only return
+           nothing are rendered disabled rather than offered and then failing
+           (six such combinations exist today, e.g. Second tier x Glass). */
+        var inTier = wlTickers().filter(wlTierMatches);
+        var perCat = {};
+        inTier.forEach(function (t) { perCat[t.category] = (perCat[t.category] || 0) + 1; });
+
+        var allChip = el("button",
+          "filter-chip" + (!wlState.categoryFilter ? " is-active" : ""), "All");
         allChip.type = "button";
-        allChip.addEventListener("click", function () { wlState.categoryFilter = null; renderWatchlist(); });
+        allChip.appendChild(el("span", "fc-count", String(inTier.length)));
+        allChip.addEventListener("click", function () { setWlView({ categoryFilter: null }); });
         wrap.appendChild(allChip);
 
         categoriesByLayerAsc().forEach(function (id) {
           var c = DATA.categories[id];
-          var chip = el("button", "filter-chip" + (wlState.categoryFilter === id ? " is-active" : ""), c.label);
+          var n = perCat[id] || 0;
+          var chip = el("button",
+            "filter-chip" + (wlState.categoryFilter === id ? " is-active" : ""), c.label);
           chip.type = "button";
           chip.style.setProperty("--chip-accent", c.color);
-          chip.addEventListener("click", function () { wlState.categoryFilter = id; renderWatchlist(); });
+          chip.appendChild(el("span", "fc-count", String(n)));
+          if (!n) {
+            chip.disabled = true;
+            chip.title = "No " + c.label + " names in this tier";
+          } else {
+            chip.addEventListener("click", function () { setWlView({ categoryFilter: id }); });
+          }
           wrap.appendChild(chip);
         });
       }
@@ -2853,9 +3075,12 @@
         document.querySelectorAll(".wl-table thead th[data-key]").forEach(function (th) {
           th.addEventListener("click", function () {
             var k = th.getAttribute("data-key");
-            if (wlState.key === k) { wlState.dir = -wlState.dir; }
-            else { wlState.key = k; wlState.dir = 1; }
-            renderWatchlist();
+            // A fresh column starts descending on the numeric columns (the
+            // interesting end of "what moved") and ascending on the text ones.
+            var numericFirst = (k === "chg7d" || k === "chg1m" || k === "chg1y"
+                                || k === "price" || k === "deskStance");
+            if (wlState.key === k) setWlView({ dir: -wlState.dir });
+            else setWlView({ key: k, dir: numericFirst ? -1 : 1 });
           });
         });
       }
@@ -3108,6 +3333,7 @@
       renderCards(null);
       renderPriorityStrip();
       renderGlossary();
+      loadWlView();          // restore sort + filters BEFORE the first paint
       renderWatchlist();
       renderWlRecent();
       initWatchlistSort();
