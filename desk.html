@@ -447,54 +447,116 @@
       max-width: 72ch;
     }
 
-    /* ---------- Cross Section view: blueprint-style bar chart ---------- */
+    /* ============================================================
+       Cross section — a chart card in the language of the growth
+       chart on aave.com: white card, dashed gridlines at 10% ink,
+       quiet axis labels, soft gradient fills, a value pill per series.
+
+       It stays a BAR chart. The data is categorical (companies per
+       layer); drawing it as a line would imply Photonics flows into
+       Memory, which is false.
+       ============================================================ */
     .map-cross {
-      position: relative;
-      background: var(--stage);
+      background: var(--card);
+      border: 1px solid var(--border);
       border-radius: var(--r-card);
-      padding: 24px 20px 18px;
-      overflow: hidden;
-      background-image:
-        linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-      background-size: 28px 28px;
+      padding: var(--s-6);
     }
-    /* Brand-gradient hairline along the top edge (Phase 6, U4). */
-    .map-cross::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: var(--brand-grad);
+    .xs-head {
+      display: flex; align-items: flex-start; justify-content: space-between;
+      gap: var(--s-4); flex-wrap: wrap; margin-bottom: var(--s-6);
     }
-    .mc-bars { display: flex; align-items: flex-end; gap: 10px; height: 190px; }
+    .xs-title {
+      margin: 0; font-family: var(--display); font-size: var(--fs-lg);
+      font-weight: 700; letter-spacing: -0.02em; color: var(--ink);
+    }
+    .xs-sub { margin: var(--s-1) 0 0; font-size: var(--fs-xs); color: var(--muted); }
+    .xs-legend { display: flex; align-items: center; gap: var(--s-4); flex-wrap: wrap; }
+    .xs-legend span {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: var(--fs-xs); color: var(--muted);
+    }
+    .xs-legend b { color: var(--ink); font-weight: 700; font-family: var(--mono); }
+
+    /* Plot: y-axis gutter + the bar field, gridlines behind. */
+    .xs-plot { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--s-3); }
+    .xs-yaxis {
+      display: flex; flex-direction: column; justify-content: space-between;
+      height: 210px; padding-bottom: 0;
+      font-family: var(--mono); font-size: var(--fs-2xs);
+      color: color-mix(in srgb, var(--ink) 40%, transparent);
+      text-align: right;
+    }
+    .xs-field { position: relative; }
+    /* Aave's gridline: 1px dashed, 4/6, ink at 10%. */
+    .xs-grid { position: absolute; inset: 0 0 auto 0; height: 210px; pointer-events: none; }
+    .xs-grid i {
+      position: absolute; left: 0; right: 0;
+      border-top: 1px dashed color-mix(in srgb, var(--ink) 10%, transparent);
+    }
+    .mc-bars {
+      position: relative;
+      display: flex; align-items: flex-end; gap: var(--s-2);
+      height: 210px;
+    }
     .mc-col {
       flex: 1 1 0; min-width: 0; height: 100%;
       display: flex; flex-direction: column; align-items: center; justify-content: flex-end;
-      gap: 8px; cursor: pointer; border-radius: 6px;
+      gap: 6px; cursor: pointer; background: none; border: 0; padding: 0;
+      font-family: inherit;
       transition: transform var(--ease);
     }
     .mc-col:hover { transform: translateY(-2px); }
-    .mc-col:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
-    .mc-bar { width: 100%; min-height: 4px; border-radius: 4px 4px 0 0; transition: filter var(--ease), outline var(--ease); }
-    .mc-col:hover .mc-bar { filter: brightness(1.15); }
-    .mc-col.is-active .mc-bar { outline: 2px solid #fff; outline-offset: -2px; }
-    .mc-count { font-family: var(--mono); font-size: var(--fs-2xs); color: var(--on-stage); }
+    /* The bar: category hue at full strength on top, fading down — the
+       same soft area-fill idea as the reference chart's series. */
+    .mc-bar {
+      width: 100%; min-height: 4px; border-radius: 8px 8px 4px 4px;
+      background: linear-gradient(180deg,
+        color-mix(in srgb, var(--accent) 85%, var(--card)),
+        color-mix(in srgb, var(--accent) 22%, var(--card)));
+      transition: filter var(--ease);
+    }
+    .mc-col:hover .mc-bar { filter: brightness(1.04) saturate(1.15); }
+    .mc-col.is-active .mc-bar {
+      background: linear-gradient(180deg, var(--accent),
+        color-mix(in srgb, var(--accent) 35%, var(--card)));
+      box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 45%, transparent);
+    }
+    /* Value pill above the bar. Aave uses white on #998dff (2.9:1, fails AA);
+       this uses --violet at 6.5:1 instead. */
+    .mc-count {
+      font-family: var(--mono); font-size: var(--fs-2xs); font-weight: 700;
+      color: var(--ink);
+    }
+    .mc-col.is-active .mc-count {
+      background: var(--violet); color: #fff;
+      border-radius: var(--r-chip); padding: 2px 8px;
+    }
+    .xs-xaxis { display: flex; gap: var(--s-2); margin-top: var(--s-3); }
+    .xs-xcell {
+      flex: 1 1 0; min-width: 0; text-align: center;
+      display: flex; flex-direction: column; align-items: center; gap: 2px;
+    }
     .mc-label {
-      font-family: var(--mono); font-size: var(--fs-2xs); letter-spacing: 0.05em;
-      color: var(--on-stage-dim); text-align: center; line-height: 1.3;
+      font-size: var(--fs-2xs); line-height: 1.3; text-align: center;
+      color: var(--muted); overflow-wrap: anywhere;
     }
-    /* Heat readout: median 7-day price change per category (from the
-       weekly price snapshot merged into data.js). */
     .mc-heat { font-family: var(--mono); font-size: var(--fs-2xs); font-weight: 700; }
-    .mc-heat.hot  { color: var(--pos-stage); }
-    .mc-heat.cold { color: var(--neg-stage); }
-    .mc-heat.flat { color: var(--flat-stage); }
+    .mc-heat.hot  { color: var(--pos); }
+    .mc-heat.cold { color: var(--neg); }
+    .mc-heat.flat { color: var(--muted); }
     .mc-legend {
-      margin-top: 14px;
-      font-family: var(--mono); font-size: var(--fs-2xs); letter-spacing: 0.06em;
-      color: var(--flat-stage);
+      margin-top: var(--s-5); padding-top: var(--s-4);
+      border-top: 1px solid var(--border);
+      font-size: var(--fs-2xs); color: var(--muted);
     }
+
+    @media (max-width: 768px) {
+      .map-cross { padding: var(--s-4); }
+      .mc-bars, .xs-grid, .xs-yaxis { height: 160px; }
+      .mc-label { font-size: var(--fs-2xs); }
+    }
+
 
 
     /* Investor angle — collapsed until the layer is selected (.is-active).
@@ -1845,6 +1907,40 @@
 
       /* Cross Section view — one flex row of bar divs on a dark blueprint
          background, height proportional to ticker count per category. */
+      /* Median 7-day price move across a category's tickers. Restored after
+         the v9 chart rewrite briefly deleted it along with the old renderer. */
+      function medianChg7d(catId) {
+        var vals = ((DATA && DATA.tickers) || [])
+          .filter(function (t) { return t.category === catId && t.chg7d != null; })
+          .map(function (t) { return t.chg7d; })
+          .sort(function (a, b) { return a - b; });
+        if (!vals.length) return null;
+        var mid = Math.floor(vals.length / 2);
+        return vals.length % 2 ? vals[mid] : (vals[mid - 1] + vals[mid]) / 2;
+      }
+
+      /* Axis scale: a round ceiling AND a step that divides it evenly, so the
+         gridline labels read 0 / 5 / 10 rather than 0 / 3 / 7 / 10. */
+      function axisScale(maxVal) {
+        var ladder = [1, 2, 5, 10, 20, 25, 50, 100, 200, 250, 500, 1000];
+        var top = ladder.filter(function (v) { return v >= maxVal; })[0]
+                  || Math.ceil(maxVal / 1000) * 1000;
+        // Largest step giving between 2 and 5 intervals, so the axis stays quiet.
+        for (var i = ladder.length - 1; i >= 0; i--) {
+          var step = ladder[i];
+          var n = top / step;
+          if (n >= 2 && n <= 5 && n === Math.round(n)) {
+            return { top: top, step: step, ticks: n + 1 };
+          }
+        }
+        return { top: top, step: top / 2, ticks: 3 };
+      }
+
+      /* Cross section — a chart card in the language of the growth chart on
+         aave.com: white card, dashed gridlines, quiet axis labels, soft
+         gradient fills, a value readout per bar. Stays a BAR chart because
+         the data is categorical; a line would imply the layers flow into one
+         another along the x-axis, which they do not. */
       function renderCrossSection() {
         var root = document.getElementById("mapCross");
         if (!root || !DATA || !DATA.categories) return;
@@ -1857,59 +1953,115 @@
         var ids = Object.keys(DATA.categories)
           .filter(function (id) { return DATA.categories[id].flowRole; })
           .sort(byLayerDesc);
-        var maxCount = Math.max.apply(null, ids.map(function (id) { return counts[id] || 0; }).concat([1]));
+        var rawMax = Math.max.apply(null, ids.map(function (id) { return counts[id] || 0; }).concat([1]));
+        var scale = axisScale(rawMax);
+        var top = scale.top;
+        var hasHeat = ids.some(function (id) { return medianChg7d(id) != null; });
+
+        // ---- head: title, sub, legend --------------------------------------
+        var head = el("div", "xs-head");
+        var titles = el("div");
+        titles.appendChild(el("h4", "xs-title", "Where the names sit"));
+        titles.appendChild(el("p", "xs-sub",
+          "Companies tracked per layer" + (hasHeat ? ", and how each moved last week" : "")));
+        head.appendChild(titles);
+
+        /* No colour legend. Aave's chart has three series in three fixed
+           colours, so a colour key is meaningful there. Here every bar is its
+           own category hue and the move can be red or green, so a legend dot
+           would assert a colour mapping that does not exist. The footnote
+           states both encodings instead; this slot carries a summary. */
+        var totalNames = ids.reduce(function (a, id) { return a + (counts[id] || 0); }, 0);
+        var summary = el("div", "xs-legend");
+        var s1 = el("span");
+        s1.appendChild(el("b", null, String(totalNames)));
+        s1.appendChild(document.createTextNode(totalNames === 1 ? " company" : " companies"));
+        summary.appendChild(s1);
+        var s2 = el("span");
+        s2.appendChild(el("b", null, String(ids.length)));
+        s2.appendChild(document.createTextNode(" layers"));
+        summary.appendChild(s2);
+        head.appendChild(summary);
+        root.appendChild(head);
+
+        // ---- plot: y-axis gutter + bar field with gridlines behind ---------
+        var plot = el("div", "xs-plot");
+        var TICKS = scale.ticks;            // 0 .. top, inclusive
+        var yaxis = el("div", "xs-yaxis");
+        for (var t = TICKS - 1; t >= 0; t--) {
+          yaxis.appendChild(el("span", null, String(t * scale.step)));
+        }
+        plot.appendChild(yaxis);
+
+        var field = el("div", "xs-field");
+        var grid = el("div", "xs-grid");
+        grid.setAttribute("aria-hidden", "true");
+        for (var g = 0; g < TICKS; g++) {
+          var line = el("i");
+          line.style.top = (g * (100 / (TICKS - 1))) + "%";
+          grid.appendChild(line);
+        }
+        field.appendChild(grid);
 
         var bars = el("div", "mc-bars");
+        bars.setAttribute("role", "list");
+        var xaxis = el("div", "xs-xaxis");
+
         ids.forEach(function (id) {
           var c = DATA.categories[id];
           var n = counts[id] || 0;
-          var col = el("div", "mc-col");
-          col.dataset.cat = id;
-          col.setAttribute("tabindex", "0");
-          col.setAttribute("role", "button");
-          col.setAttribute("aria-pressed", "false");
-          col.title = c.label;
 
-          var bar = el("div", "mc-bar");
-          bar.style.height = Math.max(4, (n / maxCount) * 170) + "px";
-          bar.style.background = "color-mix(in srgb, " + c.color + " 55%, var(--stage))";
-          col.appendChild(bar);
+          var col = el("button", "mc-col");
+          col.type = "button";
+          col.dataset.cat = id;
+          col.setAttribute("aria-pressed", "false");
+          col.setAttribute("aria-label", c.label + ": " + n + (n === 1 ? " company" : " companies"));
+          col.style.setProperty("--accent", c.color);
+
           col.appendChild(el("span", "mc-count", String(n)));
-          // Heat: median 7-day move across this category's tickers.
+          var bar = el("div", "mc-bar");
+          // Height is a PERCENTAGE of the field, so the bars and the CSS
+          // gridlines can never drift apart the way a px literal did.
+          bar.style.height = Math.max(1.5, (n / top) * 100) + "%";
+          col.appendChild(bar);
+          col.addEventListener("click", function () { setFilter(id); });
+          bars.appendChild(col);
+
+          // x-axis cell mirrors the bar column so labels stay aligned
+          var cell = el("div", "xs-xcell");
+          cell.appendChild(el("span", "mc-label", c.label));
           var heat = medianChg7d(id);
           if (heat != null) {
             var hcls = heat > 0.5 ? "hot" : (heat < -0.5 ? "cold" : "flat");
-            col.appendChild(el("span", "mc-heat " + hcls, AIE.fmtPct(heat)));
+            cell.appendChild(el("span", "mc-heat " + hcls, AIE.fmtPct(heat)));
           }
-          col.appendChild(el("span", "mc-label", c.label));
-
-          col.addEventListener("click", function () { setFilter(id); });
-          col.addEventListener("keydown", function (e) {
-            if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setFilter(id); }
-          });
-          bars.appendChild(col);
+          xaxis.appendChild(cell);
         });
-        root.appendChild(bars);
-        // Only promise heat data when at least one category has it.
-        var hasHeat = ids.some(function (id) { return medianChg7d(id) != null; });
-        root.appendChild(el("div", "mc-legend", hasHeat
-          ? "bar height = names tracked · % = median 7-day price move"
-          : "bar height = names tracked"));
+
+        field.appendChild(bars);
+        field.appendChild(xaxis);
+        plot.appendChild(field);
+        root.appendChild(plot);
+
+        /* Say what the chart leaves out. The bars cover only categories with a
+           flowRole, so the total here is lower than the grid below by however
+           many names are still unsorted — state it rather than let the two
+           numbers quietly disagree. */
+        var charted = {};
+        ids.forEach(function (id) { charted[id] = true; });
+        var offChart = Object.keys(counts).reduce(function (a, id) {
+          return a + (charted[id] ? 0 : (counts[id] || 0));
+        }, 0);
+        var foot = hasHeat
+          ? "Bar height = names tracked \u00b7 % = median 7-day price move across that layer \u00b7 Prices are weekly snapshots"
+          : "Bar height = names tracked";
+        if (offChart) {
+          foot += " \u00b7 " + offChart + " more not yet sorted into a layer";
+        }
+        root.appendChild(el("div", "mc-legend", foot));
       }
 
-      // Median chg7d for a category (null when no ticker has price data yet).
-      function medianChg7d(catId) {
-        var vals = ((DATA && DATA.tickers) || [])
-          .filter(function (t) { return t.category === catId && t.chg7d != null; })
-          .map(function (t) { return t.chg7d; })
-          .sort(function (a, b) { return a - b; });
-        if (!vals.length) return null;
-        var mid = Math.floor(vals.length / 2);
-        return vals.length % 2 ? vals[mid] : (vals[mid - 1] + vals[mid]) / 2;
-      }
 
-      // Dispatch to the active map view. Both views share the same intro line,
-      // and both wire clicks through setFilter()/renderCards().
       function renderMap() {
         var pipelineEl = document.getElementById("mapPipeline");
         var crossEl = document.getElementById("mapCross");

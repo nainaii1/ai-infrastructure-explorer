@@ -179,11 +179,25 @@ class TestNoRawColourInAppCode(unittest.TestCase):
     # Pages may still carry a favicon data URI; that is markup, not styling.
     PAGES = ["index.html", "desk.html", "memo.html", "performance.html"]
 
+    @staticmethod
+    def _declarations_only(text):
+        """Strip comments and the favicon URI.
+
+        The rule is about DECLARED colour, not prose. Comments legitimately
+        quote hexes — desk.html documents the reference site's #998dff and why
+        it was not copied (white on it is 2.9:1) — and a comment cannot paint
+        anything, so scanning them produces false failures.
+        """
+        text = re.sub(r"<link[^>]*rel=\"icon\"[^>]*>", "", text, flags=re.S)
+        text = re.sub(r"/\*.*?\*/", "", text, flags=re.S)     # CSS + JS block
+        text = re.sub(r"<!--.*?-->", "", text, flags=re.S)    # HTML
+        text = re.sub(r"^\s*//.*$", "", text, flags=re.M)     # JS line
+        return text
+
     def test_pages_declare_no_raw_hex(self):
         offenders = {}
         for name in self.PAGES:
-            text = (ROOT / name).read_text()
-            text = re.sub(r"<link[^>]*rel=\"icon\"[^>]*>", "", text, flags=re.S)
+            text = self._declarations_only((ROOT / name).read_text())
             found = sorted(set(re.findall(r"#[0-9a-fA-F]{6}", text)))
             if found:
                 offenders[name] = found
@@ -192,7 +206,7 @@ class TestNoRawColourInAppCode(unittest.TestCase):
     def test_pages_declare_no_raw_px_font_size(self):
         offenders = {}
         for name in self.PAGES + ["vault.html"]:
-            text = (ROOT / name).read_text()
+            text = self._declarations_only((ROOT / name).read_text())
             found = sorted(set(re.findall(r"font-size:\s*([0-9.]+px)", text)))
             if found:
                 offenders[name] = found
