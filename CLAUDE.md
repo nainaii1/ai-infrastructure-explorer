@@ -303,7 +303,7 @@ Defined once in `shared/theme.css` (`:root` tokens + `.aie-*` components); every
 page consumes them directly. The language is phantom.com / aave.com — soft
 lavender canvas, big near-black display type, generous air, large soft radii —
 applied to a dense research tool: reading surfaces get the air and the big
-numbers, working surfaces (11-column watchlist, map, graph) keep their density.
+numbers, working surfaces (the watchlist, map, graph) keep their density.
 - Canvas: viewport-anchored lavender gradient `#fbfaff → #eeeafc` over
   `--bg #faf9fe` · Card `#ffffff` · Border `#e6e2f2` / `--border-strong #d5cfe8`
 - Text: Ink `#1b1436` (16.7:1) · Text `#3b3557` (10.9:1) · Muted `#6a6484` (5.3:1)
