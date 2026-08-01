@@ -1,9 +1,9 @@
 {
   "meta": {
     "schemaVersion": 1,
-    "syncedAt": "2026-07-31T07:22:43Z",
-    "pageCount": 63,
-    "linkCount": 196
+    "syncedAt": "2026-08-01T20:26:51Z",
+    "pageCount": 64,
+    "linkCount": 197
   },
   "pages": [
     {
@@ -233,8 +233,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 58,
-          "lastMentioned": "2026-07-30T16:06:21Z",
+          "mentions": 59,
+          "lastMentioned": "2026-08-01T06:24:58Z",
           "category": "photonics",
           "market": "US",
           "marketCapTier": "Small",
@@ -343,8 +343,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 15,
-          "lastMentioned": "2026-07-11T17:59:31Z",
+          "mentions": 18,
+          "lastMentioned": "2026-07-31T19:16:17Z",
           "category": "hyperscalers",
           "market": "US",
           "marketCapTier": "Mega",
@@ -430,12 +430,33 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 27,
-          "lastMentioned": "2026-07-30T04:01:03Z",
+          "mentions": 28,
+          "lastMentioned": "2026-07-31T07:14:23Z",
           "category": "memory",
           "market": "US",
           "marketCapTier": "Small",
           "company": "AXT Inc"
+        }
+      },
+      "note": "",
+      "noteUpdatedAt": null
+    },
+    {
+      "slug": "be",
+      "type": "ticker",
+      "title": "BE",
+      "auto": {
+        "refs": [
+          "aleabitoreddit"
+        ],
+        "stats": {
+          "tier": "watch",
+          "mentions": 5,
+          "lastMentioned": "2026-07-31T22:52:21Z",
+          "category": "unsorted",
+          "market": "",
+          "marketCapTier": "",
+          "company": ""
         }
       },
       "note": "",
@@ -474,8 +495,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 20,
-          "lastMentioned": "2026-07-30T04:01:03Z",
+          "mentions": 22,
+          "lastMentioned": "2026-08-01T06:24:58Z",
           "category": "photonics",
           "market": "US",
           "marketCapTier": "Large",
@@ -560,8 +581,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 20,
-          "lastMentioned": "2026-07-30T04:01:39Z",
+          "mentions": 23,
+          "lastMentioned": "2026-07-31T19:16:17Z",
           "category": "hyperscalers",
           "market": "US",
           "marketCapTier": "Mega",
@@ -669,8 +690,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 24,
-          "lastMentioned": "2026-07-26T09:02:03Z",
+          "mentions": 25,
+          "lastMentioned": "2026-07-31T08:57:11Z",
           "category": "photonics",
           "market": "US",
           "marketCapTier": "Large",
@@ -691,8 +712,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 57,
-          "lastMentioned": "2026-07-30T04:01:03Z",
+          "mentions": 59,
+          "lastMentioned": "2026-08-01T06:24:58Z",
           "category": "photonics",
           "market": "US",
           "marketCapTier": "Mid",
@@ -735,8 +756,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 32,
-          "lastMentioned": "2026-07-30T04:01:39Z",
+          "mentions": 35,
+          "lastMentioned": "2026-07-31T19:16:17Z",
           "category": "hyperscalers",
           "market": "US",
           "marketCapTier": "Mega",
@@ -779,8 +800,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 7,
-          "lastMentioned": "2026-07-30T04:01:39Z",
+          "mentions": 10,
+          "lastMentioned": "2026-07-31T19:16:17Z",
           "category": "hyperscalers",
           "market": "US",
           "marketCapTier": "Mega",
@@ -801,8 +822,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 25,
-          "lastMentioned": "2026-07-29T20:10:47Z",
+          "mentions": 26,
+          "lastMentioned": "2026-07-31T07:14:23Z",
           "category": "memory",
           "market": "US",
           "marketCapTier": "Large",
@@ -867,8 +888,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 60,
-          "lastMentioned": "2026-07-30T16:05:44Z",
+          "mentions": 61,
+          "lastMentioned": "2026-07-31T19:16:17Z",
           "category": "accelerators",
           "market": "US",
           "marketCapTier": "Mega",
@@ -888,8 +909,8 @@
         ],
         "stats": {
           "tier": "watch",
-          "mentions": 2,
-          "lastMentioned": "2026-06-27T15:41:34Z",
+          "mentions": 3,
+          "lastMentioned": "2026-07-31T08:25:39Z",
           "category": "unsorted",
           "market": "",
           "marketCapTier": "",
@@ -910,8 +931,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 22,
-          "lastMentioned": "2026-07-30T16:06:21Z",
+          "mentions": 23,
+          "lastMentioned": "2026-07-31T08:57:11Z",
           "category": "photonics",
           "market": "US",
           "marketCapTier": "Small",
@@ -931,8 +952,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 7,
-          "lastMentioned": "2026-07-22T15:23:21Z",
+          "mentions": 8,
+          "lastMentioned": "2026-07-31T16:18:47Z",
           "category": "unsorted",
           "market": "",
           "marketCapTier": "",
@@ -996,8 +1017,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 96,
-          "lastMentioned": "2026-07-30T16:06:06Z",
+          "mentions": 98,
+          "lastMentioned": "2026-08-01T06:24:58Z",
           "category": "photonics",
           "market": "SE",
           "marketCapTier": "Small",
@@ -1062,8 +1083,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 19,
-          "lastMentioned": "2026-07-30T18:31:07Z",
+          "mentions": 20,
+          "lastMentioned": "2026-07-31T22:52:21Z",
           "category": "memory",
           "market": "",
           "marketCapTier": "",
@@ -1193,8 +1214,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 27,
-          "lastMentioned": "2026-07-06T15:32:42Z",
+          "mentions": 28,
+          "lastMentioned": "2026-07-31T08:25:39Z",
           "category": "photonics",
           "market": "",
           "marketCapTier": "",

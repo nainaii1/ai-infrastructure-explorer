@@ -4591,5 +4591,139 @@
     ],
     "conviction": "high",
     "tags": []
+  },
+  {
+    "id": "x_2083088870942642391",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2083088870942642391",
+    "postedAt": "2026-07-31T07:14:23Z",
+    "ingestedAt": "2026-07-31T16:11:42Z",
+    "text": "Few earnings TLDRs with my favorite $AXTI and $AMZN:\n\nAmazon:\n- Raised 2026 capex to $220B vs. prior $200B (partly due to higher memory costs, which is bullish on $MU to Samsung) \n- Even at $220B, Amazon will not have enough capacity to meet all 2026 demand; Jassy expects the same in 2027.\n- Most incoming 2027 capacity is already reserved, with substantial 2028 capacity also reserved.\n\nMostly read through on upstream semis. $GOOGL, $META, $AMZN, and $MSFT all identified compute shortage. \n\nAll the narratives a few weeks earlier was \"excess compute\" from Meta and others + hyperscalers cutting back on spend... All BS. \n\nAmazon earnings was very bullish on AI semi trade. \n\nAXTI:\n\n- AXT to double InP capacity during 2026. Then double again in 2027. \n\nThis is expected to make AXT \"by far the largest indium phosphide producer in the world.\" - LFG\n\n- Q2 rev was $47.6M, the highest quarterly revenue in AXT history (InP revenue reached a record $30.7M, from DC applications.)\n- Revenue increased 77% sequentially and 164% year over year.\n- InP revenue-capacity targets: $60M per quarter exiting 2026.\n- $130M per quarter exiting 2027 \n\nThat $130m target could be hiked too since management stated they find \"whatever ways to increase that capacity expansion\"\n\n- Management said the reported backlog remains well above $100M, but that number no longer reflects all available demand.\n\n\"Customer demand continues to outpace supply, no matter how fast we add capacity.\" 800G/1.6T is driving the current cycle, while NPO/CPO extends it beyond 2027. \n\nAlso they're targeting 50%-plus gross margin: \"We should definitely be targeting a number that begins with a five.\"\n\nChina demand more than doubled, and their agreements with Casela, $COHR and $LITE did not materially drive Q2. \n\nThis is not even considering my projected massive ASP hikes yet as InP substrates get more bottlenecked. \n\nTLDR:\n\n- Amazon too much compute demands, needs capex to fufill it, so upstream semis go brrr. \n- AXT world largest InP substrate supplier, high gross margins, expansion, and supply can't keep up with demand.  \n\nBullish on demand side from Amazon + capex. Bullish on upstream optical supply chains from too much demand. https://x.com/aleabitoreddit/status/2083088870942642391",
+    "tickers": [
+      "AMZN",
+      "AXTI",
+      "COHR",
+      "GOOGL",
+      "LITE",
+      "META",
+      "MSFT",
+      "MU"
+    ],
+    "conviction": "high",
+    "tags": []
+  },
+  {
+    "id": "x_2083106805949878330",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2083106805949878330",
+    "postedAt": "2026-07-31T08:25:39Z",
+    "ingestedAt": "2026-07-31T16:13:07Z",
+    "text": "For $XFAB ER transcript:  \n\nJust to recap, my idea on $XFAB foundry growth opportunities stemmed from SiC for 800v and photonixfab/MTP for CPO applicability.   \n\n- $XFAB: \"We are making progress in co-packaged optics\".  \n\n- \"The transition to 800v... is expected to support demand for both SiC and GaN... for XFAB\"  \n\nSo those analysts/people that were confidently bearposting about $XFAB that they had \"0 exposure to 800V, photonics, CPO\" just turned out plainly wrong. \n\nAt the time I shared my idea, industry materials showed ASE and others cited photonixfab + XFAB as an upcoming CPO player in EU. And filings showed they had exposure names like $NVTS / $POWI in general. \n\nSo glad $XFAB went out to explicitly clear things up to state they were developing in CPO/800v.   \n\nOkay back to the ER:  \n\n- \"We continue to expect photonics volume production to start in 2028\".  Company currently has three silicon photonics projects in development with key partners.   \n\nI thought it would ramp sometime in H2 2027, but was probably early by a few months. \n\n- Several new data center design wins, eg. 3 new SiC design wins (consistent with general 2027 ramp as 800v deployment takes off).  \n\nSo once those ramp in 2027-2028, (markets tend to price things ahead of time), I'd expect $XFAB to be rerated based on growth opportunities.   \n\nTLDR:  \n- Current revenue numbers not as impressive.\n- $XFAB confirmed direct exposure to CPO and 800V shifts (biggest win for thesis) \n- 800V exposure opportunities for SiC (should be 2027)\n-  Timeline is 2028 ramp for photonics volume production  \n\nHappy exposure thesis to CPO/800V was confirmed from this ER. Might be a bit of waiting for revenue ramp. https://x.com/aleabitoreddit/status/2083106805949878330",
+    "tickers": [
+      "NVTS",
+      "POWI",
+      "XFAB"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "x_2083114743729107236",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2083114743729107236",
+    "postedAt": "2026-07-31T08:57:11Z",
+    "ingestedAt": "2026-07-31T16:13:12Z",
+    "text": "Now that I think of it more, $POET optical interposer piece is actually a little more material than I thought with $SIVE. \n\nOriginally the wording was \"readiness\" for EOY 2026. \n\nBut $POET upgraded that wording, by stating \"production\" with Sivers lasers projected EOY 2026. \n\nSo a volume orders from across $JBL to $POET, should hit in H1 2027. Which makes a bit of sense, since Sivers did raise an institutional oversubscribed round for future mass production.  \n\nOn a side note, can't believe it's already August and 5 months left until 2027... Which was my inflection window for glass substrates, CPO, 800v, and new architectures to ramp. https://x.com/aleabitoreddit/status/2083114743729107236",
+    "tickers": [
+      "JBL",
+      "POET",
+      "SIVE"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "x_2083133191112843575",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2083133191112843575",
+    "postedAt": "2026-07-31T10:10:30Z",
+    "ingestedAt": "2026-07-31T16:13:33Z",
+    "text": "Just a TLDR of this week:\n\nMedia: Hyperscalers overbuilt and are selling excess compute.\n-> $GOOGL, $MSFT, $META, and $AMZN: Demand for compute far exceeds capacity. Capex go brrr.\n\nInstitutions: Emergency rate hike or 3x rate hikes, it's all over.\n-> Kevin Warsh: No rate Hike.\n\nRetail/Media: AI is crashing because it's a bubble. \n-> Citadel looking to buy AI leveraged hedge funds positions: 👀\n\nJim Cramer: Sell all your leveraged DC stocks.\n-> Koreans: SK Hynix +30%, Samsung +26.81% https://x.com/aleabitoreddit/status/2083133191112843575",
+    "tickers": [
+      "AMZN",
+      "GOOGL",
+      "META",
+      "MSFT"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "x_2083225872207937687",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2083225872207937687",
+    "postedAt": "2026-07-31T16:18:47Z",
+    "ingestedAt": "2026-08-01T20:26:39Z",
+    "text": "$RDDT ER in a nutshell:\n\nRevenue: $804.9M vs. $730.4M (expected).\nEPS: $1.25 vs. ~$0.95.\nNet income: $252.8M vs. $196.5M\n\nQ3 guidance:\nRevenue: $860–870M vs. 829.1M\nAdjusted EBITDA: $385-395M vs. $369M\n\nBlowout financials, market always like to explain the drop 22.6% off some new BS narrative. \n\nLast quarter: \"AI will disrupt Reddit causing revenue loss!\"\n\nThis quarter: \"See, DAU fell .6%!\" (proceeds to ignore any revenue/profitability growth) https://x.com/aleabitoreddit/status/2083225872207937687",
+    "tickers": [
+      "RDDT"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "x_2083270545320386734",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2083270545320386734",
+    "postedAt": "2026-07-31T19:16:17Z",
+    "ingestedAt": "2026-08-01T20:26:44Z",
+    "text": "As a earnings recap: $AMZN, $META, $GOOGL, and $MSFT guided a 2026 combined capex forecast to ~$720-$745 Billion.\n\nUp from $695-$725B Billion previously.\n\nAmazon: $220B\nGoogle: $195B-$205B\nMeta: $130B-$145B\nMicrosoft: $175B\n\nWe've already seen significant deleveraging and retail/institutional margin liquidations (maybe it continues for more time, who knows). \n\nBut medium-long term, I'm not quite sure how anyone can be bearish the upstream semis or neoclouds. \n\nGiven each hyperscaler has flagged either compute shortages, rising cloud demand + pricing power, or increased spending for chips/networking.  \n\nMy \"bottleneck\" thesis with many of these upstream semi supply chains is that when trillions in capital flows into things from InP substrates or memory (which were both treated as cheap commodities) or even energy. \n\nLot of these current AI names that were treated as useless before in telecom cycles or even toilet sellers. \n\nGets rerated when their inflection period hits and capex flows into their balance sheets. \n\nAs seen with $NVDA GPUs past few years, memory this year, CPUs/MLCCs next few years, CPO in 2027, Glass Substrates in 2027, 800V in 2027, and so on. https://x.com/aleabitoreddit/status/2083270545320386734",
+    "tickers": [
+      "AMZN",
+      "GOOGL",
+      "META",
+      "MSFT",
+      "NVDA"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "x_2083324920214536208",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2083324920214536208",
+    "postedAt": "2026-07-31T22:52:21Z",
+    "ingestedAt": "2026-08-01T20:26:47Z",
+    "text": "The media framing and X reactions around Leopold are egregious.\n\nFraming his successful multi-year thesis from $SNDK to $BE as a \"collapse\" or \"failure\".\n\nAfter July's surprising crash, then personally attacking him on top is just pathetic to witness. \n\nIt's almost like everyone is cheering for the downfall of others. \n\nYes, July's crash exposed problems with SA’s leverage, liquidity management, and hedging. \n\nBut his current YTD performance remains +80%, ranking among the best performing hedge funds. And he still has public equities after all this (just removed leverage). \n\nI think he's doing something unique while being successful at it. And this draws the envy of others. https://x.com/aleabitoreddit/status/2083324920214536208",
+    "tickers": [
+      "BE",
+      "SNDK"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "x_2083438823548293140",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2083438823548293140",
+    "postedAt": "2026-08-01T06:24:58Z",
+    "ingestedAt": "2026-08-01T20:26:51Z",
+    "text": "$LITE CEO Michael Hurlston at the RAISE Summit warned that the supply gap for InP lasers for AI DCs:\n\nIs facing a more severe supply chain crisis than memory. \n\nAnd with Lumentum's 5 InP fabs, shipments would be more than 30%+ below customer demand.\n\nThis is especially visible with EMLs today but is already expanding to CW, especially as CPO ramps.\n\nI've always been a fan of the laser chokepoint + bottleneck from $AAOI, $SIVE, $LITE, and $COHR. And glad this thesis is starting to see validation. https://x.com/aleabitoreddit/status/2083438823548293140",
+    "tickers": [
+      "AAOI",
+      "COHR",
+      "LITE",
+      "SIVE"
+    ],
+    "conviction": "normal",
+    "tags": []
   }
 ]

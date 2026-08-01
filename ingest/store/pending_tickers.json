@@ -177,7 +177,7 @@
     "candidate": "SK",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:39:49Z",
-    "count": 20
+    "count": 21
   },
   {
     "candidate": "SMIC",
@@ -309,7 +309,7 @@
     "candidate": "ASE",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:45:35Z",
-    "count": 1
+    "count": 2
   },
   {
     "candidate": "ASIC",
@@ -411,7 +411,7 @@
     "candidate": "CW",
     "sourceUrl": "",
     "firstSeen": "2026-06-30T07:39:56Z",
-    "count": 28
+    "count": 29
   },
   {
     "candidate": "ERIC",
@@ -627,7 +627,7 @@
     "candidate": "BS",
     "sourceUrl": "",
     "firstSeen": "2026-06-30T07:48:15Z",
-    "count": 1
+    "count": 3
   },
   {
     "candidate": "AGI",
@@ -657,7 +657,7 @@
     "candidate": "NPO",
     "sourceUrl": "",
     "firstSeen": "2026-06-30T07:49:19Z",
-    "count": 7
+    "count": 8
   },
   {
     "candidate": "SKC",
@@ -687,7 +687,7 @@
     "candidate": "ASP",
     "sourceUrl": "",
     "firstSeen": "2026-06-30T07:53:06Z",
-    "count": 9
+    "count": 10
   },
   {
     "candidate": "RF",
@@ -849,7 +849,7 @@
     "candidate": "AXT",
     "sourceUrl": "",
     "firstSeen": "2026-07-03T10:07:17Z",
-    "count": 1
+    "count": 2
   },
   {
     "candidate": "AGENT",
@@ -957,7 +957,7 @@
     "candidate": "MTP",
     "sourceUrl": "",
     "firstSeen": "2026-07-03T13:20:21Z",
-    "count": 1
+    "count": 2
   },
   {
     "candidate": "ASMPT",
@@ -1023,7 +1023,7 @@
     "candidate": "YTD",
     "sourceUrl": "",
     "firstSeen": "2026-07-03T13:24:50Z",
-    "count": 1
+    "count": 2
   },
   {
     "candidate": "ACMR",
@@ -1257,7 +1257,7 @@
     "candidate": "EOY",
     "sourceUrl": "",
     "firstSeen": "2026-07-13T07:25:45Z",
-    "count": 3
+    "count": 4
   },
   {
     "candidate": "IBK",
@@ -1323,7 +1323,7 @@
     "candidate": "ER",
     "sourceUrl": "",
     "firstSeen": "2026-07-14T09:36:28Z",
-    "count": 7
+    "count": 9
   },
   {
     "candidate": "CPI",
@@ -1516,5 +1516,29 @@
     "sourceUrl": "",
     "firstSeen": "2026-07-30T04:01:39Z",
     "count": 3
+  },
+  {
+    "candidate": "LFG",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2083088870942642391",
+    "firstSeen": "2026-07-31T16:11:42Z",
+    "count": 1
+  },
+  {
+    "candidate": "DAU",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2083225872207937687",
+    "firstSeen": "2026-08-01T20:26:39Z",
+    "count": 1
+  },
+  {
+    "candidate": "SA",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2083324920214536208",
+    "firstSeen": "2026-08-01T20:26:47Z",
+    "count": 1
+  },
+  {
+    "candidate": "RAISE",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2083438823548293140",
+    "firstSeen": "2026-08-01T20:26:51Z",
+    "count": 1
   }
 ]
