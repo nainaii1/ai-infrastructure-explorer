@@ -230,11 +230,18 @@ it is flat, price-first and globally sorted.
   carries `aria-sort`, so the table can never be ordered by something it doesn't
   display.
 - **Default:** 7D descending over the Core tier (30 rows).
-- **9 columns:** Ticker · Company · 7D · 1M · 1Y · Price · Mkt Cap · Desk · Note.
-  Category is a dot on the ticker cell; Rating lives in the expanded row.
-- **Mkt Cap is display-only.** `prices.json` stores local-currency values with no
-  FX source, so a cross-market sort is arithmetically wrong (KRW ≈1300×
-  inflated). The header explains this rather than sorting incorrectly.
+- **10 columns:** Ticker · Layer · Company · 7D · 1M · 1Y · Price · Mkt Cap ·
+  Desk · Note. Rating lives in the expanded row.
+- **Layer sorts by position in the value chain**, not alphabetically — the layer
+  order *is* the story (what feeds the chip → the chip → who buys it). The
+  category hue is encoded once, as the dot in this column.
+- **Mkt Cap sorts on `marketCapUSD`, never the displayed figure.** A KRW cap is
+  ≈1300× a USD one, so ranking the raw number is meaningless. The column arms
+  its own sort at boot: if no ticker carries `marketCapUSD` the header stays
+  inert and its tooltip says why; add the sheet column and it becomes sortable
+  with no code change. The figure on screen always stays in the company's own
+  currency. See `docs/GUIDE.md` §4 for the GOOGLEFINANCE formula (including the
+  GBX/pence special case).
 - **Row click expands in place**, carrying the desk call, the company prose, the
   analyst mention count and the rating control. It does not navigate:
   `linkForTicker` resolves to this same page for most names, so the old row
@@ -281,32 +288,28 @@ than one-up; the capsule nav becomes a fixed bottom bar with
 
 ## 8. Open items
 
-1. **Mkt Cap cannot be sorted without an FX source.** `ingest/store/prices.json`
-   carries only local-currency `marketCap`. Adding a `marketCapUSD` field (the
-   Google Sheet already has `GOOGLEFINANCE` available) would let the column
-   become sortable again; until then it is display-only by design.
-2. **`vault.html` still declares raw px type and hex.** It is excluded from the
+1. **`vault.html` still declares raw px type and hex.** It is excluded from the
    `test_pages_declare_no_raw_hex` list because its graph reads colours through
    `token(name, fallback)`. Worth revisiting when the canvas is repainted.
-3. **The vault graph canvas does not follow the theme.** Every node, edge and
+2. **The vault graph canvas does not follow the theme.** Every node, edge and
    label colour is a baked literal, and type colours are read **once** at render
    time via `getComputedStyle`. Its stale fallbacks were refreshed in v9, but a
    real repaint is a separate job.
-4. **Layout computed in JS.** These break if the surrounding CSS changes:
+3. **Layout computed in JS.** These break if the surrounding CSS changes:
    `insertDetailAfterRow()` reads `offsetTop` to find grid row boundaries
    (`desk.html`); `AIE.setDrilldownOpen` measures `scrollHeight` once and only
    re-measures on `resize` (no `ResizeObserver`); the capsule pill is positioned
    from `offsetWidth`/`offsetLeft`; scrollspy uses tuned magic numbers
    (`innerHeight * 0.45`, `rootMargin: "-72px 0px -75% 0px"`) paired with
    hardcoded `scroll-margin-top` values.
-5. **`--spring` overshoots** (`cubic-bezier(.32,.72,.28,1.15)`). Deliberate, and
+4. **`--spring` overshoots** (`cubic-bezier(.32,.72,.28,1.15)`). Deliberate, and
    close to what both reference sites do, but design linters flag it as dated.
    Worth a decision rather than a drift.
-6. **`max-height` drill-downs** are flagged by linters as layout animation. They
+5. **`max-height` drill-downs** are flagged by linters as layout animation. They
    are deliberate: the CSS-only `grid-template-rows: 0fr→1fr` alternative
    silently resolves to 0 height inside `overflow`-constrained or flex-column
    ancestors. Do not "fix" them.
-7. **No dark mode.** A deliberate v9 decision, not an oversight.
+6. **No dark mode.** A deliberate v9 decision, not an oversight.
 
 ---
 

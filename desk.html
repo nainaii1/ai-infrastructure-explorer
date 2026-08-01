@@ -1221,7 +1221,8 @@
     /* The category dot rides the ticker cell now that the Category column is
        gone — the layer is still readable without a column repeating it on
        every row. Hover the dot for the layer name. */
-    .wl-symwrap { display: inline-flex; align-items: center; gap: 8px; }
+    .wl-layer { display: inline-flex; align-items: center; gap: 7px; }
+    .wl-layer-label { color: var(--muted); }
     .wl-dot {
       width: 9px; height: 9px; border-radius: 50%;
       background: var(--accent, var(--muted)); flex: 0 0 auto; cursor: help;
@@ -1406,13 +1407,15 @@
                      is deliberately unsortable — see its title. -->
                 <tr>
                   <th data-key="ticker">Ticker</th>
+                  <th data-key="layer">Layer</th>
                   <th data-key="company">Company</th>
                   <th data-key="chg7d" class="num">7D</th>
                   <th data-key="chg1m" class="num">1M</th>
                   <th data-key="chg1y" class="num">1Y</th>
                   <th data-key="price" class="num">Price</th>
-                  <th class="num wl-nosort"
-                      title="Not sortable: market caps are in each company's own currency and there is no exchange-rate source, so a cross-market ranking would be arithmetically wrong.">Mkt Cap</th>
+                  <!-- Sort is armed at boot only when the data carries a
+                       USD-normalised cap; see wlArmMcapSort(). -->
+                  <th class="num wl-nosort" id="wlThMcap">Mkt Cap</th>
                   <th data-key="deskStance">Desk</th>
                   <th class="wl-nosort">Note</th>
                 </tr>
@@ -2623,7 +2626,8 @@
         open: {}
       };
 
-      var WL_SORTABLE = ["ticker", "company", "chg7d", "chg1m", "chg1y", "price", "deskStance"];
+      var WL_SORTABLE = ["ticker", "layer", "company", "chg7d", "chg1m", "chg1y",
+                         "price", "marketCap", "deskStance"];
       var WL_TIER_IDS = ["signal", "core", "watch", "radar", "all"];
 
       /* Restore the view. Validated field by field: a hand-edited or stale
@@ -2642,6 +2646,13 @@
         var saved = readJSON(WL_VIEW_KEY);
         if (!saved || typeof saved !== "object") return;
         if (WL_SORTABLE.indexOf(saved.key) !== -1) wlState.key = saved.key;
+        // A saved marketCap sort is only honoured while USD caps exist; if the
+        // sheet column goes away the table must not stay ranked on nothing.
+        if (wlState.key === "marketCap"
+            && !wlTickers().some(function (t) { return t.marketCapUSD != null; })) {
+          wlState.key = WL_DEFAULT_VIEW.key;
+          wlState.dir = WL_DEFAULT_VIEW.dir;
+        }
         if (saved.dir === 1 || saved.dir === -1) wlState.dir = saved.dir;
         if (WL_TIER_IDS.indexOf(saved.tierFilter) !== -1) wlState.tierFilter = saved.tierFilter;
         if (saved.categoryFilter == null
@@ -2663,6 +2674,35 @@
         Object.keys(patch).forEach(function (k) { wlState[k] = patch[k]; });
         saveWlView();
         renderWatchlist();
+      }
+
+      // A ticker's position in the value chain (its category's `layer`).
+      // Unknown categories sort to the end rather than colliding at 0.
+      function wlLayerOf(t) {
+        var c = DATA.categories && DATA.categories[t.category];
+        return c && c.layer != null ? c.layer : 999;
+      }
+
+      /* Mkt Cap is sortable ONLY when the data carries marketCapUSD. Until the
+         sheet grows that column the header stays inert and says why, rather
+         than offering a ranking that mixes currencies. */
+      function wlArmMcapSort() {
+        var th = document.getElementById("wlThMcap");
+        if (!th) return false;
+        var has = wlTickers().some(function (t) { return t.marketCapUSD != null; });
+        if (has) {
+          th.setAttribute("data-key", "marketCap");
+          th.classList.remove("wl-nosort");
+          th.title = "Ranked on a USD-normalised market cap; the figure shown "
+                   + "stays in each company's own currency.";
+        } else {
+          th.removeAttribute("data-key");
+          th.classList.add("wl-nosort");
+          th.title = "Not sortable yet: caps are in each company's own currency "
+                   + "and the price sheet has no MarketCapUSD column, so a "
+                   + "cross-market ranking would be arithmetically wrong.";
+        }
+        return has;
       }
 
       // Number of columns in the live <thead> — the detail row spans them all.
@@ -2732,7 +2772,22 @@
         var k = wlState.key;
         var av, bv;
 
-        if (k === "deskStance") {
+        if (k === "layer") {
+          // Sort by position in the value chain, not alphabetically — the
+          // layer order IS the story (what feeds the chip -> the chip -> who
+          // buys it). Ties fall through to the ticker tiebreak below.
+          var al = wlLayerOf(a), bl = wlLayerOf(b);
+          if (al !== bl) return (al - bl) * wlState.dir;
+        } else if (k === "marketCap") {
+          /* Rank on marketCapUSD, never the raw local-currency figure: a KRW
+             cap is ~1300x a USD one, so sorting the displayed number is
+             arithmetically meaningless. Names without a USD value sort last
+             rather than being silently interleaved at the wrong rank. */
+          var au = a.marketCapUSD, bu = b.marketCapUSD;
+          var aun = au == null, bun = bu == null;
+          if (aun !== bun) return aun ? 1 : -1;
+          if (!aun && au !== bu) return (au - bu) * wlState.dir;
+        } else if (k === "deskStance") {
           av = (a.verdict && STANCE_RANK[a.verdict.stance]) || 0;
           bv = (b.verdict && STANCE_RANK[b.verdict.stance]) || 0;
           // 0 means "no call" — treat it as missing so it stays at the bottom.
@@ -2846,18 +2901,21 @@
         tr.className = "wl-row-link";
         tr.style.setProperty("--accent", cat ? cat.color : "var(--muted)");
 
-        // Ticker cell carries the category dot — the layer is still readable
-        // at a glance now that the Category column is gone.
         var tTd = document.createElement("td");
-        var tWrap = el("span", "wl-symwrap");
-        var dot = el("span", "wl-dot");
-        dot.title = cat ? cat.label : (t.category || "Unsorted");
-        tWrap.appendChild(dot);
         var symLink = el("a", "wl-sym", t.ticker);
         symLink.href = AIE.linkForTicker(t.ticker);
-        tWrap.appendChild(symLink);
-        tTd.appendChild(tWrap);
+        tTd.appendChild(symLink);
         tr.appendChild(tTd);
+
+        // Layer: dot + label, in its own sortable column. The hue is encoded
+        // here only — the ticker cell no longer repeats it.
+        var lTd = document.createElement("td");
+        var lWrap = el("span", "wl-layer");
+        lWrap.appendChild(el("span", "wl-dot"));
+        lWrap.appendChild(el("span", "wl-layer-label",
+          cat ? cat.label : (t.category || "Unsorted")));
+        lTd.appendChild(lWrap);
+        tr.appendChild(lTd);
 
         tr.appendChild(el("td", "wl-company", t.company || "—"));
 
@@ -3078,7 +3136,8 @@
             // A fresh column starts descending on the numeric columns (the
             // interesting end of "what moved") and ascending on the text ones.
             var numericFirst = (k === "chg7d" || k === "chg1m" || k === "chg1y"
-                                || k === "price" || k === "deskStance");
+                                || k === "price" || k === "marketCap"
+                                || k === "deskStance");
             if (wlState.key === k) setWlView({ dir: -wlState.dir });
             else setWlView({ key: k, dir: numericFirst ? -1 : 1 });
           });
@@ -3334,6 +3393,7 @@
       renderPriorityStrip();
       renderGlossary();
       loadWlView();          // restore sort + filters BEFORE the first paint
+      wlArmMcapSort();       // decides whether Mkt Cap is clickable at all
       renderWatchlist();
       renderWlRecent();
       initWatchlistSort();

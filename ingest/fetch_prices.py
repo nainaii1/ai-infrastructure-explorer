@@ -78,6 +78,13 @@ def _parse_sheet_rows(csv_text):
         if price is None:
             continue
         snap = {"price": price, "marketCap": _num(row.get("MarketCap"))}
+        # Optional: a USD-normalised market cap so the watchlist can rank
+        # across markets. Without it a KRW cap and a USD cap sit in the same
+        # column and any sort is arithmetically meaningless. The sheet does
+        # the conversion (GOOGLEFINANCE keeps the rate fresh); see docs/GUIDE.
+        mcap_usd = _num(row.get("MarketCapUSD"))
+        if mcap_usd is not None:
+            snap["marketCapUSD"] = mcap_usd
         # Only stamp currency when the sheet actually has the column filled —
         # defaulting to USD would mislabel KRW/SEK names until the operator
         # adds the Currency formula column. run() keeps the prior currency.

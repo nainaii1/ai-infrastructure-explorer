@@ -164,7 +164,7 @@
   // with a dollar sign (e.g. SK Hynix's cap reads ₩1312T, not $1312T). Falls
   // back to a "<CODE> " prefix for currencies without a known symbol.
   var MCAP_CURRENCY_SYMBOLS = {
-    USD: "$", KRW: "₩", EUR: "€", GBP: "£", JPY: "¥", CNY: "¥",
+    USD: "$", KRW: "₩", EUR: "€", GBP: "£", GBX: "p", JPY: "¥", CNY: "¥",
     TWD: "NT$", HKD: "HK$", SGD: "S$", CAD: "C$", AUD: "A$", SEK: "kr "
   };
   function mcapCurrencyPrefix(currency) {

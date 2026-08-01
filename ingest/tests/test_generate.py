@@ -224,8 +224,30 @@ class TestCalls(unittest.TestCase):
                         "asOf": "2026-07-16T00:00:00Z"}}
         d2 = self._with_fake({"meta": {}, "calls": []}, prices)
         t = next(t for t in d2["tickers"] if t["ticker"] == sym)
-        for f in gen.PRICE_FIELDS:
-            self.assertEqual(t[f], prices[sym][f], f)
+        # Every field the snapshot HAS is merged...
+        for f, expected in prices[sym].items():
+            self.assertEqual(t[f], expected, f)
+        # ...and one it does not have is not invented. marketCapUSD is optional:
+        # it only exists once the price sheet carries a MarketCapUSD column, and
+        # the watchlist arms its Mkt Cap sort on exactly that presence.
+        self.assertNotIn("marketCapUSD", prices[sym])
+        self.assertIsNone(t.get("marketCapUSD"))
+
+    def test_market_cap_usd_merged_when_the_sheet_supplies_it(self):
+        """The USD-normalised cap is what makes Mkt Cap sortable across
+        markets — a KRW cap is ~1300x a USD one, so the raw figure cannot be
+        ranked. Guard that it survives the merge."""
+        d = gen.build_data()
+        sym = d["tickers"][0]["ticker"]
+        prices = {sym: {"price": 10.5, "currency": "KRW", "marketCap": 1_210_000_000_000_000,
+                        "marketCapUSD": 883_600_000_000,
+                        "asOf": "2026-07-16T00:00:00Z"}}
+        d2 = self._with_fake({"meta": {}, "calls": []}, prices)
+        t = next(t for t in d2["tickers"] if t["ticker"] == sym)
+        self.assertEqual(t["marketCapUSD"], 883_600_000_000)
+        # The displayed figure stays in the company's own currency.
+        self.assertEqual(t["marketCap"], 1_210_000_000_000_000)
+        self.assertEqual(t["currency"], "KRW")
 
     def test_benchmark_quote_none_when_unpriced(self):
         d = self._with_fake({"meta": {"benchmark": "SMH"}, "calls": []}, {})
