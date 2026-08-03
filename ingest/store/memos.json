@@ -1,7 +1,7 @@
 {
   "meta": {
     "schemaVersion": 1,
-    "updatedAt": "2026-07-22T00:00:00Z",
+    "updatedAt": "2026-08-03T00:00:00Z",
     "author": "claude-desk",
     "disclaimer": "Coverage memos are second-opinion research notes on @aleabitoreddit's ideas. Personal research tool — not investment advice."
   },
@@ -838,6 +838,471 @@
       ],
       "publishedAt": "2026-07-22T00:00:00Z",
       "updatedAt": "2026-07-22T00:00:00Z",
+      "basedOnVerdict": true
+    },
+    {
+      "id": "m_SIVE_2026w32",
+      "ticker": "SIVE",
+      "kind": "update",
+      "title": "The pipeline is not the revenue",
+      "dek": "Outside research put numbers against the Sivers story for the first time, and they point the other way. Stepping off accumulate until the 27 August interim.",
+      "publishedAt": "2026-08-03T00:00:00Z",
+      "updatedAt": "2026-08-03T00:00:00Z",
+      "rating": "watch",
+      "sections": [
+        {
+          "heading": "Snapshot",
+          "body": "$SIVE is the laser supplier at the centre of this desk's photonics book — the name most cited, most conviction-tagged, and now the one where the analyst's evidence and the company's filings disagree most sharply."
+        },
+        {
+          "heading": "Thesis",
+          "body": "The bull case is that Sivers supplies the InP lasers for co-packaged optics as [[photonics]] moves from pluggable modules to CPO, with [[poet]] as the interposer partner and a fab-light capacity model behind it. The forward maths circulating this week — 10% of a partner's wafer capacity supporting $341-512m of annual array revenue — is a modelled upper bound, not an order book."
+        },
+        {
+          "heading": "Why own it",
+          "body": "The structural argument is unchanged and still good. Sivers and [[lite]] were the only two public laser suppliers named in the CPO programme that just drew a $300m US award to [[gfs]], which is real third-party validation of where the technology is going. If CPO happens on the timeline the industry is signalling, the laser supply is the chokepoint and there are very few suppliers."
+        },
+        {
+          "heading": "Risks",
+          "body": "Q1 net sales were SEK 61.9m, down 22% year on year. The $799m figure quoted as evidence is an opportunity pipeline, not backlog or revenue.\n\nThe [[poet]] wording upgrade read as a material timeline change resolves, in the only citable partnership language, to production readiness by end of 2026 with prototypes in the first half — a milestone, not an order. No volume, customer or ASP has been disclosed by either company."
+        },
+        {
+          "heading": "Bottom line",
+          "body": "Nothing here says the thesis is wrong; it says the thesis is still entirely forward-looking while the reported revenue is shrinking and the stock has halved in a month. Existing tranches stand, new size waits. The 27 August interim is the first thing that can settle it."
+        }
+      ],
+      "sourceThesisIds": [
+        "r_25fe1eb5be8668d6",
+        "r_c173439107ef44c4",
+        "r_9ee46b9d8e2301a1",
+        "x_2083114743729107236",
+        "h_c730cd89e4be221f"
+      ],
+      "basedOnVerdict": true
+    },
+    {
+      "id": "m_AAOI_2026w32",
+      "ticker": "AAOI",
+      "kind": "update",
+      "title": "Five times the company's own guide",
+      "dek": "The $471m/month figure anchoring the bull case is roughly five times what management guides to. Off accumulate.",
+      "publishedAt": "2026-08-03T00:00:00Z",
+      "updatedAt": "2026-08-03T00:00:00Z",
+      "rating": "watch",
+      "sections": [
+        {
+          "heading": "Snapshot",
+          "body": "$AAOI is the high-beta datacom optics name in the book — the one whose valuation argument has always been a forward revenue rate rather than current earnings."
+        },
+        {
+          "heading": "Thesis",
+          "body": "The case is that 800G and 1.6T shipments ramp hard into AI data centre demand, that AAOI reaches a $471m monthly revenue rate from the second half of 2027, and that a roughly $6bn market cap against that rate is absurdly cheap."
+        },
+        {
+          "heading": "Why own it",
+          "body": "The near-term ramp is real and company-confirmed: Q1 revenue was a record $151.1m, up 51%, with Q2 800G shipments guided at nearly four times Q1 levels. The volume inflection is not in dispute."
+        },
+        {
+          "heading": "Risks",
+          "body": "Management guides Q2 2026 to $180-198m and the full year to roughly $1.1bn. A $471m monthly rate is about five times that run-rate, and it is presented in the source material as the company's own estimate.\n\nQ2 is guided to non-GAAP EPS between -$0.03 and +$0.03 on 29-30% gross margin. At record revenue the business is at breakeven, so a one-times-forward-revenue multiple is only cheap against a top line that currently earns nothing."
+        },
+        {
+          "heading": "Bottom line",
+          "body": "The ramp is real, the 2027 number is not underwritten by anyone but the bulls. Hold what exists, stop scaling in, and reopen the case only when management guides toward the rate the thesis assumes."
+        }
+      ],
+      "sourceThesisIds": [
+        "r_22778337eb66fdb7",
+        "r_02e48cf08022ebd2",
+        "r_616de129daeed5d0",
+        "h_e07b775686c9ce68"
+      ],
+      "basedOnVerdict": true
+    },
+    {
+      "id": "m_META_2026w32",
+      "ticker": "META",
+      "kind": "update",
+      "title": "The capex was in the recap, the miss was not",
+      "dek": "Q2 EPS missed badly funding the same capex the desk reads as a demand signal. Supplier read-through intact, equity off accumulate.",
+      "publishedAt": "2026-08-03T00:00:00Z",
+      "updatedAt": "2026-08-03T00:00:00Z",
+      "rating": "watch",
+      "sections": [
+        {
+          "heading": "Snapshot",
+          "body": "$META sits in this book as the payer — held to validate that the capex funding the [[photonics]] and [[memory]] supply chain is actually being spent."
+        },
+        {
+          "heading": "Thesis",
+          "body": "Hyperscaler capex is the demand signal for everything downstream, and Meta's 2026 guidance of $130-145bn is among the largest single commitments in the group. Owning the payer alongside the suppliers was the way to hold both ends of the same trade."
+        },
+        {
+          "heading": "Why own it",
+          "body": "The capex commitment held and the low end of the range rose $10bn in a single quarter. As a demand signal for [[hyperscalers]] spend, nothing deteriorated."
+        },
+        {
+          "heading": "Risks",
+          "body": "Q2 EPS was $6.18 against roughly $7.14 expected, on $60.8bn of revenue and $31.1bn of quarterly capital expenditure, and the shares fell about 8%. Free cash flow is compressing under the buildout.\n\nPart of the capex increase is memory cost inflation rather than incremental compute units, so the headline dollars overstate the unit demand reaching suppliers."
+        },
+        {
+          "heading": "Bottom line",
+          "body": "The supplier read-through survives; the equity does not deserve accumulate while the market is derating it for the spending that creates that read-through. Holding Meta and holding Meta's suppliers have become opposite expressions of one view, and this desk already owns the supply side."
+        }
+      ],
+      "sourceThesisIds": [
+        "r_6b73ca707c56ac89",
+        "r_b9c57108d30b1cbd",
+        "r_46d90a3c41fa7f93",
+        "x_2083270545320386734"
+      ],
+      "basedOnVerdict": true
+    },
+    {
+      "id": "m_NBIS_2026w32",
+      "ticker": "NBIS",
+      "kind": "update",
+      "title": "A financing story wearing a compute story's clothes",
+      "dek": "Power and contracts are landing; the funding gap between $399m of quarterly revenue and the capex plan is the actual risk. Off accumulate into the 12 August print.",
+      "publishedAt": "2026-08-03T00:00:00Z",
+      "updatedAt": "2026-08-03T00:00:00Z",
+      "rating": "watch",
+      "sections": [
+        {
+          "heading": "Snapshot",
+          "body": "$NBIS is the desk's [[neoclouds]] position — the way to own AI compute demand without owning a hyperscaler or a chip designer."
+        },
+        {
+          "heading": "Thesis",
+          "body": "Nebius contracts power and capacity ahead of demand, converts it into annualised run-rate, and grows into a market where compute is scarce. Capacity secured today is revenue two to four quarters out."
+        },
+        {
+          "heading": "Why own it",
+          "body": "The operating execution is visible: up to 1.2GW of power and land secured for an owned site in Pennsylvania, and more than 3GW expected under contract by year-end. For a neocloud the binding constraint is energised capacity, and that constraint is being cleared ahead of the revenue."
+        },
+        {
+          "heading": "Risks",
+          "body": "Q1 revenue was $399.0m, which annualises near $1.6bn against a full-year target of $3-3.4bn. Almost the entire guide sits in the second half and depends on capacity landing on schedule.\n\nCapex plans run an order of magnitude above revenue, which makes the terms of the next capital raise a larger determinant of the equity return than GPU demand is."
+        },
+        {
+          "heading": "Bottom line",
+          "body": "Nothing is broken — but accumulate implies the risk being underwritten is demand, and it is not, it is financing. Hold into the 12 August print and let the H2 step-up show up before adding."
+        }
+      ],
+      "sourceThesisIds": [
+        "r_e9b254d4e96e609a",
+        "r_606728417ecb8670",
+        "r_e2cd15e12c0928b1",
+        "x_2082896789880119590"
+      ],
+      "basedOnVerdict": true
+    },
+    {
+      "id": "m_AMD_2026w32",
+      "ticker": "AMD",
+      "kind": "coverage",
+      "title": "The CPO read-through has no AMD behind it",
+      "dek": "Enters Core on score. The desk's interest is co-packaged optics adoption, and that rests on channel checks, not disclosure.",
+      "publishedAt": "2026-08-03T00:00:00Z",
+      "updatedAt": "2026-08-03T00:00:00Z",
+      "rating": "watch",
+      "sections": [
+        {
+          "heading": "Snapshot",
+          "body": "$AMD enters Core coverage on mention volume, largely as the presumed first customer for co-packaged optics among the [[accelerators]]."
+        },
+        {
+          "heading": "Thesis",
+          "body": "If AMD commits to CPO for Helios scale-up networking, it converts the [[photonics]] laser suppliers from a thematic bet into a scheduled one, with [[aaoi]] and [[sive]] the named beneficiaries."
+        },
+        {
+          "heading": "Why own it",
+          "body": "Independently of the optics narrative, the accelerator business is compounding: Q1 data centre revenue of $5.8bn was up 57%, with Q2 guided to roughly $11.2bn plus or minus $300m, about 46% growth at the midpoint."
+        },
+        {
+          "heading": "Risks",
+          "body": "The CPO adoption claim traces to channel checks and a Rosenblatt note, not to any AMD disclosure. Helios and MI450 ship in the second half of 2026 on pluggable optics, with co-packaged optics described as a future-generation option — which puts the read-through in 2027 at the earliest.\n\nQ2 results land 4 August against a guide already embedding 46% growth, making the near term a binary on execution."
+        },
+        {
+          "heading": "Bottom line",
+          "body": "Watch. Do not take a position into the print, and do not own AMD as a proxy for the photonics thesis — if AMD is worth owning it is as an accelerator business on its own numbers."
+        }
+      ],
+      "sourceThesisIds": [
+        "r_069c95095080e85f",
+        "r_c53aaef67548ac6a",
+        "r_90fd4fc035f36fda",
+        "h_0c8b779e5549fefc",
+        "h_77894599004bff7e"
+      ],
+      "basedOnVerdict": true
+    },
+    {
+      "id": "m_GOOGL_2026w32",
+      "ticker": "GOOGL",
+      "kind": "coverage",
+      "title": "The payer whose spending is funded",
+      "dek": "Enters Core as the strongest of the four capex payers — but only about 40% of that capex reaches the names this desk owns.",
+      "publishedAt": "2026-08-03T00:00:00Z",
+      "updatedAt": "2026-08-03T00:00:00Z",
+      "rating": "accumulate",
+      "sections": [
+        {
+          "heading": "Snapshot",
+          "body": "$GOOGL enters Core coverage as the [[hyperscalers]] name with the clearest link between what it spends and what it earns."
+        },
+        {
+          "heading": "Thesis",
+          "body": "Capex funded out of an accelerating cloud business is more durable than capex funded out of a mature one, which makes Alphabet the most reliable demand signal in the group for everything downstream."
+        },
+        {
+          "heading": "Why own it",
+          "body": "Q2 revenue of $119.8bn was up 24%, Google Cloud reached $24.8bn up 82%, quarterly capex hit a record $44.9bn, and the full-year guide rose to $195-205bn. The spend and the business behind it are moving together."
+        },
+        {
+          "heading": "Risks",
+          "body": "Roughly 60% of the capex goes to servers and 40% to data centres and networking equipment. Only that second slice reads through to optics and interconnect, so headline capex materially overstates the addressable pull for this book.\n\nThe stock fell about 5% on the capex raise despite a revenue beat, and has since rallied 12% in a week — the entry is not here."
+        },
+        {
+          "heading": "Bottom line",
+          "body": "The accumulate case is sound and the timing is not. Wait for the next capex-driven derating rather than buying the rebound."
+        }
+      ],
+      "sourceThesisIds": [
+        "r_2d7fdbea2e10e3d8",
+        "r_a0a2f978090bcf1b",
+        "r_b2d92e73dc38aa13",
+        "x_2083270545320386734"
+      ],
+      "basedOnVerdict": true
+    },
+    {
+      "id": "m_COHR_2026w32",
+      "ticker": "COHR",
+      "kind": "coverage",
+      "title": "The prime that only appears by association",
+      "dek": "Enters Core on mentions, but every one of them is someone else's thesis. No Coherent-specific numbers in this corpus.",
+      "publishedAt": "2026-08-03T00:00:00Z",
+      "updatedAt": "2026-08-03T00:00:00Z",
+      "rating": "watch",
+      "sections": [
+        {
+          "heading": "Snapshot",
+          "body": "$COHR enters Core coverage as one of the three photonics primes with CPO laser visibility, alongside [[lite]] and [[sive]]."
+        },
+        {
+          "heading": "Thesis",
+          "body": "The same InP shortage that constrains [[lite]] constrains Coherent, and Coherent has reserved substrate capacity from [[axti]] to secure supply. If lasers are the chokepoint, the primes capture the pricing."
+        },
+        {
+          "heading": "Why own it",
+          "body": "Structural exposure to the InP shortage with an established datacom franchise, at a valuation that fell about a third in a month alongside the rest of [[photonics]]."
+        },
+        {
+          "heading": "Risks",
+          "body": "Every mention in this corpus is by association — the substrate agreement, the Morgan Stanley visibility trio, another company's shortage commentary. There is no dedicated thesis with Coherent's own numbers.\n\nDatacom sits inside a much larger, slower industrial business, so the shortage's effect on group earnings is diluted in a way it is not at a pure-play."
+        },
+        {
+          "heading": "Bottom line",
+          "body": "Watch. [[lite]] carries the same exposure at higher purity and with the numbers disclosed. Coherent earns a position when its datacom segment maths is sized separately, not before."
+        }
+      ],
+      "sourceThesisIds": [
+        "h_2d636896cf0553c2",
+        "h_cdc1513b37dc8a51",
+        "x_2083438823548293140"
+      ],
+      "basedOnVerdict": true
+    },
+    {
+      "id": "m_TSM_2026w32",
+      "ticker": "TSM",
+      "kind": "coverage",
+      "title": "Everything is built here, which is the problem",
+      "dek": "Enters Core on structural mentions. The least differentiated way to own a thesis whose entire edge is upstream.",
+      "publishedAt": "2026-08-03T00:00:00Z",
+      "updatedAt": "2026-08-03T00:00:00Z",
+      "rating": "watch",
+      "sections": [
+        {
+          "heading": "Snapshot",
+          "body": "$TSM enters Core coverage on mention volume generated by other companies' announcements rather than by any thesis about TSMC itself."
+        },
+        {
+          "heading": "Thesis",
+          "body": "TSMC manufactures the substrate on which this whole map is built, so exposure to AI compute is exposure to TSMC by definition."
+        },
+        {
+          "heading": "Why own it",
+          "body": "The structural position is unassailable and the mentions reflect it — a ten-year advanced packaging partnership with [[amkr]], silicon-photonics volume revisions driving analyst estimates across the chain, CPO revenue showing up at test and metrology suppliers."
+        },
+        {
+          "heading": "Risks",
+          "body": "Being the common denominator is exactly what removes the edge. Every asymmetry this desk has found sits in small suppliers upstream, and TSMC's scale dilutes each of them to a rounding error.\n\nNone of the week's mentions constitute a TSMC-specific claim that could be right or wrong."
+        },
+        {
+          "heading": "Bottom line",
+          "body": "Watch. Own it as a core-portfolio decision if you want broad exposure, but this research produces no edge on it."
+        }
+      ],
+      "sourceThesisIds": [
+        "h_81c95bb99a13f5d0",
+        "h_58ab72fe0a33550a",
+        "h_f25655e483d8ec8c"
+      ],
+      "basedOnVerdict": true
+    },
+    {
+      "id": "m_IREN_2026w32",
+      "ticker": "IREN",
+      "kind": "coverage",
+      "title": "Better customers, same funding question",
+      "dek": "Enters Core on an ARR revision to $4bn-plus with real counterparties — and the same capacity-funding gap as every neocloud.",
+      "publishedAt": "2026-08-03T00:00:00Z",
+      "updatedAt": "2026-08-03T00:00:00Z",
+      "rating": "watch",
+      "sections": [
+        {
+          "heading": "Snapshot",
+          "body": "$IREN enters Core coverage as the second [[neoclouds]] name in the book, a converted bitcoin miner rebuilding as an AI cloud."
+        },
+        {
+          "heading": "Thesis",
+          "body": "Existing power and data centre shells convert to AI compute faster and cheaper than greenfield capacity, letting a miner reprice its asset base against AI demand."
+        },
+        {
+          "heading": "Why own it",
+          "body": "The ARR target was revised to $4bn-plus on new AI cloud contracts, with Microsoft, Nvidia, Perplexity and Figure named as customers. That is a genuine step up in counterparty quality and the single substantive datapoint behind the tier promotion."
+        },
+        {
+          "heading": "Risks",
+          "body": "Most of the remaining mentions are drawdown-and-snapback breadth lists, which inflate the mention count without adding evidence.\n\nContracted ARR is not funded capacity — the same gap that moved [[nbis]] off accumulate applies here, with less disclosure behind it."
+        },
+        {
+          "heading": "Bottom line",
+          "body": "Watch. [[nbis]] already carries the neocloud exposure with more visibility. Doubling the leg is a sizing decision, not a reason to add a correlated second name."
+        }
+      ],
+      "sourceThesisIds": [
+        "h_43deb65515cd551f",
+        "x_2082896789880119590",
+        "h_6cc7f046ffe02ade"
+      ],
+      "basedOnVerdict": true
+    },
+    {
+      "id": "m_AXTI_2026w32",
+      "ticker": "AXTI",
+      "kind": "exit-note",
+      "title": "Off the roster, with the deposit read corrected",
+      "dek": "Drops out of Core on score at rank 25. The Lumentum deposits are customer prepayments offset against future invoices, not reservation income.",
+      "publishedAt": "2026-08-03T00:00:00Z",
+      "updatedAt": "2026-08-03T00:00:00Z",
+      "rating": "watch",
+      "sections": [
+        {
+          "heading": "Snapshot",
+          "body": "$AXTI leaves the verdict roster this week on score, ranking 25th. Its last recorded desk stance was watch and no position was ever suggested."
+        },
+        {
+          "heading": "Thesis",
+          "body": "AXT supplies the indium phosphide substrates that [[lite]] and [[cohr]] turn into lasers, which makes it the upstream chokepoint of the chokepoint — one link further up than the [[photonics]] names the desk owns."
+        },
+        {
+          "heading": "Why own it",
+          "body": "The long-term supplier agreement with Lumentum reserves a minimum annual indium phosphide commitment through 31 December 2031 and supports additional capacity if required. Being paid in advance to reserve capacity is what a genuine bottleneck looks like."
+        },
+        {
+          "heading": "Risks",
+          "body": "The agreement is two deposits of $43.5m, $87m in total, with the second only in calendar 2028. Both operate as shipment credits offset against future invoices, not fees — the cash arrives years before the revenue does.\n\nNo wafer volumes, pricing or capacity figures are disclosed, so the scale of the reservation cannot be sized from the filing. Concentration also rises: the small group of laser makers reserving the capacity are the only buyers of the output."
+        },
+        {
+          "heading": "Bottom line",
+          "body": "Leaves coverage without a position ever having been taken, which is the right outcome for a name whose entire attraction was a cash line that turns out to be deferred revenue. The exposure is better held through [[lite]]."
+        }
+      ],
+      "sourceThesisIds": [
+        "r_19daf0c55f68ce66",
+        "r_925f8e3fb9b679c5",
+        "r_8524c1d9d74a0b87",
+        "h_2d636896cf0553c2"
+      ],
+      "basedOnVerdict": true
+    },
+    {
+      "id": "m_MU_2026w32",
+      "ticker": "MU",
+      "kind": "exit-note",
+      "title": "Leaving at the margin peak",
+      "dek": "Drops out of Core on score at rank 21. Record DRAM revenue at 84.9% gross margin is a cycle peak, and only a fifth of volume is contracted.",
+      "publishedAt": "2026-08-03T00:00:00Z",
+      "updatedAt": "2026-08-03T00:00:00Z",
+      "rating": "watch",
+      "sections": [
+        {
+          "heading": "Snapshot",
+          "body": "$MU leaves the verdict roster this week on score, ranking 21st. Its last recorded desk stance was watch; [[sndk]] carried the [[memory]] exposure throughout."
+        },
+        {
+          "heading": "Thesis",
+          "body": "AI demand structurally repriced memory, and long-term supply agreements convert a notoriously cyclical business into something closer to a contracted one."
+        },
+        {
+          "heading": "Why own it",
+          "body": "Fiscal Q3 DRAM revenue was a record $31.3bn, up 343% year on year at 84.9% consolidated gross margin, with 16 strategic customer agreements and remaining performance obligations above $5bn. The demand lock is contractual rather than anecdotal."
+        },
+        {
+          "heading": "Risks",
+          "body": "Only about 20% of DRAM and 30% of NAND volume is covered by those agreements, so roughly four fifths of DRAM volume remains exposed to spot pricing. The contracts smooth the cycle rather than remove it.\n\nAn 84.9% gross margin is a cycle peak, not a run-rate, and the agreements defend floor prices and volume rather than the pricing above the floor — which is the part currently carrying the earnings."
+        },
+        {
+          "heading": "Bottom line",
+          "body": "Exits coverage on rank, and the timing is not unwelcome. The structural memory case is intact; the entry point at peak margin was not, and [[sndk]] already expresses the upcycle with more torque."
+        }
+      ],
+      "sourceThesisIds": [
+        "r_9d15ecea46a123d6",
+        "r_7a8c6a3fefa8cfae",
+        "r_2779c73c56e6533f"
+      ],
+      "basedOnVerdict": true
+    },
+    {
+      "id": "m_AMKR_2026w32",
+      "ticker": "AMKR",
+      "kind": "coverage",
+      "title": "A real business waiting for its AI quarter",
+      "dek": "Record revenue, two anchor customers prepaying for capacity, and a de-rating that prices the gap between now and 2028.",
+      "publishedAt": "2026-08-03T00:00:00Z",
+      "updatedAt": "2026-08-03T00:00:00Z",
+      "rating": "accumulate",
+      "sections": [
+        {
+          "heading": "Snapshot",
+          "body": "$AMKR is the largest US-headquartered outsourced assembly and test provider, and it enters coverage at the operator's request rather than on score — three mentions, ranked well outside the [[photonics]] and [[memory]] names this desk normally covers. It sits in the book as the advanced packaging link: the step where multiple dies become one package."
+        },
+        {
+          "heading": "Thesis",
+          "body": "Advanced packaging is a binding constraint on accelerator supply, and two of the most important customers in the industry have committed to Amkor's US capacity — a **$1.5B** agreement with $NVDA and a ten-year packaging partnership with $TSM.\n\nThe analyst's framing is that the market punished a name whose AI ramp is a year or two out while rewarding companies delivering acceleration today. He names Amkor explicitly as that example, and describes it as \"more of a 2028 name\" with separate ramps in 2027."
+        },
+        {
+          "heading": "Why own it",
+          "body": "Unlike most of this book's higher-conviction positions, the numbers here are reported rather than modelled. Amkor posted record second-quarter net sales of **$1.90 billion**, up 26% year on year, with $0.70 of diluted earnings per share — a profitable, growing business before any AI packaging revenue arrives.\n\nThat matters because it changes what a drawdown means. In [[sive]] or [[aaoi]] a de-rating tests a forecast; here it tests patience against a business that already works. Being paid in advance by $NVDA to build capacity is also the strongest form of demand evidence available — customers who prepay are not hedging."
+        },
+        {
+          "heading": "Risks",
+          "body": "The record quarter was led by Computing and Automotive & Industrial, not by the AI packaging ramp. The thing being bought is not yet the thing producing the revenue, and by the analyst's own timeline it will not be until 2028.\n\nThe $NVDA money is a prepayment for capacity expansion, so it lands in cash flow well before it lands in earnings — the same structure that turned up in the [[axti]] substrate agreements, and the same trap of reading a headline dollar figure as income.\n\nOSAT is also a cyclical, capital-hungry, thin-margin industry by nature. If Computing softens before the AI ramp replaces it, the position carries the cycle without the story."
+        },
+        {
+          "heading": "Bottom line",
+          "body": "Accumulate, slowly, as a multi-year holding. The structural case is sound and unusually well-evidenced for this book, but the clock is long and the de-rating is not obviously irrational — the market is pricing two years of waiting. Quarterly tranches, no adding on partnership headlines, and treat any further drawdown as expected rather than as new information."
+        }
+      ],
+      "sourceThesisIds": [
+        "h_81c95bb99a13f5d0",
+        "h_69684ea60ee93290",
+        "h_061b5ccd49c3a139"
+      ],
       "basedOnVerdict": true
     }
   ]

@@ -4725,5 +4725,712 @@
     ],
     "conviction": "normal",
     "tags": []
+  },
+  {
+    "id": "h_81c95bb99a13f5d0",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-08-03T06:24:54Z",
+    "ingestedAt": "2026-08-03T06:24:54Z",
+    "text": "Hmm, I personally added \n$AMKR\n in the $40's since I thought it was surprising it dropped that much after ER, even after \n$NVDA\n $1.5B deal + \n$TSM\n 10Y agreement. \n\nIt's more of a 2028 name though, though they have separate ramps in 2027. \n\n- Did some cost averaging on names like Foci on drop to 400 (leading FAU supplier to \n$TSM\n COUPE + \n$NVDA\n, COUPE shows signs of ramp now from other ERs like \n$FORM\n).  Added some $XFAB too after earnings since they verified CPO + 800V exposure, might be a bit of waiting though.\n\nAdded $LPK on the 13 EU doomdrop, GCS isn't going anywhere, think volume ramp just got delayed a quarter because of Absolics delay and I'm fine waiting 3 months. CoPoS, Samsung, and others should drive demand more in 2027. \n\nAnd added OE Solutions on drop to ~14,000 KRW, thought it was strange Korea's leading EML company with independent InP fabs was only worth ~$110M MC. \n\n-  Names like Win Semi + others are really really compelling to me but just dont have enough capital to add sadly without going on heavy margin. \n\nProbably want to scale into $SIVE and \n$AAOI\n more since those are my two favorites.\n\nAnd looking at \n$CCXI\n opportunities given Unitree IPO is around 3 weeks, that listing should boost humanoid/robotics sector a bit similar to the \n$SPCX\n halo effect. \n\nTLDR: Just moving capital around, my own personal risk management. Same names as before.",
+    "tickers": [
+      "AAOI",
+      "AMKR",
+      "CCXI",
+      "FORM",
+      "LPK",
+      "NVDA",
+      "SIVE",
+      "SPCX",
+      "TSM",
+      "XFAB"
+    ],
+    "conviction": "high",
+    "tags": []
+  },
+  {
+    "id": "r_c173439107ef44c4",
+    "source": "research",
+    "author": "semi-expert",
+    "sourceUrl": "https://www.poet-technologies.com/news/poet-technologies-and-sivers-semiconductors-collaborate-on-external-light-sources-for-co-packaged-optics-and-next-generation-ai-market",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Semiconductor expert: The only citable POET/Sivers language is 'production readiness by end of 2026', with customer prototypes in H1 2026. A readiness milestone is not a production order, and no volume, customer or ASP has been disclosed by either company.",
+    "tickers": [
+      "SIVE"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "semi-expert"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_25fe1eb5be8668d6",
+    "source": "research",
+    "author": "fundamental",
+    "sourceUrl": "https://www.sivers-semiconductors.com/press/sivers-semiconductors-ab-publ-publishes-interim-report-q1-january-march-2026/",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Fundamental analyst: Q1 2026 net sales were SEK 61.9m, down 22% year on year. The $799m headline is an opportunity pipeline, not backlog or revenue, and grew off a base the company itself does not convert. Revenue is shrinking while the story expands.",
+    "tickers": [
+      "SIVE"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "fundamental"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_9ee46b9d8e2301a1",
+    "source": "research",
+    "author": "pm",
+    "sourceUrl": "https://www.sivers-semiconductors.com/investors/financial-calendar/",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Portfolio manager: Nothing financial confirms the laser ramp before the Q2 interim report on 27 August 2026. Any position added on the POET wording upgrade is being taken ahead of the only print that can test it.",
+    "tickers": [
+      "SIVE"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "pm"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_3cd744e39b755b95",
+    "source": "research",
+    "author": "semi-expert",
+    "sourceUrl": "https://investor.lumentum.com/financial-news-releases/news-details/2026/Lumentum-Announces-Third-Quarter-of-Fiscal-Year-2026-Financial-Results/default.aspx",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Semiconductor expert: Confirmed on the FQ3 2026 call: supply-demand imbalance greater than 30% in EMLs and pump lasers, Japan wafer fab fully allocated, laser chip shipments double the year-ago quarter. The shortage is real and fab-limited, not order-limited.",
+    "tickers": [
+      "LITE"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "semi-expert"
+    ],
+    "direction": "bull",
+    "verification": "verified"
+  },
+  {
+    "id": "r_f4c7f494b964375d",
+    "source": "research",
+    "author": "fundamental",
+    "sourceUrl": "https://investor.lumentum.com/financial-news-releases/news-details/2026/Lumentum-Announces-Third-Quarter-of-Fiscal-Year-2026-Financial-Results/default.aspx",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Fundamental analyst: FQ3 2026 revenue was a record $808m, up 90% year on year, led by transceivers and laser chips. The revenue is landing, not merely forecast.",
+    "tickers": [
+      "LITE"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "fundamental"
+    ],
+    "direction": "bull",
+    "verification": "verified"
+  },
+  {
+    "id": "r_355cd379a66708e2",
+    "source": "research",
+    "author": "pm",
+    "sourceUrl": "https://investors.axt.com/Investors/news/news-details/2026/AXT-Inc--Announces-Long-Term-Supplier-Agreement-with-Lumentum/default.aspx",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Portfolio manager: The shortage evidence is the CEO's own remarks, so citing him is not independent corroboration. Meanwhile Lumentum is committing $87m of deposits to AXT to reserve InP substrate through 2031 — the input is scarce enough to require prepayment.",
+    "tickers": [
+      "LITE"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "pm"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_8da61b5d7a32a1f2",
+    "source": "research",
+    "author": "semi-expert",
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000051/q1fy27pr.htm",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Semiconductor expert: FQ1 2027 data center revenue was a record $75.2bn, up 92% year on year, with networking revenue near tripling. The Blackwell 300 ramp and the scale-up interconnect attach rate are both confirmed in the filing, not inferred.",
+    "tickers": [
+      "NVDA"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "semi-expert"
+    ],
+    "direction": "bull",
+    "verification": "verified"
+  },
+  {
+    "id": "r_716f92d724eeb1b8",
+    "source": "research",
+    "author": "fundamental",
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000051/q1fy27pr.htm",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Fundamental analyst: NVIDIA returned roughly $20bn to shareholders in the quarter and authorised a further $80bn of buyback while raising the dividend 25x. That is capital returned, not capacity added — the supply constraint sits at packaging and optics, not at NVIDIA's balance sheet.",
+    "tickers": [
+      "NVDA"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "fundamental"
+    ],
+    "direction": "neutral",
+    "verification": "verified"
+  },
+  {
+    "id": "r_3de49ded3b7e9663",
+    "source": "research",
+    "author": "pm",
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000051/q1fy27pr.htm",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Portfolio manager: At 74.9% gross margin NVIDIA is the customers' cost line. Meta missed Q2 EPS at $6.18 against a $7.14 consensus while raising capex. The first evidence of buyer P&L strain shows up in the payer's earnings, not in NVIDIA's.",
+    "tickers": [
+      "NVDA"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "pm"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_616de129daeed5d0",
+    "source": "research",
+    "author": "semi-expert",
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1158114/000168316826003562/aaoi_ex9901.htm",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Semiconductor expert: The 800G ramp is company-confirmed: Q2 shipments guided at nearly four times Q1 levels off a record $151.1m Q1. The volume inflection is real even where the CPO customer identity is not disclosed.",
+    "tickers": [
+      "AAOI"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "semi-expert"
+    ],
+    "direction": "bull",
+    "verification": "verified"
+  },
+  {
+    "id": "r_22778337eb66fdb7",
+    "source": "research",
+    "author": "fundamental",
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1158114/000168316826003562/aaoi_ex9901.htm",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Fundamental analyst: The company guides Q2 2026 revenue to $180-198m and FY2026 to roughly $1.1bn. A $471m monthly rate, or $5.6bn annualised in 2027, is about five times the run-rate management itself has guided to. That gap is the whole bull case.",
+    "tickers": [
+      "AAOI"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "fundamental"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_02e48cf08022ebd2",
+    "source": "research",
+    "author": "pm",
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1158114/000168316826003562/aaoi_ex9901.htm",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Portfolio manager: Q2 is guided to non-GAAP EPS between -$0.03 and +$0.03 on 29-30% gross margin. At record revenue the company is at breakeven, so a one-times-forward-revenue multiple is cheap only against a top line that earns nothing.",
+    "tickers": [
+      "AAOI"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "pm"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_46d90a3c41fa7f93",
+    "source": "research",
+    "author": "semi-expert",
+    "sourceUrl": "https://investor.atmeta.com/investor-news/press-release-details/2026/Meta-Reports-Second-Quarter-2026-Results/default.aspx",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Semiconductor expert: 2026 capex guidance of $130-145bn includes finance lease principal, and the low end rose $10bn in one quarter. Part of that increase is memory cost inflation rather than incremental compute units, so capex dollars overstate unit demand growth for suppliers.",
+    "tickers": [
+      "META"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "semi-expert"
+    ],
+    "direction": "neutral",
+    "verification": "verified"
+  },
+  {
+    "id": "r_6b73ca707c56ac89",
+    "source": "research",
+    "author": "fundamental",
+    "sourceUrl": "https://investor.atmeta.com/investor-news/press-release-details/2026/Meta-Reports-Second-Quarter-2026-Results/default.aspx",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Fundamental analyst: Q2 2026 EPS was $6.18 against roughly $7.14 expected, on $60.8bn revenue and $31.1bn of quarterly capex. The desk's recap carried the capex number and not the earnings miss or the free cash flow compression underneath it.",
+    "tickers": [
+      "META"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "fundamental"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_b9c57108d30b1cbd",
+    "source": "research",
+    "author": "pm",
+    "sourceUrl": "https://investor.atmeta.com/investor-news/press-release-details/2026/Meta-Reports-Second-Quarter-2026-Results/default.aspx",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Portfolio manager: Shares fell roughly 8% on the print. The supplier read-through stays intact while the payer is derated, so owning Meta and owning its suppliers are now opposite trades, not the same one.",
+    "tickers": [
+      "META"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "pm"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_a0a2f978090bcf1b",
+    "source": "research",
+    "author": "semi-expert",
+    "sourceUrl": "https://abc.xyz/investor/events/event-details/2026/2026-Q2-Earnings-Call-2026-GgTAq7Is0z/default.aspx",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Semiconductor expert: Roughly 60% of the raised capex goes to servers and 40% to data centers and networking equipment. Only that 40% slice reads through to the optics and interconnect names the desk owns, so headline capex overstates the addressable pull.",
+    "tickers": [
+      "GOOGL"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "semi-expert"
+    ],
+    "direction": "neutral",
+    "verification": "verified"
+  },
+  {
+    "id": "r_2d7fdbea2e10e3d8",
+    "source": "research",
+    "author": "fundamental",
+    "sourceUrl": "https://abc.xyz/investor/events/event-details/2026/2026-Q2-Earnings-Call-2026-GgTAq7Is0z/default.aspx",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Fundamental analyst: Q2 2026 revenue of $119.8bn was up 24%, with Google Cloud at $24.8bn up 82% and quarterly capex at a record $44.9bn. Full-year capex guidance was raised to $195-205bn. The spend is funded by an accelerating cloud business.",
+    "tickers": [
+      "GOOGL"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "fundamental"
+    ],
+    "direction": "bull",
+    "verification": "verified"
+  },
+  {
+    "id": "r_b2d92e73dc38aa13",
+    "source": "research",
+    "author": "pm",
+    "sourceUrl": "https://abc.xyz/investor/events/event-details/2026/2026-Q2-Earnings-Call-2026-GgTAq7Is0z/default.aspx",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Portfolio manager: The stock fell about 5% after a revenue beat, on the capex raise alone. The market is currently paying for AI demand with multiple compression at the buyer, which is the same mechanism that would eventually cap the buyer's willingness to spend.",
+    "tickers": [
+      "GOOGL"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "pm"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_069c95095080e85f",
+    "source": "research",
+    "author": "semi-expert",
+    "sourceUrl": "",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Semiconductor expert: The CPO adoption claim rests on channel checks and a Rosenblatt note, not on any AMD disclosure. Helios and MI450 ship in H2 2026 on pluggable optics; co-packaged optics is described as a future-generation option, which puts any AAOI or Sivers read-through in 2027 at the earliest.",
+    "tickers": [
+      "AMD"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "semi-expert"
+    ],
+    "direction": "neutral",
+    "verification": "unverified"
+  },
+  {
+    "id": "r_c53aaef67548ac6a",
+    "source": "research",
+    "author": "fundamental",
+    "sourceUrl": "https://ir.amd.com/news-events/press-releases/detail/1284/amd-reports-first-quarter-2026-financial-results",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Fundamental analyst: Q1 2026 data center revenue was $5.8bn, up 57% year on year, with Q2 guided to roughly $11.2bn plus or minus $300m, about 46% growth at the midpoint. The accelerator business is compounding independently of the CPO narrative.",
+    "tickers": [
+      "AMD"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "fundamental"
+    ],
+    "direction": "bull",
+    "verification": "verified"
+  },
+  {
+    "id": "r_90fd4fc035f36fda",
+    "source": "research",
+    "author": "pm",
+    "sourceUrl": "https://ir.amd.com/news-events/press-releases/detail/1284/amd-reports-first-quarter-2026-financial-results",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Portfolio manager: Q2 results land on 4 August, one day out. The guide already embeds 46% growth, so the print is a near-term binary on execution rather than on the AI thesis, and adding size into it is a timing decision, not a view.",
+    "tickers": [
+      "AMD"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "pm"
+    ],
+    "direction": "neutral",
+    "verification": "verified"
+  },
+  {
+    "id": "r_e2cd15e12c0928b1",
+    "source": "research",
+    "author": "semi-expert",
+    "sourceUrl": "https://nebius.com/newsroom/nebius-reports-first-quarter-2026-financial-results",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Semiconductor expert: Nebius secured up to 1.2GW of power and land for an owned site in Pennsylvania and expects more than 3GW contracted by year-end. For a neocloud the binding constraint is energised capacity, and that constraint is being cleared ahead of the revenue.",
+    "tickers": [
+      "NBIS"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "semi-expert"
+    ],
+    "direction": "bull",
+    "verification": "verified"
+  },
+  {
+    "id": "r_e9b254d4e96e609a",
+    "source": "research",
+    "author": "fundamental",
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/0001513845/000110465926059872/tm2614392d1_ex99-1.htm",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Fundamental analyst: Q1 2026 revenue was $399.0m, which annualises near $1.6bn against a full-year target of $3-3.4bn. Almost the entire guide sits in the second half and depends on capacity landing on schedule.",
+    "tickers": [
+      "NBIS"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "fundamental"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_606728417ecb8670",
+    "source": "research",
+    "author": "pm",
+    "sourceUrl": "https://nebius.com/newsroom/nebius-reports-first-quarter-2026-financial-results",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Portfolio manager: Capex plans are an order of magnitude above revenue, so the equity is a financing story before it is a compute story. The risk that matters is the terms of the next raise, not the demand for GPUs.",
+    "tickers": [
+      "NBIS"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "pm"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_036cd32e907a7e15",
+    "source": "research",
+    "author": "semi-expert",
+    "sourceUrl": "",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Semiconductor expert: The FCC import-ban read-through is regulatory, not technical, and Agility's Digit is a warehouse logistics biped rather than a quadruped or general-purpose humanoid. Whether the named category captures Agility's addressable market is not established by any primary source I can cite.",
+    "tickers": [
+      "CCXI"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "semi-expert"
+    ],
+    "direction": "neutral",
+    "verification": "unverified"
+  },
+  {
+    "id": "r_e9286da82e5c2cde",
+    "source": "research",
+    "author": "fundamental",
+    "sourceUrl": "https://www.businesswire.com/news/home/20260624555633/en/Agility-Robotics-to-Go-Public-Through-$2.5-Billion-Merger-with-Churchill-Capital-Corp-XI",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Fundamental analyst: The business combination values Agility at roughly $2.5bn with over $620m of gross proceeds. That is a valuation negotiated in a SPAC agreement against pre-scale revenue, not one set by a market, and it is the anchor for every multiple quoted since.",
+    "tickers": [
+      "CCXI"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "fundamental"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_41b41b60ce8eb149",
+    "source": "research",
+    "author": "pm",
+    "sourceUrl": "https://www.agilityrobotics.com/content/agility-robotics-to-go-public-through-merger-with-churchill-capital-corp-xi",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Portfolio manager: CCXI is a pre-close SPAC. Exposure to Agility only exists after SEC review of the S-4, a shareholder vote and closing expected before end-2026, after which it trades as AGLT. Deal and redemption risk currently sit above operating risk.",
+    "tickers": [
+      "CCXI"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "pm"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_7a8c6a3fefa8cfae",
+    "source": "research",
+    "author": "semi-expert",
+    "sourceUrl": "https://investors.micron.com/static-files/631b1a32-5537-46ae-8f40-82e42fc79dfe",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Semiconductor expert: Only about 20% of DRAM and 30% of NAND volume is covered by the 16 strategic customer agreements. Roughly four fifths of DRAM volume remains exposed to spot pricing, so the contracts smooth the cycle rather than remove it.",
+    "tickers": [
+      "MU"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "semi-expert"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_9d15ecea46a123d6",
+    "source": "research",
+    "author": "fundamental",
+    "sourceUrl": "https://investors.micron.com/static-files/631b1a32-5537-46ae-8f40-82e42fc79dfe",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Fundamental analyst: Fiscal Q3 DRAM revenue was a record $31.3bn, up 343% year on year at 84.9% consolidated gross margin, with 16 strategic customer agreements and remaining performance obligations above $5bn. The demand lock is contractual, not anecdotal.",
+    "tickers": [
+      "MU"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "fundamental"
+    ],
+    "direction": "bull",
+    "verification": "verified"
+  },
+  {
+    "id": "r_2779c73c56e6533f",
+    "source": "research",
+    "author": "pm",
+    "sourceUrl": "https://investors.micron.com/static-files/631b1a32-5537-46ae-8f40-82e42fc79dfe",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Portfolio manager: An 84.9% gross margin is a cycle peak, not a run-rate. The agreements defend floor prices and volume, not the pricing above the floor, which is exactly the part currently carrying the earnings.",
+    "tickers": [
+      "MU"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "pm"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_67423370f17ff00e",
+    "source": "research",
+    "author": "semi-expert",
+    "sourceUrl": "",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Semiconductor expert: 18A yields, 18A-P risk production and the 14A PDK 0.9 milestone come from call commentary I cannot tie to a primary filing. On the disclosed schedule, 14A risk production is 2027 and high-volume ramp 2028, so external foundry revenue is not a 2026 or 2027 event.",
+    "tickers": [
+      "INTC"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "semi-expert"
+    ],
+    "direction": "neutral",
+    "verification": "unverified"
+  },
+  {
+    "id": "r_1121c84c151e4fc8",
+    "source": "research",
+    "author": "fundamental",
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/50863/000005086326000155/q226earningsrelease.htm",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Fundamental analyst: Q2 2026 revenue was $16.1bn, up 25% and the strongest growth in over fifteen years, yet GAAP EPS was negative $2.16 against non-GAAP $0.42. The fastest growth in a decade and a half still does not produce a GAAP profit.",
+    "tickers": [
+      "INTC"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "fundamental"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_b4a203b90d34f080",
+    "source": "research",
+    "author": "pm",
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/50863/000005086326000155/q226earningsrelease.htm",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Portfolio manager: Q3 is guided to $15.8-16.8bn revenue and $0.38 non-GAAP EPS, above consensus. The China CPU long-term agreement story driving the desk's interest is a Reuters report, not company disclosure, and appears nowhere in the release.",
+    "tickers": [
+      "INTC"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "pm"
+    ],
+    "direction": "neutral",
+    "verification": "verified"
+  },
+  {
+    "id": "r_8524c1d9d74a0b87",
+    "source": "research",
+    "author": "semi-expert",
+    "sourceUrl": "https://investors.axt.com/Investors/news/news-details/2026/AXT-Inc--Announces-Long-Term-Supplier-Agreement-with-Lumentum/default.aspx",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Semiconductor expert: The agreement reserves a minimum annual indium phosphide commitment running through 31 December 2031 and supports additional capacity if required. No wafer volumes, pricing or capacity figures are disclosed, so the technical scale of the reservation cannot be sized from the filing.",
+    "tickers": [
+      "AXTI"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "semi-expert"
+    ],
+    "direction": "neutral",
+    "verification": "verified"
+  },
+  {
+    "id": "r_19daf0c55f68ce66",
+    "source": "research",
+    "author": "fundamental",
+    "sourceUrl": "https://investors.axt.com/Investors/news/news-details/2026/AXT-Inc--Announces-Long-Term-Supplier-Agreement-with-Lumentum/default.aspx",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Fundamental analyst: The deal is two deposits of $43.5m, $87m in total, the second only in calendar 2028. Both operate as shipment credits offset against future invoices, not fees. The desk recorded one $43.5m payment and treats it as reservation income; it is a customer prepayment.",
+    "tickers": [
+      "AXTI"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "fundamental"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_925f8e3fb9b679c5",
+    "source": "research",
+    "author": "pm",
+    "sourceUrl": "https://investors.axt.com/Investors/news/news-details/2026/AXT-Inc--Announces-Long-Term-Supplier-Agreement-with-Lumentum/default.aspx",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Portfolio manager: Revenue recognition is deferred behind the credits, so the cash arrives years before the earnings do. Concentration also rises: the same handful of laser makers reserving capacity through 2031 are the only buyers of the reserved output.",
+    "tickers": [
+      "AXTI"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "pm"
+    ],
+    "direction": "bear",
+    "verification": "verified"
   }
 ]

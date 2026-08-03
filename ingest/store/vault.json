@@ -1,9 +1,9 @@
 {
   "meta": {
     "schemaVersion": 1,
-    "syncedAt": "2026-08-01T20:26:51Z",
-    "pageCount": 64,
-    "linkCount": 197
+    "syncedAt": "2026-08-03T13:56:56Z",
+    "pageCount": 62,
+    "linkCount": 188
   },
   "pages": [
     {
@@ -86,8 +86,8 @@
           "watchCount": 0
         }
       },
-      "note": "The buyers of compute \u2014 and the center of the week's narrative war. [[aleabitoreddit]] framed the selloff as misinformation: a 1 July Bloomberg piece reported [[meta]] will *sell* its excess compute (becoming a [[neocloud]] competitor), which algorithms misread as capex-cutting. His long-standing 'Meta is not cutting' thesis got public support when Meta's 'Watermelon' model reportedly caught up to GPT 5.5 using an order of magnitude more compute.\n\n[[meta]] is the contested name; [[amzn]], [[googl]] and [[msft]] the other three legs of demand. Tracking them here is directional, not for the mega-caps themselves \u2014 hyperscaler capex is the tide that lifts the [[neoclouds]], [[photonics]] and [[memory]] suppliers downstream.",
-      "noteUpdatedAt": "2026-07-12T00:00:00Z"
+      "note": "The hyperscalers are held here as the demand signal rather than as growth equities: if [[amzn]], [[googl]], [[meta]] and MSFT keep raising capex, the supply chain beneath them has a funded order book. Combined 2026 guidance moved to roughly $720-745bn from $695-725bn during late July 2026, with Amazon at $220bn and explicitly short of capacity even so.\n\nThe week of 3 August 2026 introduced a distinction the desk had been collapsing. Capex is not one signal \u2014 it matters whether it is funded. [[googl]] raised to $195-205bn against cloud revenue up 82%, and entered Core coverage. [[meta]] raised its floor $10bn and missed EPS badly, and was stepped to watch. Part of the increase across the group is memory cost inflation rather than incremental compute units, so the headline dollars overstate the unit demand reaching suppliers.\n\nThe second-order observation from the same week: the payers rallied while the suppliers fell. Owning both ends of the trade is no longer the same position.",
+      "noteUpdatedAt": "2026-08-03T00:00:00Z"
     },
     {
       "slug": "materials",
@@ -96,15 +96,17 @@
       "auto": {
         "refs": [
           "aehr",
+          "amkr",
+          "form",
           "lpk-de",
           "soi-pa"
         ],
         "stats": {
           "label": "Materials & Packaging",
           "flowRole": "supply",
-          "memberCount": 3,
+          "memberCount": 5,
           "coreCount": 2,
-          "watchCount": 1
+          "watchCount": 3
         }
       },
       "note": "A lighter-touch, picks-and-shovels research theme sitting upstream of the [[fabs]] and [[advanced-packaging]] layers. [[aleabitoreddit]] views AEHR ([[aehr]])'s ~100% rally as largely priced in absent a new catalyst; LPKF ([[lpk-de]]) is his recurring bullish idea on a glass-core substrate near-monopoly \u2014 a bridge into the [[glass]] theme \u2014 with a stated multi-billion factory ambition; Soitec ([[soi-pa]]) rounds out the specialty-materials group.\n\nThese are second-derivative plays: they win if the [[memory]], [[photonics]] and packaging build-outs they supply keep scaling.",
@@ -150,8 +152,8 @@
           "watchCount": 0
         }
       },
-      "note": "The independent GPU-cloud layer \u2014 the [[neocloud]] model that rents accelerated compute outside the big [[hyperscalers]]. The 'Meta is cutting capex' narrative [[aleabitoreddit]] fought for weeks broke down publicly: SemiAnalysis, the same firm whose bear notes hit [[photonics]], now says Meta's datacenter compute will accelerate with 2027 capex 'shockingly high.'\n\n[[nbis]] is the core liquid expression; [[iren]] the crossover from crypto-mining infrastructure into AI hosting. The theme rides directly on hyperscaler and enterprise compute demand \u2014 if the capex-cut narrative is wrong, these are the highest-beta way to be right.",
-      "noteUpdatedAt": "2026-07-12T00:00:00Z"
+      "note": "The neocloud sleeve holds [[nbis]] and, from 3 August 2026, [[iren]] \u2014 companies that contract power and capacity ahead of demand and convert it into annualised run-rate. The bet is that compute scarcity persists long enough for capacity secured today to be revenue two to four quarters out.\n\nThe week of 3 August 2026 clarified what risk this sleeve actually carries, and it is not demand. Nebius reported $399.0m of quarterly revenue against a $3-3.4bn full-year target, with capex plans an order of magnitude above revenue; IREN revised its ARR target above $4bn with Microsoft, Nvidia, Perplexity and Figure named as customers, but with less disclosure behind it. Both are financing stories wearing compute stories' clothes, and both were placed on watch.\n\nContracted ARR is not funded capacity. Until a second-half revenue step-up shows up on schedule, doubling this sleeve is a sizing decision rather than a reason to add a second correlated name.",
+      "noteUpdatedAt": "2026-08-03T00:00:00Z"
     },
     {
       "slug": "networking",
@@ -198,8 +200,8 @@
           "watchCount": 1
         }
       },
-      "note": "Optical interconnect is [[aleabitoreddit]]'s highest-conviction theme, and the one this desk weights most heavily. The thesis is a physical [[chokepoint]]: copper cannot move data fast enough inside dense GPU racks, so light-based links are a forced upgrade rather than an option \u2014 and the continuous-wave laser supply that feeds them is, on his read, sold out for years ([[lite]] 'into 2028/2029,' with anything the laser makers ship getting bought). The week's -4% to -10% sector washout he called an indiscriminate margin-cascade selloff, not a fundamentals crack, and leaned in.\n\nThe names cluster by role. [[sive]] and [[aaoi]] are the high-torque bets he is most concentrated in; [[lite]] is the lower-beta anchor of the sleeve; [[jbl]] the picks-and-shovels assembler with a 1.6T laser-optics qualification window ahead; [[cohr]], [[iqe]] and [[poet]] fill out the component chain; and [[xfab]] carries a silicon-photonics ([[siph]]) free option on top of its foundry value case. The recurring bear counter is [[cpo]]-delay research, which he treats as sentiment rather than substance.",
-      "noteUpdatedAt": "2026-07-12T00:00:00Z"
+      "note": "Photonics is the sleeve this desk was built around: the argument that as AI networking moves from pluggable modules to co-packaged optics, the InP laser supply becomes the chokepoint and very few companies can fill it. That structural case strengthened in late July 2026 \u2014 a $300m US CHIPS award to [[gfs]] aimed explicitly at silicon photonics and CPO, with [[sive]] and [[lite]] the only public laser suppliers named in the programme.\n\nThe week of 3 August 2026 split the sleeve in two on evidence quality. [[lite]] is the name where outside research confirmed the story outright: record revenue of $808m up 90%, a supply-demand gap above 30% in EMLs and pump lasers, and a fab fully allocated \u2014 plus $87m of prepaid deposits to [[axti]] to reserve substrate through 2031, which is what a constrained buyer actually does. [[sive]] and [[aaoi]] went the other way, both stepped to watch when their headline numbers turned out to be pipelines and models rather than guidance.\n\n[[cohr]], [[poet]] and [[tsm]] entered or stayed on watch. The sleeve's shape is now a funded anchor plus several forward-looking options, and it should be sized that way.",
+      "noteUpdatedAt": "2026-08-03T00:00:00Z"
     },
     {
       "slug": "robotics",
@@ -233,16 +235,16 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 59,
-          "lastMentioned": "2026-08-01T06:24:58Z",
+          "mentions": 60,
+          "lastMentioned": "2026-08-03T06:24:54Z",
           "category": "photonics",
           "market": "US",
           "marketCapTier": "Small",
           "company": "Applied Optoelectronics"
         }
       },
-      "note": "Applied Optoelectronics is a high-torque [[photonics]] name [[aleabitoreddit]] upgraded when his own entry condition fired: he had said to enter on 'a washout back toward the pre-run range,' and the SemiAnalysis [[cpo]]-delay pieces produced exactly that \u2014 a 40-60% optical drawdown he heavily bought.\n\nHe remains heavily concentrated here alongside [[sive]]. The desk stance is **accumulate**, scaling into the washout while keeping reserve for the earnings print \u2014 the falsifier is a quarter that fails to validate the transceiver ramp. AAOI sits in the optical-interconnect [[chokepoint]] story with [[lite]], [[cohr]] and [[jbl]].",
-      "noteUpdatedAt": "2026-07-12T00:00:00Z"
+      "note": "Applied Optoelectronics is the high-beta datacom optics position in the book \u2014 the name whose valuation case has always rested on a forward revenue rate rather than current earnings. The 800G ramp itself is real and company-confirmed: Q1 revenue was a record $151.1m, up 51%, with Q2 shipments guided at nearly four times Q1 levels.\n\nOn 3 August 2026 the desk stepped the stance from accumulate to watch. The $471m monthly rate anchoring the bull case \u2014 about $5.6bn annualised from H2 2027 \u2014 is roughly five times the run-rate management guides to, with Q2 at $180-198m and the full year around $1.1bn. It circulates in the [[photonics]] discussion as though it were the company's own estimate. Q2 is also guided to non-GAAP EPS between -$0.03 and +$0.03, so the 'one times forward revenue' cheapness describes a top line that currently earns nothing.\n\nThe trigger back to accumulate is management guiding toward the rate the thesis assumes, or a named CPO customer with committed volume \u2014 see [[amd]], where that read-through is still inference rather than schedule.",
+      "noteUpdatedAt": "2026-08-03T00:00:00Z"
     },
     {
       "slug": "aapl",
@@ -327,6 +329,28 @@
           "market": "US",
           "marketCapTier": "Mega",
           "company": "Advanced Micro Devices"
+        }
+      },
+      "note": "",
+      "noteUpdatedAt": null
+    },
+    {
+      "slug": "amkr",
+      "type": "ticker",
+      "title": "AMKR \u00b7 Amkor Technology",
+      "auto": {
+        "refs": [
+          "materials",
+          "aleabitoreddit"
+        ],
+        "stats": {
+          "tier": "watch",
+          "mentions": 3,
+          "lastMentioned": "2026-08-03T06:24:54Z",
+          "category": "materials",
+          "market": "US",
+          "marketCapTier": "Mid",
+          "company": "Amkor Technology"
         }
       },
       "note": "",
@@ -473,8 +497,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 23,
-          "lastMentioned": "2026-07-29T20:10:30Z",
+          "mentions": 24,
+          "lastMentioned": "2026-08-03T06:24:54Z",
           "category": "robotics",
           "market": "US",
           "marketCapTier": "Mid",
@@ -507,42 +531,22 @@
       "noteUpdatedAt": null
     },
     {
-      "slug": "crcl",
+      "slug": "form",
       "type": "ticker",
-      "title": "CRCL",
+      "title": "FORM \u00b7 FormFactor",
       "auto": {
         "refs": [
+          "materials",
           "aleabitoreddit"
         ],
         "stats": {
           "tier": "watch",
           "mentions": 3,
-          "lastMentioned": "2026-06-27T15:45:34Z",
-          "category": "unsorted",
-          "market": "",
+          "lastMentioned": "2026-08-03T06:24:54Z",
+          "category": "materials",
+          "market": "US",
           "marketCapTier": "",
-          "company": ""
-        }
-      },
-      "note": "",
-      "noteUpdatedAt": null
-    },
-    {
-      "slug": "ewy",
-      "type": "ticker",
-      "title": "EWY",
-      "auto": {
-        "refs": [
-          "aleabitoreddit"
-        ],
-        "stats": {
-          "tier": "watch",
-          "mentions": 10,
-          "lastMentioned": "2026-07-22T15:23:43Z",
-          "category": "unsorted",
-          "market": "",
-          "marketCapTier": "",
-          "company": ""
+          "company": "FormFactor"
         }
       },
       "note": "",
@@ -591,27 +595,6 @@
       },
       "note": "Alphabet joined the verdict roster in the 16 Jul 2026 review on tier math alone \u2014 and the desk verdict says so: every mention in the corpus is contextual, never a mispricing argument. [[aleabitoreddit]] uses Google as the demand gauge of the AI buildout: the compute-constrained hyperscaler, the party that cut Meta off and taught the industry the cost of renting, and (this week) the counterfactual he believes pushed $AAPL toward AI-chip acquisitions. Watch stance; the upgrade trigger is a dedicated TPU-supply-chain thesis with named suppliers.\n\nRotated off the verdict roster in the 22 Jul 2026 review, one week after entering: the contextual mentions decayed and [[intc]] took the tier-math slot with the same context-name treatment. The demand-gauge framing survives the rotation \u2014 the desk still reads his Google mentions as evidence of structural compute hunger, just without a standing verdict attached.",
       "noteUpdatedAt": "2026-07-22T00:00:00Z"
-    },
-    {
-      "slug": "hood",
-      "type": "ticker",
-      "title": "HOOD",
-      "auto": {
-        "refs": [
-          "aleabitoreddit"
-        ],
-        "stats": {
-          "tier": "watch",
-          "mentions": 4,
-          "lastMentioned": "2026-07-07T07:09:04Z",
-          "category": "unsorted",
-          "market": "",
-          "marketCapTier": "",
-          "company": ""
-        }
-      },
-      "note": "",
-      "noteUpdatedAt": null
     },
     {
       "slug": "intc",
@@ -734,8 +717,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 11,
-          "lastMentioned": "2026-07-03T10:12:58Z",
+          "mentions": 15,
+          "lastMentioned": "2026-08-03T06:24:54Z",
           "category": "materials",
           "market": "DE",
           "marketCapTier": "Small",
@@ -764,8 +747,8 @@
           "company": "Meta Platforms"
         }
       },
-      "note": "",
-      "noteUpdatedAt": null
+      "note": "Meta sits in this book as the payer rather than the product \u2014 held to validate that the capex funding the [[photonics]] and [[memory]] supply chain is genuinely being spent. On that narrow question it delivered: 2026 guidance of $130-145bn, with the low end rising $10bn in a single quarter.\n\nOn 3 August 2026 the desk stepped the stance from accumulate to watch. Q2 EPS was $6.18 against roughly $7.14 expected, on $60.8bn of revenue and $31.1bn of quarterly capex, and the shares fell about 8%. The desk's own weekly recap carried the capex number and dropped the miss, which is the bias worth naming: a supply-chain lens reads hyperscaler capex as a demand signal and stops reading there.\n\nThe conclusion is not that the supplier thesis broke. It is that holding Meta and holding Meta's suppliers have become opposite expressions of one view \u2014 the equity is being derated for the spending that creates the read-through \u2014 and this desk already owns the supply side. Compare [[googl]], where the same spend is visibly funded by an accelerating cloud business.",
+      "noteUpdatedAt": "2026-08-03T00:00:00Z"
     },
     {
       "slug": "mrvl",
@@ -852,8 +835,8 @@
           "company": "Nebius Group"
         }
       },
-      "note": "",
-      "noteUpdatedAt": null
+      "note": "Nebius is the [[neoclouds]] position \u2014 the way to own AI compute demand without owning a hyperscaler or a chip designer. The operating execution is visible and on schedule: up to 1.2GW of power and land secured for an owned Pennsylvania site, and more than 3GW expected under contract by year-end. For a neocloud, energised capacity is the binding constraint and it is being cleared ahead of the revenue.\n\nOn 3 August 2026 the desk stepped the stance from accumulate to watch. Q1 revenue was $399.0m, annualising near $1.6bn against a full-year target of $3-3.4bn, so almost the entire guide sits in the second half. Capex plans run an order of magnitude above revenue, which makes the terms of the next capital raise a larger determinant of the equity return than GPU demand is.\n\nAccumulate implied the risk being underwritten was demand. It is not \u2014 it is financing. Q2 results on 12 August are the next test. [[iren]] entered coverage the same week with better counterparties and the same unresolved funding question.",
+      "noteUpdatedAt": "2026-08-03T00:00:00Z"
     },
     {
       "slug": "nok",
@@ -888,8 +871,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 61,
-          "lastMentioned": "2026-07-31T19:16:17Z",
+          "mentions": 62,
+          "lastMentioned": "2026-08-03T06:24:54Z",
           "category": "accelerators",
           "market": "US",
           "marketCapTier": "Mega",
@@ -937,27 +920,6 @@
           "market": "US",
           "marketCapTier": "Small",
           "company": "POET Technologies"
-        }
-      },
-      "note": "",
-      "noteUpdatedAt": null
-    },
-    {
-      "slug": "rddt",
-      "type": "ticker",
-      "title": "RDDT",
-      "auto": {
-        "refs": [
-          "aleabitoreddit"
-        ],
-        "stats": {
-          "tier": "core",
-          "mentions": 8,
-          "lastMentioned": "2026-07-31T16:18:47Z",
-          "category": "unsorted",
-          "market": "",
-          "marketCapTier": "",
-          "company": ""
         }
       },
       "note": "",
@@ -1017,16 +979,16 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 98,
-          "lastMentioned": "2026-08-01T06:24:58Z",
+          "mentions": 99,
+          "lastMentioned": "2026-08-03T06:24:54Z",
           "category": "photonics",
           "market": "SE",
           "marketCapTier": "Small",
           "company": "Sivers Semiconductors"
         }
       },
-      "note": "Sivers Semiconductors is [[aleabitoreddit]]'s single highest-conviction name \u2014 'probably my favorite stock right now' \u2014 and the highest-torque bet in the [[photonics]] sleeve. He reiterated it straight into the -4% to -10% sector washout he calls indiscriminate margin-cascade selling, treating the dip as one of his planned accumulation tranches rather than a reason to trim.\n\nThe substance beneath the conviction: a [[jbl]] 1.6T laser-optics qualification window (per a JPM fireside chat) and the broader CW-laser [[chokepoint]] that underpins the whole optical thesis. The desk stance is **accumulate** on the staggered plan; the standing risk is concentration and talking-his-book, since he pairs it so heavily with [[aaoi]].",
-      "noteUpdatedAt": "2026-07-12T00:00:00Z"
+      "note": "Sivers Semiconductors is [[aleabitoreddit]]'s single highest-conviction name and the highest-torque bet in the [[photonics]] sleeve \u2014 the InP laser supplier positioned at the chokepoint if co-packaged optics displaces pluggable modules. The structural argument is genuinely strong: Sivers and [[lite]] were the only two public laser suppliers named in the CPO programme that drew a $300m US award to [[gfs]].\n\nOn 3 August 2026 the desk stepped the stance from accumulate to watch. The reason is not the drawdown \u2014 it is that outside research put company numbers against the story for the first time and they point the other way. Q1 net sales were SEK 61.9m, down 22% year on year, and the $799m figure quoted as evidence is an opportunity pipeline rather than backlog. The [[poet]] wording change read as a material timeline upgrade resolves, in the only citable partnership language, to production readiness by end of 2026 \u2014 a milestone, not an order.\n\nThe falsifier is dated and close: the Q2 interim report on 27 August 2026. Existing tranches stand; new size waits for that print.",
+      "noteUpdatedAt": "2026-08-03T00:00:00Z"
     },
     {
       "slug": "skhy",
@@ -1171,8 +1133,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 23,
-          "lastMentioned": "2026-07-30T16:05:44Z",
+          "mentions": 24,
+          "lastMentioned": "2026-08-03T06:24:54Z",
           "category": "fabs",
           "market": "TW",
           "marketCapTier": "Mega",
@@ -1214,8 +1176,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 28,
-          "lastMentioned": "2026-07-31T08:25:39Z",
+          "mentions": 29,
+          "lastMentioned": "2026-08-03T06:24:54Z",
           "category": "photonics",
           "market": "",
           "marketCapTier": "",

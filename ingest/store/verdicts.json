@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "meta": {
-    "reviewedAt": "2026-07-22T00:00:00Z",
-    "reviewer": "Claude (Fable 5) via Claude Code weekly review",
-    "thesesConsidered": 248,
-    "coverage": "Core tier, top 15 by priority score, plus sticky act/accumulate holdovers (17 names)",
+    "reviewedAt": "2026-08-03T00:00:00Z",
+    "reviewer": "Claude (Opus 5) via Claude Code weekly review",
+    "thesesConsidered": 322,
+    "coverage": "Core tier, top 15 by priority score, plus sticky act/accumulate holdovers, plus AMKR added by operator request (19 names)",
     "cadence": "weekly",
     "disclaimer": "Second-opinion research notes on @aleabitoreddit's ideas. Personal research tool — not investment advice.",
     "focus": {
@@ -20,223 +20,278 @@
   "verdicts": [
     {
       "ticker": "SIVE",
-      "stance": "accumulate",
-      "view": "The crash stress-tested the thesis and it passed with new math attached: through a ~50% drawdown and a +30.9% single-day snap-back, he published the most falsifiable SIVE work in the corpus — a capacity model (10% of Win Semi allocation, 65% yield, $50–75 ASP → $341–512M annual array revenue, $205–307M gross profit against a ~$1.1B market cap ≈ 3.6–5.4x MC/gross-profit by 2028). Demand-side confirmation arrived independently: Lumentum is buying CW lasers off the open market per its own ER transcript, and AMD is signing CW LTAs per TrendForce — CW is bottlenecked from both ends. The AMD SF event (Jul 22–23) is now a dated catalyst: MI500 committing to CPO via Ayar or GF SCALE would put SIVE upstream of a second accelerator vendor. Bias check unchanged — this crash week was as much advocacy as analysis, but the model is checkable arithmetic, not vibes.",
-      "execution": "The crash delivered the red days the staggered plan wanted; tranches taken there stand. After a +31% snap-back, no chasing — the next add waits for either the AMD event confirming an Ayar/GFS optical route or a fresh red day. NASDAQ listing remains the re-rate event to be positioned before.",
-      "changesMind": "AMD committing to a non-optical scale-up or an optical engine that bypasses SIVE's laser, the Win Semi allocation/yield assumptions failing at the next capacity update, insider selling resuming, or the NASDAQ listing slipping without explanation.",
+      "stance": "watch",
+      "previousStance": "accumulate",
+      "view": "The seats found what the posts could not. Q1 net sales were SEK 61.9m, DOWN 22% year on year, and the $799m he quotes is an opportunity pipeline, not backlog. The POET wording upgrade he read as material still resolves, in the only citable partnership language, to 'production readiness by end of 2026' — a milestone, not an order. He is not talking his book dishonestly; he is compounding forward-looking wording into a position while the reported revenue shrinks. Down 56% in a month, the market has already voted.",
+      "execution": "Stop adding. Existing tranches from the crash-week plan stand — this is a pause on new size, not a trim. The 27 August Q2 interim is the first datapoint that can test the ramp; nothing between now and then is evidence. Re-open the accumulate case only on that print.",
+      "changesMind": "Q2 interim on 27 Aug showing net sales back in growth, or a named volume order (customer, units, ASP) from Sivers or POET rather than a readiness milestone.",
       "basedOnThesisIds": [
-        "h_c730cd89e4be221f",
-        "h_abb4acfa7a533688",
-        "h_51d64b06417d7c82",
-        "h_77894599004bff7e"
+        "r_25fe1eb5be8668d6",
+        "r_c173439107ef44c4",
+        "r_9ee46b9d8e2301a1",
+        "x_2083114743729107236",
+        "h_c730cd89e4be221f"
       ],
-      "updatedAt": "2026-07-22T00:00:00Z"
+      "updatedAt": "2026-08-03T00:00:00Z"
     },
     {
       "ticker": "LITE",
       "stance": "accumulate",
-      "view": "The sold-out thesis got its strongest external datapoint yet: Goldman raised Innolight's 2026–2028 earnings estimates by 65%/108%/119% on higher silicon-photonics volumes and 1.6T/3.2T ASPs, with Innolight itself saying 800G demand is growing beyond expectations — and he reads Innolight as the TSM-style read-through for the whole optical sector. He also invokes LITE's own history as the template: $3B to $60B+ in two years on the EML chokepoint, before GS's ~$154B 2028 TAM. LITE still fell ~30% with everything — his read (deleveraging cascade, 320–360k Korean accounts force-liquidated, not fundamentals) is credible, and his market-bottom call names 'INTC to LITE' explicitly.",
-      "execution": "Unchanged: the lower-beta anchor of the photonics book, build on red days. The crash validated the entry discipline — liquidation cascades, not demand events, set the prices.",
-      "changesMind": "Hyperscaler order pushouts substantiating the CPO-delay bear case, Innolight-style estimate revisions rolling back, or share loss to CW-laser entrants it currently buys from.",
+      "previousStance": "accumulate",
+      "view": "The one name where outside research confirmed him outright. The FQ3 call puts revenue at a record $808m, up 90%, with the supply-demand gap above 30% in EMLs and pump lasers and the Japan fab fully allocated. Caveat worth holding: the shortage evidence is the CEO's own remarks, so quoting Hurlston back is not independent corroboration. The AXT deal is the harder evidence — Lumentum is prepaying $87m to reserve InP substrate through 2031, which is what a genuinely constrained buyer does.",
+      "execution": "Unchanged: the lower-beta anchor of the photonics book. Down 14% on the week with revenue accelerating is the entry the plan wants — take a tranche here rather than waiting for a bottom that is not callable.",
+      "changesMind": "The supply gap narrowing in company disclosure, or an FQ4 guide that shows the record revenue was a pull-forward rather than a run-rate.",
       "basedOnThesisIds": [
-        "h_f25655e483d8ec8c",
-        "h_abb4acfa7a533688",
-        "h_4cced3fb7690d2aa",
-        "h_abafede3f1b850bd"
+        "r_3cd744e39b755b95",
+        "r_f4c7f494b964375d",
+        "r_355cd379a66708e2",
+        "x_2083438823548293140",
+        "h_2d636896cf0553c2"
       ],
-      "updatedAt": "2026-07-22T00:00:00Z"
+      "updatedAt": "2026-08-03T00:00:00Z"
     },
     {
       "ticker": "NVDA",
       "stance": "watch",
-      "view": "The Vera Rubin delay cycle closed exactly as he predicted — Jensen's flat Tokyo denial held and the supplier prices it damaged snapped back in a historic single-day recovery. NVDA then moved the map twice without being the story: it disclosed 9.3% beneficial ownership of Nebius via SEC filing, and the AMD–Anthropic deal ($5B investment, 2GW of chips) is explicitly the NVDA playbook being copied by its main rival. The desk frame keeps proving out: NVDA is where the narrative war is fought; the suppliers are where the P&L lives.",
-      "execution": "Unchanged: express the view through the suppliers this map surfaces; hold NVDA as a separate core-portfolio decision outside this workflow.",
-      "changesMind": "N/A — re-rate if he starts publishing NVDA-specific supply/pricing work.",
+      "previousStance": "watch",
+      "view": "FQ1 data center revenue of $75.2bn, up 92%, with networking near tripling — the demand hub is not the question. The question this week is who pays. NVIDIA returned roughly $20bn to shareholders and authorised $80bn more of buyback while its customers raised capex, and Meta missed EPS badly funding that same capex. At 74.9% gross margin NVIDIA is its customers' cost line, and the first strain always shows in the payer's earnings.",
+      "execution": "Unchanged: express the view through the suppliers this map surfaces rather than through NVDA itself. Hold as a separate core-portfolio decision, not a desk position.",
+      "changesMind": "A hyperscaler explicitly cutting compute orders rather than capex dollars, or NVIDIA gross margin compressing below the low 70s.",
       "basedOnThesisIds": [
-        "h_5e8b6c10f7ff1099",
-        "h_84ce5ffca9362385",
-        "h_f9f45828d0ddab12"
+        "r_8da61b5d7a32a1f2",
+        "r_716f92d724eeb1b8",
+        "r_3de49ded3b7e9663",
+        "x_2083270545320386734"
       ],
-      "updatedAt": "2026-07-22T00:00:00Z"
+      "updatedAt": "2026-08-03T00:00:00Z"
     },
     {
       "ticker": "AAOI",
-      "stance": "accumulate",
-      "view": "The valuation frame got explicit: he calls current prices 'extremely stupid', anchored on AAOI's own $471M/month estimate starting H2 2027 — ~$5.6B annualized against an $8B market cap — with Innolight's sharp 800G upward revision arguing that number gets hiked, not cut. Desk pushback stands and matters more after a 50% drawdown and +15.6% snap-back: that run-rate is a company projection two years out, not revenue, and AAOI remains a pluggables-cycle bet with no CPO design wins. His own framing concedes the test is whether the ramp shows up in quarterly prints that haven't arrived yet.",
-      "execution": "Hold the scale-in; the reserved half still waits for the earnings print. Crash-day tranches taken on plan stand; do not chase the recovery. Treat CPO headlines as noise for AAOI — 800G/1.6T pluggable volume and the Texas ramp are the signal.",
-      "changesMind": "An earnings miss against the monthly run-rate narrative, 800G demand revisions rolling back, the AMD CW LTA failing to expand, or CPO cannibalizing pluggables faster than the demand tail supports.",
-      "basedOnThesisIds": [
-        "h_51d64b06417d7c82",
-        "h_aab19b2aaa60c0de",
-        "h_d90a44185ab68228",
-        "h_f25655e483d8ec8c"
-      ],
-      "updatedAt": "2026-07-22T00:00:00Z"
-    },
-    {
-      "ticker": "JBL",
-      "stance": "accumulate",
-      "view": "Quiet week directly, but the SIVE capacity-ramp post names JBL among the partners Sivers ramps with — keeping JBL wired into the CPO/1.6T supply web the LRO thesis rides. The Aug 2026–Mar 2027 qualification window remains the dated catalyst; nothing this week moved it in either direction.",
-      "execution": "Starter position stands. Verify the qualification window and the SiPh mix shift across the next two earnings calls; add on either confirming.",
-      "changesMind": "Qualification slipping past Q1 2027, losing transceiver program share, or optics staying too small to move a $28B revenue base.",
-      "basedOnThesisIds": [
-        "h_c730cd89e4be221f",
-        "h_88866c3ae0b73767",
-        "h_0dd22247c9538b67"
-      ],
-      "updatedAt": "2026-07-22T00:00:00Z"
-    },
-    {
-      "ticker": "POET",
       "stance": "watch",
-      "view": "One mention this week: listed among the partners Sivers ramps with (GFS, JBL, Ayar, O-NET). Credibility scaffolding intact, economics still absent — a named customer or HVM revenue remains the missing piece. The relative-value point stands: SIVE, which supplies POET's lasers, remains the cheaper way into the same ramp.",
-      "execution": "Unchanged: speculative sizing only, trigger remains a named hyperscaler customer or actual HVM revenue in the H2 2026 prints.",
-      "changesMind": "A confirmed, named hyperscaler customer (upgrades it), or H2 2026 passing without the promised HVM ramp (kills it).",
+      "previousStance": "accumulate",
+      "view": "The number the whole bull case rests on does not survive contact with the filing. He anchors on $471m/month from H2 2027, about $5.6bn annualised; the company guides Q2 2026 to $180-198m and FY2026 to roughly $1.1bn. That is a five-fold gap between his model and management's own guide, and he presents it as the company's estimate. The '1x forward revenue' cheapness is also doing less work than it looks: Q2 is guided to non-GAAP EPS between -$0.03 and +$0.03. Record revenue that earns nothing.",
+      "execution": "Stop the scale-in. The reserved half stays reserved and existing tranches stand. Reopen only on an earnings print that puts the 2027 exit rate on a path management will underwrite in its own guidance.",
+      "changesMind": "AAOI guiding to a quarterly revenue rate consistent with $471m/month, or a named CPO customer with committed volume and positive gross-margin economics attached.",
       "basedOnThesisIds": [
-        "h_c730cd89e4be221f",
-        "h_191619cf73ba00af"
+        "r_22778337eb66fdb7",
+        "r_02e48cf08022ebd2",
+        "r_616de129daeed5d0",
+        "h_e07b775686c9ce68",
+        "h_cdc1513b37dc8a51"
       ],
-      "updatedAt": "2026-07-22T00:00:00Z"
+      "updatedAt": "2026-08-03T00:00:00Z"
     },
     {
-      "ticker": "MRVL",
+      "ticker": "AMD",
       "stance": "watch",
-      "view": "Down 31% on the month, +7.3% on the recovery day, and still no dedicated thesis — all three of this week's mentions are market-breadth list posts. The MS optical-engine placement from last week remains the only substantive datapoint. The tiering math continues to flatter list-post appearances; nothing here to act on.",
-      "execution": "Still no action on this analyst's signal alone. The trigger remains a dedicated post with a specific Marvell design-win or bottleneck claim.",
-      "changesMind": "A dedicated post with a specific Marvell design-win or bottleneck claim, or independent confirmation of the NVDA-alliance theory.",
+      "view": "Enters the roster on score, and the timing is awkward: Q2 results land 4 August, one day out, against a guide already embedding 46% growth. The desk's interest in AMD is CPO adoption, and that claim rests entirely on channel checks and a Rosenblatt note — no AMD disclosure. Helios and MI450 ship in H2 2026 on pluggable optics, with co-packaged optics described as a future-generation option, which puts any AAOI or Sivers read-through in 2027 at the earliest. The accelerator business meanwhile compounds independently of the photonics narrative.",
+      "execution": "No action into tomorrow's print — that is a coin-flip on execution, not on the thesis. If you want AMD, the entry decision belongs after the guide, and it is a whole-company accelerator call rather than a CPO derivative.",
+      "changesMind": "AMD committing to CPO in a product disclosure with a named generation and date, which would convert the SIVE/AAOI read-through from inference into schedule.",
       "basedOnThesisIds": [
-        "h_a6fae9c6faa10221",
-        "h_aab4fe4860f13d29",
-        "h_191619cf73ba00af"
+        "r_069c95095080e85f",
+        "r_c53aaef67548ac6a",
+        "r_90fd4fc035f36fda",
+        "h_0c8b779e5549fefc",
+        "h_77894599004bff7e"
       ],
-      "updatedAt": "2026-07-22T00:00:00Z"
+      "updatedAt": "2026-08-03T00:00:00Z"
     },
     {
-      "ticker": "GFS",
-      "stance": "watch",
-      "view": "The AMD SF event (Jul 22–23) turned GFS from background platform into a named question: Jefferies expects MI500 scale-up CPO disclosures, GFS is reportedly involved in AMD MI500 CPO work via GF SCALE, and the SIVE capacity post lists GFS among the fabs Sivers ramps with. If AMD names GF SCALE for MI500 CPO, the platform story gets its first anchor customer in public. Still no standalone GFS valuation work from him; still deliberately watch despite Core tier.",
-      "execution": "No dedicated action — SIVE/JBL positions already carry the GFS-platform exposure. The AMD event is the thing to actually read this week; a named GF SCALE win would justify revisiting the stance.",
-      "changesMind": "AMD publicly committing MI500 CPO to GF SCALE (upgrades it), a dedicated GFS thesis with numbers, or disclosed silicon-photonics revenue.",
-      "basedOnThesisIds": [
-        "h_77894599004bff7e",
-        "h_c730cd89e4be221f"
-      ],
-      "updatedAt": "2026-07-22T00:00:00Z"
-    },
-    {
-      "ticker": "NBIS",
+      "ticker": "GOOGL",
       "stance": "accumulate",
-      "view": "Two genuine upgrades in one week: NVDA disclosed 9.3% beneficial ownership of Nebius via SEC filing (existing shares plus a prefunded warrant — not new money, but now official and sentiment-defining for the 'Neocloud leader'), and META is in talks to lease $10B of compute to Anthropic — hyperscalers copying the neocloud model. He reads that as validation; the desk agrees with a caveat he skips: a hyperscaler reselling compute is also a future competitor with a lower cost of capital. NBIS +17.3% on the recovery day; the Reflection-counterparty caution from last week stands.",
-      "execution": "Hold. Weight new contracts by counterparty fundability — unchanged. The NVDA stake is sentiment, not cash flow; don't size up on it.",
-      "changesMind": "Hyperscaler capex cuts, Meta materially undercutting neocloud pricing with resold compute, a major LTA counterparty failing to fund, or a debt raise that changes the risk math.",
+      "view": "The strongest of the four capex payers and the only one whose spend is visibly funded by an accelerating business: Q2 revenue $119.8bn up 24%, Cloud $24.8bn up 82%, record $44.9bn quarterly capex, full-year guide raised to $195-205bn. One correction to how the desk reads these numbers: roughly 60% goes to servers and only 40% to data centers and networking, so headline capex overstates the pull for the optics names. Note also it is up 12% on the week while the suppliers it funds fell — the read-through is not symmetric.",
+      "execution": "Accumulate-on-weakness hyperscaler leg, but not here — it has just rallied 12% in a week. Wait for the capex-driven derating the print already caused once; that is where the entry is.",
+      "changesMind": "Cloud growth decelerating below the 40s while capex guidance holds — spend without the revenue behind it is a different company.",
       "basedOnThesisIds": [
-        "h_84ce5ffca9362385",
-        "h_be293065b456ea4e",
-        "h_43deb65515cd551f"
+        "r_2d7fdbea2e10e3d8",
+        "r_a0a2f978090bcf1b",
+        "r_b2d92e73dc38aa13",
+        "x_2083270545320386734",
+        "x_2083133191112843575"
       ],
-      "updatedAt": "2026-07-22T00:00:00Z"
+      "updatedAt": "2026-08-03T00:00:00Z"
     },
     {
       "ticker": "META",
-      "stance": "accumulate",
-      "view": "The capex story started becoming a revenue story: META is in talks to lease compute to Anthropic in a $10B deal — the buildout monetizing directly, modeled on how profitable the SpaceX compute deal proved. That's a qualitative upgrade: infrastructure spend that critics called a bubble now has a rental market. Alongside the confirmed SNDK LTA and Micron agreements, Meta remains the demand-side underwriter of the memory and photonics books this desk runs.",
-      "execution": "Unchanged: accumulate-on-weakness hyperscaler leg. The position's function is validating the supply chain the rest of the book expresses — the Anthropic lease talks strengthen exactly that.",
-      "changesMind": "A guided capex cut, the compute-lease talks collapsing in a way that reads as demand softness, or Iris slipping its September mass-production date.",
-      "basedOnThesisIds": [
-        "h_be293065b456ea4e",
-        "h_2c13160eead5f0f3",
-        "h_530410ca5ca0e6c1"
-      ],
-      "updatedAt": "2026-07-22T00:00:00Z"
-    },
-    {
-      "ticker": "AXTI",
       "stance": "watch",
-      "view": "The Nippon Chemical deep-dive extends his InP chain one link upstream: NCI/Rasa red phosphorus feeds AXT's substrates, which feed IQE/Tower and Lumentum/Coherent. That enriches the chokepoint map — and quietly shows AXTI is one node in a chain, not the chain. Last week's downgrade-on-price stands; nothing this week re-rates the entry math.",
-      "execution": "Stay on watch. Fresh entry still wants a pullback toward the pre-run range or a dedicated thesis with numbers, not supply-chain-diagram momentum.",
-      "changesMind": "China export licenses and AXT's capacity additions normalizing InP ASPs, or another dilutive raise into strength (kills the case); a deep retrace with committed-capacity deals still expanding (re-opens accumulation).",
+      "previousStance": "accumulate",
+      "view": "His recap carried Meta's capex number and dropped the earnings. Q2 EPS was $6.18 against roughly $7.14 expected, on $60.8bn revenue and $31.1bn of quarterly capex, and the stock fell about 8%. This is the bias to name: a supply-chain analyst reads hyperscaler capex as a demand signal and stops reading there, but the same line that funds the suppliers is what missed at the payer. Part of the capex raise is memory cost inflation, not incremental compute units, so the dollars overstate unit demand too.",
+      "execution": "Step off accumulate. The supplier read-through is intact; the equity is being derated for the spending that creates it. Holding Meta and holding Meta's suppliers are now opposite expressions of the same view, so pick one — the desk already owns the supply side.",
+      "changesMind": "Free cash flow stabilising with capex held flat, or the compute-leasing revenue line becoming large enough to show up in segment disclosure.",
       "basedOnThesisIds": [
-        "h_6110d0e1ccf98f98",
-        "h_de3112b196491491"
+        "r_6b73ca707c56ac89",
+        "r_b9c57108d30b1cbd",
+        "r_46d90a3c41fa7f93",
+        "x_2083270545320386734"
       ],
-      "updatedAt": "2026-07-16T00:00:00Z"
+      "updatedAt": "2026-08-03T00:00:00Z"
     },
     {
-      "ticker": "AMZN",
-      "stance": "accumulate",
-      "view": "The physical-AI-umbrella thesis gained a concrete edge: he frames Amazon (with MELI) as the deployment supply chain through which Agility commercializes — the demand-side anchor for his robotics book, replaying the GOOGL-TPU-catalyzes-suppliers pattern. Lowest-risk expression of a theme every smaller name here depends on.",
-      "execution": "Core-position logic, dollar-cost average — unchanged. Still the hedge against the CCXI-style venture bets: if the robotics rotation cools, this falls least.",
-      "changesMind": "The robotics/automation effort visibly stalling (deployment numbers, not narrative), or AWS capex guidance breaking the AI-demand story.",
-      "basedOnThesisIds": [
-        "h_2909dadab30949b5",
-        "h_1815078828b9f257"
-      ],
-      "updatedAt": "2026-07-08T14:00:00Z"
-    },
-    {
-      "ticker": "TSLA",
+      "ticker": "COHR",
       "stance": "watch",
-      "view": "First hard production datapoint for the robotics leg: TSLA issued procurement guidelines requiring suppliers to hit 1,000 Optimus gen-3 units/week by September, doubling to 2,000–2,500 by year end. IBK's landscape also names TSLA a US leader. Still a whole-company bet — but 'supplier weekly-rate mandates' is exactly the kind of verifiable claim this corpus usually lacks on TSLA.",
-      "execution": "Still no action from this signal alone — but the September supplier-rate deadline is now a dated, checkable milestone. If it verifies, the robotics-sentiment gauge gets its first fundamental input.",
-      "changesMind": "A dedicated Optimus production/economics thesis from him, the September supplier rates verifying (raises attention), or TSLA disclosures making humanoid economics separable from the auto business.",
+      "view": "Enters on score, but almost every mention is by association — the AXT long-term agreement, the Morgan Stanley CPO-visibility trio alongside LITE and SIVE, the Hurlston shortage post. There is no dedicated Coherent thesis in this corpus with numbers attached, which matters because Coherent is the one photonics prime whose datacom exposure sits inside a much larger, slower industrial business. Down 33% on the month with the same shortage tailwind as Lumentum.",
+      "execution": "No dedicated action. LITE already carries the InP-shortage exposure at higher purity and with the numbers disclosed. If Coherent is to earn a position it needs its own datacom segment math, not the sector's.",
+      "changesMind": "A dedicated post or company disclosure sizing the datacom/CPO segment separately, which would make the conglomerate discount an opportunity rather than a reason to own LITE instead.",
       "basedOnThesisIds": [
-        "h_c3d18058dfc695de",
-        "h_061b5ccd49c3a139"
+        "h_2d636896cf0553c2",
+        "h_cdc1513b37dc8a51",
+        "x_2083438823548293140"
       ],
-      "updatedAt": "2026-07-16T00:00:00Z"
-    },
-    {
-      "ticker": "XFAB",
-      "stance": "accumulate",
-      "view": "New to the verdict roster. Two theses stack here: a value floor — Kepler's upgrade calls it the cheapest specialty foundry at 4.8x 2027 EV/EBITDA versus a 14.5x peer median, with Melexis demand strengthening weekly — and a free option, the photonixfab silicon-photonics line he thinks the market can't price until volume contracts land (NVDA/Nokia evaluations, EU Chips Act backing). He's called it 'early TSEM' for months; the sell side just started agreeing on the boring half.",
-      "execution": "The value leg justifies a real (not speculative) starter position; the photonics leg is the free upside. European listing and specialty-foundry cyclicality argue for patience over chasing — accumulate on flat-to-red days.",
-      "changesMind": "Auto/industrial demand rolling back over (the Kepler leg breaking), or photonixfab losing the NVDA/Nokia evaluations.",
-      "basedOnThesisIds": [
-        "h_36781819bfe0ee75",
-        "h_76b06718fb16b539"
-      ],
-      "updatedAt": "2026-07-06"
+      "updatedAt": "2026-08-03T00:00:00Z"
     },
     {
       "ticker": "SNDK",
       "stance": "accumulate",
-      "view": "The week added the AEHR read: Aehr completed a wafer-level burn-in benchmark with a 'global leader in NAND flash' now evaluating a development agreement for HBM/NAND — he reads that as SanDisk, tying back to last quarter's HBF discussions. Meanwhile the crash delivered exactly the entry the verdict asked for: memory sold off hard on structurally good news (Meta/QCOM LTAs, 20%+ DRAM hikes), then SNDK snapped back +12.8% in the historic recovery. The LTA-price-ceiling caution stands — SNDK's terms remain undisclosed — and the Meritz 'fulfillment falls to 60% in 2027' work now frames the whole memory book's upside.",
-      "execution": "The selloff was the starter-tranche window the verdict specified; if taken, hold — no adding into the snap-back. Add triggers unchanged: LTA pricing shown to reset with spot, or the AEHR HBF/NAND development agreement confirmed as SanDisk.",
-      "changesMind": "Samsung/SK Hynix emergency NAND capex converting into 2027 oversupply, LTA terms revealed to cap upside well below spot, or enterprise-SSD/AI-inference demand reads rolling over.",
+      "previousStance": "accumulate",
+      "view": "Down 25% on the week and 41% on the month, and the week's coverage was about the sell-off's framing rather than the business — he pushed back on media treating Leopold's multi-year thesis as a collapse. That is a fair objection but it is sentiment analysis, not evidence. The memory evidence that did arrive is Micron's: record DRAM revenue at 84.9% gross margin, which reads as a cycle peak. SNDK is NAND-levered rather than DRAM-levered, so the peak-margin warning is adjacent, not direct.",
+      "execution": "Starter tranche from the 16 July call stands; hold it. Do not add into a 41% monthly drawdown on sentiment arguments alone — the next add wants a NAND-specific pricing or contract datapoint.",
+      "changesMind": "NAND contract pricing rolling over, or the DRAM margin peak spilling into NAND in the next round of supplier guidance.",
       "basedOnThesisIds": [
-        "h_c0e79065f90fc60c",
-        "h_2c13160eead5f0f3",
-        "h_d4bbd6bc8c2ad2da",
-        "h_5c4c066a84ad116a"
+        "x_2083324920214536208",
+        "x_2082896789880119590",
+        "h_69684ea60ee93290",
+        "r_2779c73c56e6533f"
       ],
-      "updatedAt": "2026-07-22T00:00:00Z"
+      "updatedAt": "2026-08-03T00:00:00Z"
     },
     {
-      "ticker": "MU",
+      "ticker": "TSM",
       "stance": "watch",
-      "view": "The shortage math hardened materially: Meritz (via a high-conviction capture) says suppliers can fill only 75–80% of DRAM demand in H2 2026, falling to the 60% range in 2027, with SK Hynix at 3.5x and Samsung 3.9x 2027 P/E — and Intel's CEO sees 'no relief in memory supply or pricing until at least 2028'. MU added a QCOM LTA to its 16+ agreements and the stock fell 5% anyway, which he correctly reads as deleveraging, not demand. But his own SLC NAND work keeps cutting against the flagship: the sharpest sub-cycles accrue to smaller players (Winbond, Macronix) because MU's ~$1T scale dwarfs those TAMs, and the LTA price-ceiling caution is unresolved. Keep watch — the desk's memory torque stays expressed via SNDK.",
-      "execution": "No dedicated action — SNDK carries the memory-upcycle torque. If you want the lower-beta leg, it's a core-portfolio decision like NVDA, not an edge from this corpus.",
-      "changesMind": "LTA terms shown to participate in spot upside (upgrades it), a dedicated MU thesis with numbers from him, or DRAM contract momentum breaking (downgrades the whole memory book, SNDK first).",
+      "view": "Enters on mention volume, and the mentions are structural rather than thesis-driven: the Amkor ten-year packaging partnership, the Innolight silicon-photonics estimate revisions, FormFactor's CPO revenue commentary. TSMC is how this map's whole supply side gets built, which makes it the least differentiated way to own the theme — every edge the desk has found is in the small suppliers upstream of it.",
+      "execution": "No desk action. Treat as a core-portfolio holding decision if you want it, not a position this research produces an edge on.",
+      "changesMind": "A capacity or pricing disclosure specific to advanced packaging or silicon photonics that the small-cap suppliers cannot express.",
       "basedOnThesisIds": [
-        "h_5c4c066a84ad116a",
-        "h_fbc69a525f2c83ea",
-        "h_d654bae2bf028e4f",
-        "h_2c13160eead5f0f3"
+        "h_81c95bb99a13f5d0",
+        "h_58ab72fe0a33550a",
+        "h_f25655e483d8ec8c"
       ],
-      "updatedAt": "2026-07-22T00:00:00Z"
+      "updatedAt": "2026-08-03T00:00:00Z"
+    },
+    {
+      "ticker": "POET",
+      "stance": "watch",
+      "previousStance": "watch",
+      "view": "The wording change he flagged — 'production' replacing 'production readiness' for Sivers lasers by end-2026 — is the week's most-cited photonics claim and I could not verify it. The only citable partnership language remains readiness by end of 2026 with customer prototypes in H1. He also notes POET fell to roughly $800m cash against a $1.2bn market cap, which is a real floor argument. Credibility scaffolding intact, economics still absent.",
+      "execution": "Unchanged: speculative sizing only. Trigger remains a named customer or actual production revenue, not a press-release verb change.",
+      "changesMind": "A purchase order or revenue-recognising shipment for the optical interposer, which would convert the Sivers link from a shared narrative into shared revenue.",
+      "basedOnThesisIds": [
+        "x_2083114743729107236",
+        "h_df3b8fcfcc0502c7",
+        "h_e07b775686c9ce68",
+        "r_c173439107ef44c4"
+      ],
+      "updatedAt": "2026-08-03T00:00:00Z"
+    },
+    {
+      "ticker": "GFS",
+      "stance": "watch",
+      "previousStance": "watch",
+      "view": "The CHIPS award is confirmed: a $300m letter of intent for silicon photonics and co-packaged optics R&D, with Commerce taking roughly 1% equity, and AMD, Broadcom, Meta, Microsoft and NVIDIA named as SCALE CPO customers. His read-through to SIVE and LITE is directionally right — this is federal money aimed squarely at the desk's theme. His puzzlement that GFS stayed down is the weaker part: $300m is immaterial to a $27bn company, and the market priced it that way correctly.",
+      "execution": "No dedicated action — the SIVE and LITE positions already carry the CPO-platform exposure with more torque. GFS is the confirmation, not the vehicle.",
+      "changesMind": "GlobalFoundries disclosing silicon-photonics revenue as a segment, which would make it a CPO pure-play rather than a diversified foundry with a grant.",
+      "basedOnThesisIds": [
+        "h_a3fbe3dfa6304803",
+        "h_72746de6df4b3dce",
+        "h_0c8b779e5549fefc"
+      ],
+      "updatedAt": "2026-08-03T00:00:00Z"
+    },
+    {
+      "ticker": "NBIS",
+      "stance": "watch",
+      "previousStance": "accumulate",
+      "view": "The operating story is intact — up to 1.2GW secured in Pennsylvania, more than 3GW contracted by year-end, and for a neocloud energised capacity is the binding constraint. The financing story is the problem. Q1 revenue was $399m, annualising near $1.6bn against a $3-3.4bn full-year target, so almost the entire guide sits in the second half, and capex plans run an order of magnitude above revenue. This is a funding-terms equity before it is a compute equity, and Q2 lands 12 August.",
+      "execution": "Step off accumulate until the 12 August print. Hold what exists. The thing to underwrite before adding is the next raise's terms, not GPU demand.",
+      "changesMind": "Q2 showing the H2 revenue step-up on schedule, or capacity funded without dilutive equity — either turns this back into an operating story.",
+      "basedOnThesisIds": [
+        "r_e9b254d4e96e609a",
+        "r_606728417ecb8670",
+        "r_e2cd15e12c0928b1",
+        "x_2082896789880119590"
+      ],
+      "updatedAt": "2026-08-03T00:00:00Z"
     },
     {
       "ticker": "INTC",
       "stance": "watch",
-      "view": "Enters the roster on tier math — crash-week mention volume, not a dedicated thesis. What he actually uses Intel for: the CEO's 'no relief in memory supply or pricing until at least 2028' quote as memory-cycle evidence, and INTC as the from-end of his 'INTC to LITE' market-bottom gauge. Like GOOGL before it, this is a context name inside this corpus — there is no thesis here on foundry economics, 18A, packaging, or products, and he has never argued INTC is mispriced.",
-      "execution": "No action on this corpus. Any Intel position is a whole-company turnaround judgment (foundry, products, politics) far outside this signal. Use his INTC mentions as memory-cycle and sentiment reads.",
-      "changesMind": "A dedicated INTC thesis with numbers — foundry wins, advanced-packaging bottleneck exposure, or CPO-adjacent capacity — would make it analyzable inside this workflow.",
+      "previousStance": "watch",
+      "view": "Q2 was the strongest revenue growth in over fifteen years — $16.1bn, up 25% — and still a GAAP loss of $2.16 a share against non-GAAP $0.42. Q3 is guided above consensus. The desk's actual interest is the China CPU long-term agreement story, which is a Reuters report and appears nowhere in the release; the foundry milestones everyone quotes come from call commentary I could not tie to a filing. On the disclosed schedule 14A is risk production in 2027 and high volume in 2028, so external foundry revenue is not a 2026 or 2027 event.",
+      "execution": "No action on this corpus. Any Intel position is a whole-company turnaround judgment on a multi-year clock, not a read-through from this map's photonics theme.",
+      "changesMind": "A named external 14A customer with committed volume, or GAAP profitability arriving before the 2028 ramp.",
       "basedOnThesisIds": [
-        "h_5c4c066a84ad116a",
-        "h_4cced3fb7690d2aa",
-        "h_aab4fe4860f13d29"
+        "r_1121c84c151e4fc8",
+        "r_b4a203b90d34f080",
+        "r_67423370f17ff00e",
+        "h_ab7eca244c2c4d4d"
       ],
-      "updatedAt": "2026-07-22T00:00:00Z"
+      "updatedAt": "2026-08-03T00:00:00Z"
+    },
+    {
+      "ticker": "IREN",
+      "stance": "watch",
+      "view": "Enters on score off one substantive datapoint and several breadth lists: the ARR target revised to $4bn-plus on new AI cloud contracts, with Microsoft, NVIDIA, Perplexity and Figure named as customers. That is a real upgrade in counterparty quality for a converted bitcoin miner. The rest of the week's mentions are drawdown-and-snapback lists, which inflate the mention count without adding evidence. Same structural question as NBIS: contracted ARR is not funded capacity.",
+      "execution": "No action. NBIS already carries the neocloud exposure and has more disclosure behind it. If the neocloud leg is to be doubled, that is a sizing decision, not a second name.",
+      "changesMind": "ARR converting to reported revenue on schedule with the capex funded, which would make IREN a genuine alternative to NBIS rather than a correlated duplicate.",
+      "basedOnThesisIds": [
+        "h_43deb65515cd551f",
+        "x_2082896789880119590",
+        "h_6cc7f046ffe02ade"
+      ],
+      "updatedAt": "2026-08-03T00:00:00Z"
+    },
+    {
+      "ticker": "JBL",
+      "stance": "accumulate",
+      "previousStance": "accumulate",
+      "view": "Quiet again — three mentions, all as a named partner in the Sivers capacity-ramp web rather than a dedicated thesis. The position's logic is unchanged and deliberately boring: JBL is the profitable, diversified way to hold the 1.6T and CPO build without underwriting a single small-cap's ramp. In a week where the pure-plays fell 25-56% and JBL fell 2%, that is the leg doing exactly its job.",
+      "execution": "Starter position stands. Its function is ballast against the photonics book's beta, so it does not need a catalyst to justify holding.",
+      "changesMind": "Losing the photonics-adjacent programmes, or the diversification thesis breaking down in a quarter where datacom growth stops offsetting the legacy segments.",
+      "basedOnThesisIds": [
+        "x_2083114743729107236",
+        "h_68d9e73b418bb672",
+        "h_c730cd89e4be221f"
+      ],
+      "updatedAt": "2026-08-03T00:00:00Z"
+    },
+    {
+      "ticker": "AMZN",
+      "stance": "accumulate",
+      "previousStance": "accumulate",
+      "view": "The cleanest datapoint of the week for the whole map: capex raised to $220bn from $200bn, AWS up 37% at its fastest in eighteen quarters, and Jassy saying explicitly that even $220bn will not meet 2026 demand, with the same true in 2027. Worth naming that part of the raise is memory cost inflation rather than more units — a point that cuts against reading the number as pure supplier demand. Up 16% on the week, so the market agrees.",
+      "execution": "Core-position logic, dollar-cost average — unchanged. Do not chase a 16% weekly move; the averaging schedule is the discipline that handles this.",
+      "changesMind": "AWS growth decelerating while capex holds, or capacity catching up with demand — Jassy's own framing is the falsifier here.",
+      "basedOnThesisIds": [
+        "x_2083088870942642391",
+        "x_2083270545320386734",
+        "x_2083133191112843575"
+      ],
+      "updatedAt": "2026-08-03T00:00:00Z"
+    },
+    {
+      "ticker": "XFAB",
+      "stance": "accumulate",
+      "previousStance": "accumulate",
+      "view": "The earnings transcript delivered the confirmation the thesis wanted in the company's own words — progress in co-packaged optics, plus the 800V transition supporting SiC and GaN demand. Two independent legs, a specialty-foundry value floor and a free photonics option, and the CPO leg is now management-stated rather than inferred. Down 14% on the week with the print in hand.",
+      "execution": "The value leg justifies a real starter position and the photonics leg is the free upside; the weekly drawdown is an adding window, not a warning. Size in euros and accept the European liquidity.",
+      "changesMind": "The CPO progress language disappearing from the next transcript, or the SiC/800V ramp slipping — the value floor alone does not carry the position.",
+      "basedOnThesisIds": [
+        "x_2083106805949878330",
+        "h_81c95bb99a13f5d0"
+      ],
+      "updatedAt": "2026-08-03T00:00:00Z"
+    },
+    {
+      "ticker": "AMKR",
+      "stance": "accumulate",
+      "view": "Added to coverage at the operator's request, outside the top-15 rule — AMKR ranks 40th on score with three mentions. The analyst bought it in the $40s and called the post-earnings drop surprising given the NVDA $1.5B deal and the TSM ten-year agreement. He is right that the reaction was severe and right about why: his own 29 July note observes markets are rewarding existing acceleration over growth a year out, and names AMKR as the example. What separates this from SIVE or AAOI is that the numbers here are reported rather than modelled — Amkor posted record Q2 net sales of $1.90bn, up 26%, with $0.70 of diluted EPS. The catch is that the record quarter was led by Computing and Automotive & Industrial, not by the AI packaging ramp, and he concedes the name is a 2028 story with partial 2027 ramps.",
+      "execution": "Scale in slowly and size it as a multi-year hold, not a catalyst trade — the AI revenue is two years out and the drawdown can continue without anything being wrong. Quarterly tranches rather than a single entry, and no adding on headlines about the NVDA agreement: that money is a prepayment for capacity, so it appears in the cash flow long before it appears in earnings.",
+      "changesMind": "The Arizona and advanced-packaging capacity expansion slipping past 2028, or a quarter where Computing revenue rolls over before the AI ramp arrives to replace it — that would leave the name carrying cyclical OSAT risk with none of the AI upside yet in the numbers.",
+      "basedOnThesisIds": [
+        "h_81c95bb99a13f5d0",
+        "h_69684ea60ee93290",
+        "h_061b5ccd49c3a139"
+      ],
+      "updatedAt": "2026-08-03T00:00:00Z"
     }
   ]
 }

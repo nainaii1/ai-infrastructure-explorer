@@ -1,8 +1,8 @@
 {
   "meta": {
-    "version": "1.309",
+    "version": "1.314",
     "schemaVersion": 1,
-    "lastUpdated": "2026-08-01T20:26:51Z",
+    "lastUpdated": "2026-08-03T10:00:00Z",
     "source": "ingest"
   },
   "countries": {
@@ -204,7 +204,8 @@
     "tooltip": "Auto-added tickers from captured posts that have not been categorized yet — triaged in the weekly review."
   },
   "tickerAliases": {
-    "SIVEF": "SIVE"
+    "SIVEF": "SIVE",
+    "LPK": "LPK.DE"
   },
   "themeTags": [
     "DRAM",

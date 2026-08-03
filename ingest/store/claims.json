@@ -1,7 +1,7 @@
 {
   "meta": {
     "schemaVersion": 1,
-    "updatedAt": "2026-07-28T05:40:00Z",
+    "updatedAt": "2026-08-03T00:00:00Z",
     "disclaimer": "Dated, testable predictions and how they turned out. Hit rate is correct/(correct+wrong); open and unfalsifiable are excluded from that denominator and the unfalsifiable share is reported alongside, so a source cannot score well by saying nothing testable. Research support, not investment advice."
   },
   "claims": [
@@ -327,6 +327,71 @@
       "judgeBy": null,
       "thesisId": "h_79658251353db0f2",
       "status": "unfalsifiable",
+      "judgedAt": null,
+      "evidence": null
+    },
+    {
+      "id": "cl_e7233d61cc69",
+      "source": "fundamental",
+      "ticker": "AAOI",
+      "claim": "AAOI will not reach a $471m monthly revenue run-rate, or $5.6bn annualised, at any point in 2027.",
+      "testableBy": "AAOI quarterly revenue in its 2027 10-Q/10-K filings",
+      "madeAt": "2026-08-03",
+      "judgeBy": "2028-03-31",
+      "thesisId": "r_22778337eb66fdb7",
+      "status": "open",
+      "judgedAt": null,
+      "evidence": null
+    },
+    {
+      "id": "cl_59bc0e9fa149",
+      "source": "fundamental",
+      "ticker": "NBIS",
+      "claim": "Nebius will report full-year 2026 revenue below the $3bn low end of its own guidance.",
+      "testableBy": "Nebius FY2026 results",
+      "madeAt": "2026-08-03",
+      "judgeBy": "2027-03-31",
+      "thesisId": "r_e9b254d4e96e609a",
+      "status": "open",
+      "judgedAt": null,
+      "evidence": null
+    },
+    {
+      "id": "cl_586a953c18d5",
+      "source": "pm",
+      "ticker": "CCXI",
+      "claim": "The Agility Robotics business combination will close and trade as AGLT before 31 December 2026.",
+      "testableBy": "SEC S-4 effectiveness, shareholder vote result and exchange listing notice",
+      "madeAt": "2026-08-03",
+      "judgeBy": "2026-12-31",
+      "thesisId": "r_41b41b60ce8eb149",
+      "status": "open",
+      "judgedAt": null,
+      "evidence": null
+    },
+    {
+      "id": "cl_6f7a270b1c4e",
+      "source": "pm",
+      "ticker": "MU",
+      "claim": "Micron consolidated gross margin will not exceed the fiscal Q3 2026 level of 84.9% in any quarter through fiscal 2027.",
+      "testableBy": "Micron quarterly gross margin in its 10-Q filings",
+      "madeAt": "2026-08-03",
+      "judgeBy": "2027-09-30",
+      "thesisId": "r_2779c73c56e6533f",
+      "status": "open",
+      "judgedAt": null,
+      "evidence": null
+    },
+    {
+      "id": "cl_cb7adae035dc",
+      "source": "semi-expert",
+      "ticker": "INTC",
+      "claim": "Intel will not report material external foundry revenue from 14A before the end of 2027.",
+      "testableBy": "Intel Foundry segment disclosure in its 10-K/10-Q filings",
+      "madeAt": "2026-08-03",
+      "judgeBy": "2027-12-31",
+      "thesisId": "r_67423370f17ff00e",
+      "status": "open",
       "judgedAt": null,
       "evidence": null
     }
