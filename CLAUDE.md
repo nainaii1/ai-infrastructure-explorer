@@ -37,230 +37,55 @@ personal research tool. Single-user, local-first. Not investment advice.
 sourced thesis + watchlist data. Treat `data.js` like it's the actual product,
 not throwaway config.
 
-## Current status (read this first — it's the fastest way to know where things stand)
-- **v1 — Supply Chain Map** ✅ done. Value-chain layer stack (not an SVG arc —
-  see "Map rendering" below), grouped into Demand/Chip/Supply flow zones,
-  click-to-filter, ticker cards.
-- **v2 — Watchlist** ✅ done. Sortable table (Price/7D/1M/1Y/MktCap), ratings
-  persist to localStorage. Prices come from the operator's **Google Sheet**
-  (GOOGLEFINANCE formulas; CSV export downloaded by `ingest/fetch_prices.py`
-  — Yahoo/FMP retired 2026-07-16 after chronic 429s). Refresh: launchd agent
-  twice daily, `refresh-prices.command`, or the button via `ingest/serve.py`.
-  See `docs/GUIDE.md` §4.
-- **v3 — Thesis tab + ingest pipeline** ✅ done. Telegram bot (`ingest/bot.py`)
-  captures posts → `theses.json`, auto-grows `tickers.json`, computes a
-  priority ranking (`scorer.py`).
-- **v4 — Brain (AI theme digests)** ✅ done. `ingest/synthesize.py` reads
-  theses grouped by category and produces one narrative digest per theme.
-  **Requires a paid Anthropic API key** the operator doesn't currently have —
-  when that's the case, refresh the brain **manually**: read
-  `ingest/store/theses.json` grouped by category, author digests in the same
-  shape the schema expects, and run them through `synthesize.synthesize_all()`
-  with an injected `call_fn` (see `docs/GUIDE.md` §3) instead of hand-writing
-  `brain.json`. This keeps output byte-identical to a real API run
-  (`sourceThesisIds`, `thesesCount`, ticker-universe filtering, `meta` are all
-  stamped by the pipeline, not by hand).
-- **v5 — Conviction tiers + Desk verdicts** ✅ done (2026-07-03). Every ticker
-  gets a tier from `scorer.assign_tiers()` — `core` (repeat *focus-weighted*
-  mentions or 2+ high-conviction hits) / `watch` / `radar` (one-off
-  name-drops). Mentions are focus-weighted by `1/√(tickers-in-post)` so a name
-  buried in a 12-ticker digest dump can't inflate the tiers (ROADMAP issue #4,
-  fixed 2026-07-03).
-  Since 2026-07-26 the priority *score* is **direction-aware**: each mention is
-  signed (`bull`/`neutral` +1, `bear` −1), a present-but-unreadable direction
-  is inert (0, so a typo'd `"bearish"` can't become a bull vote), and
-  research-sourced theses (`source: "research"`) contribute 0 to both the score
-  and `weightedMentions` — outside research can correct a name downward but can
-  never inflate its rank or buy it tier coverage. The **conviction multiplier
-  is retired** (`CONVICTION_WEIGHT = 0.0`, reversible): keyword-matched rhetoric
-  was multiplying scores up to 6×. **Tiers are unaffected** — `assign_tiers`
-  reads `convictionHits` and `weightedMentions` directly, never the score.
-  The **Map** defaults to **Signal (Core+Watch)**; the
-  **Watchlist** opens focused on **Core** only (it's the decision surface —
-  keeps the table short); Watch/Radar/All/Signal are one chip away everywhere,
-  Radar always hidden until asked for.
-  On top sits the **Desk** layer: `ingest/store/verdicts.json` holds Claude's
-  weekly second opinion per Core name (stance `act|accumulate|watch|pass`,
-  view, execution suggestion, what-changes-my-mind, source thesis ids) —
-  rendered as a "Desk" column on the Watchlist and a full verdict block on
-  ticker cards. Refreshed weekly via the **`/weekly-review` project skill**
-  (`.claude/skills/weekly-review/SKILL.md`) in a Claude Code session — no
-  API key needed. Verdicts are capped at the top 12–15 Core names by design
-  (token budget). Latest pass: 2026-07-06, 15 Core names covered.
-- **Expert review seats** ✅ done (2026-07-27, spec Phase 2). Three reviewers —
-  `semi-expert` (is the technical claim true?), `fundamental` (do the numbers
-  work?), `pm` (is this a good bet at this price?) — research a shortlist of up
-  to 12 names before each weekly review and write findings into `theses.json`
-  as `source: "research"` theses. Two pure modules: `ingest/seats.py` (what a
-  seat is, and what a finding must satisfy) and `ingest/pre_review.py` (one
-  pass — select coverage, run the seats, merge the findings). Both take an
-  injected `call_fn`, exactly like `synthesize.py`, so they run in a Claude
-  Code session with no API key. **The verification rule:** a finding with no citable
-  primary source is marked `unverified` and forced to `direction: "neutral"` —
-  visible in the brief, and worth exactly 0.0 to any score. Research can correct
-  a name downward but can never inflate its rank, buy it tier coverage, add
-  conviction hits, or be counted as analyst attention (it is excluded from
-  `analystMentions`, `attention` and `lastMentioned`). Findings are pinned to
-  the ticker the seat was *asked* about, not the one the answer claims, so a
-  forwarded post cannot talk a seat into filing against a different name.
-  Shortlist order is stance-changed → 3+ new analyst theses → score, with the
-  names the cap dropped always reported. Run via the **`/pre-review` skill**;
-  `/weekly-review` stamps `previousStance` on every verdict so a stance
-  *change* is detectable at all.
-- **Claims ledger** ✅ done (2026-07-28, spec Phase 3), rendered as the
-  **Claims** half of `performance.html`. `ingest/store/claims.json` records dated, testable
-  predictions from the analyst, the desk and each seat, judged when their date
-  arrives. Two pure modules' worth of rules live in `ingest/claims.py`:
-  extraction (same injection firewall as the seats), judging, and scoring.
-  **`unfalsifiable` is a first-class outcome** — a claim nothing could settle
-  is recorded, not dropped, and `score_claims` returns the **unfalsifiable
-  share from the same call as the hit rate** so no surface can show the
-  flattering number without the honest one. `hitRate` is `None`, never `0.0`,
-  when nothing has been judged. A judgement to `correct`/`wrong` requires a
-  citable primary source (same rule as a seat finding); without one the claim
-  stays `open`. Judging before `judgeBy`, or re-deciding a judged claim,
-  raises. **A claim moves no score and no tier** — hit-rate weighting is
-  Phase 4, gated on ≥20 judged claims per source, and a test asserts
-  `scorer.py` neither imports `claims` nor reads `claims.json`. Run via
-  **`/judge-claims`**; `/pre-review` extracts claims from its own findings.
-  Seeded 2026-07-28 with 25 analyst claims from 64 focused posts —
-  **13 of 25 unfalsifiable (52%)**, 0 judged.
-- **v6 — "Field Guide" redesign** ✅ done (2026-07-03). Tabs dissolved into one
-  chaptered scroll: hero prologue (signal-chain stat nodes with count-up,
-  Core/Watch/Radar barbell bar, "Latest signal" card), numbered chapter heads,
-  floating glass capsule nav (sliding pill, scrollspy, bottom-floating ≤768px),
-  cool "cleanroom" palette (see Design system), scroll-triggered staggered
-  reveals, one unified JS-measured max-height drill-down animation (map detail + brain
-  sources), "Jargon, translated" glossary (`AIE_DATA.glossary`, sourced from
-  `base.json`), "New this week" strip on the Watchlist, heat-aware cross-section
-  legend, caveats colophon. All old tab classes (`.tab-panel`, `.tab-btn`,
-  `initTabs`) are gone — chapters render eagerly at boot.
-- **Evidence chapter cap** ✅ done (2026-07-03). The raw thesis feed shows only
-  the most recent 10 posts by default (a backfill can make this feed
-  100+ full-text cards — ~90,000px tall uncapped); the rest sit behind a
-  "Show N earlier theses" drill-down, never deleted. Fixing this surfaced a
-  real bug in the CSS `grid-template-rows: 0fr->1fr` drill-down technique:
-  it silently resolves to 0 height whenever an ancestor (`.bd-card`'s
-  `overflow: hidden`, `.th-feed`'s flex column) gives the grid track a
-  bounded "available space" instead of true content-based auto-sizing. All
-  three drill-downs (map layer detail, Brain sources, this new one) now use
-  a JS-measured `max-height` (see `AIE.setDrilldownOpen()` in
-  `shared/common.js`) — robust regardless of ancestor layout, with a resize
-  listener to re-measure anything currently open.
-- **v7 — "Private Coverage" editorial multi-page upgrade** ✅ ALL SIX PHASES
-  DONE (2026-07-15; see README/ROADMAP for the shipped summary — the phase
-  notes below are history, kept for context).
-  Phase 1 done (2026-07-08). The single-page app split into a multi-page vanilla site with a
-  shared design system, all still `file://`-safe and framework-free. Shipped in
-  Phase 1 (`docs/EXECUTION.md` P1–P5): (1) `shared/theme.css` — warm editorial
-  "paper" design tokens + shared components (top masthead, ledger table, chips,
-  tier/stance badges, colophon, gradient border); (2) `shared/common.js` — a
-  global `AIE` namespace holding everything used by 2+ pages (localStorage
-  seeding, `setDrilldownOpen`, `fmtNum/fmtMcap/fmtPct/fmtDate`, category-color
-  helpers, `renderNav(activePage)`, `linkForTicker(sym)` stub); (3) the Field
-  Guide moved `index.html` → `desk.html` and now loads the shared assets;
-  (4) `desk.html` retokenized to the warm editorial theme (serif hero +
-  chapter heads; frosted-paper capsule); (5) a new editorial `index.html`
-  front page (masthead, serif standfirst sourced from `AIE_DATA` counts,
-  latest-desk meta strip, chapter links, reserved coverage-ledger empty state).
-  **Phase 2 — Coverage memos ✅ done (2026-07-12, P6–P10):** `memos.json`
-  store + `data.js` passthrough; `memo.html` renderer (?id/?ticker routing,
-  live snapshot strip, right-rail TOC with scrollspy, sources appendix via a
-  shared `AIE.makeThesisCard`, `**bold**`/`$TICK`/`[[wikilink]]` body markup);
-  coverage ledger on `index.html` (memo rows + "verdict only" stubs, kind/
-  rating filters); authoring rules added to the weekly-review skill (step 4b)
-  plus a new `/coverage-note TICKER` skill; first 5 memos seeded (SIVE, LITE,
-  NVDA, AAOI, JBL — rating always mirrors the desk stance). `.claude/skills/`
-  is now tracked in git (gitignore exception).
-  **Phases 3–5 (knowledge Vault + graph, cross-linking, performance
-  hooks) ✅ done (2026-07-13/14).**
-  **Phase 6 — "Unpacked" rebrand ✅ done (2026-07-15, U1–U8):** a
-  Samsung-Unpacked aesthetic — cool neutral-grey canvas, bold geometric display
-  type, ONE blue→violet brand-gradient accent used sparingly, true-black "event
-  stage" dark surfaces. **U1** (guide), **U2** (design tokens in
-  `shared/theme.css` — palette/fonts/brand/stage; the duplicate `desk.html`
-  `:root` deleted; `paintGradientBorder` now a no-op — the border is pure-CSS
-  brand chrome), **U3** (4 category hues deepened for the cool canvas),
-  **U4** (per-page polish — all page `var(--serif)` → `var(--display)`, pill-ified
-  toggles, one gradient-text moment per front-of-house page, dark surfaces on
-  `--stage`), **U6** (12 validated, data-owned category icons in the pipeline
-  bands and hub), **U5** (2026-07-14 — a desk-authored weekly Focus card:
-  `verdicts.json` `meta.focus` = `{headline, dek, updatedAt, tickers[]}`,
-  rendered by the shared `AIE.renderFocusCard()` / `.aie-focus` component as
-  the full-width lead on `index.html` and the hero's lead card on
-  `desk.html`, demoting the raw latest-tweet card to a compact secondary
-  slot linking into Chapter 03; absent `meta.focus` → both surfaces render
-  exactly as before), **U7** (2026-07-14 — Chapter 01 restructure: `makeCard()`
-  split into a compact `makeTile()` grid + an expand-in-place `makeCardDetail()`
-  detail row animated by `AIE.setDrilldownOpen`; priority chips folded into the
-  Holdings ledger row, glossary behind a drill-down, flow-arrow dashes animated
-  via the `aie-flow` keyframes), and **U8** (2026-07-15 — this docs pass: the
-  `--serif` alias deleted from `shared/theme.css` and every use switched to
-  `var(--display)`; the Design system section + `docs/DESIGN.md` brought current;
-  Phase 6 boxes ticked in `docs/EXECUTION.md`).
-- **Live counts** (measured 2026-07-27; check `ingest/store/*.json` for current):
-  120 tickers tracked (28 core / 17 watch / 75 radar after focus-weighting),
-  10 categorized layers + an `unsorted` triage bucket holding 55 names — one
-  Core (RDDT, which doesn't cleanly fit any of the 10 categories), 7 Watch, and
-  a 47-name Radar tail of one-off name-drops not worth triaging by hand.
-  258 ingested theses, all still analyst-sourced — no research theses written
-  yet, so every `researchMentions` is 0 and the seats have not been run.
-  17 desk verdicts (reviewed 2026-07-22, 9 accumulate / 8 watch; roster is
-  "top 15 by score + sticky act/accumulate holdovers"), 10 brain digests
-  (generated 2026-07-22 — 9 re-synthesized that day via Claude Code per the v4
-  workaround above, `robotics` carried forward from 2026-07-16).
-- **Symbol canonicalization** (2026-07-16): `base.json` carries
-  `tickerAliases` (e.g. `SIVEF → SIVE`, mentions merge) and `themeTags`
-  (e.g. `DRAM`, `SPCX` — theme markers, never ticker records).
-  `scorer.canonicalize_theses()` applies both before any
-  priority/tier computation, and `bot.py` skips auto-creating ticker stubs
-  for them.
-- **X watcher (auto-discovery)** ✅ done (2026-07-30). `ingest/watcher.py` +
-  `docs/WATCHER.md`. **Tweet discovery is no longer manual.** A headless
-  Playwright browser loads the PUBLIC (logged-out) `x.com/aleabitoreddit`
-  profile every 4h via `com.aie.watch-x.plist`, collects permalinks, and
-  queues them into `store/pending_posts.json`. Delivery is batched to the
-  `DELIVERY_HOURS` ({0, 12} local) so the operator gets two Telegram batches a
-  day, each post carrying ✅ Ingest / ❌ Skip inline buttons; `bot.handle_callback`
-  acts on the tap. **Nothing auto-ingests** — a post reaches `theses.json` only
-  on a tap. Three invariants, all load-bearing:
-  (1) **The browser supplies URLs only.** Post text always comes from
-  `fetcher.py`/fxtwitter, and `verify_post()` drops anything it can't confirm
-  (fail closed) — so no scraped DOM text and no model output can ever enter
-  the store. It also re-checks authorship against X and drops mismatches.
-  (2) **Foreign permalinks need a positive repost marker.** X renders
-  strangers' replies on his profile as thread context (observed live:
-  `/stockprodigyman/status/…` asking *him* a question); admitting those would
-  file another person's words as his thesis. Quote-posts are his own permalink
-  and are unaffected. Genuine reposts pass through with `author` set to the
-  ORIGINAL author — hence the new `author` kwarg on `ingest_message`.
-  (3) **The logged-out page is hard-capped at 6 posts** (measured; scrolling
-  cannot pass the "Sign up / Log in" wall). That cap, not preference, sets the
-  4-hourly poll: at ~11 posts/day a 12-hourly poll would sit at the ceiling and
-  lose posts silently. Hitting the cap raises an explicit overflow warning, and
-  24h with no posts found raises a staleness alarm — a broken watcher must
-  never look like a quiet week.
-  Playwright is the project's only heavy dependency and is needed ONLY by
-  `watcher.py`; the plist must call the python.org interpreter by absolute path
-  (Apple's `/usr/bin/python3` does not have it and launchd ignores shell PATH).
-- **Signal Digest** ⛔ superseded (2026-07-06) by the **Coverage memo** feature
-  in the v7 upgrade (`docs/EXECUTION.md` Phase 2). The memo
-  (`ingest/store/memos.json` → `memo.html`, authored via the weekly review /
-  `/coverage-note` skill) is the successor: a longer per-Core-name research note
-  rather than a one-line-per-ticker digest. The old design doc
-  (`docs/superpowers/specs/2026-07-03-signal-digest-design.md`) is kept for
-  history only — do not build it. Tweet discovery still stays fully manual
-  (Telegram bots can't read other bots' messages).
-- **Expert review team programme** (spec Phase 1 shipped, Phase 2 in
-  progress): the live to-do doc with per-session prompts and the list of
-  hard-won invariants is `docs/EXECUTION-EXPERT-REVIEW.md`. Read its
-  "Invariants" section before touching `ingest/scorer.py` or
-  `ingest/seats.py` or `ingest/pre_review.py`.
-- **For full history / open issues / next steps:** see `docs/ROADMAP.md`
-  (living doc, update it whenever status changes).
-- **For a full design-system reference** (color tokens, type scale, spacing,
-  every component + its states, known inconsistencies) before doing any
-  visual redesign work: see `docs/DESIGN.md`.
+## Current status (read this first — full phase-by-phase history lives in docs/ROADMAP.md, not here)
+Everything below is shipped and live:
+- **Map + Watchlist** — flow-pipeline map (click-to-filter), sortable watchlist
+  (Price/7D/1M/1Y/MktCap). Prices from the operator's **Google Sheet**
+  (GOOGLEFINANCE; CSV pulled by `ingest/fetch_prices.py` — Yahoo/FMP retired
+  2026-07-16, chronic 429s). Refresh: launchd twice daily, `refresh-prices.command`,
+  or the button via `ingest/serve.py`. See `docs/GUIDE.md` §4.
+- **Ingest pipeline** — Telegram bot (`ingest/bot.py`) captures posts →
+  `theses.json`, auto-grows tickers, `scorer.py` computes priority + tiers.
+- **Brain (theme digests)** — `ingest/synthesize.py`. No paid API key yet —
+  refresh manually through Claude Code per `docs/GUIDE.md` §3 (output stays
+  byte-identical to a real API run).
+- **Conviction tiers + Desk verdicts** — `scorer.assign_tiers()` gives every
+  ticker Core/Watch/Radar. Scoring is **direction-aware** (bull/bear/neutral;
+  unreadable direction is inert; research theses score 0 unless bearish — see
+  Data schema below for the exact rule). Map defaults to Signal (Core+Watch);
+  Watchlist opens on Core only. Claude's weekly per-ticker verdict lives in
+  `ingest/store/verdicts.json`, refreshed via **`/weekly-review`**, capped at
+  the top 12–15 Core names.
+- **Expert review seats** — `semi-expert`/`fundamental`/`pm` research a
+  shortlist before each weekly review (`ingest/seats.py` + `ingest/pre_review.py`,
+  run via **`/pre-review`**), writing `source: "research"` findings. Unverified
+  findings are forced `neutral` — visible but worth 0 to any score, and can
+  never inflate rank, tier, or analyst-attention counts.
+- **Claims ledger** — `ingest/claims.py` + `claims.json` record dated, testable
+  predictions, judged via **`/judge-claims`**. `unfalsifiable` is a first-class
+  outcome reported alongside the hit rate, never hidden. No score/tier impact
+  until Phase 4 (gated on ≥20 judged claims/source).
+- **v7 "Private Coverage" multi-page** — `index.html`/`desk.html`/`memo.html`/
+  `vault.html`/`performance.html` + shared `theme.css`/`common.js`. Coverage
+  memos, knowledge vault + graph, site-wide cross-linking, performance ledgers.
+- **v8 "analysis tool, not product"** — Focus card and all hero art removed;
+  Desk opens on the Watchlist; Evidence chapter removed (theses render only
+  where cited — memo sources, vault, Synthesis drill-downs).
+- **v9 "soft two-tone" design** — current visual language; see Design system
+  section below and `docs/DESIGN.md` for the full reference.
+- **X watcher (auto-discovery)** — `ingest/watcher.py` polls the public
+  logged-out X profile every 4h, queues candidate posts to Telegram for a
+  ✅/❌ tap — **nothing auto-ingests without approval**. Details, invariants,
+  and failure modes: `docs/WATCHER.md`.
+- **Symbol canonicalization** — `base.json` `tickerAliases`/`themeTags`,
+  applied by `scorer.canonicalize_theses()` before any priority/tier math.
+
+**Ticker/thesis/verdict counts change constantly — read `ingest/store/*.json`
+or `data.js`, never assume a number from this file.**
+
+Read `docs/EXECUTION-EXPERT-REVIEW.md` "Invariants" before touching
+`ingest/scorer.py`, `ingest/seats.py`, or `ingest/pre_review.py`.
+For open issues, next steps, and shipped-phase history: **`docs/ROADMAP.md`**.
 
 ## Hard rules (do not break these)
 1. **Vanilla HTML / CSS / JS only** in the app. No React, no Tailwind, no
