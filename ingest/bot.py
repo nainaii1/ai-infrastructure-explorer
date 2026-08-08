@@ -40,6 +40,10 @@ ING = pathlib.Path(__file__).resolve().parent
 STORE = ING / "store"
 OFFSET_FILE = STORE / ".bot_offset"
 MAX_TEXT_LEN = 4000
+# ~1 minute of 5s-backoff retries. A macOS DNS resolver stuck after sleep/wake
+# doesn't clear inside a running process — bounding this lets run_bot() give up
+# and exit rather than retry a broken state forever (see run_bot's poll loop).
+MAX_CONSECUTIVE_POLL_FAILURES = 12
 API_URL = "https://api.telegram.org/bot{token}/{method}"
 _URL_ONLY_RE = re.compile(r"https?://\S+")
 
@@ -292,13 +296,24 @@ def run_bot():
     print("Bot polling. Only Telegram user id {} is processed. Ctrl-C to stop.".format(allowed))
 
     offset = _read_offset()
+    consecutive_poll_failures = 0
     while True:
         try:
             resp = _api(token, "getUpdates", offset=offset + 1, timeout=50)
         except Exception as exc:  # network hiccup — back off and retry
             print("poll error:", exc)
+            consecutive_poll_failures += 1
+            if consecutive_poll_failures >= MAX_CONSECUTIVE_POLL_FAILURES:
+                # A stuck macOS DNS resolver after sleep/wake doesn't clear on
+                # its own inside a long-running process — only a fresh process
+                # gets a fresh resolver. Exit so launchd's KeepAlive relaunches
+                # us cleanly, instead of retrying the same broken state forever.
+                sys.exit("giving up after {} consecutive poll failures — "
+                         "exiting so the launchd service restarts fresh."
+                         .format(consecutive_poll_failures))
             time.sleep(5)
             continue
+        consecutive_poll_failures = 0
         for upd in resp.get("result", []):
             offset = upd["update_id"]
             OFFSET_FILE.write_text(str(offset))
@@ -311,18 +326,28 @@ def run_bot():
                 except Exception as exc:  # never let one tap kill the loop
                     print("callback error:", exc)
                     reply, answer = None, "Error: {}".format(exc)[:190]
+                # These two calls are independent Telegram-side effects — the
+                # toast (answerCallbackQuery) and the message edit that removes
+                # the buttons. A separate try/except each so a hiccup on one
+                # can't swallow the other: previously a failed toast silently
+                # skipped the edit too, leaving the buttons on screen even
+                # though handle_callback had already ingested the post — the
+                # operator would tap again and just get "Already ingested."
                 try:
                     _api(token, "answerCallbackQuery",
                          callback_query_id=cb["id"], text=(answer or "")[:200])
-                    if reply and cb.get("message"):
+                except Exception as exc:
+                    print("answerCallbackQuery failed:", exc)
+                if reply and cb.get("message"):
+                    try:
                         # Replace the post with its outcome and drop the
                         # buttons, so a decided post can't be tapped twice.
                         _api(token, "editMessageText",
                              chat_id=cb["message"]["chat"]["id"],
                              message_id=cb["message"]["message_id"],
                              text=reply, disable_web_page_preview="true")
-                except Exception as exc:
-                    print("callback reply failed:", exc)
+                    except Exception as exc:
+                        print("editMessageText failed:", exc)
                 continue
 
             msg = upd.get("message") or upd.get("channel_post")
