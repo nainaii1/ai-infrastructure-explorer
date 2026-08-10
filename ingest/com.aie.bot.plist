@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  The Telegram ingest bot. Long-running, not calendar-scheduled — it holds a
+  50s Telegram long-poll open continuously, unlike watch-x / refresh-prices.
+
+  KeepAlive relaunches it if it exits for any reason, including the
+  deliberate exit in run_bot() after MAX_CONSECUTIVE_POLL_FAILURES: a macOS
+  DNS resolver stuck after sleep/wake doesn't clear inside a running
+  process, so bot.py gives up and lets launchd hand it a fresh one.
+
+  Install:
+    cp com.aie.bot.plist ~/Library/LaunchAgents/
+    launchctl load ~/Library/LaunchAgents/com.aie.bot.plist
+
+  Only run ONE poller against this bot token at a time — a second
+  concurrent getUpdates call causes Telegram to return 409 Conflict on
+  both. If a manual `python3 bot.py` terminal is open, Ctrl-C it first.
+-->
+<plist version="1.0">
+<dict>
+  <key>Label</key><string>com.aie.bot</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/Library/Frameworks/Python.framework/Versions/3.14/bin/python3</string>
+    <string>-u</string>
+    <string>/Users/mikembp/Documents/Claude/ai-supply-desk/ingest/bot.py</string>
+  </array>
+  <key>RunAtLoad</key><true/>
+  <key>KeepAlive</key><true/>
+  <key>ThrottleInterval</key><integer>10</integer>
+  <key>StandardOutPath</key><string>/Users/mikembp/Library/Logs/aie-bot.log</string>
+  <key>StandardErrorPath</key><string>/Users/mikembp/Library/Logs/aie-bot.log</string>
+</dict>
+</plist>

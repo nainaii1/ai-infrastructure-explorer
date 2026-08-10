@@ -28,3 +28,12 @@ ingest/store/.bot_offset
 !docs/images/*.png
 !docs/images/*.jpg
 !docs/images/*.jpeg
+
+# --- Watcher runtime state ---
+ingest/store/.watcher_state.json
+
+# --- Store backups ---
+# The weekly-review / pre-review passes copy a store file to
+# <name>.json.bak-<pass>-<yyyymmdd> before a bulk edit. They're local
+# rollback points; git history is the real record.
+ingest/store/*.json.bak-*

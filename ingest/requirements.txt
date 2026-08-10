@@ -6,3 +6,8 @@
 # The core pipeline still runs with zero dependencies; install this just to run
 # `python3 synthesize.py`:
 anthropic>=0.40
+
+# Required ONLY by watcher.py (the X timeline watcher). Needs a one-time
+# browser download after installing:  python3 -m playwright install chromium
+# Everything else — including the bot and the approve buttons — runs without it.
+playwright>=1.60

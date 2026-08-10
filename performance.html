@@ -8,7 +8,7 @@
   <!-- ⚡ favicon: inline SVG data URI (no external request, works on file://) -->
   <link
     rel="icon"
-    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M13 2 4.5 13.5H11l-1 8.5L19.5 10H13z' fill='%233b82f6'/%3E%3C/svg%3E"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M13 2 4.5 13.5H11l-1 8.5L19.5 10H13z' fill='%235b3ee0'/%3E%3C/svg%3E"
   />
 
   <!-- Shared editorial design tokens + components. -->
@@ -21,24 +21,24 @@
     .perf-head { margin-bottom: 16px; }
     .perf-title {
       font-family: var(--display); font-weight: 700;
-      font-size: 22px; line-height: 1.1; letter-spacing: -0.02em;
+      font-size: var(--fs-xl); line-height: 1.1; letter-spacing: -0.02em;
       color: var(--ink); margin: 0 0 6px;
     }
     .perf-sub {
-      font-family: var(--mono); font-size: 12px; letter-spacing: .04em;
+      font-family: var(--mono); font-size: var(--fs-xs); letter-spacing: .04em;
       color: var(--muted); margin: 0;
     }
 
     /* Ledger numerics. */
-    .perf-num { font-family: var(--mono); font-size: 12.5px; white-space: nowrap; }
-    .perf-pct { font-family: var(--mono); font-size: 12.5px; font-weight: 700; white-space: nowrap; }
-    .perf-pct.up   { color: #4d6a2b; }
-    .perf-pct.down { color: #a13d2f; }
+    .perf-num { font-family: var(--mono); font-size: var(--fs-xs); white-space: nowrap; }
+    .perf-pct { font-family: var(--mono); font-size: var(--fs-xs); font-weight: 700; white-space: nowrap; }
+    .perf-pct.up   { color: var(--pos); }
+    .perf-pct.down { color: var(--neg); }
     .perf-pct.flat { color: var(--muted); }
-    .perf-kind { font-family: var(--mono); font-size: 10px; letter-spacing: .05em;
+    .perf-kind { font-family: var(--mono); font-size: var(--fs-2xs); letter-spacing: .05em;
                  text-transform: uppercase; color: var(--muted); white-space: nowrap; }
     .perf-outcome {
-      font-family: var(--mono); font-size: 10px; font-weight: 700;
+      font-family: var(--mono); font-size: var(--fs-2xs); font-weight: 700;
       letter-spacing: .06em; text-transform: uppercase;
       padding: 3px 8px; border-radius: 6px; line-height: 1;
     }
@@ -46,7 +46,7 @@
     .perf-outcome--win  { background: var(--sem-act-bg);        color: var(--sem-act-fg); }
     .perf-outcome--loss { background: var(--sem-watch-bg);      color: var(--sem-watch-fg); }
     .perf-outcome--wash { background: var(--sem-pass-bg);       color: var(--sem-pass-fg); }
-    .perf-note { font-family: var(--sans); font-size: 12.5px; color: var(--muted); }
+    .perf-note { font-family: var(--sans); font-size: var(--fs-xs); color: var(--muted); }
 
     /* Section heads — the page carries two ledgers now: Calls and Claims. */
     .perf-section { margin-top: 44px; }
@@ -57,11 +57,11 @@
       padding-bottom: 10px; border-bottom: 1px solid var(--border);
     }
     .perf-sec-title {
-      font-family: var(--display); font-weight: 700; font-size: 17px;
+      font-family: var(--display); font-weight: 700; font-size: var(--fs-md);
       letter-spacing: -0.01em; color: var(--ink); margin: 0;
     }
     .perf-sec-sub {
-      font-family: var(--mono); font-size: 11px; letter-spacing: .04em;
+      font-family: var(--mono); font-size: var(--fs-2xs); letter-spacing: .04em;
       color: var(--muted); margin: 0;
     }
 
@@ -75,38 +75,38 @@
       border-radius: var(--r-tile); padding: 14px 16px;
     }
     .perf-score-src {
-      font-family: var(--mono); font-size: 10px; font-weight: 700;
+      font-family: var(--mono); font-size: var(--fs-2xs); font-weight: 700;
       letter-spacing: .08em; text-transform: uppercase;
       color: var(--muted); margin: 0 0 8px;
     }
     .perf-score-rate {
-      font-family: var(--display); font-weight: 700; font-size: 21px;
+      font-family: var(--display); font-weight: 700; font-size: var(--fs-lg);
       letter-spacing: -0.02em; color: var(--ink); line-height: 1.1; margin: 0;
     }
-    .perf-score-rate.is-none { font-size: 14px; color: var(--muted); }
+    .perf-score-rate.is-none { font-size: var(--fs-sm); color: var(--muted); }
     .perf-score-caption {
-      font-family: var(--sans); font-size: 12px; line-height: 1.45;
+      font-family: var(--sans); font-size: var(--fs-xs); line-height: 1.45;
       color: var(--muted); margin: 6px 0 0;
     }
     /* The untestable share sits directly under the rate, never elsewhere. */
     .perf-score-share {
       margin: 10px 0 0; padding-top: 10px;
       border-top: 1px dashed var(--border);
-      font-family: var(--sans); font-size: 12px; line-height: 1.45;
+      font-family: var(--sans); font-size: var(--fs-xs); line-height: 1.45;
       color: var(--muted);
     }
     .perf-score-share b { font-family: var(--mono); color: var(--text); font-weight: 700; }
 
-    .perf-claim { font-family: var(--sans); font-size: 13px; line-height: 1.5; color: var(--text); }
-    .perf-claim-test { display: block; margin-top: 3px; font-size: 11.5px; color: var(--muted); }
+    .perf-claim { font-family: var(--sans); font-size: var(--fs-xs); line-height: 1.5; color: var(--text); }
+    .perf-claim-test { display: block; margin-top: 3px; font-size: var(--fs-2xs); color: var(--muted); }
     .perf-src {
-      font-family: var(--mono); font-size: 10px; letter-spacing: .05em;
+      font-family: var(--mono); font-size: var(--fs-2xs); letter-spacing: .05em;
       text-transform: uppercase; color: var(--muted); white-space: nowrap;
     }
 
     /* Methodology line under the table. */
     .perf-method {
-      font-family: var(--sans); font-size: 13px; line-height: 1.6;
+      font-family: var(--sans); font-size: var(--fs-xs); line-height: 1.6;
       color: var(--muted); margin: 22px 2px 0; max-width: 720px;
     }
 
@@ -117,30 +117,23 @@
       border: 1px solid var(--border); border-radius: var(--r-card);
       box-shadow: var(--shadow-sm);
     }
-    .perf-empty h1 { font-family: var(--display); font-weight: 700; font-size: 28px; letter-spacing: -0.02em; color: var(--ink); margin: 0 0 12px; }
-    .perf-empty p { font-family: var(--sans); font-size: 15px; line-height: 1.6; color: var(--muted); margin: 0 0 22px; }
+    .perf-empty h1 { font-family: var(--display); font-weight: 700; font-size: var(--fs-2xl); letter-spacing: -0.02em; color: var(--ink); margin: 0 0 12px; }
+    .perf-empty p { font-family: var(--sans); font-size: var(--fs-sm); line-height: 1.6; color: var(--muted); margin: 0 0 22px; }
     .perf-actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
     .perf-actions a {
-      font-family: var(--mono); font-size: 11px; font-weight: 600;
+      font-family: var(--mono); font-size: var(--fs-2xs); font-weight: 600;
       letter-spacing: .06em; text-transform: uppercase; text-decoration: none;
       padding: 9px 16px; border-radius: var(--r-chip);
       border: 1px solid var(--border); color: var(--text);
       transition: border-color var(--ease), color var(--ease), background var(--ease);
     }
     .perf-actions a:hover { border-color: var(--muted); color: var(--ink); background: var(--paper-sink); }
-    .perf-actions a.primary { background: var(--brand-grad); border-color: transparent; color: #fff; }
+    .perf-actions a.primary { background: var(--violet); border-color: var(--violet); color: #fff; }
 
     @media (max-width: 768px) {
-      .perf-title { font-size: 28px; }
-      /* The shared ledger hides its header row and stacks cells on mobile, so
-         a bare date loses its meaning. Label the two date cells in THIS table
-         only — the Calls table's behaviour is left exactly as it was. */
-      .perf-claims tbody td[data-label]::before {
-        content: attr(data-label);
-        display: block; margin-bottom: 2px;
-        font-family: var(--mono); font-size: 9.5px; font-weight: 700;
-        letter-spacing: .08em; text-transform: uppercase; color: var(--muted);
-      }
+      .perf-title { font-size: var(--fs-2xl); }
+      /* The stacked-ledger data-label rule now lives in theme.css and serves
+         every ledger, so the copy that used to sit here is gone. */
     }
   </style>
 </head>

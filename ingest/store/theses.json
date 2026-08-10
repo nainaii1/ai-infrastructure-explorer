@@ -4270,5 +4270,2191 @@
     ],
     "conviction": "normal",
     "tags": []
+  },
+  {
+    "id": "h_442d898389c4471f",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-29T16:35:45Z",
+    "ingestedAt": "2026-07-29T16:35:45Z",
+    "text": "Just some TLDR news:\n\n- $CXMT IPO tomorrow if you like Chinese memory. \n\n- Samsung Electronics reportedly struggling to secure large FC-BGA substrates. Ibiden (4062) reportedly requested LTA guarantees, Samsung Electro-Mechanics sought prepayments. \n\n- Samsung + \n$AVGO\n sign memory + foundry AI framework through 2030, expected to exceed $200b\n\n- $SOI expects FY2027 silicon photonics revenue to double compared to the previous year, surpassing Morgan Stanley's 60% growth projection. Photonics thesis go brrr. \n\n- SK Group + \n$NVDA\n sign $500B+ partnership to build out AI DCs and HBM4 memory. \n\n- SKC Absolics glass core delay to 2027 from reports. Targeting final reliability testing EOY, mass production next year. So if you're curious, this does push back some ramps from $LPK and others (hence drop on ER). \n\n- \n$QCOM\n price hikes by double digits for smartphone processors, due to upstream supplier hike pricing.\n\n- \n$META\n expected to issue $12B in project-level/SPV financing for El Paso, Texas AI DC expansion \n\n- Naver announced a $10 billion investment from \n$NVDA\n and Brookfield to construct a 1GW-scale AI Factory. Near term plan is 200MW by 2028. (Nvidia $1B investment, Brookfield nonbinding $9B)\n\n- 64GB DDR5 server modules rises 146% versus end-June contract pricing\n\n- \n$INTC\n brought forward 14A process mass production  by a year, risk production H2 2027 and volume production in 2028, vs. 2029 HVM expectations. \n\n- Samsung Electro-Mechanics wins $200m MLCC order (existing bottleneck).  \n\n- \n$AMD\n (the Bandana bottleneck), announces Helios is in full production with shipments Q3 2026. Including an up to 2GW MI455X GPU deployment with Anthropic and a 6GW infrastructure rollout with OpenAI. Gave new >50% CAGR TAM to $220B by 2030 from $26b in 2025 for CPU market. \n\nRolls out optical interconnects for Mi500 in 2027. From channel checks, AMD is heading down to the CPO route (seems likely to use Ayar).  \n\n- \n$ORCL\n wins $7B Department of War enterprise software contract\n\n- JX metal doubles semi target capacity at its KR subsidary with a 4B yen investment, with operations to begin H2 2027, amid surging demand from major customers Samsung Electronics and SK Hynix\n\n- Tungsten hexafluoride spot prices surged 2.1-2.5x Y/Y following Japan's Kanto Denka and Chuo Gas announcing permanent production halts. Fluorinated liquid supply faces a vacuum as 3M plans to exit PFAS production. \n\n- From the four optical chipmaker earnings, Yuanjie/Eoptolink/TFC Optical/Dongshan Precision: no major order cuts, 1.6T shipments expected to accelerate into 2027. Optical chip suppliers expected to capture outsized margins from shortages. \n\n- Unitree Robotics Targets 30,000 Humanoid Robot Production Capacity by 2026. Read through on humanoid TAM scaling like \n$CCXI\n and others. \n\n- Energy storage lithium batteries orders increase first half orders by 2,900% apparently in China. Not as familiar with EVE Energy and other battery makers",
+    "tickers": [
+      "AMD",
+      "AVGO",
+      "CCXI",
+      "CXMT",
+      "INTC",
+      "LPK",
+      "META",
+      "NVDA",
+      "ORCL",
+      "QCOM",
+      "SOI"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_eb941a6b810a07bd",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-29T20:09:35Z",
+    "ingestedAt": "2026-07-29T20:09:35Z",
+    "text": "Nvidia in talks to backstop $250B worth of OpenAI DC financing.\n\n- Softbank’s SB energy develops 10 GW Ohio campus \n\n- OpenAI signs long term lease\n\n- \n$NVDA\n guarantees $250B in financing\n\n- OpenAI discussing separate agreement to buy up to $350B in Nvidia chips.\n\nNot quite sure if this circular financing is healthy long term, but given the massive size of AI infrastructure spending…\n\nFeels like capex beneficiaries will be extremely happy.",
+    "tickers": [
+      "NVDA"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_e9e580f0b54616ed",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-29T20:10:11Z",
+    "ingestedAt": "2026-07-29T20:10:11Z",
+    "text": "Wow, $CMXT is up a very normal +469.98% after going public today.\n\nNow valuing it at ~$487.31 billion, up from $85.5 billion. \n\nDid any of my Chinese followers buy into the IPO?\n\nAs for me personally, right now I just want to sit back and wait for the existing bullish logic to gradually play out, especially the CPO-related targets after the recent market pullback. I'm not planning to open any new positions for the time being, but I'll share a few more individual stock ideas a bit later.",
+    "tickers": [
+      "CMXT"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_c7235ee4c03ced94",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-29T20:10:30Z",
+    "ingestedAt": "2026-07-29T20:10:30Z",
+    "text": "FCC set to ban Chinese imports of humanoid and quadruped robots per Reuters.  \n\nTo protect American Humanoid/Robotics programs.\n\nAgility Robotics ( \n$CCXI\n ) and other US humanoid players should be happy to hear this.",
+    "tickers": [
+      "CCXI"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_0120b1d42bd787ed",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-29T20:10:32Z",
+    "ingestedAt": "2026-07-29T20:10:32Z",
+    "text": "I've been out if it recently, just recovering from 2 rounds of surgery. \n\nDrop was been surprising to say the least given \n$GOOGL\n hiked capex guidance last week.  \n\nWill need to check on rate hike odds, but my guess is just deleveraging.",
+    "tickers": [
+      "GOOGL"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_69684ea60ee93290",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-29T20:10:47Z",
+    "ingestedAt": "2026-07-29T20:10:48Z",
+    "text": "I personally see it as extreme short term deleveraging that overshot many individual names. \n\n- \n$BE\n to \n$TER\n reported blowout results, with Bloom reporting 166% Y/Y rev growth + expanding margins + raised 2026 guidance... Teradyne reported 104% Y/Y revenue growth with 300%+ EPS growth. \n\nYour leading optical players over in China reported amazing preliminary earnings + extremely strong read through for the Western photonics sector. \n\nThink earnings season tend to remind markets about continued AI acceleration. I'm expecting \n$LITE\n, \n$SNDK\n / SK Hynix, and sector leader ERs to continue that trend.   \n\nBut it does feel like markets are rewarding existing acceleration more rather than future growth a year out over near-term revisions as seen with \n$AMKR\n. \n\nBut as a TLDR, looks very positive for the themes I'm tracking.  \n\n- Then you have \n$GOOGL\n capex raised to $195-$205B, which is typically the biggest AI demand signal from hyperscalers. \n\n- 77% 0bps change est. next FOMC decision from prediction markets. Trump administration on Monday called for the Fed to lower interest rates. \n\nSo your 3x rate hikes fears this year seem kinda overblown. \n\n- Chinese fears from DUV to $CXMT overflooding are extremely overblown as well. We see this with every sector from time to time until people remember that lasers or HBM bottlenecks for a reason. \n\nAs for personal thoughts, it was unhealthy seeing everything rise up or down together, especially with these themes. But I'm personally not worried since I have full conviction in my names, especially optical interconnects like $SIVE or \n$AAOI\n. \n\n$META\n compute and \n$GOOGL\n GCP margins/growth shows increasing demand for \n$NBIS\n and similar neocloud business models. \n\n$META\n + other hyperscaler notes around LTAs with \n$SNDK\n and Samsung/SK Hynix, \n$MU\n point to structural memory demand. \n\nCan go on and on... \n\nBut when you have Jim Cramer telling every margined DC trader to \"sell everything\" at market open and news saying there's an AI bubble. \n\nI do hate it when others say \"it's dropping so sell\". My belief is that the important thing to look is accelerating revenue/EPS growth. And if that thesis stays in-tact with revenue acceleration in line with hyperscaler capex. \n\nTLDR: I see signs of AI demand / revenue acceleration, hyperscaler capex is one of the most important things to track. \n\nAnd my guess is that we'll see the theme recover broadly. But I can't predict what hour, day, or week that happens.",
+    "tickers": [
+      "AAOI",
+      "AMKR",
+      "BE",
+      "CXMT",
+      "GOOGL",
+      "LITE",
+      "META",
+      "MU",
+      "NBIS",
+      "SIVE",
+      "SNDK",
+      "TER"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_a3fbe3dfa6304803",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-29T20:15:02Z",
+    "ingestedAt": "2026-07-29T20:15:02Z",
+    "text": "US Gov to take 1% stake in \n$GFS\n, and award them $300m for the US CHIPS ACT.\n\nThis is actually a strong read through on $SIVE / \n$LITE\n, given this CHIPS ACT is specifically aimed at advancing CPO + Silicon Photonics. \n\n(For reference, Sivers and Lumentum were the only two public laser suppliers named in GFS presentation slides. Sivers laser arrays was named recently as a reference design in Globalfoundries SCALE for CPO).  \n\nPer US Gov announcement: \"GlobalFoundries will receive up to $300 million to accelerate domestic CPO R&D by two to three years\" (NIST)\n\nNever thought we'd see the US Gov / \n$INTC\n foundry playbook for CPO in specific...",
+    "tickers": [
+      "GFS",
+      "INTC",
+      "LITE",
+      "SIVE"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_72746de6df4b3dce",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-29T20:15:17Z",
+    "ingestedAt": "2026-07-29T20:15:17Z",
+    "text": "I don't own \n$GFS\n, but I'm personally it's surprised it's still down on the news US Gov is taking a direct stake in them for advancing CPO. \n\nSurprising to say the least, given everyone remembers \n$INTC\n as the latest foundry the US Gov liked.",
+    "tickers": [
+      "GFS",
+      "INTC"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_41c515e668e213e6",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-29T20:15:41Z",
+    "ingestedAt": "2026-07-29T20:15:41Z",
+    "text": "Global indiscriminate AI deleveraging right now, \n$AAOI\n is one of the high-beta names affected.\n\nI'd personally be surprised to say the least if they do $5.6B annualized revenue in 2027 (off of $471m/month projections), and remain a $6.3B company.\n\n$LITE\n annualized right now is ~$3.23B and they're a $48B company (but higher margins)",
+    "tickers": [
+      "AAOI",
+      "LITE"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_2d636896cf0553c2",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-30T04:01:03Z",
+    "ingestedAt": "2026-07-30T04:01:03Z",
+    "text": "$AXTI\n enters long term agreement with \n$LITE\n for InP substrates. \n\nLumentum has agreed to pay a deposit of $43.5M as a reservation for capacity.\n\n$AXTI\n secured LTA with \n$COHR\n earlier, with a $22.3M reservation payment.\n\nAs well as a LTA with \n$LITE\n today, totaling $87M ($43.5M + $43.5M) again to reserve capacity. \n\nConsidering that these are both of the two leading optical players, seems positive. \n\nThe actual details such as pricing of the contracts aren't known, so we'll find out more.",
+    "tickers": [
+      "AXTI",
+      "COHR",
+      "LITE"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_6cc7f046ffe02ade",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-30T04:01:39Z",
+    "ingestedAt": "2026-07-30T04:01:39Z",
+    "text": "Serenity\n\n@aleabitoreddit\n·\nOP\n$META\n↗\n$MSFT\n↗\n$AMD\n↗\n$NVDA\n↗\n$IREN\n↗\n$NBIS\n↗\n$GOOGL\n↗\nJust some takeaways from \n$META\n | \n$MSFT\n earnings calls:\n\nMicrosoft:\n- Expected to be FCF positive in 2027, despite the increase in capex (extremely positive for AI buildout that it's funded by operating income)\n- \"Free cash flow was $19.6 billion, reflecting higher capital expenditures\"\n- Quartely capex was $41B, roughly 2/3rds were \"short lived assets, primarily CPUs and GPUs\"\n- Expects capex spend will be over $50 billion for next quarter\n- Capex Guidance at ~$175 billion and 2027 capex roughly the same. Spending plans unchanged and in line. \n- \"Extending the estimated useful life of our data centers from 15 to 25 years\"\n- \"We will be among the first cloud providers to deploy next generation rack-scale AI infrastructure based on \n$AMD\n Helios and \n$NVDA\n Vera Rubin\"\n- \"Customer demand continues to exceed available capacity\"\n\nMeta:\n- Capex $130-$145 billion (narrowed range), from $125B-$145B. \n- Meta is receiving offers at a \"significant premium\" to what they paid for it (compute scarcity, positive for neoclouds like \n$IREN\n / \n$NBIS\n )\n- Expects significant portion of compute (like the 1 GW DC in El Paso) to develop internal models. \n- Meta has multiple ROI-positive uses for additional compute across its core business (internally, not Meta Compute)\n- \"Finally, we believe that overall industry capacity is going to remain tight for the foreseeable future\" \n- \"The industry has under-built historically for the wave of AI adoption, making existing capacity, including our own, extremely valuable\" - Susan Li\n\nTLDR:\n- \n$MSFT\n and \n$GOOGL\n largely sustaining AI capex buildout while remaining FCF positive or through operating incomes.\n- \n$META\n flags available compute materially below demand at least through 2027. And \n$MSFT\n also flags compute demand far exceeds supply. \n- All three hyperscaler capex largely in line with Google hiking capex figures.\n\nAI selloff seems extremely overblown now, hyperscalers continuing capex in line (with Microsoft being FCF positive) or even hiked with \n$GOOGL\n. \n\nCompute scarcity is visible throughout every single hyperscaler ER.",
+    "tickers": [
+      "AMD",
+      "GOOGL",
+      "IREN",
+      "META",
+      "MSFT",
+      "NBIS",
+      "NVDA"
+    ],
+    "conviction": "high",
+    "tags": []
+  },
+  {
+    "id": "h_ff290dbdf3dd8a82",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-30T04:01:48Z",
+    "ingestedAt": "2026-07-30T04:01:48Z",
+    "text": "True, right now markets just want FCF + large warchests or dividends/buybacks I guess, like \n$AAPL\n.\n\nI'd agree with Zuckerberg that although it compresses near term FCF, they'll be rewarded over time with long term growth. \n\nAs a shareholder, probably better to prioritize long term growth over a low-growth FCF then buybacks company as seen with \n$PYPL\n's returns.",
+    "tickers": [
+      "AAPL",
+      "PYPL"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_58ab72fe0a33550a",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-30T16:05:44Z",
+    "ingestedAt": "2026-07-30T16:05:44Z",
+    "text": "Just some interesting takeaways from $FORM \n earnings call on CPO:\n\nSince they attributed systems revenue nearly doubled due to: \"accelerating growth in co-packaged optics or CPO\". \n\nQ1 2026: \"we now expect 2026 CPO revenues to come in at the high end of the $10 million to $20 million range\"\n\nQ2 2026 (now): \"expect to exceed that range by the end of the third quarter, and to significantly exceed the $20 million level for the year overall.\"\n\nManagement stated \"We’re seeing some significant acceleration in this [CPO] business\". \n\nQ: CPO adoption outlook. Are we perhaps expecting the timeline to accelerate a little bit?\n\nA: \"What I would say is there’s acceleration here in the very short term.\" But management stated there's not a significant pull-in on timelines. \n\nCiting production infrastructure (not just R&D) for:\n\n- The growing volumes of CPO chips planned for later this year + test insertion for scale-up and scale-out switches. \n- Seems like that CPO piece flows through $TSM \n COUPE [ likely maps to $NVDA \n CPO products] - \"The CPO piece does flow through that 10% customer\"\n\nSo now, test is ramping given management cited growing volumes of CPO chips. \n\n\"The rapid recent growth of our CPO business is an exciting development, which we believe represents the very early stages of widespread adoption of silicon photonics in the broader semiconductor industry\"\n\nTLDR: Fundamentally, CPO as a theme is very early, and should start to go brrr soon since it's starting to show up in earnings now (equipment/test players usually appear up first before optical engines / laser volumes ramp). \n\nPersonally once all the deleveraging stops, I think markets will start to care more.",
+    "tickers": [
+      "FORM",
+      "NVDA",
+      "TSM"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_df3b8fcfcc0502c7",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-30T16:06:06Z",
+    "ingestedAt": "2026-07-30T16:06:06Z",
+    "text": "The $POET \n optical interposer piece is actually a very interesting update and talks about $SIVE.\n\nSince it's a material timeline upgrade wording for \"production\" EOY 2026, for Sivers + Poet.\n\nBack when Sivers did their PR it was \"production readiness\"",
+    "tickers": [
+      "POET",
+      "SIVE"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_e07b775686c9ce68",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-07-30T16:06:21Z",
+    "ingestedAt": "2026-07-30T16:06:21Z",
+    "text": "I don't think I (or anyone else) can accurately call the bottom. Otherwise they would just do weekly options if they knew. \n\nIt's hard to see some of the names drop any lower though, like $AAOI \n is close to 1x annualized fwd revenue/MC.  \n\n$POET \n dropped so much that it's roughly ~$800m cash to $1.08B MC. \n\nIn general, even Leopond finds current valuations extremely attractive, so he's raising more to buy the drop. Who knows though?\n\nBut medium-long term, for my own thesis, I expect them to play out once revenue projections hit earnings. \n\nI've reiterated end of H1 2027 for $AAOI \n in terms of revenue inflection.... H4 2026 for $NBIS \n revenue inflection, and so on for my own ests. \n\nOf course, lot of volatility in between then.",
+    "tickers": [
+      "AAOI",
+      "NBIS",
+      "POET"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "x_2082896789880119590",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2082896789880119590",
+    "postedAt": "2026-07-30T18:31:07Z",
+    "ingestedAt": "2026-07-31T07:15:33Z",
+    "text": "Did Citadel really just liquidate Situational Awareness…\n\nThen brought up entire markets the next day?\n\n$NBIS +26.25%\n$IREN +25.96%\n$SHAZ +22.82%\n$SNDK + 23.98%\n$BE +23.67%\n$SKHY +16.98%\n$INTC +12.16%\n\nAmid many others. This has gotta be one of the wildest liquidations I’ve seen. https://x.com/aleabitoreddit/status/2082896789880119590",
+    "tickers": [
+      "BE",
+      "INTC",
+      "IREN",
+      "NBIS",
+      "SHAZ",
+      "SKHY",
+      "SNDK"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "x_2082578803189268855",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2082578803189268855",
+    "postedAt": "2026-07-29T21:27:33Z",
+    "ingestedAt": "2026-07-31T07:15:58Z",
+    "text": "$AXTI enters long term agreement with $LITE for InP substrates. \n\nLumentum has agreed to pay a deposit of $43.5M as a reservation for capacity. https://x.com/aleabitoreddit/status/2082578803189268855",
+    "tickers": [
+      "AXTI",
+      "LITE"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "x_2082720873908494456",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2082720873908494456",
+    "postedAt": "2026-07-30T06:52:06Z",
+    "ingestedAt": "2026-07-31T07:22:39Z",
+    "text": "Just some interesting takeaways from $FORM earnings call on CPO:\n\nSince they attributed systems revenue nearly doubled due to: \"accelerating growth in co-packaged optics or CPO\". \n\nQ1 2026: \"we now expect 2026 CPO revenues to come in at the high end of the $10 million to $20 million range\"\n\nQ2 2026 (now): \"expect to exceed that range by the end of the third quarter, and to significantly exceed the $20 million level for the year overall.\"\n\nManagement stated \"We’re seeing some significant acceleration in this [CPO] business\". \n\nQ: CPO adoption outlook. Are we perhaps expecting the timeline to accelerate a little bit?\n\nA: \"What I would say is there’s acceleration here in the very short term.\" But management stated there's not a significant pull-in on timelines. \n\nCiting production infrastructure (not just R&D) for:\n\n- The growing volumes of CPO chips planned for later this year + test insertion for scale-up and scale-out switches. \n- Seems like that CPO piece flows through $TSM COUPE [ likely maps to $NVDA CPO products] - \"The CPO piece does flow through that 10% customer\"\n\nSo now, test is ramping given management cited growing volumes of CPO chips. \n\n\"The rapid recent growth of our CPO business is an exciting development, which we believe represents the very early stages of widespread adoption of silicon photonics in the broader semiconductor industry\"\n\nTLDR: Fundamentally, CPO as a theme is very early, and should start to go brrr soon since it's starting to show up in earnings now (equipment/test players usually appear up first before optical engines / laser volumes ramp). \n\nPersonally once all the deleveraging stops, I think markets will start to care more. https://x.com/aleabitoreddit/status/2082720873908494456",
+    "tickers": [
+      "FORM",
+      "NVDA",
+      "TSM"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "x_2082605568699871284",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2082605568699871284",
+    "postedAt": "2026-07-29T23:13:55Z",
+    "ingestedAt": "2026-07-31T07:22:43Z",
+    "text": "Just some takeaways from $META | $MSFT earnings calls:\n\nMicrosoft:\n- Expected to be FCF positive in 2027, despite the increase in capex (extremely positive for AI buildout that it's funded by operating income)\n- \"Free cash flow was $19.6 billion, reflecting higher capital expenditures\"\n- Quartely capex was $41B, roughly 2/3rds were \"short lived assets, primarily CPUs and GPUs\"\n- Expects capex spend will be over $50 billion for next quarter\n- Capex Guidance at ~$175 billion and 2027 capex roughly the same. Spending plans unchanged and in line. \n- \"Extending the estimated useful life of our data centers from 15 to 25 years\"\n- \"We will be among the first cloud providers to deploy next generation rack-scale AI infrastructure based on $AMD Helios and $NVDA Vera Rubin\"\n- \"Customer demand continues to exceed available capacity\"\n\nMeta:\n- Capex $130-$145 billion (narrowed range), from $125B-$145B. \n- Meta is receiving offers at a \"significant premium\" to what they paid for it (compute scarcity, positive for neoclouds like $IREN / $NBIS )\n- Expects significant portion of compute (like the 1 GW DC in El Paso) to develop internal models. \n- Meta has multiple ROI-positive uses for additional compute across its core business (internally, not Meta Compute)\n- \"Finally, we believe that overall industry capacity is going to remain tight for the foreseeable future\" \n- \"The industry has under-built historically for the wave of AI adoption, making existing capacity, including our own, extremely valuable\" - Susan Li\n\nTLDR:\n- $MSFT and $GOOGL largely sustaining AI capex buildout while remaining FCF positive or through operating incomes.\n- $META flags available compute materially below demand at least through 2027. And $MSFT also flags compute demand far exceeds supply. \n- All three hyperscaler capex largely in line with Google hiking capex figures.\n\nAI selloff seems extremely overblown now, hyperscalers continuing capex in line (with Microsoft being FCF positive) or even hiked with $GOOGL. \n\nCompute scarcity is visible throughout every single hyperscaler ER. https://x.com/aleabitoreddit/status/2082605568699871284",
+    "tickers": [
+      "AMD",
+      "GOOGL",
+      "IREN",
+      "META",
+      "MSFT",
+      "NBIS",
+      "NVDA"
+    ],
+    "conviction": "high",
+    "tags": []
+  },
+  {
+    "id": "x_2083088870942642391",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2083088870942642391",
+    "postedAt": "2026-07-31T07:14:23Z",
+    "ingestedAt": "2026-07-31T16:11:42Z",
+    "text": "Few earnings TLDRs with my favorite $AXTI and $AMZN:\n\nAmazon:\n- Raised 2026 capex to $220B vs. prior $200B (partly due to higher memory costs, which is bullish on $MU to Samsung) \n- Even at $220B, Amazon will not have enough capacity to meet all 2026 demand; Jassy expects the same in 2027.\n- Most incoming 2027 capacity is already reserved, with substantial 2028 capacity also reserved.\n\nMostly read through on upstream semis. $GOOGL, $META, $AMZN, and $MSFT all identified compute shortage. \n\nAll the narratives a few weeks earlier was \"excess compute\" from Meta and others + hyperscalers cutting back on spend... All BS. \n\nAmazon earnings was very bullish on AI semi trade. \n\nAXTI:\n\n- AXT to double InP capacity during 2026. Then double again in 2027. \n\nThis is expected to make AXT \"by far the largest indium phosphide producer in the world.\" - LFG\n\n- Q2 rev was $47.6M, the highest quarterly revenue in AXT history (InP revenue reached a record $30.7M, from DC applications.)\n- Revenue increased 77% sequentially and 164% year over year.\n- InP revenue-capacity targets: $60M per quarter exiting 2026.\n- $130M per quarter exiting 2027 \n\nThat $130m target could be hiked too since management stated they find \"whatever ways to increase that capacity expansion\"\n\n- Management said the reported backlog remains well above $100M, but that number no longer reflects all available demand.\n\n\"Customer demand continues to outpace supply, no matter how fast we add capacity.\" 800G/1.6T is driving the current cycle, while NPO/CPO extends it beyond 2027. \n\nAlso they're targeting 50%-plus gross margin: \"We should definitely be targeting a number that begins with a five.\"\n\nChina demand more than doubled, and their agreements with Casela, $COHR and $LITE did not materially drive Q2. \n\nThis is not even considering my projected massive ASP hikes yet as InP substrates get more bottlenecked. \n\nTLDR:\n\n- Amazon too much compute demands, needs capex to fufill it, so upstream semis go brrr. \n- AXT world largest InP substrate supplier, high gross margins, expansion, and supply can't keep up with demand.  \n\nBullish on demand side from Amazon + capex. Bullish on upstream optical supply chains from too much demand. https://x.com/aleabitoreddit/status/2083088870942642391",
+    "tickers": [
+      "AMZN",
+      "AXTI",
+      "COHR",
+      "GOOGL",
+      "LITE",
+      "META",
+      "MSFT",
+      "MU"
+    ],
+    "conviction": "high",
+    "tags": []
+  },
+  {
+    "id": "x_2083106805949878330",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2083106805949878330",
+    "postedAt": "2026-07-31T08:25:39Z",
+    "ingestedAt": "2026-07-31T16:13:07Z",
+    "text": "For $XFAB ER transcript:  \n\nJust to recap, my idea on $XFAB foundry growth opportunities stemmed from SiC for 800v and photonixfab/MTP for CPO applicability.   \n\n- $XFAB: \"We are making progress in co-packaged optics\".  \n\n- \"The transition to 800v... is expected to support demand for both SiC and GaN... for XFAB\"  \n\nSo those analysts/people that were confidently bearposting about $XFAB that they had \"0 exposure to 800V, photonics, CPO\" just turned out plainly wrong. \n\nAt the time I shared my idea, industry materials showed ASE and others cited photonixfab + XFAB as an upcoming CPO player in EU. And filings showed they had exposure names like $NVTS / $POWI in general. \n\nSo glad $XFAB went out to explicitly clear things up to state they were developing in CPO/800v.   \n\nOkay back to the ER:  \n\n- \"We continue to expect photonics volume production to start in 2028\".  Company currently has three silicon photonics projects in development with key partners.   \n\nI thought it would ramp sometime in H2 2027, but was probably early by a few months. \n\n- Several new data center design wins, eg. 3 new SiC design wins (consistent with general 2027 ramp as 800v deployment takes off).  \n\nSo once those ramp in 2027-2028, (markets tend to price things ahead of time), I'd expect $XFAB to be rerated based on growth opportunities.   \n\nTLDR:  \n- Current revenue numbers not as impressive.\n- $XFAB confirmed direct exposure to CPO and 800V shifts (biggest win for thesis) \n- 800V exposure opportunities for SiC (should be 2027)\n-  Timeline is 2028 ramp for photonics volume production  \n\nHappy exposure thesis to CPO/800V was confirmed from this ER. Might be a bit of waiting for revenue ramp. https://x.com/aleabitoreddit/status/2083106805949878330",
+    "tickers": [
+      "NVTS",
+      "POWI",
+      "XFAB"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "x_2083114743729107236",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2083114743729107236",
+    "postedAt": "2026-07-31T08:57:11Z",
+    "ingestedAt": "2026-07-31T16:13:12Z",
+    "text": "Now that I think of it more, $POET optical interposer piece is actually a little more material than I thought with $SIVE. \n\nOriginally the wording was \"readiness\" for EOY 2026. \n\nBut $POET upgraded that wording, by stating \"production\" with Sivers lasers projected EOY 2026. \n\nSo a volume orders from across $JBL to $POET, should hit in H1 2027. Which makes a bit of sense, since Sivers did raise an institutional oversubscribed round for future mass production.  \n\nOn a side note, can't believe it's already August and 5 months left until 2027... Which was my inflection window for glass substrates, CPO, 800v, and new architectures to ramp. https://x.com/aleabitoreddit/status/2083114743729107236",
+    "tickers": [
+      "JBL",
+      "POET",
+      "SIVE"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "x_2083133191112843575",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2083133191112843575",
+    "postedAt": "2026-07-31T10:10:30Z",
+    "ingestedAt": "2026-07-31T16:13:33Z",
+    "text": "Just a TLDR of this week:\n\nMedia: Hyperscalers overbuilt and are selling excess compute.\n-> $GOOGL, $MSFT, $META, and $AMZN: Demand for compute far exceeds capacity. Capex go brrr.\n\nInstitutions: Emergency rate hike or 3x rate hikes, it's all over.\n-> Kevin Warsh: No rate Hike.\n\nRetail/Media: AI is crashing because it's a bubble. \n-> Citadel looking to buy AI leveraged hedge funds positions: 👀\n\nJim Cramer: Sell all your leveraged DC stocks.\n-> Koreans: SK Hynix +30%, Samsung +26.81% https://x.com/aleabitoreddit/status/2083133191112843575",
+    "tickers": [
+      "AMZN",
+      "GOOGL",
+      "META",
+      "MSFT"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "x_2083225872207937687",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2083225872207937687",
+    "postedAt": "2026-07-31T16:18:47Z",
+    "ingestedAt": "2026-08-01T20:26:39Z",
+    "text": "$RDDT ER in a nutshell:\n\nRevenue: $804.9M vs. $730.4M (expected).\nEPS: $1.25 vs. ~$0.95.\nNet income: $252.8M vs. $196.5M\n\nQ3 guidance:\nRevenue: $860–870M vs. 829.1M\nAdjusted EBITDA: $385-395M vs. $369M\n\nBlowout financials, market always like to explain the drop 22.6% off some new BS narrative. \n\nLast quarter: \"AI will disrupt Reddit causing revenue loss!\"\n\nThis quarter: \"See, DAU fell .6%!\" (proceeds to ignore any revenue/profitability growth) https://x.com/aleabitoreddit/status/2083225872207937687",
+    "tickers": [
+      "RDDT"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "x_2083270545320386734",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2083270545320386734",
+    "postedAt": "2026-07-31T19:16:17Z",
+    "ingestedAt": "2026-08-01T20:26:44Z",
+    "text": "As a earnings recap: $AMZN, $META, $GOOGL, and $MSFT guided a 2026 combined capex forecast to ~$720-$745 Billion.\n\nUp from $695-$725B Billion previously.\n\nAmazon: $220B\nGoogle: $195B-$205B\nMeta: $130B-$145B\nMicrosoft: $175B\n\nWe've already seen significant deleveraging and retail/institutional margin liquidations (maybe it continues for more time, who knows). \n\nBut medium-long term, I'm not quite sure how anyone can be bearish the upstream semis or neoclouds. \n\nGiven each hyperscaler has flagged either compute shortages, rising cloud demand + pricing power, or increased spending for chips/networking.  \n\nMy \"bottleneck\" thesis with many of these upstream semi supply chains is that when trillions in capital flows into things from InP substrates or memory (which were both treated as cheap commodities) or even energy. \n\nLot of these current AI names that were treated as useless before in telecom cycles or even toilet sellers. \n\nGets rerated when their inflection period hits and capex flows into their balance sheets. \n\nAs seen with $NVDA GPUs past few years, memory this year, CPUs/MLCCs next few years, CPO in 2027, Glass Substrates in 2027, 800V in 2027, and so on. https://x.com/aleabitoreddit/status/2083270545320386734",
+    "tickers": [
+      "AMZN",
+      "GOOGL",
+      "META",
+      "MSFT",
+      "NVDA"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "x_2083324920214536208",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2083324920214536208",
+    "postedAt": "2026-07-31T22:52:21Z",
+    "ingestedAt": "2026-08-01T20:26:47Z",
+    "text": "The media framing and X reactions around Leopold are egregious.\n\nFraming his successful multi-year thesis from $SNDK to $BE as a \"collapse\" or \"failure\".\n\nAfter July's surprising crash, then personally attacking him on top is just pathetic to witness. \n\nIt's almost like everyone is cheering for the downfall of others. \n\nYes, July's crash exposed problems with SA’s leverage, liquidity management, and hedging. \n\nBut his current YTD performance remains +80%, ranking among the best performing hedge funds. And he still has public equities after all this (just removed leverage). \n\nI think he's doing something unique while being successful at it. And this draws the envy of others. https://x.com/aleabitoreddit/status/2083324920214536208",
+    "tickers": [
+      "BE",
+      "SNDK"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "x_2083438823548293140",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2083438823548293140",
+    "postedAt": "2026-08-01T06:24:58Z",
+    "ingestedAt": "2026-08-01T20:26:51Z",
+    "text": "$LITE CEO Michael Hurlston at the RAISE Summit warned that the supply gap for InP lasers for AI DCs:\n\nIs facing a more severe supply chain crisis than memory. \n\nAnd with Lumentum's 5 InP fabs, shipments would be more than 30%+ below customer demand.\n\nThis is especially visible with EMLs today but is already expanding to CW, especially as CPO ramps.\n\nI've always been a fan of the laser chokepoint + bottleneck from $AAOI, $SIVE, $LITE, and $COHR. And glad this thesis is starting to see validation. https://x.com/aleabitoreddit/status/2083438823548293140",
+    "tickers": [
+      "AAOI",
+      "COHR",
+      "LITE",
+      "SIVE"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_81c95bb99a13f5d0",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-08-03T06:24:54Z",
+    "ingestedAt": "2026-08-03T06:24:54Z",
+    "text": "Hmm, I personally added \n$AMKR\n in the $40's since I thought it was surprising it dropped that much after ER, even after \n$NVDA\n $1.5B deal + \n$TSM\n 10Y agreement. \n\nIt's more of a 2028 name though, though they have separate ramps in 2027. \n\n- Did some cost averaging on names like Foci on drop to 400 (leading FAU supplier to \n$TSM\n COUPE + \n$NVDA\n, COUPE shows signs of ramp now from other ERs like \n$FORM\n).  Added some $XFAB too after earnings since they verified CPO + 800V exposure, might be a bit of waiting though.\n\nAdded $LPK on the 13 EU doomdrop, GCS isn't going anywhere, think volume ramp just got delayed a quarter because of Absolics delay and I'm fine waiting 3 months. CoPoS, Samsung, and others should drive demand more in 2027. \n\nAnd added OE Solutions on drop to ~14,000 KRW, thought it was strange Korea's leading EML company with independent InP fabs was only worth ~$110M MC. \n\n-  Names like Win Semi + others are really really compelling to me but just dont have enough capital to add sadly without going on heavy margin. \n\nProbably want to scale into $SIVE and \n$AAOI\n more since those are my two favorites.\n\nAnd looking at \n$CCXI\n opportunities given Unitree IPO is around 3 weeks, that listing should boost humanoid/robotics sector a bit similar to the \n$SPCX\n halo effect. \n\nTLDR: Just moving capital around, my own personal risk management. Same names as before.",
+    "tickers": [
+      "AAOI",
+      "AMKR",
+      "CCXI",
+      "FORM",
+      "LPK",
+      "NVDA",
+      "SIVE",
+      "SPCX",
+      "TSM",
+      "XFAB"
+    ],
+    "conviction": "high",
+    "tags": []
+  },
+  {
+    "id": "r_c173439107ef44c4",
+    "source": "research",
+    "author": "semi-expert",
+    "sourceUrl": "https://www.poet-technologies.com/news/poet-technologies-and-sivers-semiconductors-collaborate-on-external-light-sources-for-co-packaged-optics-and-next-generation-ai-market",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Semiconductor expert: The only citable POET/Sivers language is 'production readiness by end of 2026', with customer prototypes in H1 2026. A readiness milestone is not a production order, and no volume, customer or ASP has been disclosed by either company.",
+    "tickers": [
+      "SIVE"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "semi-expert"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_25fe1eb5be8668d6",
+    "source": "research",
+    "author": "fundamental",
+    "sourceUrl": "https://www.sivers-semiconductors.com/press/sivers-semiconductors-ab-publ-publishes-interim-report-q1-january-march-2026/",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Fundamental analyst: Q1 2026 net sales were SEK 61.9m, down 22% year on year. The $799m headline is an opportunity pipeline, not backlog or revenue, and grew off a base the company itself does not convert. Revenue is shrinking while the story expands.",
+    "tickers": [
+      "SIVE"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "fundamental"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_9ee46b9d8e2301a1",
+    "source": "research",
+    "author": "pm",
+    "sourceUrl": "https://www.sivers-semiconductors.com/investors/financial-calendar/",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Portfolio manager: Nothing financial confirms the laser ramp before the Q2 interim report on 27 August 2026. Any position added on the POET wording upgrade is being taken ahead of the only print that can test it.",
+    "tickers": [
+      "SIVE"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "pm"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_3cd744e39b755b95",
+    "source": "research",
+    "author": "semi-expert",
+    "sourceUrl": "https://investor.lumentum.com/financial-news-releases/news-details/2026/Lumentum-Announces-Third-Quarter-of-Fiscal-Year-2026-Financial-Results/default.aspx",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Semiconductor expert: Confirmed on the FQ3 2026 call: supply-demand imbalance greater than 30% in EMLs and pump lasers, Japan wafer fab fully allocated, laser chip shipments double the year-ago quarter. The shortage is real and fab-limited, not order-limited.",
+    "tickers": [
+      "LITE"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "semi-expert"
+    ],
+    "direction": "bull",
+    "verification": "verified"
+  },
+  {
+    "id": "r_f4c7f494b964375d",
+    "source": "research",
+    "author": "fundamental",
+    "sourceUrl": "https://investor.lumentum.com/financial-news-releases/news-details/2026/Lumentum-Announces-Third-Quarter-of-Fiscal-Year-2026-Financial-Results/default.aspx",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Fundamental analyst: FQ3 2026 revenue was a record $808m, up 90% year on year, led by transceivers and laser chips. The revenue is landing, not merely forecast.",
+    "tickers": [
+      "LITE"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "fundamental"
+    ],
+    "direction": "bull",
+    "verification": "verified"
+  },
+  {
+    "id": "r_355cd379a66708e2",
+    "source": "research",
+    "author": "pm",
+    "sourceUrl": "https://investors.axt.com/Investors/news/news-details/2026/AXT-Inc--Announces-Long-Term-Supplier-Agreement-with-Lumentum/default.aspx",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Portfolio manager: The shortage evidence is the CEO's own remarks, so citing him is not independent corroboration. Meanwhile Lumentum is committing $87m of deposits to AXT to reserve InP substrate through 2031 — the input is scarce enough to require prepayment.",
+    "tickers": [
+      "LITE"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "pm"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_8da61b5d7a32a1f2",
+    "source": "research",
+    "author": "semi-expert",
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000051/q1fy27pr.htm",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Semiconductor expert: FQ1 2027 data center revenue was a record $75.2bn, up 92% year on year, with networking revenue near tripling. The Blackwell 300 ramp and the scale-up interconnect attach rate are both confirmed in the filing, not inferred.",
+    "tickers": [
+      "NVDA"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "semi-expert"
+    ],
+    "direction": "bull",
+    "verification": "verified"
+  },
+  {
+    "id": "r_716f92d724eeb1b8",
+    "source": "research",
+    "author": "fundamental",
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000051/q1fy27pr.htm",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Fundamental analyst: NVIDIA returned roughly $20bn to shareholders in the quarter and authorised a further $80bn of buyback while raising the dividend 25x. That is capital returned, not capacity added — the supply constraint sits at packaging and optics, not at NVIDIA's balance sheet.",
+    "tickers": [
+      "NVDA"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "fundamental"
+    ],
+    "direction": "neutral",
+    "verification": "verified"
+  },
+  {
+    "id": "r_3de49ded3b7e9663",
+    "source": "research",
+    "author": "pm",
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000051/q1fy27pr.htm",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Portfolio manager: At 74.9% gross margin NVIDIA is the customers' cost line. Meta missed Q2 EPS at $6.18 against a $7.14 consensus while raising capex. The first evidence of buyer P&L strain shows up in the payer's earnings, not in NVIDIA's.",
+    "tickers": [
+      "NVDA"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "pm"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_616de129daeed5d0",
+    "source": "research",
+    "author": "semi-expert",
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1158114/000168316826003562/aaoi_ex9901.htm",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Semiconductor expert: The 800G ramp is company-confirmed: Q2 shipments guided at nearly four times Q1 levels off a record $151.1m Q1. The volume inflection is real even where the CPO customer identity is not disclosed.",
+    "tickers": [
+      "AAOI"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "semi-expert"
+    ],
+    "direction": "bull",
+    "verification": "verified"
+  },
+  {
+    "id": "r_22778337eb66fdb7",
+    "source": "research",
+    "author": "fundamental",
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1158114/000168316826003562/aaoi_ex9901.htm",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Fundamental analyst: The company guides Q2 2026 revenue to $180-198m and FY2026 to roughly $1.1bn. A $471m monthly rate, or $5.6bn annualised in 2027, is about five times the run-rate management itself has guided to. That gap is the whole bull case.",
+    "tickers": [
+      "AAOI"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "fundamental"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_02e48cf08022ebd2",
+    "source": "research",
+    "author": "pm",
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1158114/000168316826003562/aaoi_ex9901.htm",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Portfolio manager: Q2 is guided to non-GAAP EPS between -$0.03 and +$0.03 on 29-30% gross margin. At record revenue the company is at breakeven, so a one-times-forward-revenue multiple is cheap only against a top line that earns nothing.",
+    "tickers": [
+      "AAOI"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "pm"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_46d90a3c41fa7f93",
+    "source": "research",
+    "author": "semi-expert",
+    "sourceUrl": "https://investor.atmeta.com/investor-news/press-release-details/2026/Meta-Reports-Second-Quarter-2026-Results/default.aspx",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Semiconductor expert: 2026 capex guidance of $130-145bn includes finance lease principal, and the low end rose $10bn in one quarter. Part of that increase is memory cost inflation rather than incremental compute units, so capex dollars overstate unit demand growth for suppliers.",
+    "tickers": [
+      "META"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "semi-expert"
+    ],
+    "direction": "neutral",
+    "verification": "verified"
+  },
+  {
+    "id": "r_6b73ca707c56ac89",
+    "source": "research",
+    "author": "fundamental",
+    "sourceUrl": "https://investor.atmeta.com/investor-news/press-release-details/2026/Meta-Reports-Second-Quarter-2026-Results/default.aspx",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Fundamental analyst: Q2 2026 EPS was $6.18 against roughly $7.14 expected, on $60.8bn revenue and $31.1bn of quarterly capex. The desk's recap carried the capex number and not the earnings miss or the free cash flow compression underneath it.",
+    "tickers": [
+      "META"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "fundamental"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_b9c57108d30b1cbd",
+    "source": "research",
+    "author": "pm",
+    "sourceUrl": "https://investor.atmeta.com/investor-news/press-release-details/2026/Meta-Reports-Second-Quarter-2026-Results/default.aspx",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Portfolio manager: Shares fell roughly 8% on the print. The supplier read-through stays intact while the payer is derated, so owning Meta and owning its suppliers are now opposite trades, not the same one.",
+    "tickers": [
+      "META"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "pm"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_a0a2f978090bcf1b",
+    "source": "research",
+    "author": "semi-expert",
+    "sourceUrl": "https://abc.xyz/investor/events/event-details/2026/2026-Q2-Earnings-Call-2026-GgTAq7Is0z/default.aspx",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Semiconductor expert: Roughly 60% of the raised capex goes to servers and 40% to data centers and networking equipment. Only that 40% slice reads through to the optics and interconnect names the desk owns, so headline capex overstates the addressable pull.",
+    "tickers": [
+      "GOOGL"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "semi-expert"
+    ],
+    "direction": "neutral",
+    "verification": "verified"
+  },
+  {
+    "id": "r_2d7fdbea2e10e3d8",
+    "source": "research",
+    "author": "fundamental",
+    "sourceUrl": "https://abc.xyz/investor/events/event-details/2026/2026-Q2-Earnings-Call-2026-GgTAq7Is0z/default.aspx",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Fundamental analyst: Q2 2026 revenue of $119.8bn was up 24%, with Google Cloud at $24.8bn up 82% and quarterly capex at a record $44.9bn. Full-year capex guidance was raised to $195-205bn. The spend is funded by an accelerating cloud business.",
+    "tickers": [
+      "GOOGL"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "fundamental"
+    ],
+    "direction": "bull",
+    "verification": "verified"
+  },
+  {
+    "id": "r_b2d92e73dc38aa13",
+    "source": "research",
+    "author": "pm",
+    "sourceUrl": "https://abc.xyz/investor/events/event-details/2026/2026-Q2-Earnings-Call-2026-GgTAq7Is0z/default.aspx",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Portfolio manager: The stock fell about 5% after a revenue beat, on the capex raise alone. The market is currently paying for AI demand with multiple compression at the buyer, which is the same mechanism that would eventually cap the buyer's willingness to spend.",
+    "tickers": [
+      "GOOGL"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "pm"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_069c95095080e85f",
+    "source": "research",
+    "author": "semi-expert",
+    "sourceUrl": "",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Semiconductor expert: The CPO adoption claim rests on channel checks and a Rosenblatt note, not on any AMD disclosure. Helios and MI450 ship in H2 2026 on pluggable optics; co-packaged optics is described as a future-generation option, which puts any AAOI or Sivers read-through in 2027 at the earliest.",
+    "tickers": [
+      "AMD"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "semi-expert"
+    ],
+    "direction": "neutral",
+    "verification": "unverified"
+  },
+  {
+    "id": "r_c53aaef67548ac6a",
+    "source": "research",
+    "author": "fundamental",
+    "sourceUrl": "https://ir.amd.com/news-events/press-releases/detail/1284/amd-reports-first-quarter-2026-financial-results",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Fundamental analyst: Q1 2026 data center revenue was $5.8bn, up 57% year on year, with Q2 guided to roughly $11.2bn plus or minus $300m, about 46% growth at the midpoint. The accelerator business is compounding independently of the CPO narrative.",
+    "tickers": [
+      "AMD"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "fundamental"
+    ],
+    "direction": "bull",
+    "verification": "verified"
+  },
+  {
+    "id": "r_90fd4fc035f36fda",
+    "source": "research",
+    "author": "pm",
+    "sourceUrl": "https://ir.amd.com/news-events/press-releases/detail/1284/amd-reports-first-quarter-2026-financial-results",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Portfolio manager: Q2 results land on 4 August, one day out. The guide already embeds 46% growth, so the print is a near-term binary on execution rather than on the AI thesis, and adding size into it is a timing decision, not a view.",
+    "tickers": [
+      "AMD"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "pm"
+    ],
+    "direction": "neutral",
+    "verification": "verified"
+  },
+  {
+    "id": "r_e2cd15e12c0928b1",
+    "source": "research",
+    "author": "semi-expert",
+    "sourceUrl": "https://nebius.com/newsroom/nebius-reports-first-quarter-2026-financial-results",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Semiconductor expert: Nebius secured up to 1.2GW of power and land for an owned site in Pennsylvania and expects more than 3GW contracted by year-end. For a neocloud the binding constraint is energised capacity, and that constraint is being cleared ahead of the revenue.",
+    "tickers": [
+      "NBIS"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "semi-expert"
+    ],
+    "direction": "bull",
+    "verification": "verified"
+  },
+  {
+    "id": "r_e9b254d4e96e609a",
+    "source": "research",
+    "author": "fundamental",
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/0001513845/000110465926059872/tm2614392d1_ex99-1.htm",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Fundamental analyst: Q1 2026 revenue was $399.0m, which annualises near $1.6bn against a full-year target of $3-3.4bn. Almost the entire guide sits in the second half and depends on capacity landing on schedule.",
+    "tickers": [
+      "NBIS"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "fundamental"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_606728417ecb8670",
+    "source": "research",
+    "author": "pm",
+    "sourceUrl": "https://nebius.com/newsroom/nebius-reports-first-quarter-2026-financial-results",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Portfolio manager: Capex plans are an order of magnitude above revenue, so the equity is a financing story before it is a compute story. The risk that matters is the terms of the next raise, not the demand for GPUs.",
+    "tickers": [
+      "NBIS"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "pm"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_036cd32e907a7e15",
+    "source": "research",
+    "author": "semi-expert",
+    "sourceUrl": "",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Semiconductor expert: The FCC import-ban read-through is regulatory, not technical, and Agility's Digit is a warehouse logistics biped rather than a quadruped or general-purpose humanoid. Whether the named category captures Agility's addressable market is not established by any primary source I can cite.",
+    "tickers": [
+      "CCXI"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "semi-expert"
+    ],
+    "direction": "neutral",
+    "verification": "unverified"
+  },
+  {
+    "id": "r_e9286da82e5c2cde",
+    "source": "research",
+    "author": "fundamental",
+    "sourceUrl": "https://www.businesswire.com/news/home/20260624555633/en/Agility-Robotics-to-Go-Public-Through-$2.5-Billion-Merger-with-Churchill-Capital-Corp-XI",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Fundamental analyst: The business combination values Agility at roughly $2.5bn with over $620m of gross proceeds. That is a valuation negotiated in a SPAC agreement against pre-scale revenue, not one set by a market, and it is the anchor for every multiple quoted since.",
+    "tickers": [
+      "CCXI"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "fundamental"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_41b41b60ce8eb149",
+    "source": "research",
+    "author": "pm",
+    "sourceUrl": "https://www.agilityrobotics.com/content/agility-robotics-to-go-public-through-merger-with-churchill-capital-corp-xi",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Portfolio manager: CCXI is a pre-close SPAC. Exposure to Agility only exists after SEC review of the S-4, a shareholder vote and closing expected before end-2026, after which it trades as AGLT. Deal and redemption risk currently sit above operating risk.",
+    "tickers": [
+      "CCXI"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "pm"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_7a8c6a3fefa8cfae",
+    "source": "research",
+    "author": "semi-expert",
+    "sourceUrl": "https://investors.micron.com/static-files/631b1a32-5537-46ae-8f40-82e42fc79dfe",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Semiconductor expert: Only about 20% of DRAM and 30% of NAND volume is covered by the 16 strategic customer agreements. Roughly four fifths of DRAM volume remains exposed to spot pricing, so the contracts smooth the cycle rather than remove it.",
+    "tickers": [
+      "MU"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "semi-expert"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_9d15ecea46a123d6",
+    "source": "research",
+    "author": "fundamental",
+    "sourceUrl": "https://investors.micron.com/static-files/631b1a32-5537-46ae-8f40-82e42fc79dfe",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Fundamental analyst: Fiscal Q3 DRAM revenue was a record $31.3bn, up 343% year on year at 84.9% consolidated gross margin, with 16 strategic customer agreements and remaining performance obligations above $5bn. The demand lock is contractual, not anecdotal.",
+    "tickers": [
+      "MU"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "fundamental"
+    ],
+    "direction": "bull",
+    "verification": "verified"
+  },
+  {
+    "id": "r_2779c73c56e6533f",
+    "source": "research",
+    "author": "pm",
+    "sourceUrl": "https://investors.micron.com/static-files/631b1a32-5537-46ae-8f40-82e42fc79dfe",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Portfolio manager: An 84.9% gross margin is a cycle peak, not a run-rate. The agreements defend floor prices and volume, not the pricing above the floor, which is exactly the part currently carrying the earnings.",
+    "tickers": [
+      "MU"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "pm"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_67423370f17ff00e",
+    "source": "research",
+    "author": "semi-expert",
+    "sourceUrl": "",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Semiconductor expert: 18A yields, 18A-P risk production and the 14A PDK 0.9 milestone come from call commentary I cannot tie to a primary filing. On the disclosed schedule, 14A risk production is 2027 and high-volume ramp 2028, so external foundry revenue is not a 2026 or 2027 event.",
+    "tickers": [
+      "INTC"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "semi-expert"
+    ],
+    "direction": "neutral",
+    "verification": "unverified"
+  },
+  {
+    "id": "r_1121c84c151e4fc8",
+    "source": "research",
+    "author": "fundamental",
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/50863/000005086326000155/q226earningsrelease.htm",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Fundamental analyst: Q2 2026 revenue was $16.1bn, up 25% and the strongest growth in over fifteen years, yet GAAP EPS was negative $2.16 against non-GAAP $0.42. The fastest growth in a decade and a half still does not produce a GAAP profit.",
+    "tickers": [
+      "INTC"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "fundamental"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_b4a203b90d34f080",
+    "source": "research",
+    "author": "pm",
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/50863/000005086326000155/q226earningsrelease.htm",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Portfolio manager: Q3 is guided to $15.8-16.8bn revenue and $0.38 non-GAAP EPS, above consensus. The China CPU long-term agreement story driving the desk's interest is a Reuters report, not company disclosure, and appears nowhere in the release.",
+    "tickers": [
+      "INTC"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "pm"
+    ],
+    "direction": "neutral",
+    "verification": "verified"
+  },
+  {
+    "id": "r_8524c1d9d74a0b87",
+    "source": "research",
+    "author": "semi-expert",
+    "sourceUrl": "https://investors.axt.com/Investors/news/news-details/2026/AXT-Inc--Announces-Long-Term-Supplier-Agreement-with-Lumentum/default.aspx",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Semiconductor expert: The agreement reserves a minimum annual indium phosphide commitment running through 31 December 2031 and supports additional capacity if required. No wafer volumes, pricing or capacity figures are disclosed, so the technical scale of the reservation cannot be sized from the filing.",
+    "tickers": [
+      "AXTI"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "semi-expert"
+    ],
+    "direction": "neutral",
+    "verification": "verified"
+  },
+  {
+    "id": "r_19daf0c55f68ce66",
+    "source": "research",
+    "author": "fundamental",
+    "sourceUrl": "https://investors.axt.com/Investors/news/news-details/2026/AXT-Inc--Announces-Long-Term-Supplier-Agreement-with-Lumentum/default.aspx",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Fundamental analyst: The deal is two deposits of $43.5m, $87m in total, the second only in calendar 2028. Both operate as shipment credits offset against future invoices, not fees. The desk recorded one $43.5m payment and treats it as reservation income; it is a customer prepayment.",
+    "tickers": [
+      "AXTI"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "fundamental"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_925f8e3fb9b679c5",
+    "source": "research",
+    "author": "pm",
+    "sourceUrl": "https://investors.axt.com/Investors/news/news-details/2026/AXT-Inc--Announces-Long-Term-Supplier-Agreement-with-Lumentum/default.aspx",
+    "postedAt": "2026-08-03T00:00:00Z",
+    "ingestedAt": "2026-08-03T00:00:00Z",
+    "text": "Portfolio manager: Revenue recognition is deferred behind the credits, so the cash arrives years before the earnings do. Concentration also rises: the same handful of laser makers reserving capacity through 2031 are the only buyers of the reserved output.",
+    "tickers": [
+      "AXTI"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "pm"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "x_2084422873423519844",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2084422873423519844",
+    "postedAt": "2026-08-03T23:35:14Z",
+    "ingestedAt": "2026-08-05T07:38:36Z",
+    "text": "Be Citadel:\n\n> calls for unexpected rate hike few days ago, causing market panic\n\n> reaches out and buys billions of liquidated hedge fund AI assets\n\n> no rate hike \n\n> “Bull market drivers are fully intact” https://x.com/aleabitoreddit/status/2084422873423519844",
+    "tickers": [],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "x_2084468063228060092",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2084468063228060092",
+    "postedAt": "2026-08-04T02:34:48Z",
+    "ingestedAt": "2026-08-05T07:38:42Z",
+    "text": "SK Hynix, $MU , and Samsung have sold out of 2027 capacity for DRAM/HBM.\n\n$SNDK, Samsung, Micron current annual NAND capacity has been sold out, with Kioxia and SK Hynix expected to finalize allocations by August 2026. \n\n- Customers are being allocated only 60–70% of the volumes they initially requested\n\n- industry insiders pointed out that 2027 will enter the most severe moment of memory shortage\n\n- Allocation amounts are mostly decided, but final shipment pricing will be determined closer to delivery \n\nSource: Digitimes, citing industry sources. \n\nHard to see those memory \"oversupply\" claims in early-mid 2027 when they're all sold out of capacity already. https://x.com/aleabitoreddit/status/2084468063228060092",
+    "tickers": [
+      "MU",
+      "SNDK"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "x_2084597612175618342",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2084597612175618342",
+    "postedAt": "2026-08-04T11:09:35Z",
+    "ingestedAt": "2026-08-05T07:38:48Z",
+    "text": "A very material catalyst came about for Western supply chains from $AAOI, $SIVE / Jabil, to $LITE and Coherent: \n\nThe Trump administration is drafting a ban of new Chinese optical transceivers and DC devices. \n\nWhich would likely hit China’s Innolight, Eoptolink, and other Chinese optical interconnect supply chains. \n\n\"The agency would ban all imports of new transceiver models ​and then exempt many ⁠non-Chinese suppliers from the restrictions\"\n\nWe'll likely see a larger bifurcation of supply chains with even greater importance put on Western players. https://x.com/aleabitoreddit/status/2084597612175618342",
+    "tickers": [
+      "AAOI",
+      "LITE",
+      "SIVE"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "x_2084613071423893692",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2084613071423893692",
+    "postedAt": "2026-08-04T12:11:01Z",
+    "ingestedAt": "2026-08-05T07:38:50Z",
+    "text": "Bessent says: \"There may be deal Tuesday or Wednesday to open Strait of Hormuz with freedom of movement\"\n\nI think markets might like the sound of this. https://x.com/aleabitoreddit/status/2084613071423893692",
+    "tickers": [],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "x_2084795597417263442",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2084795597417263442",
+    "postedAt": "2026-08-05T00:16:18Z",
+    "ingestedAt": "2026-08-05T16:08:56Z",
+    "text": "$RKLB has been awarded a $397M contract by the US Space Force.\n\nTo build out Flatellite satellites and launch them on their Medium Lift rocket, Neutron. https://x.com/aleabitoreddit/status/2084795597417263442",
+    "tickers": [
+      "RKLB"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "x_2085174977272360987",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2085174977272360987",
+    "postedAt": "2026-08-06T01:23:49Z",
+    "ingestedAt": "2026-08-07T14:31:05Z",
+    "text": "Funniest callout of the year from $VIAV on CPO timelines:\n\n\"Well, there's been a lot of industry talk [about delays], like, 'Oh, because the yield is going to be slower.' \n\nThat's all nonsense. CPO and all that thing is moving forward\"\n\nThey stated that Yes there's always issues, but the process is being improved and things are getting better. \n\nTo follow up on that, the CEO stated: \n\n- Viavi has POs for CPO-testing activity\n- “We’re already getting [CPO revenue] this quarter, and probably in December it will start accelerating.”\n\nOn a side note, they also stated, 1.6T is \"ramping very quickly\", should reach parity with 800g next year, and signaled longer tail for 800g demand. \n\nTLDR: Seeing CPO test revenues hit for $VIAV to $FORM around now. Nvidia also stated switch-side CPO for scale out and scale across has entered mass production earlier. \n\nAs for scale up timelines, early production should be H2 2027 for some players, with other CPO players Ayar stating 2028 is the volume inflection period. \n\nBasically, all the timelines seem to be the same as before and revenue is starting to hit testing players first. https://x.com/aleabitoreddit/status/2085174977272360987",
+    "tickers": [
+      "FORM",
+      "VIAV"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "x_2085217487864643658",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2085217487864643658",
+    "postedAt": "2026-08-06T04:12:45Z",
+    "ingestedAt": "2026-08-07T14:31:05Z",
+    "text": "The unexpected thing of the week... Was $AEVA becoming a CPO/NPO optical source player. \n\nFor background: $SIVE is viewed as the high confidence CW DFB laser supplier to Aeva (which is known for lidar). \n\nToday, Aeva reacted with +18.26% AH on news that they signed a JDA with an optical engine player for deployment at a major hyperscaler in H2 2027, production ramp 2028. \n\n\"Optical Connectivity will leverage that foundation along with Aeva’s EXISTING high-volume manufacturing and foundry supply chain\" for:\n\n- ELSFP (similar to O-Net/Enablence + $SIVE), with Sivers as the likely CW laser + potential amplifier supplier\n\n- On-chip integrated light source (likely $SIVE DFB + Aeva PIC on the architecture/integration side)\n\nTLDR: New TAM and a hyperscaler programs for Aeva for CPO/NPO, positive read through for upstream suppliers like $SIVE. https://x.com/aleabitoreddit/status/2085217487864643658",
+    "tickers": [
+      "AEVA",
+      "SIVE"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "x_2085304045099696547",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2085304045099696547",
+    "postedAt": "2026-08-06T09:56:42Z",
+    "ingestedAt": "2026-08-07T14:31:06Z",
+    "text": "I remain convinced nobody knows how to pronounce or talk about $AAOI in real life. \n\nIt’s one letter too long to say $TSM or $AMD. \n\nAnd nobody ever says to a friend“Wow, I like applied optoelectronics!” https://x.com/aleabitoreddit/status/2085304045099696547",
+    "tickers": [
+      "AAOI",
+      "AMD",
+      "TSM"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "x_2085499853099208716",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2085499853099208716",
+    "postedAt": "2026-08-06T22:54:46Z",
+    "ingestedAt": "2026-08-07T14:31:07Z",
+    "text": "Just some TLDR notes on $AAOI earnings:\n\n- Expects full qualification of 1.6T products by their hyperscaler customer within next couple of weeks \n\n(helpful revenue ramp #2, timelines)\n\n-  Continues to believe that AOI will have the largest AI DC transceiver production capacity in the US\n \n(reiterating ambitions during a time when their competitors might get banned)\n\n- Expects facilities toward InP capacity to come online in early 2027 \n\n(timeline FYI in terms of further ramp) \n\n- Total capacity is approaching 200,000/u per month, EOY 650,000/u per month of 800g/1.6t. EOY 2027, 930,000/u \n\n(this is the ramp i want to see)\n\n- \"increase our manufacturing capacity for our external light source or ELSFP. That's for co-packaged optics or CPO\". we anticipate ramping production later this year and into 2027, ultimately culminating in about 400,000 pieces per month in 2028\n\n(need some time to model this into revenue)\n\n- \"As we have mentioned before, we've been manufacturing lasers internally for many years. This has allowed us to avoid some of the shortages that  have affected others in the industry\"\n\n(vertical integration bull case during CW/EML laser shortages) \n\n- We believe that in the future, CPO will continue to drive increased demand for high-power lasers\n\n(thesis validation on CPO sector)\n\n- \"to our long-term objective of returning non-GAAP gross margins to around 40%\"\n\n-  \"We ended the second quarter with $508.8 million in total cash equivalents\"\n\nI need to double check if the ATM finished or not\n\n- \"our ability to deliver revenue in general, and specifically when it  comes to 800G products, is limited by our production capacity right now\" \"If we could produce more, we could ship more right now\"\n\nDemand > Supply validation. \n\n- \"Most of the increased capacity will be in U.S. Even so, let me say that, like I keep emphasizing, that is not good enough for the customer demand. The customer demand is 20%-40% higher.\"\n\nUnholy photonics demand validation across the whole sector, read through for $LITE, $SIVE / $JBL, and others is amazing. \n\n- \"Not in the next two, three years, especially the demand is so big. Okay?  Even combined AI, $LITE, $COHR, $AVGO all together, it's still very tough to meet the customer demand in the next few years\"\n\nMore optical sector demand validation. \n\n- CPO Timelines: \"If you're talking about really high volume manufacturer [for CPO market], I would say more like the late Q3 next year\" and \"We have been working very close with at least five customer\"\n\nIf you care about current earnings (which I'm not really looking at closely)\n\nRevenue: $191M vs. $190m \nEPS: $.06 vs. $.02\n\nTLDR: Extraordinary demand across the laser + optical sector read through. Kinda supporting Lumentum CEO statement that laser shortage is worse than memory shortages. \n\n2027 capacity ramp on track. To map inflection period with timelines, would be around early next year, as stated in their previous earnings call. \n\nAAOI has the customers now. Limitation is making enough lasers and transceivers. https://x.com/aleabitoreddit/status/2085499853099208716",
+    "tickers": [
+      "AAOI",
+      "AVGO",
+      "COHR",
+      "JBL",
+      "LITE",
+      "SIVE"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "x_2085511646257332581",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2085511646257332581",
+    "postedAt": "2026-08-06T23:41:38Z",
+    "ingestedAt": "2026-08-07T14:31:08Z",
+    "text": "$MTSI earnings transcript: \n\n\"Customers are coming to us with urgency due to the general supply shortage of indium phosphide DFB lasers\"\n\nEmphasis on \"Urgency\", CW \"DFB lasers\", \"coming to us\".\n\nCW DFB names, such as like $SIVE and $LITE should be happy to hear about this laser bottleneck getting validated. https://x.com/aleabitoreddit/status/2085511646257332581",
+    "tickers": [
+      "LITE",
+      "MTSI",
+      "SIVE"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "x_2085628664528662818",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2085628664528662818",
+    "postedAt": "2026-08-07T07:26:37Z",
+    "ingestedAt": "2026-08-08T08:12:36Z",
+    "text": "Earlier today, optical interconnect company Lumilens \"emerges from stealth\" at a $5.5B valuation, after raising $700m.\n\nJust as a recap from $POET / $SIVE Linkedin OSINT mapping I shared earlier, Lumilens was supplying a top 3 hyperscaler customer. \n\nSo we got confirmation of that a month later, along with the material figure that Lumilens has a \"multi-billion-dollar customer agreement\". \n\nAnd just for reference, $POET has existing contracts with Lumilens ($50m purchase order, up to $500m) + contracts with $SIVE (depending on product lines). \n\nI actually took tiny positions in POET again after reading this news, since it finally gives them visibility into extremely well funded hyperscaler suppliers (on top of Poet's really large balance sheet). \n\nBut TLDR: \n> Lumilens around similar (or even higher) valuations as Lightmatter/Ayar, bigger than markets thought with hyperscaler customers. \n> nice read through upstream on $POET (derisking) /  $SIVE.\n> Great for optical valuations in general, seeing a company go to $5.5B in 2 years. https://x.com/aleabitoreddit/status/2085628664528662818",
+    "tickers": [
+      "POET",
+      "SIVE"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "x_2085603590903902621",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2085603590903902621",
+    "postedAt": "2026-08-07T05:46:59Z",
+    "ingestedAt": "2026-08-08T08:12:39Z",
+    "text": "Wow, there's gem after gem in $AAOI earnings for $SIVE + other laser player readthrough.\n\n1. AAOI not meaningfully participating in CPO first-gen deployments.\n\n\"We just can’t make enough of them [CPO lasers] to be involved in their current first-generation [CPO] deployments because there’s just not enough capacity.   We have to prioritize our ability to make lasers for our own  transceivers first\"\n\nSo first-gen CPO laser deployments, might even be narrowed down further for Western players like $SIVE, $LITE, $AVGO, and $COHR.\n\nAnd independent CPO CW laser capacity became more valuable if $AAOI had to turn away more customers...\n\nAlso remember Trendforce was talking about $AMD singing CW LTAs? $COHR / $LITE have capacity signed with $NVDA ...\n\nI thought it would be $AAOI, but they might be out of the equation. $MTSI also doesn't look meaningful with early CPO participation (eg. no mention in ER aside from NPO, and removal from Ayar website).\n\nSo I wonder who players like $AMD is going to go with for Helios (eg. Sivers + Ayar more likely candidate now)?\n\nBtw, this is not bearish AAOI because they have too much demand for optical transceiver business. Just more bullish on the existing few qualified CPO laser names that have capacity. \n\n2. Demand imbalance and bottleneck for InP lasers / optical transceivers.\n\nAOI's CEO stated kinda supported that when they said: \"The customer demand is 20%-40% higher\" than expanded built out capacity.\n\n\"We are getting this kind of demand from several big customers almost every week. Lasers are the biggest bottleneck right now for the transceiver business\"\n\n3. China being years away from having CPO DWDM specification lasers.\n\nI covered this earlier when looking at CPO competition from channel checks.\n\nBut AAOI confirming that China is \"easily at least two, three years or even longer from having CPO lasers is incredible tread through on defensibility Western laser positioning in the CPO laser chokepoint.\n\nTLDR:\n\n- High demand imbalance for CW lasers and optical transceivers.\n\n- $AAOI not in first-gen CPO due to capacity constraints (not exactly bearish AAOI because they have too much demand for their optical transciver business, but even better news for the few independent players with capacity coming online like $SIVE)\n\n- China years behind in CPO lasers. https://x.com/aleabitoreddit/status/2085603590903902621",
+    "tickers": [
+      "AAOI",
+      "AMD",
+      "AVGO",
+      "COHR",
+      "LITE",
+      "MTSI",
+      "NVDA",
+      "SIVE"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "x_2085644051446108223",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2085644051446108223",
+    "postedAt": "2026-08-07T08:27:45Z",
+    "ingestedAt": "2026-08-08T08:13:44Z",
+    "text": "Unitree, China's humanoid leader, is set to IPO this month at a $9B valuation! (~$6.2B originally per March filing). \n\nDerivative markets are pricing open at an implied $36.04B MC, roughly ~4X listing price. \n\n$CCXI / Agility Robotics, the first US publicly listed pure play humanoid leader, is also going public later in Q4, at a ~$2.5B pre-money valuation.\n\nIt will be interesting to see how markets price in America vs. Chinese Humanoid leaders. https://x.com/aleabitoreddit/status/2085644051446108223",
+    "tickers": [
+      "CCXI"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "x_2085649654059016387",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2085649654059016387",
+    "postedAt": "2026-08-07T08:50:01Z",
+    "ingestedAt": "2026-08-08T08:13:47Z",
+    "text": "I usually make fun of sellside, but Rosenblatt has pretty goated channel checks on optical names, and their reports are one of the few I like talking about. \n\n$AAOI, $LITE, $SIVE, and the laser party has started to recover around the est. timing windows. \n\neg. last month: \"Multiple short sellers told them they will likely close their positions... late July and early August\". \n\nThey might have missed that they believed $AMD would be $AAOI's first CPO customer... since AAOI said they would be missing from first-gen CPO (maybe future gen?)\n\nBut lot of their talking points about China CPO laser positioning (eg. 2-3 years behind) got corroborated word-for-word from AAOI earnings today. https://x.com/aleabitoreddit/status/2085649654059016387",
+    "tickers": [
+      "AAOI",
+      "AMD",
+      "LITE",
+      "SIVE"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "x_2085823672569467005",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2085823672569467005",
+    "postedAt": "2026-08-07T20:21:30Z",
+    "ingestedAt": "2026-08-08T08:15:13Z",
+    "text": "There we go, White House finally invests in more breath in critical minerals/materials. Amazing policy move, as a TLDR:\n\n- $WWR receives $25M (graphite)\n- $SRL (ASX) receives $400M (Scandium)\n- $FEAM receives $8M (Boron)\n- $HREE receives $4.8M (magnet rare earths)\n\nout of the public companies. \n\nWith more private investments from $150 million into Niron Magnetics or $85 million into Standard Bauxite. \n\nIt's literally spare change to the US gov, for ENORMOUS amount of downstream applications. \n\nMore should be done with funding amounts to accelerate development and derisk supply chains (don't own any of the above, just support the policy move), but great announcement. https://x.com/aleabitoreddit/status/2085823672569467005",
+    "tickers": [
+      "ASX",
+      "FEAM",
+      "HREE",
+      "SRL",
+      "WWR"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "x_2085711500875116887",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2085711500875116887",
+    "postedAt": "2026-08-07T12:55:47Z",
+    "ingestedAt": "2026-08-08T08:15:16Z",
+    "text": "Some more TLDR takeaways from $AAOI ER:\n\n- They also flagged DSP and TIA bottlenecks, which is a positive industry read through for names like $MXL, then $SMTC and $MTSI. \n\n- For revenue growth, they're expecting more than $500 million revenue Q4, which is absurd growth. \n\nFor reference:\nQ2: $191.9M\nQ3: ~$255M-$290M\nQ4: $500M+\nBy mid-2027: ~$1.41B quarterly revenue run-rate\n\nAlways impressed by the revenue ramp from some of these optical players. https://x.com/aleabitoreddit/status/2085711500875116887",
+    "tickers": [
+      "AAOI",
+      "MTSI",
+      "MXL",
+      "SMTC"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "x_2085974141501612461",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2085974141501612461",
+    "postedAt": "2026-08-08T06:19:25Z",
+    "ingestedAt": "2026-08-10T03:16:03Z",
+    "text": "I've mapped the entire Wall Street bear playbook on AI names:\n\nHave your favorite institution/media insert one of these name down below:\n\n1. < ______ [GPUs, Transcivers, MLCC, Memory...] are a commodity set to crash> \n\n2. < ______ [YMTC, CXMT, Dongshan...] from China will flood the market > \n\n3. < ______ [Micron, Nvidia, ...] from unverifiable channel checks is facing issues > \n\n4. < ______ [Kospi, Sivers, ...] is a bubble like the ____ [2007, 2021] crash> \n\n5. <____ [1,2,3, ...] unexpected rate hikes this year>\n\n6. < _____ [Google, Nvidia, Deepseek ...] optimization removes the need of this!>  \n\nin a new headline, and it's ready to go! https://x.com/aleabitoreddit/status/2085974141501612461",
+    "tickers": [
+      "CXMT"
+    ],
+    "conviction": "high",
+    "tags": []
+  },
+  {
+    "id": "x_2086148557187461412",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2086148557187461412",
+    "postedAt": "2026-08-08T17:52:29Z",
+    "ingestedAt": "2026-08-10T03:17:00Z",
+    "text": "Yes, I'm still bullish on memory like $MU / Samsung.\n\nAs I said earlier, markets tend to rotate from bottleneck to bottleneck.\n\nThis week it looks $AXTI to $LITE in the photonics sector is the focus again. \n\nThe thing is... the primary thing that changed are the stock prices, followed by some narratives + updates sprinkled in here and there.\n\nFor photonics:\n\n> We already knew $COHR / $LITE lasers were completely sold out for the next 2 years during July's drop. \n\n> We knew about demand imbalance from $AAOI from last quarter's earnings calls.\n\nNothing deteriorated fundamentally during July's crash, other than listed price after liquidations. \n\nYet tons of people called $AAOI a \"scam\" when it dropped to $75, or $AXTI a \"scam\" on its drop to $35... \n\nBut are bullish again at $140 or $80, when the transciver/InP substrate bottleneck hasn't changed at all, but maybe even got worse... (eg. draft for US ban on new china optical transceivers, scale up demand projections)\n\nFor Memory:\n\nI'm witnessing a lot of retail capitulation, but the same people I'm seeing were mega bullish after $MU signed 16 SCAs and gave exceptional projections a month ago. \n\nOr were celebrating Samsung having the highest operating profit in the world.\n\nThere's updates here and there eg. Rubin Ultra with memory optimizations (which Nvidia strives for every generation), with prices no longer being hiked way above expectations to the extreme. \n\nBut the operating income relative to MC is just absurd around current prices, especially memory becomes structural. \n\nAnd the demand imbalance should be even worse next year.  \n\nPeople tend to capitulate and follow narratives when a sector drops (eg. Helium/LNG back in Iran war), even if the bottleneck or fundamental situation hasn't really changed much (eg. $SPCX Elon earnings call reiterating memory tightness). \n\nI can't tell others what to to do: \n\nBut $AAOI at $140 and $AAOI at $75 are the same company.\n\nSamsung at a $1.5T MC and Samsung at a $980B MC are the same company. \n\nJust valuations and narratives (often noise) change, and markets rotate from sector to sector. https://x.com/aleabitoreddit/status/2086148557187461412",
+    "tickers": [
+      "AAOI",
+      "AXTI",
+      "COHR",
+      "LITE",
+      "MU",
+      "SPCX"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "x_2086157318065168490",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2086157318065168490",
+    "postedAt": "2026-08-08T18:27:18Z",
+    "ingestedAt": "2026-08-10T03:17:41Z",
+    "text": "Today I'm writing a weekend guide on how to do DD when shorting $NBIS:\n\nFirst, you look at hyperscaler earnings for AI cloud read through: \n\n> $GOOGL: reports record AI cloud demand + backlog + margin increases from earnings\n\n> $AMZN: reports record AI Cloud demand + backlog + margin increases from earnings\n\n> $META: reports higher than expected prices for available capacity from earnings.\n\nNow, time to look at Nebius:\n\n-> $NBIS: Growing hundreds of percent to $7-9B ARR by Q4. Growing margins, and guided 4GW+ contracted power. \n-> Sees Uber/Waymo splitting, putting more focus on Avride\n-> Sees Clickhouse growing rapidly every quarter. \n\nOkay looks bad! But next, you need a hedge?\n\n-> Wow! A $NIKE brand executive, after the stock dropped 75% over the past 5 years, went to $LULU to save that brand next? Lululemon seems good.\n\nConclusion: Short Nebius and go long on $LULU https://x.com/aleabitoreddit/status/2086157318065168490",
+    "tickers": [
+      "AMZN",
+      "GOOGL",
+      "LULU",
+      "META",
+      "NBIS",
+      "NIKE"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "x_2086247069900300393",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2086247069900300393",
+    "postedAt": "2026-08-09T00:23:56Z",
+    "ingestedAt": "2026-08-10T03:17:50Z",
+    "text": "I think it’s a good time to revisit $SIVE ~$427m/yr midpoint capacity revenue modeled projections.\n\nGiven recent industry earnings:\n\n> $AAOI cited +20-40% demand imbalance for transceivers (with lasers as the bottleneck).\n\n> $MTSI saying many \"Customers are coming to us with urgency due to the general supply shortage of indium phosphide DFB lasers\" (in other product lines)\n\n> US proposal ban on new Chinese optical transceivers (Innolight/Eoptolink)\n\n> AOI no meaningful participation in first-gen CPO deployments due to lasers being allocated toward transceivers. \n\nThe read through is that it’s possible to apply the same capacity-demand absorption modeling applying to $AAOI, but for other laser players like Sivers too.\n\nGiven the widespread shortage and demand imbalance for InP CW DFB capacity. https://x.com/aleabitoreddit/status/2086247069900300393",
+    "tickers": [
+      "AAOI",
+      "MTSI",
+      "SIVE"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "r_75e13e4178d63074",
+    "source": "research",
+    "author": "semi-expert",
+    "sourceUrl": "https://www.sivers-semiconductors.com/press/sivers-semiconductors-ab-publ-publishes-interim-report-q1-january-march-2026/",
+    "postedAt": "2026-08-10T06:20:00Z",
+    "ingestedAt": "2026-08-10T06:20:00Z",
+    "text": "Semiconductor expert: The $427m capacity model rests on a pipeline, not orders. Sivers' own Q1 2026 report describes a $799M opportunity pipeline and revenue hurt by the US shutdown. No shipped InP laser volume has been disclosed, so wafer-allocation maths cannot be checked against anything the company has reported.",
+    "tickers": [
+      "SIVE"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "semi-expert"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_915e72da7d7c1de3",
+    "source": "research",
+    "author": "fundamental",
+    "sourceUrl": "https://www.sivers-semiconductors.com/investors/financial-calendar/",
+    "postedAt": "2026-08-10T06:20:00Z",
+    "ingestedAt": "2026-08-10T06:20:00Z",
+    "text": "Fundamental analyst: Valuation runs ahead of any reported number: no Q2 figures exist until the 27 August 2026 interim report, so a ~SEK 13bn market cap is supported only by Q1's pipeline disclosure. Every revenue estimate in the feed is modelled, none is reported.",
+    "tickers": [
+      "SIVE"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "fundamental"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_4bbc2394e316a736",
+    "source": "research",
+    "author": "pm",
+    "sourceUrl": "https://www.sivers-semiconductors.com/investors/financial-calendar/",
+    "postedAt": "2026-08-10T06:20:00Z",
+    "ingestedAt": "2026-08-10T06:20:00Z",
+    "text": "Portfolio manager: Worst entry point of the cycle: the stock has run hard into a binary. The 27 August interim report is the first hard datapoint, and it either shows InP revenue converting or it does not. Sizing now pays full price for information that is seventeen days away.",
+    "tickers": [
+      "SIVE"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "pm"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_c8d949a1c34a1b55",
+    "source": "research",
+    "author": "semi-expert",
+    "sourceUrl": "https://investors.ao-inc.com/news-releases/news-release-details/applied-optoelectronics-reports-second-quarter-2026-results",
+    "postedAt": "2026-08-10T06:20:00Z",
+    "ingestedAt": "2026-08-10T06:20:00Z",
+    "text": "Semiconductor expert: The $500M+ Q4 figure is a call remark, not guidance. AOI's release guides Q3 to $255-290M and reaffirms roughly $1.1B for the year, which implies Q4 near $500M only at the very top. Doing it needs a near-doubling on capacity the company itself calls constrained.",
+    "tickers": [
+      "AAOI"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "semi-expert"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_ea2076271f6edbc6",
+    "source": "research",
+    "author": "fundamental",
+    "sourceUrl": "https://investors.ao-inc.com/news-releases/news-release-details/applied-optoelectronics-reports-second-quarter-2026-results",
+    "postedAt": "2026-08-10T06:20:00Z",
+    "ingestedAt": "2026-08-10T06:20:00Z",
+    "text": "Fundamental analyst: Margins went backwards while revenue grew 86%. GAAP gross margin was 27.7% versus 30.3% a year ago and 29.1% last quarter, and non-GAAP EPS was $0.06. The ramp is being bought with mix and cost, so operating leverage is not yet showing up.",
+    "tickers": [
+      "AAOI"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "fundamental"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_3785f4e41be23293",
+    "source": "research",
+    "author": "pm",
+    "sourceUrl": "https://investors.ao-inc.com/news-releases/news-release-details/applied-optoelectronics-reports-second-quarter-2026-results",
+    "postedAt": "2026-08-10T06:20:00Z",
+    "ingestedAt": "2026-08-10T06:20:00Z",
+    "text": "Portfolio manager: At roughly ten times this year's guided revenue after a violent weekly re-rate, the shortage is priced. Downside case is a mid-2027 capacity slip or the China transceiver ban being shelved. What forces an exit is gross margin failing to clear 30% next quarter.",
+    "tickers": [
+      "AAOI"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "pm"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_b6b97220ceaaf157",
+    "source": "research",
+    "author": "semi-expert",
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1326801/000162828026050596/meta-06302026xexhibit991.htm",
+    "postedAt": "2026-08-10T06:20:00Z",
+    "ingestedAt": "2026-08-10T06:20:00Z",
+    "text": "Semiconductor expert: Meta's disclosure gives capex dollars and nothing else. There is no accelerator mix, no useful-life assumption and no optics content in the release, so the $130-145B cannot be converted into GPU or transceiver unit demand from the filing itself. Any such read-through is an estimate.",
+    "tickers": [
+      "META"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "semi-expert"
+    ],
+    "direction": "neutral",
+    "verification": "verified"
+  },
+  {
+    "id": "r_f4d71d85c42fd910",
+    "source": "research",
+    "author": "fundamental",
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1326801/000162828026050596/meta-06302026xexhibit991.htm",
+    "postedAt": "2026-08-10T06:20:00Z",
+    "ingestedAt": "2026-08-10T06:20:00Z",
+    "text": "Fundamental analyst: Free cash flow essentially disappeared: $784M in Q2 against $31.1B of capex, and full-year capex was narrowed upward to $130-145B. The buildout is now consuming the cash generation that made Meta a self-funding compounder, which is why the multiple is compressing.",
+    "tickers": [
+      "META"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "fundamental"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_8f4bcc385100033b",
+    "source": "research",
+    "author": "pm",
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1326801/000162828026050596/meta-06302026xexhibit991.htm",
+    "postedAt": "2026-08-10T06:20:00Z",
+    "ingestedAt": "2026-08-10T06:20:00Z",
+    "text": "Portfolio manager: Meta is the hyperscaler where the market has already voted against capex. Owning it as an AI-demand proxy means accepting a shrinking free-cash-flow yield with no disclosed return-on-capex metric. What changes the call is capex guidance flattening rather than rising again.",
+    "tickers": [
+      "META"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "pm"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_88f7b30e6f0921be",
+    "source": "research",
+    "author": "semi-expert",
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/0001513845/000110465926059872/tm2614392d1_ex99-2.htm",
+    "postedAt": "2026-08-10T06:20:00Z",
+    "ingestedAt": "2026-08-10T06:20:00Z",
+    "text": "Semiconductor expert: 'Sold out' cannot be sized from the filing. Nebius reports capacity fully contracted and capex of $20-25B, but discloses no contracted megawatts, delivery schedule or customer names. The claim is therefore unauditable in either direction until contract detail is published.",
+    "tickers": [
+      "NBIS"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "semi-expert"
+    ],
+    "direction": "neutral",
+    "verification": "verified"
+  },
+  {
+    "id": "r_5ba88015a3320aeb",
+    "source": "research",
+    "author": "fundamental",
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/0001513845/000110465926059872/tm2614392d1_ex99-2.htm",
+    "postedAt": "2026-08-10T06:20:00Z",
+    "ingestedAt": "2026-08-10T06:20:00Z",
+    "text": "Fundamental analyst: The equity is a levered call on execution. Q1 revenue was $399M against capex guided to $20-25B, funded by $4.3B of convertibles, an NVIDIA equity stake and secured debt at SOFR plus 250bps. Any slip in customer ramp lands on a financed balance sheet, not on cash.",
+    "tickers": [
+      "NBIS"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "fundamental"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_b25d47fb34716046",
+    "source": "research",
+    "author": "pm",
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/0001513845/000110465926059872/tm2614392d1_ex99-2.htm",
+    "postedAt": "2026-08-10T06:20:00Z",
+    "ingestedAt": "2026-08-10T06:20:00Z",
+    "text": "Portfolio manager: Q2 results land 12 August, two days away, so position size taken now is a coin-flip on disclosure. The operative question is whether prepayments are being recognised as demand. What would force an exit is capex rising again without contracted revenue rising with it.",
+    "tickers": [
+      "NBIS"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "pm"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_1c3fa3cf066735b1",
+    "source": "research",
+    "author": "semi-expert",
+    "sourceUrl": "https://investor.lumentum.com/financial-news-releases/news-details/2026/Lumentum-Announces-Third-Quarter-of-Fiscal-Year-2026-Financial-Results/default.aspx",
+    "postedAt": "2026-08-10T06:20:00Z",
+    "ingestedAt": "2026-08-10T06:20:00Z",
+    "text": "Semiconductor expert: The fifth InP fab is a conversion, not new capacity. Greensboro is being converted from gallium arsenide, which needs process transfer and customer requalification measured in quarters. The 30%-plus supply gap management describes therefore does not close inside fiscal 2027 on this asset.",
+    "tickers": [
+      "LITE"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "semi-expert"
+    ],
+    "direction": "neutral",
+    "verification": "verified"
+  },
+  {
+    "id": "r_35349d109352353b",
+    "source": "research",
+    "author": "fundamental",
+    "sourceUrl": "https://investor.lumentum.com/financial-news-releases/news-details/2026/Lumentum-Announces-Third-Quarter-of-Fiscal-Year-2026-Financial-Results/default.aspx",
+    "postedAt": "2026-08-10T06:20:00Z",
+    "ingestedAt": "2026-08-10T06:20:00Z",
+    "text": "Fundamental analyst: Guidance already assumes near-perfection: fiscal Q4 revenue of $960M-$1.01B at 35-36% non-GAAP operating margin and EPS of $2.85-$3.05. At the current market capitalisation that is a mid-teens multiple of annualised sales, so the shortage is capitalised, not anticipated.",
+    "tickers": [
+      "LITE"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "fundamental"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_4e1933962a514b8e",
+    "source": "research",
+    "author": "pm",
+    "sourceUrl": "https://investor.lumentum.com/financial-news-releases/news-details/2026/Lumentum-Announces-Third-Quarter-of-Fiscal-Year-2026-Financial-Results/default.aspx",
+    "postedAt": "2026-08-10T06:20:00Z",
+    "ingestedAt": "2026-08-10T06:20:00Z",
+    "text": "Portfolio manager: Results are due 11 August, one day away, after a near-50% weekly move. Buying into that is paying peak positioning for a known event. The exit trigger is an in-line print with unchanged capacity commentary, which the current price does not allow for.",
+    "tickers": [
+      "LITE"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "pm"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_c966ad3c9afe2631",
+    "source": "research",
+    "author": "semi-expert",
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/0000002488/000000248826000123/amd-20260627.htm",
+    "postedAt": "2026-08-10T06:20:00Z",
+    "ingestedAt": "2026-08-10T06:20:00Z",
+    "text": "Semiconductor expert: MI450 is a 2027 revenue event, not a 2026 one. The Q2 data-centre growth came from EPYC and MI350-series parts; Helios entered production with shipments starting only at the end of Q3, and the Anthropic deployment begins its first gigawatt in the first half of 2027.",
+    "tickers": [
+      "AMD"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "semi-expert"
+    ],
+    "direction": "neutral",
+    "verification": "verified"
+  },
+  {
+    "id": "r_2036a40b33264743",
+    "source": "research",
+    "author": "fundamental",
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/0000002488/000000248826000123/amd-20260627.htm",
+    "postedAt": "2026-08-10T06:20:00Z",
+    "ingestedAt": "2026-08-10T06:20:00Z",
+    "text": "Fundamental analyst: Data-centre revenue was $6.7B in the quarter, up 107% year over year from $3.2B. The growth is real and filed, but it is still roughly a tenth of NVIDIA's data-centre run-rate, so AMD remains a share-gain story rather than a second incumbent.",
+    "tickers": [
+      "AMD"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "fundamental"
+    ],
+    "direction": "neutral",
+    "verification": "verified"
+  },
+  {
+    "id": "r_dea696e296430666",
+    "source": "research",
+    "author": "pm",
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/0000002488/000000248826000123/amd-20260627.htm",
+    "postedAt": "2026-08-10T06:20:00Z",
+    "ingestedAt": "2026-08-10T06:20:00Z",
+    "text": "Portfolio manager: The 2027 doubling is already the consensus case, and the largest committed volumes do not ship until the first half of 2027. That leaves three quarters of proof-free carry. What would force an exit is Helios slipping past the end of Q3 shipment commitment.",
+    "tickers": [
+      "AMD"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "pm"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_d2e567bd4fcd1622",
+    "source": "research",
+    "author": "semi-expert",
+    "sourceUrl": "https://www.coherent.com/news/press-releases/third-quarter-fiscal-year-2026-results",
+    "postedAt": "2026-08-10T06:20:00Z",
+    "ingestedAt": "2026-08-10T06:20:00Z",
+    "text": "Semiconductor expert: Coherent's own numbers confirm the datacom pull: Q3 fiscal 2026 revenue of $1.81B, up 21% year over year, with the increase attributed to the datacenter business and higher communications demand. Fiscal Q4 is guided to $1.91-$2.05B, so the ramp is disclosed, not inferred.",
+    "tickers": [
+      "COHR"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "semi-expert"
+    ],
+    "direction": "neutral",
+    "verification": "verified"
+  },
+  {
+    "id": "r_ef0a6be5eed1841d",
+    "source": "research",
+    "author": "fundamental",
+    "sourceUrl": "https://www.coherent.com/news/press-releases/third-quarter-fiscal-year-2026-results",
+    "postedAt": "2026-08-10T06:20:00Z",
+    "ingestedAt": "2026-08-10T06:20:00Z",
+    "text": "Fundamental analyst: Coherent is priced like a laser pure-play but is not one. Non-GAAP gross margin was 39.6%, well below component peers, because industrial, telecom and materials segments dilute the datacenter mix. The re-rating assumes a margin structure the reported segments do not yet produce.",
+    "tickers": [
+      "COHR"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "fundamental"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_5a4a19196e789bf1",
+    "source": "research",
+    "author": "pm",
+    "sourceUrl": "",
+    "postedAt": "2026-08-10T06:20:00Z",
+    "ingestedAt": "2026-08-10T06:20:00Z",
+    "text": "Portfolio manager: A large part of this move discounts a proposed US ban on new Chinese optical transceivers that exists only as a draft rule. Nothing has been published in the Federal Register, so scope, timing and exemptions cannot be verified. Treat it as an option, not a catalyst.",
+    "tickers": [
+      "COHR"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "pm"
+    ],
+    "direction": "neutral",
+    "verification": "unverified"
+  },
+  {
+    "id": "r_cac9b21ee514b408",
+    "source": "research",
+    "author": "semi-expert",
+    "sourceUrl": "https://s201.q4cdn.com/141608511/files/doc_financials/2027/q1/NVDA-Q1-2027-Earnings-Call-20-May-2026-5_00-PM-ET.pdf",
+    "postedAt": "2026-08-10T06:20:00Z",
+    "ingestedAt": "2026-08-10T06:20:00Z",
+    "text": "Semiconductor expert: Supply constraint is management's own stated base case: Huang said NVIDIA expects to be constrained throughout the entire life of Vera Rubin, with Rubin beginning to contribute revenue in the following quarter. Upstream bottleneck theses therefore rest on the customer's own guidance.",
+    "tickers": [
+      "NVDA"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "semi-expert"
+    ],
+    "direction": "neutral",
+    "verification": "verified"
+  },
+  {
+    "id": "r_0f24e00262c27b73",
+    "source": "research",
+    "author": "fundamental",
+    "sourceUrl": "https://s201.q4cdn.com/141608511/files/doc_financials/2027/q1/NVDA-Q1-2027-Earnings-Call-20-May-2026-5_00-PM-ET.pdf",
+    "postedAt": "2026-08-10T06:20:00Z",
+    "ingestedAt": "2026-08-10T06:20:00Z",
+    "text": "Fundamental analyst: Concentration is extreme in both directions: data centre was $75.2B of $81.6B total revenue, roughly 92%, and that segment sells to a handful of hyperscalers. A single capex deferral by one customer moves the whole company, which no supply-chain read-through captures.",
+    "tickers": [
+      "NVDA"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "fundamental"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_72320c76268a9c74",
+    "source": "research",
+    "author": "pm",
+    "sourceUrl": "https://s201.q4cdn.com/141608511/files/doc_financials/2027/q1/NVDA-Q1-2027-Earnings-Call-20-May-2026-5_00-PM-ET.pdf",
+    "postedAt": "2026-08-10T06:20:00Z",
+    "ingestedAt": "2026-08-10T06:20:00Z",
+    "text": "Portfolio manager: NVIDIA has de-rated relative to its own suppliers over the past year, so the asymmetry has moved downstream into the component names. Owning NVIDIA now is the low-variance expression of the same thesis, not the high-return one.",
+    "tickers": [
+      "NVDA"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "pm"
+    ],
+    "direction": "neutral",
+    "verification": "verified"
+  },
+  {
+    "id": "r_e7719032b9eab138",
+    "source": "research",
+    "author": "semi-expert",
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/0001652044/000165204426000066/googexhibit991q22026.htm",
+    "postedAt": "2026-08-10T06:20:00Z",
+    "ingestedAt": "2026-08-10T06:20:00Z",
+    "text": "Semiconductor expert: Alphabet discloses cloud backlog but no TPU volumes, no capacity in megawatts and no accelerator mix. Third-party TPU unit estimates therefore cannot be validated against any filed figure, and read-throughs to specific optics or memory suppliers are inference, not disclosure.",
+    "tickers": [
+      "GOOGL"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "semi-expert"
+    ],
+    "direction": "neutral",
+    "verification": "verified"
+  },
+  {
+    "id": "r_543fb777dbee09c4",
+    "source": "research",
+    "author": "fundamental",
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/0001652044/000165204426000066/googexhibit991q22026.htm",
+    "postedAt": "2026-08-10T06:20:00Z",
+    "ingestedAt": "2026-08-10T06:20:00Z",
+    "text": "Fundamental analyst: The backlog is the number that matters and it is filed: Google Cloud revenue rose 82% to $24.8B and backlog reached $514B, with just over half expected to convert to revenue within 24 months. That is a contracted, dated demand signal rather than a narrative one.",
+    "tickers": [
+      "GOOGL"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "fundamental"
+    ],
+    "direction": "neutral",
+    "verification": "verified"
+  },
+  {
+    "id": "r_5bda4d82c87ddc63",
+    "source": "research",
+    "author": "pm",
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/0001652044/000165204426000071/goog-20260630.htm",
+    "postedAt": "2026-08-10T06:20:00Z",
+    "ingestedAt": "2026-08-10T06:20:00Z",
+    "text": "Portfolio manager: Alphabet is the cheapest large-cap way to own contracted AI demand, but the cash cost is now visible in the capex line, and the market re-rates it downward on every raise. What changes the call is backlog conversion stalling below the stated 24-month pace.",
+    "tickers": [
+      "GOOGL"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "pm"
+    ],
+    "direction": "neutral",
+    "verification": "verified"
+  },
+  {
+    "id": "r_c89a729f6ef07c1b",
+    "source": "research",
+    "author": "semi-expert",
+    "sourceUrl": "https://www.businesswire.com/news/home/20260805455789/en/Sandisk-Reports-Fiscal-Fourth-Quarter-2026-Financial-Results",
+    "postedAt": "2026-08-10T06:20:00Z",
+    "ingestedAt": "2026-08-10T06:20:00Z",
+    "text": "Semiconductor expert: The mix shift is real and disclosed: enterprise SSD demand drove the quarter and Sandisk began recognising revenue from its QLC-based Stargate platform. That is a datacenter NAND ramp, not a consumer cycle, which makes the pricing less likely to break on handset weakness.",
+    "tickers": [
+      "SNDK"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "semi-expert"
+    ],
+    "direction": "neutral",
+    "verification": "verified"
+  },
+  {
+    "id": "r_ba203e9dad4ea35e",
+    "source": "research",
+    "author": "fundamental",
+    "sourceUrl": "https://www.businesswire.com/news/home/20260805455789/en/Sandisk-Reports-Fiscal-Fourth-Quarter-2026-Financial-Results",
+    "postedAt": "2026-08-10T06:20:00Z",
+    "ingestedAt": "2026-08-10T06:20:00Z",
+    "text": "Fundamental analyst: The multiple is pricing a peak. Fiscal Q4 revenue was $8.97B with adjusted EPS of $39.25, and Q1 fiscal 2027 is guided to $10.3-$10.8B and $44-$46. Annualised, the share price is a single-digit multiple of guided earnings, which is what a cycle top looks like.",
+    "tickers": [
+      "SNDK"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "fundamental"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_1300d026219d841e",
+    "source": "research",
+    "author": "pm",
+    "sourceUrl": "https://www.businesswire.com/news/home/20260805455789/en/Sandisk-Reports-Fiscal-Fourth-Quarter-2026-Financial-Results",
+    "postedAt": "2026-08-10T06:20:00Z",
+    "ingestedAt": "2026-08-10T06:20:00Z",
+    "text": "Portfolio manager: The tape is trading the cycle, not the print: the stock beat, raised, and is still far below where it stood a month ago. In a commodity up-cycle the exit signal is contract price momentum rolling over, not an earnings miss, which arrives too late.",
+    "tickers": [
+      "SNDK"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "pm"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_bf0d18b7bf2f4fb6",
+    "source": "research",
+    "author": "semi-expert",
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/0001437424/000117184326003487/exh_991.htm",
+    "postedAt": "2026-08-10T06:20:00Z",
+    "ingestedAt": "2026-08-10T06:20:00Z",
+    "text": "Semiconductor expert: POET is still pre-production. Q1 2026 revenue of $503,389 was non-recurring engineering, not product. The upgrade in wording from production-readiness to production with Sivers lasers by end-2026 is a company statement with no shipped volume behind it yet.",
+    "tickers": [
+      "POET"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "semi-expert"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_8ff70a96c66b6714",
+    "source": "research",
+    "author": "fundamental",
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/0001437424/000117184326003487/exh_991.htm",
+    "postedAt": "2026-08-10T06:20:00Z",
+    "ingestedAt": "2026-08-10T06:20:00Z",
+    "text": "Fundamental analyst: Dilution is the story the feed skips: shares outstanding rose about 74% in a year, including a 20.7m-share January placement. Working capital of $418.8M against roughly $8.8M quarterly operating cash burn funds years of runway, but existing holders paid for it.",
+    "tickers": [
+      "POET"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "fundamental"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_2004870903ccca33",
+    "source": "research",
+    "author": "pm",
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1437424/000149315226023471/ex99-2.htm",
+    "postedAt": "2026-08-10T06:20:00Z",
+    "ingestedAt": "2026-08-10T06:20:00Z",
+    "text": "Portfolio manager: No financing risk and no revenue either. Cash covers many years of burn, so this is a long-dated option on the interposer qualifying, priced at over a billion dollars of market value on about two million dollars of annualised revenue. Size it like an option.",
+    "tickers": [
+      "POET"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "pm"
+    ],
+    "direction": "neutral",
+    "verification": "verified"
+  },
+  {
+    "id": "r_ca24ed489894827a",
+    "source": "research",
+    "author": "semi-expert",
+    "sourceUrl": "https://www.trendforce.com/news/2026/06/15/news-tsmc-cowos-supply-demand-gap-reportedly-seen-narrowing-from-20-to-10-by-end-2026-as-capacity-expands/",
+    "postedAt": "2026-08-10T06:20:00Z",
+    "ingestedAt": "2026-08-10T06:20:00Z",
+    "text": "Semiconductor expert: The advanced-packaging squeeze is easing, not tightening. Industry data has the CoWoS supply-demand gap narrowing from about 20% to 10% by end-2026 as capacity expands toward roughly 200k wafers per month by end-2027. Bottleneck theses should migrate upstream to optics and substrates.",
+    "tickers": [
+      "TSM"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "semi-expert"
+    ],
+    "direction": "neutral",
+    "verification": "verified"
+  },
+  {
+    "id": "r_21d7368cf12c49d5",
+    "source": "research",
+    "author": "fundamental",
+    "sourceUrl": "https://investor.tsmc.com/english/monthly-revenue/2026",
+    "postedAt": "2026-08-10T06:20:00Z",
+    "ingestedAt": "2026-08-10T06:20:00Z",
+    "text": "Fundamental analyst: First-half 2026 revenue was NT$2,404bn, up 35.6% year over year, with June alone up 67.9%. Monthly disclosure makes TSMC the only name in this book where the demand curve can be checked every thirty days rather than every quarter.",
+    "tickers": [
+      "TSM"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "fundamental"
+    ],
+    "direction": "neutral",
+    "verification": "verified"
+  },
+  {
+    "id": "r_eff1f5a4e263f01a",
+    "source": "research",
+    "author": "pm",
+    "sourceUrl": "https://investor.tsmc.com/english/monthly-revenue/2026",
+    "postedAt": "2026-08-10T06:20:00Z",
+    "ingestedAt": "2026-08-10T06:20:00Z",
+    "text": "Portfolio manager: TSMC is the low-variance way to own the same buildout the book expresses through single-digit-billion suppliers trading at ten times sales. It gives up the upside and removes the qualification, dilution and single-customer risk carried by most of the watchlist.",
+    "tickers": [
+      "TSM"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "pm"
+    ],
+    "direction": "bull",
+    "verification": "verified"
+  },
+  {
+    "id": "x_2086634510935118161",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2086634510935118161",
+    "postedAt": "2026-08-10T02:03:29Z",
+    "ingestedAt": "2026-08-10T06:01:18Z",
+    "text": "Just some near term events:\n\n- OCP APAC tomorrow (Ayar, Lightmatter, $AMD, $NVDA) and your CPO players are giving announcements/updates.\n\nThis should be a catalyst for certain optical players.\n\n- Earnings week: with $ASTS, $RKLB reporting today (space), $LITE on Tuesday (photonics), $NBIS in the middle of the week (Neocloud), and more.\n\n- Unitree IPO subscriptions opened up today and Listing is expected this month.\n\nShould be a potential catalyst for the humanoid + robotics sector if it opens up well eg. $CCXI.\n\nFun week ahead. https://x.com/aleabitoreddit/status/2086634510935118161",
+    "tickers": [
+      "AMD",
+      "ASTS",
+      "CCXI",
+      "LITE",
+      "NBIS",
+      "NVDA",
+      "RKLB"
+    ],
+    "conviction": "normal",
+    "tags": []
   }
 ]

@@ -216,7 +216,8 @@ request — no API key, no rate limits.
   `tickers.json`, e.g. `000660.KS`, `SOI.PA`), `GoogleFinanceSymbol`
   (what the formulas use, e.g. `KRX:000660`), `Price`, `MarketCap`, and
   optionally `Currency`, `Chg1W`, `Chg1M`, `Chg1Y` (baked into the site
-  as 7D / 1M / 1Y %). Missing optional columns are simply skipped.
+  as 7D / 1M / 1Y %) and `MarketCapUSD` (see below). Missing optional
+  columns are simply skipped.
 - Tickers not present in the sheet are reported in the run summary
   (`notInSheet`) and keep their last-known price — add a row to the sheet
   to start tracking them. `#N/A` cells are treated as "no data", never 0.
@@ -237,6 +238,42 @@ matches `tickers.json`, while `GoogleFinanceSymbol` uses Google's
 exchange-prefix form (`STO:SIVE`, `EPA:SOI`, `ETR:LPK`, `KRX:000660`).
 Prices stay in the listing's native currency — fill the `Currency` column
 so the watchlist labels them correctly.
+
+**`MarketCapUSD` — what makes the Mkt Cap column sortable.**
+Market caps arrive in each listing's own currency, so ranking the raw
+figure is arithmetically meaningless: SK Hynix reads ₩1,210T against
+Apple's $4.9T and would sort to the top of any list. The watchlist
+therefore leaves **Mkt Cap unsortable until this column exists**, and says
+so in the header tooltip. Add the column and the sort arms itself on the
+next refresh — no code change needed.
+
+Add one column named exactly `MarketCapUSD`. Assuming `MarketCap` is in
+column `C` and `Currency` in column `D`:
+
+```
+=IFERROR(
+   IF($D2="USD", $C2,
+   IF($D2="GBX", $C2/100*GOOGLEFINANCE("CURRENCY:GBPUSD"),
+                 $C2*GOOGLEFINANCE("CURRENCY:"&$D2&"USD"))), "")
+```
+
+Three things that formula is doing deliberately:
+- **USD rows short-circuit** rather than paying for a lookup that returns 1.
+- **`GBX` is handled separately.** IQE is quoted in pence, and `GBX` is not
+  an ISO currency code — `GOOGLEFINANCE("CURRENCY:GBXUSD")` errors. Convert
+  via `GBP` and divide by 100.
+- **`IFERROR(..., "")` leaves the cell blank** on any failure. A blank cell
+  makes the field absent rather than zero, so a name with a broken rate
+  sorts last instead of pretending to be worthless.
+
+Currently in play: USD, EUR, KRW, SEK, CAD, CNY, GBX. The other six all
+have working `CURRENCY:xxxUSD` pairs.
+
+*Why not Yahoo:* Yahoo's key-free endpoints were retired from this project
+on 2026-07-16 after chronic HTTP 429s — that is the reason the sheet exists
+at all. Reintroducing them for FX would reintroduce that failure. The sheet
+already has GOOGLEFINANCE, costs no extra request (the CSV comes down in
+one fetch either way), and keeps the rate fresh on Google's side.
 
 ---
 
@@ -379,6 +416,18 @@ feed back into the rankings is a later phase, deliberately held until there are
 enough judged claims for it to mean anything.
 
 ## 9. Backfill & auto-capture (getting posts in with less manual work)
+
+> **Superseded 30 Jul 2026 — read `docs/WATCHER.md` first.** New posts now find
+> *you*: a headless browser reads the public X profile every 4 hours and sends
+> anything new to Telegram with ✅ Ingest / ❌ Skip buttons at midnight and
+> noon. It costs nothing and needs no API key or account. The manual-forwarding
+> routine below still works and is still the fallback if X ever closes the
+> logged-out view — but it is no longer the daily path.
+>
+> The conclusion at the end of this section — "building our own watcher on X
+> itself would need paid API access or scraping; not worth it" — turned out to
+> be **wrong**, which is why it got built. The logged-out profile page renders
+> fine without any account.
 
 **Backfill from your existing signal bots.** If you already follow
 @aleabitoreddit alert bots on Telegram, just **forward their messages to

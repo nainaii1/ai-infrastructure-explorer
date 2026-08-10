@@ -31,7 +31,8 @@ import parser as msgparser
 import generate_data_js as gen
 import fetcher
 from dotenv_util import _load_dotenv
-from store_io import load_json as _load, save_json, now_iso as _now_iso, ssl_context
+from store_io import (load_json as _load, load_json_optional, save_json,
+                      now_iso as _now_iso, ssl_context)
 
 SSL_CTX = ssl_context()  # verified — never disable certificate checks globally
 
@@ -39,6 +40,10 @@ ING = pathlib.Path(__file__).resolve().parent
 STORE = ING / "store"
 OFFSET_FILE = STORE / ".bot_offset"
 MAX_TEXT_LEN = 4000
+# ~1 minute of 5s-backoff retries. A macOS DNS resolver stuck after sleep/wake
+# doesn't clear inside a running process — bounding this lets run_bot() give up
+# and exit rather than retry a broken state forever (see run_bot's poll loop).
+MAX_CONSECUTIVE_POLL_FAILURES = 12
 API_URL = "https://api.telegram.org/bot{token}/{method}"
 _URL_ONLY_RE = re.compile(r"https?://\S+")
 
@@ -118,10 +123,14 @@ def _is_stub(thesis):
     return not thesis.get("tickers") and (not text or text.startswith("http"))
 
 
-def ingest_message(text, source_url="", posted_at=None):
+def ingest_message(text, source_url="", posted_at=None, author="aleabitoreddit"):
     """Core pipeline: text -> thesis appended, tickers auto-added/queued,
     priorities recomputed, data.js regenerated. Returns a summary dict.
-    Shared by live polling and the --text CLI."""
+    Shared by live polling, the watcher's approve button, and the --text CLI.
+
+    `author` exists for the watcher: a repost is written by someone else, and
+    filing it under @aleabitoreddit would credit him with another person's
+    view. Defaults to him because that is what a forwarded message means."""
     text, posted_at = _resolve_text(text, posted_at)
 
     tickers = _load("tickers.json")
@@ -130,7 +139,8 @@ def ingest_message(text, source_url="", posted_at=None):
     known = [t["ticker"] for t in tickers]
 
     combined = text if not source_url else (text + " " + source_url)
-    thesis, low = msgparser.parse_text(combined[:MAX_TEXT_LEN], known, posted_at=posted_at)
+    thesis, low = msgparser.parse_text(combined[:MAX_TEXT_LEN], known,
+                                       posted_at=posted_at, author=author)
 
     if not thesis["text"] and not thesis["tickers"]:
         return {"skipped": "empty"}
@@ -221,6 +231,61 @@ def _read_offset():
         return 0
 
 
+# ------------------- watcher approve/skip buttons -------------------
+# watcher.py queues posts into store/pending_posts.json and sends each one with
+# an Ingest/Skip keyboard. The taps arrive here as callback_query updates.
+
+PENDING_POSTS = "pending_posts.json"
+
+
+def _load_pending_posts():
+    return load_json_optional(PENDING_POSTS, [])
+
+
+def handle_callback(data, from_id, allowed):
+    """Act on one button tap. Returns (reply_text, answer_text).
+
+    Pure-ish: reads/writes the queue and may ingest, but takes no Telegram
+    objects and does no network I/O, so the decision logic stays testable.
+    """
+    if str(from_id) != str(allowed):
+        return None, "Not authorised."          # auth gate, same as messages
+    action, _, post_id = (data or "").partition(":")
+    if action not in ("ok", "no") or not post_id:
+        return None, "Unrecognised button."
+
+    posts = _load_pending_posts()
+    post = next((p for p in posts if p.get("id") == post_id), None)
+    if not post:
+        return None, "That post is no longer in the queue."
+    if post.get("status") != "pending":
+        return None, "Already {}.".format(post["status"])
+
+    if action == "no":
+        post["status"] = "skipped"
+        post["decidedAt"] = _now_iso()
+        save_json(PENDING_POSTS, posts)
+        return "❌ Skipped — {}".format(post["url"]), "Skipped."
+
+    try:
+        summary = ingest_message(
+            post.get("text") or "",
+            source_url=post.get("url") or "",
+            posted_at=post.get("postedAt"),
+            author=post.get("verifiedAuthor") or post.get("author") or "aleabitoreddit",
+        )
+    except Exception as exc:
+        # Leave it pending so the tap can be retried after the cause is fixed.
+        return ("⚠️ Ingest failed, post left in the queue.\nReason: {}".format(exc),
+                "Failed — see message.")
+
+    post["status"] = "ingested"
+    post["decidedAt"] = _now_iso()
+    post["thesisId"] = summary.get("id")
+    save_json(PENDING_POSTS, posts)
+    return _format_reply(summary), "Ingested."
+
+
 def run_bot():
     _load_dotenv()  # pick up TELEGRAM_BOT_TOKEN / ALLOWED_TELEGRAM_USER_ID from ingest/.env
     token = os.environ.get("TELEGRAM_BOT_TOKEN")
@@ -231,16 +296,60 @@ def run_bot():
     print("Bot polling. Only Telegram user id {} is processed. Ctrl-C to stop.".format(allowed))
 
     offset = _read_offset()
+    consecutive_poll_failures = 0
     while True:
         try:
             resp = _api(token, "getUpdates", offset=offset + 1, timeout=50)
         except Exception as exc:  # network hiccup — back off and retry
             print("poll error:", exc)
+            consecutive_poll_failures += 1
+            if consecutive_poll_failures >= MAX_CONSECUTIVE_POLL_FAILURES:
+                # A stuck macOS DNS resolver after sleep/wake doesn't clear on
+                # its own inside a long-running process — only a fresh process
+                # gets a fresh resolver. Exit so launchd's KeepAlive relaunches
+                # us cleanly, instead of retrying the same broken state forever.
+                sys.exit("giving up after {} consecutive poll failures — "
+                         "exiting so the launchd service restarts fresh."
+                         .format(consecutive_poll_failures))
             time.sleep(5)
             continue
+        consecutive_poll_failures = 0
         for upd in resp.get("result", []):
             offset = upd["update_id"]
             OFFSET_FILE.write_text(str(offset))
+
+            cb = upd.get("callback_query")
+            if cb:
+                try:
+                    reply, answer = handle_callback(
+                        cb.get("data"), (cb.get("from") or {}).get("id"), allowed)
+                except Exception as exc:  # never let one tap kill the loop
+                    print("callback error:", exc)
+                    reply, answer = None, "Error: {}".format(exc)[:190]
+                # These two calls are independent Telegram-side effects — the
+                # toast (answerCallbackQuery) and the message edit that removes
+                # the buttons. A separate try/except each so a hiccup on one
+                # can't swallow the other: previously a failed toast silently
+                # skipped the edit too, leaving the buttons on screen even
+                # though handle_callback had already ingested the post — the
+                # operator would tap again and just get "Already ingested."
+                try:
+                    _api(token, "answerCallbackQuery",
+                         callback_query_id=cb["id"], text=(answer or "")[:200])
+                except Exception as exc:
+                    print("answerCallbackQuery failed:", exc)
+                if reply and cb.get("message"):
+                    try:
+                        # Replace the post with its outcome and drop the
+                        # buttons, so a decided post can't be tapped twice.
+                        _api(token, "editMessageText",
+                             chat_id=cb["message"]["chat"]["id"],
+                             message_id=cb["message"]["message_id"],
+                             text=reply, disable_web_page_preview="true")
+                    except Exception as exc:
+                        print("editMessageText failed:", exc)
+                continue
+
             msg = upd.get("message") or upd.get("channel_post")
             if not msg:
                 continue

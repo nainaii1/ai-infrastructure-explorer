@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  Watches @aleabitoreddit's X timeline and queues new posts for approval.
+
+  Install:
+    cp com.aie.watch-x.plist ~/Library/LaunchAgents/
+    launchctl load ~/Library/LaunchAgents/com.aie.watch-x.plist
+
+  NOTE ON THE INTERPRETER: this must NOT be /usr/bin/python3 (Apple's system
+  Python) the way refresh-prices does — Playwright is installed only in the
+  python.org framework build, and launchd does not use your shell PATH. The
+  absolute path below is deliberate.
+
+  Runs every 4 hours, but only SENDS Telegram messages at 00:05 and 12:05
+  (see DELIVERY_HOURS in watcher.py). The extra polls exist because the
+  logged-out X page shows at most 6 posts — a 12-hourly poll would overflow
+  that ceiling on a busy day and lose posts silently.
+-->
+<plist version="1.0">
+<dict>
+  <key>Label</key><string>com.aie.watch-x</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/Library/Frameworks/Python.framework/Versions/3.14/bin/python3</string>
+    <string>/Users/mikembp/Documents/Claude/ai-supply-desk/ingest/watcher.py</string>
+  </array>
+  <key>StartCalendarInterval</key>
+  <array>
+    <dict><key>Hour</key><integer>0</integer><key>Minute</key><integer>5</integer></dict>
+    <dict><key>Hour</key><integer>4</integer><key>Minute</key><integer>5</integer></dict>
+    <dict><key>Hour</key><integer>8</integer><key>Minute</key><integer>5</integer></dict>
+    <dict><key>Hour</key><integer>12</integer><key>Minute</key><integer>5</integer></dict>
+    <dict><key>Hour</key><integer>16</integer><key>Minute</key><integer>5</integer></dict>
+    <dict><key>Hour</key><integer>20</integer><key>Minute</key><integer>5</integer></dict>
+  </array>
+  <key>StandardOutPath</key><string>/Users/mikembp/Library/Logs/aie-watch-x.log</string>
+  <key>StandardErrorPath</key><string>/Users/mikembp/Library/Logs/aie-watch-x.log</string>
+</dict>
+</plist>

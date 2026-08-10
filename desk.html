@@ -8,7 +8,7 @@
   <!-- ⚡ favicon: inline SVG data URI (no external request, works on file://) -->
   <link
     rel="icon"
-    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M13 2 4.5 13.5H11l-1 8.5L19.5 10H13z' fill='%233b82f6'/%3E%3C/svg%3E"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M13 2 4.5 13.5H11l-1 8.5L19.5 10H13z' fill='%235b3ee0'/%3E%3C/svg%3E"
   />
 
   <!-- Shared design tokens + components — the single source of truth for
@@ -51,29 +51,44 @@
     }
 
     /* ============================================================
-       Desk strip — compact live-count line + tier split bar.
+       Desk hero (v9) — a claim, one plain line, then big numbers.
+       Replaces the old mono status strip + unlabelled tier bar, which
+       opened the page with metadata instead of a message.
        ============================================================ */
-    .desk-strip { padding: 18px 0 6px; }
-    .ds-line {
-      font-family: var(--mono);
-      font-size: 12px;
-      letter-spacing: 0.02em;
-      color: var(--text);
-      margin-bottom: 10px;
-      font-variant-numeric: tabular-nums;
+    .desk-hero { padding: var(--s-6) 0 var(--s-2); }
+    .dh-claim {
+      margin: 0;
+      max-width: 17ch;
+      font-family: var(--display);
+      font-size: clamp(34px, 5.2vw, 56px);
+      font-weight: 700;
+      letter-spacing: -0.035em;
+      line-height: 1.02;
+      color: var(--ink);
     }
-
-
-    /* Conviction barbell: one bar, three segments (core/watch/radar). */
-    .hero-barbell { margin-bottom: 14px; }
-    .hb-bar {
-      display: flex;
-      height: 10px;
-      border-radius: 999px;
-      overflow: hidden;
-      background: var(--border);
+    /* One lavender italic phrase, the way aave.com sets "Trusted by Default".
+       --violet-soft is 3.08:1, below the 4.5 body-text floor — legal HERE and
+       only here because this is large text (>=24px bold), whose floor is 3:1.
+       Never use it at body size. */
+    .dh-claim em {
+      font-style: italic;
+      font-weight: 700;
+      color: var(--violet-soft);
     }
-    .hb-seg { transition: flex-grow 600ms var(--spring); }
+    .dh-sub {
+      margin: var(--s-4) 0 0;
+      max-width: 56ch;
+      font-size: var(--fs-lg);
+      line-height: 1.5;
+      color: var(--muted);
+    }
+    .dh-stats { margin-top: var(--s-6); }
+
+    @media (max-width: 768px) {
+      .desk-hero { padding-top: var(--s-5); }
+      .dh-claim { max-width: none; }
+      .dh-sub { font-size: var(--fs-md); }
+    }
 
 
     /* ============================================================
@@ -113,7 +128,7 @@
       left: 0;
       height: calc(100% - 8px);
       border-radius: 999px;
-      background: var(--brand-grad);
+      background: var(--violet);
       transition: transform var(--dur) var(--spring), width var(--dur) var(--spring);
       will-change: transform, width;
       opacity: 0; /* shown once JS measures the active link */
@@ -127,7 +142,7 @@
       gap: 7px;
       padding: 8px 16px;
       border-radius: 999px;
-      font-size: 13px;
+      font-size: var(--fs-xs);
       font-weight: 600;
       letter-spacing: -0.01em;
       color: var(--muted);
@@ -135,19 +150,8 @@
       white-space: nowrap;
       transition: color var(--ease);
     }
-    .capsule-link .cl-index {
-      font-family: var(--mono);
-      font-size: 9.5px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      opacity: 0.65;
-    }
     .capsule-link:hover { color: var(--ink); }
     .capsule-link.is-active { color: #fff; }
-    .capsule-link:focus-visible {
-      outline: 2px solid var(--muted);
-      outline-offset: 2px;
-    }
 
     /* ============================================================
        Chapters — always-visible sections in pedagogical order.
@@ -163,7 +167,7 @@
     .chapter-eyebrow {
       display: block;
       font-family: var(--mono);
-      font-size: 10.5px;
+      font-size: var(--fs-2xs);
       font-weight: 700;
       letter-spacing: 0.18em;
       text-transform: uppercase;
@@ -182,7 +186,7 @@
     .chapter-lede {
       margin: 0;
       font-family: var(--display);
-      font-size: 13.5px;
+      font-size: var(--fs-xs);
       line-height: 1.6;
       color: var(--text);
       max-width: 60ch;
@@ -195,7 +199,7 @@
       margin-top: 64px;
       padding: 26px 0 8px;
       border-top: 1px solid var(--border);
-      font-size: 12.5px;
+      font-size: var(--fs-xs);
       line-height: 1.7;
       color: var(--muted);
       max-width: 70ch;
@@ -204,7 +208,7 @@
       display: block;
       margin-top: 10px;
       font-family: var(--mono);
-      font-size: 10.5px;
+      font-size: var(--fs-2xs);
       letter-spacing: 0.06em;
     }
 
@@ -228,7 +232,7 @@
       border-radius: 8px;
       color: var(--muted);
       font: inherit;
-      font-size: 13px;
+      font-size: var(--fs-xs);
       font-weight: 500;
       padding: 7px 14px;
       cursor: pointer;
@@ -241,201 +245,319 @@
     .map-header-actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 
     /* ---------- Pipeline view: 3 flow columns (Supply -> Chip -> Demand) ---------- */
-    .map-pipeline { display: flex; flex-direction: column; gap: 18px; }
+    .map-pipeline { display: flex; flex-direction: column; gap: var(--s-4); }
     .map-pipeline[hidden] { display: none; }
-    .mp-columns { display: flex; align-items: flex-start; gap: 14px; }
-    .mp-col { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 10px; }
-    .mp-col-label {
-      font-family: var(--mono); font-size: 10.5px; font-weight: 700;
-      letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
-      margin-bottom: 2px;
-    }
-    .mp-arrow { flex: 0 0 auto; align-self: center; padding-top: 46px; color: var(--muted); }
-    /* Ambient dash-scroll on the flow arrows (U7) — the aie-flow keyframes
-       live in theme.css (U2); its reduced-motion gate stops this too. */
-    .flow-dash { animation: aie-flow 1.4s linear infinite; }
-    .mp-hub { display: flex; justify-content: center; }
-    .mp-hub .layer-hub { width: 100%; max-width: 420px; }
 
-    /* A layer band. Accent color is set inline from data.js (--accent). */
-    .layer-band {
-      position: relative;
-      display: flex;
-      align-items: center;
-      gap: 16px;
+    /* ============================================================
+       Chain schematic — modelled on the "Built for embedded yield"
+       diagram at aave.com/stable-vaults: soft panels holding small
+       white nodes, joined by dotted connectors, with a shared node
+       bridging the two sides.
+
+       Theirs is a static SVG export (986x382, zero <text> elements —
+       every label outlined to a path). This is real HTML/CSS instead,
+       so the nodes stay clickable, selectable, screen-readable and
+       responsive, and they still drive the ticker filter.
+       ============================================================ */
+    /* panel | link | panel | link | panel — supply feeds the chip feeds demand */
+    .chain-diagram {
+      display: grid;
+      grid-template-columns: 1fr auto minmax(0, 0.9fr) auto 1fr;
+      align-items: stretch;   /* equal-height panels, as on the reference */
+      gap: var(--s-1);
+    }
+    /* The chip panel is the spine: it gets the emphasis, not a black slab. */
+    .chain-panel--chip {
+      background: var(--violet-wash);
+      border-color: color-mix(in srgb, var(--violet) 22%, var(--border));
+    }
+    .chain-panel {
+      display: flex; flex-direction: column;
+      background: var(--paper-tint);
+      border: 1px solid var(--border);
+      border-radius: var(--r-card);
+      padding: var(--s-5);
+      min-width: 0;
+    }
+    .chain-panel-label {
+      display: block; text-align: center;
+      font-family: var(--display); font-size: var(--fs-md); font-weight: 600;
+      letter-spacing: -0.01em; color: var(--ink);
+      margin-bottom: var(--s-5);
+    }
+    .chain-nodes {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: var(--s-4) var(--s-3);
+      flex: 1 1 auto;
+      align-content: center;
+    }
+
+    /* A node. White, small radius, thin outline — Aave's rx:12 box. */
+    .chain-node {
+      appearance: none;
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
+      min-width: 0;
+      padding: var(--s-3) var(--s-2);
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      cursor: pointer;
+      text-align: center;
+      font-family: inherit;
+      transition: border-color var(--ease), box-shadow var(--ease), transform var(--ease);
+    }
+    .chain-node:hover {
+      transform: translateY(-2px);
+      border-color: color-mix(in srgb, var(--accent) 50%, var(--border));
+      box-shadow: var(--shadow-sm);
+    }
+    .chain-node.is-active {
+      border-color: var(--accent);
+      background: color-mix(in srgb, var(--accent) 8%, var(--card));
+      box-shadow: var(--shadow-sm);
+    }
+    .cn-icon {
+      display: grid; place-items: center;
+      width: 30px; height: 30px; border-radius: 9px;
+      color: color-mix(in srgb, var(--accent) 80%, black);
+      background: color-mix(in srgb, var(--accent) 13%, var(--card));
+    }
+    .cn-icon svg { display: block; }
+    .cn-label {
+      font-size: var(--fs-xs); font-weight: 600; line-height: 1.25;
+      color: var(--ink); overflow-wrap: anywhere;
+    }
+    /* Company count as a dot cluster — Aave draws its "Yield Adapters"
+       the same way, so a layer's weight reads before you read the number. */
+    .cn-dots { display: flex; flex-wrap: wrap; justify-content: center; gap: 3px; max-width: 84px; }
+    .cn-dots i {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: color-mix(in srgb, var(--accent) 55%, var(--card));
+    }
+    .cn-dots i.is-core { background: var(--accent); }
+    .cn-count {
+      font-family: var(--mono); font-size: var(--fs-2xs); color: var(--muted);
+    }
+    .chain-node.is-empty { border-style: dashed; }
+    .chain-node.is-empty .cn-count { font-style: italic; }
+
+    /* Triage: quiet, compact, clearly not one of the three real zones. */
+    .chain-panel--triage {
+      margin-top: var(--s-4);
+      background: transparent;
+      border-style: dashed;
+      padding: var(--s-4);
+    }
+    .chain-panel--triage .chain-panel-label {
+      font-size: var(--fs-xs); color: var(--muted); margin-bottom: var(--s-3);
+    }
+    .chain-panel--triage .chain-nodes {
+      grid-template-columns: repeat(auto-fit, minmax(120px, 160px));
+      justify-content: center;
+    }
+
+    /* The bridge: NVIDIA sits between supply and demand, where Aave puts
+       "Bridge Infrastructure". Replaces the old full-width black slab. */
+    .chain-bridge {
+      display: flex; flex-direction: column; align-items: center; gap: var(--s-2);
+      padding: var(--s-5) var(--s-4);
+      background: var(--card);
+      border: 1px solid var(--border-strong);
+      border-radius: var(--r-tile);
+      box-shadow: var(--shadow-sm);
+      max-width: 190px;
+      text-align: center;
+    }
+    .chain-bridge-icon {
+      display: grid; place-items: center;
+      width: 40px; height: 40px; border-radius: 12px;
+      color: var(--violet); background: var(--violet-wash);
+    }
+    .chain-bridge-title {
+      font-family: var(--display); font-size: var(--fs-md); font-weight: 700;
+      letter-spacing: -0.015em; color: var(--ink); line-height: 1.2;
+    }
+    .chain-bridge-sub { font-size: var(--fs-2xs); color: var(--muted); line-height: 1.4; }
+    .chain-bridge-chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px; }
+
+    /* Dotted connector. Aave's exact stroke: dasharray "0.2 8", width 3,
+       round caps — that is what makes it read as a dotted trail. */
+    .chain-link { display: grid; place-items: center; color: var(--violet-soft); padding: 0 var(--s-2); }
+    .chain-link svg { display: block; overflow: visible; }
+    .flow-dash {
+      stroke-dasharray: 0.2 8;
+      stroke-width: 3;
+      stroke-linecap: round;
+      animation: aie-flow 1.4s linear infinite;
+    }
+
+    /* Selected-layer detail, under the diagram. The nodes are deliberately
+       small, so the prose lives here rather than inside every node. */
+    .chain-detail {
+      margin-top: var(--s-4);
+      max-height: 0; opacity: 0; overflow: hidden;
+      transition: max-height var(--dur) var(--spring), opacity var(--ease);
+    }
+    .chain-detail.open { opacity: 1; }
+    .chain-detail-inner {
+      display: flex; flex-direction: column; gap: var(--s-3);
+      padding: var(--s-5);
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: var(--r-card);
-      padding: 15px 18px 15px 22px;
-      overflow: hidden;
-      cursor: pointer;
-      transition: transform var(--ease), box-shadow var(--ease),
-                  border-color var(--ease), background var(--ease);
     }
-    /* Colored spine — the layer's category signature. */
-    .layer-band::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; bottom: 0;
-      width: 4px;
-      background: var(--accent);
-      transition: width var(--ease);
+    .cd-head { display: flex; align-items: center; gap: var(--s-3); flex-wrap: wrap; }
+    .cd-title {
+      font-family: var(--display); font-size: var(--fs-lg); font-weight: 700;
+      letter-spacing: -0.02em; color: var(--ink);
     }
-    .layer-band:hover {
-      transform: translateX(2px);
-      border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
-      background: color-mix(in srgb, var(--accent) 5%, var(--card));
-      box-shadow: 0 6px 18px -12px color-mix(in srgb, var(--accent) 50%, transparent);
+    .cd-sub { font-size: var(--fs-xs); color: var(--muted); }
+    .cd-count { margin-left: auto; font-family: var(--mono); font-size: var(--fs-2xs); color: var(--muted); }
+    .cd-count b { color: var(--ink); }
+    .cd-text { margin: 0; font-size: var(--fs-sm); line-height: 1.6; color: var(--text); }
+    .cd-watch-label {
+      font-family: var(--mono); font-size: var(--fs-2xs); font-weight: 700;
+      letter-spacing: .08em; text-transform: uppercase;
+      color: color-mix(in srgb, var(--accent) 75%, var(--muted));
     }
-    /* Connector glows in the category color on hover (revives the SVG-map intent). */
-    .layer-band:hover::before { width: 7px; }
-    .layer-band.is-active {
-      border-color: color-mix(in srgb, var(--accent) 55%, var(--border));
-      background: color-mix(in srgb, var(--accent) 9%, var(--card));
-      box-shadow: 0 10px 24px -12px color-mix(in srgb, var(--accent) 50%, transparent);
-    }
-    .layer-band.is-active::before { width: 7px; }
-    .layer-band:focus-visible { outline: 2px solid var(--muted); outline-offset: 2px; }
+    .cd-tickers { display: flex; flex-wrap: wrap; gap: var(--s-1); }
 
-    .layer-index {
-      flex: 0 0 auto;
-      min-width: 38px;
-      text-align: center;
-      font-family: var(--mono);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      color: color-mix(in srgb, var(--accent) 70%, black);
-      background: color-mix(in srgb, var(--accent) 14%, white);
-      border-radius: 6px;
-      padding: 6px 8px;
+    @media (max-width: 900px) {
+      /* Stack the schematic; the connectors turn vertical. */
+      .chain-diagram { grid-template-columns: 1fr; }
+      .chain-link svg { transform: rotate(90deg); }
+      .chain-bridge { max-width: none; width: 100%; }
     }
-    .layer-icon { flex: 0 0 auto; display: grid; place-items: center; color: var(--accent); }
-    .layer-icon svg { display: block; }
-    .layer-main { flex: 1 1 auto; min-width: 0; }
-    .layer-title { font-size: 15px; font-weight: 700; color: var(--accent); }
-    .layer-sub { font-weight: 500; font-size: 12px; color: var(--muted); }
-    .layer-desc { margin: 4px 0 0; font-size: 12.5px; line-height: 1.5; color: var(--text); }
-    .layer-count {
-      flex: 0 0 auto;
-      font-family: var(--mono);
-      font-size: 11px;
-      letter-spacing: 0.04em;
-      color: var(--muted);
-      white-space: nowrap;
-    }
-    .layer-count b { color: var(--ink); font-weight: 700; }
 
-    /* Demand hub band: true-black "event stage" surface, non-interactive, with a
-       brand-gradient hairline along its top edge (Phase 6, U4). */
-    .layer-hub { cursor: default; background: var(--stage); border-color: var(--stage); }
-    .layer-hub::before {
-      top: 0; left: 0; right: 0; bottom: auto;
-      width: auto; height: 2px;
-      background: var(--brand-grad);
-    }
-    .layer-hub:hover { transform: none; background: var(--stage); border-color: var(--stage); box-shadow: none; }
-    .layer-hub:hover::before { width: auto; height: 2px; }
-    .layer-hub .layer-index { color: #cbd5e1; background: rgba(255, 255, 255, 0.08); }
-    .layer-hub .layer-icon { color: #ffffff; }
-    .layer-hub .layer-title { color: #ffffff; }
-    .layer-hub .layer-sub { color: #94a3b8; }
-    .layer-hub .layer-desc { color: #cbd5e1; }
+    /* (The v7 layer-band / layer-hub / zone-divider / layer-detail rules were
+       removed with the v9 schematic rewrite. The chain is drawn by
+       .chain-diagram > .chain-panel > .chain-node now, with .chain-detail
+       carrying the selected layer's prose. ~180 lines of dead CSS.) */
+
+
 
     /* ---------- Pipeline framing: intro, flow rail, zones, detail ---------- */
     /* "How to read this map" line. Text injected from AIE_DATA.mapIntro. */
     .map-intro {
       margin: 0 0 16px;
-      font-size: 13px;
+      font-size: var(--fs-xs);
       line-height: 1.55;
       color: var(--muted);
       max-width: 72ch;
     }
 
-    /* ---------- Cross Section view: blueprint-style bar chart ---------- */
+    /* ============================================================
+       Cross section — a chart card in the language of the growth
+       chart on aave.com: white card, dashed gridlines at 10% ink,
+       quiet axis labels, soft gradient fills, a value pill per series.
+
+       It stays a BAR chart. The data is categorical (companies per
+       layer); drawing it as a line would imply Photonics flows into
+       Memory, which is false.
+       ============================================================ */
     .map-cross {
-      position: relative;
-      background: var(--stage);
+      background: var(--card);
+      border: 1px solid var(--border);
       border-radius: var(--r-card);
-      padding: 24px 20px 18px;
-      overflow: hidden;
-      background-image:
-        linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-      background-size: 28px 28px;
+      padding: var(--s-6);
     }
-    /* Brand-gradient hairline along the top edge (Phase 6, U4). */
-    .map-cross::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: var(--brand-grad);
+    .xs-head {
+      display: flex; align-items: flex-start; justify-content: space-between;
+      gap: var(--s-4); flex-wrap: wrap; margin-bottom: var(--s-6);
     }
-    .mc-bars { display: flex; align-items: flex-end; gap: 10px; height: 190px; }
+    .xs-title {
+      margin: 0; font-family: var(--display); font-size: var(--fs-lg);
+      font-weight: 700; letter-spacing: -0.02em; color: var(--ink);
+    }
+    .xs-sub { margin: var(--s-1) 0 0; font-size: var(--fs-xs); color: var(--muted); }
+    .xs-legend { display: flex; align-items: center; gap: var(--s-4); flex-wrap: wrap; }
+    .xs-legend span {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: var(--fs-xs); color: var(--muted);
+    }
+    .xs-legend b { color: var(--ink); font-weight: 700; font-family: var(--mono); }
+
+    /* Plot: y-axis gutter + the bar field, gridlines behind. */
+    .xs-plot { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--s-3); }
+    .xs-yaxis {
+      display: flex; flex-direction: column; justify-content: space-between;
+      height: 210px; padding-bottom: 0;
+      font-family: var(--mono); font-size: var(--fs-2xs);
+      color: color-mix(in srgb, var(--ink) 40%, transparent);
+      text-align: right;
+    }
+    .xs-field { position: relative; }
+    /* Aave's gridline: 1px dashed, 4/6, ink at 10%. */
+    .xs-grid { position: absolute; inset: 0 0 auto 0; height: 210px; pointer-events: none; }
+    .xs-grid i {
+      position: absolute; left: 0; right: 0;
+      border-top: 1px dashed color-mix(in srgb, var(--ink) 10%, transparent);
+    }
+    .mc-bars {
+      position: relative;
+      display: flex; align-items: flex-end; gap: var(--s-2);
+      height: 210px;
+    }
     .mc-col {
       flex: 1 1 0; min-width: 0; height: 100%;
       display: flex; flex-direction: column; align-items: center; justify-content: flex-end;
-      gap: 8px; cursor: pointer; border-radius: 6px;
+      gap: 6px; cursor: pointer; background: none; border: 0; padding: 0;
+      font-family: inherit;
       transition: transform var(--ease);
     }
     .mc-col:hover { transform: translateY(-2px); }
-    .mc-col:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
-    .mc-bar { width: 100%; min-height: 4px; border-radius: 4px 4px 0 0; transition: filter var(--ease), outline var(--ease); }
-    .mc-col:hover .mc-bar { filter: brightness(1.15); }
-    .mc-col.is-active .mc-bar { outline: 2px solid #fff; outline-offset: -2px; }
-    .mc-count { font-family: var(--mono); font-size: 11px; color: #e2e8f0; }
-    .mc-label {
-      font-family: var(--mono); font-size: 10px; letter-spacing: 0.05em;
-      color: #94a3b8; text-align: center; line-height: 1.3;
+    /* The bar: category hue at full strength on top, fading down — the
+       same soft area-fill idea as the reference chart's series. */
+    .mc-bar {
+      width: 100%; min-height: 4px; border-radius: 8px 8px 4px 4px;
+      background: linear-gradient(180deg,
+        color-mix(in srgb, var(--accent) 85%, var(--card)),
+        color-mix(in srgb, var(--accent) 22%, var(--card)));
+      transition: filter var(--ease);
     }
-    /* Heat readout: median 7-day price change per category (from the
-       weekly price snapshot merged into data.js). */
-    .mc-heat { font-family: var(--mono); font-size: 10px; font-weight: 700; }
-    .mc-heat.hot  { color: #4ade80; }
-    .mc-heat.cold { color: #f87171; }
-    .mc-heat.flat { color: #9aa1ac; }
+    .mc-col:hover .mc-bar { filter: brightness(1.04) saturate(1.15); }
+    .mc-col.is-active .mc-bar {
+      background: linear-gradient(180deg, var(--accent),
+        color-mix(in srgb, var(--accent) 35%, var(--card)));
+      box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 45%, transparent);
+    }
+    /* Value pill above the bar. Aave uses white on #998dff (2.9:1, fails AA);
+       this uses --violet at 6.5:1 instead. */
+    .mc-count {
+      font-family: var(--mono); font-size: var(--fs-2xs); font-weight: 700;
+      color: var(--ink);
+    }
+    .mc-col.is-active .mc-count {
+      background: var(--violet); color: #fff;
+      border-radius: var(--r-chip); padding: 2px 8px;
+    }
+    .xs-xaxis { display: flex; gap: var(--s-2); margin-top: var(--s-3); }
+    .xs-xcell {
+      flex: 1 1 0; min-width: 0; text-align: center;
+      display: flex; flex-direction: column; align-items: center; gap: 2px;
+    }
+    .mc-label {
+      font-size: var(--fs-2xs); line-height: 1.3; text-align: center;
+      color: var(--muted); overflow-wrap: anywhere;
+    }
+    .mc-heat { font-family: var(--mono); font-size: var(--fs-2xs); font-weight: 700; }
+    .mc-heat.hot  { color: var(--pos); }
+    .mc-heat.cold { color: var(--neg); }
+    .mc-heat.flat { color: var(--muted); }
     .mc-legend {
-      margin-top: 14px;
-      font-family: var(--mono); font-size: 10px; letter-spacing: 0.06em;
-      color: #9aa1ac;
+      margin-top: var(--s-5); padding-top: var(--s-4);
+      border-top: 1px solid var(--border);
+      font-size: var(--fs-2xs); color: var(--muted);
     }
 
-    /* Zone divider: groups the pipeline (Demand / Chip / Supply) or a date group. */
-    .zone-divider {
-      position: relative;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin: 8px 0 1px;
-      padding-left: 2px;
+    @media (max-width: 768px) {
+      .map-cross { padding: var(--s-4); }
+      .mc-bars, .xs-grid, .xs-yaxis { height: 160px; }
+      .mc-label { font-size: var(--fs-2xs); }
     }
-    .zone-divider::after {
-      content: "";
-      flex: 1 1 auto;
-      height: 1px;
-      background: var(--border);
-    }
-    /* Upward flow marker sitting on the rail at each zone break. */
-    .zone-divider::before {
-      content: "\25B2";
-      position: absolute;
-      left: -20px;
-      font-size: 8px;
-      line-height: 1;
-      color: color-mix(in srgb, var(--ink) 55%, var(--muted));
-    }
-    .zone-label {
-      font-family: var(--mono);
-      font-size: 10.5px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--muted);
-      white-space: nowrap;
-    }
-    .zone-divider--muted .zone-label { color: color-mix(in srgb, var(--muted) 65%, transparent); }
-    .zone-divider--muted::before { content: ""; }
+
+
 
     /* Investor angle — collapsed until the layer is selected (.is-active).
        Unified drill-down: JS measures true content height and animates
@@ -445,43 +567,6 @@
        track a bounded "available space" instead of letting it size to
        content, so 1fr silently resolves to 0. max-height + a JS-measured
        pixel target sidesteps that ambiguity entirely. */
-    .layer-detail {
-      max-height: 0;
-      opacity: 0;
-      overflow: hidden;
-      margin-top: 0;
-      transition: max-height var(--dur) var(--spring),
-                  opacity var(--ease), margin-top var(--ease);
-    }
-    .layer-band.is-active .layer-detail {
-      opacity: 1;
-      margin-top: 9px;
-    }
-    /* Category subtitle, revealed with the drill-down (collapsed rows show
-       only the short layer name). */
-    .layer-detail-sub {
-      display: block;
-      font-weight: 600;
-      font-size: 12px;
-      color: var(--muted);
-      margin-bottom: 4px;
-    }
-    .layer-detail-label {
-      display: inline-block;
-      font-family: var(--mono);
-      font-size: 9.5px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: color-mix(in srgb, var(--accent) 75%, var(--muted));
-      margin-bottom: 3px;
-    }
-    .layer-detail-text {
-      margin: 0;
-      font-size: 12.5px;
-      line-height: 1.5;
-      color: var(--text);
-    }
 
     /* ============================================================
        Ticker cards (Tab 1, Section B) — research-dossier aesthetic.
@@ -503,14 +588,14 @@
     }
     .cards-ledger .ledger-eyebrow {
       font-family: var(--mono);
-      font-size: 11px;
+      font-size: var(--fs-2xs);
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--muted);
     }
     .cards-ledger .ledger-scope {
       font-family: var(--mono);
-      font-size: 11px;
+      font-size: var(--fs-2xs);
       letter-spacing: 0.04em;
       color: var(--ink);
       white-space: nowrap;
@@ -567,7 +652,7 @@
     .tk-tile-icon svg { display: block; }
     .tk-tile-sym {
       font-family: var(--mono);
-      font-size: 15px;
+      font-size: var(--fs-sm);
       font-weight: 700;
       letter-spacing: -0.01em;
       color: var(--accent);
@@ -576,7 +661,7 @@
       text-overflow: ellipsis;
     }
     .tk-tile-co {
-      font-size: 11.5px;
+      font-size: var(--fs-2xs);
       color: var(--muted);
       white-space: nowrap;
       overflow: hidden;
@@ -584,7 +669,7 @@
     }
     .tk-tile-badges { display: flex; align-items: center; gap: 5px; margin-top: auto; }
     .tk-tile-badges .tier-badge,
-    .tk-tile-badges .vd-stance { font-size: 9px; padding: 2px 7px; }
+    .tk-tile-badges .vd-stance { font-size: var(--fs-2xs); padding: 2px 7px; }
 
     /* Expand-in-place detail row — a full-width grid row inserted right after
        the clicked tile's row, animated by AIE.setDrilldownOpen (JS-measured
@@ -655,7 +740,7 @@
     .tk-head { display: flex; flex-direction: column; gap: 3px; }
     .tk-ticker {
       font-family: var(--mono);
-      font-size: 27px;
+      font-size: var(--fs-xl);
       font-weight: 700;
       line-height: 1;
       letter-spacing: -0.02em;
@@ -666,7 +751,7 @@
     }
     a.tk-ticker:hover { opacity: 0.72; text-decoration: underline; text-underline-offset: 4px; }
     .tk-company {
-      font-size: 13px;
+      font-size: var(--fs-xs);
       font-weight: 500;
       color: var(--muted);
     }
@@ -674,7 +759,7 @@
     /* Badge row. */
     .tk-badges { display: flex; flex-wrap: wrap; align-items: center; gap: 7px; }
     .tk-badge {
-      font-size: 11px;
+      font-size: var(--fs-2xs);
       font-weight: 600;
       line-height: 1;
       padding: 5px 9px;
@@ -700,7 +785,7 @@
     .tk-tier { display: inline-flex; align-items: center; gap: 6px; margin-left: auto; }
     .tk-tier-label {
       font-family: var(--mono);
-      font-size: 10px;
+      font-size: var(--fs-2xs);
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--muted);
@@ -721,7 +806,7 @@
     }
     .tk-body dt {
       font-family: var(--mono);
-      font-size: 10px;
+      font-size: var(--fs-2xs);
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: color-mix(in srgb, var(--accent) 60%, var(--muted));
@@ -729,7 +814,7 @@
     }
     .tk-body dd {
       margin: 0;
-      font-size: 13px;
+      font-size: var(--fs-xs);
       line-height: 1.5;
       color: var(--text);
     }
@@ -751,11 +836,11 @@
     .cards-empty h3 {
       margin: 0 0 6px;
       font-family: var(--mono);
-      font-size: 14px;
+      font-size: var(--fs-sm);
       letter-spacing: 0.02em;
       color: var(--ink);
     }
-    .cards-empty p { margin: 0; font-size: 13px; color: var(--muted); }
+    .cards-empty p { margin: 0; font-size: var(--fs-xs); color: var(--muted); }
 
     /* "What they prioritize" — mention-count chips, merged into the Holdings
        ledger row as a horizontal scroller (U7; was a standalone card strip). */
@@ -774,7 +859,7 @@
     .priority-strip .ps-label {
       flex: 0 0 auto;
       font-family: var(--mono);
-      font-size: 10px;
+      font-size: var(--fs-2xs);
       letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--muted);
@@ -790,12 +875,12 @@
       border: 1px solid var(--border);
       background: var(--bg);
       font-family: var(--mono);
-      font-size: 12px;
+      font-size: var(--fs-xs);
       white-space: nowrap;
     }
-    .ps-chip .ps-rank { color: var(--muted); font-size: 10px; }
+    .ps-chip .ps-rank { color: var(--muted); font-size: var(--fs-2xs); }
     .ps-chip .ps-sym { font-weight: 700; color: var(--ink); }
-    .ps-chip .ps-meta { color: var(--muted); font-size: 10px; }
+    .ps-chip .ps-meta { color: var(--muted); font-size: var(--fs-2xs); }
 
     /* Priority badge on a card (shown when the ticker has ingest-derived priority). */
     .tk-prio {
@@ -810,7 +895,7 @@
        uses the same vocabulary but now lives in shared/theme.css (7b) with the
        rest of the .th-card component. */
     .tier-badge, .bd-conviction {
-      font-family: var(--mono); font-size: 10px; letter-spacing: .07em;
+      font-family: var(--mono); font-size: var(--fs-2xs); letter-spacing: .07em;
       text-transform: uppercase; font-weight: 700;
       padding: 2px 8px; border-radius: 999px;
     }
@@ -826,7 +911,7 @@
 
     /* Desk verdict — Claude's weekly stance on a Core name. */
     .vd-stance {
-      font-family: var(--mono); font-size: 10px; letter-spacing: .06em;
+      font-family: var(--mono); font-size: var(--fs-2xs); letter-spacing: .06em;
       text-transform: uppercase; font-weight: 700;
       padding: 2px 8px; border-radius: 999px; white-space: nowrap;
     }
@@ -841,7 +926,7 @@
       background: color-mix(in srgb, var(--accent, var(--muted)) 4%, var(--card));
     }
     .wl-verdict { max-width: 720px; padding: 10px 4px 0; }
-    .wl-verdict p { margin: 6px 0 0; font-size: 12.5px; line-height: 1.55; color: var(--text); }
+    .wl-verdict p { margin: 6px 0 0; font-size: var(--fs-xs); line-height: 1.55; color: var(--text); }
     .wl-verdict p b { color: var(--ink); }
     .tk-verdict {
       margin-top: 12px; padding: 12px 14px; border-radius: 10px;
@@ -852,13 +937,13 @@
       display: flex; align-items: center; gap: 8px; margin-bottom: 8px;
     }
     .tk-verdict-label {
-      font-family: var(--mono); font-size: 9.5px; letter-spacing: .12em;
+      font-family: var(--mono); font-size: var(--fs-2xs); letter-spacing: .12em;
       text-transform: uppercase; color: var(--muted);
     }
-    .tk-verdict p { margin: 0 0 8px; font-size: 12.5px; line-height: 1.6; color: var(--text); }
+    .tk-verdict p { margin: 0 0 8px; font-size: var(--fs-xs); line-height: 1.6; color: var(--text); }
     .tk-verdict p:last-child { margin-bottom: 0; }
     .tk-verdict b {
-      font-family: var(--mono); font-size: 10px; letter-spacing: .08em;
+      font-family: var(--mono); font-size: var(--fs-2xs); letter-spacing: .08em;
       text-transform: uppercase; color: var(--muted); font-weight: 700;
       display: block; margin-bottom: 2px;
     }
@@ -875,7 +960,7 @@
     }
     .gl-eyebrow {
       display: block;
-      font-family: var(--mono); font-size: 10px; font-weight: 700;
+      font-family: var(--mono); font-size: var(--fs-2xs); font-weight: 700;
       letter-spacing: 0.16em; text-transform: uppercase;
       color: var(--muted); margin-bottom: 10px;
     }
@@ -885,9 +970,9 @@
     .gl-head .gl-eyebrow { margin-bottom: 0; }
     .gl-head .bd-toggle { margin-top: 0; margin-left: auto; }
     .gl-items { display: flex; flex-wrap: wrap; gap: 8px 22px; }
-    .gl-item { font-size: 12.5px; line-height: 1.55; color: var(--muted); }
+    .gl-item { font-size: var(--fs-xs); line-height: 1.55; color: var(--muted); }
     .gl-item dfn {
-      font-style: normal; font-family: var(--mono); font-size: 11.5px;
+      font-style: normal; font-family: var(--mono); font-size: var(--fs-2xs);
       font-weight: 700; color: var(--ink);
       border-bottom: 1px dotted var(--muted);
       margin-right: 6px;
@@ -899,31 +984,31 @@
       margin-bottom: 14px;
     }
     .wl-recent .wr-label {
-      font-family: var(--mono); font-size: 10px; font-weight: 700;
+      font-family: var(--mono); font-size: var(--fs-2xs); font-weight: 700;
       letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
     }
     .wr-chip {
       display: inline-flex; align-items: baseline; gap: 6px;
       padding: 4px 10px; border-radius: 999px;
-      border: 1px solid color-mix(in srgb, var(--accent, #94a3b8) 40%, var(--border));
-      background: color-mix(in srgb, var(--accent, #94a3b8) 8%, var(--card));
-      font-family: var(--mono); font-size: 11.5px; font-weight: 700;
-      color: color-mix(in srgb, var(--accent, #94a3b8) 70%, black);
+      border: 1px solid color-mix(in srgb, var(--accent, var(--muted)) 40%, var(--border));
+      background: color-mix(in srgb, var(--accent, var(--muted)) 8%, var(--card));
+      font-family: var(--mono); font-size: var(--fs-2xs); font-weight: 700;
+      color: color-mix(in srgb, var(--accent, var(--muted)) 70%, black);
     }
-    .wr-chip .wr-date { font-weight: 400; font-size: 10px; color: var(--muted); }
+    .wr-chip .wr-date { font-weight: 400; font-size: var(--fs-2xs); color: var(--muted); }
 
     /* Radar visibility toggle on the map's card ledger. */
     .tier-toggle {
       margin-left: auto; padding: 5px 12px; border-radius: 999px;
       border: 1px solid var(--border); background: var(--card);
-      font-family: var(--mono); font-size: 11px; color: var(--muted);
+      font-family: var(--mono); font-size: var(--fs-2xs); color: var(--muted);
       cursor: pointer; transition: color var(--ease), border-color var(--ease);
     }
     .tier-toggle:hover { color: var(--ink); border-color: var(--muted); }
 
     /* Watchlist tier chips reuse .filter-chip; desk review meta line. */
     .wl-tiers { display: flex; flex-wrap: wrap; gap: 6px; }
-    .wl-desk-meta { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+    .wl-desk-meta { font-family: var(--mono); font-size: var(--fs-2xs); color: var(--muted); }
 
     /* ---------- Thesis (Tab 3) ---------- */
     .th-header {
@@ -932,58 +1017,89 @@
       padding-bottom: 10px; margin-bottom: 20px;
       border-bottom: 1px solid var(--border);
     }
-    .th-count { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+    .th-count { font-family: var(--mono); font-size: var(--fs-2xs); color: var(--muted); }
     .th-empty {
       padding: 56px 32px; text-align: center;
       background: var(--card); border: 1px solid var(--border); border-radius: var(--r-card);
     }
-    .th-empty-title { font-size: 16px; font-weight: 600; color: var(--text); margin: 0 0 6px; }
-    .th-empty-sub  { font-size: 13px; color: var(--muted); margin: 0; line-height: 1.6; }
-    .th-empty-sub code { font-family: var(--mono); font-size: 12px;
+    .th-empty-title { font-size: var(--fs-md); font-weight: 600; color: var(--text); margin: 0 0 6px; }
+    .th-empty-sub  { font-size: var(--fs-xs); color: var(--muted); margin: 0; line-height: 1.6; }
+    .th-empty-sub code { font-family: var(--mono); font-size: var(--fs-xs);
       background: rgba(15,23,42,.06); padding: 1px 5px; border-radius: 4px; }
     /* The .th-card component (spine, meta, text, ticker chips, conviction badge)
        now lives in shared/theme.css (7b) — reused by memo.html. Only desk-local
        layout overrides for it remain here (see .bd-sources .th-card below). */
 
     /* ---------- Chapter 04, The Synthesis: theme digests ---------- */
+    /* Theme cards sit in a grid, not a 5,000px column. Each card is a
+       SUMMARY — the lead point, the names, the trend — with the full write-up
+       and the source posts behind one drill-down. */
+    #brainFeed {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(330px, 100%), 1fr));
+      gap: var(--s-4);
+      align-items: stretch;   /* equal heights per row, so the CTAs line up */
+    }
     .bd-card {
       position: relative;
+      display: flex; flex-direction: column; gap: var(--s-3);
       background: var(--card); border: 1px solid var(--border); border-radius: var(--r-card);
       box-shadow: var(--shadow-sm);
-      padding: 18px 20px 18px 24px;
-      overflow: hidden;
-      transition: border-color var(--ease), box-shadow var(--ease); margin-bottom: 14px;
+      padding: var(--s-5);
+      min-width: 0;
+      transition: border-color var(--ease), box-shadow var(--ease);
     }
-    .bd-card::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; bottom: 0;
-      width: 4px;
-      background: var(--accent, var(--border));
-      transition: width var(--ease);
+    /* Spine retired in v9: the tinted icon tile carries the category hue,
+       matching the chain cards. Two treatments for one job was the exact
+       inconsistency the old design doc kept flagging. */
+    .bd-card:hover { border-color: color-mix(in srgb, var(--accent) 40%, var(--border));
+                     box-shadow: var(--shadow-lg); }
+    .bd-head {
+      display: grid; grid-template-columns: auto minmax(0, 1fr) auto;
+      align-items: center; gap: var(--s-3);
     }
-    .bd-card:hover::before { width: 7px; }
-    .bd-head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; }
-    .bd-title { font-size: 16px; font-weight: 600; color: var(--ink); }
-    .bd-sub { font-size: 12px; color: var(--muted); }
-    .bd-conviction { margin-left: auto; }
-    .bd-trend { display: flex; align-items: center; gap: 8px; margin: -2px 0 10px; }
+    .bd-icon {
+      display: grid; place-items: center;
+      width: 40px; height: 40px; border-radius: 12px;
+      color: color-mix(in srgb, var(--accent) 80%, black);
+      background: color-mix(in srgb, var(--accent) 13%, var(--card));
+    }
+    .bd-icon svg { display: block; }
+    .bd-titlewrap { min-width: 0; }
+    .bd-title {
+      display: block;
+      font-family: var(--display); font-size: var(--fs-lg); font-weight: 700;
+      letter-spacing: -0.02em; line-height: 1.2; color: var(--ink);
+    }
+    .bd-sub { display: block; font-size: var(--fs-xs); color: var(--muted); }
+    .bd-conviction { align-self: start; }
+    .bd-trend { display: flex; align-items: center; gap: var(--s-2); }
     .bd-trend-label {
-      font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.1em;
+      font-family: var(--mono); font-size: var(--fs-2xs); letter-spacing: 0.1em;
       text-transform: uppercase; color: var(--muted);
     }
-    .bd-trend-arrow { font-family: var(--mono); font-size: 13px; font-weight: 700; }
-    .bd-narrative {
-      font-size: 13.5px; line-height: 1.65; color: var(--text);
-      white-space: pre-wrap; word-break: break-word; margin: 0 0 10px;
+    .bd-trend-arrow { font-family: var(--mono); font-size: var(--fs-xs); font-weight: 700; }
+    .bd-lead {
+      margin: 0;
+      font-size: var(--fs-sm); line-height: 1.55; color: var(--text);
     }
-    .bd-points { margin: 0 0 4px; padding-left: 18px; }
-    .bd-points li { font-size: 13px; line-height: 1.55; color: var(--text); margin: 2px 0; }
-    .bd-tickers { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+    .bd-narrative {
+      font-size: var(--fs-xs); line-height: 1.7; color: var(--text);
+      white-space: pre-wrap; word-break: break-word; margin: 0 0 var(--s-3);
+    }
+    .bd-points { margin: 0 0 var(--s-3); padding-left: 18px; }
+    .bd-points li { font-size: var(--fs-xs); line-height: 1.55; color: var(--text); margin: 3px 0; }
+    .bd-tickers { display: flex; flex-wrap: wrap; gap: var(--s-1); margin-top: auto; }
+    .bd-srclabel {
+      display: block; font-family: var(--mono); font-size: var(--fs-2xs);
+      font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+      color: var(--muted); margin: var(--s-4) 0 var(--s-2);
+    }
     .bd-toggle {
-      appearance: none; font: inherit; font-family: var(--mono); font-size: 11px;
+      appearance: none; font: inherit; font-family: var(--mono); font-size: var(--fs-2xs);
       color: var(--muted); background: none; border: 1px solid var(--border);
-      border-radius: 999px; padding: 4px 11px; cursor: pointer; margin-top: 14px;
+      border-radius: var(--r-chip); padding: var(--s-2) var(--s-3); cursor: pointer;
+      margin-top: var(--s-2); align-self: flex-start;
       transition: color var(--ease), border-color var(--ease);
     }
     .bd-toggle:hover { color: var(--ink); border-color: var(--muted); }
@@ -1016,23 +1132,24 @@
     }
     .wl-ledger { display: flex; align-items: baseline; gap: 10px; }
     .wl-actions { display: flex; align-items: center; gap: 12px; }
-    .wl-asof { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+    .wl-asof { font-family: var(--mono); font-size: var(--fs-2xs); color: var(--muted); }
     .wl-fetch {
-      appearance: none; background: var(--ink); color: #fff;
-      border: 1px solid var(--ink); border-radius: 8px;
-      font: inherit; font-size: 13px; font-weight: 600; padding: 8px 14px;
-      cursor: pointer; transition: opacity var(--ease);
+      appearance: none; background: var(--violet); color: #fff;
+      border: 1px solid var(--violet); border-radius: var(--r-chip);
+      font-family: inherit; font-size: var(--fs-xs); font-weight: 600;
+      padding: var(--s-2) var(--s-4);
+      cursor: pointer; transition: filter var(--ease), transform var(--ease);
     }
-    .wl-fetch:hover { opacity: 0.88; }
+    .wl-fetch:hover { filter: brightness(1.08); transform: translateY(-1px); }
     .wl-fetch:disabled { opacity: 0.55; cursor: default; }
     .wl-hint {
       margin-bottom: 14px; padding: 10px 12px; border-radius: 8px;
       background: color-mix(in srgb, var(--brand-ink) 7%, var(--card));
       border: 1px solid color-mix(in srgb, var(--brand-ink) 28%, var(--border));
-      font-size: 12.5px; line-height: 1.5; color: var(--text);
+      font-size: var(--fs-xs); line-height: 1.5; color: var(--text);
     }
     .wl-hint code {
-      font-family: var(--mono); font-size: 12px;
+      font-family: var(--mono); font-size: var(--fs-xs);
       background: rgba(15, 23, 42, 0.06); padding: 1px 5px; border-radius: 4px;
     }
     /* Generic view-toggle pill (Flat/Grouped, Pipeline/Cross Section) — same
@@ -1043,18 +1160,18 @@
     }
     .vt-btn {
       appearance: none; background: none; border: none; font: inherit;
-      font-size: 12.5px; font-weight: 600; color: var(--muted);
+      font-size: var(--fs-xs); font-weight: 600; color: var(--muted);
       padding: 5px 14px; border-radius: var(--r-chip); cursor: pointer;
       transition: background var(--ease), color var(--ease);
     }
     .vt-btn:hover { color: var(--text); }
-    .vt-btn[aria-selected="true"] { background: var(--brand-grad); color: #fff; }
+    .vt-btn[aria-selected="true"] { background: var(--violet); color: #fff; }
     .vt-btn:focus-visible { outline: 2px solid var(--muted); outline-offset: 2px; }
 
     /* Generic filter chip — category filters on Watchlist + Thesis. */
     .filter-chip {
       appearance: none; background: var(--card); border: 1px solid var(--border);
-      border-radius: 999px; color: var(--muted); font: inherit; font-size: 12px;
+      border-radius: 999px; color: var(--muted); font: inherit; font-size: var(--fs-xs);
       font-weight: 600; padding: 5px 12px; cursor: pointer;
       transition: color var(--ease), border-color var(--ease), background var(--ease);
     }
@@ -1062,18 +1179,16 @@
     /* Active toggle: category filters keep their data-viz accent (--chip-accent);
        neutral filters (tier / signal / all) fall back to the brand gradient. */
     .filter-chip.is-active {
-      color: #fff; background: var(--chip-accent, var(--brand-grad));
-      border-color: var(--chip-accent, transparent);
+      color: var(--ink);
+      font-weight: 700;
+      background: color-mix(in srgb, var(--chip-accent, var(--violet)) 20%, var(--card));
+      border-color: var(--chip-accent, var(--violet));
     }
-    .filter-chip:focus-visible { outline: 2px solid var(--muted); outline-offset: 2px; }
 
     .wl-controls { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 14px; }
     .wl-filters { display: flex; flex-wrap: wrap; gap: 6px; }
     .wl-table thead th.wl-nosort { cursor: default; }
-    .wl-subtotal td {
-      font-family: var(--mono); font-size: 11.5px; color: var(--text);
-      padding-top: 8px; padding-bottom: 8px;
-    }
+    .wl-table thead th.wl-nosort:hover { color: var(--muted); }
 
     /* Natural page flow — no nested vertical scroll (the Watchlist opens
        focused on Core, so the table is short by default; expanding to
@@ -1084,45 +1199,117 @@
       border-radius: var(--r-card); background: var(--card);
       box-shadow: var(--shadow-sm);
     }
-    .wl-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .wl-table { width: 100%; border-collapse: collapse; font-size: var(--fs-xs); }
     .wl-table th, .wl-table td { padding: 11px 14px; text-align: left; white-space: nowrap; }
+    /* Sticky header. The wrapper deliberately leaves overflow-y visible, so
+       this sticks against the PAGE scroll — 124 rows no longer scroll their
+       own column names away. */
     .wl-table thead th {
+      position: sticky; top: 0; z-index: 2;
       background: var(--card);
-      font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em;
+      font-family: var(--mono); font-size: var(--fs-2xs); letter-spacing: 0.1em;
       text-transform: uppercase; color: var(--muted); font-weight: 700;
-      cursor: pointer; user-select: none; border-bottom: 1px solid var(--border);
+      cursor: pointer; user-select: none;
+      box-shadow: inset 0 -1px 0 var(--border);
     }
     .wl-table thead th:hover { color: var(--text); }
     .wl-table thead th.num, .wl-table td.num { text-align: right; font-family: var(--mono); }
     .wl-table thead th .arrow { margin-left: 4px; color: var(--ink); }
     .wl-table tbody tr { border-top: 1px solid var(--border); transition: background var(--ease); }
     .wl-table tbody tr:first-child { border-top: none; }
-    .wl-table tbody tr:hover { background: color-mix(in srgb, var(--accent, #94a3b8) 6%, var(--card)); }
-    .wl-cat { display: inline-flex; align-items: center; gap: 7px; }
-    /* Category identity, codified (audit fix #6): spine on cards,
-       dot in dense table rows — two deliberate forms of the same signal. */
-    .wl-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--accent, #94a3b8); flex: 0 0 auto; }
-    .wl-cat-label { color: var(--muted); }
-    .wl-sym { font-family: var(--mono); font-weight: 700; color: var(--accent, #1e293b); text-decoration: none; }
+    .wl-table tbody tr:hover { background: color-mix(in srgb, var(--accent, var(--muted)) 6%, var(--card)); }
+    /* The category dot rides the ticker cell now that the Category column is
+       gone — the layer is still readable without a column repeating it on
+       every row. Hover the dot for the layer name. */
+    .wl-layer { display: inline-flex; align-items: center; gap: 7px; }
+    .wl-layer-label { color: var(--muted); }
+    .wl-dot {
+      width: 9px; height: 9px; border-radius: 50%;
+      background: var(--accent, var(--muted)); flex: 0 0 auto; cursor: help;
+    }
+    .wl-company {
+      max-width: 24ch; overflow: hidden; text-overflow: ellipsis;
+      color: var(--text);
+    }
+    .wl-sym { font-family: var(--mono); font-weight: 700; color: var(--accent, var(--ink)); text-decoration: none; }
     a.wl-sym:hover { text-decoration: underline; text-underline-offset: 3px; }
     .wl-row-link { cursor: pointer; }
     .wl-note {
       display: inline-flex; align-items: baseline; gap: 6px;
-      font-family: var(--mono); font-size: 11px; font-weight: 700;
-      color: var(--accent, #1e293b); text-decoration: none;
+      font-family: var(--mono); font-size: var(--fs-2xs); font-weight: 700;
+      color: var(--accent, var(--ink)); text-decoration: none;
     }
     .wl-note:hover { text-decoration: underline; text-underline-offset: 3px; }
-    .wl-note-date { font-weight: 400; font-size: 10px; color: var(--muted); }
+    .wl-note-date { font-weight: 400; font-size: var(--fs-2xs); color: var(--muted); }
     .wl-price { font-weight: 600; }
-    .wl-cur { color: var(--muted); font-size: 10px; margin-left: 3px; }
-    .wl-pos { color: #16a34a; }
-    .wl-neg { color: #dc2626; }
+    .wl-cur { color: var(--muted); font-size: var(--fs-2xs); margin-left: 3px; }
+    .wl-pos { color: var(--pos); }
+    .wl-neg { color: var(--neg); }
     .wl-muted { color: var(--muted); }
     .wl-rating {
-      appearance: none; font: inherit; font-size: 12px; color: var(--text);
+      appearance: none; font-family: inherit; font-size: var(--fs-xs); color: var(--text);
       background: var(--bg); border: 1px solid var(--border);
       border-radius: 6px; padding: 4px 8px; cursor: pointer;
     }
+
+    /* ---------- Expanded row ----------
+       Row click opens this instead of navigating. Holds the desk call, the
+       company prose, why the name is tracked, and the rating control that
+       used to be a column of 124 identical dropdowns. */
+    .wl-row-link.is-open { background: var(--violet-wash); }
+    .wl-detail-row td { padding: 0; white-space: normal; }
+    .wl-detail {
+      display: flex; flex-direction: column; gap: var(--s-3);
+      padding: var(--s-4) var(--s-5) var(--s-5);
+      background: var(--violet-wash);
+      border-left: 3px solid var(--accent, var(--violet));
+    }
+    .wl-detail-p {
+      margin: 0; font-family: var(--sans);
+      font-size: var(--fs-xs); line-height: 1.6; color: var(--text);
+      max-width: 92ch;
+    }
+    .wl-detail-p b { color: var(--ink); font-weight: 700; }
+    .wl-detail-foot {
+      display: flex; align-items: center; gap: var(--s-4);
+      flex-wrap: wrap; margin-top: var(--s-1);
+      padding-top: var(--s-3); border-top: 1px solid var(--border);
+    }
+    .wl-detail-meta { font-family: var(--mono); font-size: var(--fs-2xs); color: var(--muted); }
+    .wl-detail-meta b { color: var(--ink); }
+    .wl-detail-rating {
+      display: inline-flex; align-items: center; gap: var(--s-2); margin-left: auto;
+      font-family: var(--mono); font-size: var(--fs-2xs);
+      letter-spacing: .06em; text-transform: uppercase; color: var(--muted);
+    }
+
+    /* ---------- Empty state ----------
+       Six tier x category combinations can return nothing; the table used to
+       render a bare header inside a bordered card with no way out. */
+    .wl-empty-row td {
+      padding: var(--s-8) var(--s-5); text-align: center; white-space: normal;
+    }
+    .wl-empty-msg {
+      margin: 0 0 var(--s-4);
+      font-family: var(--display); font-size: var(--fs-lg); color: var(--muted);
+    }
+    .wl-empty-reset {
+      appearance: none; font-family: inherit; font-size: var(--fs-xs); font-weight: 600;
+      color: #fff; background: var(--violet); border: 1px solid var(--violet);
+      border-radius: var(--r-chip); padding: var(--s-2) var(--s-4); cursor: pointer;
+      transition: filter var(--ease);
+    }
+    .wl-empty-reset:hover { filter: brightness(1.08); }
+
+    /* Live count on a filter chip, so a chip never promises rows it can't
+       deliver. Zero-count chips render disabled. */
+    .fc-count {
+      margin-left: 6px; font-family: var(--mono); font-size: var(--fs-2xs);
+      color: var(--muted); font-weight: 400;
+    }
+    .filter-chip.is-active .fc-count { color: inherit; opacity: .75; }
+    .filter-chip:disabled { opacity: .4; cursor: not-allowed; }
+    .filter-chip:disabled:hover { border-color: var(--border); color: var(--muted); }
 
     /* ---------- Responsive (mobile breakpoint 768px) ----------
        The tile grid is auto-fill (minmax 168px) so it needs no per-breakpoint
@@ -1140,7 +1327,7 @@
         left: 0; right: 0;
         padding: 0 12px;
       }
-      .capsule-link { padding: 8px 12px; font-size: 12.5px; }
+      .capsule-link { padding: 8px 12px; font-size: var(--fs-xs); }
       .capsule-link .cl-index { display: none; }
       .chapter { padding-top: 32px; scroll-margin-top: 16px; }
 
@@ -1162,12 +1349,14 @@
   <div id="topNav"></div>
 
   <div class="app">
-    <!-- Desk strip: one compact line of live counts + the tier split bar.
-         Rendered by renderDeskStrip() from AIE_DATA. No hero, no art —
-         this is an analysis tool; the nav wordmark is the only brand mark. -->
-    <header class="desk-strip">
-      <div class="ds-line" id="deskStripLine"></div>
-      <div class="hero-barbell" id="heroBarbell"></div>
+    <!-- Desk hero: a claim, one plain line, then the numbers that matter.
+         Counts are rendered by renderDeskHero() from AIE_DATA — nothing here
+         is hardcoded, so the panel can never drift from the store. -->
+    <header class="desk-hero">
+      <h1 class="dh-claim">Know what the buildout <em>needs next</em>.</h1>
+      <p class="dh-sub">Every company feeding NVIDIA's chips, ranked by how
+        often they actually come up.</p>
+      <div class="aie-stat-grid dh-stats" id="deskStats"></div>
     </header>
 
     <!-- Floating capsule nav — anchors so hash navigation works even
@@ -1175,9 +1364,9 @@
     <div class="capsule-wrap">
       <nav class="capsule-nav" id="capsuleNav" aria-label="Chapters">
         <span class="capsule-pill" id="capsulePill" aria-hidden="true"></span>
-        <a class="capsule-link" href="#chapter-watchlist" data-target="chapter-watchlist"><span class="cl-index">01</span>Watchlist</a>
-        <a class="capsule-link" href="#chapter-map" data-target="chapter-map"><span class="cl-index">02</span>Map</a>
-        <a class="capsule-link" href="#chapter-synthesis" data-target="chapter-synthesis"><span class="cl-index">03</span>Synthesis</a>
+        <a class="capsule-link" href="#chapter-watchlist" data-target="chapter-watchlist">Watchlist</a>
+        <a class="capsule-link" href="#chapter-map" data-target="chapter-map">The chain</a>
+        <a class="capsule-link" href="#chapter-synthesis" data-target="chapter-synthesis">Themes</a>
       </nav>
     </div>
 
@@ -1185,17 +1374,17 @@
       <!-- Chapter 01: The Watchlist. -->
       <section class="chapter" id="chapter-watchlist">
         <header class="chapter-head reveal">
-          <span class="chapter-eyebrow">Chapter 01</span>
-          <h2 class="chapter-title">The Watchlist</h2>
-          <p class="chapter-lede">Every tracked name with its weekly price snapshot,
-            conviction tier, and the desk's second opinion. Sort it, filter it,
-            rate it — your ratings persist.</p>
+          <span class="chapter-eyebrow">The names</span>
+          <h2 class="chapter-title">What I'm watching</h2>
+          <p class="chapter-lede">Every name I track, with last week's move and my
+            call on it. Sort any column, narrow it by tier or layer, and open a row
+            for the full story — your ratings and your sort both stick.</p>
         </header>
         <div class="wl-section">
           <div class="wl-recent" id="wlRecent" hidden></div>
           <div class="wl-header">
             <div class="wl-ledger">
-              <span class="ledger-eyebrow">Watchlist</span>
+              <span class="ledger-eyebrow">The names</span>
               <span class="ledger-scope" id="wlScope"></span>
             </div>
             <div class="wl-actions">
@@ -1212,18 +1401,23 @@
           <div class="wl-table-wrap">
             <table class="wl-table">
               <thead>
+                <!-- 9 columns, price-first: this table answers "what moved".
+                     Category is gone (the dot on the ticker carries the layer)
+                     and Rating is gone (it lives in the expanded row). Mkt Cap
+                     is deliberately unsortable — see its title. -->
                 <tr>
-                  <th data-key="category">Category</th>
                   <th data-key="ticker">Ticker</th>
+                  <th data-key="layer">Layer</th>
                   <th data-key="company">Company</th>
-                  <th data-key="price" class="num">Price</th>
                   <th data-key="chg7d" class="num">7D</th>
                   <th data-key="chg1m" class="num">1M</th>
                   <th data-key="chg1y" class="num">1Y</th>
-                  <th data-key="marketCap" class="num">Mkt Cap</th>
+                  <th data-key="price" class="num">Price</th>
+                  <!-- Sort is armed at boot only when the data carries a
+                       USD-normalised cap; see wlArmMcapSort(). -->
+                  <th class="num wl-nosort" id="wlThMcap">Mkt Cap</th>
                   <th data-key="deskStance">Desk</th>
                   <th class="wl-nosort">Note</th>
-                  <th data-key="rating">Rating</th>
                 </tr>
               </thead>
               <tbody id="wlBody"></tbody>
@@ -1237,11 +1431,11 @@
            by renderPipeline()/renderCrossSection() from AIE_DATA. -->
       <section class="chapter" id="chapter-map">
         <header class="chapter-head reveal">
-          <span class="chapter-eyebrow">Chapter 02</span>
-          <h2 class="chapter-title">The Map</h2>
-          <p class="chapter-lede">How a GPU gets made, and who gets paid along the way.
-            Trace the flow from raw supply to the demand hub — tap any layer to see
-            what to watch and who plays there.</p>
+          <span class="chapter-eyebrow">The chain</span>
+          <h2 class="chapter-title">How a GPU gets made</h2>
+          <p class="chapter-lede">And who gets paid along the way. Follow it from raw
+            supply up to the companies buying the compute. Tap any layer to see what
+            to watch and who plays there.</p>
         </header>
         <div class="map-section">
           <div class="map-header">
@@ -1250,11 +1444,14 @@
                 <button type="button" class="vt-btn" data-view="pipeline" aria-selected="true">Pipeline</button>
                 <button type="button" class="vt-btn" data-view="cross" aria-selected="false">Cross Section</button>
               </div>
-              <button type="button" class="map-show-all" id="mapShowAll">Show All</button>
+              <button type="button" class="map-show-all" id="mapShowAll">Show everything</button>
             </div>
           </div>
-          <!-- "How to read this map" — copy comes from AIE_DATA.mapIntro (rule #4). -->
-          <p class="map-intro" id="mapIntro"></p>
+          <!-- AIE_DATA.mapIntro is no longer rendered: it described the old
+               bottom-to-top pipeline ("suppliers at the bottom, the buyers on
+               top"), which the v9 zone layout inverted, so it was actively
+               wrong on screen. The three zone headings do its job. The value
+               is still in base.json and should be rewritten or retired there. -->
           <!-- Pipeline view: three flow columns (Supply -> Chip -> Demand),
                built by renderPipeline() from AIE_DATA. -->
           <div
@@ -1294,11 +1491,11 @@
            expands to reveal the raw source theses behind it. -->
       <section class="chapter" id="chapter-synthesis">
         <header class="chapter-head reveal">
-          <span class="chapter-eyebrow">Chapter 03</span>
-          <h2 class="chapter-title">The Synthesis</h2>
-          <p class="chapter-lede">The Brain reads every thesis per theme and writes
-            one narrative digest — where the conviction is, what the key points are,
-            and the receipts behind each claim.</p>
+          <span class="chapter-eyebrow">The themes</span>
+          <h2 class="chapter-title">What each theme is saying</h2>
+          <p class="chapter-lede">Every post on a theme, read and boiled down to one
+            summary: where the conviction sits, the points that matter, and the
+            original posts behind each claim.</p>
         </header>
         <div class="th-header">
           <div class="wl-ledger">
@@ -1493,45 +1690,53 @@
          Prologue — signal chain counts, conviction barbell, and the
          latest captured thesis. All numbers read live from AIE_DATA.
          ---------------------------------------------------------- */
-      function renderDeskStrip() {
+      /* Desk hero counts. Three figures, each read live from AIE_DATA:
+         what to act on (the lead — it is the only one implying a decision),
+         how many names carry real conviction, and how much reading sits under
+         it all. The old mono status strip and the green/amber/grey bar are
+         gone: the bar never said what it measured, and its colours were
+         hardcoded old-palette hexes rather than tokens. */
+      function renderDeskHero() {
         if (!DATA) return;
+        var host = document.getElementById("deskStats");
+        if (!host) return;
+
         var tickers = DATA.tickers || [];
         var theses = DATA.theses || [];
         var tiers = { core: 0, watch: 0, radar: 0 };
         tickers.forEach(function (t) { tiers[tierOf(t)] = (tiers[tierOf(t)] || 0) + 1; });
-        var verdictCount = tickers.filter(function (t) { return t.verdict; }).length;
 
-        // One line of live counts — no hero, no animation.
-        var line = document.getElementById("deskStripLine");
-        if (line) {
-          var bits = [
-            theses.length + " theses",
-            tickers.length + " names (" + tiers.core + " core / " + tiers.watch + " watch / " + tiers.radar + " radar)",
-            verdictCount + " verdicts"
-          ];
-          var reviewedAt = DATA.desk && DATA.desk.meta && DATA.desk.meta.reviewedAt;
-          if (reviewedAt) bits.push("reviewed " + AIE.fmtDate(reviewedAt.slice(0, 10)));
-          line.textContent = bits.join(" \u00b7 ");
+        // "Worth acting on" = the desk says act or accumulate.
+        var verdicts = tickers.filter(function (t) { return t.verdict; });
+        var actionable = verdicts.filter(function (t) {
+          var st = t.verdict.stance;
+          return st === "act" || st === "accumulate";
+        }).length;
+        var waiting = verdicts.length - actionable;
+
+        var reviewedAt = DATA.desk && DATA.desk.meta && DATA.desk.meta.reviewedAt;
+        var reviewedNote = reviewedAt
+          ? "reviewed " + AIE.fmtDate(reviewedAt.slice(0, 10))
+          : null;
+
+        function stat(value, label, note, lead) {
+          var d = el("div", "aie-stat" + (lead ? " aie-stat--lead" : ""));
+          d.appendChild(el("span", "aie-stat-value", value));
+          d.appendChild(el("span", "aie-stat-label", label));
+          if (note) d.appendChild(el("span", "aie-stat-note", note));
+          return d;
         }
 
-        // Conviction split — Core / Watch / Radar as one thin bar.
-        var bb = document.getElementById("heroBarbell");
-        if (bb) {
-          bb.innerHTML = "";
-          var segs = [
-            { id: "core", color: "#16a34a" },
-            { id: "watch", color: "#f59e0b" },
-            { id: "radar", color: "#c7c7cc" }
-          ];
-          var bar = el("div", "hb-bar");
-          segs.forEach(function (sg) {
-            var seg = el("span", "hb-seg");
-            seg.style.flexGrow = String(tiers[sg.id] || 0);
-            seg.style.background = sg.color;
-            bar.appendChild(seg);
-          });
-          bb.appendChild(bar);
-        }
+        host.innerHTML = "";
+        host.appendChild(stat(
+          String(actionable), "Worth acting on",
+          waiting ? waiting + " more worth waiting on" : "nothing on the fence",
+          true));
+        host.appendChild(stat(
+          String(tiers.core), "Names I watch closely",
+          "of " + tickers.length + " tracked"));
+        host.appendChild(stat(
+          String(theses.length), "Posts read", reviewedNote));
       }
 
       /* Colophon freshness stamps — data version, prices as-of, desk review. */
@@ -1568,144 +1773,248 @@
         return counts;
       }
 
-      function makeLayerBand(opts) {
-        // opts: { id, indexLabel, title, sub, desc, color, count, isHub }
-        var band = el("div", "layer-band" + (opts.isHub ? " layer-hub" : ""));
-        if (opts.icon) band.classList.add("has-icon");
-        band.setAttribute("role", "listitem");
-        if (opts.color) band.style.setProperty("--accent", opts.color);
-        if (opts.id) band.dataset.cat = opts.id;
+      /* (makeLayerBand / appendLayerBand / makeZoneDivider / makeFlowArrow were
+         removed with the v9 schematic rewrite — the chain is drawn by
+         makeChainNode + makeChainLink now, and the demand hub is the bridge
+         node rather than a full-width band.) */
 
-        if (opts.icon) {
-          var iconWrap = el("span", "layer-icon");
-          var icon = AIE.iconSVG(opts.icon, opts.color, 22);
-          if (icon) iconWrap.appendChild(icon);
-          band.appendChild(iconWrap);
-        }
-        band.appendChild(el("span", "layer-index", opts.indexLabel));
-
-        var main = el("div", "layer-main");
-        var title = el("div", "layer-title");
-        title.appendChild(document.createTextNode(opts.title + " "));
-        // Subtitle inline only where there's no drill-down (the hub card);
-        // category bands reveal it inside the expanded detail instead, so a
-        // collapsed row reads as one short name.
-        if (opts.sub && !opts.angle) title.appendChild(el("span", "layer-sub", "· " + opts.sub));
-        main.appendChild(title);
-        if (opts.desc) main.appendChild(el("p", "layer-desc", opts.desc));
-        // Investor angle — revealed when the layer is selected (see .is-active CSS).
-        // Inner wrapper enables the grid-rows 0fr->1fr drill-down animation.
-        if (opts.angle) {
-          var detail = el("div", "layer-detail");
-          var detailInner = el("div", "layer-detail-inner");
-          if (opts.sub) detailInner.appendChild(el("span", "layer-detail-sub", opts.sub));
-          detailInner.appendChild(el("span", "layer-detail-label", "What to watch"));
-          detailInner.appendChild(el("p", "layer-detail-text", opts.angle));
-          detail.appendChild(detailInner);
-          main.appendChild(detail);
-        }
-        band.appendChild(main);
-
-        if (!opts.isHub) {
-          var count = el("span", "layer-count");
-          count.appendChild(el("b", null, String(opts.count)));
-          count.appendChild(document.createTextNode(opts.count === 1 ? " co" : " cos"));
-          band.appendChild(count);
-        }
-        return band;
-      }
-
-      // A labeled break that chunks the pipeline into flow zones.
-      function makeZoneDivider(label, muted) {
-        var div = el("div", "zone-divider" + (muted ? " zone-divider--muted" : ""));
-        div.setAttribute("role", "presentation");
-        div.appendChild(el("span", "zone-label", label));
-        return div;
-      }
-
-      // A small dashed flow-arrow — used between the map's pipeline columns.
-      function makeFlowArrow(cls) {
-        var wrap = el("div", cls || "mp-arrow");
-        wrap.innerHTML = '<svg width="28" height="16" viewBox="0 0 28 16" aria-hidden="true">'
-          + '<line class="flow-dash" x1="1" y1="8" x2="20" y2="8" stroke="currentColor" stroke-width="2" stroke-dasharray="3 3"/>'
-          + '<path d="M15 2 L23 8 L15 14" fill="none" stroke="currentColor" stroke-width="2" '
-          + 'stroke-linejoin="round" stroke-linecap="round"/></svg>';
-        return wrap;
-      }
-
-      // Build one interactive, filterable layer band for a category id, appended to `container`.
-      function appendLayerBand(container, id, counts) {
-        var c = DATA.categories[id];
-        var band = makeLayerBand({
-          id: id,
-          indexLabel: "L" + (c.layer != null ? c.layer : "?"),
-          title: c.label, sub: c.subtitle, desc: c.tooltip, angle: c.investorAngle,
-          color: c.color, icon: c.icon, count: counts[id] || 0
+      /* Tickers grouped by category, respecting the radar toggle, ranked so the
+         highest-priority names show first inside a capped chip row. */
+      function getMembersByCategory() {
+        var by = {};
+        getStoredTickers().forEach(function (t) {
+          if (!tierVisible(t, mapState.showRadar)) return;
+          (by[t.category] = by[t.category] || []).push(t);
         });
-        band.setAttribute("tabindex", "0");
-        band.setAttribute("aria-pressed", "false");
-        band.addEventListener("click", function () { setFilter(id); });
-        band.addEventListener("keydown", function (e) {
-          if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setFilter(id); }
+        var rank = { core: 0, watch: 1, radar: 2 };
+        Object.keys(by).forEach(function (k) {
+          by[k].sort(function (a, b) {
+            var d = (rank[tierOf(a)] || 3) - (rank[tierOf(b)] || 3);
+            if (d) return d;
+            var pa = (a.priority && a.priority.score) || 0;
+            var pb = (b.priority && b.priority.score) || 0;
+            return pb - pa;
+          });
         });
-        container.appendChild(band);
+        return by;
       }
 
       /* Pipeline view — three flex columns (Supply -> Chip -> Demand), each a
          vertical stack of .layer-band cards sorted by `layer`; the NVIDIA +
          Hyperscalers hub sits centered below the row. */
+      /* A dotted connector, drawn with Aave's exact stroke: dasharray
+         "0.2 8" at width 3 with round caps, plus a small arrowhead. */
+      function makeChainLink(dir) {
+        var wrap = el("div", "chain-link");
+        wrap.setAttribute("aria-hidden", "true");
+        var head = dir === "left"
+          ? '<path d="M12 4 L6 11 L12 18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>'
+          : '<path d="M48 4 L54 11 L48 18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>';
+        wrap.innerHTML = '<svg width="58" height="22" viewBox="0 0 58 22">'
+          + '<line class="flow-dash" x1="2" y1="11" x2="52" y2="11" stroke="currentColor"/>'
+          + head + '</svg>';
+        return wrap;
+      }
+
+      /* One node in the schematic: icon, name, and a dot per company so a
+         layer's weight reads before you read the number. */
+      function makeChainNode(id, counts, membersByCat) {
+        var c = DATA.categories[id];
+        var members = (membersByCat && membersByCat[id]) || [];
+        var n = counts[id] || 0;
+
+        var node = el("button", "chain-node" + (n ? "" : " is-empty"));
+        node.type = "button";
+        node.dataset.cat = id;
+        node.style.setProperty("--accent", c.color);
+        node.setAttribute("aria-pressed", "false");
+
+        if (c.icon) {
+          var iw = el("span", "cn-icon");
+          var ic = AIE.iconSVG(c.icon, "currentColor", 18);
+          if (ic) iw.appendChild(ic);
+          node.appendChild(iw);
+        }
+        node.appendChild(el("span", "cn-label", c.label));
+
+        if (n) {
+          var DOT_CAP = 12;
+          var dots = el("span", "cn-dots");
+          members.slice(0, DOT_CAP).forEach(function (t) {
+            var d = el("i", tierOf(t) === "core" ? "is-core" : null);
+            dots.appendChild(d);
+          });
+          node.appendChild(dots);
+          node.appendChild(el("span", "cn-count",
+            n + (n === 1 ? " company" : " companies") + (n > DOT_CAP ? "" : "")));
+        } else {
+          node.appendChild(el("span", "cn-count", "none tracked"));
+        }
+
+        node.addEventListener("click", function () { setFilter(id); });
+        return node;
+      }
+
+      /* The chain schematic. Three panels — what feeds the chip, the chip,
+         who buys it — joined by dotted connectors, after the "Built for
+         embedded yield" diagram on aave.com/stable-vaults. NVIDIA is the
+         bridge node inside the chip panel rather than a black slab. */
       function renderPipeline() {
         var root = document.getElementById("mapPipeline");
         if (!root || !DATA || !DATA.categories || !DATA.center) return;
         root.innerHTML = "";
 
         var counts = getCategoryCounts();
+        var members = getMembersByCategory();
         var byLayerDesc = function (a, b) {
           return (DATA.categories[b].layer || 0) - (DATA.categories[a].layer || 0);
         };
-
-        var cols = el("div", "mp-columns");
-        var order = [
-          { role: "supply", label: "Supply" },
-          { role: "chip", label: "Chip" },
-          { role: "demand", label: "Demand" }
-        ];
-        var placed = {};
-        order.forEach(function (o, i) {
-          if (i > 0) cols.appendChild(makeFlowArrow());
-          var col = el("div", "mp-col");
-          col.setAttribute("role", "list");
-          col.appendChild(el("span", "mp-col-label", o.label));
-          var ids = Object.keys(DATA.categories).filter(function (id) {
-            return DATA.categories[id].flowRole === o.role;
+        var idsFor = function (role) {
+          return Object.keys(DATA.categories).filter(function (id) {
+            return DATA.categories[id].flowRole === role;
           }).sort(byLayerDesc);
-          ids.forEach(function (id) { placed[id] = true; appendLayerBand(col, id, counts); });
-          cols.appendChild(col);
-        });
-        root.appendChild(cols);
+        };
 
-        var hubWrap = el("div", "mp-hub");
-        hubWrap.appendChild(makeLayerBand({
-          isHub: true, indexLabel: "DEMAND",
-          title: DATA.center.title, sub: DATA.center.subtitle, desc: DATA.center.tooltip,
-          icon: DATA.center.icon
-        }));
-        root.appendChild(hubWrap);
+        var diagram = el("div", "chain-diagram");
+        var placed = {};
 
-        // Anything without a flowRole (e.g. unsorted) drops into a triage footer.
+        function panel(role, label, isChip) {
+          var pnl = el("div", "chain-panel" + (isChip ? " chain-panel--chip" : ""));
+          pnl.appendChild(el("span", "chain-panel-label", label));
+          if (isChip) {
+            var br = el("div", "chain-bridge");
+            if (DATA.center.icon) {
+              var bi = el("span", "chain-bridge-icon");
+              var bic = AIE.iconSVG(DATA.center.icon, "currentColor", 22);
+              if (bic) bi.appendChild(bic);
+              br.appendChild(bi);
+            }
+            br.appendChild(el("span", "chain-bridge-title", DATA.center.title));
+            if (DATA.center.subtitle) br.appendChild(el("span", "chain-bridge-sub", DATA.center.subtitle));
+            pnl.appendChild(br);
+          }
+          var nodes = el("div", "chain-nodes");
+          nodes.setAttribute("role", "list");
+          if (isChip) nodes.style.marginTop = "var(--s-4)";
+          idsFor(role).forEach(function (id) {
+            placed[id] = true;
+            nodes.appendChild(makeChainNode(id, counts, members));
+          });
+          pnl.appendChild(nodes);
+          return pnl;
+        }
+
+        diagram.appendChild(panel("supply", "What feeds the chip", false));
+        diagram.appendChild(makeChainLink("right"));
+        diagram.appendChild(panel("chip", "The chip", true));
+        diagram.appendChild(makeChainLink("right"));
+        diagram.appendChild(panel("demand", "Who buys the compute", false));
+        root.appendChild(diagram);
+
+        // Selected-layer detail, revealed under the diagram.
+        var detail = el("div", "chain-detail");
+        detail.id = "chainDetail";
+        detail.appendChild(el("div", "chain-detail-inner"));
+        root.appendChild(detail);
+
+        // Anything without a flowRole (e.g. unsorted) gets a quiet triage row.
         var leftover = Object.keys(DATA.categories)
           .filter(function (id) { return !placed[id]; })
           .sort(byLayerDesc);
         if (leftover.length) {
-          root.appendChild(makeZoneDivider("Triage · awaiting classification", true));
-          var footer = el("div", "mp-col");
-          leftover.forEach(function (id) { appendLayerBand(footer, id, counts); });
-          root.appendChild(footer);
+          var tz = el("div", "chain-panel chain-panel--triage");
+          tz.appendChild(el("span", "chain-panel-label", "Not sorted yet"));
+          var tn = el("div", "chain-nodes");
+          leftover.forEach(function (id) { tn.appendChild(makeChainNode(id, counts, members)); });
+          tz.appendChild(tn);
+          root.appendChild(tz);
         }
+
+        renderChainDetail();
+      }
+
+      /* Fill (or clear) the detail panel under the schematic. The nodes are
+         deliberately small, so the prose lives here instead of in each node. */
+      function renderChainDetail() {
+        var wrap = document.getElementById("chainDetail");
+        if (!wrap) return;
+        var inner = wrap.querySelector(".chain-detail-inner");
+        var id = mapState.selectedId;
+        var c = id && DATA.categories && DATA.categories[id];
+        if (!c) {
+          wrap.classList.remove("open");
+          setDrilldownOpen(wrap, inner, false);
+          return;
+        }
+        inner.innerHTML = "";
+        inner.style.setProperty("--accent", c.color);
+
+        var head = el("div", "cd-head");
+        head.appendChild(el("span", "cd-title", c.label));
+        if (c.subtitle) head.appendChild(el("span", "cd-sub", c.subtitle));
+        var n = (getCategoryCounts()[id] || 0);
+        var cnt = el("span", "cd-count");
+        cnt.appendChild(el("b", null, String(n)));
+        cnt.appendChild(document.createTextNode(n === 1 ? " company tracked" : " companies tracked"));
+        head.appendChild(cnt);
+        inner.appendChild(head);
+
+        if (c.tooltip) inner.appendChild(el("p", "cd-text", c.tooltip));
+        if (c.investorAngle) {
+          inner.appendChild(el("span", "cd-watch-label", "What to watch"));
+          inner.appendChild(el("p", "cd-text", c.investorAngle));
+        }
+        var mem = getMembersByCategory()[id] || [];
+        if (mem.length) {
+          var chips = el("div", "cd-tickers");
+          mem.forEach(function (t) {
+            var chip = el("a", "aie-chip aie-chip--ticker", t.ticker);
+            chip.href = AIE.linkForTicker(t.ticker);
+            chip.style.setProperty("--chip-accent", c.color);
+            chips.appendChild(chip);
+          });
+          inner.appendChild(chips);
+        }
+        wrap.classList.add("open");
+        setDrilldownOpen(wrap, inner, true);
       }
 
       /* Cross Section view — one flex row of bar divs on a dark blueprint
          background, height proportional to ticker count per category. */
+      /* Median 7-day price move across a category's tickers. Restored after
+         the v9 chart rewrite briefly deleted it along with the old renderer. */
+      function medianChg7d(catId) {
+        var vals = ((DATA && DATA.tickers) || [])
+          .filter(function (t) { return t.category === catId && t.chg7d != null; })
+          .map(function (t) { return t.chg7d; })
+          .sort(function (a, b) { return a - b; });
+        if (!vals.length) return null;
+        var mid = Math.floor(vals.length / 2);
+        return vals.length % 2 ? vals[mid] : (vals[mid - 1] + vals[mid]) / 2;
+      }
+
+      /* Axis scale: a round ceiling AND a step that divides it evenly, so the
+         gridline labels read 0 / 5 / 10 rather than 0 / 3 / 7 / 10. */
+      function axisScale(maxVal) {
+        var ladder = [1, 2, 5, 10, 20, 25, 50, 100, 200, 250, 500, 1000];
+        var top = ladder.filter(function (v) { return v >= maxVal; })[0]
+                  || Math.ceil(maxVal / 1000) * 1000;
+        // Largest step giving between 2 and 5 intervals, so the axis stays quiet.
+        for (var i = ladder.length - 1; i >= 0; i--) {
+          var step = ladder[i];
+          var n = top / step;
+          if (n >= 2 && n <= 5 && n === Math.round(n)) {
+            return { top: top, step: step, ticks: n + 1 };
+          }
+        }
+        return { top: top, step: top / 2, ticks: 3 };
+      }
+
+      /* Cross section — a chart card in the language of the growth chart on
+         aave.com: white card, dashed gridlines, quiet axis labels, soft
+         gradient fills, a value readout per bar. Stays a BAR chart because
+         the data is categorical; a line would imply the layers flow into one
+         another along the x-axis, which they do not. */
       function renderCrossSection() {
         var root = document.getElementById("mapCross");
         if (!root || !DATA || !DATA.categories) return;
@@ -1718,66 +2027,121 @@
         var ids = Object.keys(DATA.categories)
           .filter(function (id) { return DATA.categories[id].flowRole; })
           .sort(byLayerDesc);
-        var maxCount = Math.max.apply(null, ids.map(function (id) { return counts[id] || 0; }).concat([1]));
+        var rawMax = Math.max.apply(null, ids.map(function (id) { return counts[id] || 0; }).concat([1]));
+        var scale = axisScale(rawMax);
+        var top = scale.top;
+        var hasHeat = ids.some(function (id) { return medianChg7d(id) != null; });
+
+        // ---- head: title, sub, legend --------------------------------------
+        var head = el("div", "xs-head");
+        var titles = el("div");
+        titles.appendChild(el("h4", "xs-title", "Where the names sit"));
+        titles.appendChild(el("p", "xs-sub",
+          "Companies tracked per layer" + (hasHeat ? ", and how each moved last week" : "")));
+        head.appendChild(titles);
+
+        /* No colour legend. Aave's chart has three series in three fixed
+           colours, so a colour key is meaningful there. Here every bar is its
+           own category hue and the move can be red or green, so a legend dot
+           would assert a colour mapping that does not exist. The footnote
+           states both encodings instead; this slot carries a summary. */
+        var totalNames = ids.reduce(function (a, id) { return a + (counts[id] || 0); }, 0);
+        var summary = el("div", "xs-legend");
+        var s1 = el("span");
+        s1.appendChild(el("b", null, String(totalNames)));
+        s1.appendChild(document.createTextNode(totalNames === 1 ? " company" : " companies"));
+        summary.appendChild(s1);
+        var s2 = el("span");
+        s2.appendChild(el("b", null, String(ids.length)));
+        s2.appendChild(document.createTextNode(" layers"));
+        summary.appendChild(s2);
+        head.appendChild(summary);
+        root.appendChild(head);
+
+        // ---- plot: y-axis gutter + bar field with gridlines behind ---------
+        var plot = el("div", "xs-plot");
+        var TICKS = scale.ticks;            // 0 .. top, inclusive
+        var yaxis = el("div", "xs-yaxis");
+        for (var t = TICKS - 1; t >= 0; t--) {
+          yaxis.appendChild(el("span", null, String(t * scale.step)));
+        }
+        plot.appendChild(yaxis);
+
+        var field = el("div", "xs-field");
+        var grid = el("div", "xs-grid");
+        grid.setAttribute("aria-hidden", "true");
+        for (var g = 0; g < TICKS; g++) {
+          var line = el("i");
+          line.style.top = (g * (100 / (TICKS - 1))) + "%";
+          grid.appendChild(line);
+        }
+        field.appendChild(grid);
 
         var bars = el("div", "mc-bars");
+        bars.setAttribute("role", "list");
+        var xaxis = el("div", "xs-xaxis");
+
         ids.forEach(function (id) {
           var c = DATA.categories[id];
           var n = counts[id] || 0;
-          var col = el("div", "mc-col");
-          col.dataset.cat = id;
-          col.setAttribute("tabindex", "0");
-          col.setAttribute("role", "button");
-          col.setAttribute("aria-pressed", "false");
-          col.title = c.label;
 
-          var bar = el("div", "mc-bar");
-          bar.style.height = Math.max(4, (n / maxCount) * 170) + "px";
-          bar.style.background = "color-mix(in srgb, " + c.color + " 55%, var(--stage))";
-          col.appendChild(bar);
+          var col = el("button", "mc-col");
+          col.type = "button";
+          col.dataset.cat = id;
+          col.setAttribute("aria-pressed", "false");
+          col.setAttribute("aria-label", c.label + ": " + n + (n === 1 ? " company" : " companies"));
+          col.style.setProperty("--accent", c.color);
+
           col.appendChild(el("span", "mc-count", String(n)));
-          // Heat: median 7-day move across this category's tickers.
+          var bar = el("div", "mc-bar");
+          // Height is a PERCENTAGE of the field, so the bars and the CSS
+          // gridlines can never drift apart the way a px literal did.
+          bar.style.height = Math.max(1.5, (n / top) * 100) + "%";
+          col.appendChild(bar);
+          col.addEventListener("click", function () { setFilter(id); });
+          bars.appendChild(col);
+
+          // x-axis cell mirrors the bar column so labels stay aligned
+          var cell = el("div", "xs-xcell");
+          cell.appendChild(el("span", "mc-label", c.label));
           var heat = medianChg7d(id);
           if (heat != null) {
             var hcls = heat > 0.5 ? "hot" : (heat < -0.5 ? "cold" : "flat");
-            col.appendChild(el("span", "mc-heat " + hcls, AIE.fmtPct(heat)));
+            cell.appendChild(el("span", "mc-heat " + hcls, AIE.fmtPct(heat)));
           }
-          col.appendChild(el("span", "mc-label", c.label));
-
-          col.addEventListener("click", function () { setFilter(id); });
-          col.addEventListener("keydown", function (e) {
-            if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setFilter(id); }
-          });
-          bars.appendChild(col);
+          xaxis.appendChild(cell);
         });
-        root.appendChild(bars);
-        // Only promise heat data when at least one category has it.
-        var hasHeat = ids.some(function (id) { return medianChg7d(id) != null; });
-        root.appendChild(el("div", "mc-legend", hasHeat
-          ? "bar height = names tracked · % = median 7-day price move"
-          : "bar height = names tracked"));
+
+        field.appendChild(bars);
+        field.appendChild(xaxis);
+        plot.appendChild(field);
+        root.appendChild(plot);
+
+        /* Say what the chart leaves out. The bars cover only categories with a
+           flowRole, so the total here is lower than the grid below by however
+           many names are still unsorted — state it rather than let the two
+           numbers quietly disagree. */
+        var charted = {};
+        ids.forEach(function (id) { charted[id] = true; });
+        var offChart = Object.keys(counts).reduce(function (a, id) {
+          return a + (charted[id] ? 0 : (counts[id] || 0));
+        }, 0);
+        var foot = hasHeat
+          ? "Bar height = names tracked \u00b7 % = median 7-day price move across that layer \u00b7 Prices are weekly snapshots"
+          : "Bar height = names tracked";
+        if (offChart) {
+          foot += " \u00b7 " + offChart + " more not yet sorted into a layer";
+        }
+        root.appendChild(el("div", "mc-legend", foot));
       }
 
-      // Median chg7d for a category (null when no ticker has price data yet).
-      function medianChg7d(catId) {
-        var vals = ((DATA && DATA.tickers) || [])
-          .filter(function (t) { return t.category === catId && t.chg7d != null; })
-          .map(function (t) { return t.chg7d; })
-          .sort(function (a, b) { return a - b; });
-        if (!vals.length) return null;
-        var mid = Math.floor(vals.length / 2);
-        return vals.length % 2 ? vals[mid] : (vals[mid - 1] + vals[mid]) / 2;
-      }
 
-      // Dispatch to the active map view. Both views share the same intro line,
-      // and both wire clicks through setFilter()/renderCards().
       function renderMap() {
         var pipelineEl = document.getElementById("mapPipeline");
         var crossEl = document.getElementById("mapCross");
         if (!pipelineEl || !crossEl || !DATA) return;
 
-        var intro = document.getElementById("mapIntro");
-        if (intro) intro.textContent = DATA.mapIntro || "";
+        // mapIntro intentionally not rendered — see the markup comment.
 
         if (mapState.view === "cross") {
           pipelineEl.hidden = true; crossEl.hidden = false;
@@ -1809,14 +2173,12 @@
           ? null
           : (mapState.selectedId === id ? null : id);
 
-        document.querySelectorAll(".layer-band[data-cat]").forEach(function (b) {
+        document.querySelectorAll(".chain-node[data-cat]").forEach(function (b) {
           var on = b.dataset.cat === mapState.selectedId;
           b.classList.toggle("is-active", on);
           b.setAttribute("aria-pressed", on ? "true" : "false");
-          var detail = b.querySelector(".layer-detail");
-          var detailInner = b.querySelector(".layer-detail-inner");
-          if (detail && detailInner) setDrilldownOpen(detail, detailInner, on);
         });
+        renderChainDetail();
         document.querySelectorAll(".mc-col[data-cat]").forEach(function (b) {
           var on = b.dataset.cat === mapState.selectedId;
           b.classList.toggle("is-active", on);
@@ -1862,7 +2224,7 @@
          (click / Enter / Space + aria-expanded) mirrors appendLayerBand. */
       function makeTile(ticker) {
         var cat = (DATA.categories && DATA.categories[ticker.category]) || null;
-        var accent = cat ? cat.color : "#64748b";
+        var accent = cat ? cat.color : "var(--muted)";
 
         var tile = el("article", "tk-tile");
         tile.style.setProperty("--accent", accent);
@@ -1967,7 +2329,7 @@
       function makeCardDetail(ticker) {
         var cat = (DATA.categories && DATA.categories[ticker.category]) || null;
         var country = (DATA.countries && DATA.countries[ticker.market]) || null;
-        var accent = cat ? cat.color : "#64748b";
+        var accent = cat ? cat.color : "var(--muted)";
 
         var card = el("article", "tk-card");
         card.style.setProperty("--accent", accent);
@@ -2005,12 +2367,12 @@
           prio.title = "Mentioned " + analyst + "× by @aleabitoreddit"
             + (research ? " · " + research + " desk research finding" + (research === 1 ? "" : "s") : "")
             + (ticker.priority.bearMentions ? " · " + ticker.priority.bearMentions + " against" : "")
-            + (ticker.priority.convictionHits ? " · " + ticker.priority.convictionHits + " with high-conviction language" : "");
+            + (ticker.priority.convictionHits ? " · " + ticker.priority.convictionHits + " where he sounded certain" : "");
           badges.appendChild(prio);
         }
 
         var tierBadge = el("span", "tier-badge " + tierOf(ticker), tierOf(ticker));
-        tierBadge.title = "Conviction tier from mention frequency + conviction language (ingest/scorer.py)";
+        tierBadge.title = "How strongly this name keeps coming up — from how often it is mentioned, and how certain the language was (ingest/scorer.py)";
         badges.appendChild(tierBadge);
 
         var tier = el("span", "tk-tier");
@@ -2039,7 +2401,7 @@
           var v = ticker.verdict;
           var vd = el("div", "tk-verdict");
           var vh = el("div", "tk-verdict-head");
-          vh.appendChild(el("span", "tk-verdict-label", "Claude's desk view"));
+          vh.appendChild(el("span", "tk-verdict-label", "My call"));
           vh.appendChild(el("span", "vd-stance " + v.stance, AIE.stanceLabel(v.stance)));
           if (v.updatedAt) vh.appendChild(el("span", "tk-verdict-label", AIE.fmtDate(String(v.updatedAt).slice(0, 10))));
           vd.appendChild(vh);
@@ -2235,17 +2597,118 @@
          to localStorage. "Fetch prices" calls the local serve.py.
          ---------------------------------------------------------- */
       var WL_RATINGS = ["watch", "owned", "passed"];
+      // Labels are display-only; the ids stay signal/core/watch/radar/all so
+      // wlState, the tier data and every filter path are untouched.
       var WL_TIER_CHIPS = [
-        { id: "signal", label: "Signal (Core + Watch)" },
-        { id: "core", label: "Core" },
-        { id: "watch", label: "Watch" },
-        { id: "radar", label: "Radar" },
-        { id: "all", label: "All" }
+        { id: "signal", label: "Names that matter" },
+        { id: "core", label: "Closest watch" },
+        { id: "watch", label: "Second tier" },
+        { id: "radar", label: "Mentioned once" },
+        { id: "all", label: "Everything" }
       ];
-      // Watchlist opens focused on Core (highest-conviction names) so the
-      // table is short by default; Signal/Watch/Radar/All are one chip away.
-      // Always grouped by category — column sorts apply within each group.
-      var wlState = { key: "category", dir: 1, categoryFilter: null, tierFilter: "core" };
+      /* Watchlist view state.
+         FLAT and globally sorted — there is no grouping. The table answers
+         "what moved", so it opens on 7D descending over the Core tier (the
+         30 highest-conviction names); every other tier is one chip away.
+
+         dir: 1 = ascending, -1 = descending, for EVERY column including Desk.
+         The old code inverted the deskStance branch, so one arrow glyph meant
+         two opposite things depending on which header you clicked.
+
+         `open` holds the tickers whose detail row is expanded, so a sort or
+         filter re-render does not silently collapse them. */
+      var WL_DEFAULT_VIEW = { key: "chg7d", dir: -1, categoryFilter: null, tierFilter: "core" };
+      var wlState = {
+        key: WL_DEFAULT_VIEW.key,
+        dir: WL_DEFAULT_VIEW.dir,
+        categoryFilter: WL_DEFAULT_VIEW.categoryFilter,
+        tierFilter: WL_DEFAULT_VIEW.tierFilter,
+        open: {}
+      };
+
+      var WL_SORTABLE = ["ticker", "layer", "company", "chg7d", "chg1m", "chg1y",
+                         "price", "marketCap", "deskStance"];
+      var WL_TIER_IDS = ["signal", "core", "watch", "radar", "all"];
+
+      /* Restore the view. Validated field by field: a hand-edited or stale
+         localStorage value must not be able to put the table into a state the
+         UI can no longer represent (e.g. sorting by a column that no longer
+         exists after this rewrite). */
+      /* Own the key locally with a fallback. If a stale cached shared/common.js
+         is in play, STORAGE_KEYS.wlView is undefined and the naive version
+         writes to a localStorage key literally named "undefined". This app is
+         opened from file:// and served without cache-busting, so a stale
+         common.js is a realistic scenario, not a theoretical one. */
+      var WL_VIEW_KEY = (typeof STORAGE_KEYS === "object" && STORAGE_KEYS.wlView)
+        || "aie_wl_view";
+
+      function loadWlView() {
+        var saved = readJSON(WL_VIEW_KEY);
+        if (!saved || typeof saved !== "object") return;
+        if (WL_SORTABLE.indexOf(saved.key) !== -1) wlState.key = saved.key;
+        // A saved marketCap sort is only honoured while USD caps exist; if the
+        // sheet column goes away the table must not stay ranked on nothing.
+        if (wlState.key === "marketCap"
+            && !wlTickers().some(function (t) { return t.marketCapUSD != null; })) {
+          wlState.key = WL_DEFAULT_VIEW.key;
+          wlState.dir = WL_DEFAULT_VIEW.dir;
+        }
+        if (saved.dir === 1 || saved.dir === -1) wlState.dir = saved.dir;
+        if (WL_TIER_IDS.indexOf(saved.tierFilter) !== -1) wlState.tierFilter = saved.tierFilter;
+        if (saved.categoryFilter == null
+            || (DATA.categories && DATA.categories[saved.categoryFilter])) {
+          wlState.categoryFilter = saved.categoryFilter || null;
+        }
+      }
+      function saveWlView() {
+        try {
+          localStorage.setItem(WL_VIEW_KEY, JSON.stringify({
+            key: wlState.key, dir: wlState.dir,
+            categoryFilter: wlState.categoryFilter, tierFilter: wlState.tierFilter
+          }));
+        } catch (e) { /* storage may be unavailable on file:// */ }
+      }
+      // One place that mutates + persists + repaints, so no call site can
+      // change the view and forget to save it.
+      function setWlView(patch) {
+        Object.keys(patch).forEach(function (k) { wlState[k] = patch[k]; });
+        saveWlView();
+        renderWatchlist();
+      }
+
+      // A ticker's position in the value chain (its category's `layer`).
+      // Unknown categories sort to the end rather than colliding at 0.
+      function wlLayerOf(t) {
+        var c = DATA.categories && DATA.categories[t.category];
+        return c && c.layer != null ? c.layer : 999;
+      }
+
+      /* Mkt Cap is sortable ONLY when the data carries marketCapUSD. Until the
+         sheet grows that column the header stays inert and says why, rather
+         than offering a ranking that mixes currencies. */
+      function wlArmMcapSort() {
+        var th = document.getElementById("wlThMcap");
+        if (!th) return false;
+        var has = wlTickers().some(function (t) { return t.marketCapUSD != null; });
+        if (has) {
+          th.setAttribute("data-key", "marketCap");
+          th.classList.remove("wl-nosort");
+          th.title = "Ranked on a USD-normalised market cap; the figure shown "
+                   + "stays in each company's own currency.";
+        } else {
+          th.removeAttribute("data-key");
+          th.classList.add("wl-nosort");
+          th.title = "Not sortable yet: caps are in each company's own currency "
+                   + "and the price sheet has no MarketCapUSD column, so a "
+                   + "cross-market ranking would be arithmetically wrong.";
+        }
+        return has;
+      }
+
+      // Number of columns in the live <thead> — the detail row spans them all.
+      function wlColSpan() {
+        return document.querySelectorAll(".wl-table thead th").length || 9;
+      }
 
       function wlTickers() { return (DATA && DATA.tickers) ? DATA.tickers.slice() : []; }
 
@@ -2298,18 +2761,41 @@
       /* fmtNum() and fmtMcap() now live in shared/common.js; aliased near the
          top of this script. */
 
+      /* One comparator, one direction convention: dir 1 ascending, -1
+         descending, for every column. Desk ranks by stance strength and obeys
+         dir like everything else, so the header arrow is never backwards.
+
+         Missing values sort LAST in both directions on purpose: "no price" is
+         absence, not a small number, and flipping the arrow should not drag a
+         wall of em-dashes to the top. */
       function wlCompare(a, b) {
         var k = wlState.key;
-        if (k === "deskStance") {
-          var av = (a.verdict && STANCE_RANK[a.verdict.stance]) || 0;
-          var bv = (b.verdict && STANCE_RANK[b.verdict.stance]) || 0;
-          if (av !== bv) return (bv - av) * wlState.dir;
-          return a.ticker < b.ticker ? -1 : 1;
-        }
-        var numeric = (k === "price" || k === "chg7d" || k === "chg1m" || k === "chg1y" || k === "marketCap");
-        if (numeric) {
+        var av, bv;
+
+        if (k === "layer") {
+          // Sort by position in the value chain, not alphabetically — the
+          // layer order IS the story (what feeds the chip -> the chip -> who
+          // buys it). Ties fall through to the ticker tiebreak below.
+          var al = wlLayerOf(a), bl = wlLayerOf(b);
+          if (al !== bl) return (al - bl) * wlState.dir;
+        } else if (k === "marketCap") {
+          /* Rank on marketCapUSD, never the raw local-currency figure: a KRW
+             cap is ~1300x a USD one, so sorting the displayed number is
+             arithmetically meaningless. Names without a USD value sort last
+             rather than being silently interleaved at the wrong rank. */
+          var au = a.marketCapUSD, bu = b.marketCapUSD;
+          var aun = au == null, bun = bu == null;
+          if (aun !== bun) return aun ? 1 : -1;
+          if (!aun && au !== bu) return (au - bu) * wlState.dir;
+        } else if (k === "deskStance") {
+          av = (a.verdict && STANCE_RANK[a.verdict.stance]) || 0;
+          bv = (b.verdict && STANCE_RANK[b.verdict.stance]) || 0;
+          // 0 means "no call" — treat it as missing so it stays at the bottom.
+          if ((av === 0) !== (bv === 0)) return av === 0 ? 1 : -1;
+          if (av !== bv) return (av - bv) * wlState.dir;
+        } else if (k === "chg7d" || k === "chg1m" || k === "chg1y" || k === "price") {
           var anull = a[k] == null, bnull = b[k] == null;
-          if (anull !== bnull) return anull ? 1 : -1;   // missing values always last
+          if (anull !== bnull) return anull ? 1 : -1;
           if (!anull && a[k] !== b[k]) return (a[k] - b[k]) * wlState.dir;
         } else {
           var as = String(a[k] || "").toLowerCase(), bs = String(b[k] || "").toLowerCase();
@@ -2326,30 +2812,84 @@
         return td;
       }
 
-      // Full-width verdict detail row, inserted under a watchlist row when the
-      // stance badge is clicked (view / execution / what changes the mind).
-      function makeVerdictDetailRow(t) {
-        var v = t.verdict;
+      /* Full-width detail row. Row click expands this in place rather than
+         navigating: linkForTicker resolves to this very page for most names,
+         so the old row-click was a self-navigation that reloaded and reset the
+         view. This is also where the Rating control lives now that the column
+         is gone — it is real user data (preserved across re-seeds by
+         common.js) and still needs an editable home. */
+      function makeRowDetailRow(t) {
         var tr = document.createElement("tr");
-        tr.className = "wl-verdict-row";
+        tr.className = "wl-detail-row";
         var td = document.createElement("td");
-        td.colSpan = 11;
-        var box = el("div", "wl-verdict");
-        var head = el("div", "tk-verdict-head");
-        head.appendChild(el("span", "tk-verdict-label", "Claude's desk view"));
-        head.appendChild(el("span", "vd-stance " + v.stance, AIE.stanceLabel(v.stance)));
-        if (v.updatedAt) head.appendChild(el("span", "tk-verdict-label", AIE.fmtDate(String(v.updatedAt).slice(0, 10))));
-        box.appendChild(head);
-        function vBlock(label, text) {
-          if (!text) return;
-          var p = el("p");
-          p.appendChild(el("b", null, label + " — "));
-          p.appendChild(document.createTextNode(text));
-          box.appendChild(p);
+        td.colSpan = wlColSpan();
+        var box = el("div", "wl-detail");
+
+        var v = t.verdict;
+        if (v) {
+          var head = el("div", "tk-verdict-head");
+          head.appendChild(el("span", "tk-verdict-label", "My call"));
+          head.appendChild(el("span", "vd-stance " + v.stance, AIE.stanceLabel(v.stance)));
+          if (v.updatedAt) {
+            head.appendChild(el("span", "tk-verdict-label",
+              AIE.fmtDate(String(v.updatedAt).slice(0, 10))));
+          }
+          box.appendChild(head);
+          function vBlock(label, text) {
+            if (!text) return;
+            var pEl = el("p", "wl-detail-p");
+            pEl.appendChild(el("b", null, label + " — "));
+            pEl.appendChild(document.createTextNode(text));
+            box.appendChild(pEl);
+          }
+          vBlock("View", v.view);
+          vBlock("Execution", v.execution);
+          vBlock("Changes my mind", v.changesMind);
         }
-        vBlock("View", v.view);
-        vBlock("Execution", v.execution);
-        vBlock("Changes my mind", v.changesMind);
+
+        if (t.whatTheyDo) {
+          var w = el("p", "wl-detail-p");
+          w.appendChild(el("b", null, "What they do — "));
+          w.appendChild(document.createTextNode(t.whatTheyDo));
+          box.appendChild(w);
+        }
+        if (t.whyNVDA) {
+          var y = el("p", "wl-detail-p");
+          y.appendChild(el("b", null, "Why NVIDIA needs them — "));
+          y.appendChild(document.createTextNode(t.whyNVDA));
+          box.appendChild(y);
+        }
+
+        // Footer: why this name is in the table, and the rating control.
+        var foot = el("div", "wl-detail-foot");
+        var pr = t.priority;
+        if (pr) {
+          // analystMentions, never `mentions` — the raw total includes the
+          // desk's own research findings and would credit them to him.
+          var n = pr.analystMentions != null ? pr.analystMentions : 0;
+          var seen = el("span", "wl-detail-meta");
+          seen.appendChild(el("b", null, String(n)));
+          seen.appendChild(document.createTextNode(
+            (n === 1 ? " mention" : " mentions") +
+            (pr.lastMentioned ? " · last " + AIE.fmtDate(String(pr.lastMentioned).slice(0, 10)) : "")));
+          foot.appendChild(seen);
+        }
+        var ratingWrap = el("label", "wl-detail-rating");
+        ratingWrap.appendChild(el("span", null, "My rating"));
+        var sel = document.createElement("select");
+        sel.className = "wl-rating";
+        WL_RATINGS.forEach(function (opt) {
+          var o = document.createElement("option");
+          o.value = opt; o.textContent = AIE.ratingLabel(opt);
+          sel.appendChild(o);
+        });
+        sel.value = ratingFor(t.ticker);
+        sel.addEventListener("click", function (ev) { ev.stopPropagation(); });
+        sel.addEventListener("change", function () { setRating(t.ticker, sel.value); });
+        ratingWrap.appendChild(sel);
+        foot.appendChild(ratingWrap);
+        box.appendChild(foot);
+
         td.appendChild(box);
         tr.appendChild(td);
         return tr;
@@ -2358,19 +2898,30 @@
       function makeWatchlistRow(t) {
         var cat = DATA.categories[t.category];
         var tr = document.createElement("tr");
-        tr.style.setProperty("--accent", cat ? cat.color : "#94a3b8");
-
-        var cTd = document.createElement("td");
-        var wrap = el("span", "wl-cat");
-        wrap.appendChild(el("span", "wl-dot"));
-        wrap.appendChild(el("span", "wl-cat-label", cat ? cat.label : (t.category || "—")));
-        cTd.appendChild(wrap); tr.appendChild(cTd);
+        tr.className = "wl-row-link";
+        tr.style.setProperty("--accent", cat ? cat.color : "var(--muted)");
 
         var tTd = document.createElement("td");
         var symLink = el("a", "wl-sym", t.ticker);
         symLink.href = AIE.linkForTicker(t.ticker);
-        tTd.appendChild(symLink); tr.appendChild(tTd);
-        tr.appendChild(el("td", null, t.company || "—"));
+        tTd.appendChild(symLink);
+        tr.appendChild(tTd);
+
+        // Layer: dot + label, in its own sortable column. The hue is encoded
+        // here only — the ticker cell no longer repeats it.
+        var lTd = document.createElement("td");
+        var lWrap = el("span", "wl-layer");
+        lWrap.appendChild(el("span", "wl-dot"));
+        lWrap.appendChild(el("span", "wl-layer-label",
+          cat ? cat.label : (t.category || "Unsorted")));
+        lTd.appendChild(lWrap);
+        tr.appendChild(lTd);
+
+        tr.appendChild(el("td", "wl-company", t.company || "—"));
+
+        tr.appendChild(pctCell(t.chg7d));
+        tr.appendChild(pctCell(t.chg1m));
+        tr.appendChild(pctCell(t.chg1y));
 
         var pTd = el("td", "num");
         if (t.price != null) {
@@ -2379,75 +2930,54 @@
         } else { pTd.appendChild(el("span", "wl-muted", "—")); }
         tr.appendChild(pTd);
 
-        tr.appendChild(pctCell(t.chg7d));
-        tr.appendChild(pctCell(t.chg1m));
-        tr.appendChild(pctCell(t.chg1y));
-
         var mTd = el("td", "num");
         var mc = fmtMcap(t.marketCap, t.currency);
         if (mc) { mTd.textContent = mc; }
-        else { mTd.appendChild(el("span", "wl-muted", t.marketCapTier || "—")); }
+        else { mTd.appendChild(el("span", "wl-muted", "—")); }
         tr.appendChild(mTd);
 
         var dTd = document.createElement("td");
         if (t.verdict) {
-          // Expandable verdict: clicking the stance badge opens a full-width
-          // detail row under this one (view / execution / changes-my-mind),
-          // replacing the old tooltip-only reveal.
-          var vs = el("button", "vd-stance vd-stance--btn " + t.verdict.stance, AIE.stanceLabel(t.verdict.stance));
-          vs.type = "button";
-          vs.title = "Show the desk view";
-          vs.setAttribute("aria-expanded", "false");
-          vs.addEventListener("click", function (ev) {
-            ev.stopPropagation();
-            var next = tr.nextElementSibling;
-            if (next && next.classList.contains("wl-verdict-row")) {
-              next.remove();
-              vs.setAttribute("aria-expanded", "false");
-              return;
-            }
-            tr.parentNode.insertBefore(makeVerdictDetailRow(t), tr.nextSibling);
-            vs.setAttribute("aria-expanded", "true");
-          });
-          dTd.appendChild(vs);
+          dTd.appendChild(el("span", "vd-stance " + t.verdict.stance,
+            AIE.stanceLabel(t.verdict.stance)));
         } else {
           dTd.appendChild(el("span", "wl-muted", "—"));
         }
         tr.appendChild(dTd);
 
-        // Note: link to the coverage memo (+ its date) when one exists.
         var nTd = document.createElement("td");
         var memo = memoForTicker(t.ticker);
         if (memo) {
           var noteLink = el("a", "wl-note", "Memo");
           noteLink.href = "memo.html?id=" + encodeURIComponent(memo.id);
-          if (memo.publishedAt) noteLink.appendChild(el("span", "wl-note-date", AIE.fmtDate(memo.publishedAt)));
+          if (memo.publishedAt) {
+            noteLink.appendChild(el("span", "wl-note-date", AIE.fmtDate(memo.publishedAt)));
+          }
           nTd.appendChild(noteLink);
         } else {
           nTd.appendChild(el("span", "wl-muted", "—"));
         }
         tr.appendChild(nTd);
 
-        var rTd = document.createElement("td");
-        var sel = document.createElement("select"); sel.className = "wl-rating";
-        WL_RATINGS.forEach(function (opt) {
-          var o = document.createElement("option"); o.value = opt; o.textContent = AIE.ratingLabel(opt); sel.appendChild(o);
-        });
-        sel.value = ratingFor(t.ticker);
-        sel.addEventListener("change", function () { setRating(t.ticker, sel.value); });
-        rTd.appendChild(sel); tr.appendChild(rTd);
-
-        // Whole-row click convenience — navigate to the ticker's best page, but
-        // let real interactive cells (the rating select, in-row links) act first.
-        tr.classList.add("wl-row-link");
+        // Row click expands in place. Real links still win.
+        tr.setAttribute("aria-expanded", wlState.open[t.ticker] ? "true" : "false");
         tr.addEventListener("click", function (ev) {
-          var tag = ev.target.tagName;
-          if (tag === "A" || tag === "SELECT" || tag === "OPTION") return;
-          if (ev.target.closest && ev.target.closest("a, select")) return;
-          window.location.href = AIE.linkForTicker(t.ticker);
+          if (ev.target.closest && ev.target.closest("a, select, option")) return;
+          toggleWlRow(t, tr);
         });
 
         return tr;
+      }
+
+      function toggleWlRow(t, tr) {
+        var openNow = !wlState.open[t.ticker];
+        if (openNow) { wlState.open[t.ticker] = true; }
+        else { delete wlState.open[t.ticker]; }
+        tr.setAttribute("aria-expanded", openNow ? "true" : "false");
+        tr.classList.toggle("is-open", openNow);
+        var next = tr.nextElementSibling;
+        if (next && next.classList.contains("wl-detail-row")) next.remove();
+        if (openNow) tr.parentNode.insertBefore(makeRowDetailRow(t), tr.nextSibling);
       }
 
       function renderWatchlist() {
@@ -2473,7 +3003,7 @@
         if (deskMetaEl) {
           if (deskMeta && deskMeta.reviewedAt) {
             deskMetaEl.hidden = false;
-            deskMetaEl.textContent = "Desk verdicts reviewed " + deskMeta.reviewedAt.slice(0, 10)
+            deskMetaEl.textContent = "Calls last reviewed " + deskMeta.reviewedAt.slice(0, 10)
               + (deskMeta.coverage ? " · " + deskMeta.coverage : "")
               + (deskMeta.disclaimer ? " · " + deskMeta.disclaimer : "");
           } else {
@@ -2483,59 +3013,81 @@
 
         body.innerHTML = "";
 
-        // Always grouped by category. Default order within a group is
-        // analyst mention-count; clicking any sortable column re-orders the
-        // rows inside each group instead. Analyst, not raw: ranking on the
-        // total would let the desk's own research findings lift a name above
-        // one the analyst actually talked about more.
-        var sortIsDefault = wlState.key === "category";
-        var mentionsOf = function (t) {
-          var p = t.priority;
-          if (!p) return 0;
-          return p.analystMentions != null
-            ? p.analystMentions
-            : (p.mentions || 0) - (p.researchMentions || 0);
-        };
-        var byMentions = function (a, b) {
-          var am = mentionsOf(a);
-          var bm = mentionsOf(b);
-          if (am !== bm) return bm - am;
-          return a.ticker < b.ticker ? -1 : 1;
-        };
-        categoriesByLayerAsc().forEach(function (catId) {
-          var rows = filtered.filter(function (t) { return t.category === catId; });
-          if (!rows.length) return;
-          var cat = DATA.categories[catId];
-          rows.sort(sortIsDefault ? byMentions : wlCompare);
-          var subtotal = document.createElement("tr");
-          subtotal.className = "wl-subtotal";
-          subtotal.style.background = "color-mix(in srgb, " + cat.color + " 6%, white)";
-          var td = document.createElement("td");
-          td.colSpan = 11;
-          td.appendChild(el("b", null, cat.label));
-          td.appendChild(document.createTextNode(" · " + rows.length + (rows.length === 1 ? " ticker" : " tickers")));
-          subtotal.appendChild(td);
-          body.appendChild(subtotal);
-          rows.forEach(function (t) { body.appendChild(makeWatchlistRow(t)); });
-        });
+        /* FLAT and globally sorted. The old code sorted inside a per-category
+           loop, so "sort by 1Y" produced eleven independent mini-rankings and
+           never a top-of-book. */
+        var rows = filtered.slice().sort(wlCompare);
 
-        // Sort-direction arrow on the active header.
+        if (!rows.length) {
+          body.appendChild(makeWlEmptyRow());
+        } else {
+          rows.forEach(function (t) {
+            var tr = makeWatchlistRow(t);
+            if (wlState.open[t.ticker]) tr.classList.add("is-open");
+            body.appendChild(tr);
+            // Re-open anything the user had expanded before this render.
+            if (wlState.open[t.ticker]) body.appendChild(makeRowDetailRow(t));
+          });
+        }
+
+        // Sort arrow. Always drawn on the active column — the table can no
+        // longer be ordered by a criterion it doesn't show.
         document.querySelectorAll(".wl-table thead th .arrow").forEach(function (a) { a.remove(); });
-        if (!sortIsDefault) {
-          var activeTh = document.querySelector('.wl-table thead th[data-key="' + wlState.key + '"]');
-          if (activeTh) activeTh.appendChild(el("span", "arrow", wlState.dir > 0 ? "▲" : "▼"));
+        document.querySelectorAll(".wl-table thead th[data-key]").forEach(function (th) {
+          th.setAttribute("aria-sort", "none");
+        });
+        var activeTh = document.querySelector('.wl-table thead th[data-key="' + wlState.key + '"]');
+        if (activeTh) {
+          activeTh.appendChild(el("span", "arrow", wlState.dir > 0 ? "\u25b2" : "\u25bc"));
+          activeTh.setAttribute("aria-sort", wlState.dir > 0 ? "ascending" : "descending");
         }
       }
 
+      /* Empty state. Six tier x category combinations can legitimately return
+         nothing; the old table rendered a bare header row inside a bordered
+         card with no explanation and no way out. */
+      function makeWlEmptyRow() {
+        var tr = document.createElement("tr");
+        tr.className = "wl-empty-row";
+        var td = document.createElement("td");
+        td.colSpan = wlColSpan();
+
+        var tierLabel = (WL_TIER_CHIPS.filter(function (c) {
+          return c.id === wlState.tierFilter;
+        })[0] || {}).label || wlState.tierFilter;
+        var catLabel = wlState.categoryFilter
+          && DATA.categories[wlState.categoryFilter]
+          && DATA.categories[wlState.categoryFilter].label;
+
+        var msg = el("p", "wl-empty-msg",
+          catLabel
+            ? ("Nothing in " + catLabel + " is in \u201c" + tierLabel + "\u201d.")
+            : ("Nothing matches \u201c" + tierLabel + "\u201d."));
+        td.appendChild(msg);
+
+        var reset = el("button", "wl-empty-reset", "Clear filters");
+        reset.type = "button";
+        reset.addEventListener("click", function () {
+          setWlView({
+            tierFilter: WL_DEFAULT_VIEW.tierFilter,
+            categoryFilter: WL_DEFAULT_VIEW.categoryFilter
+          });
+        });
+        td.appendChild(reset);
+        tr.appendChild(td);
+        return tr;
+      }
+
       function renderWatchlistFilterChips() {
-        // Tier chips — conviction filter, defaulting to Signal (Core + Watch).
+        // Tier chips. Radio behaviour; the default is Core ("Closest watch").
         var tiersWrap = document.getElementById("wlTiers");
         if (tiersWrap) {
           tiersWrap.innerHTML = "";
           WL_TIER_CHIPS.forEach(function (tc) {
-            var chip = el("button", "filter-chip" + (wlState.tierFilter === tc.id ? " is-active" : ""), tc.label);
+            var chip = el("button",
+              "filter-chip" + (wlState.tierFilter === tc.id ? " is-active" : ""), tc.label);
             chip.type = "button";
-            chip.addEventListener("click", function () { wlState.tierFilter = tc.id; renderWatchlist(); });
+            chip.addEventListener("click", function () { setWlView({ tierFilter: tc.id }); });
             tiersWrap.appendChild(chip);
           });
         }
@@ -2544,17 +3096,35 @@
         if (!wrap || !DATA) return;
         wrap.innerHTML = "";
 
-        var allChip = el("button", "filter-chip" + (!wlState.categoryFilter ? " is-active" : ""), "All");
+        /* Category chips are built from the TIER-FILTERED set, so a chip's
+           count is what you would actually get. Chips that can only return
+           nothing are rendered disabled rather than offered and then failing
+           (six such combinations exist today, e.g. Second tier x Glass). */
+        var inTier = wlTickers().filter(wlTierMatches);
+        var perCat = {};
+        inTier.forEach(function (t) { perCat[t.category] = (perCat[t.category] || 0) + 1; });
+
+        var allChip = el("button",
+          "filter-chip" + (!wlState.categoryFilter ? " is-active" : ""), "All");
         allChip.type = "button";
-        allChip.addEventListener("click", function () { wlState.categoryFilter = null; renderWatchlist(); });
+        allChip.appendChild(el("span", "fc-count", String(inTier.length)));
+        allChip.addEventListener("click", function () { setWlView({ categoryFilter: null }); });
         wrap.appendChild(allChip);
 
         categoriesByLayerAsc().forEach(function (id) {
           var c = DATA.categories[id];
-          var chip = el("button", "filter-chip" + (wlState.categoryFilter === id ? " is-active" : ""), c.label);
+          var n = perCat[id] || 0;
+          var chip = el("button",
+            "filter-chip" + (wlState.categoryFilter === id ? " is-active" : ""), c.label);
           chip.type = "button";
           chip.style.setProperty("--chip-accent", c.color);
-          chip.addEventListener("click", function () { wlState.categoryFilter = id; renderWatchlist(); });
+          chip.appendChild(el("span", "fc-count", String(n)));
+          if (!n) {
+            chip.disabled = true;
+            chip.title = "No " + c.label + " names in this tier";
+          } else {
+            chip.addEventListener("click", function () { setWlView({ categoryFilter: id }); });
+          }
           wrap.appendChild(chip);
         });
       }
@@ -2563,9 +3133,13 @@
         document.querySelectorAll(".wl-table thead th[data-key]").forEach(function (th) {
           th.addEventListener("click", function () {
             var k = th.getAttribute("data-key");
-            if (wlState.key === k) { wlState.dir = -wlState.dir; }
-            else { wlState.key = k; wlState.dir = 1; }
-            renderWatchlist();
+            // A fresh column starts descending on the numeric columns (the
+            // interesting end of "what moved") and ascending on the text ones.
+            var numericFirst = (k === "chg7d" || k === "chg1m" || k === "chg1y"
+                                || k === "price" || k === "marketCap"
+                                || k === "deskStance");
+            if (wlState.key === k) setWlView({ dir: -wlState.dir });
+            else setWlView({ key: k, dir: numericFirst ? -1 : 1 });
           });
         });
       }
@@ -2682,21 +3256,31 @@
         digests.forEach(function (d, di) {
           var cat = (DATA.categories && DATA.categories[d.category]) || null;
           var card = el("article", "bd-card");
-          card.style.setProperty("--accent", cat ? cat.color : "#94a3b8");
+          card.style.setProperty("--accent", cat ? cat.color : "var(--muted)");
           revealify(card, di);
 
           var head = el("div", "bd-head");
-          head.appendChild(el("span", "bd-title", cat ? cat.label : d.category));
-          if (cat && cat.subtitle) head.appendChild(el("span", "bd-sub", cat.subtitle));
+          if (cat && cat.icon) {
+            var iw = el("span", "bd-icon");
+            var ic = AIE.iconSVG(cat.icon, "currentColor", 22);
+            if (ic) iw.appendChild(ic);
+            head.appendChild(iw);
+          } else {
+            head.appendChild(el("span", null, ""));   // keep the grid columns aligned
+          }
+          var tw = el("span", "bd-titlewrap");
+          tw.appendChild(el("span", "bd-title", cat ? cat.label : d.category));
+          if (cat && cat.subtitle) tw.appendChild(el("span", "bd-sub", cat.subtitle));
+          head.appendChild(tw);
           var cvl = (d.conviction === "high" || d.conviction === "medium" || d.conviction === "low")
             ? d.conviction : "medium";
-          head.appendChild(el("span", "bd-conviction " + cvl, cvl + " conviction"));
+          head.appendChild(el("span", "bd-conviction " + cvl, cvl + " confidence"));
           card.appendChild(head);
 
           var counts = d.dailyMentions && d.dailyMentions.counts;
           if (counts && counts.length) {
             var trend = el("div", "bd-trend");
-            trend.style.color = cat ? cat.color : "#94a3b8";
+            trend.style.color = cat ? cat.color : "var(--muted)";
             var ns = "http://www.w3.org/2000/svg";
             var svg = document.createElementNS(ns, "svg");
             svg.setAttribute("viewBox", "0 0 90 26");
@@ -2713,14 +3297,12 @@
             card.appendChild(trend);
           }
 
-          if (d.narrative) card.appendChild(el("p", "bd-narrative", d.narrative));
-
-          var pts = d.keyPoints || [];
-          if (pts.length) {
-            var ul = el("ul", "bd-points");
-            pts.forEach(function (pt) { ul.appendChild(el("li", null, pt)); });
-            card.appendChild(ul);
-          }
+          /* The card shows ONE lead line, not the whole write-up. Ten full
+             narratives stacked made this chapter 5,000px tall and unscannable;
+             the prose is intact, just one click away. */
+          var pts = (d.keyPoints || []).slice();
+          var lead = pts.length ? pts.shift() : (d.narrative || "").split(/(?<=\.)\s+/)[0];
+          if (lead) card.appendChild(el("p", "bd-lead", lead));
 
           var tks = d.tickers || [];
           if (tks.length) {
@@ -2735,35 +3317,55 @@
             card.appendChild(chips);
           }
 
-          // Drill-down: lazily reveal the raw source theses behind this digest.
+          /* One drill-down holds everything else: the full narrative, the
+             remaining points, and the original posts behind the claim. */
           var ids = d.sourceThesisIds || [];
-          if (ids.length) {
-            var sources = el("div", "bd-sources");
-            var sourcesInner = el("div", "bd-sources-inner");
-            sources.appendChild(sourcesInner);
+          var hasMore = !!(d.narrative || pts.length || ids.length);
+          if (hasMore) {
+            var more = el("div", "bd-sources");
+            var moreInner = el("div", "bd-sources-inner");
+            more.appendChild(moreInner);
             var built = false;
-            var n = ids.length;
-            var label = function (open) {
-              return (open ? "Hide " : "Show ") + n + (n === 1 ? " source thesis" : " source theses");
-            };
+            var label = function (open) { return open ? "Hide the full read" : "Read the full take"; };
             var toggle = el("button", "bd-toggle", label(false));
             toggle.setAttribute("type", "button");
             toggle.setAttribute("aria-expanded", "false");
             toggle.addEventListener("click", function () {
-              var open = !sources.classList.contains("open");
+              var open = !more.classList.contains("open");
               toggle.setAttribute("aria-expanded", open ? "true" : "false");
               toggle.textContent = label(open);
               if (open && !built) {
-                ids.forEach(function (tid) {
-                  var th = byId[tid];
-                  if (th) sourcesInner.appendChild(makeThesisCard(th, { compact: true }));
-                });
+                if (d.narrative) moreInner.appendChild(el("p", "bd-narrative", d.narrative));
+                if (pts.length) {
+                  var ul = el("ul", "bd-points");
+                  pts.forEach(function (pt) { ul.appendChild(el("li", null, pt)); });
+                  moreInner.appendChild(ul);
+                }
+                if (ids.length) {
+                  /* Capped, like the retired Evidence feed was: a well-covered
+                     theme can cite 40+ posts, which rendered ~17,000px of cards
+                     inside a single drill-down. The cap is stated, never
+                     silent — a hidden truncation reads as "that's all of it". */
+                  var SRC_CAP = 6;
+                  var shown = ids.slice(0, SRC_CAP);
+                  // NB: not named `label` — that would var-hoist over the
+                  // toggle's label() function in this same scope.
+                  var srcLabel = ids.length > SRC_CAP
+                    ? ("Newest " + shown.length + " of " + ids.length + " posts behind this")
+                    : (ids.length + (ids.length === 1 ? " post behind this" : " posts behind this"));
+                  moreInner.appendChild(el("span", "bd-srclabel", srcLabel));
+                  shown.forEach(function (tid) {
+                    var th = byId[tid];
+                    if (th) moreInner.appendChild(makeThesisCard(th, { compact: true }));
+                  });
+                }
                 built = true;
               }
-              setDrilldownOpen(sources, sourcesInner, open, "open");
+              more.classList.toggle("open", open);
+              setDrilldownOpen(more, moreInner, open);
             });
             card.appendChild(toggle);
-            card.appendChild(sources);
+            card.appendChild(more);
           }
 
           frag.appendChild(card);
@@ -2784,12 +3386,14 @@
       AIE.seed();
       AIE.paintGradientBorder();
       AIE.renderNav("desk");
-      renderDeskStrip();
+      renderDeskHero();
       initMapViewToggle();
       renderMap();
       renderCards(null);
       renderPriorityStrip();
       renderGlossary();
+      loadWlView();          // restore sort + filters BEFORE the first paint
+      wlArmMcapSort();       // decides whether Mkt Cap is clickable at all
       renderWatchlist();
       renderWlRecent();
       initWatchlistSort();
