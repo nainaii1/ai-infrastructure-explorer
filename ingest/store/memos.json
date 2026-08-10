@@ -1,7 +1,7 @@
 {
   "meta": {
     "schemaVersion": 1,
-    "updatedAt": "2026-08-03T00:00:00Z",
+    "updatedAt": "2026-08-10T00:00:00Z",
     "author": "claude-desk",
     "disclaimer": "Coverage memos are second-opinion research notes on @aleabitoreddit's ideas. Personal research tool — not investment advice."
   },
@@ -1303,6 +1303,361 @@
         "h_69684ea60ee93290",
         "h_061b5ccd49c3a139"
       ],
+      "basedOnVerdict": true
+    },
+    {
+      "id": "m_LITE_2026w33",
+      "ticker": "LITE",
+      "kind": "update",
+      "rating": "watch",
+      "title": "The thesis held; the entry did not",
+      "dek": "Lumentum reports tomorrow after a ~48% week. Stepping off accumulate for the print, not for the story.",
+      "sections": [
+        {
+          "heading": "Snapshot",
+          "body": "$LITE is the desk's lower-beta anchor in [[photonics]] — the incumbent InP laser supplier whose shortage is disclosed in its own filings rather than inferred from someone else's."
+        },
+        {
+          "heading": "Thesis",
+          "body": "Indium phosphide lasers are the chokepoint as [[photonics]] scales from pluggable optics into co-packaged optics, and Lumentum is the largest Western supplier. Management describes a supply-demand imbalance above 30% in EMLs and pump lasers, and has been prepaying [[axti]] to reserve substrate capacity — which is what a genuinely constrained buyer does."
+        },
+        {
+          "heading": "Why own it",
+          "body": "It remains the highest-quality expression of the laser bottleneck: real revenue, disclosed margins, and a guide of $960m-$1.01bn at 35-36% non-GAAP operating margin for the fiscal fourth quarter. Unlike the small caps it does not need a ramp to be believed — it needs the shortage to persist, which its customers keep confirming."
+        },
+        {
+          "heading": "Risks",
+          "body": "The fifth indium phosphide fab in Greensboro is a conversion from gallium arsenide, not new greenfield capacity. Process transfer and customer requalification put any meaningful output beyond fiscal 2027, so the supply gap does not close on this asset — but that also means the capacity relief the bull case eventually needs is further out than the headline count of fabs suggests.\n\nThe nearer risk is price. The shares have run roughly 48% in a week straight into an earnings date, so an in-line print against a known guide is a losing setup even if every word of the thesis holds."
+        },
+        {
+          "heading": "Bottom line",
+          "body": "Hold what exists, add nothing today. The re-entry is a post-earnings pullback that leaves the sold-out capacity language intact — not a chase into the number."
+        }
+      ],
+      "sourceThesisIds": [
+        "r_1c3fa3cf066735b1",
+        "r_35349d109352353b",
+        "r_4e1933962a514b8e",
+        "x_2086148557187461412",
+        "x_2085603590903902621"
+      ],
+      "publishedAt": "2026-08-10T00:00:00Z",
+      "updatedAt": "2026-08-10T00:00:00Z",
+      "basedOnVerdict": true
+    },
+    {
+      "id": "m_TSM_2026w33",
+      "ticker": "TSM",
+      "kind": "update",
+      "rating": "accumulate",
+      "title": "Buying the boring leg while the exciting ones re-rate",
+      "dek": "Everything on this map is built at TSMC. After a week in which the suppliers rose 48-77%, that stops being a reason to ignore it.",
+      "sections": [
+        {
+          "heading": "Snapshot",
+          "body": "$TSM is the foundry every name in this book depends on, which is exactly why the desk has treated it as scenery until now."
+        },
+        {
+          "heading": "Thesis",
+          "body": "The analyst's objection — that TSMC is the least differentiated way to own the AI buildout — was correct while the small suppliers were cheap. It stops being correct when they are not. First-half revenue was up 35.6% year on year with June alone up 67.9%, and the shares are down about 7% on the month while the [[photonics]] complex ran hard."
+        },
+        {
+          "heading": "Why own it",
+          "body": "Three things no other name here offers. Monthly revenue disclosure, so the demand curve can be checked every thirty days instead of every quarter. No qualification risk, no dilution risk, no single-customer risk. And a valuation that is a fraction of what the suppliers now carry per unit of revenue.\n\nIt does the same job in the book that [[jbl]] does: ballast bought deliberately when the high-variance legs are expensive."
+        },
+        {
+          "heading": "Risks",
+          "body": "Advanced packaging is easing rather than tightening. Industry reporting has the CoWoS supply-demand gap narrowing from roughly 20% to 10% by the end of 2026 as capacity expands toward about 200,000 wafers a month by end-2027. A bottleneck that resolves is a bottleneck that stops paying, and TSMC's pricing power on packaging goes with it.\n\nThe second risk is that this is a large-cap and behaves like one — it will not produce the returns the small suppliers can."
+        },
+        {
+          "heading": "Bottom line",
+          "body": "Starter position, quarterly tranches, sized as ballast. Use the monthly revenue release as the running check rather than waiting on quarters."
+        }
+      ],
+      "sourceThesisIds": [
+        "r_ca24ed489894827a",
+        "r_21d7368cf12c49d5",
+        "r_eff1f5a4e263f01a",
+        "h_81c95bb99a13f5d0",
+        "x_2085304045099696547"
+      ],
+      "publishedAt": "2026-08-10T00:00:00Z",
+      "updatedAt": "2026-08-10T00:00:00Z",
+      "basedOnVerdict": true
+    },
+    {
+      "id": "m_AAOI_2026w33",
+      "ticker": "AAOI",
+      "kind": "update",
+      "rating": "watch",
+      "title": "Record revenue, falling margin",
+      "dek": "The earnings arrived. Revenue up 86%, gross margin down year on year and quarter on quarter — the opposite of what a shortage produces.",
+      "sections": [
+        {
+          "heading": "Snapshot",
+          "body": "$AAOI is the US transceiver maker at the centre of the desk's [[photonics]] book and the name that has moved most violently in both directions this quarter."
+        },
+        {
+          "heading": "Thesis",
+          "body": "AOI builds optical transceivers and, increasingly, its own lasers, into a market where demand runs 20-40% ahead of supply on management's own description. The bull case is a capacity ramp into a structural shortage, with US manufacturing as a policy hedge against Chinese competitors."
+        },
+        {
+          "heading": "Why own it",
+          "body": "The second quarter was genuine progress: revenue of $191.9m, up 86% year on year, 800G volumes more than doubling sequentially, and a return to non-GAAP profitability at $0.06 a share. Management says demand will outpace its production capacity through mid-2027, which is a long runway stated by the company rather than modelled by a reader."
+        },
+        {
+          "heading": "Risks",
+          "body": "Margin is going the wrong way. GAAP gross margin was 27.7% against 30.3% a year ago and 29.1% in the prior quarter. A company selling into a true shortage does not give back three points of margin while growing 86%.\n\nThe $500m-plus fourth quarter that circulates in the feed is call commentary, not guidance. The release guides the third quarter to $255-290m and reaffirms roughly $1.1bn for the year, so the headline requires a near-doubling in one quarter on capacity the company itself calls constrained."
+        },
+        {
+          "heading": "Bottom line",
+          "body": "The scale-in stays stopped. The restart condition is margin, not revenue: non-GAAP gross margin clearing 30% in the third-quarter print with the guide held."
+        }
+      ],
+      "sourceThesisIds": [
+        "r_c8d949a1c34a1b55",
+        "r_ea2076271f6edbc6",
+        "r_3785f4e41be23293",
+        "x_2085711500875116887",
+        "x_2085649654059016387"
+      ],
+      "publishedAt": "2026-08-10T00:00:00Z",
+      "updatedAt": "2026-08-10T00:00:00Z",
+      "basedOnVerdict": true
+    },
+    {
+      "id": "m_SIVE_2026w33",
+      "ticker": "SIVE",
+      "kind": "update",
+      "rating": "watch",
+      "title": "Nine posts, none of them a Sivers number",
+      "dek": "The capacity model is now built entirely out of other companies' transcripts. Seventeen days to the interim that can settle it.",
+      "sections": [
+        {
+          "heading": "Snapshot",
+          "body": "$SIVE remains the most-cited and most conviction-tagged name in this book, and the one where the gap between the narrative and the filings is widest."
+        },
+        {
+          "heading": "Thesis",
+          "body": "Sivers supplies indium phosphide lasers into co-packaged optics as [[photonics]] moves off pluggable modules, with [[poet]] as interposer partner and a fab-light capacity model behind the volume case. The revised revenue model circulating this week — roughly $427m a year at the midpoint of modelled capacity — is an upper bound derived from wafer allocation, not an order book."
+        },
+        {
+          "heading": "Why own it",
+          "body": "The structural argument has not weakened. Very few public companies can supply continuous-wave DFB lasers at scale, and the shortage keeps getting corroborated from outside: transceiver makers describing a 20-40% demand imbalance, and a component supplier reporting customers arriving with urgency over an indium phosphide laser shortage."
+        },
+        {
+          "heading": "Risks",
+          "body": "All of that corroboration is about the market, not about Sivers. The company's own most recent report describes a $799m opportunity pipeline — a pipeline, not backlog — and no shipped laser volume, customer or ASP has ever been disclosed.\n\nThe stock has risen roughly 50% in a week on other companies' earnings calls, which means the modelled upside is being paid for before any of it is reported."
+        },
+        {
+          "heading": "Bottom line",
+          "body": "No new size. The Q2 interim on 27 August is the first datapoint that can turn pipeline into revenue, and buying ahead of it pays full price for information that is seventeen days away."
+        }
+      ],
+      "sourceThesisIds": [
+        "r_75e13e4178d63074",
+        "r_915e72da7d7c1de3",
+        "r_4bbc2394e316a736",
+        "x_2086247069900300393",
+        "x_2085628664528662818"
+      ],
+      "publishedAt": "2026-08-10T00:00:00Z",
+      "updatedAt": "2026-08-10T00:00:00Z",
+      "basedOnVerdict": true
+    },
+    {
+      "id": "m_AMD_2026w33",
+      "ticker": "AMD",
+      "kind": "update",
+      "rating": "watch",
+      "title": "The filing says MI350, not MI450",
+      "dek": "AMD's own 10-Q attributes the 107% data-centre growth to EPYC and MI350. The CPO read-through stays a 2027 story.",
+      "sections": [
+        {
+          "heading": "Snapshot",
+          "body": "$AMD sits in this book as a demand node — the desk's interest is whether its rack-scale systems adopt co-packaged optics, which would pull [[photonics]] volume forward."
+        },
+        {
+          "heading": "Thesis",
+          "body": "AMD is taking accelerator share with the Instinct line and moving to rack-scale with Helios. If those racks adopt co-packaged optics rather than pluggable modules, it converts a laser thesis into a schedule."
+        },
+        {
+          "heading": "Why own it",
+          "body": "The accelerator business is compounding on its own terms and does not need the optics story: data-centre revenue of $6.7bn in the quarter, up 107% year on year, with a stated expectation that the segment more than doubles again in 2027 and named commitments including a two-gigawatt Anthropic deployment."
+        },
+        {
+          "heading": "Risks",
+          "body": "The dates are the problem for this desk's purposes. The 10-Q attributes the quarter's growth to EPYC and MI350-series parts; Helios entered production with shipments starting only at the end of the third quarter, and the first gigawatt of the Anthropic deployment begins in the first half of 2027.\n\nSo the read-through to [[sive]] and [[aaoi]] is 2027 at the earliest, and the 2027 doubling is already the consensus case at this price — three quarters of carry with no proof in between."
+        },
+        {
+          "heading": "Bottom line",
+          "body": "No desk action. If AMD is owned it is a whole-company accelerator call, not a photonics derivative. The trigger worth watching is a product disclosure naming co-packaged optics with a generation and a date."
+        }
+      ],
+      "sourceThesisIds": [
+        "r_c966ad3c9afe2631",
+        "r_2036a40b33264743",
+        "r_dea696e296430666",
+        "x_2085649654059016387"
+      ],
+      "publishedAt": "2026-08-10T00:00:00Z",
+      "updatedAt": "2026-08-10T00:00:00Z",
+      "basedOnVerdict": true
+    },
+    {
+      "id": "m_COHR_2026w33",
+      "ticker": "COHR",
+      "kind": "update",
+      "rating": "watch",
+      "title": "Up 71% on a rule that has not been written",
+      "dek": "Coherent still has no dedicated thesis in this corpus, and a large part of the move discounts a draft import ban with no published text.",
+      "sections": [
+        {
+          "heading": "Snapshot",
+          "body": "$COHR is the other photonics prime alongside [[lite]], and the one whose datacenter exposure sits inside a much larger industrial business."
+        },
+        {
+          "heading": "Thesis",
+          "body": "The same indium phosphide shortage that drives [[lite]] drives Coherent, with the added kicker of a proposed US restriction on new Chinese optical transceivers that would hand share to Western suppliers."
+        },
+        {
+          "heading": "Why own it",
+          "body": "The datacenter ramp is disclosed rather than inferred: third-quarter fiscal 2026 revenue of $1.81bn, up 21% year on year, attributed to the datacenter business and higher communications demand, with fiscal Q4 guided to $1.91-2.05bn. That is a real, reported acceleration."
+        },
+        {
+          "heading": "Risks",
+          "body": "The margin structure is not a pure-play's. Non-GAAP gross margin was 39.6%, well below component peers, because industrial, telecom and materials dilute the datacenter mix — so a re-rating toward pure-play multiples assumes economics the reported segments do not yet produce.\n\nThe larger risk is what the move is discounting. The proposed ban on new Chinese optical transceivers exists as a draft rule with nothing published in the Federal Register, so scope, timing and exemptions cannot be verified. It is an option, not a catalyst, and it is being paid for as though it were the latter."
+        },
+        {
+          "heading": "Bottom line",
+          "body": "No dedicated action, and specifically do not buy the ban. [[lite]] carries the same shortage at higher purity. Coherent earns a position on its own datacenter segment maths in the 12 August print, not on the sector's tape."
+        }
+      ],
+      "sourceThesisIds": [
+        "r_d2e567bd4fcd1622",
+        "r_ef0a6be5eed1841d",
+        "r_5a4a19196e789bf1",
+        "x_2086148557187461412"
+      ],
+      "publishedAt": "2026-08-10T00:00:00Z",
+      "updatedAt": "2026-08-10T00:00:00Z",
+      "basedOnVerdict": true
+    },
+    {
+      "id": "m_NBIS_2026w33",
+      "ticker": "NBIS",
+      "kind": "exit-note",
+      "rating": "watch",
+      "title": "Off the roster two days before the print",
+      "dek": "Nebius drops out of the verdict roster on score as the analyst's own coverage turns bearish. The Q2 report on 12 August is the test.",
+      "sections": [
+        {
+          "heading": "Snapshot",
+          "body": "$NBIS leaves the verdict roster on priority score, not on a stance change — it is still Core tier, and the desk still has no neocloud position."
+        },
+        {
+          "heading": "Thesis",
+          "body": "Nebius rents AI compute at scale, with energised capacity as the binding constraint and contracted demand well ahead of delivery. The bear case, which the analyst himself has now started writing, is that this is a financing story before it is a compute story."
+        },
+        {
+          "heading": "Why own it",
+          "body": "Nothing in the operating story has broken. Capacity is described as fully contracted, capex has been guided up to $20-25bn, and the customer roster and NVIDIA's equity stake are real third-party validation."
+        },
+        {
+          "heading": "Risks",
+          "body": "The disclosure is thin where it matters. The filings give no contracted megawatts, no delivery schedule and no customer names, so the sold-out claim cannot be independently sized in either direction.\n\nAnd the balance sheet carries the risk: first-quarter revenue of $399m against capex guided to $20-25bn, funded by $4.3bn of convertibles and secured debt at SOFR plus 250 basis points. Any slip in customer ramp lands on financing terms, not on cash."
+        },
+        {
+          "heading": "Bottom line",
+          "body": "No position, and no verdict coverage until the score recovers. The 12 August print is the thing to read — specifically whether prepayments are being presented as demand."
+        }
+      ],
+      "sourceThesisIds": [
+        "r_88f7b30e6f0921be",
+        "r_5ba88015a3320aeb",
+        "r_b25d47fb34716046",
+        "x_2086157318065168490"
+      ],
+      "publishedAt": "2026-08-10T00:00:00Z",
+      "updatedAt": "2026-08-10T00:00:00Z",
+      "basedOnVerdict": true
+    },
+    {
+      "id": "m_META_2026w33",
+      "ticker": "META",
+      "kind": "exit-note",
+      "rating": "watch",
+      "title": "The payer leaves the roster",
+      "dek": "Meta drops off the verdict roster on score. The supplier read-through is intact; the equity is still being derated for the spending that creates it.",
+      "sections": [
+        {
+          "heading": "Snapshot",
+          "body": "$META is a demand node in this map — one of the four capex payers whose spending funds the [[hyperscalers]] leg of the supply chain."
+        },
+        {
+          "heading": "Thesis",
+          "body": "Meta's capital spending is a leading indicator for accelerator, memory and optics demand. Owning the suppliers and owning the payer are, at this point, opposite expressions of the same view."
+        },
+        {
+          "heading": "Why own it",
+          "body": "The spend is committed and large: $31.1bn of capital expenditure in the quarter and full-year guidance narrowed upward to $130-145bn. As a demand signal for this book it is unambiguous."
+        },
+        {
+          "heading": "Risks",
+          "body": "Free cash flow was $784m in the quarter. The buildout is consuming the cash generation that made Meta a self-funding compounder, and the shares are down roughly a quarter over the past year while the suppliers they fund have multiplied.\n\nThe disclosure also gives capex dollars and nothing else — no accelerator mix, no useful-life assumption — so the figure cannot be converted into unit demand for any specific supplier."
+        },
+        {
+          "heading": "Bottom line",
+          "body": "No position. The desk already owns the supply side, which is the same view expressed where the cash is arriving rather than leaving."
+        }
+      ],
+      "sourceThesisIds": [
+        "r_b6b97220ceaaf157",
+        "r_f4d71d85c42fd910",
+        "r_8f4bcc385100033b",
+        "x_2083270545320386734"
+      ],
+      "publishedAt": "2026-08-10T00:00:00Z",
+      "updatedAt": "2026-08-10T00:00:00Z",
+      "basedOnVerdict": true
+    },
+    {
+      "id": "m_POET_2026w33",
+      "ticker": "POET",
+      "kind": "exit-note",
+      "rating": "watch",
+      "title": "Still a wording change, not an order",
+      "dek": "POET leaves the verdict roster on score. The interposer story is unchanged and still carries no revenue.",
+      "sections": [
+        {
+          "heading": "Snapshot",
+          "body": "$POET is the optical interposer partner in the [[sive]] story — the piece that would put Sivers lasers into a packaged product."
+        },
+        {
+          "heading": "Thesis",
+          "body": "If co-packaged optics scales, the interposer is a real position in the stack and POET is one of very few public ways to own it. The bull case turns on the production timeline with Sivers lasers by the end of 2026."
+        },
+        {
+          "heading": "Why own it",
+          "body": "The balance sheet removes the usual small-cap risk: working capital of roughly $419m against about $8.8m of quarterly operating cash burn funds years of runway without a forced raise."
+        },
+        {
+          "heading": "Risks",
+          "body": "There is no product revenue. First-quarter revenue of $503,389 was non-recurring engineering, and the upgrade in language from production-readiness to production is a company statement with no shipped volume behind it.\n\nExisting holders paid for the runway: shares outstanding rose about 74% over the year, including a 20.7m-share placement in January."
+        },
+        {
+          "heading": "Bottom line",
+          "body": "No position, and if it is ever taken it is option-sized. The trigger remains a purchase order or a revenue-recognising shipment, not a press-release verb."
+        }
+      ],
+      "sourceThesisIds": [
+        "r_bf0d18b7bf2f4fb6",
+        "r_8ff70a96c66b6714",
+        "r_2004870903ccca33",
+        "x_2085649654059016387"
+      ],
+      "publishedAt": "2026-08-10T00:00:00Z",
+      "updatedAt": "2026-08-10T00:00:00Z",
       "basedOnVerdict": true
     }
   ]

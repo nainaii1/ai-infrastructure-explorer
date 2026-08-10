@@ -45,7 +45,7 @@
     "candidate": "MC",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:37:23Z",
-    "count": 25
+    "count": 27
   },
   {
     "candidate": "MF",
@@ -57,7 +57,7 @@
     "candidate": "MLCC",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:37:23Z",
-    "count": 7
+    "count": 8
   },
   {
     "candidate": "MOCVD",
@@ -153,13 +153,13 @@
     "candidate": "DRAM",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:39:49Z",
-    "count": 5
+    "count": 6
   },
   {
     "candidate": "NAND",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:39:49Z",
-    "count": 14
+    "count": 15
   },
   {
     "candidate": "OP",
@@ -177,7 +177,7 @@
     "candidate": "SK",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:39:49Z",
-    "count": 21
+    "count": 22
   },
   {
     "candidate": "SMIC",
@@ -291,7 +291,7 @@
     "candidate": "EML",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:44:22Z",
-    "count": 17
+    "count": 18
   },
   {
     "candidate": "QD",
@@ -345,7 +345,7 @@
     "candidate": "DFB",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:54:29Z",
-    "count": 7
+    "count": 10
   },
   {
     "candidate": "FMCW",
@@ -369,7 +369,7 @@
     "candidate": "OSINT",
     "sourceUrl": "",
     "firstSeen": "2026-06-30T07:19:13Z",
-    "count": 5
+    "count": 6
   },
   {
     "candidate": "PR",
@@ -411,7 +411,7 @@
     "candidate": "CW",
     "sourceUrl": "",
     "firstSeen": "2026-06-30T07:39:56Z",
-    "count": 29
+    "count": 34
   },
   {
     "candidate": "ERIC",
@@ -465,7 +465,7 @@
     "candidate": "PIC",
     "sourceUrl": "",
     "firstSeen": "2026-06-30T07:39:56Z",
-    "count": 2
+    "count": 3
   },
   {
     "candidate": "RTX",
@@ -597,7 +597,7 @@
     "candidate": "LNG",
     "sourceUrl": "",
     "firstSeen": "2026-06-30T07:46:58Z",
-    "count": 2
+    "count": 3
   },
   {
     "candidate": "OFC",
@@ -621,7 +621,7 @@
     "candidate": "ARR",
     "sourceUrl": "",
     "firstSeen": "2026-06-30T07:48:15Z",
-    "count": 5
+    "count": 6
   },
   {
     "candidate": "BS",
@@ -657,7 +657,7 @@
     "candidate": "NPO",
     "sourceUrl": "",
     "firstSeen": "2026-06-30T07:49:19Z",
-    "count": 8
+    "count": 10
   },
   {
     "candidate": "SKC",
@@ -813,7 +813,7 @@
     "candidate": "ATM",
     "sourceUrl": "",
     "firstSeen": "2026-07-02T09:30:58Z",
-    "count": 4
+    "count": 5
   },
   {
     "candidate": "ISO",
@@ -1041,7 +1041,7 @@
     "candidate": "ELSFP",
     "sourceUrl": "",
     "firstSeen": "2026-07-03T13:25:40Z",
-    "count": 1
+    "count": 3
   },
   {
     "candidate": "OE",
@@ -1203,7 +1203,7 @@
     "candidate": "GAAP",
     "sourceUrl": "",
     "firstSeen": "2026-07-07T07:03:37Z",
-    "count": 2
+    "count": 3
   },
   {
     "candidate": "PT",
@@ -1257,7 +1257,7 @@
     "candidate": "EOY",
     "sourceUrl": "",
     "firstSeen": "2026-07-13T07:25:45Z",
-    "count": 4
+    "count": 5
   },
   {
     "candidate": "IBK",
@@ -1323,7 +1323,7 @@
     "candidate": "ER",
     "sourceUrl": "",
     "firstSeen": "2026-07-14T09:36:28Z",
-    "count": 10
+    "count": 12
   },
   {
     "candidate": "CPI",
@@ -1545,6 +1545,60 @@
     "candidate": "GCS",
     "sourceUrl": "",
     "firstSeen": "2026-08-03T06:24:54Z",
+    "count": 1
+  },
+  {
+    "candidate": "AH",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2085217487864643658",
+    "firstSeen": "2026-08-07T14:31:05Z",
+    "count": 1
+  },
+  {
+    "candidate": "JDA",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2085217487864643658",
+    "firstSeen": "2026-08-07T14:31:05Z",
+    "count": 1
+  },
+  {
+    "candidate": "AOI",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2085499853099208716",
+    "firstSeen": "2026-08-07T14:31:07Z",
+    "count": 3
+  },
+  {
+    "candidate": "DWDM",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2085603590903902621",
+    "firstSeen": "2026-08-08T08:12:39Z",
+    "count": 1
+  },
+  {
+    "candidate": "DSP",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2085711500875116887",
+    "firstSeen": "2026-08-08T08:15:16Z",
+    "count": 1
+  },
+  {
+    "candidate": "TIA",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2085711500875116887",
+    "firstSeen": "2026-08-08T08:15:16Z",
+    "count": 1
+  },
+  {
+    "candidate": "YMTC",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2085974141501612461",
+    "firstSeen": "2026-08-10T03:16:03Z",
+    "count": 1
+  },
+  {
+    "candidate": "APAC",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2086634510935118161",
+    "firstSeen": "2026-08-10T06:01:18Z",
+    "count": 1
+  },
+  {
+    "candidate": "OCP",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2086634510935118161",
+    "firstSeen": "2026-08-10T06:01:18Z",
     "count": 1
   }
 ]

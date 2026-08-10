@@ -1,32 +1,59 @@
 {
   "meta": {
-    "generatedAt": "2026-08-03T00:00:00Z",
+    "generatedAt": "2026-08-10T00:00:00Z",
     "model": "weekly desk review",
-    "thesesConsidered": 322,
+    "thesesConsidered": 378,
     "categoriesSynthesized": 9,
     "schemaVersion": 1
   },
   "digests": [
     {
       "category": "photonics",
-      "narrative": "Photonics is the theme he owns hardest, and the argument is unchanged: as AI networking moves from pluggable modules toward co-packaged optics, indium phosphide laser supply becomes the chokepoint, and very few public companies can fill it. Late July handed him the strongest external validation yet — a $300m US CHIPS award to GlobalFoundries aimed explicitly at silicon photonics and CPO, with Sivers and Lumentum the only two public laser suppliers named in the programme.\n\nThe hard evidence sits with Lumentum. Its CEO put the supply-demand gap above 30% in EMLs and pump lasers, record quarterly revenue of $808m was up 90%, and the Japanese wafer fab is fully allocated. AXT's long-term agreement is the corroboration that matters: Lumentum is prepaying deposits totalling $87m to reserve substrate capacity through 2031, which is behaviour, not commentary.\n\nWhere the theme is weakest is precisely where he is most invested. Sivers reported Q1 net sales down 22% year on year, and the $799m he cites is an opportunity pipeline rather than backlog. AAOI's $471m-a-month 2027 figure is roughly five times what management guides to. The POET wording change he read as a timeline upgrade still resolves to production readiness by end-2026 — a milestone, not an order.",
+      "narrative": "The week the theme repriced. AAOI's earnings became the sector's read-through document: management said it cannot make enough CPO lasers to take part in first-generation co-packaged deployments because capacity has to go to its own transceivers first, flagged a 20-40% demand imbalance, and expects full qualification of 1.6T products at a hyperscaler customer within weeks. MACOM's transcript supplied the independent corroboration the desk has been waiting for — customers arriving with urgency over a shortage of indium phosphide DFB lasers.\n\nLayered on top is policy. A draft US rule would bar imports of new Chinese optical transceiver models, which would take share from Innolight and Eoptolink and hand it to Western suppliers. It is worth being exact about its status: it is a draft, nothing has been published in the Federal Register, and the agency could still modify or shelve it. A large part of this week's move is paying for it as though it were settled.\n\nThe counterweight sits inside AAOI's own release. Gross margin fell to 27.7% from 30.3% a year earlier and 29.1% last quarter while revenue grew 86%, which is not what a seller in a genuine shortage produces. And the $500m-plus fourth quarter circulating in the feed is call commentary against a company guide of $255-290m for Q3 and roughly $1.1bn for the year.",
       "conviction": "high",
       "keyPoints": [
-        "US CHIPS award to GlobalFoundries names Sivers and Lumentum as the only public laser suppliers in the CPO programme",
-        "Lumentum: record $808m revenue up 90%, supply-demand gap above 30%, Japan fab fully allocated",
-        "AXT reserves InP capacity for Lumentum through 2031 against $87m of deposits, paid in two tranches",
-        "Sivers Q1 net sales fell 22% year on year; the $799m headline is a pipeline, not backlog",
-        "AAOI's $471m/month 2027 rate is about five times management's own $1.1bn full-year guide",
-        "POET/Sivers language remains production readiness by end-2026, with prototypes in the first half"
+        "AAOI: cannot supply first-generation CPO lasers because own-transceiver demand takes priority",
+        "MACOM cites customers arriving with urgency over an indium phosphide DFB laser shortage",
+        "AAOI expects 1.6T qualification at a hyperscaler customer within weeks",
+        "Draft US rule would bar new Chinese transceiver models — unpublished, scope and timing unverifiable",
+        "AAOI gross margin fell to 27.7% from 30.3% year on year despite 86% revenue growth",
+        "The $500m+ Q4 figure is call commentary; guidance is $255-290m for Q3 and ~$1.1bn for the year"
       ],
       "tickers": [
-        "SIVE",
-        "LITE",
         "AAOI",
+        "LITE",
+        "SIVE",
         "COHR",
-        "POET"
+        "POET",
+        "MTSI"
       ],
       "sourceThesisIds": [
+        "r_75e13e4178d63074",
+        "r_915e72da7d7c1de3",
+        "r_4bbc2394e316a736",
+        "r_c8d949a1c34a1b55",
+        "r_ea2076271f6edbc6",
+        "r_3785f4e41be23293",
+        "r_1c3fa3cf066735b1",
+        "r_35349d109352353b",
+        "r_4e1933962a514b8e",
+        "r_d2e567bd4fcd1622",
+        "r_ef0a6be5eed1841d",
+        "r_5a4a19196e789bf1",
+        "r_bf0d18b7bf2f4fb6",
+        "r_8ff70a96c66b6714",
+        "r_2004870903ccca33",
+        "x_2086247069900300393",
+        "x_2086148557187461412",
+        "x_2085711500875116887",
+        "x_2085649654059016387",
+        "x_2085628664528662818",
+        "x_2085603590903902621",
+        "x_2085511646257332581",
+        "x_2085499853099208716",
+        "x_2085304045099696547",
+        "x_2085217487864643658",
+        "x_2084597612175618342",
         "h_81c95bb99a13f5d0",
         "r_c173439107ef44c4",
         "r_25fe1eb5be8668d6",
@@ -40,56 +67,35 @@
         "x_2083438823548293140",
         "x_2083114743729107236",
         "x_2083106805949878330",
-        "x_2083088870942642391",
-        "h_e07b775686c9ce68",
-        "h_df3b8fcfcc0502c7",
-        "h_2d636896cf0553c2",
-        "x_2082578803189268855",
-        "h_41c515e668e213e6",
-        "h_a3fbe3dfa6304803",
-        "h_69684ea60ee93290",
-        "h_cdc1513b37dc8a51",
-        "h_68d9e73b418bb672",
-        "h_0c8b779e5549fefc",
-        "h_ab7eca244c2c4d4d",
-        "h_9439b0d72f63b510",
-        "h_d4bbd6bc8c2ad2da",
-        "h_77894599004bff7e",
-        "h_aab4fe4860f13d29",
-        "h_aab19b2aaa60c0de",
-        "h_f25655e483d8ec8c",
-        "h_d90a44185ab68228",
-        "h_4cced3fb7690d2aa",
-        "h_a6fae9c6faa10221",
-        "h_abb4acfa7a533688",
-        "h_c730cd89e4be221f",
-        "h_51d64b06417d7c82",
-        "h_abafede3f1b850bd",
-        "h_742edebe9c4a8c54",
-        "h_6c2c47820fd61d59"
+        "x_2083088870942642391"
       ],
       "thesesCount": 40,
-      "lastSynthesized": "2026-08-03T00:00:00Z"
+      "lastSynthesized": "2026-08-10T00:00:00Z"
     },
     {
       "category": "memory",
-      "narrative": "The memory upcycle remains one of his highest-conviction structural calls, and Micron's quarter gave it its strongest evidence yet: record DRAM revenue of $31.3bn, up 343% year on year, at an 84.9% consolidated gross margin, with 16 strategic customer agreements and remaining performance obligations above $5bn. Amazon naming higher memory costs as a driver of its capex increase is the demand side of the same story, visible from the buyer's accounts.\n\nHe reads the contracts as a structural change to how memory is sold. The qualification is the coverage: only around 20% of DRAM and 30% of NAND volume sits under those agreements, so roughly four fifths of DRAM volume remains spot-exposed. The contracts smooth the cycle rather than remove it, and they defend floor pricing and volume rather than the pricing above the floor that currently carries the earnings.\n\nSentiment and price have moved the other way regardless. Memory names sold off hard through late July, and much of his coverage this week was a defence of the framing around that drawdown rather than new evidence about the business.",
+      "narrative": "Allocation is now the whole story. DRAM and HBM capacity for 2027 is described as sold out across Micron, Samsung and SK Hynix, NAND is sold out on current annual capacity, and customers are being allocated only 60-70% of the volumes they requested, with Kioxia and SK Hynix finalising the rest by August. The framing in the feed is that 2027 is the most severe point of the shortage.\n\nSandisk's fiscal fourth quarter turned that industry narrative into a company number: revenue of $8.97bn, adjusted EPS of $39.25, gross margin near 78%, first revenue recognised from the QLC-based Stargate platform, and a fiscal Q1 2027 guide of $10.3-10.8bn with $44-46 of EPS. That is the NAND-specific pricing evidence the desk had been holding out for.\n\nWhat the theme cannot tell you is where in the cycle this sits. The shares trade at a single-digit multiple of guided earnings, which is the market pricing a peak the guidance does not show. He remains explicitly bullish on memory while noting the sector's attention has rotated to photonics — his own framing of a market that moves from bottleneck to bottleneck.",
       "conviction": "high",
       "keyPoints": [
-        "Micron fiscal Q3 DRAM revenue of $31.3bn, up 343%, at an 84.9% consolidated gross margin",
-        "16 strategic customer agreements with remaining performance obligations above $5bn",
-        "Only about 20% of DRAM and 30% of NAND volume is contracted — most remains spot-exposed",
-        "An 84.9% gross margin reads as a cycle peak rather than a run-rate",
-        "Amazon attributed part of its capex increase to higher memory costs",
-        "Memory equities fell sharply into the drawdown despite the contractual demand lock"
+        "DRAM and HBM 2027 capacity described as sold out at Micron, Samsung and SK Hynix",
+        "Customers allocated only 60-70% of requested volumes; Kioxia and SK Hynix finalise by August",
+        "Sandisk fiscal Q4: revenue $8.97bn, adjusted EPS $39.25, gross margin near 78%",
+        "First revenue recognised from the QLC-based Stargate storage platform",
+        "Fiscal Q1 2027 guided to $10.3-10.8bn revenue and $44-46 EPS",
+        "Single-digit forward multiple says the market is pricing a cycle top the guide does not show"
       ],
       "tickers": [
         "MU",
         "SNDK",
-        "SKHY",
-        "AXTI"
+        "AXTI",
+        "SKHY"
       ],
       "sourceThesisIds": [
+        "r_c89a729f6ef07c1b",
+        "r_ba203e9dad4ea35e",
+        "r_1300d026219d841e",
+        "x_2086148557187461412",
+        "x_2084468063228060092",
         "r_7a8c6a3fefa8cfae",
         "r_9d15ecea46a123d6",
         "r_2779c73c56e6533f",
@@ -124,35 +130,34 @@
         "h_574cc87d7e028236",
         "h_30f455bac2598b96",
         "h_d1316054ff13d830",
-        "h_10aa6c8479a57d03",
-        "h_6619c85d86ae9ed8",
-        "h_6d5dbad8581d8139",
-        "h_9c524f6339fbbee1",
-        "h_15c7a1a2cc1c7180",
-        "h_3b2f8931edf69462"
+        "h_10aa6c8479a57d03"
       ],
       "thesesCount": 40,
-      "lastSynthesized": "2026-08-03T00:00:00Z"
+      "lastSynthesized": "2026-08-10T00:00:00Z"
     },
     {
       "category": "fabs",
-      "narrative": "The fab layer is where he tracks whether the buildout has manufacturing behind it, and the late-July flow was mostly policy and packaging. The US signed a $300m CHIPS letter of intent with GlobalFoundries for silicon photonics and co-packaged optics R&D, taking roughly 1% equity — federal money pointed directly at his central theme. He was surprised the stock stayed down; $300m against a $27bn company is immaterial, and the market priced it accordingly.\n\nPackaging is the other constraint in view. Nvidia signed a $1.5bn prepaid agreement with Amkor for US advanced packaging capacity, on top of a ten-year TSMC partnership, and FormFactor's call attributed nearly doubled systems revenue to accelerating CPO growth — small absolute numbers, but the first CPO revenue showing up in anyone's accounts.\n\nIntel is the awkward name. Q2 revenue of $16.1bn was up 25%, the strongest growth in over fifteen years, and it still produced a GAAP loss of $2.16 a share. On the disclosed schedule 14A reaches risk production in 2027 and high volume in 2028, so external foundry revenue is not a near-term event.",
+      "narrative": "The quietest week of flow in the layer and the biggest change in the desk's positioning. TSMC appears in the feed only in passing — the Amkor ten-year packaging agreement, the NVIDIA deal, an aside about how the ticker is pronounced — while its own disclosure did the talking: first-half revenue up 35.6% year on year with June alone up 67.9%.\n\nThe structural point that matters for the whole map is that the advanced-packaging squeeze is loosening. Industry reporting has the CoWoS supply-demand gap narrowing from roughly 20% to 10% by the end of 2026, with capacity heading toward about 200,000 wafers a month by end-2027. That is why scarcity on this map keeps migrating upstream into lasers and substrates rather than staying in packaging.\n\nGlobalFoundries and Intel are unchanged and unmentioned. The CHIPS silicon-photonics award remains GlobalFoundries' whole case, and Intel's disclosed 14A schedule still puts risk production in 2027 and volume in 2028.",
       "conviction": "medium",
       "keyPoints": [
-        "GlobalFoundries signed a $300m CHIPS letter of intent for silicon photonics and CPO, with Commerce taking about 1%",
-        "Nvidia committed $1.5bn in prepayments to Amkor for US advanced packaging capacity",
-        "FormFactor attributed near-doubled systems revenue to accelerating co-packaged optics",
-        "Intel Q2 revenue $16.1bn, up 25%, yet GAAP EPS was negative $2.16",
-        "Intel 14A reaches risk production in 2027 and high volume in 2028",
-        "The $300m award is immaterial to GlobalFoundries' scale, which explains the muted price reaction"
+        "TSMC first-half revenue up 35.6% year on year; June alone up 67.9%",
+        "CoWoS supply-demand gap reported narrowing from about 20% to 10% by end-2026",
+        "CoWoS capacity heading toward roughly 200,000 wafers per month by end-2027",
+        "TSMC is the only name in the book with monthly revenue disclosure",
+        "No new analyst theses on GlobalFoundries or Intel this week",
+        "Intel's disclosed 14A schedule: risk production 2027, high volume 2028"
       ],
       "tickers": [
+        "TSM",
         "GFS",
         "INTC",
-        "TSM",
         "TSEM"
       ],
       "sourceThesisIds": [
+        "r_ca24ed489894827a",
+        "r_21d7368cf12c49d5",
+        "r_eff1f5a4e263f01a",
+        "x_2085304045099696547",
         "h_81c95bb99a13f5d0",
         "r_67423370f17ff00e",
         "r_1121c84c151e4fc8",
@@ -188,32 +193,32 @@
         "h_ce3d6e124a66f939",
         "h_dd8a7c3f97835b36",
         "h_0235e573a41f2c62",
-        "h_98e389890a97f056",
-        "h_c2b2a64111bd30cc",
-        "h_635d80a7689d172f",
-        "h_6f4609ddc5d7b259",
-        "h_7797b5894b3bb34e"
+        "h_98e389890a97f056"
       ],
       "thesesCount": 40,
-      "lastSynthesized": "2026-08-03T00:00:00Z"
+      "lastSynthesized": "2026-08-10T00:00:00Z"
     },
     {
       "category": "neoclouds",
-      "narrative": "The neocloud thesis is that companies contracting power and capacity ahead of demand convert scarcity into annualised run-rate, and both names he follows delivered on that this period. IREN revised its ARR target above $4bn on new AI cloud contracts naming Microsoft, Nvidia, Perplexity and Figure. Nebius secured up to 1.2GW of power and land for an owned Pennsylvania site and expects more than 3GW under contract by year-end.\n\nWhat the price action showed was how leveraged these names are to positioning rather than fundamentals. A single large liquidation moved Nebius and IREN more than 25% in a day, which he read correctly as forced selling rather than information.\n\nThe risk the theme actually carries is financing, not demand. Nebius reported $399m of quarterly revenue against a $3-3.4bn full-year target, so nearly the entire guide sits in the second half, and capex plans run an order of magnitude above revenue. Contracted ARR is not funded capacity, and the terms of the next raise matter more to the equity than GPU demand does.",
-      "conviction": "medium",
+      "narrative": "The notable development is whose side the analysis is on. The week's one substantive neocloud post is a guide to doing diligence on a Nebius short: read the hyperscaler prints first — record AI cloud demand, growing backlogs and improving margins at Google, Amazon and Meta — then compare that against what Nebius itself discloses.\n\nThe gap is the point. Nebius reports capacity fully contracted and capex guided to $20-25bn, but publishes no contracted megawatts, no delivery schedule and no customer names, against first-quarter revenue of $399m. The funding is convertibles, an NVIDIA equity stake and secured debt at SOFR plus 250 basis points, which makes the equity a levered call on execution rather than a compute business.\n\nIREN carries the same structure with better counterparties and no fresh evidence this week. Both drop out of the desk's priority ranking as the flow thins; Nebius reports on 12 August, which is the next real test.",
+      "conviction": "low",
       "keyPoints": [
-        "IREN revised its ARR target above $4bn with Microsoft, Nvidia, Perplexity and Figure named",
-        "Nebius secured up to 1.2GW in Pennsylvania and expects over 3GW contracted by year-end",
-        "Nebius Q1 revenue of $399m annualises near $1.6bn against a $3-3.4bn full-year target",
-        "Capex plans run an order of magnitude above revenue — this is a financing story first",
-        "A single fund liquidation moved both names more than 25% in a day",
-        "Nebius reports Q2 on 12 August, the next test of the second-half step-up"
+        "The week's only neocloud thesis is a framework for shorting Nebius, not owning it",
+        "Hyperscaler prints show record AI cloud demand, growing backlog and improving margins",
+        "Nebius discloses no contracted megawatts, delivery schedule or customer names",
+        "Q1 revenue of $399m against capex guided to $20-25bn",
+        "Funding is convertibles, an NVIDIA equity stake and secured debt at SOFR plus 250bps",
+        "Nebius Q2 results due 12 August"
       ],
       "tickers": [
         "NBIS",
         "IREN"
       ],
       "sourceThesisIds": [
+        "r_88f7b30e6f0921be",
+        "r_5ba88015a3320aeb",
+        "r_b25d47fb34716046",
+        "x_2086157318065168490",
         "r_e2cd15e12c0928b1",
         "r_e9b254d4e96e609a",
         "r_606728417ecb8670",
@@ -249,40 +254,44 @@
         "h_29e60f0da3d1925a",
         "h_fa1af2184880e3d2",
         "h_3351e475854eb59d",
-        "h_2a293abababa4360",
-        "h_2e843bd16531f27a",
-        "h_e7720e250de56618",
-        "h_00a1d3192d4bb4eb",
-        "h_674b5e5d749d0ca2"
+        "h_2a293abababa4360"
       ],
       "thesesCount": 40,
-      "lastSynthesized": "2026-08-03T00:00:00Z"
+      "lastSynthesized": "2026-08-10T00:00:00Z"
     },
     {
       "category": "materials",
-      "narrative": "The materials layer is his answer to the question of what breaks first if the buildout accelerates, and the read this period was that the equipment and test names are already printing the growth the theme predicts. Teradyne reported revenue up 104% with EPS growth above 300%, and Bloom Energy delivered 166% revenue growth with expanding margins and raised guidance — results he used to argue that the July drawdown was indiscriminate deleveraging rather than deteriorating fundamentals.\n\nAehr remains the specific position. Its 2027 guide of $130-150m implies 160-200% growth and explicitly assumes little or no memory revenue and nothing from a newly benchmarked AI customer, which he reads as a guide with deliberate room above it.\n\nThe through-line is that upstream names sell into every downstream winner, so they express the theme without requiring a call on which laser or memory supplier wins. That is also why they fell with everything else in the drawdown despite the results.",
-      "conviction": "high",
+      "narrative": "Two threads this week, and the louder one is policy. The White House committed direct investment to critical minerals: $400m to Sunrise Energy Metals for scandium, $25m to Westwater for graphite, $8m to 5E Advanced Materials for boron and $4.8m to Rare Element Resources for magnet rare earths, alongside private commitments. For this map it is a reminder that the upstream inputs to the buildout are now a state interest, though none of these are yet positions.\n\nThe second thread is a correction to a fear rather than a new fact. Viavi pushed back publicly on talk of CPO delays — the yield-driven slippage story is dismissed outright, with the process described as improving and moving forward. That matters because most of this map's photonics timing assumptions are downstream of whether CPO ships on schedule.\n\nAmkor remains the layer's live position: record second-quarter net sales of $1.90bn led by computing and automotive rather than by AI packaging, with the advanced-packaging ramp still a 2028 story.",
+      "conviction": "medium",
       "keyPoints": [
-        "Teradyne revenue up 104% with EPS growth above 300%",
-        "Bloom Energy revenue up 166% with expanding margins and raised 2026 guidance",
-        "Aehr guides 2027 to $130-150m, implying 160-200% growth",
-        "The Aehr guide assumes little or no memory revenue and nothing from a newly benchmarked AI customer",
-        "Strong results across the layer did not prevent the July drawdown, which he reads as deleveraging",
-        "Upstream exposure captures the theme without picking the winning downstream supplier"
+        "White House critical-minerals investments: $400m scandium, $25m graphite, $8m boron, $4.8m rare earths",
+        "Viavi dismisses CPO delay talk outright and describes the process as improving",
+        "Amkor record Q2 net sales of $1.90bn, led by computing and automotive rather than AI packaging",
+        "Amkor's advanced-packaging AI ramp remains a 2028 story with partial 2027 steps",
+        "FormFactor's CPO revenue commentary continues to confirm the packaging-side ramp",
+        "None of the newly funded minerals names are desk positions"
       ],
       "tickers": [
-        "AEHR",
-        "TER",
-        "LPK.DE",
-        "SOI.PA"
+        "AMKR",
+        "FORM",
+        "SOI.PA",
+        "AEHR"
       ],
       "sourceThesisIds": [
+        "x_2085823672569467005",
+        "x_2085174977272360987",
+        "h_81c95bb99a13f5d0",
+        "h_58ab72fe0a33550a",
+        "x_2082720873908494456",
         "h_69684ea60ee93290",
+        "h_442d898389c4471f",
         "h_d4bbd6bc8c2ad2da",
         "h_a6fae9c6faa10221",
         "h_abafede3f1b850bd",
         "h_c0e79065f90fc60c",
+        "h_061b5ccd49c3a139",
         "h_47f3b5b1bfcce165",
+        "h_197ce850c998cd53",
         "h_5602bfef722355a2",
         "h_15c7a1a2cc1c7180",
         "h_3fddbb3c1756349f",
@@ -309,26 +318,31 @@
         "h_659f631bfc95b4c6",
         "h_7a3e79c6e49009a9"
       ],
-      "thesesCount": 31,
-      "lastSynthesized": "2026-08-03T00:00:00Z"
+      "thesesCount": 39,
+      "lastSynthesized": "2026-08-10T00:00:00Z"
     },
     {
       "category": "networking",
-      "narrative": "Networking sits between his optics thesis and the accelerator roadmaps, and the period's most useful input was a channel check on Chinese laser capability: no working 200G EMLs, and some distance from high-power continuous-wave sources for near-package and co-packaged optics. If that holds, the Western laser supply chain keeps its position through the CPO transition rather than being commoditised.\n\nThe AMD event was the scheduled catalyst, with brokers expecting scale-up CPO and MI500 roadmap disclosure. What emerged was executive commentary rather than commitment, which leaves the networking read-through as inference.\n\nMarvell continues to appear only in breadth lists rather than in a dedicated thesis, down about a third on the month with no company-specific claim attached. That pattern — mention volume generated by market moves rather than by analysis — is worth separating from genuine coverage when reading this theme's ranking.",
+      "narrative": "The layer's news arrived second-hand, inside AAOI's earnings call, and it was a widening of the bottleneck rather than a resolution of it. Alongside lasers, AOI flagged DSP and TIA constraints — the signal-processing and amplifier silicon that sits inside every transceiver — which reads across to Semtech, MACOM and the broader analog suppliers.\n\nThis is the pattern the desk keeps finding: the shortage is not one component but a chain, and each earnings season names another link. The practical consequence is that transceiver revenue forecasts built purely on laser capacity are optimistic, because a module needs the DSP and the TIA too.\n\nNo dedicated positions here and no company disclosure from the named suppliers themselves — this remains a read-through from a customer's call, which is weaker evidence than the layer's importance deserves.",
       "conviction": "medium",
       "keyPoints": [
-        "Channel check: Chinese suppliers lack working 200G EMLs and high-power CW sources for NPO and CPO",
-        "The AMD event produced CPO commentary rather than a product commitment",
-        "Marvell appears only in market-breadth posts, with no dedicated thesis behind the mentions",
-        "Substrate tightness is spreading — Samsung reportedly struggling to secure large FC-BGA substrates",
-        "Optical networking names led the recovery off the July lows, moving as a single high-beta block"
+        "AAOI flagged DSP and TIA bottlenecks alongside the laser shortage",
+        "The read-through runs to Semtech, MACOM and the analog transceiver-component suppliers",
+        "Transceiver forecasts built on laser capacity alone understate the constraint chain",
+        "Evidence is a customer's earnings call, not disclosure from the suppliers themselves",
+        "No dedicated desk position in the layer",
+        "Marvell and Broadcom appear only in breadth lists this week"
       ],
       "tickers": [
         "MRVL",
+        "SMTC",
         "AVGO",
-        "ALAB"
+        "NOK"
       ],
       "sourceThesisIds": [
+        "x_2085711500875116887",
+        "x_2085603590903902621",
+        "x_2085499853099208716",
         "h_442d898389c4471f",
         "h_d4bbd6bc8c2ad2da",
         "h_77894599004bff7e",
@@ -364,8 +378,8 @@
         "h_7a3e79c6e49009a9",
         "h_115b61d4fc0a904a"
       ],
-      "thesesCount": 34,
-      "lastSynthesized": "2026-08-03T00:00:00Z"
+      "thesesCount": 37,
+      "lastSynthesized": "2026-08-10T00:00:00Z"
     },
     {
       "category": "glass",
@@ -471,21 +485,24 @@
     },
     {
       "category": "robotics",
-      "narrative": "Robotics is his longest-dated theme and the one furthest from revenue. The period's catalyst was a reported FCC move to ban Chinese imports of humanoid and quadruped robots to protect American programmes, which he reads as a direct positive for US players including Agility Robotics. He pairs it with Musk's repeated claim that Optimus will be Tesla's biggest product ever, and with supplier-rate requirements that give the Tesla programme a dated, checkable milestone.\n\nThe structural argument is that China ships roughly 90% of the world's humanoids today, so protection plus capital is what an American supply chain needs to exist at all.\n\nThe exposure itself needs care. Agility is reached through a pre-close SPAC that values it at roughly $2.5bn with over $620m of gross proceeds, and that only converts after SEC review of the S-4, a shareholder vote and closing expected before end-2026, after which it trades under a different ticker. Deal and redemption risk currently sit above operating risk, and the import-ban read-through is regulatory rather than a statement about the products themselves.",
-      "conviction": "medium",
+      "narrative": "The week's genuine surprise was Aeva, a lidar company, signing a joint development agreement with an optical engine player for deployment at a major hyperscaler — which reframes it as a CPO and NPO optical source name rather than an automotive sensor one, and links it to the same laser supply chain the photonics book runs on. The shares reacted sharply after hours.\n\nOn humanoids, the comparables moved before the fundamentals. Unitree is listing at around $9bn against a $6.2bn March filing, with derivative markets implying a far higher open, while Agility Robotics arrives via de-SPAC later in Q4 at roughly $2.5bn pre-money. A flattering comparable is not an order book, and the FCC's reported move to bar Chinese humanoid and quadruped imports is protection rather than demand.\n\nNothing here has changed the desk's stance: robotics remains a venture-shaped exposure wearing public tickers.",
+      "conviction": "low",
       "keyPoints": [
-        "FCC reportedly set to ban Chinese imports of humanoid and quadruped robots",
-        "China ships roughly 90% of the world's humanoid robots today",
-        "Agility exposure is a pre-close SPAC valuing it at about $2.5bn with over $620m of gross proceeds",
-        "The combination still needs S-4 review, a shareholder vote and closing before end-2026",
-        "Musk repeated that Optimus will be Tesla's biggest product ever",
-        "Tesla supplier requirements give the Optimus ramp a dated, checkable milestone"
+        "Aeva signs a JDA with an optical engine player for deployment at a major hyperscaler",
+        "Aeva reframed as a CPO/NPO optical source name, linked to the same laser supply chain",
+        "Unitree listing at about $9bn versus $6.2bn in its March filing",
+        "Agility Robotics de-SPACs later in Q4 at roughly $2.5bn pre-money",
+        "FCC reported to be barring Chinese humanoid and quadruped imports — protection, not demand",
+        "No disclosed humanoid unit economics anywhere in the public comparables"
       ],
       "tickers": [
         "CCXI",
+        "AEVA",
         "TSLA"
       ],
       "sourceThesisIds": [
+        "x_2085644051446108223",
+        "x_2085217487864643658",
         "h_81c95bb99a13f5d0",
         "r_036cd32e907a7e15",
         "r_e9286da82e5c2cde",
@@ -523,30 +540,37 @@
         "h_fba075fdb320e5e6",
         "h_c3784b027db8669f",
         "h_e4cc0612983c7052",
-        "h_fa7a71df5dbdb81e",
-        "h_2e879b7947e4586e",
-        "h_7864cc0211dacb69"
+        "h_fa7a71df5dbdb81e"
       ],
       "thesesCount": 40,
-      "lastSynthesized": "2026-08-03T00:00:00Z"
+      "lastSynthesized": "2026-08-10T00:00:00Z"
     },
     {
       "category": "accelerators",
-      "narrative": "He treats the accelerator layer less as a place to own and more as the clock everything else runs on. Nvidia's quarter confirmed the demand hub is intact — record data centre revenue of $75.2bn, up 92%, with networking revenue close to tripling — and his consistent position is to express the view through the suppliers this map surfaces rather than through Nvidia itself.\n\nThe live question is AMD and co-packaged optics. Channel checks after the Advancing AI event pointed to AMD pursuing CPO for future Helios generations, and he reads that as the trigger that converts the laser suppliers from thematic to scheduled. That claim currently has no AMD disclosure behind it: Helios and MI450 ship in the second half of 2026 on pluggable optics, with CPO described as a future-generation option, which places any read-through in 2027 at the earliest.\n\nOne counterweight he does not raise. Nvidia returned roughly $20bn to shareholders and authorised $80bn more of buyback in the same quarter its customers raised capex. At a 74.9% gross margin it is the customers' cost line, and the first sign of strain in this system will appear in the payers' earnings.",
+      "narrative": "AMD's quarter answered the question this desk actually has about the layer. Data-centre revenue was $6.7bn, up 107% year on year, and the 10-Q attributes it to EPYC processors and MI350-series parts — not to MI450. Helios entered production with shipments starting at the end of the third quarter, and the first gigawatt of the announced Anthropic deployment begins in the first half of 2027.\n\nSo the co-packaged optics read-through the feed keeps drawing from AMD's rack-scale roadmap to the laser suppliers is a 2027 event at the earliest, and the 2027 doubling is already the consensus case at the current price. That is three quarters of carry with nothing to prove it in between.\n\nNVIDIA barely features this week beyond breadth lists, and its position is unchanged: management's own guidance is that supply stays constrained through the entire life of Vera Rubin, which is the demand hub underwriting the upstream bottleneck thesis. The offsetting fact is concentration — data centre is roughly 92% of revenue, sold to a handful of buyers.",
       "conviction": "medium",
       "keyPoints": [
-        "Nvidia FQ1 data centre revenue of $75.2bn, up 92%, with networking revenue near tripling",
-        "AMD data centre revenue up 57% with the next quarter guided to about 46% growth",
-        "AMD CPO adoption rests on channel checks and broker notes, not company disclosure",
-        "Helios and MI450 ship in H2 2026 on pluggable optics; CPO is a future generation",
-        "Nvidia returned about $20bn and authorised $80bn more of buyback while customers raised capex",
-        "At 74.9% gross margin Nvidia is the cost line its customers are funding"
+        "AMD data-centre revenue $6.7bn, up 107%, attributed to EPYC and MI350 rather than MI450",
+        "Helios in production; shipments start at the end of Q3 2026",
+        "First gigawatt of the Anthropic deployment begins in H1 2027",
+        "The CPO read-through from AMD racks is a 2027 event at the earliest",
+        "NVIDIA management expects supply constraint through the entire life of Vera Rubin",
+        "NVIDIA data centre is roughly 92% of revenue, sold to a handful of buyers"
       ],
       "tickers": [
         "NVDA",
         "AMD"
       ],
       "sourceThesisIds": [
+        "r_c966ad3c9afe2631",
+        "r_2036a40b33264743",
+        "r_dea696e296430666",
+        "r_cac9b21ee514b408",
+        "r_0f24e00262c27b73",
+        "r_72320c76268a9c74",
+        "x_2085649654059016387",
+        "x_2085603590903902621",
+        "x_2085304045099696547",
         "h_81c95bb99a13f5d0",
         "r_8da61b5d7a32a1f2",
         "r_716f92d724eeb1b8",
@@ -577,39 +601,37 @@
         "h_af10808228e2376e",
         "h_061b5ccd49c3a139",
         "h_6f58883d2e2c5a6e",
-        "h_73d38658dc26c0d9",
-        "h_574cc87d7e028236",
-        "h_97ce243eb386cc9e",
-        "h_1815078828b9f257",
-        "h_36781819bfe0ee75",
-        "h_0ecb33baa79a6b44",
-        "h_6d5dbad8581d8139",
-        "h_3dbecf550235afcf",
-        "h_65385721915ebae2",
-        "h_15c7a1a2cc1c7180"
+        "h_73d38658dc26c0d9"
       ],
       "thesesCount": 40,
-      "lastSynthesized": "2026-08-03T00:00:00Z"
+      "lastSynthesized": "2026-08-10T00:00:00Z"
     },
     {
       "category": "hyperscalers",
-      "narrative": "His core macro claim is that the buildout is demand-constrained rather than overbuilt, and the late-July earnings round supported it. Combined 2026 capex guidance across Amazon, Alphabet, Meta and Microsoft moved to roughly $720-745bn from $695-725bn, and Amazon's CEO said explicitly that even $220bn will not meet 2026 demand, with the same expected in 2027. He contrasts this directly with media framing that hyperscalers had overbuilt and were reselling excess compute.\n\nThe distinction the numbers now force is between capex that is funded and capex that is not. Alphabet raised to $195-205bn while cloud revenue grew 82%; Meta raised its floor by $10bn and missed quarterly EPS badly, with the shares falling about 8%. Reading the group as one signal loses that difference.\n\nTwo qualifications apply to the read-through he draws for suppliers. Part of the increase is memory cost inflation rather than incremental compute units, and only around 40% of Alphabet's capex goes to data centres and networking rather than servers. The dollars are real; the share that reaches optics and interconnect is smaller than the headline implies.",
+      "narrative": "The payers keep confirming demand and keep getting punished for funding it. Google Cloud backlog reached $514bn, up more than $50bn sequentially, with just over half expected to convert to revenue inside 24 months and cloud revenue up 82% to $24.8bn. Amazon raised capex to $220bn and said explicitly that even that will not meet 2026 demand, with 2027 the same. Meta narrowed full-year capex upward to $130-145bn.\n\nThe combined 2026 figure across the four now runs to roughly $720-745bn, and this is the cleanest demand signal on the map. But two qualifications belong on it. Part of the raises is memory cost inflation rather than incremental units, so the dollars overstate the pull on optics. And none of these companies disclose accelerator mix or capacity, so every read-through to a named supplier is inference.\n\nThe cash cost is now visible. Meta's free cash flow fell to $784m against $31.1bn of quarterly capex. Alphabet is the one whose spend is funded by an accelerating business, which is why it is the desk's accumulate leg here.",
       "conviction": "high",
       "keyPoints": [
-        "Combined 2026 capex guidance rose to roughly $720-745bn from $695-725bn",
-        "Amazon lifted 2026 capex to $220bn and still expects to be short of capacity in 2026 and 2027",
-        "Alphabet raised to $195-205bn with cloud revenue up 82% — the best-funded spend in the group",
-        "Meta raised its capex floor $10bn and missed Q2 EPS; the equity derated about 8%",
-        "Part of the capex increase is memory cost inflation, not additional compute units",
-        "Roughly 40% of Alphabet's capex is data centre and networking, the only slice reaching optics"
+        "Google Cloud backlog $514bn, up more than $50bn sequentially; cloud revenue up 82% to $24.8bn",
+        "Just over half the Alphabet backlog is expected to convert to revenue within 24 months",
+        "Amazon capex raised to $220bn, with Jassy saying it still will not meet 2026 demand",
+        "Meta full-year capex narrowed upward to $130-145bn; quarterly free cash flow fell to $784m",
+        "Combined 2026 capex across the four now roughly $720-745bn",
+        "No hyperscaler discloses accelerator mix or capacity, so supplier read-throughs are inference"
       ],
       "tickers": [
-        "AMZN",
         "GOOGL",
+        "AMZN",
         "META",
         "MSFT"
       ],
       "sourceThesisIds": [
+        "r_b6b97220ceaaf157",
+        "r_f4d71d85c42fd910",
+        "r_8f4bcc385100033b",
+        "r_e7719032b9eab138",
+        "r_543fb777dbee09c4",
+        "r_5bda4d82c87ddc63",
+        "x_2086157318065168490",
         "r_46d90a3c41fa7f93",
         "r_6b73ca707c56ac89",
         "r_b9c57108d30b1cbd",
@@ -642,17 +664,10 @@
         "h_d087ebd537bedd40",
         "h_530410ca5ca0e6c1",
         "h_5459f5d7ade0192e",
-        "h_2c315427900a28ca",
-        "h_79f9aaff84f7f697",
-        "h_2909dadab30949b5",
-        "h_73d38658dc26c0d9",
-        "h_97ce243eb386cc9e",
-        "h_1815078828b9f257",
-        "h_34534f43456cd196",
-        "h_85395dd0fa8acb89"
+        "h_2c315427900a28ca"
       ],
       "thesesCount": 40,
-      "lastSynthesized": "2026-08-03T00:00:00Z"
+      "lastSynthesized": "2026-08-10T00:00:00Z"
     }
   ]
 }
