@@ -10,7 +10,7 @@ a weekly "second opinion" from Claude on the names that matter most.
 
 ## 🚀 Quick start
 **Just open the app:** double-click **`desk.html`** — the Desk is the front
-door (map, watchlist, evidence, synthesis). "Coverage" in the top nav is the
+door (watchlist, map, synthesis). "Coverage" in the top nav is the
 memo index. It works completely offline — no internet, no server, nothing to
 install. Everything it shows lives in one file, `data.js`; the shared look
 and helpers live in `shared/`.
@@ -43,6 +43,10 @@ It's a small multi-page site (plain HTML — every page opens by double-click):
   find. A finding that can't cite a real primary source is recorded but made
   worth zero to every ranking, and outside research can only ever lower a
   name, never raise it. Run it by saying **"pre-review"** in Claude Code.
+- **New posts find you.** A watcher checks the analyst's X profile every 4
+  hours and sends anything new to Telegram with ✅ Ingest / ❌ Skip buttons —
+  nothing gets added to the corpus without you tapping approve. No API key,
+  no manual forwarding required. See [docs/WATCHER.md](docs/WATCHER.md).
 - **Coverage** (`index.html`) — the memo ledger: every research memo the desk
   has written, filterable by kind and rating. (The raw thesis feed is no longer
   a page of its own — posts live in the data and show up cited under memos,
@@ -74,6 +78,7 @@ It's a small multi-page site (plain HTML — every page opens by double-click):
 | Remember why this project exists and what it's supposed to do | [docs/PRD.md](docs/PRD.md) |
 | See what's built, what's coming next, and known issues | [docs/ROADMAP.md](docs/ROADMAP.md) |
 | Set up the Telegram bot for the first time | [docs/TELEGRAM_SETUP.md](docs/TELEGRAM_SETUP.md) |
+| Understand the X watcher (auto-discovery, approve queue) | [docs/WATCHER.md](docs/WATCHER.md) |
 
 Everything else you'll see in this repo (`CLAUDE.md`, `docs/DESIGN.md`,
 `ingest/README.md`, `.claude/skills/*`, `docs/superpowers/specs/*`) is
@@ -83,13 +88,14 @@ project — you don't need to open those unless you're curious.
 ## 🗺️ Where things live
 ```
 ai-supply-desk/
-├── desk.html           THE DESK (front door) — map, watchlist, evidence, synthesis
-├── index.html          COVERAGE — the memo ledger (+ the week's Focus card)
+├── desk.html           THE DESK (front door) — watchlist, map, synthesis
+├── index.html          COVERAGE — the memo ledger
 ├── memo.html           COVERAGE MEMOS — full research notes per name (?ticker=)
 ├── vault.html          THE VAULT — knowledge base, List/Graph views (?view=graph)
 ├── performance.html    THE TRACK RECORD — dated calls vs SMH, and the claims ledger
 ├── design.html         DESIGN REFERENCE — live style guide (not in the nav; open directly)
 ├── desk.command        BACKEND MENU — double-click: start bot / prices / serve / status
+├── check-x-now.command  double-click: run the X watcher check right now (skip the 4h wait)
 ├── shared/             the shared look + helpers used by every page
 │   ├── theme.css        design tokens + components
 │   └── common.js        shared logic (window.AIE)
@@ -102,9 +108,11 @@ ai-supply-desk/
 │   ├── ROADMAP.md       what's done / what's next
 │   ├── DESIGN.md        the visual design reference
 │   ├── TELEGRAM_SETUP.md  → pointer into GUIDE.md
+│   ├── WATCHER.md        the X watcher — how auto-discovery works
 │   └── images/          screenshots
 └── ingest/              THE BACKEND — the tools that update data.js
     ├── bot.py            the Telegram bot that captures new ideas
+    ├── watcher.py         checks the analyst's X profile every 4h, queues finds for approval
     ├── synthesize.py     writes the "Synthesis" summaries
     ├── seats.py / pre_review.py   the three reviewers: the second-opinion pass
     ├── claims.py         the claims ledger: record predictions, judge them later
@@ -143,14 +151,20 @@ and the forward-only performance ledger.
 downstream of exactly one person. Bearish views now lower a score instead of
 raising it; three reviewers research the top names before each weekly review
 and must cite a real source or count for nothing; and a claims ledger records
-dated predictions and scores them when their date arrives. The first
-measurement is worth knowing: **13 of the 25 analyst claims captured so far
-can never be tested either way — a 52% untestable share.**
+dated predictions and scores them when their date arrives.
 
-Currently tracking 120 companies, 258 captured ideas, 17 desk verdicts,
-6 coverage memos and 25 claims. Two phases remain and both are waiting rather
-than unbuilt: feeding a track record back into the rankings needs 20+ judged
-claims (the earliest deadline is Dec 2026), and running the reviewers
+**New posts find you now** — the X watcher (Jul 2026) polls the analyst's
+public profile every 4 hours and queues anything new to Telegram for a
+✅/❌ tap, so manual forwarding is a fallback, not the daily routine.
+
+**v9 "soft two-tone"** (Jul–Aug 2026) is the current visual design — see
+[docs/DESIGN.md](docs/DESIGN.md).
+
+Currently tracking 127 companies, 379 captured ideas, 18 desk verdicts,
+42 coverage memos and 44 claims (exact counts drift as the pipeline runs —
+see `ingest/store/*.json` for the live numbers). Two phases remain and both
+are waiting rather than unbuilt: feeding a track record back into the
+rankings needs 20+ judged claims per source, and running the reviewers
 unattended overnight needs a decision about API access. See
 [docs/ROADMAP.md](docs/ROADMAP.md) for the full history.
 

@@ -439,22 +439,13 @@ ignore and the priority scorer is recency-weighted anyway.
 **Why your bot can't auto-read those alert bots:** Telegram's Bot API
 deliberately prevents bots from seeing other bots' messages, even in the
 same group. So "add my bot to the alert channel and let it ingest
-automatically" does not work. The two real options:
+automatically" does not work.
 
-1. **Keep forwarding (recommended for now).** Zero code, ~seconds per post,
-   and you stay the editorial filter for what enters the corpus.
-2. **A userbot watcher (`ingest/watcher.py`, not built yet).** A
-   [Telethon](https://docs.telethon.dev) script logged in as *your user
-   account* (not a bot) can read the alert-bot chats you subscribe to and
-   pipe new posts into the same ingest path. This is the true
-   automation path — roadmap item; ask Claude Code to build it when
-   forwarding becomes a chore. Caveats: needs a Telegram API id/hash from
-   my.telegram.org stored in `ingest/.env`, and account-level automation
-   sits in a greyer zone of Telegram's ToS than bots do.
-
-**Alerts when he tweets:** you already have this — your existing signal
-bots *are* the alert layer. Building our own watcher on X itself would need
-paid API access or scraping; not worth it while the signal bots work.
+Manual forwarding is still fine — zero code, ~seconds per post, and you stay
+the editorial filter for what enters the corpus. But you don't need it as
+the daily path anymore: **the X watcher (`ingest/watcher.py`, done 2026-07-30)
+finds new posts for you**, no forwarding required. See `docs/WATCHER.md` for
+how it works and how to use it day to day.
 
 ---
 
