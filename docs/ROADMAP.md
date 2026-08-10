@@ -1,6 +1,6 @@
 # Roadmap & Status — AI Infrastructure Explorer
 
-_Last updated: 2026-07-28 (claims ledger + Claims page, Phase 3, shipped). Living document — update as things ship or change._
+_Last updated: 2026-08-10 (v9 "soft two-tone" redesign, X watcher, symbol canonicalization shipped). Living document — update as things ship or change._
 
 > **Expert review team, Phase 1 — direction-aware scoring (✅ 2026-07-26).**
 > Theses carry an optional `direction` (`bull`/`bear`/`neutral`), and
