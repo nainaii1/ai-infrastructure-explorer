@@ -1,9 +1,9 @@
 {
   "meta": {
     "schemaVersion": 1,
-    "syncedAt": "2026-08-10T06:01:18Z",
-    "pageCount": 64,
-    "linkCount": 196
+    "syncedAt": "2026-08-12T09:17:22Z",
+    "pageCount": 66,
+    "linkCount": 209
   },
   "pages": [
     {
@@ -97,6 +97,7 @@
         "refs": [
           "aehr",
           "amkr",
+          "axti",
           "form",
           "lpk-de",
           "nvts",
@@ -106,8 +107,8 @@
         "stats": {
           "label": "Materials & Packaging",
           "flowRole": "supply",
-          "memberCount": 7,
-          "coreCount": 2,
+          "memberCount": 8,
+          "coreCount": 3,
           "watchCount": 5
         }
       },
@@ -120,18 +121,17 @@
       "title": "AI Memory",
       "auto": {
         "refs": [
-          "axti",
+          "000660-ks",
           "cxmt",
           "mu",
           "rpi",
-          "skhy",
           "sndk"
         ],
         "stats": {
           "label": "AI Memory",
           "flowRole": "supply",
-          "memberCount": 6,
-          "coreCount": 3,
+          "memberCount": 5,
+          "coreCount": 2,
           "watchCount": 3
         }
       },
@@ -144,15 +144,16 @@
       "title": "Neoclouds",
       "auto": {
         "refs": [
+          "crwv",
           "iren",
           "nbis"
         ],
         "stats": {
           "label": "Neoclouds",
           "flowRole": "demand",
-          "memberCount": 2,
+          "memberCount": 3,
           "coreCount": 2,
-          "watchCount": 0
+          "watchCount": 1
         }
       },
       "note": "The neocloud sleeve holds [[nbis]] and, from 3 August 2026, [[iren]] \u2014 companies that contract power and capacity ahead of demand and convert it into annualised run-rate. The bet is that compute scarcity persists long enough for capacity secured today to be revenue two to four quarters out.\n\nThe week of 3 August 2026 clarified what risk this sleeve actually carries, and it is not demand. Nebius reported $399.0m of quarterly revenue against a $3-3.4bn full-year target, with capex plans an order of magnitude above revenue; IREN revised its ARR target above $4bn with Microsoft, Nvidia, Perplexity and Figure named as customers, but with less disclosure behind it. Both are financing stories wearing compute stories' clothes, and both were placed on watch.\n\nContracted ARR is not funded capacity. Until a second-half revenue step-up shows up on schedule, doubling this sleeve is a sizing decision rather than a reason to add a second correlated name.",
@@ -204,8 +205,27 @@
           "watchCount": 2
         }
       },
-      "note": "The week the [[photonics]] complex repriced. [[aaoi]] rose about 77%, [[cohr]] 71%, [[sive]] 50% and [[lite]] 48%, driven by AOI's earnings read-through, a MACOM quote validating an indium phosphide DFB laser shortage, and a draft US rule that would bar new Chinese optical transceivers. The desk's response was to hold every position and add to none: [[lite]] stepped off accumulate into its 11 August print, [[aaoi]] stayed on watch, and [[sive]] stayed on watch ahead of its 27 August interim.\n\nTwo cautions belong on this page. AOI's gross margin fell to 27.7% from 30.3% a year earlier while revenue grew 86% \u2014 not what a real shortage produces at the seller. And the transceiver ban that a large part of the move discounts exists only as a draft, with nothing published in the Federal Register, so its scope, timing and exemptions cannot be verified. The layer's structural case is intact; what changed this week is the price of owning it.",
-      "noteUpdatedAt": "2026-08-10T00:00:00Z"
+      "note": "The theme the desk is built around: lasers, transceivers and the substrates beneath them, feeding the optical interconnect that co-packaged optics makes load-bearing.\n\nAugust 2026 was the week the theme stopped being a narrative and started producing filed numbers. [[lite]] reported revenue up 109% year over year and guided to its target operating model a quarter early. [[aaoi]] printed a fifth consecutive record quarter and returned to profit. Coherent's datacom pull is disclosed rather than inferred. The rotation the analyst describes \u2014 from memory back into photonics \u2014 is visible in the results, not only in the tape.\n\nThe discipline this theme needs is separating what is reported from what is modelled, because the two look alike when read quickly. Reported: Lumentum's guidance, AOI's margins, and the substrate reservation deposits at [[axti]], where two laser makers have put cash down for capacity. Modelled: Sivers' capacity revenue figure at [[sive]], AOI's 2028 external-light-source arithmetic, and every read-through built on the proposed United States restriction on Chinese transceivers, which remains a draft rule. The evidence ladder runs downward \u2014 the further down the stack you go, the harder the numbers get, which is why the substrate layer now carries the desk's firmest call.",
+      "noteUpdatedAt": "2026-08-12T00:00:00Z"
+    },
+    {
+      "slug": "power",
+      "type": "theme",
+      "title": "Power & Cooling",
+      "auto": {
+        "refs": [
+          "be"
+        ],
+        "stats": {
+          "label": "Power & Cooling",
+          "flowRole": "supply",
+          "memberCount": 1,
+          "coreCount": 0,
+          "watchCount": 1
+        }
+      },
+      "note": "",
+      "noteUpdatedAt": null
     },
     {
       "slug": "robotics",
@@ -229,6 +249,28 @@
       "noteUpdatedAt": "2026-07-12T00:00:00Z"
     },
     {
+      "slug": "000660-ks",
+      "type": "ticker",
+      "title": "000660.KS \u00b7 SK Hynix",
+      "auto": {
+        "refs": [
+          "memory",
+          "aleabitoreddit"
+        ],
+        "stats": {
+          "tier": "watch",
+          "mentions": 3,
+          "lastMentioned": "2026-07-30T18:31:07Z",
+          "category": "memory",
+          "market": "KR",
+          "marketCapTier": "Mega",
+          "company": "SK Hynix"
+        }
+      },
+      "note": "",
+      "noteUpdatedAt": null
+    },
+    {
       "slug": "aaoi",
       "type": "ticker",
       "title": "AAOI \u00b7 Applied Optoelectronics",
@@ -239,8 +281,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 68,
-          "lastMentioned": "2026-08-09T00:23:56Z",
+          "mentions": 72,
+          "lastMentioned": "2026-08-12T00:06:12Z",
           "category": "photonics",
           "market": "US",
           "marketCapTier": "Small",
@@ -327,8 +369,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 36,
-          "lastMentioned": "2026-08-10T02:03:29Z",
+          "mentions": 37,
+          "lastMentioned": "2026-08-11T01:29:11Z",
           "category": "accelerators",
           "market": "US",
           "marketCapTier": "Mega",
@@ -371,8 +413,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 19,
-          "lastMentioned": "2026-08-08T18:27:18Z",
+          "mentions": 20,
+          "lastMentioned": "2026-08-11T02:19:36Z",
           "category": "hyperscalers",
           "market": "US",
           "marketCapTier": "Mega",
@@ -414,8 +456,8 @@
         ],
         "stats": {
           "tier": "watch",
-          "mentions": 5,
-          "lastMentioned": "2026-08-10T02:03:29Z",
+          "mentions": 6,
+          "lastMentioned": "2026-08-12T07:45:50Z",
           "category": "unsorted",
           "market": "",
           "marketCapTier": "",
@@ -453,38 +495,39 @@
       "title": "AXTI \u00b7 AXT Inc",
       "auto": {
         "refs": [
-          "memory",
+          "materials",
           "aleabitoreddit"
         ],
         "stats": {
           "tier": "core",
-          "mentions": 29,
-          "lastMentioned": "2026-08-08T17:52:29Z",
-          "category": "memory",
+          "mentions": 30,
+          "lastMentioned": "2026-08-12T00:06:12Z",
+          "category": "materials",
           "market": "US",
           "marketCapTier": "Small",
           "company": "AXT Inc"
         }
       },
-      "note": "",
-      "noteUpdatedAt": null
+      "note": "AXT sells the wafer everything else in [[photonics]] is grown on: indium phosphide and gallium arsenide compound substrates, the layer beneath the lasers at [[lite]], [[sive]] and [[aaoi]].\n\nThis is the desk's best-evidenced position in the stack, and the reason is unusual for this book. Almost every number carrying the photonics theme is modelled \u2014 Sivers' capacity revenue is a projection, AOI's 2028 external-light-source figure is a unit plan times an assumed price, Lumentum's CPO ramp is a dated statement about 2027. AXT's is not: Lumentum signed a long-term agreement with a $43.5M capacity reservation deposit, and Coherent signed earlier with $22.3M. Customers do not prepay for capacity they are unsure they will need, which makes these agreements evidence about the whole theme rather than just this company.\n\nTwo housekeeping notes. The desk dropped coverage of this name on 3 August and restored it on 12 August \u2014 the LTAs were already public at the time of the drop, so that was a miss rather than a change of facts. And the store currently files AXT under [[memory]], which is wrong: it sells compound substrate material, not memory, and the categorisation should move before it distorts the map or the theme digests.",
+      "noteUpdatedAt": "2026-08-12T00:00:00Z"
     },
     {
       "slug": "be",
       "type": "ticker",
-      "title": "BE",
+      "title": "BE \u00b7 Bloom Energy Corporation",
       "auto": {
         "refs": [
+          "power",
           "aleabitoreddit"
         ],
         "stats": {
           "tier": "watch",
           "mentions": 5,
           "lastMentioned": "2026-07-31T22:52:21Z",
-          "category": "unsorted",
-          "market": "",
-          "marketCapTier": "",
-          "company": ""
+          "category": "power",
+          "market": "US",
+          "marketCapTier": "Mid",
+          "company": "Bloom Energy Corporation"
         }
       },
       "note": "",
@@ -501,8 +544,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 26,
-          "lastMentioned": "2026-08-10T02:03:29Z",
+          "mentions": 27,
+          "lastMentioned": "2026-08-11T02:19:36Z",
           "category": "robotics",
           "market": "US",
           "marketCapTier": "Mid",
@@ -523,12 +566,34 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 25,
-          "lastMentioned": "2026-08-08T17:52:29Z",
+          "mentions": 26,
+          "lastMentioned": "2026-08-11T20:16:01Z",
           "category": "photonics",
           "market": "US",
           "marketCapTier": "Large",
           "company": "Coherent Corp"
+        }
+      },
+      "note": "",
+      "noteUpdatedAt": null
+    },
+    {
+      "slug": "crwv",
+      "type": "ticker",
+      "title": "CRWV \u00b7 CoreWeave Inc",
+      "auto": {
+        "refs": [
+          "neoclouds",
+          "aleabitoreddit"
+        ],
+        "stats": {
+          "tier": "watch",
+          "mentions": 5,
+          "lastMentioned": "2026-08-11T21:09:43Z",
+          "category": "neoclouds",
+          "market": "US",
+          "marketCapTier": "Large",
+          "company": "CoreWeave Inc"
         }
       },
       "note": "",
@@ -677,8 +742,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 14,
-          "lastMentioned": "2026-07-30T18:31:07Z",
+          "mentions": 15,
+          "lastMentioned": "2026-08-11T01:29:11Z",
           "category": "neoclouds",
           "market": "",
           "marketCapTier": "",
@@ -721,16 +786,16 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 66,
-          "lastMentioned": "2026-08-10T02:03:29Z",
+          "mentions": 71,
+          "lastMentioned": "2026-08-12T07:45:50Z",
           "category": "photonics",
           "market": "US",
           "marketCapTier": "Mid",
           "company": "Lumentum Holdings"
         }
       },
-      "note": "The desk stepped [[lite]] off accumulate to wait this week \u2014 a call about the entry, not the thesis. Lumentum reports fiscal Q4 on 11 August against a guide of $960m-$1.01bn at 35-36% non-GAAP operating margin, and the shares had already run roughly 48% in the week going in. Buying an in-line print against a known guide at that price is a losing setup even when every word of the story holds.\n\nThe structural case is unchanged and remains the cleanest in [[photonics]]: management describes a supply-demand imbalance above 30% in EMLs and pump lasers, and the prepayments to [[axti]] to reserve indium phosphide substrate are what a genuinely constrained buyer does. One correction the desk added this week \u2014 the fifth InP fab in Greensboro is a conversion from gallium arsenide, so process transfer and requalification push its output beyond fiscal 2027. That cuts both ways: the shortage lasts longer, and so does the wait for the capacity that ends it.",
-      "noteUpdatedAt": "2026-08-10T00:00:00Z"
+      "note": "Lumentum is the liquid, reported way to own the laser bottleneck that [[photonics]] is built on \u2014 the place where the theme shows up in guidance rather than in a model.\n\nThe desk moved it twice in three days in August 2026, and the second move was an admission. It was cut to wait on 10 August on one stated condition: an in-line print with unchanged capacity commentary. The 11 August result was the opposite \u2014 revenue up 109% year over year, guidance raised, and the operating-margin target reached more than a quarter early \u2014 so the call was restored on 12 August. Worth remembering as a case of trimming into a known event that was one day away.\n\nThe nuance the feed skips: the beat is current datacom optics. Management places the ultra-high-power laser and co-packaged optics ramp in the second half of calendar 2027, which is Lumentum's fiscal 2028, so no CPO revenue sits in these numbers. The confirming evidence is one floor down at [[axti]], where Lumentum prepaid a $43.5M deposit to reserve indium phosphide substrate capacity \u2014 a customer putting cash behind the volumes it expects to need.",
+      "noteUpdatedAt": "2026-08-12T00:00:00Z"
     },
     {
       "slug": "lpk-de",
@@ -919,8 +984,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 64,
-          "lastMentioned": "2026-08-10T02:03:29Z",
+          "mentions": 65,
+          "lastMentioned": "2026-08-11T02:19:36Z",
           "category": "accelerators",
           "market": "US",
           "marketCapTier": "Mega",
@@ -1028,8 +1093,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 107,
-          "lastMentioned": "2026-08-09T00:23:56Z",
+          "mentions": 110,
+          "lastMentioned": "2026-08-12T00:06:12Z",
           "category": "photonics",
           "market": "SE",
           "marketCapTier": "Small",
@@ -1038,28 +1103,6 @@
       },
       "note": "Sivers Semiconductors is [[aleabitoreddit]]'s single highest-conviction name and the highest-torque bet in the [[photonics]] sleeve \u2014 the InP laser supplier positioned at the chokepoint if co-packaged optics displaces pluggable modules. The structural argument is genuinely strong: Sivers and [[lite]] were the only two public laser suppliers named in the CPO programme that drew a $300m US award to [[gfs]].\n\nOn 3 August 2026 the desk stepped the stance from accumulate to watch. The reason is not the drawdown \u2014 it is that outside research put company numbers against the story for the first time and they point the other way. Q1 net sales were SEK 61.9m, down 22% year on year, and the $799m figure quoted as evidence is an opportunity pipeline rather than backlog. The [[poet]] wording change read as a material timeline upgrade resolves, in the only citable partnership language, to production readiness by end of 2026 \u2014 a milestone, not an order.\n\nThe falsifier is dated and close: the Q2 interim report on 27 August 2026. Existing tranches stand; new size waits for that print.",
       "noteUpdatedAt": "2026-08-03T00:00:00Z"
-    },
-    {
-      "slug": "skhy",
-      "type": "ticker",
-      "title": "SKHY \u00b7 SK Hynix Inc",
-      "auto": {
-        "refs": [
-          "memory",
-          "aleabitoreddit"
-        ],
-        "stats": {
-          "tier": "watch",
-          "mentions": 3,
-          "lastMentioned": "2026-07-30T18:31:07Z",
-          "category": "memory",
-          "market": "KR",
-          "marketCapTier": "Large",
-          "company": "SK Hynix Inc"
-        }
-      },
-      "note": "",
-      "noteUpdatedAt": null
     },
     {
       "slug": "smtc",
@@ -1160,16 +1203,16 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 18,
-          "lastMentioned": "2026-07-26T08:59:47Z",
+          "mentions": 19,
+          "lastMentioned": "2026-08-12T07:45:30Z",
           "category": "robotics",
           "market": "US",
           "marketCapTier": "Mega",
           "company": "Tesla Inc"
         }
       },
-      "note": "",
-      "noteUpdatedAt": null
+      "note": "Tesla sits in this book for one reason \u2014 Optimus as a humanoid programme pulling on the same [[robotics]] and AI-compute supply chain \u2014 and it is the clearest example the desk has of a scoring artefact.\n\nIn August 2026 it ranked thirteenth by priority score on 19 mentions, which put it inside verdict coverage. Reading the underlying posts dissolves that: nearly every mention is an incidental name-drop inside a multi-ticker recap, one carrying twelve symbols. The substantive references amount to an Optimus quote lifted from the earnings transcript and an unverified third-party claim about polysilicon equipment contracts that the analyst prefaces by saying he is not familiar with the supply chain. The score is measuring the analyst's posting format, not his conviction.\n\nRecorded at pass on 12 August specifically so it stops presenting as a top-15 idea. It is worth keeping as a live reminder that mention-weighted attention scores reward list-posts, and that the [[aleabitoreddit]] feed contains a lot of them.",
+      "noteUpdatedAt": "2026-08-12T00:00:00Z"
     },
     {
       "slug": "tsm",
@@ -1252,11 +1295,12 @@
           "neoclouds",
           "networking",
           "photonics",
+          "power",
           "robotics"
         ],
         "stats": {
           "handle": "@aleabitoreddit",
-          "themesCovered": 10
+          "themesCovered": 11
         }
       },
       "note": "",

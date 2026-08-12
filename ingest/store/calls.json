@@ -1,7 +1,7 @@
 {
   "meta": {
     "schemaVersion": 1,
-    "updatedAt": "2026-08-10T00:00:00Z",
+    "updatedAt": "2026-08-12T00:00:00Z",
     "author": "claude-desk",
     "benchmark": "SMH",
     "disclaimer": "The calls ledger tracks the desk's own dated suggestions against a buy-the-index benchmark. Stamped forward-only, never retro-fitted. Personal research tool - not investment advice."
@@ -99,6 +99,51 @@
       "benchmark": {
         "symbol": "SMH",
         "priceAtCall": 582.7
+      },
+      "source": "desk"
+    },
+    {
+      "id": "c_LITE_2026-08-12",
+      "ticker": "LITE",
+      "kind": "new-position",
+      "calledAt": "2026-08-12T00:00:00Z",
+      "entryPrice": 820.59,
+      "entryCurrency": "USD",
+      "stanceAtCall": "accumulate",
+      "memoId": "m_LITE_2026w33",
+      "thesisIds": [
+        "x_2087271842696593764",
+        "x_2087329770879197549",
+        "r_5c0d5623dbb96ddf"
+      ],
+      "closedAt": null,
+      "exitPrice": null,
+      "outcome": "open",
+      "benchmark": {
+        "symbol": "SMH",
+        "priceAtCall": 572.93
+      },
+      "source": "desk"
+    },
+    {
+      "id": "c_AXTI_2026-08-12",
+      "ticker": "AXTI",
+      "kind": "new-position",
+      "calledAt": "2026-08-12T00:00:00Z",
+      "entryPrice": 73.78,
+      "entryCurrency": "USD",
+      "stanceAtCall": "accumulate",
+      "memoId": "m_AXTI_2026w33",
+      "thesisIds": [
+        "h_2d636896cf0553c2",
+        "x_2082578803189268855"
+      ],
+      "closedAt": null,
+      "exitPrice": null,
+      "outcome": "open",
+      "benchmark": {
+        "symbol": "SMH",
+        "priceAtCall": 572.93
       },
       "source": "desk"
     }

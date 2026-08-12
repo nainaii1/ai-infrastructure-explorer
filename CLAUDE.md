@@ -272,10 +272,22 @@ so newly-ingested tickers and theses surface. Categories / center / countries
   until Phase 4.
 - `category` → a key in `AIE_DATA.categories` (currently: `photonics | memory |
   fabs | neoclouds | materials | networking | glass | robotics | accelerators
-  | hyperscalers | unsorted`). `unsorted` is a triage bucket, not a real
+  | hyperscalers | power | unsorted`). `unsorted` is a triage bucket, not a real
   theme — excluded from Brain synthesis.
+  **`power` (Power & Cooling, layer 11, flowRole `supply`) was added 2026-08-12**
+  — grid interconnection, transformers/switchgear, on-site generation and
+  liquid cooling. It is the first category built from the desk's own research
+  rather than grown from the analyst's feed, so most of its names carry zero
+  analyst mentions and therefore sit at `radar` no matter how load-bearing they
+  are (see the tiering caveat under `tier` below).
 - `tier` → conviction tier from `scorer.assign_tiers()`. The UI treats
   `radar` as hidden-by-default (map card grid, watchlist "Signal" filter).
+  **Tiering is mention-driven, which cuts both ways.** A name the analyst never
+  mentions can never rise above `radar` however important it is (GEV, CEG), and
+  a name he name-drops inside multi-ticker recap posts can rank top-15 on no
+  conviction at all (TSLA, recorded `pass` 2026-08-12 for exactly this reason).
+  The score measures his posting behaviour, not the desk's judgement — do not
+  read tier as importance.
 - `desk` → Claude's weekly per-ticker verdicts (`store/verdicts.json`,
   authored by the `/weekly-review` skill; the only store file authored
   directly rather than through a pipeline script).
