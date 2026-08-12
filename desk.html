@@ -1904,11 +1904,23 @@
           return pnl;
         }
 
-        diagram.appendChild(panel("supply", "What feeds the chip", false));
+        // Column headers come from DATA.zones, never from a literal here
+        // (CLAUDE.md rule 4). The stored labels are prefixed for the legend —
+        // "Supply · what feeds the buildout" — so take the half after the
+        // separator and sentence-case it for the panel.
+        function zoneLabel(id, fallback) {
+          var z = (DATA.zones || []).filter(function (x) { return x.id === id; })[0];
+          if (!z || !z.label) return fallback;
+          var i = z.label.indexOf("·");
+          var s = (i >= 0 ? z.label.slice(i + 1) : z.label).trim();
+          return s ? s.charAt(0).toUpperCase() + s.slice(1) : fallback;
+        }
+
+        diagram.appendChild(panel("supply", zoneLabel("supply", "What feeds the buildout"), false));
         diagram.appendChild(makeChainLink("right"));
-        diagram.appendChild(panel("chip", "The chip", true));
+        diagram.appendChild(panel("chip", zoneLabel("chip", "The chip"), true));
         diagram.appendChild(makeChainLink("right"));
-        diagram.appendChild(panel("demand", "Who buys the compute", false));
+        diagram.appendChild(panel("demand", zoneLabel("demand", "Who buys the compute"), false));
         root.appendChild(diagram);
 
         // Selected-layer detail, revealed under the diagram.

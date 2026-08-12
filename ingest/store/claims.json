@@ -1,7 +1,7 @@
 {
   "meta": {
     "schemaVersion": 1,
-    "updatedAt": "2026-08-10T06:20:00Z",
+    "updatedAt": "2026-08-12T09:00:00Z",
     "disclaimer": "Dated, testable predictions and how they turned out. Hit rate is correct/(correct+wrong); open and unfalsifiable are excluded from that denominator and the unfalsifiable share is reported alongside, so a source cannot score well by saying nothing testable. Research support, not investment advice."
   },
   "claims": [
@@ -573,6 +573,97 @@
       "madeAt": "2026-08-10",
       "judgeBy": "2026-08-20",
       "thesisId": "r_4e1933962a514b8e",
+      "status": "open",
+      "judgedAt": null,
+      "evidence": null
+    },
+    {
+      "id": "cl_75c8873edcab",
+      "source": "semi-expert",
+      "ticker": "SIVE",
+      "claim": "Sivers' 27 August 2026 Q2 interim report will not disclose shipped InP laser product revenue as a separate reported figure.",
+      "testableBy": "Read the Q2 2026 interim report on sivers-semiconductors.com and check whether InP laser product revenue is reported as a distinct disclosed number.",
+      "madeAt": "2026-08-12",
+      "judgeBy": "2026-09-05",
+      "thesisId": "r_984fdc0d09b2ebf5",
+      "status": "open",
+      "judgedAt": null,
+      "evidence": null
+    },
+    {
+      "id": "cl_ba412ce15f8b",
+      "source": "semi-expert",
+      "ticker": "LITE",
+      "claim": "Lumentum will not report material co-packaged optics or external light source revenue as a separate disclosed line before the second half of calendar 2027.",
+      "testableBy": "Check Lumentum quarterly releases through mid-2027 for a separately disclosed CPO or ELS revenue figure.",
+      "madeAt": "2026-08-12",
+      "judgeBy": "2027-09-30",
+      "thesisId": "r_c370d118042e7e8c",
+      "status": "open",
+      "judgedAt": null,
+      "evidence": null
+    },
+    {
+      "id": "cl_ec2358b045a8",
+      "source": "semi-expert",
+      "ticker": "IREN",
+      "claim": "IREN's Q4 FY26 disclosure will not break out contracted megawatts by customer for the Microsoft and NVIDIA agreements.",
+      "testableBy": "Read the Q4 FY26 results release and check for per-customer contracted megawatt disclosure.",
+      "madeAt": "2026-08-12",
+      "judgeBy": "2026-09-30",
+      "thesisId": "r_507019fc7f448834",
+      "status": "open",
+      "judgedAt": null,
+      "evidence": null
+    },
+    {
+      "id": "cl_4e5d9e02e28c",
+      "source": "fundamental",
+      "ticker": "AAOI",
+      "claim": "Applied Optoelectronics' Q3 2026 non-GAAP gross margin will land inside the guided 29-30.5% range rather than reaching the 32-33% management describes as near term.",
+      "testableBy": "Compare reported Q3 2026 non-GAAP gross margin in the results release against 30.5% and 32%.",
+      "madeAt": "2026-08-12",
+      "judgeBy": "2026-12-15",
+      "thesisId": "r_00ce7c1b767eab70",
+      "status": "open",
+      "judgedAt": null,
+      "evidence": null
+    },
+    {
+      "id": "cl_7cfc7f1f19f7",
+      "source": "fundamental",
+      "ticker": "IREN",
+      "claim": "IREN's AI Cloud Services segment will still be under half of total quarterly revenue when Q4 FY26 is reported on 16 September 2026.",
+      "testableBy": "Compare AI Cloud Services revenue against total revenue in the Q4 FY26 results release.",
+      "madeAt": "2026-08-12",
+      "judgeBy": "2026-09-30",
+      "thesisId": "r_2ea3afbcb88fdb2d",
+      "status": "open",
+      "judgedAt": null,
+      "evidence": null
+    },
+    {
+      "id": "cl_c3d2d42742d6",
+      "source": "pm",
+      "ticker": "SIVE",
+      "claim": "Sivers' Q2 2026 interim report will show net sales below SEK 100 million for the quarter.",
+      "testableBy": "Compare reported Q2 2026 net sales in the interim report against SEK 100 million.",
+      "madeAt": "2026-08-12",
+      "judgeBy": "2026-09-05",
+      "thesisId": "r_04302b57f2315c0e",
+      "status": "open",
+      "judgedAt": null,
+      "evidence": null
+    },
+    {
+      "id": "cl_cc763c4d0c9b",
+      "source": "pm",
+      "ticker": "AAOI",
+      "claim": "Applied Optoelectronics' Q4 2026 revenue will come in below $450 million, short of the roughly $500 million the feed implies from the full-year figure.",
+      "testableBy": "Compare reported Q4 2026 revenue against $450 million once the quarter is released.",
+      "madeAt": "2026-08-12",
+      "judgeBy": "2027-03-15",
+      "thesisId": "r_51c2255f2050deee",
       "status": "open",
       "judgedAt": null,
       "evidence": null
