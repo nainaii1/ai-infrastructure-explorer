@@ -28,6 +28,7 @@ import urllib.error
 from datetime import datetime, timezone
 
 import generate_data_js as gen
+import scorer
 from dotenv_util import _parse_dotenv, _load_dotenv  # noqa: F401 (re-exported for tests)
 from store_io import ssl_context as _ssl_context  # verified SSL, CA-bundle fallback
 
@@ -385,7 +386,12 @@ def pick_backend(model_arg=None, env=None):
 def run(dry_run=False, only=None, model=None):
     _load_dotenv()  # pick up OPENROUTER_/ANTHROPIC_ keys + models from ingest/.env
     base = _load("base.json")
-    theses = _load("theses.json")
+    # Canonicalize first, same as generate_data_js/vault_sync: grouping matches
+    # thesis symbols against tickers.json, so an alias-tagged post ($LPK, $SIVEF)
+    # maps to no category and silently never reaches a digest.
+    theses = scorer.canonicalize_theses(_load("theses.json"),
+                                        base.get("tickerAliases"),
+                                        base.get("themeTags"))
     tickers = _load("tickers.json")
     categories = base["categories"]
     backend, model = pick_backend(model)

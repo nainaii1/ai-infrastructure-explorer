@@ -1715,5 +1715,31 @@
     "rating": "watch",
     "sourceTweetUrl": "",
     "addedDate": ""
+  },
+  {
+    "ticker": "ENR.DE",
+    "company": "Siemens Energy AG",
+    "category": "power",
+    "market": "DE",
+    "exchange": "Frankfurt",
+    "whatTheyDo": "Builds gas and steam turbines, grid technology (transformers, switchgear, HVDC), and power transmission equipment; spun off from Siemens in 2020.",
+    "whyNVDA": "One of only three global manufacturers (with GE Vernova and Mitsubishi Power) able to supply the gas turbines data center developers need to power new AI campuses. Turbine order backlogs now run multiple years, making Siemens Energy a direct supply-side bottleneck on how fast gas-fired power can be built for AI load. Flagged via ex-Citadel quant Neel Somani's 'Power 2026' primer (power2026.ai), which frames power -- not chips -- as the binding constraint on AI buildout.",
+    "marketCapTier": "Large",
+    "rating": "watch",
+    "sourceTweetUrl": "",
+    "addedDate": "2026-08-12"
+  },
+  {
+    "ticker": "DELL",
+    "company": "",
+    "category": "unsorted",
+    "market": "",
+    "exchange": "",
+    "whatTheyDo": "",
+    "whyNVDA": "",
+    "marketCapTier": "",
+    "rating": "watch",
+    "sourceTweetUrl": "https://x.com/aleabitoreddit/status/2087902683474891106",
+    "addedDate": "2026-08-14"
   }
 ]

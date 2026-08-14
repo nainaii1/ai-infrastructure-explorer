@@ -1,9 +1,9 @@
 {
   "meta": {
     "schemaVersion": 1,
-    "syncedAt": "2026-08-12T09:17:22Z",
-    "pageCount": 66,
-    "linkCount": 209
+    "syncedAt": "2026-08-14T08:55:00Z",
+    "pageCount": 67,
+    "linkCount": 210
   },
   "pages": [
     {
@@ -201,8 +201,8 @@
           "label": "Photonics",
           "flowRole": "supply",
           "memberCount": 9,
-          "coreCount": 7,
-          "watchCount": 2
+          "coreCount": 9,
+          "watchCount": 0
         }
       },
       "note": "The theme the desk is built around: lasers, transceivers and the substrates beneath them, feeding the optical interconnect that co-packaged optics makes load-bearing.\n\nAugust 2026 was the week the theme stopped being a narrative and started producing filed numbers. [[lite]] reported revenue up 109% year over year and guided to its target operating model a quarter early. [[aaoi]] printed a fifth consecutive record quarter and returned to profit. Coherent's datacom pull is disclosed rather than inferred. The rotation the analyst describes \u2014 from memory back into photonics \u2014 is visible in the results, not only in the tape.\n\nThe discipline this theme needs is separating what is reported from what is modelled, because the two look alike when read quickly. Reported: Lumentum's guidance, AOI's margins, and the substrate reservation deposits at [[axti]], where two laser makers have put cash down for capacity. Modelled: Sivers' capacity revenue figure at [[sive]], AOI's 2028 external-light-source arithmetic, and every read-through built on the proposed United States restriction on Chinese transceivers, which remains a draft rule. The evidence ladder runs downward \u2014 the further down the stack you go, the harder the numbers get, which is why the substrate layer now carries the desk's firmest call.",
@@ -281,8 +281,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 72,
-          "lastMentioned": "2026-08-12T00:06:12Z",
+          "mentions": 75,
+          "lastMentioned": "2026-08-13T10:17:49Z",
           "category": "photonics",
           "market": "US",
           "marketCapTier": "Small",
@@ -325,8 +325,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 10,
-          "lastMentioned": "2026-07-22T15:28:50Z",
+          "mentions": 11,
+          "lastMentioned": "2026-08-12T11:44:46Z",
           "category": "materials",
           "market": "US",
           "marketCapTier": "Small",
@@ -478,8 +478,8 @@
         ],
         "stats": {
           "tier": "watch",
-          "mentions": 11,
-          "lastMentioned": "2026-08-07T05:46:59Z",
+          "mentions": 12,
+          "lastMentioned": "2026-08-12T07:54:08Z",
           "category": "networking",
           "market": "",
           "marketCapTier": "",
@@ -500,8 +500,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 30,
-          "lastMentioned": "2026-08-12T00:06:12Z",
+          "mentions": 31,
+          "lastMentioned": "2026-08-13T09:46:26Z",
           "category": "materials",
           "market": "US",
           "marketCapTier": "Small",
@@ -566,8 +566,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 26,
-          "lastMentioned": "2026-08-11T20:16:01Z",
+          "mentions": 28,
+          "lastMentioned": "2026-08-12T22:59:29Z",
           "category": "photonics",
           "market": "US",
           "marketCapTier": "Large",
@@ -588,8 +588,8 @@
         ],
         "stats": {
           "tier": "watch",
-          "mentions": 5,
-          "lastMentioned": "2026-08-11T21:09:43Z",
+          "mentions": 6,
+          "lastMentioned": "2026-08-12T12:23:43Z",
           "category": "neoclouds",
           "market": "US",
           "marketCapTier": "Large",
@@ -719,9 +719,9 @@
           "aleabitoreddit"
         ],
         "stats": {
-          "tier": "watch",
-          "mentions": 10,
-          "lastMentioned": "2026-07-13T07:26:27Z",
+          "tier": "core",
+          "mentions": 12,
+          "lastMentioned": "2026-08-13T09:46:26Z",
           "category": "photonics",
           "market": "",
           "marketCapTier": "",
@@ -742,8 +742,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 15,
-          "lastMentioned": "2026-08-11T01:29:11Z",
+          "mentions": 16,
+          "lastMentioned": "2026-08-12T12:23:43Z",
           "category": "neoclouds",
           "market": "",
           "marketCapTier": "",
@@ -786,8 +786,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 71,
-          "lastMentioned": "2026-08-12T07:45:50Z",
+          "mentions": 74,
+          "lastMentioned": "2026-08-13T09:46:26Z",
           "category": "photonics",
           "market": "US",
           "marketCapTier": "Mid",
@@ -808,8 +808,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 15,
-          "lastMentioned": "2026-08-03T06:24:54Z",
+          "mentions": 16,
+          "lastMentioned": "2026-08-14T04:06:28Z",
           "category": "materials",
           "market": "DE",
           "marketCapTier": "Small",
@@ -895,9 +895,9 @@
           "aleabitoreddit"
         ],
         "stats": {
-          "tier": "watch",
-          "mentions": 8,
-          "lastMentioned": "2026-08-09T00:23:56Z",
+          "tier": "core",
+          "mentions": 11,
+          "lastMentioned": "2026-08-13T09:46:26Z",
           "category": "photonics",
           "market": "",
           "marketCapTier": "",
@@ -940,8 +940,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 35,
-          "lastMentioned": "2026-08-10T02:03:29Z",
+          "mentions": 36,
+          "lastMentioned": "2026-08-12T12:23:43Z",
           "category": "neoclouds",
           "market": "US",
           "marketCapTier": "Mid",
@@ -984,8 +984,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 65,
-          "lastMentioned": "2026-08-11T02:19:36Z",
+          "mentions": 66,
+          "lastMentioned": "2026-08-13T14:02:45Z",
           "category": "accelerators",
           "market": "US",
           "marketCapTier": "Mega",
@@ -1028,8 +1028,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 24,
-          "lastMentioned": "2026-08-07T07:26:37Z",
+          "mentions": 26,
+          "lastMentioned": "2026-08-13T10:17:49Z",
           "category": "photonics",
           "market": "US",
           "marketCapTier": "Small",
@@ -1093,8 +1093,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 110,
-          "lastMentioned": "2026-08-12T00:06:12Z",
+          "mentions": 113,
+          "lastMentioned": "2026-08-13T10:17:49Z",
           "category": "photonics",
           "market": "SE",
           "marketCapTier": "Small",
@@ -1103,6 +1103,27 @@
       },
       "note": "Sivers Semiconductors is [[aleabitoreddit]]'s single highest-conviction name and the highest-torque bet in the [[photonics]] sleeve \u2014 the InP laser supplier positioned at the chokepoint if co-packaged optics displaces pluggable modules. The structural argument is genuinely strong: Sivers and [[lite]] were the only two public laser suppliers named in the CPO programme that drew a $300m US award to [[gfs]].\n\nOn 3 August 2026 the desk stepped the stance from accumulate to watch. The reason is not the drawdown \u2014 it is that outside research put company numbers against the story for the first time and they point the other way. Q1 net sales were SEK 61.9m, down 22% year on year, and the $799m figure quoted as evidence is an opportunity pipeline rather than backlog. The [[poet]] wording change read as a material timeline upgrade resolves, in the only citable partnership language, to production readiness by end of 2026 \u2014 a milestone, not an order.\n\nThe falsifier is dated and close: the Q2 interim report on 27 August 2026. Existing tranches stand; new size waits for that print.",
       "noteUpdatedAt": "2026-08-03T00:00:00Z"
+    },
+    {
+      "slug": "smci",
+      "type": "ticker",
+      "title": "SMCI",
+      "auto": {
+        "refs": [
+          "aleabitoreddit"
+        ],
+        "stats": {
+          "tier": "watch",
+          "mentions": 3,
+          "lastMentioned": "2026-08-13T14:02:45Z",
+          "category": "unsorted",
+          "market": "",
+          "marketCapTier": "",
+          "company": ""
+        }
+      },
+      "note": "",
+      "noteUpdatedAt": null
     },
     {
       "slug": "smtc",
@@ -1115,8 +1136,8 @@
         ],
         "stats": {
           "tier": "watch",
-          "mentions": 2,
-          "lastMentioned": "2026-08-07T12:55:47Z",
+          "mentions": 3,
+          "lastMentioned": "2026-08-12T07:54:08Z",
           "category": "networking",
           "market": "US",
           "marketCapTier": "Mid",
@@ -1181,8 +1202,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 19,
-          "lastMentioned": "2026-07-22T15:28:50Z",
+          "mentions": 20,
+          "lastMentioned": "2026-08-13T09:46:26Z",
           "category": "fabs",
           "market": "US",
           "marketCapTier": "Mid",
