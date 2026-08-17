@@ -12,12 +12,14 @@ This project has **two halves**, and they run in completely different places:
 | Half | What it is | Where it runs | When it's "on" |
 |---|---|---|---|
 | **The app** (`index.html` + `data.js`) | The website you look at | Your browser | Always — just open the file |
-| **The backend** (`ingest/*.py`) | Scripts that *update* the data | Your Mac's terminal | **Only while you run them** |
+| **The backend** (`ingest/*.py`) | Scripts that *update* the data | Your Mac | Three scripts (bot, prices, X watcher) run automatically as launchd agents; everything else **only while you run it** |
 
-**The Telegram bot is part of the backend.** It is **not** a cloud service.
-It only answers messages **while `python3 ingest/bot.py` is actively running in
-a terminal on your Mac.** Close the terminal → the bot goes silent. That is the
-single most common point of confusion (see the FAQ).
+**The Telegram bot is part of the backend.** It is **not** a cloud service —
+but since 8 Aug 2026 it **is** always-on on your Mac: a launchd agent
+(`com.aie.bot`) keeps `ingest/bot.py` running in the background, restarts it
+if it crashes, and relaunches it at login. You don't need a terminal window
+open for it. It only goes silent if your Mac is off/asleep, or if the agent
+itself is unloaded (see the FAQ).
 
 Nothing the backend does reaches the browser directly — every script just
 rewrites `data.js`, and the app reads `data.js` when you open/refresh it.
@@ -34,14 +36,20 @@ things below are automatic or take seconds.
 Forward his post to your Telegram bot. That's it. The bot saves it and updates
 the site by itself.
 
-**The bot only works while it's running on your Mac.** It is not a cloud
-service. If it stops replying, double-click **`desk.command`** → option **1**.
+**The bot runs automatically** as a launchd agent (`com.aie.bot`) — no need to
+start it or keep a window open. If it stops replying, check
+`launchctl list | grep com.aie.bot` (see the FAQ).
 
 > ⚠️ **Restart the bot after anything changes in `ingest/`.** A bot left
-> running holds an old copy of the code in memory. There's now a guard that
-> makes it refuse to save rather than corrupt your data — but "refuse to save"
+> running holds an old copy of the code in memory. There's a guard that makes
+> it refuse to save rather than corrupt your data — but "refuse to save"
 > looks like "the bot ignored me". If Claude Code has been working on this
-> project, restart the bot before you next forward anything.
+> project, restart it before you next forward anything:
+> ```bash
+> launchctl kickstart -k gui/$(id -u)/com.aie.bot
+> ```
+> This kills and immediately relaunches it fresh — no terminal window to
+> babysit, no risk of a second poller.
 
 ### Prices — automatic, nothing to do
 
@@ -123,16 +131,27 @@ ALLOWED_TELEGRAM_USER_ID=987654321
 ```
 (`ingest/.env` is gitignored — it is never committed or pushed.)
 
-### Step 4 — Run the bot
-**The easy way (no terminal commands):** double-click **`desk.command`** in
-the project folder and pick **1**. It loads `.env` and starts the bot for you.
-**Leave that window open** — the bot replies only while it's running.
+### Step 4 — Install the bot as a background service (one-time)
+The bot runs as a **launchd agent** (`com.aie.bot`) — always on, no terminal
+window to keep open, and it survives sleep/reboot/login. The plist lives in
+the project at `com.aie.bot.plist`:
 
-The same menu also does prices (**2**), the local server (**3**), and a
-status check (**4** — is the bot up, how fresh are prices, what's awaiting
-triage).
+```bash
+cd ~/Documents/Claude/ai-supply-desk
+cp com.aie.bot.plist ~/Library/LaunchAgents/
+launchctl load ~/Library/LaunchAgents/com.aie.bot.plist
+```
 
-<details><summary>The manual way (what option 1 runs for you)</summary>
+That's it — it's running now (`RunAtLoad`) and will relaunch itself if it
+ever exits (`KeepAlive`), including after a `launchctl kickstart -k` restart.
+It loads `ingest/.env` itself, the same way the manual run below did, so
+Step 3 above still applies unchanged.
+
+Check it's up: `launchctl list | grep com.aie.bot` — a numeric PID in the
+first column means running; `-` means it's not. Logs (stdout and stderr
+together): `~/Library/Logs/aie-bot.log`.
+
+<details><summary>Running it manually instead (only if you don't want the background service)</summary>
 
 ```bash
 cd ~/Documents/Claude/ai-supply-desk
@@ -140,14 +159,31 @@ set -a; . ./ingest/.env; set +a     # load the token into this terminal
 python3 ingest/bot.py
 ```
 You should see: `Bot polling. Only Telegram user id 987654321 is processed. Ctrl-C to stop.`
+
+**Never run this while the launchd agent is also loaded.** Telegram allows
+only one poller per bot token — a second concurrent one causes both to fail
+with `409 Conflict`. Unload the agent first
+(`launchctl unload ~/Library/LaunchAgents/com.aie.bot.plist`) if you need to
+run it by hand.
 </details>
+
+**`desk.command` option 1** ("Start the capture bot") also runs `bot.py`
+directly in a terminal — it predates the launchd install and has the same
+409-conflict risk if the agent is loaded. Leave it alone; use it only if
+you've deliberately unloaded the agent. Options 2–4 (prices, server, status)
+are unaffected and safe to use as normal.
 
 ### Step 5 — Use it
 - **Forward** an @aleabitoreddit post to your bot, **or paste text** (include the
   `x.com/...` link so the thesis is sourced).
 - The bot replies with a summary (ingested id, tickers added/queued) and rewrites
   `data.js`. Refresh the app to see it.
-- **Stop** the bot with **Ctrl-C**. Your data is safe (saved before each rewrite).
+- **To stop it**, unload the agent rather than killing the process — a plain
+  `kill` just gets relaunched by `KeepAlive`:
+  ```bash
+  launchctl unload ~/Library/LaunchAgents/com.aie.bot.plist
+  ```
+  Your data is safe either way (saved before each rewrite).
 
 > Only your user id is accepted; messages from anyone else are silently ignored.
 
@@ -452,28 +488,41 @@ how it works and how to use it day to day.
 ## FAQ / Troubleshooting
 
 ### "I sent a message to the bot and nothing replied."
-The #1 cause: **the bot isn't running.** It's not a cloud bot — it only answers
-while `python3 ingest/bot.py` is open in a terminal. Check, in order:
-1. **Is the bot running?** Open a terminal: `pgrep -fl bot.py`. Nothing listed →
-   it's off. Start it (Section 2, Step 4).
-2. **Is the token set?** Open `ingest/.env` — `TELEGRAM_BOT_TOKEN` and
+The #1 cause: **the bot isn't running.** Check, in order:
+1. **Is the launchd agent up?** `launchctl list | grep com.aie.bot` — a
+   numeric PID means it's running; `-` means it exited (check the log below)
+   or was never loaded (Section 2, Step 4). You can also check the process
+   directly: `pgrep -fl bot.py`.
+2. **What does the log say?** `tail -30 ~/Library/Logs/aie-bot.log`. A
+   `_assert_fresh` error there means the agent needs restarting after a code
+   change (see the "Restart the bot" box in your daily routine, above) — it
+   already saved your message, it just couldn't rewrite `data.js` yet.
+3. **Is the token set?** Open `ingest/.env` — `TELEGRAM_BOT_TOKEN` and
    `ALLOWED_TELEGRAM_USER_ID` must both be filled in (not blank). Blank token →
-   the bot exits immediately with an error.
-3. **Are you messaging from the right account?** Only the `ALLOWED_TELEGRAM_USER_ID`
+   the bot exits immediately with an error, and `KeepAlive` will keep
+   respawning and immediately re-exiting it — the log will show the same
+   error repeating.
+4. **Are you messaging from the right account?** Only the `ALLOWED_TELEGRAM_USER_ID`
    account is accepted; everyone else is ignored with no reply.
-4. **Did you load the env first?** You must run `set -a; . ./ingest/.env; set +a`
-   in the *same* terminal before `python3 ingest/bot.py` (the bot reads the token
-   from the environment).
+5. **Two pollers running at once?** If you (or `desk.command` option 1) also
+   started `python3 ingest/bot.py` manually while the launchd agent is
+   loaded, both fail with `409 Conflict` — see the log. Stop the manual one;
+   the agent is the one that should stay running.
 
 ### "poll error: HTTP Error 404: Not Found"
 Your `TELEGRAM_BOT_TOKEN` is wrong or revoked. Telegram returns 404 when the token
 in the request is invalid. Re-copy the token from @BotFather (or `/revoke` and make
-a new one), update `ingest/.env`, and restart the bot.
+a new one), update `ingest/.env`, and restart the bot:
+`launchctl kickstart -k gui/$(id -u)/com.aie.bot`.
 
 ### "The bot stopped working after a while."
-The terminal session ended (closed window, sleep, logout). The bot only runs while
-that terminal is open. Restart it. (To keep it always-on, that's a separate setup —
-ask Claude Code about a macOS `launchd` service.)
+If it's installed as the launchd agent (Section 2, Step 4), this shouldn't
+happen — `KeepAlive` restarts it on any exit, and `RunAtLoad` brings it back
+after a reboot or login. The only things that stop it are your Mac being off
+or asleep, or the agent being unloaded (`launchctl list | grep com.aie.bot`
+shows nothing at all, not even a `-`, once unloaded). If you're instead
+running it manually in a terminal, closing that window stops it — install
+the launchd agent instead so this stops being a recurring problem.
 
 ### "The bot replied, but the app didn't change."
 Refresh the browser (or re-open `index.html`). The bot rewrites `data.js`; the app
