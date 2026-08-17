@@ -1,9 +1,9 @@
 {
   "meta": {
     "schemaVersion": 1,
-    "syncedAt": "2026-08-14T08:55:00Z",
+    "syncedAt": "2026-08-17T03:49:23Z",
     "pageCount": 67,
-    "linkCount": 210
+    "linkCount": 216
   },
   "pages": [
     {
@@ -54,17 +54,19 @@
       "type": "theme",
       "title": "Glass Substrates",
       "auto": {
-        "refs": [],
+        "refs": [
+          "lpk-de"
+        ],
         "stats": {
           "label": "Glass Substrates",
           "flowRole": "supply",
-          "memberCount": 0,
-          "coreCount": 0,
+          "memberCount": 1,
+          "coreCount": 1,
           "watchCount": 0
         }
       },
-      "note": "The newest and thinnest entry in this cycle: glass-core substrates for [[advanced-packaging]], a natural extension of the packaging wave as chips grow larger and run hotter. No dedicated glass-substrate thesis has been posted yet \u2014 Corning (GLW) has surfaced only inside a broader Bloomberg-driven semis-selloff basket, and is tracked here as a candidate alongside SKC Absolics and TSMC's CoPoS effort.\n\nThe better-developed way [[aleabitoreddit]] plays the same substrate shift lives on the [[materials]] page, via LPKF ([[lpk-de]])'s glass-core equipment near-monopoly. Watch this theme for a first dedicated thesis.",
-      "noteUpdatedAt": "2026-07-12T00:00:00Z"
+      "note": "Glass-core substrates for [[advanced-packaging]] \u2014 a natural extension of the packaging wave as chips grow larger and run hotter, and still the thinnest layer on this map.\n\nOn 17 Aug 2026 the desk moved [[lpk-de]] here from [[materials]], where it had been filed as an equipment name, and gave it its first verdict. That makes two names in the layer alongside Corning (GLW), which has surfaced only inside broader semis-selloff baskets. SKC Absolics and TSMC's CoPoS effort remain tracked as candidates rather than positions.\n\nThe layer's problem this week is timing rather than technology. [[aleabitoreddit]] reported Samsung Electro-Mechanics delaying its glass-substrate investment on customer reliability-evaluation bottlenecks, revising the start of operations to 2028, with SKC also pushing back \u2014 a delay in his own theme, which is the kind of disclosure worth weighting heavily precisely because it cuts against the poster's book. For an equipment supplier that pushes the revenue event out with it.\n\nGlass stays a 2028-2029 layer on current evidence. Watch for the first disclosed tool order with a delivery year attached; that is what converts this page from a theme into a position.",
+      "noteUpdatedAt": "2026-08-17T09:00:00Z"
     },
     {
       "slug": "hyperscalers",
@@ -99,7 +101,6 @@
           "amkr",
           "axti",
           "form",
-          "lpk-de",
           "nvts",
           "soi-pa",
           "vpg"
@@ -107,9 +108,9 @@
         "stats": {
           "label": "Materials & Packaging",
           "flowRole": "supply",
-          "memberCount": 8,
+          "memberCount": 7,
           "coreCount": 3,
-          "watchCount": 5
+          "watchCount": 4
         }
       },
       "note": "A lighter-touch, picks-and-shovels research theme sitting upstream of the [[fabs]] and [[advanced-packaging]] layers. [[aleabitoreddit]] views AEHR ([[aehr]])'s ~100% rally as largely priced in absent a new catalyst; LPKF ([[lpk-de]]) is his recurring bullish idea on a glass-core substrate near-monopoly \u2014 a bridge into the [[glass]] theme \u2014 with a stated multi-billion factory ambition; Soitec ([[soi-pa]]) rounds out the specialty-materials group.\n\nThese are second-derivative plays: they win if the [[memory]], [[photonics]] and packaging build-outs they supply keep scaling.",
@@ -135,8 +136,8 @@
           "watchCount": 3
         }
       },
-      "note": "The [[hbm]] memory upcycle is a high-conviction supply theme, and it got a clean real-world stress test this week: Samsung pre-announced record Q2 operating profit up ~1,800% Y/Y \u2014 on his telling the most profitable quarter in the world \u2014 and the stock still fell ~7% after a +150% YTD run. [[aleabitoreddit]] reads that as priced-to-perfection profit-taking, not a fundamentals break, and notes the same Samsung print was the actual trigger for the broader chip rout.\n\n[[mu]] is the liquid US expression of the DRAM/HBM cycle; [[sndk]] the NAND leg; [[axti]] the upstream substrate/materials feed (torque he also pairs with the [[photonics]] sleeve); [[rpi]] rounds out the group. The through-line is [[hbm]] scarcity \u2014 stacked memory bonded next to the GPU is the scarcest ingredient in every accelerator the [[hyperscalers]] are buying.\n\nThe 16 Jul 2026 review made memory the week's Focus: TrendForce confirmed 13\u201318% server-DRAM contract hikes for Q3 with Samsung seeking 20%, [[mu]] disclosed 16+ long-term agreements, and [[sndk]]'s supply deal with [[meta]] was confirmed \u2014 while memory equities sold off into all of it. The desk opened SNDK coverage on that disconnect. The structural nuance worth keeping: SK Hynix reportedly scrapped LTA price caps while Micron kept ceilings-and-floors, so the same upcycle is captured very differently across the complex.",
-      "noteUpdatedAt": "2026-07-16T00:00:00Z"
+      "note": "The [[hbm]] memory upcycle is a high-conviction supply theme, and it got a clean real-world stress test in July 2026: Samsung pre-announced record Q2 operating profit up ~1,800% Y/Y \u2014 on his telling the most profitable quarter in the world \u2014 and the stock still fell ~7% after a +150% YTD run. [[aleabitoreddit]] reads that as priced-to-perfection profit-taking, not a fundamentals break, and notes the same Samsung print was the actual trigger for the broader chip rout.\n\n[[mu]] is the liquid US expression of the DRAM/HBM cycle; [[sndk]] the NAND leg; [[axti]] the upstream substrate/materials feed (torque he also pairs with the [[photonics]] sleeve); [[rpi]] rounds out the group. The through-line is [[hbm]] scarcity \u2014 stacked memory bonded next to the GPU is the scarcest ingredient in every accelerator the [[hyperscalers]] are buying.\n\nThe 16 Jul 2026 review made memory the week's headline: TrendForce confirmed 13-18% server-DRAM contract hikes for Q3 with Samsung seeking 20%, [[mu]] disclosed 16+ long-term agreements, and [[sndk]]'s supply deal with [[meta]] was confirmed \u2014 while memory equities sold off into all of it. The desk opened SNDK coverage on that disconnect. The structural nuance worth keeping: SK Hynix reportedly scrapped LTA price caps while Micron kept ceilings-and-floors, so the same upcycle is captured very differently across the complex.\n\nOn 17 Aug 2026 the desk finally split the theme in two and added the DRAM leg through [[mu]], having held only NAND for a month. The correction worth remembering: treating \"memory\" as one bottleneck meant owning the loose half of it while the tight half compounded. The two markets are now held separately and sized together.",
+      "noteUpdatedAt": "2026-08-17T09:00:00Z"
     },
     {
       "slug": "neoclouds",
@@ -205,8 +206,8 @@
           "watchCount": 0
         }
       },
-      "note": "The theme the desk is built around: lasers, transceivers and the substrates beneath them, feeding the optical interconnect that co-packaged optics makes load-bearing.\n\nAugust 2026 was the week the theme stopped being a narrative and started producing filed numbers. [[lite]] reported revenue up 109% year over year and guided to its target operating model a quarter early. [[aaoi]] printed a fifth consecutive record quarter and returned to profit. Coherent's datacom pull is disclosed rather than inferred. The rotation the analyst describes \u2014 from memory back into photonics \u2014 is visible in the results, not only in the tape.\n\nThe discipline this theme needs is separating what is reported from what is modelled, because the two look alike when read quickly. Reported: Lumentum's guidance, AOI's margins, and the substrate reservation deposits at [[axti]], where two laser makers have put cash down for capacity. Modelled: Sivers' capacity revenue figure at [[sive]], AOI's 2028 external-light-source arithmetic, and every read-through built on the proposed United States restriction on Chinese transceivers, which remains a draft rule. The evidence ladder runs downward \u2014 the further down the stack you go, the harder the numbers get, which is why the substrate layer now carries the desk's firmest call.",
-      "noteUpdatedAt": "2026-08-12T00:00:00Z"
+      "note": "The theme the desk is built around: lasers, transceivers and the substrates beneath them, feeding the optical interconnect that co-packaged optics makes load-bearing.\n\nAugust 2026 was the month the theme stopped being a narrative and started producing filed numbers. [[lite]] reported revenue up 109% year over year and crossed 50% non-GAAP gross margin a quarter early. [[cohr]] posted a record $2.05B quarter with datacom at 79% of revenue and six-inch indium phosphide capacity doubled ahead of plan. [[aaoi]] printed a fifth consecutive record quarter and returned to profit. The rotation the analyst describes is visible in the results, not only in the tape.\n\nTwo things the desk now reads differently. First, the margin ladder inside the layer is enormous and is the cleanest sorting mechanism available: [[mtsi]] guides 60-61%, [[lite]] just above 50%, [[cohr]] 39.5-41.5%, [[aaoi]] 29-30.5%. Content sold into the module earns roughly double what assembling the module earns. Second, Lumentum crossing its margin target early suggests the laser constraint is a merchant-supply problem rather than an industry yield problem \u2014 which is more bullish for the integrated names and less bullish for the small merchant suppliers the analyst prefers.\n\nThe discipline this theme needs is separating what is reported from what is modelled, because the two look alike when read quickly. Reported: Lumentum's guidance, Coherent's segment mix, AOI's margins, and the substrate reservation deposits at [[axti]]. Modelled: Sivers' capacity revenue figure at [[sive]], AOI's roughly $485M implied fourth quarter, and every read-through built on the proposed United States restriction on Chinese transceivers, which remains a draft rule.",
+      "noteUpdatedAt": "2026-08-17T09:00:00Z"
     },
     {
       "slug": "power",
@@ -259,8 +260,8 @@
         ],
         "stats": {
           "tier": "watch",
-          "mentions": 3,
-          "lastMentioned": "2026-07-30T18:31:07Z",
+          "mentions": 5,
+          "lastMentioned": "2026-08-15T02:46:31Z",
           "category": "memory",
           "market": "KR",
           "marketCapTier": "Mega",
@@ -303,8 +304,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 10,
-          "lastMentioned": "2026-07-30T04:01:48Z",
+          "mentions": 11,
+          "lastMentioned": "2026-08-15T02:46:31Z",
           "category": "hyperscalers",
           "market": "US",
           "marketCapTier": "Mega",
@@ -369,8 +370,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 37,
-          "lastMentioned": "2026-08-11T01:29:11Z",
+          "mentions": 38,
+          "lastMentioned": "2026-08-16T03:48:31Z",
           "category": "accelerators",
           "market": "US",
           "marketCapTier": "Mega",
@@ -610,8 +611,8 @@
         ],
         "stats": {
           "tier": "watch",
-          "mentions": 3,
-          "lastMentioned": "2026-08-08T06:19:25Z",
+          "mentions": 5,
+          "lastMentioned": "2026-08-15T02:46:31Z",
           "category": "memory",
           "market": "",
           "marketCapTier": "Large",
@@ -636,7 +637,7 @@
           "lastMentioned": "2026-08-06T01:23:49Z",
           "category": "materials",
           "market": "US",
-          "marketCapTier": "",
+          "marketCapTier": "Mid",
           "company": "FormFactor"
         }
       },
@@ -720,7 +721,7 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 12,
+          "mentions": 13,
           "lastMentioned": "2026-08-13T09:46:26Z",
           "category": "photonics",
           "market": "",
@@ -800,24 +801,24 @@
     {
       "slug": "lpk-de",
       "type": "ticker",
-      "title": "LPK.DE \u00b7 LPKF Laser & Electronics SE",
+      "title": "LPK.DE \u00b7 LPKF Laser & Electronics",
       "auto": {
         "refs": [
-          "materials",
+          "glass",
           "aleabitoreddit"
         ],
         "stats": {
           "tier": "core",
           "mentions": 16,
           "lastMentioned": "2026-08-14T04:06:28Z",
-          "category": "materials",
+          "category": "glass",
           "market": "DE",
           "marketCapTier": "Small",
-          "company": "LPKF Laser & Electronics SE"
+          "company": "LPKF Laser & Electronics"
         }
       },
-      "note": "",
-      "noteUpdatedAt": null
+      "note": "Re-categorised from [[materials]] into [[glass]] on 17 Aug 2026 and given its first desk verdict the same week \u2014 wait, no position. LPKF sells the LIDE laser systems that structure glass, the tooling a substrate maker buys before it can produce anything.\n\nThe timing of the initiation is unhelpful and worth recording honestly. The most recent thesis in the file is [[aleabitoreddit]] reporting a delay in his own theme: Samsung Electro-Mechanics pushing its glass-substrate investment out on a bottleneck in customer reliability evaluations, revising start of operations to 2028, with SKC also pushing back. For an equipment supplier a customer's slip moves the revenue event with it, and there is no partial credit \u2014 the tool order lands before the line runs.\n\nSixteen accumulated mentions is what put it in Core. That is attention gathered over months rather than conviction expressed this week, and being the second name in a near-empty layer flatters the rank further. The entry trigger is a disclosed LIDE order from a named customer with a delivery year attached.",
+      "noteUpdatedAt": "2026-08-17T09:00:00Z"
     },
     {
       "slug": "meta",
@@ -899,13 +900,13 @@
           "mentions": 11,
           "lastMentioned": "2026-08-13T09:46:26Z",
           "category": "photonics",
-          "market": "",
-          "marketCapTier": "",
+          "market": "US",
+          "marketCapTier": "Mid",
           "company": "MACOM Technology Solutions"
         }
       },
-      "note": "",
-      "noteUpdatedAt": null
+      "note": "Entered Core coverage 17 Aug 2026 on the thinnest analyst attention on the roster \u2014 eleven mentions \u2014 and the strongest operating numbers in it. Fiscal Q3 revenue $342.2M, up 35.8% year on year, fiscal Q4 guided to $415-425M on a record 1.6 book-to-bill, with adjusted gross margin guided to 60-61%.\n\nThat margin is the whole case. Within [[photonics]], [[aaoi]] guides Q3 gross margin to 29-30.5%, [[cohr]] to 39.5-41.5%, and [[lite]] to just above 50%. MACOM sits above all of them because it sells the analog and photonic content inside a module rather than assembling the module \u2014 a structurally different business wearing the same theme.\n\n[[aleabitoreddit]] frames it through indium phosphide security: long-term epiwafer agreements and a stake in [[iqe]]. The desk could not find a primary filing confirming the stake size or the terms, so that leg is carried as unverified and counts for nothing in the verdict. Initiated small; the second tranche waits on the fiscal Q4 print.",
+      "noteUpdatedAt": "2026-08-17T09:00:00Z"
     },
     {
       "slug": "mu",
@@ -918,16 +919,16 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 28,
-          "lastMentioned": "2026-08-08T17:52:29Z",
+          "mentions": 30,
+          "lastMentioned": "2026-08-15T02:46:31Z",
           "category": "memory",
           "market": "US",
           "marketCapTier": "Large",
           "company": "Micron Technology"
         }
       },
-      "note": "",
-      "noteUpdatedAt": null
+      "note": "The desk's DRAM and HBM leg, opened 17 Aug 2026 after two passes declining it. The earlier reasoning \u2014 that a cycle where the seller sets the price is the wrong moment to underwrite a multiple \u2014 was reversed on two facts. Scale: the last reported quarter put revenue at $41.46B against $9.30B a year earlier, with data centre alone above $25B, an annualised run-rate over $100B. And market: [[sndk]] expresses NAND, while the structural shortage is in DRAM and HBM, where 3Q26 server contract prices rise 13-18% quarter on quarter under long-term agreements and 2027 HBM contract prices are expected multiples higher against RDIMM bit supply growing only 15-20%.\n\nThe distinction between the two memory legs matters and is easy to lose. [[aleabitoreddit]] posts the [[memory]] bottleneck as a single undifferentiated theme; it is two markets tightening for different reasons, and only one of them was in the book before this week. They will still correlate hard in a drawdown, so combined memory weight \u2014 not either position alone \u2014 is what gets sized.\n\nThe falsifier is deliberately not a demand miss. It is the first quarter long-term agreement pricing stops rising.",
+      "noteUpdatedAt": "2026-08-17T09:00:00Z"
     },
     {
       "slug": "nbis",
@@ -984,8 +985,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 66,
-          "lastMentioned": "2026-08-13T14:02:45Z",
+          "mentions": 67,
+          "lastMentioned": "2026-08-16T03:48:31Z",
           "category": "accelerators",
           "market": "US",
           "marketCapTier": "Mega",
@@ -1158,8 +1159,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 21,
-          "lastMentioned": "2026-08-04T02:34:48Z",
+          "mentions": 22,
+          "lastMentioned": "2026-08-14T11:29:05Z",
           "category": "memory",
           "market": "",
           "marketCapTier": "",
@@ -1179,9 +1180,9 @@
           "aleabitoreddit"
         ],
         "stats": {
-          "tier": "watch",
-          "mentions": 9,
-          "lastMentioned": "2026-06-30T07:52:04Z",
+          "tier": "core",
+          "mentions": 13,
+          "lastMentioned": "2026-08-13T02:52:11Z",
           "category": "materials",
           "market": "FR",
           "marketCapTier": "Mid",

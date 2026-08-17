@@ -1,7 +1,7 @@
 {
   "meta": {
     "schemaVersion": 1,
-    "updatedAt": "2026-08-12T09:00:00Z",
+    "updatedAt": "2026-08-17T09:00:00Z",
     "author": "claude-desk",
     "disclaimer": "Coverage memos are second-opinion research notes on @aleabitoreddit's ideas. Personal research tool — not investment advice."
   },
@@ -1735,6 +1735,237 @@
         "r_2ea3afbcb88fdb2d"
       ],
       "basedOnVerdict": true
+    },
+    {
+      "id": "m_MU_2026w34",
+      "ticker": "MU",
+      "kind": "update",
+      "title": "Owning the wrong half of memory",
+      "dek": "The desk held NAND through $SNDK and stayed off DRAM on multiple discipline. The tight market was DRAM the whole time.",
+      "publishedAt": "2026-08-17T09:00:00Z",
+      "updatedAt": "2026-08-17T09:00:00Z",
+      "rating": "accumulate",
+      "basedOnVerdict": true,
+      "sourceThesisIds": [
+        "r_7275cf4db297df5b",
+        "r_7c7e14dfebc8a2ed",
+        "r_4347c21804cf872a",
+        "x_2088226398708338889",
+        "x_2088457278928412812"
+      ],
+      "sections": [
+        {
+          "heading": "Snapshot",
+          "body": "The desk has carried memory exposure through $SNDK since 16 July and has passed on $MU twice on the same reasoning: a cycle where the seller sets the price is the wrong moment to underwrite a multiple. This memo reverses that."
+        },
+        {
+          "heading": "Thesis",
+          "body": "Two facts make the earlier call wrong rather than merely early.\n\nThe first is scale. Micron's last reported quarter put revenue at **$41.46B**, against $23.86B the quarter before and $9.30B a year earlier, with data centre alone above **$25B** — an annualised run-rate over $100B — and the following quarter guided near $50B. That is not a company whose multiple needs defending; it is the most profitable link in the chain this book maps.\n\nThe second is which market is actually tight. $SNDK expresses NAND. The structural shortage is in DRAM and HBM, where server contract prices are set to rise **13-18% quarter on quarter in 3Q26** with long-term agreements capping the increase, and HBM contract prices are expected multiples higher in 2027 against RDIMM bit supply growing only 15-20%. Supply sets that price, not demand — which is precisely the condition the desk said it was waiting for.\n\nThe analyst has been right on memory for months and consistently under-argues it, posting the bottleneck as unchanged background rather than as the earnings event it has become."
+        },
+        {
+          "heading": "Why own it",
+          "body": "The pricing mechanism is contractual and dated, not sentiment. Long-term agreements cap the upside quarter to quarter, which also means they carry it forward: the 2027 reset is a scheduled event rather than a forecast.\n\nIt is also the cleanest expression on this map of the constraint everything else in the book is derivative of. [[memory]] sits under every accelerator in [[accelerators]], and unlike the photonics names the demand is already in the reported numbers rather than in a pipeline."
+        },
+        {
+          "heading": "Risks",
+          "body": "This is the most cyclical position in the book and it is being added late, after the earnings inflection is visible to everyone. A memory cycle turns on supply response, and every producer is now incentivised to add capacity.\n\nThe second risk is doubling up by accident. $SNDK and $MU are not the same trade — NAND and DRAM tighten for different reasons — but they will correlate hard in a drawdown, and the combined memory weight is the thing to size against, not either position alone."
+        },
+        {
+          "heading": "Bottom line",
+          "body": "Accumulate, in quarterly tranches, as the DRAM and HBM leg alongside the existing NAND leg rather than instead of it. The exit signal is not a demand miss — it is the first quarter long-term agreement pricing stops rising."
+        }
+      ]
+    },
+    {
+      "id": "m_MTSI_2026w34",
+      "ticker": "MTSI",
+      "kind": "coverage",
+      "title": "The best margins in the optical stack",
+      "dek": "$MTSI enters coverage on the thinnest analyst attention on the roster and the strongest operating numbers in it.",
+      "publishedAt": "2026-08-17T09:00:00Z",
+      "updatedAt": "2026-08-17T09:00:00Z",
+      "rating": "accumulate",
+      "basedOnVerdict": true,
+      "sourceThesisIds": [
+        "r_f4aff742d7392a8c",
+        "r_aad0a5a6af425ec6",
+        "r_be5158b14027da1d",
+        "x_2087675367595380783",
+        "x_2087838176677376186"
+      ],
+      "sections": [
+        {
+          "heading": "Snapshot",
+          "body": "MACOM makes the RF, microwave and photonic components that sit inside optical modules — lasers, drivers, transimpedance amplifiers — rather than the modules themselves. It enters Core coverage this week on eleven analyst mentions, fewer than any other name on the roster."
+        },
+        {
+          "heading": "Thesis",
+          "body": "The case is the margin line, and it is filed rather than argued.\n\nFiscal Q3 revenue was **$342.2M, up 35.8%** year on year, with fiscal Q4 guided to **$415-425M** — another 21-24% sequential step — on a record **1.6 book-to-bill**. Adjusted gross margin is guided to **60-61%**.\n\nSet that against the rest of the layer. $AAOI guides Q3 gross margin to 29-30.5%. $COHR guides 39.5-41.5%. $LITE, the best of the module makers, guides just over 50%. MACOM sits ten to thirty points above all of them, because it sells content into the module instead of assembling it. That is a structurally different business wearing the same theme.\n\nThe analyst frames MACOM through its indium phosphide supply — long-term epiwafer agreements and a stake in [[iqe]]. The desk could not locate a primary filing confirming the stake size or the agreement terms, so that leg is carried as unverified and counts for nothing here. The filed numbers carry the case without it."
+        },
+        {
+          "heading": "Why own it",
+          "body": "It is the component layer of [[photonics]] rather than the assembly layer, which means it participates in the 800G and 1.6T ramp without carrying module price competition.\n\nA 1.6 book-to-bill is the kind of disclosure that is hard to dress up: orders are running well ahead of shipments across all three end markets, not only datacenter."
+        },
+        {
+          "heading": "Risks",
+          "body": "Coverage is starting after a 20% week and a 167% year, so nothing here is cheap. Fiscal Q4 guidance annualises to roughly $1.7B and the multiple already assumes the step-up continues.\n\nThe thinness of the analyst file cuts both ways. There is no bear case in this corpus to push against, which is a reason for caution rather than comfort — the desk is initiating on company disclosure alone.\n\nAnd a record book-to-bill is a peak indicator as often as a leading one. If the datacenter step-up was order pull-forward, it shows up as a book-to-bill falling back through 1.0 before it shows up in revenue."
+        },
+        {
+          "heading": "Bottom line",
+          "body": "Accumulate, initiated small. One starter tranche now; the second only after fiscal Q4 confirms the guide. It complements the $JBL ballast leg rather than replacing it."
+        }
+      ]
+    },
+    {
+      "id": "m_LPK.DE_2026w34",
+      "ticker": "LPK.DE",
+      "kind": "coverage",
+      "title": "The tooling is ready. The customers are not.",
+      "dek": "$LPK.DE enters Core the same week its customers pushed glass substrate start-up out to 2028.",
+      "publishedAt": "2026-08-17T09:00:00Z",
+      "updatedAt": "2026-08-17T09:00:00Z",
+      "rating": "watch",
+      "basedOnVerdict": true,
+      "sourceThesisIds": [
+        "x_2088115008827715971"
+      ],
+      "sections": [
+        {
+          "heading": "Snapshot",
+          "body": "LPKF sells LIDE laser systems that structure glass — the tooling step a glass-substrate maker buys before it can produce anything. It enters Core coverage this week and is re-categorised from materials into [[glass]], where it joins $GLW as only the second name in the layer."
+        },
+        {
+          "heading": "Thesis",
+          "body": "The timing is the story, and it is unhelpful.\n\nThe most recent thesis in the file is bearish: Samsung Electro-Mechanics has delayed its semiconductor glass substrate investment on a bottleneck in customer reliability evaluations of prototypes, revising the start of operations to **2028**, with SKC also pushing back. That is the analyst reporting a delay in his own theme.\n\nFor equipment this matters more than it does for a substrate supplier, not less. The tool order lands before the substrate line runs, so a customer moving its start date right moves LPKF's revenue event right with it — and there is no partial credit. The stock is down about 12% on the month, which is the market reading the same disclosure.\n\nSixteen accumulated mentions is what puts this name in Core. That is attention gathered over months, not conviction expressed this week, and the re-categorisation into a near-empty layer flatters its rank further."
+        },
+        {
+          "heading": "Why own it",
+          "body": "Glass substrates are a real layer of the 2028-2029 packaging roadmap and LPKF is the Western tooling name for it. A delay is not a cancellation: reliability evaluation bottlenecks are the normal shape of a qualification cycle, and the programmes were revised rather than shelved.\n\nWhen it does turn, equipment turns first."
+        },
+        {
+          "heading": "Risks",
+          "body": "A second delay pushes the revenue event beyond any reasonable holding period for a company this small, and the file contains no order to anchor against — only timeline commentary.\n\nThere is also a concentration problem the map hides: if glass substrate adoption is decided by two or three Korean customers, this is a two-or-three-customer stock wearing a supply-chain-layer badge."
+        },
+        {
+          "heading": "Bottom line",
+          "body": "Wait. This is a name to own on an order, not on a theme. The trigger is a disclosed LIDE system order from a named substrate customer with a delivery year attached."
+        }
+      ]
+    },
+    {
+      "id": "m_CCXI_2026w34",
+      "ticker": "CCXI",
+      "kind": "exit-note",
+      "title": "A trust is not a company",
+      "dek": "$CCXI leaves the roster. The de-SPAC has not closed, the S-4 is still confidential, and the price is 70% above trust.",
+      "publishedAt": "2026-08-17T09:00:00Z",
+      "updatedAt": "2026-08-17T09:00:00Z",
+      "rating": "watch",
+      "basedOnVerdict": false,
+      "sourceThesisIds": [
+        "r_036cd32e907a7e15",
+        "r_e9286da82e5c2cde",
+        "r_41b41b60ce8eb149",
+        "x_2085644051446108223"
+      ],
+      "sections": [
+        {
+          "heading": "Snapshot",
+          "body": "Churchill Capital Corp XI drops off the verdict roster this week after the desk's own research pushed its priority score below the Core top fifteen. It never carried a position."
+        },
+        {
+          "heading": "Thesis",
+          "body": "The reason for the exit is structural rather than a change of view on humanoids.\n\n$CCXI is a pre-close special purpose acquisition company. The Agility Robotics combination was announced on **24 June 2026** at roughly **$2.5B**, and the Form S-4 was only **confidentially submitted on 14 July**. Closing still requires shareholder approval, SEC review, regulatory clearances and exchange listing, after which the ticker becomes AGLT.\n\nUntil that sequence completes, there is no operating company to own here — only a trust with redemption and dilution terms that are not yet public. Agility's Digit deployments at Schaeffler, GXO, Toyota Motor Manufacturing Canada and Mercado Libre are disclosed as programmes, not volumes, so the per-robot compute, memory and lidar content that would justify a place on this map remains unquantified."
+        },
+        {
+          "heading": "Why own it",
+          "body": "The underlying business is the most credible US pure-play humanoid asset available to a public investor, with named industrial customers running real deployments rather than demonstrations. If humanoids become a compute vertical, this is one of very few ways to hold it directly.\n\nThat case does not expire with this exit note. It resumes post-close, on disclosed unit economics."
+        },
+        {
+          "heading": "Risks",
+          "body": "The price is the risk. The shares trade well above a typical trust value, which means a buyer today is paying a large premium for a deal that has not been approved and terms that have not been filed. High redemptions or a downsized PIPE change the equity story before the company has published a single quarter.\n\nThere is also a scoring lesson worth recording: $CCXI reached ninth by priority on analyst mentions alone. The score measures posting behaviour and cannot see corporate structure."
+        },
+        {
+          "heading": "Bottom line",
+          "body": "Off the roster, no position, no regret. The entry — if there is one — is post-close on disclosed Digit v5 order economics, under the AGLT ticker, and it is venture-shaped risk in public clothing."
+        }
+      ]
+    },
+    {
+      "id": "m_INTC_2026w34",
+      "ticker": "INTC",
+      "kind": "exit-note",
+      "title": "Nothing to review for three weeks",
+      "dek": "$INTC leaves the verdict roster. The 14A schedule has not moved and neither has the analyst's attention.",
+      "publishedAt": "2026-08-17T09:00:00Z",
+      "updatedAt": "2026-08-17T09:00:00Z",
+      "rating": "watch",
+      "basedOnVerdict": false,
+      "sourceThesisIds": [
+        "r_1121c84c151e4fc8",
+        "r_b4a203b90d34f080",
+        "r_67423370f17ff00e"
+      ],
+      "sections": [
+        {
+          "heading": "Snapshot",
+          "body": "Intel drops off the verdict roster on score. It carried a wait stance and no position, and there have been no new analyst theses on it since late July."
+        },
+        {
+          "heading": "Thesis",
+          "body": "The reason for coverage was always the foundry option, and the disclosed schedule has not changed: 14A risk production in **2027**, high volume in **2028**. External foundry revenue is therefore not a 2026 or 2027 event, which puts it outside the horizon this map is built for.\n\nRetiring the verdict is not a downgrade. It is an accurate statement that the desk has nothing new to say and that continuing to publish a weekly stance on an unchanged file would be manufacturing coverage."
+        },
+        {
+          "heading": "Why own it",
+          "body": "A Western leading-edge foundry alternative has strategic value that a quarterly file does not capture, and government and customer interest in one is real.\n\nIf 14A lands on schedule with a named external customer, the option reprices quickly."
+        },
+        {
+          "heading": "Risks",
+          "body": "It remains a multi-year whole-company turnaround where the AI-supply-chain read-through is the smallest part of the story. Owning it for this map's reasons is owning the wrong 90% of the business."
+        },
+        {
+          "heading": "Bottom line",
+          "body": "Off the roster. It returns to coverage on a named external 14A customer with committed volume — not before."
+        }
+      ]
+    },
+    {
+      "id": "m_IREN_2026w34",
+      "ticker": "IREN",
+      "kind": "exit-note",
+      "title": "Still waiting on 16 September",
+      "dek": "$IREN leaves the roster with the same gap it had a week ago: no disclosure of its own.",
+      "publishedAt": "2026-08-17T09:00:00Z",
+      "updatedAt": "2026-08-17T09:00:00Z",
+      "rating": "watch",
+      "basedOnVerdict": false,
+      "sourceThesisIds": [
+        "x_2087285356999958663",
+        "r_507019fc7f448834",
+        "r_2ea3afbcb88fdb2d"
+      ],
+      "sections": [
+        {
+          "heading": "Snapshot",
+          "body": "IREN drops off the verdict roster on score, carrying the same wait stance it has held throughout. No position was ever taken."
+        },
+        {
+          "heading": "Thesis",
+          "body": "Nothing has changed since the 12 August note, which is the point. The last IREN disclosure still covers the March quarter — revenue $144.8M, of which AI Cloud Services was $33.6M — and the company does not report again until **16 September**.\n\nEverything that moved the name in the interim was someone else's filing. Retiring the verdict here avoids the specific failure mode this desk was built to resist: publishing a weekly stance that is really a summary of other companies' results."
+        },
+        {
+          "heading": "Why own it",
+          "body": "Powered land and grid interconnection are the genuinely scarce inputs in [[neoclouds]], and IREN holds both with counterparties most of the cohort cannot reach.\n\nThe AI Cloud segment is growing quickly off a small base, and the mining business funds the transition."
+        },
+        {
+          "heading": "Risks",
+          "body": "Capital-intensive buildout carrying a large quarterly loss, with any customer ramp slip landing on a financed balance sheet. Contracted megawatts per customer are still undisclosed, so conversion pace cannot be checked from outside."
+        },
+        {
+          "heading": "Bottom line",
+          "body": "Off the roster until it publishes. Reconsider after 16 September, on AI Cloud Services as a share of total revenue and on disclosed contracted megawatts."
+        }
+      ]
     }
   ]
 }

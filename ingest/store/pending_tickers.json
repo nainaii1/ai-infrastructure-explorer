@@ -1587,7 +1587,7 @@
     "candidate": "YMTC",
     "sourceUrl": "https://x.com/aleabitoreddit/status/2085974141501612461",
     "firstSeen": "2026-08-10T03:16:03Z",
-    "count": 1
+    "count": 2
   },
   {
     "candidate": "APAC",
@@ -1665,6 +1665,12 @@
     "candidate": "SHEIN",
     "sourceUrl": "https://x.com/aleabitoreddit/status/2087867722784805170",
     "firstSeen": "2026-08-14T08:01:55Z",
+    "count": 1
+  },
+  {
+    "candidate": "UAS",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2088181416148562017",
+    "firstSeen": "2026-08-14T20:06:07Z",
     "count": 1
   }
 ]

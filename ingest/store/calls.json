@@ -1,7 +1,7 @@
 {
   "meta": {
     "schemaVersion": 1,
-    "updatedAt": "2026-08-12T00:00:00Z",
+    "updatedAt": "2026-08-17T00:00:00Z",
     "author": "claude-desk",
     "benchmark": "SMH",
     "disclaimer": "The calls ledger tracks the desk's own dated suggestions against a buy-the-index benchmark. Stamped forward-only, never retro-fitted. Personal research tool - not investment advice."
@@ -10,12 +10,12 @@
     {
       "id": "c_SIVE_2026-07-12",
       "ticker": "SIVE",
+      "source": "desk",
       "kind": "add-on-dip",
       "calledAt": "2026-07-12",
       "entryPrice": 47.28,
       "entryCurrency": "SEK",
       "stanceAtCall": "accumulate",
-      "source": "desk",
       "memoId": "m_SIVE_2026w28",
       "thesisIds": [
         "h_be5adc50f7bbcc5f",
@@ -34,12 +34,12 @@
     {
       "id": "c_SNDK_2026-07-16",
       "ticker": "SNDK",
+      "source": "desk",
       "kind": "new-position",
       "calledAt": "2026-07-16",
       "entryPrice": 1615.0,
       "entryCurrency": "USD",
       "stanceAtCall": "accumulate",
-      "source": "desk",
       "memoId": "m_SNDK_2026w29",
       "thesisIds": [
         "h_c0e79065f90fc60c",
@@ -57,6 +57,7 @@
     {
       "id": "c_TSM_2026-08-10",
       "ticker": "TSM",
+      "source": "desk",
       "kind": "new-position",
       "calledAt": "2026-08-10T00:00:00Z",
       "entryPrice": 420.04,
@@ -75,12 +76,12 @@
       "benchmark": {
         "symbol": "SMH",
         "priceAtCall": 582.7
-      },
-      "source": "desk"
+      }
     },
     {
       "id": "c_SNDK_2026-08-10",
       "ticker": "SNDK",
+      "source": "desk",
       "kind": "add-on-dip",
       "calledAt": "2026-08-10T00:00:00Z",
       "entryPrice": 1212.21,
@@ -99,12 +100,12 @@
       "benchmark": {
         "symbol": "SMH",
         "priceAtCall": 582.7
-      },
-      "source": "desk"
+      }
     },
     {
       "id": "c_LITE_2026-08-12",
       "ticker": "LITE",
+      "source": "desk",
       "kind": "new-position",
       "calledAt": "2026-08-12T00:00:00Z",
       "entryPrice": 820.59,
@@ -122,12 +123,12 @@
       "benchmark": {
         "symbol": "SMH",
         "priceAtCall": 572.93
-      },
-      "source": "desk"
+      }
     },
     {
       "id": "c_AXTI_2026-08-12",
       "ticker": "AXTI",
+      "source": "desk",
       "kind": "new-position",
       "calledAt": "2026-08-12T00:00:00Z",
       "entryPrice": 73.78,
@@ -144,8 +145,51 @@
       "benchmark": {
         "symbol": "SMH",
         "priceAtCall": 572.93
-      },
-      "source": "desk"
+      }
+    },
+    {
+      "id": "c_MU_2026-08-17",
+      "ticker": "MU",
+      "source": "desk",
+      "kind": "new-position",
+      "calledAt": "2026-08-17T00:00:00Z",
+      "entryPrice": 971.66,
+      "entryCurrency": "USD",
+      "stanceAtCall": "accumulate",
+      "memoId": "m_MU_2026w34",
+      "thesisIds": [
+        "r_7275cf4db297df5b",
+        "r_7c7e14dfebc8a2ed"
+      ],
+      "closedAt": null,
+      "exitPrice": null,
+      "outcome": "open",
+      "benchmark": {
+        "symbol": "SMH",
+        "priceAtCall": 587.82
+      }
+    },
+    {
+      "id": "c_MTSI_2026-08-17",
+      "ticker": "MTSI",
+      "source": "desk",
+      "kind": "new-position",
+      "calledAt": "2026-08-17T00:00:00Z",
+      "entryPrice": 316.44,
+      "entryCurrency": "USD",
+      "stanceAtCall": "accumulate",
+      "memoId": "m_MTSI_2026w34",
+      "thesisIds": [
+        "r_f4aff742d7392a8c",
+        "x_2087675367595380783"
+      ],
+      "closedAt": null,
+      "exitPrice": null,
+      "outcome": "open",
+      "benchmark": {
+        "symbol": "SMH",
+        "priceAtCall": 587.82
+      }
     }
   ]
 }
