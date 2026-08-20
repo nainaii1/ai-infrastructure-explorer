@@ -101,6 +101,12 @@ Everything below is shipped and live:
   **signal density** (`103 / 112 argued`), which is the point: NVDA reads
   `11 / 71`. A name he has never named renders no block at all. Read-only over
   `data.js` — no ingest, score or tier change.
+  It also renders in the **watchlist row detail** (under "My call", capped at 3),
+  and signal density is an **`Argued` column in the watchlist table** — sortable,
+  backed by `AIE.viewDensity(sym)` (one memoised pass over all theses; never call
+  `viewsForTicker` per row). It sorts on the argument COUNT, not the ratio, and a
+  name he has never mentioned renders `—` and sorts last. This is the only column
+  in the app that ranks on something other than posting frequency.
 
 **Ticker/thesis/verdict counts change constantly — read `ingest/store/*.json`
 or `data.js`, never assume a number from this file.**

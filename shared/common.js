@@ -14,6 +14,7 @@
      linkForTicker(sym)                            where a ticker chip points
      makeThesisCard(th, opts)                      shared .th-card renderer
      viewsForTicker(sym), viewStats(rows)          the analyst's per-ticker views
+     viewDensity(sym)                              cached {argued,total} for one name
      makeViewsBlock(sym, opts)                     shared .aie-views renderer
      chipSpark(color)                              memo accent glyph
 
@@ -377,6 +378,33 @@
   var VIEW_MAX_ROWS = 6;          /* keep the card short; the footer owns the rest */
   var DIR_LABELS = { bull: "bull", bear: "bear" };
 
+  /* Signal density for EVERY ticker in one pass, cached.
+     The watchlist sorts and renders a density cell per row; calling
+     viewsForTicker() once per row would rescan all theses 135 times per
+     render. This walks them once and memoises, keyed on the theses array
+     identity so a regenerated data.js invalidates it naturally. */
+  var _densityCache = null;
+  var _densityFor = null;
+  function viewDensity(sym) {
+    var d = data();
+    var theses = (d && d.theses) || [];
+    if (_densityFor !== theses) {
+      _densityFor = theses;
+      _densityCache = {};
+      theses.forEach(function (th) {
+        if (th.source !== "x") return;
+        (th.views || []).forEach(function (v) {
+          var k = String(v.ticker || "").toUpperCase();
+          if (!k) return;
+          var row = _densityCache[k] || (_densityCache[k] = { argued: 0, total: 0 });
+          row.total++;
+          if (v.direction === "bull" || v.direction === "bear") row.argued++;
+        });
+      });
+    }
+    return _densityCache[String(sym || "").toUpperCase()] || null;
+  }
+
   function viewsForTicker(sym) {
     var d = data();
     var want = String(sym || "").toUpperCase();
@@ -617,6 +645,7 @@
     linkForTicker: linkForTicker,
     makeThesisCard: makeThesisCard,
     viewsForTicker: viewsForTicker,
+    viewDensity: viewDensity,
     viewStats: viewStats,
     makeViewsBlock: makeViewsBlock,
     chipSpark: chipSpark

@@ -167,6 +167,7 @@ From `docs/EXECUTION-EXPERT-REVIEW.md`:
 | 3 — `aiExposure` judgement fields | not started |
 | 4 — re-point charts | still blocked on 2–3 |
 | 4a — surface `views[]` in the app | **shipped 20 Aug 2026** — see below |
+| 4b — density as a sortable watchlist column | **shipped 20 Aug 2026** — see below |
 
 ### Step 4a — what shipped (20 Aug 2026)
 
@@ -206,6 +207,36 @@ Read live off `data.js`, on the desk page:
 
 Nothing in `ingest/` changed. No score, tier or ranking moved — the block is
 read-only over data that was already generated.
+
+### Step 4b — what shipped (20 Aug 2026)
+
+4a put the block on the chain-tab tile card only. That is three clicks and a
+tab switch from the default view, and the watchlist row detail is a *separate*
+renderer (`makeRowDetailRow`), so in practice the feature was invisible where
+the operator actually works. Two fixes:
+
+1. **The block now renders in the watchlist row detail**, directly under "My
+   call" — his case and the desk's call adjacent, capped at 3 arguments so a
+   table row stays scannable (the card keeps 6).
+2. **`Argued` is now a sortable watchlist column**, so the number needs no
+   click at all and the whole list can be ranked by it. This is the first time
+   any surface in the app ranks on something other than posting frequency.
+
+`AIE.viewDensity(sym)` backs the column: one pass over all theses, memoised on
+the theses array identity, because calling `viewsForTicker` per row would
+rescan the corpus 135 times per render.
+
+Sorting is on the **count** of arguments, not the ratio — a name argued once
+out of one mention is 100% dense and says nothing, while SIVE at 103 is the
+signal. A name he has never mentioned renders `—` and sorts last in both
+directions rather than tying with a genuine zero.
+
+Sorted descending, the Core tier now reads:
+`SIVE 103/112 · AAOI 57/81 · LITE 43/79 · XFAB 29/29 · CCXI 25/30 · MU 25/32`.
+Ascending surfaces the opposite end — `NOK 0/5, AAPL 2/11, AVGO 2/13,
+GFS 3/23, MSFT 3/11` — the names he name-drops and never argues.
+**XFAB at 29/29 is the case mention-count can never find:** every single time
+he has named it, he made an argument.
 
 ### Step 1 — what shipped (19 Aug 2026)
 

@@ -1215,6 +1215,12 @@
     .wl-table thead th:hover { color: var(--text); }
     .wl-table thead th.num, .wl-table td.num { text-align: right; font-family: var(--mono); }
     .wl-table thead th .arrow { margin-left: 4px; color: var(--ink); }
+    /* Signal density cell: the argued count carries the weight, the total is
+       context. A name with zero arguments greys out entirely so a big "0/24"
+       cannot read as a big number at a glance. */
+    .wl-argued { color: var(--muted); font-variant-numeric: tabular-nums; }
+    .wl-argued b { color: var(--ink); font-weight: 700; }
+    .wl-argued.is-none b { color: var(--muted); font-weight: 400; }
     .wl-table tbody tr { border-top: 1px solid var(--border); transition: background var(--ease); }
     .wl-table tbody tr:first-child { border-top: none; }
     .wl-table tbody tr:hover { background: color-mix(in srgb, var(--accent, var(--muted)) 6%, var(--card)); }
@@ -1416,6 +1422,7 @@
                   <!-- Sort is armed at boot only when the data carries a
                        USD-normalised cap; see wlArmMcapSort(). -->
                   <th class="num wl-nosort" id="wlThMcap">Mkt Cap</th>
+                  <th data-key="argued" class="num">Argued</th>
                   <th data-key="deskStance">Desk</th>
                   <th class="wl-nosort">Note</th>
                 </tr>
@@ -2646,7 +2653,7 @@
       };
 
       var WL_SORTABLE = ["ticker", "layer", "company", "chg7d", "chg1m", "chg1y",
-                         "price", "marketCap", "deskStance"];
+                         "price", "marketCap", "argued", "deskStance"];
       var WL_TIER_IDS = ["signal", "core", "watch", "radar", "all"];
 
       /* Restore the view. Validated field by field: a hand-edited or stale
@@ -2806,6 +2813,15 @@
           var aun = au == null, bun = bu == null;
           if (aun !== bun) return aun ? 1 : -1;
           if (!aun && au !== bu) return (au - bu) * wlState.dir;
+        } else if (k === "argued") {
+          /* Rank on the COUNT of arguments, not the ratio. A name argued once
+             out of one mention is 100% dense and tells you nothing; SIVE at
+             103 is the signal. Names he has never mentioned have no density
+             at all and sort last rather than tying with a genuine zero. */
+          var ad = AIE.viewDensity(a.ticker), bd = AIE.viewDensity(b.ticker);
+          var amiss = !ad, bmiss = !bd;
+          if (amiss !== bmiss) return amiss ? 1 : -1;
+          if (!amiss && ad.argued !== bd.argued) return (ad.argued - bd.argued) * wlState.dir;
         } else if (k === "deskStance") {
           av = (a.verdict && STANCE_RANK[a.verdict.stance]) || 0;
           bv = (b.verdict && STANCE_RANK[b.verdict.stance]) || 0;
@@ -2960,6 +2976,26 @@
         if (mc) { mTd.textContent = mc; }
         else { mTd.appendChild(el("span", "wl-muted", "—")); }
         tr.appendChild(mTd);
+
+        // Signal density: how many of his mentions were an actual case.
+        // The column the whole mention-to-argument rework exists to produce —
+        // NVDA and SIVE stop looking like the same kind of evidence.
+        var gTd = el("td", "num");
+        var dens = AIE.viewDensity(t.ticker);
+        if (dens) {
+          var g = el("span", "wl-argued" + (dens.argued ? "" : " is-none"));
+          g.appendChild(el("b", null, String(dens.argued)));
+          g.appendChild(document.createTextNode("/" + dens.total));
+          g.title = dens.argued + " of the " + dens.total + " posts naming "
+            + t.ticker + " make a case for it; the rest are bare mentions";
+          gTd.appendChild(g);
+        } else {
+          // He has never named it — not "zero arguments", no data at all.
+          var none = el("span", "wl-muted", "—");
+          none.title = "@aleabitoreddit has never mentioned " + t.ticker;
+          gTd.appendChild(none);
+        }
+        tr.appendChild(gTd);
 
         var dTd = document.createElement("td");
         if (t.verdict) {
@@ -3162,7 +3198,7 @@
             // interesting end of "what moved") and ascending on the text ones.
             var numericFirst = (k === "chg7d" || k === "chg1m" || k === "chg1y"
                                 || k === "price" || k === "marketCap"
-                                || k === "deskStance");
+                                || k === "argued" || k === "deskStance");
             if (wlState.key === k) setWlView({ dir: -wlState.dir });
             else setWlView({ key: k, dir: numericFirst ? -1 : 1 });
           });

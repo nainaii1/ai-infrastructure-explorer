@@ -153,6 +153,23 @@ _Last updated: 2026-08-10 (v9 "soft two-tone" redesign, X watcher, symbol canoni
 > counts as a SIVE mention but is dropped at extraction) — 21 posts across 7
 > aliases, logged as known issue 3 in `PROJECT.md`.
 
+> **`Argued` as a sortable watchlist column, Step 4b (✅ 2026-08-20).** 4a put
+> the block on the chain-tab tile card only — three clicks and a tab switch
+> from the default view, and the watchlist row detail is a *separate* renderer
+> (`makeRowDetailRow`), so the feature was effectively invisible where the
+> operator works. Fixed both ways: the block now renders in the watchlist row
+> detail directly under "My call" (capped at 3 arguments, vs 6 on the card),
+> and **`Argued` is an 11th sortable column** showing `103/112`, `11/71`,
+> `0/5`. It is the first surface in the app that ranks on something other than
+> posting frequency. Backed by `AIE.viewDensity(sym)` — one memoised pass over
+> all theses, because per-row `viewsForTicker` would rescan the corpus 135
+> times per render. Sorts on the argument COUNT, not the ratio (a name argued
+> 1-of-1 is 100% dense and says nothing); a name he has never mentioned renders
+> `—` and sorts last in both directions rather than tying with a real zero.
+> Core tier descending: `SIVE 103/112 · AAOI 57/81 · LITE 43/79 · XFAB 29/29`.
+> Ascending: `NOK 0/5 · AAPL 2/11 · AVGO 2/13 · MSFT 3/11`. The table already
+> scrolled horizontally on mobile at 10 columns; page layout is unchanged.
+
 ---
 
 ## Current snapshot
