@@ -46,6 +46,26 @@ class TestParseSheetRows(unittest.TestCase):
         self.assertNotIn("currency", rows["NVDA"])
         self.assertNotIn("chg7d", rows["NVDA"])  # no history columns yet
 
+    def test_usd_normalised_returns_parsed_when_present(self):
+        # A SEK name: the local 1M move and the USD 1M move are different
+        # quantities, and both must survive so the app can prefer the USD one.
+        csv_text = ("Ticker,Price,MarketCap,Currency,Chg1M,Chg1MUSD,MarketCapUSD\n"
+                    'SIVE,47.28,"13936458401",SEK,-12.6543,-9.8765,"1310000000"\n')
+        snap = fp._parse_sheet_rows(csv_text)["SIVE"]
+        self.assertEqual(snap["chg1m"], -12.65)
+        self.assertEqual(snap["chg1mUSD"], -9.88)
+        self.assertEqual(snap["marketCapUSD"], 1310000000.0)
+
+    def test_usd_return_columns_absent_are_omitted_not_defaulted(self):
+        # Absent must stay absent: silently copying the local move into the USD
+        # field would present a SEK return as if it were a USD one.
+        csv_text = ("Ticker,Price,MarketCap,Currency,Chg1M\n"
+                    'SIVE,47.28,"13936458401",SEK,-12.65\n')
+        snap = fp._parse_sheet_rows(csv_text)["SIVE"]
+        self.assertEqual(snap["chg1m"], -12.65)
+        self.assertNotIn("chg1mUSD", snap)
+        self.assertNotIn("marketCapUSD", snap)
+
     def test_na_price_row_skipped(self):
         csv_text = "Ticker,GoogleFinanceSymbol,Price,MarketCap\nWLAC,WLAC,#N/A,#N/A\n"
         self.assertEqual(fp._parse_sheet_rows(csv_text), {})
@@ -68,6 +88,45 @@ class TestParseSheetRows(unittest.TestCase):
         rows = fp._parse_sheet_rows(csv_text)
         self.assertEqual(rows["000660.KS"]["currency"], "KRW")
         self.assertEqual(rows["000660.KS"]["price"], 1842000.0)
+
+
+class TestMergeSnapshot(unittest.TestCase):
+    """A sheet-wide GOOGLEFINANCE recalculation hiccup (bulk edits trigger
+    exactly this) can return blank Chg1W/Chg1M/Chg1Y for most rows in one
+    fetch. The merge must not let that wipe real history — this is the fix
+    for a real incident: a refresh landed mid-recalc and dropped chg1m/chg7d
+    for 99 of 111 tickers and chg1y for 95, because only `currency` was
+    protected before this test was written."""
+
+    def test_optional_fields_carry_forward_when_sheet_goes_blank(self):
+        prev = {"price": 100.0, "marketCap": 1e9, "currency": "USD",
+                "chg7d": 1.1, "chg1m": 2.2, "chg1y": 3.3, "marketCapUSD": 1e9}
+        snap = {"price": 101.0, "marketCap": 1.01e9}  # this fetch has nothing else
+        merged = fp._merge_snapshot(prev, snap)
+        self.assertEqual(merged["price"], 101.0)       # this fetch's fresh value wins
+        self.assertEqual(merged["chg7d"], 1.1)          # carried forward
+        self.assertEqual(merged["chg1m"], 2.2)
+        self.assertEqual(merged["chg1y"], 3.3)
+        self.assertEqual(merged["marketCapUSD"], 1e9)
+        self.assertEqual(merged["currency"], "USD")
+
+    def test_fresh_sheet_value_always_wins_over_prior(self):
+        prev = {"chg1m": 2.2}
+        snap = {"price": 1.0, "marketCap": 1.0, "chg1m": 9.9}
+        merged = fp._merge_snapshot(prev, snap)
+        self.assertEqual(merged["chg1m"], 9.9)
+
+    def test_no_prior_snapshot_leaves_fields_absent(self):
+        merged = fp._merge_snapshot({}, {"price": 1.0, "marketCap": 1.0})
+        for field in ("chg7d", "chg1m", "chg1y", "marketCapUSD", "chg1mUSD"):
+            self.assertNotIn(field, merged)
+
+    def test_usd_return_fields_carry_forward_too(self):
+        prev = {"chg1mUSD": -9.87, "chg7dUSD": 1.2, "chg1yUSD": 40.0}
+        merged = fp._merge_snapshot(prev, {"price": 1.0, "marketCap": 1.0})
+        self.assertEqual(merged["chg1mUSD"], -9.87)
+        self.assertEqual(merged["chg7dUSD"], 1.2)
+        self.assertEqual(merged["chg1yUSD"], 40.0)
 
 
 if __name__ == "__main__":

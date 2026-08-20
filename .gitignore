@@ -37,3 +37,8 @@ ingest/store/.watcher_state.json
 # <name>.json.bak-<pass>-<yyyymmdd> before a bulk edit. They're local
 # rollback points; git history is the real record.
 ingest/store/*.json.bak-*
+
+# --- View-extraction scratch batch ---
+# `extract_views.py --emit` writes this for the in-session manual pass; it is
+# regenerated every batch and holds no state worth keeping.
+ingest/store/.views_batch.json

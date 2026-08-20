@@ -38,9 +38,26 @@ DEFAULT_SHEET_CSV_URL = (
 # once the operator adds the GOOGLEFINANCE history formulas to the sheet).
 CHG_COLUMNS = {"Chg1W": "chg7d", "Chg1M": "chg1m", "Chg1Y": "chg1y"}
 
+# Optional USD-normalised returns, same deal as MarketCapUSD. A local-currency
+# percentage change is NOT the same quantity as a USD one for a USD/MYR-based
+# operator: SIVE prices in SEK, so its 1M move blends the stock with the krona.
+# Until these columns exist the app must label such names as local-currency
+# rather than pool them into a cross-market comparison. See docs/GUIDE.
+CHG_USD_COLUMNS = {"Chg1WUSD": "chg7dUSD", "Chg1MUSD": "chg1mUSD",
+                   "Chg1YUSD": "chg1yUSD"}
+
 # Benchmark for the calls ledger (performance.html). Read from its own sheet
 # row and stored in prices.json under its symbol, exactly like a ticker.
 BENCHMARK_SYMBOLS = ("SMH",)
+
+# Optional fields that should carry forward from the prior snapshot when the
+# sheet doesn't supply them this round, same as currency already does below.
+# GOOGLEFINANCE history formulas across a large sheet intermittently return
+# blank while Google recalculates (a bulk edit is exactly what triggers this) —
+# without carrying forward, one flaky fetch wipes every optional field for
+# every ticker the sheet went quiet on, discarding real history for no reason.
+_CARRY_FORWARD_FIELDS = ("chg7d", "chg1m", "chg1y", "marketCapUSD",
+                         "chg7dUSD", "chg1mUSD", "chg1yUSD")
 
 
 SSL_CTX = _ssl_context()
@@ -95,8 +112,26 @@ def _parse_sheet_rows(csv_text):
             val = _num(row.get(col))
             if val is not None:
                 snap[field] = round(val, 2)
+        for col, field in CHG_USD_COLUMNS.items():
+            val = _num(row.get(col))
+            if val is not None:
+                snap[field] = round(val, 2)
         out[ticker] = snap
     return out
+
+
+def _merge_snapshot(prev, snap):
+    """Combine this fetch's row (`snap`) with the previous stored snapshot
+    (`prev`) for one ticker. Pure — no I/O. `snap` already has price and
+    marketCap (required upstream in `_parse_sheet_rows`); this only decides
+    what happens to the OPTIONAL fields the sheet may have gone quiet on."""
+    merged = dict(snap)
+    if "currency" not in merged and prev.get("currency"):
+        merged["currency"] = prev["currency"]
+    for field in _CARRY_FORWARD_FIELDS:
+        if field not in merged and prev.get(field) is not None:
+            merged[field] = prev[field]
+    return merged
 
 
 def _cache_busted(url):
@@ -144,9 +179,7 @@ def run():
         if snap is None:
             not_in_sheet.append(sym)
             continue
-        prev = prices.get(sym) or {}
-        if "currency" not in snap and prev.get("currency"):
-            snap = dict(snap, currency=prev["currency"])
+        snap = _merge_snapshot(prices.get(sym) or {}, snap)
         snap["asOf"] = asof
         prices[sym] = snap
         updated += 1

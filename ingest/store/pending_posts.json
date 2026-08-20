@@ -964,9 +964,11 @@
     "text": "Just some TLDRs of stuff I found interesting: \n\n- $SNDK 80% adjusted gross margins projections through 2030, ~75% operating margins and ~50% adjusted FCF margins from investor day. \n\nLTAs already 2/3rd of 2028 output. Minimum contracted revenue reaches $93B (MC is currently ~$239B)... Hard to be a cyclical stock when your revenue/targets are expected to continue 4Y later into 2030.\n\n- $CRWV signs contracts for 6Y old $NVDA A100 GPUs through 2029. \n\nFor Neoclouds like Nebius/Iren, this is positive, since it's a counterargument for eg. Burry depreciation short thesis\n\n- conventional DRAM gross margins eg. Micron is estimated to reach an unprecedented 95% by 2027, surpassing HBM GMs per UBS\n\nread through for legacy/standard dram players like Nanya/Winbond should go brrrr if projections  are correct. \n\n- Anthropic reportedly achieved 14x+ YoY growth and roughly 2.4x sequential revenue growth q2 to >$11.5B,. estimating growth to $190–200B in 2028r evenue numbers.\n\nYour frontier labs keep growing at stupidly fast paces, it would be worrisome if they didnt. \n\n- $NVDA reportedly in talks to invest $3B in SB Energy (Softbank subsidiary), creates a >$500B compute financing push with Apollo, BlackRock, Blackstone, Brookfield, Goldman, and others. $NVDA Feynman reportedly moves to TSMC A16 + SoIC + custom HBM + CPO in H2 2028\n\nJust more nvidia news every day\n\n- $MSFT Maia 300 discussed $TSM capacity for >300k units in 2027, with expansion to 1m+. Unveils as soon as September. \n\nLikely $MRVL should be more happy from this news. For what's happening right now:\n\n- maybe GUC for Microsoft current ASIC ramp. \n- For the Amazon party, stuff like Alchip (I do own shares), likely is ramping now with $AMZN ASIC program H2 2026...\n\nSo might be a good idea to look at hyperscaler ASIC ramp timelines + their beneficiaries. \n\n- $TSM VP of Advanced Packaging stated \"the industry is likely to face not only memory shortages but also tight ABF substrate supply over the next few years\"... \n\nEmphasis on few years for memory + ABF substrates for bottlenecks. \n\nEven upstream abf substrate equipment providers are happy, eg. Eternal Precision which uses vacuum lamination equipment stated orders surged, their plants have been running at full capacity, and 20%+ price hikes. \n\n- $AMAT expects advanced packaging revenue to grow >70% in 2026, versus prior >50%, and said customer discussions now extend all the way to 2030\n\n(not too familiar with this company, but found their growth rate from 2025 Q4 $6.8B ->$7.01B -> 7.91B -> $9.12B -> $10.25B Q4 2026 projections pretty interesting)\n\n- Google said at OCP APAC said conventional 48V is running out of headroom. $NVDA detailed an 800VDC MGX-compatible rack H2 2026 (timeline, Delta / Lite-On beneficaries)\n\n- Aside from $SNDK, Nanya LTAs cover 50% of capacity. CXMT signed multi-year DRAM agreements last month, so entire memory industry seems to be following same playbook as ur big 3. \n\n- Probe cards remain a bottleneck, MPI(6223) said their probe card capacity remains fully utilized because demand exceeds supply. \n\nAlready covered the CW laser bottleneck with $AAOI, $SIVE, and $LITE earlier this week, but that's another fun one.\n\n- some MLCC/component lead times have hit 36 weeks per Nichidenbo.\n\nYour Samsung Electro-Mechanics, Taiyo Yuden, Murata, players should be very happy to hear this. \n\nTLDR: AI supply chains go brrr.",
     "postedAt": "2026-08-16T04:50:40Z",
     "verifiedAuthor": "aleabitoreddit",
-    "status": "pending",
+    "status": "ingested",
     "queuedAt": "2026-08-16T08:13:44Z",
-    "notifiedAt": "2026-08-16T16:05:19Z"
+    "notifiedAt": "2026-08-16T16:05:19Z",
+    "decidedAt": "2026-08-17T09:19:10Z",
+    "thesisId": "x_2088850910529323315"
   },
   {
     "id": "2088947694886920409",
@@ -976,9 +978,11 @@
     "text": "I feel like AI investing is simpler than what people expect. \n\nBecause $NVDA + Jensen literally tells everyone what's coming. \n\nBut somehow. Almost every. single. time. Markets dismiss it until it actually happens? \n\nBe Nvidia in 2025:  Buys up EML and laser capacity. \n\nMarkets dismissing it: \"Photonics is a bubble and like quantum! ____ company is a scam with shady management\" \n\n1 year later: $LITE +678%, $AAOI +475.12%, $COHR +260.7%, $AXTI +3,843.9%.\n\n_\n\nNvidia in 2026: \n\nBuys up CW/EML capacity with LTAs. 800V shift. Extraordinary explicit about CPO shift. States Physical AI as the next theme. \n\nMarkets now: \"CW players are meme stocks! 800v, CPO is not coming anytime soon, Humanoids are not profitable!\" \n\nYeah... We'll see what happens in 2027. \n\nI think I'm putting my money on Jensen/Nvidia as the leading indicator.",
     "postedAt": "2026-08-16T11:15:15Z",
     "verifiedAuthor": "aleabitoreddit",
-    "status": "pending",
+    "status": "ingested",
     "queuedAt": "2026-08-16T16:05:17Z",
-    "notifiedAt": "2026-08-16T16:05:19Z"
+    "notifiedAt": "2026-08-16T16:05:19Z",
+    "decidedAt": "2026-08-17T09:19:28Z",
+    "thesisId": "x_2088947694886920409"
   },
   {
     "id": "2089057857652338993",
@@ -988,9 +992,11 @@
     "text": "I think @elonmusk said it best: \n\n“Robots don’t all need to be humanoid. \n\nBut a general-purpose robot intended to replace human labor should fit the world humans already built.\n\nRoger, roger.”\n\nPersonally, I expect $TSLA Optimus form factor to converge to the right image.",
     "postedAt": "2026-08-16T18:33:00Z",
     "verifiedAuthor": "aleabitoreddit",
-    "status": "pending",
+    "status": "ingested",
     "queuedAt": "2026-08-16T20:08:53Z",
-    "notifiedAt": "2026-08-17T04:05:23Z"
+    "notifiedAt": "2026-08-17T04:05:23Z",
+    "decidedAt": "2026-08-17T09:19:34Z",
+    "thesisId": "x_2089057857652338993"
   },
   {
     "id": "2089183484556480536",
@@ -1000,9 +1006,11 @@
     "text": "I think we're seeing AI server MLCC demand cause an interesting effect... with tightening capacity for consumer/general-purpose MLCCs.\n\nIf you get Vietnam flashbacks like I do to $MU / Samsung / SK Hynix -> Legacy DRAM: \n\nMy thesis is we'll see the same thing here maybe late H2, early 2027 with consumer/broad MLCCs. \n\nFrom July 6th: \n\n\"the crowding-out effect from AI-oriented high-end MLCC production has begun spilling over into both the automotive and consumer markets.\" \n\nJuly 28th: \n\n\"AI Demand Pushes Japanese and Korean MLCC Suppliers to Record Monthly Shipments; Consumer-Grade Order Spillovers Continue to Surge\"\n\nAug 12: \n\nAs [MLCC] capacity shifts from consumer grades to AI-oriented products... (Trendforce)\n\nAug 12: \n\nChina's electronics market channel checks found 22µF and 47µF MLCCs (used more broadly) out of stock. Then found and said certain manufacturers had stopped taking orders. \n\n(for reference: Walsin said high-volume smartphone/PC products such as... 22µF, so it's broader MLCCs)\n\nObviously Samsung Electro-Mechanics/Murata are main beneficiaries of AI server MLCC ramp. \n\nBut companies with large market share of overall MLCCs like Taiyo Yuden (6976, disclosure: I have positions) with less AI server share, would be a major beneficiary of this. \n\nFun part is, we're only in H2 2026, so the next major bottleneck should be fun!",
     "postedAt": "2026-08-17T02:52:12Z",
     "verifiedAuthor": "aleabitoreddit",
-    "status": "pending",
+    "status": "ingested",
     "queuedAt": "2026-08-17T04:05:19Z",
-    "notifiedAt": "2026-08-17T04:05:23Z"
+    "notifiedAt": "2026-08-17T04:05:23Z",
+    "decidedAt": "2026-08-17T09:19:55Z",
+    "thesisId": "x_2089183484556480536"
   },
   {
     "id": "2089165155741622679",
@@ -1012,9 +1020,11 @@
     "text": "\"Severe InP Shortage Triggers Largest Price Hike Ever\" - $AXTI. \n\nSuppliers have bluntly stated that \"even if you have the money, you still may not be able to get the material\" (lol). \n\n- Industry sources revealed that InP substrate prices began rising in Q4 last year and was the fourth consecutive substrate price hike. \n\n- The latest Q4 hike is expected to be >10%,\n\n- Meanwhile, prices for epitaxial wafers made from those substrates have already been raised two times, and the market is moving toward a 3rd consecutive increase in Q4. (I also wrote a thesis on $IQE, which benefits here too). \n\nArticle states VPEC, Landmark, IET benefits (Taiwan centric reporting). \n\nI did predict this last year... The bottleneck is real, but I do have higher expectations for price hikes that comes next. \n\nGlad it's starting to play out.",
     "postedAt": "2026-08-17T01:39:22Z",
     "verifiedAuthor": "aleabitoreddit",
-    "status": "pending",
+    "status": "ingested",
     "queuedAt": "2026-08-17T04:05:19Z",
-    "notifiedAt": "2026-08-17T04:05:23Z"
+    "notifiedAt": "2026-08-17T04:05:23Z",
+    "decidedAt": "2026-08-17T09:19:42Z",
+    "thesisId": "x_2089165155741622679"
   },
   {
     "id": "2089148883838611460",
@@ -1024,8 +1034,149 @@
     "text": "Stripe reportedly buys OpenRouter for $7 Billion.\n\nI think their orchestration is easy to replicate and switch from. And there's very little moat.\n\nBut atm, OpenRouter has the userbase, valuable dataset, + momentum. \n\nWhat's your take... Yay or Nay for the payments firm?",
     "postedAt": "2026-08-17T00:34:43Z",
     "verifiedAuthor": "aleabitoreddit",
-    "status": "pending",
+    "status": "ingested",
     "queuedAt": "2026-08-17T04:05:19Z",
-    "notifiedAt": "2026-08-17T04:05:23Z"
+    "notifiedAt": "2026-08-17T04:05:23Z",
+    "decidedAt": "2026-08-17T09:19:37Z",
+    "thesisId": "x_2089148883838611460"
+  },
+  {
+    "id": "2089355682286092748",
+    "url": "https://x.com/aleabitoreddit/status/2089355682286092748",
+    "author": "aleabitoreddit",
+    "isRepost": false,
+    "text": "It's official, Unitree the 8000x+ retail oversubscribed humanoid company in China.\n\nIs expected to go public in 2 days! So the 19th. \n\nOpening is implied to be around ~$41.66B MC per derivatives, around +363.3% above its ~$9B IPO valuation. \n\nFun times for humanoids this week.",
+    "postedAt": "2026-08-17T14:16:27Z",
+    "verifiedAuthor": "aleabitoreddit",
+    "status": "ingested",
+    "queuedAt": "2026-08-17T16:05:23Z",
+    "notifiedAt": "2026-08-17T16:05:25Z",
+    "decidedAt": "2026-08-18T07:17:34Z",
+    "thesisId": "x_2089355682286092748"
+  },
+  {
+    "id": "2089264987328151637",
+    "url": "https://x.com/aleabitoreddit/status/2089264987328151637",
+    "author": "aleabitoreddit",
+    "isRepost": false,
+    "text": "Just some more demand imbalance visibility for $SNDK, $SKHY, $MU, Kioxia, and your NAND players. \n\nPhison CEO: \"2027 capacity constraints will be even more severe than in 2026.\"\n\n\"Upstream suppliers need up to 4 years from plant construction and equipment investment to actual production.\n\nWith demand growing explosively and supply expansion limited, the NAND shortage is likely to last for years.\"\n\nDon't quite think I agree with the people claiming it's all over for memory, esp. NAND bottlenecks in 2026...",
+    "postedAt": "2026-08-17T08:16:04Z",
+    "verifiedAuthor": "aleabitoreddit",
+    "status": "ingested",
+    "queuedAt": "2026-08-17T16:05:23Z",
+    "notifiedAt": "2026-08-17T16:05:25Z",
+    "decidedAt": "2026-08-18T07:17:31Z",
+    "thesisId": "x_2089264987328151637"
+  },
+  {
+    "id": "2089422562019393654",
+    "url": "https://x.com/aleabitoreddit/status/2089422562019393654",
+    "author": "aleabitoreddit",
+    "isRepost": false,
+    "text": "I've decided to name my next two pets Applied Optoelectronics and Sivers Semiconductors",
+    "postedAt": "2026-08-17T18:42:13Z",
+    "verifiedAuthor": "aleabitoreddit",
+    "status": "ingested",
+    "queuedAt": "2026-08-17T20:05:14Z",
+    "notifiedAt": "2026-08-18T04:16:21Z",
+    "decidedAt": "2026-08-18T07:17:38Z",
+    "thesisId": "x_2089422562019393654"
+  },
+  {
+    "id": "2089547564249219163",
+    "url": "https://x.com/aleabitoreddit/status/2089547564249219163",
+    "author": "aleabitoreddit",
+    "isRepost": false,
+    "text": "So just tracking the MLCC cycle:\n\nComponentNews classified server MLCCs as “severe” shortage stage, with ETNews reporting:\n\n- Samsung has reached ~40 week lead times for some high capacitance MLCCs per DigiKey’s shipment data.\n\nEarlier this year, broader reports were ~20 weeks, so the AI server MLCC bottleneck keeps growing.\n\n- Murata was ~24 weeks in June. \n\nJuly was ~30 weeks. And now some at ~36 weeks. \n\nThis was interesting: \n\n“The expansion of new production capacity is being postponed from Q4 2026 to 2027”\n\nDoesn’t say which expansion… maybe Murata? But if capacity expansion reportedly gets stalled, the bottleneck should tighten short term.\n\nLead times are a good way to track demand imbalances.",
+    "postedAt": "2026-08-18T02:58:55Z",
+    "verifiedAuthor": "aleabitoreddit",
+    "status": "ingested",
+    "queuedAt": "2026-08-18T04:16:19Z",
+    "notifiedAt": "2026-08-18T04:16:21Z",
+    "decidedAt": "2026-08-18T07:17:47Z",
+    "thesisId": "x_2089547564249219163"
+  },
+  {
+    "id": "2089690098875130084",
+    "url": "https://x.com/aleabitoreddit/status/2089690098875130084",
+    "author": "aleabitoreddit",
+    "isRepost": false,
+    "text": "Looks like we're getting the Strait of America, a new US territory...",
+    "postedAt": "2026-08-18T12:25:18Z",
+    "verifiedAuthor": "aleabitoreddit",
+    "status": "skipped",
+    "queuedAt": "2026-08-18T16:05:19Z",
+    "notifiedAt": "2026-08-18T16:05:20Z",
+    "decidedAt": "2026-08-18T16:14:00Z"
+  },
+  {
+    "id": "2089766053274661143",
+    "url": "https://x.com/aleabitoreddit/status/2089766053274661143",
+    "author": "aleabitoreddit",
+    "isRepost": false,
+    "text": "My $AAOI TLDR notes at Rosenblatt summit:\n\n- Expected to get paid premiums for US production of 800g/1.6T (very positive for ASP/margins).\n\n- Several LTAs on the table, but doesn't want to sign to get capacity blocked by other customers (cough cough $NVDA). \n\n- Sold out at least through second half of next year and beyond. (High demand visibility like $LITE)\n\n- Has 300-400 mW lasers already. \n\n- Expects margins to be above 40%+ once CPO comes about (probably most material for rerating). \n\nI can't see how anyone can be bearish on this company...",
+    "postedAt": "2026-08-18T17:27:07Z",
+    "verifiedAuthor": "aleabitoreddit",
+    "status": "ingested",
+    "queuedAt": "2026-08-19T00:18:15Z",
+    "notifiedAt": "2026-08-19T04:06:14Z",
+    "decidedAt": "2026-08-19T06:21:40Z",
+    "thesisId": "x_2089766053274661143"
+  },
+  {
+    "id": "2089746797300432912",
+    "url": "https://x.com/aleabitoreddit/status/2089746797300432912",
+    "author": "aleabitoreddit",
+    "isRepost": false,
+    "text": "I'm getting Vietnam flashbacks to the launch of OpenAi. \n\nWhere with every model, it just keeps getting better... but now with hunanoids. \n\nUnitree has claimed that their humanoids:\n\n- Can now run faster than Usain Bolt.\n- Can now jump higher than any human. \n\nAnd with their IPO tomorrow, it seems like China is leading the hardware race.",
+    "postedAt": "2026-08-18T16:10:36Z",
+    "verifiedAuthor": "aleabitoreddit",
+    "status": "ingested",
+    "queuedAt": "2026-08-19T00:18:15Z",
+    "notifiedAt": "2026-08-19T04:06:14Z",
+    "decidedAt": "2026-08-19T06:21:33Z",
+    "thesisId": "x_2089746797300432912"
+  },
+  {
+    "id": "2089908198694351064",
+    "url": "https://x.com/aleabitoreddit/status/2089908198694351064",
+    "author": "aleabitoreddit",
+    "isRepost": false,
+    "text": "Unitree (688836) is now public.\n\nAnd is valued at ~$53.3B, after rising +492.18%\n\nWe finally have a major public company benchmark for humanoids.\n\nFor reference, Agility (backed by $NVDA, $AMZN) via $CCXI is expected to go public at $2.5B premoney valuation Q4. \n\n$TSLA is $1T+, but Optimus is wrapped inside a much larger company.\n\nBut I think Unitree showed that the demand for pure play humanoid players is much larger… than people expected in public markets.",
+    "postedAt": "2026-08-19T02:51:57Z",
+    "verifiedAuthor": "aleabitoreddit",
+    "status": "ingested",
+    "queuedAt": "2026-08-19T04:05:11Z",
+    "notifiedAt": "2026-08-19T04:06:14Z",
+    "decidedAt": "2026-08-19T06:21:44Z",
+    "thesisId": "x_2089908198694351064"
+  },
+  {
+    "id": "2089973586425766134",
+    "url": "https://x.com/aleabitoreddit/status/2089973586425766134",
+    "author": "aleabitoreddit",
+    "isRepost": false,
+    "text": "We got $LITE, $MTSI, $AAOI all pointing to extreme demand imbalances with lasers/TIA/DSP/etc from earnings... \n\nAnd now Elazr GM at their investor conference stated: \n\nOptical supply is still far behind the market demand, the expected AI optical supply chain are likely to continue for years.\n\n- \"the entire supply chain is out of stock\"\n\n- \"the supply is still far behind the market demand\"\n\n- \"the shortage will continue to the next few years\"\n\n\"Whether it is PCB, carrier board, laser chip, or even related packaging  capacity, as long as the AI supply chain link, almost all are in short supply.\" \n\nWhen demand visibility extends for years with the supply chain bottlenecked:\n\nIt's getting difficult not to see photonics echoing the memory supercycle entering 2027.",
+    "postedAt": "2026-08-19T07:11:47Z",
+    "verifiedAuthor": "aleabitoreddit",
+    "status": "ingested",
+    "queuedAt": "2026-08-19T08:05:09Z",
+    "notifiedAt": "2026-08-19T16:11:05Z",
+    "decidedAt": "2026-08-19T16:27:35Z",
+    "thesisId": "x_2089973586425766134"
+  },
+  {
+    "id": "2090103899302826302",
+    "url": "https://x.com/aleabitoreddit/status/2090103899302826302",
+    "author": "aleabitoreddit",
+    "isRepost": false,
+    "text": "$MRVL gives $GOOGL options to buy $12.2B of the company. \n\n\"The Marvell-Google deal covers a broad range of technologies used ​with TPUs, including processors that run AI models, manage data storage ​and  move information ⁠across networks.\"\n\nWhich could translate into ~$120 billion ​in revenue through 2033. \n\nMarvell also has separate warrants with $AMZN after their Celestial acquisition (for purchases of photonic fabric).\n\nRemember the good times when Jensen said Marvell would be the next $1T+ company?  \n\nSeems Nvidia knew Marvell was \"networking\" its way into all the hyperscalers with warrants.",
+    "postedAt": "2026-08-19T15:49:36Z",
+    "verifiedAuthor": "aleabitoreddit",
+    "status": "ingested",
+    "queuedAt": "2026-08-19T16:11:03Z",
+    "notifiedAt": "2026-08-19T16:11:05Z",
+    "decidedAt": "2026-08-19T16:27:39Z",
+    "thesisId": "x_2090103899302826302"
   }
 ]

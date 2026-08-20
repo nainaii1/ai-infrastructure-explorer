@@ -283,14 +283,19 @@ therefore leaves **Mkt Cap unsortable until this column exists**, and says
 so in the header tooltip. Add the column and the sort arms itself on the
 next refresh — no code change needed.
 
-Add one column named exactly `MarketCapUSD`. Assuming `MarketCap` is in
-column `C` and `Currency` in column `D`:
+Add one column named exactly `MarketCapUSD`. **Check your own header row for
+the actual column letters before pasting** — a formula written against the
+wrong column silently returns blank for every row (`IFERROR` swallows the
+type mismatch), which is exactly what happened the first time this was
+tried. As of 2026-08-19 the sheet's columns are `Ticker`(A)
+`GoogleFinanceSymbol`(B) `Price`(C) `MarketCap`(D) `Currency`(E) `Chg1W`(F)
+`Chg1M`(G) `Chg1Y`(H) — confirm yours still match, then:
 
 ```
 =IFERROR(
-   IF($D2="USD", $C2,
-   IF($D2="GBX", $C2/100*GOOGLEFINANCE("CURRENCY:GBPUSD"),
-                 $C2*GOOGLEFINANCE("CURRENCY:"&$D2&"USD"))), "")
+   IF($E2="USD", $D2,
+   IF($E2="GBX", $D2/100*GOOGLEFINANCE("CURRENCY:GBPUSD"),
+                 $D2*GOOGLEFINANCE("CURRENCY:"&$E2&"USD"))), "")
 ```
 
 Three things that formula is doing deliberately:
@@ -304,6 +309,40 @@ Three things that formula is doing deliberately:
 
 Currently in play: USD, EUR, KRW, SEK, CAD, CNY, GBX. The other six all
 have working `CURRENCY:xxxUSD` pairs.
+
+**`Chg1MUSD` — what makes returns comparable across markets.**
+A percentage change from GOOGLEFINANCE is a **local-currency** return, so it
+blends the stock with its currency. SIVE prices in SEK: part of its 1M move
+is the krona, not the company. Putting that number beside a USD name's move
+in the same chart or ranking is not a like-for-like comparison.
+
+Add `Chg1WUSD` / `Chg1MUSD` / `Chg1YUSD` (any subset — each is optional and
+independent). **Same warning as above: verify the column letters against
+your own header row.** Using the 2026-08-19 layout (`Currency` in `E`,
+`Chg1M` in `G`):
+
+```
+=IFERROR(
+   IF($E2="USD", $G2,
+      ((1+$G2/100) *
+       GOOGLEFINANCE("CURRENCY:"&IF($E2="GBX","GBP",$E2)&"USD") /
+       INDEX(GOOGLEFINANCE("CURRENCY:"&IF($E2="GBX","GBP",$E2)&"USD",
+                           "price", TODAY()-30), 2, 2) - 1) * 100), "")
+```
+
+A quick way to check the formula actually worked before trusting it: put it
+next to a plain-USD row (NVDA, AMD) first. `$E2="USD"` should short-circuit
+to `=$G2` — if that cell comes back blank instead of matching Chg1M exactly,
+the column letters are wrong, not the exchange-rate math.
+
+The move is compounded, not added: a 10% stock gain with a 5% currency gain
+is +15.5%, not +15%. `GBX` maps to `GBP` for the rate — the /100 pence
+scaling cancels out in a ratio, so unlike `MarketCapUSD` there is no divide
+here. Match the `TODAY()-30` offset to the window (`-7`, `-365`).
+
+Until these columns exist, anything doing a cross-market comparison must
+**say so and exclude the affected names** rather than pool them silently —
+absent stays absent, and is never backfilled from the local figure.
 
 *Why not Yahoo:* Yahoo's key-free endpoints were retired from this project
 on 2026-07-16 after chronic HTTP 429s — that is the reason the sheet exists
@@ -485,6 +524,62 @@ how it works and how to use it day to day.
 
 ---
 
+## 10. Per-ticker views — reading what he argued, not counting mentions
+
+`ingest/views.py` turns "SIVE: 113 mentions" into a dated list of what he
+actually said about SIVE each time — bull or bear, why, any numbers, any
+timing. One post routinely holds different stances on different tickers (a
+17-ticker recap might be bullish on three names and neutral on the rest), so
+this lives at the `(post, ticker)` level, not per post. Full rationale and the
+live numbers are in `PROJECT.md` — this section is just how to run it.
+
+**Why it's a manual two-step, not one command:** there's no paid API key on
+this project (same reason `/pre-review` and the Brain use an injected
+`call_fn`), so a Claude Code session does the reading itself.
+
+```
+python3 ingest/extract_views.py --status
+```
+Shows how many analyst posts still need a read, split into "all pending" and
+"pending Core/Watch" (the ones actually worth reading first).
+
+```
+python3 ingest/extract_views.py --emit --limit 14 --core-only
+```
+Writes the next batch of unread posts to `ingest/store/.views_batch.json`.
+Drop `--core-only` to include radar/unsorted names too; `--limit` controls
+batch size (14 is a comfortable single-sitting read). Ask Claude Code to read
+the batch and write an answers file — one JSON object keyed by thesis id, each
+value `{"views": [{"ticker", "direction", "why", "numbers"?, "horizon"?}]}` —
+save it under the scratchpad, not the repo.
+
+```
+python3 ingest/extract_views.py --apply /path/to/answers.json
+```
+Validates every answer through the same firewall the API path would use — a
+ticker the post itself never mentioned is silently dropped, never smuggled in
+— merges into `theses.json`, and regenerates `data.js`. Prints a summary:
+applied count, bull/bear/neutral split, and how many claimed views got
+dropped by validation (should normally be 0; a handful is fine and usually
+means the original ticker-tagger missed a symbol in the post text — see
+`PROJECT.md` for two confirmed examples).
+
+Re-running `--emit` is idempotent — a post that already has `viewsExtractedAt`
+is skipped, so batches never overlap and a partial pass is always safe to
+resume.
+
+**If an API key ever gets added** (`OPENROUTER_API_KEY` or
+`ANTHROPIC_API_KEY` in `ingest/.env`), plain `python3 ingest/extract_views.py`
+with no flags runs the whole remaining pass unattended, reusing
+`synthesize.py`'s backend picker.
+
+**What this does *not* do:** move any score, tier, or ranking. `scorer.py` is
+untouched — views are additive metadata. Wiring `direction` into scoring is a
+deliberate future step, not a side effect of running this; see PROJECT.md
+"Scoring impact" before ever doing that.
+
+---
+
 ## FAQ / Troubleshooting
 
 ### "I sent a message to the bot and nothing replied."
@@ -531,6 +626,21 @@ only reads it on load. If the bot reply showed an error, check the terminal outp
 ### "Prices won't update / Fetch prices does nothing."
 Prices need the local server — run `python3 ingest/serve.py` and use the app at
 `http://localhost:8765/` (not the double-clicked `file://` version) when fetching.
+
+### "I added/edited sheet columns and a refresh right after came back mostly blank."
+A bulk edit to a sheet with 100+ `GOOGLEFINANCE` cells (inserting a column,
+editing several formulas) triggers a recalculation storm — Google returns
+blank for a batch of cells until it settles, sometimes for several minutes.
+If a refresh runs during that window, `Chg1W`/`Chg1M`/`Chg1Y` (and any USD
+variant) will look empty in the fetched CSV even though the sheet looks fine
+a few minutes later in the browser. As of 2026-08-19 `fetch_prices.py`
+carries the previous good value forward whenever the sheet's cell for an
+optional field comes back blank (`_merge_snapshot`, same protection
+`currency` already had) — so one flaky fetch during an edit no longer wipes
+that ticker's history. It only recovers what was already in `prices.json`
+from a prior run, though: if you're seeing blanks in the **app**, wait for
+the sheet to settle in the browser (check for `#N/A` or blank on a plain-USD
+row like NVDA) and refresh again.
 
 ### "The Synthesis chapter says 'No brain digests yet.'"
 The summaries haven't been generated. Ask Claude Code to "refresh the brain," or run

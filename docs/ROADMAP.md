@@ -115,6 +115,23 @@ _Last updated: 2026-08-10 (v9 "soft two-tone" redesign, X watcher, symbol canoni
 >
 > (This upgrade superseded the Signal Digest spec — coverage memos replaced it.)
 
+> **Per-ticker view extraction, Step 1 of the mention-to-argument rework (✅
+> 2026-08-19, Core/Watch complete).** Two things measured on the live store
+> triggered this: analyst mentions have ρ=0.17 correlation with 1-month return
+> (i.e. none), and 0 of 331 analyst posts carried a `direction` — every
+> bull/bear figure in the system came from the desk's own research seats, not
+> from him. `ingest/views.py` (pure, invariant-6 compliant) + the
+> `ingest/extract_views.py` runner read every `source: "x"` post touching a
+> Core/Watch ticker — 312 of 356 posts — and stamped a `views[]` array per
+> thesis: `{ticker, direction, why, numbers?, horizon?}` per name in that post,
+> because one post routinely argues opposite things about different tickers in
+> the same paragraph. **1,179 views across 114 tickers, 581 bull / 580 neutral
+> / 18 bear.** Purely additive — `scorer.py`, tiers and rankings are
+> untouched. Usage: `docs/GUIDE.md` §10. Full rationale, the "argued vs
+> mentioned" ranking divergence, and next steps (SEC EDGAR fundamentals,
+> operator-judgement `aiExposure` fields, re-pointing the chart mockups at real
+> variables): **`PROJECT.md`**, the live tracker for this initiative.
+
 ---
 
 ## Current snapshot
@@ -258,6 +275,18 @@ design.
 6. **Radar-tier triage, gradually** — `review.py classify` a few per week;
    no urgency since Radar is hidden by default.
 7. **Watchlist verdict expandable rows** (issue 7).
+8. **View extraction, remaining posts** — 44 radar/unsorted-only posts left
+   unread after the Core/Watch pass (2026-08-19); re-run
+   `extract_views.py --emit` without `--core-only` whenever there's time, or
+   whenever a name's tier changes and its back-catalog becomes worth reading.
+9. **Wire `views[]` into the UI** — `views.summarize_ticker_views()` already
+   returns the per-ticker argument feed, newest first; nothing renders it yet.
+   Natural fit: a ticker card section that reads "what he's said about this
+   name" instead of a mention count.
+10. **Decide on Step 1b (scoring) and Step 2 (SEC EDGAR fundamentals)** — both
+    spec'd and ready in `PROJECT.md`, neither started. Step 1b needs a
+    deliberate before/after review since it moves real rankings; Step 2 is
+    free (`data.sec.gov`, no key) and covers ~40 of 49 Core+Watch names.
 
 ---
 

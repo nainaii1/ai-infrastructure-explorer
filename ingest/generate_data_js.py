@@ -56,7 +56,7 @@ from store_io import load_json as _load, load_json_optional as _load_optional  #
 
 
 PRICE_FIELDS = ("price", "currency", "chg7d", "chg1m", "chg1y", "marketCap",
-                "marketCapUSD", "asOf")
+                "marketCapUSD", "chg7dUSD", "chg1mUSD", "chg1yUSD", "asOf")
 
 # Every top-level key build_data() is contracted to emit. A payload missing any
 # of these is refused rather than written — see _assert_complete.

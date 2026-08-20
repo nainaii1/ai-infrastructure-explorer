@@ -79,6 +79,19 @@ Everything below is shipped and live:
   and failure modes: `docs/WATCHER.md`.
 - **Symbol canonicalization** — `base.json` `tickerAliases`/`themeTags`,
   applied by `scorer.canonicalize_theses()` before any priority/tier math.
+- **Per-ticker view extraction** — `ingest/views.py` + `ingest/extract_views.py`
+  read what the analyst actually argued about each ticker in each post, not
+  just how often he named it. Every `source: "x"` thesis touching a Core/Watch
+  name has been read (312 of 356 posts as of 2026-08-19) and now carries a
+  `views[]` array: `{ticker, direction, why, numbers?, horizon?}` per name in
+  that post, since one post routinely holds different stances on different
+  tickers (see `PROJECT.md` for why this exists — mention-count has ρ=0.17
+  correlation with returns, i.e. none). **Additive only** — `scorer.py` is
+  untouched, no score/tier moved. Manual two-step workflow documented in
+  `docs/GUIDE.md` §10. Full status, numbers, and the next steps (SEC EDGAR
+  fundamentals, `aiExposure` fields, re-pointing the chart mockups at real
+  variables instead of mention-count) live in **`PROJECT.md`** — read that
+  first for anything touching this work.
 
 **Ticker/thesis/verdict counts change constantly — read `ingest/store/*.json`
 or `data.js`, never assume a number from this file.**
