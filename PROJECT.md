@@ -165,7 +165,47 @@ From `docs/EXECUTION-EXPERT-REVIEW.md`:
 | 1b — wire direction into scoring | not started, needs a decision |
 | 2 — SEC EDGAR fundamentals | researched + endpoint verified, not built |
 | 3 — `aiExposure` judgement fields | not started |
-| 4 — re-point charts | blocked on 1–3 |
+| 4 — re-point charts | still blocked on 2–3 |
+| 4a — surface `views[]` in the app | **shipped 20 Aug 2026** — see below |
+
+### Step 4a — what shipped (20 Aug 2026)
+
+The 1,179 extracted views were riding inside `data.js` and nothing read them.
+They now render on the ticker dossier card in `desk.html`, above Claude's
+verdict — his evidence first, then the desk's call on it.
+
+- `AIE.viewsForTicker(sym)` in `shared/common.js` — the JS mirror of
+  `views.summarize_ticker_views()`: same `source: "x"` filter (invariant 10),
+  same newest-first order. Verified to return identical counts to the Python
+  on SIVE (112) and IREN (16).
+- `AIE.viewStats(rows)` — bull / bear / bare split. Anything not literally
+  `bull` or `bear` counts as a bare mention (invariant 3, fail inert).
+- `AIE.makeViewsBlock(sym)` — the `.aie-views` renderer. Shows the arguments
+  newest-first, capped at 6, each with its direction badge, date, `numbers`,
+  `horizon` and a link to the post. Returns `null` for a name he has never
+  named, so the block simply does not appear (GEV, the desk-research names).
+- **Signal density in the header** — `103 / 112 argued`. This is the number the
+  whole document is about, and it is now on the card.
+- **Zero-argued names show their references instead**, because "6 mentions,
+  0 arguments" only lands when you can see what a bare mention looks like.
+  43 tracked names read `0 / n`; ASML is `0 / 2`.
+- New `--sem-bear-bg/-fg` token pair (5.74:1), registered in
+  `test_contrast.py` so the AA guard covers it.
+
+Read live off `data.js`, on the desk page:
+
+| | argued / mentioned | |
+|---|---|---|
+| SIVE | 103 / 112 | his real conviction name |
+| AAOI | 57 / 81 | |
+| IREN | 9 / 16 | 4 bull **and** 5 bear on one card — the thing a per-post `direction` cannot express |
+| SPCX | 5 / 24 | |
+| TSLA | 4 / 21 | recorded `pass` 2026-08-12 for exactly this reason |
+| **NVDA** | **11 / 71** | named constantly, argued rarely — the ranking-noise finding, now visible |
+| GEV | no block | he has never named it; the card says nothing rather than implying silence is a view |
+
+Nothing in `ingest/` changed. No score, tier or ranking moved — the block is
+read-only over data that was already generated.
 
 ### Step 1 — what shipped (19 Aug 2026)
 
@@ -256,7 +296,26 @@ Verified along the way:
    silently matches nothing. `extract_views._core_symbols` now derives it and
    refuses to run on an empty set rather than reporting a successful pass that
    read zero posts.
-3. **JBL contradicts the momentum read.** Mockup E flagged JBL as a stale
+3. **Ticker aliases never get a view.** `mentions` is counted *after*
+   `scorer.canonicalize_theses` folds `base.json` `tickerAliases` in, so a post
+   naming `$SIVEF` counts as a SIVE mention. Extraction pins to the post's own
+   raw `tickers[]` (invariant 5) and the alias symbol is not in the ticker
+   universe, so those posts yield **zero views** — they are silently dropped,
+   not recorded as neutral. Measured 20 Aug 2026: **21 (post, alias) pairs**
+   across all 7 aliases — `LPK` 5, `SKHY` 5, `SIVEF` 4, `SOI` 4, `IQEF` 1,
+   `CMXT` 1, `SHKY` 1 — every one of them unread.
+
+   Concretely: SIVE shows `analystMentions` 115 but only 112 views, and the
+   three missing posts are the `$SIVEF` ones (a Rosenblatt note on optical
+   weakness, the historic-recovery tape, and LITE's earnings read-through).
+   The fix is to canonicalize the *allowed scope* in
+   `views._post_ticker_scope` before extraction, then re-run those 21 posts —
+   an ingest change that touches the injection firewall, so it wants its own
+   pass with the alias map as the only permitted expansion. Until then the
+   views block reports its own denominator and says so in the tooltip rather
+   than pretending it matches the mention badge.
+
+4. **JBL contradicts the momentum read.** Mockup E flagged JBL as a stale
    `accumulate` because mentions fell 16 → 4. But the 17 Aug post lists JBL
    among names he likes, on a 1.6T LRO margin argument. The count said "gone
    quiet"; the text says otherwise. This is the whole thesis of this document in
@@ -283,8 +342,9 @@ If those drift from this file, trust this file and fix them — same rule
 
 1. Reading `python3 ingest/extract_views.py --status` — confirms nothing
    changed underneath since this was written.
-2. Deciding: grind the remaining 44 radar/unsorted posts, wire `views[]` into
-   a ticker card (Step 4 partial, unblocked for display purposes), start
+2. Deciding: fix the ticker-alias gap (known issue 3 — 21 posts, the only
+   correctness item open), grind the remaining 15 radar/unsorted posts, start
    Step 2 (SEC EDGAR), or open the Step 1b scoring decision.
-3. Nothing in this body of work is committed to git yet — that's a decision
-   for the operator, not an assumption to make silently.
+3. Steps 1 and 4a are committed (`dca8bf3`, and the follow-up carrying this
+   file). The three `mockup-charts*.html` files are still untracked on purpose
+   — they are parked until Steps 2–3 give them real variables to plot.

@@ -13,6 +13,8 @@
      renderNav(activePage, mount)                  theme.css top nav
      linkForTicker(sym)                            where a ticker chip points
      makeThesisCard(th, opts)                      shared .th-card renderer
+     viewsForTicker(sym), viewStats(rows)          the analyst's per-ticker views
+     makeViewsBlock(sym, opts)                     shared .aie-views renderer
      chipSpark(color)                              memo accent glyph
 
    Colors are read from AIE_DATA.categories at runtime — never hardcoded here
@@ -360,6 +362,160 @@
   }
 
   /* ==========================================================================
+     Analyst views — what he ARGUED about one ticker, not how often he named it.
+
+     ingest/views.py reads every one of his posts and records a view per
+     (post, ticker), because one post routinely holds opposing stances on
+     different names. These three functions are the read side of that work:
+     viewsForTicker mirrors views.summarize_ticker_views() exactly (same filter,
+     same newest-first order), viewStats counts the split, and makeViewsBlock
+     renders it. Markup is styled by .aie-views* in theme.css.
+
+     Only `source: "x"` posts count — a desk research finding is not his
+     attention (invariant 10), the same rule analystMentions follows.
+     ======================================================================== */
+  var VIEW_MAX_ROWS = 6;          /* keep the card short; the footer owns the rest */
+  var DIR_LABELS = { bull: "bull", bear: "bear" };
+
+  function viewsForTicker(sym) {
+    var d = data();
+    var want = String(sym || "").toUpperCase();
+    if (!d || !d.theses || !want) return [];
+    var rows = [];
+    d.theses.forEach(function (th) {
+      if (th.source !== "x") return;
+      (th.views || []).forEach(function (v) {
+        if (String(v.ticker || "").toUpperCase() !== want) return;
+        rows.push({
+          postedAt: th.postedAt || th.ingestedAt || "",
+          thesisId: th.id,
+          sourceUrl: th.sourceUrl,
+          direction: v.direction,
+          why: v.why,
+          numbers: v.numbers,
+          horizon: v.horizon
+        });
+      });
+    });
+    rows.sort(function (a, b) {
+      return String(b.postedAt).localeCompare(String(a.postedAt));
+    });
+    return rows;
+  }
+
+  /* Anything that is not literally "bull" or "bear" counts as a bare mention.
+     Fail inert (invariant 3): an unreadable direction must never be read as a
+     case he made. */
+  function viewStats(rows) {
+    var s = { total: rows.length, argued: 0, bull: 0, bear: 0, bare: 0, lastArgued: null };
+    rows.forEach(function (r) {
+      if (r.direction === "bull" || r.direction === "bear") {
+        s.argued++;
+        s[r.direction]++;
+        if (!s.lastArgued) s.lastArgued = r.postedAt;   /* rows are newest-first */
+      } else {
+        s.bare++;
+      }
+    });
+    return s;
+  }
+
+  function makeViewRow(r) {
+    var row = mk("div", "aie-view");
+    var meta = mk("div", "aie-view-meta");
+    var dir = DIR_LABELS[r.direction] || "neutral";
+    meta.appendChild(mk("span", "aie-badge aie-dir--" + dir,
+      DIR_LABELS[r.direction] || "mentioned"));
+    if (r.postedAt) {
+      meta.appendChild(mk("span", "aie-view-date", fmtDate(String(r.postedAt).slice(0, 10))));
+    }
+    if (r.sourceUrl) {
+      var link = mk("a", "aie-view-source", "post ↗");
+      link.href = r.sourceUrl;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      meta.appendChild(link);
+    }
+    row.appendChild(meta);
+    row.appendChild(mk("p", "aie-view-why", r.why || "—"));
+
+    /* Figures and timing — the two things a mention count can never carry. */
+    var facts = [];
+    if (r.numbers) facts.push(String(r.numbers));
+    if (r.horizon) facts.push(String(r.horizon));
+    if (facts.length) row.appendChild(mk("p", "aie-view-facts", facts.join("  ·  ")));
+    return row;
+  }
+
+  /* Posts of his that name this ticker but have not been through views.py yet.
+     Reported in the footer so the density's denominator is never mistaken for
+     the mention count on the badge above it: they legitimately differ, because
+     `mentions` is counted AFTER scorer.canonicalize_theses folds in the
+     tickerAliases (a $SIVEF post counts toward SIVE) while a view is pinned to
+     the post's own raw tickers[] (invariant 5) and so has no SIVE to attach to.
+     See PROJECT.md "Known issues" — the fix belongs in extraction, not here. */
+  function unreadPostCount(sym) {
+    var d = data();
+    var want = String(sym || "").toUpperCase();
+    if (!d || !d.theses || !want) return 0;
+    var n = 0;
+    d.theses.forEach(function (th) {
+      if (th.source !== "x" || th.viewsExtractedAt) return;
+      if ((th.tickers || []).indexOf(want) >= 0) n++;
+    });
+    return n;
+  }
+
+  function makeViewsBlock(sym, opts) {
+    opts = opts || {};
+    var rows = viewsForTicker(sym);
+    if (!rows.length) return null;               /* never argued, never mentioned */
+    var st = viewStats(rows);
+    var max = opts.max != null ? opts.max : VIEW_MAX_ROWS;
+
+    var box = mk("div", "aie-views");
+    var head = mk("div", "aie-views-head");
+    head.appendChild(mk("span", "aie-views-label", "What he's argued"));
+    var density = mk("span", "aie-views-density");
+    density.appendChild(mk("b", null, String(st.argued)));
+    density.appendChild(document.createTextNode(" / " + st.total + " argued"));
+    density.title = "Of the " + st.total + " posts of his that name "
+      + String(sym).toUpperCase() + " and have been read, " + st.argued
+      + " make a case for it"
+      + (st.bull ? " · " + st.bull + " bull" : "")
+      + (st.bear ? " · " + st.bear + " bear" : "")
+      + ". Not the same base as the mention count above, which also counts "
+      + "desk research findings and ticker aliases.";
+    head.appendChild(density);
+    box.appendChild(head);
+
+    /* Show the arguments. When there are none, show a couple of the bare
+       mentions instead — "six mentions, zero arguments" is itself the finding,
+       and seeing what a reference looks like is what makes it land. */
+    var shown = rows.filter(function (r) {
+      return r.direction === "bull" || r.direction === "bear";
+    });
+    var showingBare = false;
+    if (!shown.length) {
+      shown = rows.slice(0, 2);
+      showingBare = true;
+    }
+    var hidden = Math.max(0, shown.length - max);
+    shown.slice(0, max).forEach(function (r) { box.appendChild(makeViewRow(r)); });
+
+    var foot = [];
+    if (hidden) foot.push(hidden + " earlier argument" + (hidden === 1 ? "" : "s") + " not shown");
+    if (st.bare) {
+      foot.push(st.bare + (showingBare ? " mention" : " other mention")
+        + (st.bare === 1 ? "" : "s") + " carried no argument");
+    }
+    var unread = unreadPostCount(sym);
+    if (unread) foot.push(unread + " post" + (unread === 1 ? "" : "s") + " not read yet");
+    if (foot.length) box.appendChild(mk("p", "aie-views-foot", foot.join("  ·  ")));
+    return box;
+  }
+
+  /* ==========================================================================
      Inline prose markup — the one parser for the whole app.
      `slugify` matches ingest/vault_sync.slugify() so [[wikilinks]] resolve to
      the right vault page. `renderInline` appends parsed nodes into a container:
@@ -460,6 +616,9 @@
     renderNav: renderNav,
     linkForTicker: linkForTicker,
     makeThesisCard: makeThesisCard,
+    viewsForTicker: viewsForTicker,
+    viewStats: viewStats,
+    makeViewsBlock: makeViewsBlock,
     chipSpark: chipSpark
   };
 })(window);

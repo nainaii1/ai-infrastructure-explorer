@@ -89,6 +89,7 @@ PAIRS = [
     ("sem accumulate",  "sem-accumulate-fg", "sem-accumulate-bg", TEXT),
     ("sem watch",       "sem-watch-fg",      "sem-watch-bg",      TEXT),
     ("sem pass",        "sem-pass-fg",       "sem-pass-bg",       TEXT),
+    ("sem bear",        "sem-bear-fg",       "sem-bear-bg",       TEXT),
     # The canvas gradient's deepest stop still has to hold every text colour.
     ("muted on canvas-bot",  "muted",  "canvas-bot", TEXT),
     ("ink on canvas-bot",    "ink",    "canvas-bot", TEXT),

@@ -143,6 +143,9 @@
   --sem-accumulate-bg: #e2e8fc;  --sem-accumulate-fg: #2b4fb8;  /* blue  5.90 */
   --sem-watch-bg:      #fbeed2;  --sem-watch-fg:      #8a5310;  /* amber 5.49 */
   --sem-pass-bg:       #eae7f2;  --sem-pass-fg:       #5f5a76;  /* muted 5.36 */
+  /* Red = a bear view. Only the analyst-views block uses it: no tier, stance
+     or rating is ever "bear", so it deliberately sits outside the four above. */
+  --sem-bear-bg:       #fce6e2;  --sem-bear-fg:       #a33325;  /* red   5.74 */
 }
 
 /* Ambient dash-scroll for the map's flow arrows (U7 wires this up). The
@@ -661,6 +664,80 @@ a.th-ticker:hover {
 }
 .th-conviction.high   { background: var(--sem-act-bg); color: var(--sem-act-fg); }
 .th-conviction.normal { background: color-mix(in srgb, var(--muted) 16%, var(--card)); color: var(--muted); }
+
+/* ============================================================================
+   7c. ANALYST VIEWS BLOCK — "What he's argued"
+   AIE.makeViewsBlock() in common.js emits this markup. It renders the per-
+   (post, ticker) views extracted by ingest/views.py: what the analyst actually
+   argued about ONE name, dated and sourced, in place of a mention count.
+   Lives here rather than in desk.html because the renderer is shared (rule #3)
+   — a component in shared/ may not depend on one page's local CSS.
+   The desk verdict next to it stays dashed-and-accented; this block is a quiet
+   solid surface, because it carries HIS evidence, not the desk's call.
+   ========================================================================== */
+.aie-views {
+  margin-top: 12px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg);
+}
+.aie-views-head {
+  display: flex; align-items: baseline; gap: var(--s-2);
+  flex-wrap: wrap; margin-bottom: 10px;
+}
+.aie-views-label {
+  font-family: var(--mono); font-size: var(--fs-2xs); letter-spacing: .12em;
+  text-transform: uppercase; color: var(--muted);
+}
+/* Signal density — argued out of mentioned. The whole point of the block:
+   SIVE reads 103/112, NVDA reads 1/8, and the difference is the finding. */
+.aie-views-density {
+  margin-left: auto;
+  font-family: var(--mono); font-size: var(--fs-2xs);
+  color: var(--muted); font-variant-numeric: tabular-nums;
+}
+.aie-views-density b { color: var(--ink); font-weight: 700; }
+
+.aie-view { padding: 8px 0; }
+.aie-view + .aie-view { border-top: 1px solid var(--border); }
+.aie-view:first-of-type { padding-top: 0; }
+.aie-view-meta {
+  display: flex; align-items: center; gap: var(--s-2);
+  flex-wrap: wrap; margin-bottom: 4px;
+}
+.aie-view-date {
+  font-family: var(--mono); font-size: var(--fs-2xs); color: var(--muted);
+}
+.aie-view-source {
+  margin-left: auto;
+  font-family: var(--mono); font-size: var(--fs-2xs); color: var(--muted);
+  text-decoration: none;
+  transition: color var(--ease);
+}
+.aie-view-source:hover { color: var(--ink); }
+.aie-view-why {
+  margin: 0;
+  font-family: var(--sans); font-size: var(--fs-xs); line-height: 1.6;
+  color: var(--text);
+}
+/* Numbers and horizon — the two things a mention count can never carry. */
+.aie-view-facts {
+  margin: 4px 0 0;
+  font-family: var(--mono); font-size: var(--fs-2xs); color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+.aie-views-foot {
+  margin: 10px 0 0; padding-top: 8px;
+  border-top: 1px solid var(--border);
+  font-family: var(--mono); font-size: var(--fs-2xs); line-height: 1.6;
+  color: var(--muted);
+}
+/* Direction badges. Bull/bear are his case; "mentioned" is a bare reference —
+   the 60% of mentions that carry no argument at all. */
+.aie-dir--bull    { background: var(--sem-act-bg);  color: var(--sem-act-fg); }
+.aie-dir--bear    { background: var(--sem-bear-bg); color: var(--sem-bear-fg); }
+.aie-dir--neutral { background: var(--sem-pass-bg); color: var(--sem-pass-fg); }
 
 /* ============================================================================
    8. FOOTER COLOPHON

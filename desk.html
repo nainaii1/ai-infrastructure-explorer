@@ -2408,6 +2408,13 @@
         body.appendChild(row("Why NVDA needs them", ticker.whyNVDA || ""));
         card.appendChild(body);
 
+        // What the analyst actually argued about THIS name — his case, dated
+        // and sourced, from ingest/views.py. Sits above the desk verdict on
+        // purpose: his evidence first, then Claude's call on it. Returns null
+        // for a name he has never named, so the block simply does not appear.
+        var viewsBlock = AIE.makeViewsBlock(ticker.ticker);
+        if (viewsBlock) card.appendChild(viewsBlock);
+
         // Claude's desk verdict — second opinion + execution note (Core names only).
         if (ticker.verdict) {
           var v = ticker.verdict;

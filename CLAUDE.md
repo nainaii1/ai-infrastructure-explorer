@@ -92,6 +92,15 @@ Everything below is shipped and live:
   fundamentals, `aiExposure` fields, re-pointing the chart mockups at real
   variables instead of mention-count) live in **`PROJECT.md`** — read that
   first for anything touching this work.
+- **"What he's argued" block (2026-08-20)** — those `views[]` now render on the
+  ticker dossier card in `desk.html`, above Claude's verdict: his case first,
+  then the desk's call on it. `AIE.viewsForTicker` / `AIE.viewStats` /
+  `AIE.makeViewsBlock` in `shared/common.js`, styled by `.aie-views*` in
+  `shared/theme.css` (§7c) — shared, not page-local, because a renderer in
+  `shared/` may not depend on one page's CSS (rule #3). The header shows
+  **signal density** (`103 / 112 argued`), which is the point: NVDA reads
+  `11 / 71`. A name he has never named renders no block at all. Read-only over
+  `data.js` — no ingest, score or tier change.
 
 **Ticker/thesis/verdict counts change constantly — read `ingest/store/*.json`
 or `data.js`, never assume a number from this file.**
@@ -171,7 +180,9 @@ numbers, working surfaces (the watchlist, map, graph) keep their density.
   label), used on the desk hero, the Notes front page and Performance.
 - Category colors stay data-owned in `base.json` (all ten clear 3:1; fabs,
   materials and accelerators were darkened in v9 to `#c97c00` / `#ec6406` /
-  `#649d00`). Tier/stance badges use the `--sem-*` pairs, all ≥5.3:1.
+  `#649d00`). Tier/stance badges use the `--sem-*` pairs, all ≥5.3:1 — plus
+  `--sem-bear-*` (5.74:1), used only by the analyst-views block, since no tier,
+  stance or rating is ever "bear".
 - Dark "stage" surfaces (map hub, cross-section, vault graph) have their own
   measured text tokens: `--on-stage` 15.8:1, `--on-stage-dim` 8.0:1,
   `--pos-stage` / `--neg-stage` / `--flat-stage`.

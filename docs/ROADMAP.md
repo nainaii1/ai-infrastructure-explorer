@@ -132,6 +132,27 @@ _Last updated: 2026-08-10 (v9 "soft two-tone" redesign, X watcher, symbol canoni
 > operator-judgement `aiExposure` fields, re-pointing the chart mockups at real
 > variables): **`PROJECT.md`**, the live tracker for this initiative.
 
+> **"What he's argued" on the ticker card, Step 4a (✅ 2026-08-20).** Step 1's
+> 1,179 views were riding inside `data.js` and no page read them. They now
+> render on the ticker dossier card in `desk.html`, above Claude's verdict —
+> his evidence first, the desk's call second. Three additions to
+> `shared/common.js`: `viewsForTicker(sym)` (the JS mirror of
+> `views.summarize_ticker_views()` — same `source: "x"` filter, same
+> newest-first order, verified to return identical counts to the Python),
+> `viewStats(rows)` (bull / bear / bare split; anything not literally `bull` or
+> `bear` reads as a bare mention — fail inert, invariant 3), and
+> `makeViewsBlock(sym)`, styled by `.aie-views*` in `shared/theme.css` §7c.
+> The header carries **signal density** — `SIVE 103 / 112 argued` against
+> `NVDA 11 / 71` — which is the whole finding on the card instead of in a
+> document. A name he has never named (GEV and the rest of Power & Cooling)
+> renders no block; a name he names without ever arguing shows its bare
+> references instead, so "0 of 2" is legible rather than blank. New
+> `--sem-bear-*` token pair (5.74:1), registered in `test_contrast.py`.
+> Read-only over generated data — no ingest, score, tier or ranking change.
+> Known gap it surfaced: ticker **aliases never get a view** (a `$SIVEF` post
+> counts as a SIVE mention but is dropped at extraction) — 21 posts across 7
+> aliases, logged as known issue 3 in `PROJECT.md`.
+
 ---
 
 ## Current snapshot
