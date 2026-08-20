@@ -49,6 +49,18 @@ def _save(name, data):
     _save_json(name, data, trailing_newline=True)
 
 
+def _aliases():
+    """base.json tickerAliases — the same map scorer.canonicalize_theses uses.
+
+    Loaded here, never inside views.py: that module must stay free of file I/O
+    (invariant 6), so the map is injected into every call instead.
+    """
+    base = _load("base.json") or {}
+    raw = base.get("tickerAliases") or {}
+    return {str(k).upper(): str(v).upper() for k, v in raw.items()
+            if isinstance(k, str) and isinstance(v, str) and v.strip()}
+
+
 def _universe(tickers):
     return [t["ticker"] for t in tickers if t.get("ticker")]
 
@@ -62,7 +74,13 @@ def _core_symbols(tickers, theses):
     the pass reports success having read no posts.
     """
     import scorer
-    canon = scorer.canonicalize_theses(theses)
+    # Canonicalize with the SAME maps generate_data_js.build_data uses, or this
+    # computes a different tier table than the app shows. Measured 2026-08-21
+    # with the maps omitted: 000660.KS read radar (really watch), SOI.PA read
+    # watch (really core), SPCX read core (really radar, it is a themeTag).
+    base = _load("base.json") or {}
+    canon = scorer.canonicalize_theses(
+        theses, base.get("tickerAliases"), base.get("themeTags"))
     priorities = scorer.compute_priorities(canon)
     symbols = [t["ticker"] for t in tickers if t.get("ticker")]
     tiers = scorer.assign_tiers(symbols, priorities)
@@ -73,6 +91,21 @@ def _core_symbols(tickers, theses):
     return core
 
 
+def _alias_gap(theses, tickers):
+    """Already-extracted posts the old, un-canonicalized scope read too narrowly.
+
+    Kept separate from _pending because these posts are STAMPED — needs_extraction
+    refuses them by design. Re-reading one replaces its whole views array, so an
+    answer for it must cover every ticker in scope, not only the missing one.
+    """
+    universe = _universe(tickers)
+    aliases = _aliases()
+    out = [t for t in theses
+           if views_mod.needs_alias_recheck(t, universe, aliases)]
+    out.sort(key=lambda t: t.get("postedAt") or "", reverse=True)
+    return out
+
+
 def _pending(theses, tickers, core_only=False):
     """Posts still needing a read, most recent first.
 
@@ -81,29 +114,41 @@ def _pending(theses, tickers, core_only=False):
     reasoning extracted rather than the oldest.
     """
     core = _core_symbols(tickers, theses) if core_only else None
+    aliases = _aliases()
     out = []
     for t in theses:
         if not views_mod.needs_extraction(t):
             continue
-        if core is not None and not (set(t.get("tickers") or []) & core):
-            continue
+        # Canonicalize before the tier test for the same reason the scope does:
+        # a post whose only symbol is $LPK would otherwise never intersect a
+        # core set holding LPK.DE, and --core-only would skip it forever.
+        if core is not None:
+            syms = set(views_mod._post_ticker_scope(t, _universe(tickers), aliases))
+            if not (syms & core):
+                continue
         out.append(t)
     out.sort(key=lambda t: t.get("postedAt") or "", reverse=True)
     return out
 
 
-def emit(limit=DEFAULT_EMIT_LIMIT, core_only=False):
+def emit(limit=DEFAULT_EMIT_LIMIT, core_only=False, alias_gap=False):
     theses = _load("theses.json")
     tickers = _load("tickers.json")
     universe = _universe(tickers)
-    pending = _pending(theses, tickers, core_only)[:limit]
+    aliases = _aliases()
+    selected = _alias_gap(theses, tickers) if alias_gap \
+        else _pending(theses, tickers, core_only)
+    pending = selected[:limit]
 
     batch = []
     for t in pending:
         batch.append({
             "id": t.get("id"),
             "postedAt": t.get("postedAt"),
-            "allowedTickers": views_mod._post_ticker_scope(t, universe),
+            "allowedTickers": views_mod._post_ticker_scope(t, universe, aliases),
+            "aliasNotes": ["%s is written $%s in this post" % (canon, written)
+                           for canon, written in
+                           views_mod.alias_notes(t, universe, aliases)],
             "text": (t.get("text") or "")[:views_mod.MAX_THESIS_CHARS],
         })
 
@@ -123,7 +168,7 @@ def emit(limit=DEFAULT_EMIT_LIMIT, core_only=False):
         "posts": batch,
     })
 
-    total_pending = len(_pending(theses, tickers, core_only))
+    total_pending = len(selected)
     print(json.dumps({
         "emitted": len(batch),
         "stillPending": max(0, total_pending - len(batch)),
@@ -141,6 +186,7 @@ def apply_answers(path):
     theses = _load("theses.json")
     tickers = _load("tickers.json")
     universe = _universe(tickers)
+    aliases = _aliases()
     now = _now_iso()
 
     by_id = {t.get("id"): t for t in theses}
@@ -157,7 +203,7 @@ def apply_answers(path):
             updated.append(t)
             continue
         claimed = len((ans or {}).get("views") or [])
-        v = views_mod.validate_views(ans, t, universe)
+        v = views_mod.validate_views(ans, t, universe, aliases)
         stats["dropped"] += max(0, claimed - len(v))
         record = dict(t)
         record["views"] = v
@@ -212,7 +258,7 @@ def run_with_api(limit=None, core_only=False):
     ]
 
     updated, stats = views_mod.extract_views(
-        scoped, universe, call_fn, _now_iso(), limit=limit,
+        scoped, universe, call_fn, _now_iso(), limit=limit, aliases=_aliases(),
         on_error=lambda t, e: print("WARN view extraction failed on %s: %s"
                                     % (t.get("id"), e), file=sys.stderr))
 
@@ -245,6 +291,7 @@ def status():
         "extracted": len(done),
         "pending": len(_pending(theses, tickers)),
         "pendingCoreWatch": len(_pending(theses, tickers, core_only=True)),
+        "aliasGap": len(_alias_gap(theses, tickers)),
         "views": views_total,
         "directions": dirs,
     }, indent=2))
@@ -260,6 +307,8 @@ def main():
     ap.add_argument("--limit", type=int, default=None)
     ap.add_argument("--core-only", action="store_true",
                     help="only posts touching Core/Watch names")
+    ap.add_argument("--alias-gap", action="store_true",
+                    help="re-read extracted posts whose alias symbol was skipped")
     args = ap.parse_args()
 
     if args.status:
@@ -267,7 +316,8 @@ def main():
     if args.apply:
         return apply_answers(args.apply)
     if args.emit:
-        return emit(args.limit or DEFAULT_EMIT_LIMIT, args.core_only)
+        return emit(args.limit or DEFAULT_EMIT_LIMIT, args.core_only,
+                    args.alias_gap)
     return run_with_api(args.limit, args.core_only)
 
 

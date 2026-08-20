@@ -266,3 +266,169 @@ class TestSummarize(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+ALIASES = {"SIVEF": "SIVE", "SKHY": "000660.KS"}
+ALIAS_UNIVERSE = UNIVERSE + ["000660.KS"]
+
+
+class TestAliasScope(unittest.TestCase):
+    """A post that names an alternate listing symbol must still be READ for the
+    name the desk tracks. scorer.canonicalize_theses already counts $SIVEF as a
+    SIVE mention; before this, extraction dropped it, so the name was counted
+    and never argued (PROJECT.md known issue 3)."""
+
+    def test_alias_symbol_folds_onto_the_tracked_ticker(self):
+        t = thesis(tickers=["AAOI", "SIVEF"])
+        self.assertEqual(views._post_ticker_scope(t, UNIVERSE, ALIASES),
+                         ["AAOI", "SIVE"])
+
+    def test_without_the_map_the_alias_is_still_dropped(self):
+        t = thesis(tickers=["AAOI", "SIVEF"])
+        self.assertEqual(views._post_ticker_scope(t, UNIVERSE), ["AAOI"])
+
+    def test_alias_and_canonical_in_one_post_dedupe(self):
+        t = thesis(tickers=["SIVEF", "SIVE"])
+        self.assertEqual(views._post_ticker_scope(t, UNIVERSE, ALIASES), ["SIVE"])
+
+    def test_alias_pointing_outside_the_universe_is_dropped(self):
+        t = thesis(tickers=["ZZZF"])
+        self.assertEqual(
+            views._post_ticker_scope(t, UNIVERSE, {"ZZZF": "NOT_TRACKED"}), [])
+
+    def test_map_cannot_smuggle_in_a_ticker_the_post_never_named(self):
+        """The firewall (invariant 5) survives the change: aliases rewrite the
+        post's OWN symbols, they never add one."""
+        t = thesis(tickers=["AAOI"])
+        scope = views._post_ticker_scope(t, UNIVERSE, {"NVDA": "NVDA"})
+        self.assertEqual(scope, ["AAOI"])
+        self.assertNotIn("NVDA", scope)
+
+    def test_hostile_answer_still_cannot_name_an_unrelated_ticker(self):
+        t = thesis(tickers=["SIVEF"])
+        out = views.validate_views(
+            {"views": [{"ticker": "NVDA", "direction": "bull", "why": "x"},
+                       {"ticker": "SIVE", "direction": "bull", "why": "real"}]},
+            t, UNIVERSE, ALIASES)
+        self.assertEqual([v["ticker"] for v in out], ["SIVE"])
+
+    def test_answer_may_not_use_the_alias_symbol_itself(self):
+        """Views are stored canonically, so the UI's one lookup finds them."""
+        t = thesis(tickers=["SIVEF"])
+        out = views.validate_views(
+            {"views": [{"ticker": "SIVEF", "direction": "bull", "why": "x"}]},
+            t, UNIVERSE, ALIASES)
+        self.assertEqual(out, [])
+
+    def test_dotted_and_numeric_symbols_survive_the_fold(self):
+        t = thesis(tickers=["SKHY"])
+        self.assertEqual(views._post_ticker_scope(t, ALIAS_UNIVERSE, ALIASES),
+                         ["000660.KS"])
+
+
+class TestAliasNotes(unittest.TestCase):
+    def test_notes_name_the_written_form(self):
+        t = thesis(tickers=["AAOI", "SIVEF"])
+        self.assertEqual(views.alias_notes(t, UNIVERSE, ALIASES),
+                         [("SIVE", "SIVEF")])
+
+    def test_no_notes_when_the_post_uses_the_canonical_symbol(self):
+        t = thesis(tickers=["SIVE"])
+        self.assertEqual(views.alias_notes(t, UNIVERSE, ALIASES), [])
+
+    def test_prompt_tells_the_model_how_the_post_spells_it(self):
+        t = thesis(tickers=["SIVEF"], text="$SIVEF is ripping")
+        _system, user = views.build_views_prompt(t, UNIVERSE, ALIASES)
+        self.assertIn("Allowed tickers (report only these): SIVE", user)
+        self.assertIn("SIVE as $SIVEF", user)
+
+    def test_prompt_has_no_note_line_when_no_alias_applies(self):
+        t = thesis(tickers=["LITE"])
+        _system, user = views.build_views_prompt(t, UNIVERSE, ALIASES)
+        self.assertNotIn("This post writes", user)
+
+
+class TestAliasRecheck(unittest.TestCase):
+    def test_extracted_post_missing_its_alias_view_is_flagged(self):
+        t = thesis(tickers=["AAOI", "SIVEF"], viewsExtractedAt="2026-08-19T00:00:00Z",
+                   views=[{"ticker": "AAOI", "direction": "bull", "why": "x"}])
+        self.assertEqual(views.missing_alias_views(t, UNIVERSE, ALIASES), ["SIVE"])
+        self.assertTrue(views.needs_alias_recheck(t, UNIVERSE, ALIASES))
+
+    def test_post_that_already_has_the_view_is_not_flagged(self):
+        t = thesis(tickers=["SIVEF"], viewsExtractedAt="2026-08-19T00:00:00Z",
+                   views=[{"ticker": "SIVE", "direction": "bull", "why": "x"}])
+        self.assertFalse(views.needs_alias_recheck(t, UNIVERSE, ALIASES))
+
+    def test_unextracted_post_is_left_to_needs_extraction(self):
+        """The two selectors must stay disjoint or a combined run queues the
+        same post twice."""
+        t = thesis(tickers=["SIVEF"])
+        self.assertFalse(views.needs_alias_recheck(t, UNIVERSE, ALIASES))
+        self.assertTrue(views.needs_extraction(t))
+
+    def test_research_theses_are_never_rechecked(self):
+        t = thesis(source="research", tickers=["SIVEF"],
+                   viewsExtractedAt="2026-08-19T00:00:00Z", views=[])
+        self.assertFalse(views.needs_alias_recheck(t, UNIVERSE, ALIASES))
+
+    def test_no_alias_map_means_no_recheck(self):
+        t = thesis(tickers=["SIVEF"], viewsExtractedAt="2026-08-19T00:00:00Z", views=[])
+        self.assertFalse(views.needs_alias_recheck(t, UNIVERSE, None))
+        self.assertEqual(views.missing_alias_views(t, UNIVERSE, None), [])
+
+
+class TestSelectFn(unittest.TestCase):
+    def test_select_fn_overrides_needs_extraction(self):
+        """The alias re-read has to reach posts that are already stamped."""
+        done = thesis(id="h_done", tickers=["SIVEF"],
+                      viewsExtractedAt="2026-08-19T00:00:00Z", views=[])
+        calls = []
+
+        def call_fn(system, user):
+            calls.append(user)
+            return {"views": [{"ticker": "SIVE", "direction": "bear", "why": "dilution"}]}
+
+        updated, stats = views.extract_views(
+            [done], UNIVERSE, call_fn, "2026-08-21T00:00:00Z",
+            aliases=ALIASES, select_fn=lambda t: True)
+        self.assertEqual(stats["processed"], 1)
+        self.assertEqual(updated[0]["views"],
+                         [{"ticker": "SIVE", "direction": "bear", "why": "dilution"}])
+        self.assertEqual(updated[0]["viewsExtractedAt"], "2026-08-21T00:00:00Z")
+
+    def test_default_selector_still_skips_stamped_posts(self):
+        done = thesis(viewsExtractedAt="2026-08-19T00:00:00Z", views=[])
+        updated, stats = views.extract_views(
+            [done], UNIVERSE, lambda s, u: {"views": []}, "2026-08-21T00:00:00Z")
+        self.assertEqual(stats["skipped"], 1)
+        self.assertEqual(stats["processed"], 0)
+
+
+class TestTierTableAgreement(unittest.TestCase):
+    """--core-only must tier names the same way the app does.
+
+    `_core_symbols` originally canonicalized with no maps while
+    generate_data_js.build_data passes base.json's tickerAliases + themeTags.
+    On live data that disagreed on three names — 000660.KS read radar (really
+    watch), SOI.PA read watch (really core), SPCX read core (really radar, it
+    is a themeTag not a ticker) — so a "0 Core/Watch pending" report was not
+    the same claim the app would make.
+    """
+
+    def test_core_symbols_uses_the_same_maps_as_generate_data_js(self):
+        import inspect
+        import extract_views
+        src = inspect.getsource(extract_views._core_symbols)
+        self.assertIn("tickerAliases", src)
+        self.assertIn("themeTags", src)
+        self.assertIn("canonicalize_theses", src)
+
+    def test_core_only_pending_canonicalizes_before_the_tier_test(self):
+        """A post whose only symbol is an alias must still match its core name."""
+        import extract_views
+        src = inspect.getsource(extract_views._pending)
+        self.assertIn("_post_ticker_scope", src)
+
+
+import inspect  # noqa: E402  (used by the test above)

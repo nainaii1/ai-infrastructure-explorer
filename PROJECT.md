@@ -161,7 +161,7 @@ From `docs/EXECUTION-EXPERT-REVIEW.md`:
 
 | Step | State |
 |---|---|
-| 1 — per-ticker view extraction | **done for Core/Watch** — 312 of 356 posts read, 0 Core/Watch posts pending |
+| 1 — per-ticker view extraction | **done for Core/Watch** — 316 of 356 posts read, 0 Core/Watch pending (and now honestly 0, see Step 5) |
 | 1b — wire direction into scoring | not started, needs a decision |
 | 2 — SEC EDGAR fundamentals | researched + endpoint verified, not built |
 | 3 — `aiExposure` judgement fields | not started |
@@ -169,6 +169,7 @@ From `docs/EXECUTION-EXPERT-REVIEW.md`:
 | 4a — surface `views[]` in the app | **shipped 20 Aug 2026** — see below |
 | 4b — density as a sortable watchlist column | **shipped 20 Aug 2026** — see below |
 | 4c — plain label + bear flag on the column | **shipped 20 Aug 2026** — see below |
+| 5 — close the ticker-alias gap | **shipped 21 Aug 2026** — see below |
 
 ### Step 4a — what shipped (20 Aug 2026)
 
@@ -305,6 +306,38 @@ ones.
 skeptical, dated and sourced, instead of a bare mention count. `summarize_ticker_views()`
 in `views.py` returns exactly that feed, newest first, ready for the UI.
 
+### Step 5 — what shipped (21 Aug 2026)
+
+Known issue 3 closed, plus the two further instances of the same bug it was
+hiding (see the Known issues section above for the mechanics).
+
+**Recovered 29 views across 22 posts**, none of which the old scope could
+express. Every Core/Watch name's view total now equals its `analystMentions`
+exactly — the density denominator and the mention badge finally agree.
+
+| name | before | after |
+|---|---|---|
+| `000660.KS` (SK Hynix) | **no block at all** — read as never mentioned | `4 / 6` |
+| `LPK.DE` | 5 / 11 | `10 / 16` |
+| `SOI.PA` | 7 / 9 | `11 / 13` |
+| `IQE` | 10 / 13 | `11 / 14` |
+| `CXMT` | 0 / 5 | `1 / 6`, and the 1 is a **bear** |
+| `SIVE` | 103 / 112 | `105 / 115` |
+
+SK Hynix is the one that matters: a Watch-tier name in the memory bottleneck
+he argues constantly, and the app showed `—` for it, meaning "he has never
+mentioned this". It now carries four bull views.
+
+Two new bears, both specific: **CXMT** (mocks the day-one IPO valuation,
++469.98% to ~$487B) and nothing else — the LPK glass-substrate delay posts
+were read **neutral**, because he flags the slip while holding the structural
+view and bought the drop five days later. Direction records HIS stance, not
+the sentiment of the news he relays, which is how the corpus already reads a
+factually-relayed negative.
+
+`--status` gains an `aliasGap` counter so this class of gap is visible rather
+than needing to be rediscovered.
+
 ### What the first 38 posts already show
 
 **Only 40% of his mentions carry an argument.** Across those posts: 137 mentions,
@@ -356,26 +389,41 @@ Verified along the way:
    silently matches nothing. `extract_views._core_symbols` now derives it and
    refuses to run on an empty set rather than reporting a successful pass that
    read zero posts.
-3. **Ticker aliases never get a view.** `mentions` is counted *after*
-   `scorer.canonicalize_theses` folds `base.json` `tickerAliases` in, so a post
-   naming `$SIVEF` counts as a SIVE mention. Extraction pins to the post's own
-   raw `tickers[]` (invariant 5) and the alias symbol is not in the ticker
-   universe, so those posts yield **zero views** — they are silently dropped,
-   not recorded as neutral. Measured 20 Aug 2026: **21 (post, alias) pairs**
-   across all 7 aliases — `LPK` 5, `SKHY` 5, `SIVEF` 4, `SOI` 4, `IQEF` 1,
-   `CMXT` 1, `SHKY` 1 — every one of them unread.
+3. **Ticker aliases never get a view.** ~~Open~~ **FIXED 21 Aug 2026.**
+   `mentions` was counted *after* `scorer.canonicalize_theses` folded
+   `base.json` `tickerAliases` in, while extraction pinned to the post's raw
+   `tickers[]` — so a `$SIVEF` post counted as a SIVE mention and yielded zero
+   views. `views._post_ticker_scope` now canonicalizes through an **injected**
+   alias map (`views.py` stays pure — `extract_views._aliases()` does the I/O),
+   and the prompt gains a note line telling the model the post spells SIVE as
+   `$SIVEF`. 17 posts re-read, 26 views recovered. The firewall is unchanged:
+   the map rewrites symbols the post already contains, it never adds one, and
+   a test asserts that.
 
-   Concretely: SIVE shows `analystMentions` 115 but only 112 views, and the
-   three missing posts are the `$SIVEF` ones (a Rosenblatt note on optical
-   weakness, the historic-recovery tape, and LITE's earnings read-through).
-   The fix is to canonicalize the *allowed scope* in
-   `views._post_ticker_scope` before extraction, then re-run those 21 posts —
-   an ingest change that touches the injection firewall, so it wants its own
-   pass with the alias map as the only permitted expansion. Until then the
-   views block reports its own denominator and says so in the tooltip rather
-   than pretending it matches the mention badge.
+   **Two more instances of the same bug, found by fixing it:**
+   - `_pending(core_only=True)` intersected raw `tickers[]` with the core set,
+     so a post whose only symbol was `$LPK` never matched `LPK.DE`.
+   - `_core_symbols` called `canonicalize_theses(theses)` with **no maps**,
+     computing a different tier table than the app: `000660.KS` read radar
+     (really watch), `SOI.PA` read watch (really core), `SPCX` read core
+     (really radar — it is a `themeTag`, not a ticker).
 
-4. **JBL contradicts the momentum read.** Mockup E flagged JBL as a stale
+   Together these made `--status` report **"0 Core/Watch pending"** while four
+   Core/Watch posts were unread. It now reports honestly, and both are covered
+   by regression tests.
+
+4. **The extraction sometimes omits a bare mention instead of recording it
+   neutral.** Found while reconciling density against `analystMentions`: five
+   already-extracted posts had fewer views than tickers in scope. Nine were
+   genuine references the pass simply skipped (six names listed in a Morgan
+   Stanley CPO note, an X-Fab validator mention of NVDA, a name he "passed on",
+   a laser name in a grouped sentence) and were filled in as neutral. **The
+   tenth was correct to omit:** `$GM` in "Elazr GM at their investor
+   conference" — known issue 1, still live in that post's `tickers[]`.
+   So the omissions cannot be auto-filled; each needs an eye on the post. All
+   Core/Watch names now reconcile exactly: views total == `analystMentions`.
+
+5. **JBL contradicts the momentum read.** Mockup E flagged JBL as a stale
    `accumulate` because mentions fell 16 → 4. But the 17 Aug post lists JBL
    among names he likes, on a 1.6T LRO margin argument. The count said "gone
    quiet"; the text says otherwise. This is the whole thesis of this document in
@@ -401,10 +449,11 @@ If those drift from this file, trust this file and fix them — same rule
 ## Next session should start by
 
 1. Reading `python3 ingest/extract_views.py --status` — confirms nothing
-   changed underneath since this was written.
-2. Deciding: fix the ticker-alias gap (known issue 3 — 21 posts, the only
-   correctness item open), grind the remaining 15 radar/unsorted posts, start
-   Step 2 (SEC EDGAR), or open the Step 1b scoring decision.
+   changed underneath since this was written. It now also reports `aliasGap`,
+   which must stay 0.
+2. Deciding: grind the remaining 11 radar/unsorted posts, start Step 2
+   (SEC EDGAR), or open the Step 1b scoring decision. No correctness item is
+   open — known issue 3 is closed, and 4 is a data-quality note, not a bug.
 3. Steps 1 and 4a are committed (`dca8bf3`, and the follow-up carrying this
    file). The three `mockup-charts*.html` files are still untracked on purpose
    — they are parked until Steps 2–3 give them real variables to plot.

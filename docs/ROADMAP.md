@@ -187,6 +187,33 @@ _Last updated: 2026-08-10 (v9 "soft two-tone" redesign, X watcher, symbol canoni
 > view is among the rows shown, which cannot disturb the date order because a
 > bear outside the slice is always older than every row inside it.
 
+> **The ticker-alias gap, Step 5 (✅ 2026-08-21).** `mentions` is counted AFTER
+> `scorer.canonicalize_theses` folds `base.json` `tickerAliases` in, so a
+> `$SIVEF` post counted as a SIVE mention — but extraction pinned to the post's
+> raw `tickers[]`, the alias is not in the ticker universe, and the post
+> therefore produced **no view at all**. Counted and never read.
+> `views._post_ticker_scope` now canonicalizes through an **injected** alias
+> map (`views.py` stays pure; `extract_views._aliases()` does the I/O) and the
+> prompt gains a note line telling the model this post spells SIVE as `$SIVEF`.
+> The firewall is unchanged and tested: the map rewrites symbols the post
+> already contains, it never adds one.
+> **Two more instances of the same bug surfaced while fixing it** —
+> `_pending(core_only=True)` intersected RAW symbols with the core set (a
+> `$LPK`-only post never matched `LPK.DE`), and `_core_symbols` canonicalized
+> with **no maps at all**, computing a different tier table than the app:
+> `000660.KS` read radar (really watch), `SOI.PA` watch (really core), `SPCX`
+> core (really radar — a `themeTag`, not a ticker). Together these let
+> `--status` report **"0 Core/Watch pending"** while four Core/Watch posts were
+> unread. Both fixed, both covered by regression tests, and `--status` gains an
+> `aliasGap` counter so the class of gap is visible rather than rediscovered.
+> **29 views recovered across 22 posts.** SK Hynix (`000660.KS`) went from *no
+> block at all* — the app said he had never mentioned it — to `4 / 6`. `SIVE`
+> 103/112 → 105/115, `LPK.DE` 5/11 → 10/16, `SOI.PA` 7/9 → 11/13, `CXMT` 0/5 →
+> 1/6 with the one being a bear. **Every Core/Watch name's view total now
+> equals its `analystMentions` exactly.** Zero tier changes, zero mention-count
+> changes; the only score movement is one day of uniform time decay (all 131
+> ratios inside 0.960–0.969). Suite 386 → 407.
+
 ---
 
 ## Current snapshot
