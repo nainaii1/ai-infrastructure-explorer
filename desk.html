@@ -2866,6 +2866,12 @@
           vBlock("Changes my mind", v.changesMind);
         }
 
+        // What he argued, directly under my call — the two opinions adjacent is
+        // the point of the desk. Same shared renderer the chain-tab card uses;
+        // the watchlist is the default view, so this is where it earns its keep.
+        var wlViews = AIE.makeViewsBlock(t.ticker, { max: 3 });
+        if (wlViews) box.appendChild(wlViews);
+
         if (t.whatTheyDo) {
           var w = el("p", "wl-detail-p");
           w.appendChild(el("b", null, "What they do — "));
