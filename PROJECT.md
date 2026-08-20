@@ -168,6 +168,7 @@ From `docs/EXECUTION-EXPERT-REVIEW.md`:
 | 4 — re-point charts | still blocked on 2–3 |
 | 4a — surface `views[]` in the app | **shipped 20 Aug 2026** — see below |
 | 4b — density as a sortable watchlist column | **shipped 20 Aug 2026** — see below |
+| 4c — plain label + bear flag on the column | **shipped 20 Aug 2026** — see below |
 
 ### Step 4a — what shipped (20 Aug 2026)
 
@@ -237,6 +238,34 @@ Ascending surfaces the opposite end — `NOK 0/5, AAPL 2/11, AVGO 2/13,
 GFS 3/23, MSFT 3/11` — the names he name-drops and never argues.
 **XFAB at 29/29 is the case mention-count can never find:** every single time
 he has named it, he made an argument.
+
+### Step 4c — what shipped (20 Aug 2026)
+
+Operator feedback on 4b, both points fair:
+
+1. **"Argued" was jargon** — and `CLAUDE.md`'s own v9 voice rule bans jargon in
+   column headers. Renamed **`His case`** (the `data-key` stays `argued`; it is
+   an internal id, not a label).
+2. **"good or bad, and on what?"** — the column counted how much he said and
+   showed nothing about which way he said it, so a name he is net NEGATIVE on
+   looked identical to one he is bullish on.
+
+Measured before deciding: of 34 Core names, **28 are 100% bull when argued**;
+only 5 carry any bear view at all — `IREN 4 bull / 5 bear`, `TSM 8/1`,
+`TSLA 3/1`, `MTSI 3/1`, `AVGO 1/1`. **IREN is the only Core name he is net
+negative on.**
+
+So direction renders as an **exception flag, not a split**: a red `N bear` chip
+on the 5, nothing on the other 29. Marking "all bull" on 28 rows would only
+teach the eye to skip the column. The word `bear`, never an arrow — the sort
+indicators are already `▲`/`▼` and a second triangle would read as one.
+
+One bug this surfaced and fixed: the watchlist panel caps at 3 views,
+newest-first, and IREN's three newest are bull — so the column flagged
+"5 bear" and the panel it opened showed three BULL badges. `makeViewsBlock`
+now swaps the oldest shown row for his most recent bear view whenever the cap
+would hide the disagreement. It cannot break date order: a bear missing from
+the slice is by definition older than every row in it.
 
 ### Step 1 — what shipped (19 Aug 2026)
 

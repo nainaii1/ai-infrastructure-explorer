@@ -170,6 +170,23 @@ _Last updated: 2026-08-10 (v9 "soft two-tone" redesign, X watcher, symbol canoni
 > Ascending: `NOK 0/5 · AAPL 2/11 · AVGO 2/13 · MSFT 3/11`. The table already
 > scrolled horizontally on mobile at 10 columns; page layout is unchanged.
 
+> **`His case` + the bear flag, Step 4c (✅ 2026-08-20).** Operator review of
+> 4b: "Argued" was jargon (against v9's own no-jargon-in-headers rule), and the
+> column showed how MUCH he said while hiding WHICH WAY — so a name he is net
+> negative on looked identical to one he is bullish on. Renamed **`His case`**
+> (`data-key` stays `argued`, an internal id). Direction now renders as an
+> **exception flag**: measured on live data, 28 of 34 Core names are 100% bull
+> when argued and only 5 carry any bear view (`IREN 4/5`, `TSM 8/1`, `TSLA 3/1`,
+> `MTSI 3/1`, `AVGO 1/1`), so those 5 get a red `N bear` chip and the other 29
+> get nothing — flagging "all bull" on 28 rows only teaches the eye to skip the
+> column. The word, never an arrow: the sort indicators are already `▲`/`▼`.
+> **IREN is the only Core name he is net negative on**, and it is now visible
+> without opening anything. Fixed alongside: the 3-row cap could hide every
+> bear view (IREN's three newest are bull), so the column's flag contradicted
+> the panel it opened — `makeViewsBlock` now guarantees his most recent bear
+> view is among the rows shown, which cannot disturb the date order because a
+> bear outside the slice is always older than every row inside it.
+
 ---
 
 ## Current snapshot

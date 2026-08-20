@@ -1221,6 +1221,13 @@
     .wl-argued { color: var(--muted); font-variant-numeric: tabular-nums; }
     .wl-argued b { color: var(--ink); font-weight: 700; }
     .wl-argued.is-none b { color: var(--muted); font-weight: 400; }
+    /* Only rendered when he has argued against the name at all. */
+    .wl-argued-bear {
+      display: inline-block; margin-left: var(--s-2);
+      padding: 1px var(--s-2); border-radius: var(--r-chip);
+      background: var(--sem-bear-bg); color: var(--sem-bear-fg);
+      font-size: var(--fs-2xs); font-weight: 700; letter-spacing: .04em;
+    }
     .wl-table tbody tr { border-top: 1px solid var(--border); transition: background var(--ease); }
     .wl-table tbody tr:first-child { border-top: none; }
     .wl-table tbody tr:hover { background: color-mix(in srgb, var(--accent, var(--muted)) 6%, var(--card)); }
@@ -1422,7 +1429,7 @@
                   <!-- Sort is armed at boot only when the data carries a
                        USD-normalised cap; see wlArmMcapSort(). -->
                   <th class="num wl-nosort" id="wlThMcap">Mkt Cap</th>
-                  <th data-key="argued" class="num">Argued</th>
+                  <th data-key="argued" class="num" title="How many of @aleabitoreddit's mentions of this name actually made a case for it, rather than just naming it. Click to rank by it.">His case</th>
                   <th data-key="deskStance">Desk</th>
                   <th class="wl-nosort">Note</th>
                 </tr>
@@ -2987,8 +2994,17 @@
           g.appendChild(el("b", null, String(dens.argued)));
           g.appendChild(document.createTextNode("/" + dens.total));
           g.title = dens.argued + " of the " + dens.total + " posts naming "
-            + t.ticker + " make a case for it; the rest are bare mentions";
+            + t.ticker + " make a case for it; the rest are bare mentions"
+            + (dens.bear ? ". " + dens.bull + " bull, " + dens.bear + " bear"
+               + (dens.bear >= dens.bull ? " — he is not net positive on this one" : "")
+               : "");
           gTd.appendChild(g);
+          /* Flag the exceptions, not the rule: 28 of 34 Core names are 100%
+             bull, so marking those teaches the eye to skip the column. The
+             word, not an arrow — the sort indicators are already triangles. */
+          if (dens.bear) {
+            gTd.appendChild(el("span", "wl-argued-bear", dens.bear + " bear"));
+          }
         } else {
           // He has never named it — not "zero arguments", no data at all.
           var none = el("span", "wl-muted", "—");

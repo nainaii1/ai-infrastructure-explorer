@@ -396,9 +396,13 @@
         (th.views || []).forEach(function (v) {
           var k = String(v.ticker || "").toUpperCase();
           if (!k) return;
-          var row = _densityCache[k] || (_densityCache[k] = { argued: 0, total: 0 });
+          var row = _densityCache[k]
+            || (_densityCache[k] = { argued: 0, total: 0, bull: 0, bear: 0 });
           row.total++;
-          if (v.direction === "bull" || v.direction === "bear") row.argued++;
+          if (v.direction === "bull" || v.direction === "bear") {
+            row.argued++;
+            row[v.direction]++;
+          }
         });
       });
     }
@@ -529,7 +533,22 @@
       showingBare = true;
     }
     var hidden = Math.max(0, shown.length - max);
-    shown.slice(0, max).forEach(function (r) { box.appendChild(makeViewRow(r)); });
+    var visible = shown.slice(0, max);
+
+    /* Never let the cap hide that he argued AGAINST the name. The watchlist
+       shows 3 rows and flags "5 bear" in the column; if the three newest
+       happen to be bull, clicking through to three BULL badges contradicts the
+       flag. Swap the oldest shown row for his most recent bear view.
+       This cannot break the date ordering: any bear missing from the slice is
+       older than every row in it, or it would have been in the slice already. */
+    if (visible.length && st.bear) {
+      var hasBear = visible.some(function (r) { return r.direction === "bear"; });
+      if (!hasBear) {
+        var newestBear = shown.filter(function (r) { return r.direction === "bear"; })[0];
+        if (newestBear) visible[visible.length - 1] = newestBear;
+      }
+    }
+    visible.forEach(function (r) { box.appendChild(makeViewRow(r)); });
 
     var foot = [];
     if (hidden) foot.push(hidden + " earlier argument" + (hidden === 1 ? "" : "s") + " not shown");

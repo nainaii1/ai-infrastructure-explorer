@@ -102,11 +102,17 @@ Everything below is shipped and live:
   `11 / 71`. A name he has never named renders no block at all. Read-only over
   `data.js` — no ingest, score or tier change.
   It also renders in the **watchlist row detail** (under "My call", capped at 3),
-  and signal density is an **`Argued` column in the watchlist table** — sortable,
+  and signal density is a **`His case` column in the watchlist table** — sortable,
   backed by `AIE.viewDensity(sym)` (one memoised pass over all theses; never call
   `viewsForTicker` per row). It sorts on the argument COUNT, not the ratio, and a
   name he has never mentioned renders `—` and sorts last. This is the only column
   in the app that ranks on something other than posting frequency.
+  **Direction shows as an exception flag, not a split**: 28 of 34 Core names are
+  100% bull when argued, so only the 5 carrying any bear view render a red
+  `N bear` chip (IREN, TSM, TSLA, MTSI, AVGO). The word, never an arrow — the
+  sort indicators are already `▲`/`▼`. `makeViewsBlock` guarantees the capped
+  row list includes his most recent bear view when one exists, so the column's
+  flag can never be contradicted by the panel it opens.
 
 **Ticker/thesis/verdict counts change constantly — read `ingest/store/*.json`
 or `data.js`, never assume a number from this file.**
