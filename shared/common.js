@@ -17,6 +17,7 @@
      viewDensity(sym)                              cached {argued,total} for one name
      makeViewsBlock(sym, opts)                     shared .aie-views renderer
      fundamentalsFor(sym), makeRevenueBlock(sym)   SEC revenue, as filed
+     exposureFor(sym), aiRevenue(sym)              AI exposure (operator judgement)
      chipSpark(color)                              memo accent glyph
 
    Colors are read from AIE_DATA.categories at runtime — never hardcoded here
@@ -603,15 +604,79 @@
 
   var REV_BAR_PX = 34;    /* tallest bar; the tick label sits below it */
 
+  /* AI exposure — the operator's judgement (PROJECT.md Step 3). Not filed and
+     not derivable: SEC companyfacts carries no segment dimension. It therefore
+     NEVER renders as a bare number — the confidence level and the stated basis
+     travel with it, and an unassessed name says so rather than showing 0%. */
+  function exposureFor(sym) {
+    var d = data();
+    var e = (d && d.exposure) || {};
+    return (e.companies || {})[String(sym || "").toUpperCase()] || null;
+  }
+
+  /* Filed revenue x judged exposure. An estimate by construction: it
+     multiplies an audited number by an unaudited one, so it is only ever
+     rendered next to its confidence. */
+  function aiRevenue(sym) {
+    var a = exposureFor(sym), f = fundamentalsFor(sym);
+    if (!a || !f) return null;
+    var latest = f.latest || (f.years || [])[(f.years || []).length - 1];
+    if (!latest || typeof latest.revenue !== "number"
+        || typeof a.aiExposure !== "number") return null;
+    return {
+      value: latest.revenue * (a.aiExposure / 100),
+      currency: f.currency, fy: latest.fy,
+      exposure: a.aiExposure, confidence: a.confidence
+    };
+  }
+
+  function makeExposureRow(sym) {
+    var a = exposureFor(sym);
+    var row = mk("div", "aie-exp");
+    row.appendChild(mk("span", "aie-exp-label", "AI exposure"));
+    if (!a) {
+      var none = mk("span", "aie-exp-none", "Not assessed yet");
+      none.title = "Nobody publishes this. It is a judgement call, recorded "
+        + "with ingest/assess_exposure.py once you have made it.";
+      row.appendChild(none);
+      return row;
+    }
+    row.appendChild(mk("span", "aie-exp-pct", fmtNum(a.aiExposure, 0) + "%"));
+    var est = aiRevenue(sym);
+    if (est) {
+      var e = mk("span", "aie-exp-est",
+                 "\u2248 " + fmtMcap(est.value, est.currency) + " of FY" + est.fy);
+      e.title = "Estimated: filed revenue \u00d7 your exposure judgement. Not a "
+        + "filed figure.";
+      row.appendChild(e);
+    }
+    var conf = mk("span", "aie-exp-conf conf-" + a.confidence, a.confidence);
+    conf.title = "How sure you were when you recorded this";
+    row.appendChild(conf);
+    if (a.basis) {
+      var basis = mk("p", "aie-exp-basis", a.basis);
+      if ((a.sources || []).length) basis.title = "Sources: " + a.sources.join(" \u00b7 ");
+      row.appendChild(basis);
+    }
+    return row;
+  }
+
   function makeRevenueBlock(sym) {
     var rec = fundamentalsFor(sym);
     if (!rec) {
       var reason = fundamentalsGap(sym);
-      if (!reason) return null;
-      var miss = mk("div", "aie-rev is-empty");
-      miss.appendChild(mk("span", "aie-rev-label", "Revenue"));
-      miss.appendChild(mk("span", "aie-rev-gap", gapLabel(reason)));
-      miss.title = reason;
+      /* No filing AND no judgement is genuinely nothing to say. But a name
+         with an exposure call and no filing still has something worth
+         showing — SIVE is the clearest case in the book. */
+      if (!reason && !exposureFor(sym)) return null;
+      var miss = mk("div", "aie-rev");
+      var mh = mk("div", "aie-rev-head");
+      mh.appendChild(mk("span", "aie-rev-label", "Revenue"));
+      mh.appendChild(mk("span", "aie-rev-gap",
+                        reason ? gapLabel(reason) : "No SEC filing on record"));
+      if (reason) mh.title = reason;
+      miss.appendChild(mh);
+      miss.appendChild(makeExposureRow(sym));
       return miss;
     }
 
@@ -665,6 +730,7 @@
       bars.appendChild(col);
     });
     box.appendChild(bars);
+    box.appendChild(makeExposureRow(sym));
     return box;
   }
 
@@ -775,6 +841,8 @@
     makeViewsBlock: makeViewsBlock,
     fundamentalsFor: fundamentalsFor,
     makeRevenueBlock: makeRevenueBlock,
+    exposureFor: exposureFor,
+    aiRevenue: aiRevenue,
     chipSpark: chipSpark
   };
 })(window);

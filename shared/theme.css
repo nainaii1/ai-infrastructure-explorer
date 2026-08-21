@@ -810,6 +810,41 @@ a.th-ticker:hover {
   font-family: var(--sans); font-size: var(--fs-xs); color: var(--muted);
 }
 
+
+/* AI exposure — operator judgement, never a bare number. The confidence chip
+   and the basis line are part of the figure, not decoration: this is the one
+   value in the app that is not filed, fetched or computed. */
+.aie-exp {
+  display: flex; align-items: baseline; gap: var(--s-2); flex-wrap: wrap;
+  margin-top: 10px; padding-top: 8px;
+  border-top: 1px solid var(--border);
+}
+.aie-exp-label {
+  font-family: var(--mono); font-size: var(--fs-2xs); letter-spacing: .12em;
+  text-transform: uppercase; color: var(--muted);
+}
+.aie-exp-pct {
+  font-family: var(--mono); font-size: var(--fs-sm); font-weight: 700;
+  color: var(--ink); font-variant-numeric: tabular-nums;
+}
+.aie-exp-est { font-family: var(--mono); font-size: var(--fs-2xs); color: var(--muted); }
+.aie-exp-conf {
+  margin-left: auto;
+  font-family: var(--mono); font-size: var(--fs-2xs); font-weight: 700;
+  letter-spacing: .06em; text-transform: uppercase;
+  padding: 1px var(--s-2); border-radius: var(--r-chip);
+}
+.aie-exp-conf.conf-high   { background: var(--sem-act-bg);   color: var(--sem-act-fg); }
+.aie-exp-conf.conf-medium { background: var(--sem-watch-bg); color: var(--sem-watch-fg); }
+.aie-exp-conf.conf-low    { background: var(--sem-pass-bg);  color: var(--sem-pass-fg); }
+/* The reasoning takes the full width under the figure. */
+.aie-exp-basis {
+  flex: 1 0 100%; margin: 4px 0 0;
+  font-family: var(--sans); font-size: var(--fs-xs); line-height: 1.5;
+  color: var(--text);
+}
+.aie-exp-none { font-family: var(--sans); font-size: var(--fs-xs); color: var(--muted); }
+
 /* ============================================================================
    8. FOOTER COLOPHON
    ========================================================================== */

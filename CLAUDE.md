@@ -136,6 +136,22 @@ Everything below is shipped and live:
   height inside the flex column collapsed 60% and 100% to the same 25px, the
   same class of bug as the `grid-template-rows` drill-down note above.
 
+- **AI exposure (2026-08-21, PROJECT.md Step 3)** — `ingest/exposure.py` (pure)
+  + `ingest/assess_exposure.py` (CLI) + `store/exposure.json`, riding in
+  `data.js` as a top-level block and rendered inside the revenue block by
+  `AIE.makeExposureRow` / `.aie-exp*` (theme.css). **This is the only value in
+  the app that is neither fetched nor computed** — verified 21 Aug 2026 that
+  SEC `companyfacts` has no segment dimension at all, so a company's AI share
+  genuinely cannot be derived from filings.
+  **A number without a stated basis is refused at write time**
+  (`exposure.validate_assessment` raises); `confidence` (high/medium/low) is
+  mandatory and renders next to the figure everywhere, so a judgement can never
+  be mistaken for a measurement. An unassessed name shows "Not assessed yet",
+  never 0%. A fraction like `0.45` is refused, not silently multiplied.
+  `AIE.aiRevenue(sym)` multiplies filed revenue by judged exposure and returns
+  null unless both halves exist. **Nothing auto-populates this file** — run
+  `python3 ingest/assess_exposure.py --todo` for the worklist.
+
 **Ticker/thesis/verdict counts change constantly — read `ingest/store/*.json`
 or `data.js`, never assume a number from this file.**
 

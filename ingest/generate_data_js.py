@@ -63,7 +63,7 @@ PRICE_FIELDS = ("price", "currency", "chg7d", "chg1m", "chg1y", "marketCap",
 REQUIRED_KEYS = (
     "meta", "countries", "categories", "center", "mapIntro", "glossary",
     "zones", "tickers", "theses", "priorities", "brain", "desk", "memos",
-    "vault", "calls", "benchmarkQuote", "claims", "fundamentals",
+    "vault", "calls", "benchmarkQuote", "claims", "fundamentals", "exposure",
 )
 
 # Keys whose content comes from a store file. If the file has content, the
@@ -76,6 +76,7 @@ STORE_BACKED = {
     "calls": "calls.json",
     "claims": "claims.json",
     "fundamentals": "fundamentals.json",
+    "exposure": "exposure.json",
 }
 
 
@@ -132,6 +133,8 @@ def build_data():
     claims = _load_optional("claims.json", {})  # {} until the first claim; {meta, claims} after
     # {} until the first SEC fetch; {meta, companies, unavailable} after.
     fundamentals = _load_optional("fundamentals.json", {})
+    # {} until the first judgement is recorded; operator-authored, never fetched.
+    exposure = _load_optional("exposure.json", {})
     # Precompute the per-source scores here rather than in the browser, so the
     # hit rate and the unfalsifiable share physically travel together (plan
     # C2). A page that recomputed them could render one without the other.
@@ -236,6 +239,10 @@ def build_data():
         # first block in this payload that describes the COMPANIES rather than
         # the analyst's attention.
         "fundamentals": fundamentals,
+        # The one block nobody publishes: how much of each company is genuinely
+        # the AI buildout. Operator judgement, each figure carrying its basis
+        # and confidence (ingest/exposure.py).
+        "exposure": exposure,
         # Latest benchmark quote (fetched by fetch_prices.py alongside the
         # tickers) so performance.html can compute vs-SMH without a fetch().
         "benchmarkQuote": prices.get((calls.get("meta") or {}).get("benchmark", "SMH")) or None,

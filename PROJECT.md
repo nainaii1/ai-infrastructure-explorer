@@ -164,12 +164,53 @@ From `docs/EXECUTION-EXPERT-REVIEW.md`:
 | 1 — per-ticker view extraction | **done for Core/Watch** — 316 of 356 posts read, 0 Core/Watch pending (and now honestly 0, see Step 5) |
 | 1b — wire direction into scoring | not started, needs a decision |
 | 2 — SEC EDGAR fundamentals | **shipped 21 Aug 2026** — 37 of 46 Core+Watch, on the card and the watchlist row |
-| 3 — `aiExposure` judgement fields | not started — **unblocked**, Step 2 is in |
+| 3 — `aiExposure` judgement fields | **plumbing shipped 21 Aug 2026** — 0 of 46 assessed; the numbers are the operator's to make |
 | 4 — re-point charts | blocked on 3 only |
 | 4a — surface `views[]` in the app | **shipped 20 Aug 2026** — see below |
 | 4b — density as a sortable watchlist column | **shipped 20 Aug 2026** — see below |
 | 4c — plain label + bear flag on the column | **shipped 20 Aug 2026** — see below |
 | 5 — close the ticker-alias gap | **shipped 21 Aug 2026** — see below |
+
+### Step 3 — what shipped (21 Aug 2026)
+
+**First, a fact that shaped the design: this cannot be derived.** SEC
+`companyfacts` carries **no segment dimension** — every row is consolidated, so
+NVDA's Data Center share is simply not in the payload Step 2 reads. Verified on
+the live NVDA payload: the only segment-ish concepts are
+`NumberOfReportableSegments` and `NumberOfOperatingSegments`, both counts.
+PROJECT.md's phrase "the field no API sells" is literally true.
+
+So Step 3 ships the *instrument*, not the numbers. The numbers are a judgement
+and belong to the operator.
+
+- `ingest/exposure.py` — pure (invariant 6): validation + the derived figure.
+- `ingest/assess_exposure.py` — the CLI: `--todo`, `--set`, `--show`,
+  `--status`, `--clear`.
+- `store/exposure.json` rides in `data.js` as a new top-level block.
+- Rendered by `AIE.makeExposureRow` inside the revenue block, so his case, the
+  filed number and the judgement about it sit together.
+
+**The integrity rule is the whole point: a number without a stated basis is
+refused at write time.** `validate_assessment` raises rather than storing a
+bare percentage — `--exposure 88 --confidence high` alone is rejected, and so
+is a basis of "obvious". `confidence` is mandatory and travels with the figure
+everywhere it renders, so a rough call can never be read as a measurement. An
+unassessed name renders "Not assessed yet", never 0%.
+
+`0.45` is refused rather than multiplied by 100: it could mean 45% or half a
+percent, and guessing between them on the operator's behalf is exactly the kind
+of quiet decision this project does not make.
+
+**The payoff** is `aiRevenue()` — filed revenue x judged exposure. It returns
+None unless BOTH halves exist, because a derived figure with a missing input
+looks like data. NVDA at 88% would read `\u2248 $190B of FY2026`, next to its
+confidence chip.
+
+**0 of 46 Core/Watch names are assessed, deliberately.** Nothing in this step
+populates a value: the desk has no source for it, and inventing 46 percentages
+would be the single worst thing this codebase could do. `--todo` prints the
+worklist ordered by filed revenue, biggest first, because that is the order in
+which a judgement changes the picture.
 
 ### Step 4a — what shipped (20 Aug 2026)
 
