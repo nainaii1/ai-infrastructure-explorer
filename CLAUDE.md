@@ -157,6 +157,27 @@ Everything below is shipped and live:
   `launchctl kickstart -k gui/$(id -u)/<label>`, never `pkill`, which fights
   launchd's auto-restart and leaves two copies polling.
 
+- **Price history (2026-08-21)** — `ingest/price_history.py` (pure) +
+  `ingest/record_prices.py` (I/O) append every refresh's closes to
+  `store/price_history.csv`. Hooked into `fetch_prices.run()` after the save,
+  guarded, so a history failure costs a day of history and never the day's
+  prices. **`prices.json` is a snapshot that is overwritten twice daily**, so
+  before this the desk could not answer "what happened after he argued X" for
+  any of its 1,200 dated views — the central question the whole PROJECT.md
+  rework exists to serve.
+  CSV, append-only, and **deliberately NOT in `data.js`** (a growing series
+  would bloat every page load; a test asserts it stays out of `REQUIRED_KEYS`).
+  ~4KB/day, ~1MB/year. Rows carry a `source`: `sheet` = observed close,
+  `derived` = back-computed from the sheet's own 1W/1M/1Y percentage change,
+  whose DATE is approximate — `forward_return` flags any answer touching one as
+  `approximate`, and an observed close always supersedes a derived row for the
+  same day (both in `dedupe` on read AND in `_append`, or a seeded anchor would
+  block the real price forever).
+  Storing rather than querying live is a measured choice, not laziness: Yahoo
+  and FMP were retired 2026-07-16 for chronic 429s, Stooq serves a bot
+  challenge instead of CSV (checked 21 Aug 2026), and the Google Sheet returns
+  a snapshot with no history. The data already flows through twice a day.
+
 **Ticker/thesis/verdict counts change constantly — read `ingest/store/*.json`
 or `data.js`, never assume a number from this file.**
 

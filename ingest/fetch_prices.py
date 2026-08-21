@@ -14,6 +14,7 @@ Tickers missing from the sheet are reported, never guessed.
 """
 
 import os
+import sys
 import csv
 import io
 import json
@@ -186,8 +187,20 @@ def run():
 
     _save("prices.json", prices)
     gen.write_data_js()
+
+    # Keep the day. prices.json is overwritten every run, so without this the
+    # desk can never answer "what happened after he argued X" — see
+    # price_history.py. Guarded: the prices are already saved by this point, so
+    # a failure here costs one day of history, never the day's prices.
+    recorded = 0
+    try:
+        import record_prices
+        recorded = record_prices.append_snapshot(prices, asof)
+    except Exception as exc:                      # noqa: BLE001
+        print("WARN price history not appended: %s" % exc, file=sys.stderr)
+
     summary = {"updated": updated, "failed": not_in_sheet, "asOf": asof,
-               "notInSheet": not_in_sheet}
+               "notInSheet": not_in_sheet, "historyRows": recorded}
     print(json.dumps(summary))
     return summary
 

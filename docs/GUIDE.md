@@ -658,6 +658,54 @@ result — e.g. *88% · roughly $190B of FY2026 · high confidence* — always w
 the confidence next to it, because it multiplies an audited number by your
 estimate.
 
+## 12. The price record — why the app now remembers
+
+Until 21 Aug 2026 this project kept **one price per company**, overwritten
+twice a day. Every older price was thrown away.
+
+That made one question permanently unanswerable: *"he argued Sivers on
+13 August — what happened next?"* You have 1,200 dated arguments from him and,
+until now, nothing to score them against.
+
+### What changed
+
+Every price refresh now also **appends** that day's closes to
+`ingest/store/price_history.csv`. It happens automatically inside the twice-daily
+job — there is nothing for you to run, and nothing new in your routine.
+
+**Storage is a non-issue:** about 4 KB a day, 1 MB a year, 10 MB a decade.
+Your `data.js` is already 1.4 MB. The file is plain CSV and deliberately does
+*not* load into the app — it is there for analysis, not for the page.
+
+### "Why not just call an API when I need it?"
+
+Fair question, and the answer is specific to this project rather than a
+principle:
+
+- **Yahoo and FMP were already retired** (16 Jul 2026) because their free
+  endpoints rate-limited almost every run.
+- **Stooq**, the usual free fallback, returns a bot-challenge page instead of
+  data (checked 21 Aug 2026).
+- Your prices come from **your own Google Sheet**, which serves today's number,
+  not a history.
+
+So the data you need is already flowing through the app twice a day — it was
+just being discarded. Keeping it costs one line per company and can't be
+rate-limited, retired, or put behind a paywall later.
+
+### What it can already tell you
+
+The record was seeded with a year of rough anchor points, back-calculated from
+the 1-week / 1-month / 1-year changes your sheet already provides. Those are
+real arithmetic on real numbers, but their **dates are approximate**, so any
+answer using them is flagged `approximate: true`. Observed closes recorded from
+here on are exact, and an exact close always overrides a rough anchor for the
+same day.
+
+Right now: **428 rows, 111 companies, back to Aug 2025.** Ask in chat — e.g.
+*"what happened to SIVE in the year after August 2025"* — and Claude reads it
+for you. The record gets more useful every day it runs.
+
 ## FAQ / Troubleshooting
 
 ### "I sent a message to the bot and nothing replied."
