@@ -21,7 +21,11 @@ writing of the store yourself, exactly like `/pre-review`.
 ## Procedure
 
 1. **Find what is ripe.** Load `claims.json` and call
-   `claims.ripe_claims(ledger, today)` with today's date as `YYYY-MM-DD`. It
+   `claims.ripe_claims(ledger["claims"], today)` with today's date as
+   `YYYY-MM-DD`. **Both `ripe_claims` and `score_claims` take the claims LIST,
+   not the ledger dict** — passing the dict iterates its keys and dies with
+   `'str' object has no attribute 'get'`, which reads like corrupt data rather
+   than a wrong argument. It
    returns the `open` claims whose `judgeBy` has passed, oldest first. An
    unreadable `judgeBy` is deliberately never ripe — it would only invite a
    guess. Passing an unreadable `today` raises.
@@ -32,6 +36,19 @@ writing of the store yourself, exactly like `/pre-review`.
    The bar is the same as the seats': SEC filings, earnings-call transcripts,
    company IR material, exchange notices, or established industry data
    providers. Aggregators and SEO summaries do not qualify.
+
+   **EDGAR answers most of these without leaving the repo.** `fetch_fundamentals`
+   already has the ticker->CIK map and a polite fetcher:
+   - `data.sec.gov/api/xbrl/companyfacts/CIK##########.json` for filed revenue,
+     by period, with the form and filing date on every row.
+   - `data.sec.gov/submissions/CIK##########.json` for the filing index — form
+     type and date, which settles any "did they report on <date>" claim.
+   - Cite the document itself:
+     `https://www.sec.gov/Archives/edgar/data/<cik>/<accession-no-dashes>/<primaryDocument>`.
+
+   **A fiscal Q4 is usually not separately tagged.** Derive it as the 10-K
+   annual total minus the three filed 10-Q quarters, and say so in the
+   evidenceNote — the inputs are filed figures, the subtraction is yours.
 
 3. **Judge it.** Build `{"verdict": ..., "basis": [urls], "evidenceNote": "..."}`
    and call `claims.apply_judgement(claim, raw, today)`.
@@ -58,7 +75,7 @@ writing of the store yourself, exactly like `/pre-review`.
 5. **Report**, in this order:
    - What was judged and how it came out, one line each, with the citation.
    - **Hit rate AND unfalsifiable share per source** — always both, from
-     `claims.score_claims(ledger, source=...)`. A hit rate shown alone lets a
+     `claims.score_claims(ledger["claims"], source=...)`. A hit rate shown alone lets a
      source look good by never saying anything testable.
    - Which claims stayed `open` because you could not cite a source, and what
      you looked at. This is not a failure to hide; it is the honest state.

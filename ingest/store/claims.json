@@ -443,9 +443,12 @@
       "madeAt": "2026-08-10",
       "judgeBy": "2026-08-20",
       "thesisId": "r_d2e567bd4fcd1622",
-      "status": "open",
-      "judgedAt": null,
-      "evidence": null
+      "status": "correct",
+      "judgedAt": "2026-08-22",
+      "evidence": [
+        "https://www.sec.gov/Archives/edgar/data/820318/000082031826000020/iivi-20260630.htm",
+        "https://www.sec.gov/Archives/edgar/data/820318/000119312526346860/d128030d8k.htm"
+      ]
     },
     {
       "id": "cl_44b234d6927e",
@@ -560,9 +563,11 @@
       "madeAt": "2026-08-10",
       "judgeBy": "2026-08-20",
       "thesisId": "r_b25d47fb34716046",
-      "status": "open",
-      "judgedAt": null,
-      "evidence": null
+      "status": "correct",
+      "judgedAt": "2026-08-22",
+      "evidence": [
+        "https://www.sec.gov/Archives/edgar/data/1513845/000110465926094568/tm2622968d1_6k.htm"
+      ]
     },
     {
       "id": "cl_f27400d5443e",
@@ -573,9 +578,12 @@
       "madeAt": "2026-08-10",
       "judgeBy": "2026-08-20",
       "thesisId": "r_4e1933962a514b8e",
-      "status": "open",
-      "judgedAt": null,
-      "evidence": null
+      "status": "correct",
+      "judgedAt": "2026-08-22",
+      "evidence": [
+        "https://www.sec.gov/Archives/edgar/data/1633978/000162828026057358/lite-20260627.htm",
+        "https://www.sec.gov/Archives/edgar/data/1633978/000162828026055726/lite-20260811.htm"
+      ]
     },
     {
       "id": "cl_75c8873edcab",
