@@ -740,6 +740,77 @@ a.th-ticker:hover {
 .aie-dir--neutral { background: var(--sem-pass-bg); color: var(--sem-pass-fg); }
 
 /* ============================================================================
+   7d. REVENUE BLOCK — what the company actually earns
+   AIE.makeRevenueBlock() emits this from AIE_DATA.fundamentals (SEC EDGAR).
+   Shared, like .aie-views, because a renderer in shared/ may not depend on one
+   page's CSS (rule #3). Sits next to the analyst-views block by design: his
+   case, then the company's numbers, then the desk's call.
+   ========================================================================== */
+.aie-rev {
+  margin-top: 12px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg);
+}
+.aie-rev-head {
+  display: flex; align-items: baseline; gap: var(--s-2); margin-bottom: 6px;
+}
+.aie-rev-label {
+  font-family: var(--mono); font-size: var(--fs-2xs); letter-spacing: .12em;
+  text-transform: uppercase; color: var(--muted);
+}
+.aie-rev-src {
+  margin-left: auto;
+  font-family: var(--mono); font-size: var(--fs-2xs); color: var(--muted);
+}
+.aie-rev-top {
+  display: flex; align-items: baseline; gap: var(--s-2); flex-wrap: wrap;
+}
+/* The signature big-number treatment, sized for a card rather than a hero. */
+.aie-rev-figure {
+  font-family: var(--display); font-size: var(--fs-xl); font-weight: 700;
+  color: var(--ink); line-height: 1.1; font-variant-numeric: tabular-nums;
+}
+.aie-rev-fy { font-family: var(--mono); font-size: var(--fs-2xs); color: var(--muted); }
+.aie-rev-yoy {
+  margin-left: auto;
+  font-family: var(--mono); font-size: var(--fs-xs); font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.aie-rev-yoy.pos  { color: var(--pos); }
+.aie-rev-yoy.neg  { color: var(--neg); }
+.aie-rev-yoy.flat { color: var(--muted); }
+
+/* Six bars beat six numbers — the shape of the ramp is the message. */
+.aie-rev-bars {
+  display: flex; align-items: flex-end; gap: var(--s-2); margin-top: 10px;
+}
+.aie-rev-col {
+  flex: 1 1 0; display: flex; flex-direction: column;
+  align-items: stretch; justify-content: flex-end;
+}
+/* Heights are set in px by makeRevenueBlock — flex must not renegotiate them. */
+.aie-rev-bar {
+  display: block; width: 100%; flex: 0 0 auto;
+  background: color-mix(in srgb, var(--violet-soft) 55%, var(--card));
+  border-radius: 3px 3px 0 0;
+  transition: background var(--ease);
+}
+.aie-rev-col:last-child .aie-rev-bar { background: var(--violet); }
+.aie-rev-col:hover .aie-rev-bar { background: var(--violet); }
+.aie-rev-tick {
+  margin-top: 3px; text-align: center;
+  font-family: var(--mono); font-size: var(--fs-2xs); color: var(--muted);
+}
+
+/* No filing on record — a stated reason, never a blank space. */
+.aie-rev.is-empty { display: flex; align-items: baseline; gap: var(--s-3); }
+.aie-rev-gap {
+  font-family: var(--sans); font-size: var(--fs-xs); color: var(--muted);
+}
+
+/* ============================================================================
    8. FOOTER COLOPHON
    ========================================================================== */
 .aie-colophon {

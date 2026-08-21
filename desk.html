@@ -2429,6 +2429,11 @@
         var viewsBlock = AIE.makeViewsBlock(ticker.ticker);
         if (viewsBlock) card.appendChild(viewsBlock);
 
+        // What the company actually earns, from its SEC filings. Reads after
+        // his case and before the desk verdict: evidence, numbers, then call.
+        var revBlock = AIE.makeRevenueBlock(ticker.ticker);
+        if (revBlock) card.appendChild(revBlock);
+
         // Claude's desk verdict — second opinion + execution note (Core names only).
         if (ticker.verdict) {
           var v = ticker.verdict;
@@ -2894,6 +2899,9 @@
         // the watchlist is the default view, so this is where it earns its keep.
         var wlViews = AIE.makeViewsBlock(t.ticker, { max: 3 });
         if (wlViews) box.appendChild(wlViews);
+
+        var wlRev = AIE.makeRevenueBlock(t.ticker);
+        if (wlRev) box.appendChild(wlRev);
 
         if (t.whatTheyDo) {
           var w = el("p", "wl-detail-p");

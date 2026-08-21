@@ -16,6 +16,7 @@
      viewsForTicker(sym), viewStats(rows)          the analyst's per-ticker views
      viewDensity(sym)                              cached {argued,total} for one name
      makeViewsBlock(sym, opts)                     shared .aie-views renderer
+     fundamentalsFor(sym), makeRevenueBlock(sym)   SEC revenue, as filed
      chipSpark(color)                              memo accent glyph
 
    Colors are read from AIE_DATA.categories at runtime — never hardcoded here
@@ -563,6 +564,111 @@
   }
 
   /* ==========================================================================
+     Revenue, as filed with the SEC (PROJECT.md Step 2).
+
+     `ingest/fundamentals.py` writes AIE_DATA.fundamentals; this renders it.
+     The first block on a ticker card that describes the COMPANY rather than
+     the analyst's attention, so it deliberately sits next to his case.
+
+     A name with no filing renders a one-line reason instead of nothing:
+     SIVE is the highest-conviction name in the book and is listed in
+     Stockholm, so silence there would read as "no revenue" rather than
+     "not a US filer".
+     ======================================================================== */
+  function fundamentalsFor(sym) {
+    var d = data();
+    var f = (d && d.fundamentals) || {};
+    var want = String(sym || "").toUpperCase();
+    return (f.companies || {})[want] || null;
+  }
+
+  function fundamentalsGap(sym) {
+    var d = data();
+    var f = (d && d.fundamentals) || {};
+    return (f.unavailable || {})[String(sym || "").toUpperCase()] || null;
+  }
+
+  /* Plain-English version of the machine reason recorded by the fetcher. */
+  var GAP_WORDS = [
+    [/not US-listed|no SEC filer/i, "Not a US filer, so nothing to read"],
+    [/no annual revenue concept/i, "Registered with the SEC but files no revenue figures"],
+    [/symbol collision/i, "Ticker clashes with a different company at the SEC"]
+  ];
+  function gapLabel(reason) {
+    for (var i = 0; i < GAP_WORDS.length; i++) {
+      if (GAP_WORDS[i][0].test(reason)) return GAP_WORDS[i][1];
+    }
+    return "No SEC filing on record";
+  }
+
+  var REV_BAR_PX = 34;    /* tallest bar; the tick label sits below it */
+
+  function makeRevenueBlock(sym) {
+    var rec = fundamentalsFor(sym);
+    if (!rec) {
+      var reason = fundamentalsGap(sym);
+      if (!reason) return null;
+      var miss = mk("div", "aie-rev is-empty");
+      miss.appendChild(mk("span", "aie-rev-label", "Revenue"));
+      miss.appendChild(mk("span", "aie-rev-gap", gapLabel(reason)));
+      miss.title = reason;
+      return miss;
+    }
+
+    var years = rec.years || [];
+    if (!years.length) return null;
+    var latest = rec.latest || years[years.length - 1];
+    var box = mk("div", "aie-rev");
+
+    var head = mk("div", "aie-rev-head");
+    head.appendChild(mk("span", "aie-rev-label", "Revenue"));
+    var src = mk("span", "aie-rev-src", "SEC filings");
+    src.title = "As filed: " + rec.taxonomy + " " + rec.tag
+      + (rec.entityName ? " \u00b7 " + rec.entityName : "");
+    head.appendChild(src);
+    box.appendChild(head);
+
+    var top = mk("div", "aie-rev-top");
+    top.appendChild(mk("span", "aie-rev-figure", fmtMcap(latest.revenue, rec.currency)));
+    top.appendChild(mk("span", "aie-rev-fy", "FY" + latest.fy));
+    var yoy = (rec.growth || {}).yoy;
+    if (yoy != null) {
+      var cls = yoy > 0 ? "pos" : (yoy < 0 ? "neg" : "flat");
+      // A near-flat year rounds to "-0%" at zero decimals, which reads as a
+      // typo. Sub-1% moves keep a decimal; everything else stays clean.
+      var pct = yoy * 100;
+      var g = mk("span", "aie-rev-yoy " + cls,
+                 fmtPct(pct, Math.abs(pct) < 1 ? 1 : 0) + " vs last year");
+      var cagr = (rec.growth || {}).cagr3y;
+      if (cagr != null) g.title = "3-year CAGR " + fmtPct(cagr * 100, 0);
+      top.appendChild(g);
+    }
+    box.appendChild(top);
+
+    /* Six bars beat six numbers: the shape of the ramp is the whole point,
+       and a reader should not have to divide in their head to see it. */
+    var max = years.reduce(function (m, y) { return Math.max(m, y.revenue || 0); }, 0);
+    var bars = mk("div", "aie-rev-bars");
+    years.forEach(function (y) {
+      var col = mk("span", "aie-rev-col");
+      var bar = mk("span", "aie-rev-bar");
+      /* Pixels, not percent. A percentage height inside a flex column
+         resolves against a parent the tick label is also competing for, and
+         both 60% and 100% clamped to the same 25px — the same class of bug as
+         the grid-template-rows drill-down noted above. Measuring in JS is what
+         this codebase already does when CSS sizing is ambiguous. */
+      var frac = max > 0 ? (y.revenue / max) : 0;
+      bar.style.height = Math.max(2, Math.round(frac * REV_BAR_PX)) + "px";
+      col.appendChild(bar);
+      col.appendChild(mk("span", "aie-rev-tick", "\u2019" + String(y.fy).slice(2)));
+      col.title = "FY" + y.fy + "  " + fmtMcap(y.revenue, rec.currency);
+      bars.appendChild(col);
+    });
+    box.appendChild(bars);
+    return box;
+  }
+
+  /* ==========================================================================
      Inline prose markup — the one parser for the whole app.
      `slugify` matches ingest/vault_sync.slugify() so [[wikilinks]] resolve to
      the right vault page. `renderInline` appends parsed nodes into a container:
@@ -667,6 +773,8 @@
     viewDensity: viewDensity,
     viewStats: viewStats,
     makeViewsBlock: makeViewsBlock,
+    fundamentalsFor: fundamentalsFor,
+    makeRevenueBlock: makeRevenueBlock,
     chipSpark: chipSpark
   };
 })(window);

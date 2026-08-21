@@ -163,9 +163,9 @@ From `docs/EXECUTION-EXPERT-REVIEW.md`:
 |---|---|
 | 1 — per-ticker view extraction | **done for Core/Watch** — 316 of 356 posts read, 0 Core/Watch pending (and now honestly 0, see Step 5) |
 | 1b — wire direction into scoring | not started, needs a decision |
-| 2 — SEC EDGAR fundamentals | researched + endpoint verified, not built |
-| 3 — `aiExposure` judgement fields | not started |
-| 4 — re-point charts | still blocked on 2–3 |
+| 2 — SEC EDGAR fundamentals | **shipped 21 Aug 2026** — 37 of 46 Core+Watch, on the card and the watchlist row |
+| 3 — `aiExposure` judgement fields | not started — **unblocked**, Step 2 is in |
+| 4 — re-point charts | blocked on 3 only |
 | 4a — surface `views[]` in the app | **shipped 20 Aug 2026** — see below |
 | 4b — density as a sortable watchlist column | **shipped 20 Aug 2026** — see below |
 | 4c — plain label + bear flag on the column | **shipped 20 Aug 2026** — see below |

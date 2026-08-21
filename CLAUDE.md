@@ -114,6 +114,28 @@ Everything below is shipped and live:
   row list includes his most recent bear view when one exists, so the column's
   flag can never be contradicted by the panel it opens.
 
+- **SEC fundamentals (2026-08-21, PROJECT.md Step 2)** — `ingest/fundamentals.py`
+  (pure parser) + `ingest/fetch_fundamentals.py` (the runner) pull annual revenue
+  from **SEC EDGAR XBRL** (`data.sec.gov/api/xbrl/companyfacts`) into
+  `store/fundamentals.json`, which rides in `data.js` as a new top-level block.
+  Free, no API key, no daily limit. 37 of 46 Core+Watch names covered; the gaps
+  are recorded with reasons, never silent. Rendered by `AIE.makeRevenueBlock` /
+  `.aie-rev*` (theme.css §7d) on the **ticker card and the watchlist row**,
+  between his case and the desk verdict — evidence, numbers, call.
+  **Three SEC traps the parser exists to handle**, all verified live: there is
+  no single revenue tag (NVDA migrated to `Revenues`; the old tag is still in
+  the payload and stops at FY2022, so `pick_series` ranks by RECENCY, not a
+  fixed priority order); a row's `fy` is the FILING's year, not the period's,
+  so periods come from `start`/`end` only; and a filer can report the same
+  concept in two currencies (TSM files TWD **and** USD — USD wins).
+  **A ticker symbol is not identity**: EDGAR's `CCXI` is Churchill Capital
+  Corp XI, this desk's is Agility Robotics, so `fundamentals.names_match()`
+  gates every write against the company name already on file (and accepts a
+  filing renamed to its ticker, e.g. Iris Energy -> "IREN Limited").
+  Bar heights are computed in **px in JS**, never a CSS `%` — a percentage
+  height inside the flex column collapsed 60% and 100% to the same 25px, the
+  same class of bug as the `grid-template-rows` drill-down note above.
+
 **Ticker/thesis/verdict counts change constantly — read `ingest/store/*.json`
 or `data.js`, never assume a number from this file.**
 
