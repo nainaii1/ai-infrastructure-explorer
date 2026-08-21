@@ -6,9 +6,9 @@
 
 window.AIE_DATA = {
   "meta": {
-    "version": "1.417",
+    "version": "1.419",
     "schemaVersion": 1,
-    "lastUpdated": "2026-08-21T09:00:00Z",
+    "lastUpdated": "2026-08-21T04:58:15Z",
     "source": "ingest"
   },
   "countries": {
@@ -241,11 +241,11 @@ window.AIE_DATA = {
       "marketCap": 10917882945.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 5.8631,
-        "net": 5.8631,
-        "attention": 12.0271,
-        "mentions": 96,
-        "analystMentions": 84,
+        "score": 6.2676,
+        "net": 6.2676,
+        "attention": 12.398,
+        "mentions": 97,
+        "analystMentions": 85,
         "researchMentions": 12,
         "bullMentions": 1,
         "bearMentions": 10,
@@ -291,16 +291,16 @@ window.AIE_DATA = {
       "marketCap": 78871418627.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 8.9543,
-        "net": 8.9543,
-        "attention": 10.5319,
-        "mentions": 92,
-        "analystMentions": 80,
+        "score": 9.342,
+        "net": 9.342,
+        "attention": 10.911,
+        "mentions": 93,
+        "analystMentions": 81,
         "researchMentions": 12,
         "bullMentions": 5,
         "bearMentions": 3,
         "convictionHits": 6,
-        "lastMentioned": "2026-08-19T07:11:47Z"
+        "lastMentioned": "2026-08-20T17:24:14Z"
       },
       "tier": "core",
       "verdict": {
@@ -340,9 +340,9 @@ window.AIE_DATA = {
       "marketCap": 56797212726.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 3.0737,
-        "net": 3.0737,
-        "attention": 3.6585,
+        "score": 3.057,
+        "net": 3.057,
+        "attention": 3.6385,
         "mentions": 36,
         "analystMentions": 30,
         "researchMentions": 6,
@@ -389,9 +389,9 @@ window.AIE_DATA = {
       "marketCap": 1100395655011.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 3.6081,
-        "net": 3.6081,
-        "attention": 4.4243,
+        "score": 3.5884,
+        "net": 3.5884,
+        "attention": 4.4002,
         "mentions": 38,
         "analystMentions": 32,
         "researchMentions": 6,
@@ -439,9 +439,9 @@ window.AIE_DATA = {
       "chg1mUSD": 0.35,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 2.1975,
-        "net": 2.1975,
-        "attention": 2.1975,
+        "score": 2.1855,
+        "net": 2.1855,
+        "attention": 2.1855,
         "mentions": 7,
         "analystMentions": 7,
         "researchMentions": 0,
@@ -472,9 +472,9 @@ window.AIE_DATA = {
       "marketCap": 4789495451.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 2.5686,
-        "net": 2.5686,
-        "attention": 3.3848,
+        "score": 2.5546,
+        "net": 2.5546,
+        "attention": 3.3663,
         "mentions": 36,
         "analystMentions": 33,
         "researchMentions": 3,
@@ -519,9 +519,9 @@ window.AIE_DATA = {
       "marketCap": 5247770147705.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 6.2079,
-        "net": 6.2079,
-        "attention": 7.2007,
+        "score": 6.174,
+        "net": 6.174,
+        "attention": 7.1615,
         "mentions": 81,
         "analystMentions": 72,
         "researchMentions": 9,
@@ -567,9 +567,9 @@ window.AIE_DATA = {
       "marketCap": 25294054664.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 0.9307,
-        "net": 0.9307,
-        "attention": 0.9307,
+        "score": 0.9256,
+        "net": 0.9256,
+        "attention": 0.9256,
         "mentions": 20,
         "analystMentions": 20,
         "researchMentions": 0,
@@ -600,9 +600,9 @@ window.AIE_DATA = {
       "marketCap": 486913300324.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 1.2264,
-        "net": 1.2264,
-        "attention": 1.6345,
+        "score": 1.2197,
+        "net": 1.2197,
+        "attention": 1.6256,
         "mentions": 26,
         "analystMentions": 23,
         "researchMentions": 3,
@@ -633,9 +633,9 @@ window.AIE_DATA = {
       "marketCap": 2157573184000.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 2.2329,
-        "net": 2.2329,
-        "attention": 2.2329,
+        "score": 2.2207,
+        "net": 2.2207,
+        "attention": 2.2207,
         "mentions": 33,
         "analystMentions": 27,
         "researchMentions": 6,
@@ -681,9 +681,9 @@ window.AIE_DATA = {
       "marketCap": 59838048237.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 1.5084,
-        "net": 1.5084,
-        "attention": 3.4941,
+        "score": 1.5002,
+        "net": 1.5002,
+        "attention": 3.4751,
         "mentions": 43,
         "analystMentions": 37,
         "researchMentions": 6,
@@ -714,9 +714,9 @@ window.AIE_DATA = {
       "marketCap": 49505917418.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 1.1968,
-        "net": 1.1968,
-        "attention": 1.1968,
+        "score": 1.1902,
+        "net": 1.1902,
+        "attention": 1.1902,
         "mentions": 7,
         "analystMentions": 7,
         "researchMentions": 0,
@@ -747,9 +747,9 @@ window.AIE_DATA = {
       "marketCap": 3459031451.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 1.1823,
-        "net": 1.1823,
-        "attention": 1.1823,
+        "score": 1.1759,
+        "net": 1.1759,
+        "attention": 1.1759,
         "mentions": 11,
         "analystMentions": 11,
         "researchMentions": 0,
@@ -781,9 +781,9 @@ window.AIE_DATA = {
       "chg1mUSD": 24.71,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 0.8615,
-        "net": 0.8615,
-        "attention": 0.8615,
+        "score": 0.8568,
+        "net": 0.8568,
+        "attention": 0.8568,
         "mentions": 13,
         "analystMentions": 13,
         "researchMentions": 0,
@@ -815,9 +815,9 @@ window.AIE_DATA = {
       "chg1mUSD": -15.03,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 1.427,
-        "net": 1.427,
-        "attention": 1.427,
+        "score": 1.4192,
+        "net": 1.4192,
+        "attention": 1.4192,
         "mentions": 16,
         "analystMentions": 16,
         "researchMentions": 0,
@@ -848,9 +848,9 @@ window.AIE_DATA = {
       "marketCap": 33180802910.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 1.9929,
-        "net": 1.9929,
-        "attention": 1.9929,
+        "score": 1.982,
+        "net": 1.982,
+        "attention": 1.982,
         "mentions": 28,
         "analystMentions": 28,
         "researchMentions": 0,
@@ -895,9 +895,9 @@ window.AIE_DATA = {
       "marketCap": 1431189739.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 1.7168,
-        "net": 1.7168,
-        "attention": 2.8863,
+        "score": 1.7074,
+        "net": 1.7074,
+        "attention": 2.8705,
         "mentions": 30,
         "analystMentions": 27,
         "researchMentions": 3,
@@ -928,9 +928,9 @@ window.AIE_DATA = {
       "marketCap": 1081454516400.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 3.2153,
-        "net": 3.2153,
-        "attention": 3.2153,
+        "score": 3.1978,
+        "net": 3.1978,
+        "attention": 3.1978,
         "mentions": 22,
         "analystMentions": 22,
         "researchMentions": 0,
@@ -974,9 +974,9 @@ window.AIE_DATA = {
       "chg1y": -51.11,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 0.0238,
-        "net": 0.0238,
-        "attention": 0.0238,
+        "score": 0.0237,
+        "net": 0.0237,
+        "attention": 0.0237,
         "mentions": 2,
         "analystMentions": 2,
         "researchMentions": 0,
@@ -1007,9 +1007,9 @@ window.AIE_DATA = {
       "marketCap": 185193499575.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 0.0238,
-        "net": 0.0238,
-        "attention": 0.0238,
+        "score": 0.0237,
+        "net": 0.0237,
+        "attention": 0.0237,
         "mentions": 2,
         "analystMentions": 2,
         "researchMentions": 0,
@@ -1040,9 +1040,9 @@ window.AIE_DATA = {
       "marketCap": 1390505243516.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 1.0226,
-        "net": 1.0226,
-        "attention": 3.0084,
+        "score": 1.0171,
+        "net": 1.0171,
+        "attention": 2.992,
         "mentions": 42,
         "analystMentions": 36,
         "researchMentions": 6,
@@ -1073,9 +1073,9 @@ window.AIE_DATA = {
       "marketCap": 219826119253.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 1.8106,
-        "net": 1.8106,
-        "attention": 1.8106,
+        "score": 1.8007,
+        "net": 1.8007,
+        "attention": 1.8007,
         "mentions": 25,
         "analystMentions": 25,
         "researchMentions": 0,
@@ -1106,9 +1106,9 @@ window.AIE_DATA = {
       "marketCap": 3572800931428.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 1.2372,
-        "net": 1.2372,
-        "attention": 1.2372,
+        "score": 1.2304,
+        "net": 1.2304,
+        "attention": 1.2304,
         "mentions": 11,
         "analystMentions": 11,
         "researchMentions": 0,
@@ -1139,9 +1139,9 @@ window.AIE_DATA = {
       "marketCap": 333698149058.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 0.0144,
-        "net": 0.0144,
-        "attention": 0.0144,
+        "score": 0.0143,
+        "net": 0.0143,
+        "attention": 0.0143,
         "mentions": 1,
         "analystMentions": 1,
         "researchMentions": 0,
@@ -1172,9 +1172,9 @@ window.AIE_DATA = {
       "marketCap": 1079178870.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 0.0144,
-        "net": 0.0144,
-        "attention": 0.0144,
+        "score": 0.0143,
+        "net": 0.0143,
+        "attention": 0.0143,
         "mentions": 1,
         "analystMentions": 1,
         "researchMentions": 0,
@@ -1205,9 +1205,9 @@ window.AIE_DATA = {
       "marketCap": 829329949.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 1.0716,
-        "net": 1.0716,
-        "attention": 1.0716,
+        "score": 1.0657,
+        "net": 1.0657,
+        "attention": 1.0657,
         "mentions": 4,
         "analystMentions": 4,
         "researchMentions": 0,
@@ -1240,11 +1240,11 @@ window.AIE_DATA = {
       "chg1mUSD": 1.07,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 4.1112,
-        "net": 4.1112,
-        "attention": 10.6834,
-        "mentions": 128,
-        "analystMentions": 116,
+        "score": 4.5254,
+        "net": 4.5254,
+        "attention": 11.0617,
+        "mentions": 129,
+        "analystMentions": 117,
         "researchMentions": 12,
         "bullMentions": 0,
         "bearMentions": 11,
@@ -1290,9 +1290,9 @@ window.AIE_DATA = {
       "chg1mUSD": -21.7,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 0.8016,
-        "net": 0.8016,
-        "attention": 0.8016,
+        "score": 0.7973,
+        "net": 0.7973,
+        "attention": 0.7973,
         "mentions": 29,
         "analystMentions": 29,
         "researchMentions": 0,
@@ -1323,9 +1323,9 @@ window.AIE_DATA = {
       "marketCap": 220167390236.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 0.0337,
-        "net": 0.0337,
-        "attention": 0.0337,
+        "score": 0.0336,
+        "net": 0.0336,
+        "attention": 0.0336,
         "mentions": 1,
         "analystMentions": 1,
         "researchMentions": 0,
@@ -1356,9 +1356,9 @@ window.AIE_DATA = {
       "marketCap": 16499723160.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 0.0337,
-        "net": 0.0337,
-        "attention": 0.0337,
+        "score": 0.0336,
+        "net": 0.0336,
+        "attention": 0.0336,
         "mentions": 1,
         "analystMentions": 1,
         "researchMentions": 0,
@@ -1389,9 +1389,9 @@ window.AIE_DATA = {
       "marketCap": 7001869835.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 0.0337,
-        "net": 0.0337,
-        "attention": 0.0337,
+        "score": 0.0336,
+        "net": 0.0336,
+        "attention": 0.0336,
         "mentions": 1,
         "analystMentions": 1,
         "researchMentions": 0,
@@ -1422,9 +1422,9 @@ window.AIE_DATA = {
       "marketCap": 5361994343.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 0.0337,
-        "net": 0.0337,
-        "attention": 0.0337,
+        "score": 0.0336,
+        "net": 0.0336,
+        "attention": 0.0336,
         "mentions": 1,
         "analystMentions": 1,
         "researchMentions": 0,
@@ -1455,9 +1455,9 @@ window.AIE_DATA = {
       "marketCap": 3386381467.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 0.2577,
-        "net": 0.2577,
-        "attention": 0.2577,
+        "score": 0.2563,
+        "net": 0.2563,
+        "attention": 0.2563,
         "mentions": 3,
         "analystMentions": 3,
         "researchMentions": 0,
@@ -1488,9 +1488,9 @@ window.AIE_DATA = {
       "marketCap": 2805626936097.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 3.723,
-        "net": 3.723,
-        "attention": 3.723,
+        "score": 3.7027,
+        "net": 3.7027,
+        "attention": 3.7027,
         "mentions": 28,
         "analystMentions": 25,
         "researchMentions": 3,
@@ -1536,9 +1536,9 @@ window.AIE_DATA = {
       "marketCap": 1731902205622.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 1.3258,
-        "net": 1.3258,
-        "attention": 1.3258,
+        "score": 1.3186,
+        "net": 1.3186,
+        "attention": 1.3186,
         "mentions": 13,
         "analystMentions": 13,
         "researchMentions": 0,
@@ -1569,9 +1569,9 @@ window.AIE_DATA = {
       "marketCap": 393970537468.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 0.3411,
-        "net": 0.3411,
-        "attention": 0.3411,
+        "score": 0.3393,
+        "net": 0.3393,
+        "attention": 0.3393,
         "mentions": 5,
         "analystMentions": 5,
         "researchMentions": 0,
@@ -1602,9 +1602,9 @@ window.AIE_DATA = {
       "marketCap": 4543164942848.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 1.1923,
-        "net": 1.1923,
-        "attention": 1.1923,
+        "score": 1.1858,
+        "net": 1.1858,
+        "attention": 1.1858,
         "mentions": 11,
         "analystMentions": 11,
         "researchMentions": 0,
@@ -1635,9 +1635,9 @@ window.AIE_DATA = {
       "marketCap": 676724828388.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 0.0636,
-        "net": 0.0636,
-        "attention": 0.0636,
+        "score": 0.0632,
+        "net": 0.0632,
+        "attention": 0.0632,
         "mentions": 2,
         "analystMentions": 2,
         "researchMentions": 0,
@@ -1668,9 +1668,9 @@ window.AIE_DATA = {
       "marketCap": 388572708602.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 0.0225,
-        "net": 0.0225,
-        "attention": 0.0225,
+        "score": 0.0224,
+        "net": 0.0224,
+        "attention": 0.0224,
         "mentions": 1,
         "analystMentions": 1,
         "researchMentions": 0,
@@ -1701,9 +1701,9 @@ window.AIE_DATA = {
       "marketCap": 940419905.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 0.0225,
-        "net": 0.0225,
-        "attention": 0.0225,
+        "score": 0.0224,
+        "net": 0.0224,
+        "attention": 0.0224,
         "mentions": 1,
         "analystMentions": 1,
         "researchMentions": 0,
@@ -1734,9 +1734,9 @@ window.AIE_DATA = {
       "marketCap": 273115524.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 0.0239,
-        "net": 0.0239,
-        "attention": 0.0239,
+        "score": 0.0237,
+        "net": 0.0237,
+        "attention": 0.0237,
         "mentions": 1,
         "analystMentions": 1,
         "researchMentions": 0,
@@ -1764,9 +1764,9 @@ window.AIE_DATA = {
       "marketCap": 28684928,
       "asOf": "2026-07-14T17:04:16Z",
       "priority": {
-        "score": 0.0239,
-        "net": 0.0239,
-        "attention": 0.0239,
+        "score": 0.0237,
+        "net": 0.0237,
+        "attention": 0.0237,
         "mentions": 1,
         "analystMentions": 1,
         "researchMentions": 0,
@@ -1790,9 +1790,9 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-06-27",
       "priority": {
-        "score": 0.0239,
-        "net": 0.0239,
-        "attention": 0.0239,
+        "score": 0.0237,
+        "net": 0.0237,
+        "attention": 0.0237,
         "mentions": 1,
         "analystMentions": 1,
         "researchMentions": 0,
@@ -1823,9 +1823,9 @@ window.AIE_DATA = {
       "marketCap": 2881673326.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 0.0255,
-        "net": 0.0255,
-        "attention": 0.0255,
+        "score": 0.0254,
+        "net": 0.0254,
+        "attention": 0.0254,
         "mentions": 1,
         "analystMentions": 1,
         "researchMentions": 0,
@@ -1856,9 +1856,9 @@ window.AIE_DATA = {
       "marketCap": 2384048013.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 0.1188,
-        "net": 0.1188,
-        "attention": 0.1188,
+        "score": 0.1181,
+        "net": 0.1181,
+        "attention": 0.1181,
         "mentions": 3,
         "analystMentions": 3,
         "researchMentions": 0,
@@ -1889,9 +1889,9 @@ window.AIE_DATA = {
       "marketCap": 267768710583.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 0.0283,
-        "net": 0.0283,
-        "attention": 0.0283,
+        "score": 0.0282,
+        "net": 0.0282,
+        "attention": 0.0282,
         "mentions": 2,
         "analystMentions": 2,
         "researchMentions": 0,
@@ -1922,9 +1922,9 @@ window.AIE_DATA = {
       "marketCap": 4149895615470.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 2.8979,
-        "net": 2.8979,
-        "attention": 3.3061,
+        "score": 2.8821,
+        "net": 2.8821,
+        "attention": 3.288,
         "mentions": 34,
         "analystMentions": 25,
         "researchMentions": 9,
@@ -1970,9 +1970,9 @@ window.AIE_DATA = {
       "marketCap": 11634572321.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 1.3826,
-        "net": 1.3826,
-        "attention": 1.3826,
+        "score": 1.3751,
+        "net": 1.3751,
+        "attention": 1.3751,
         "mentions": 5,
         "analystMentions": 5,
         "researchMentions": 0,
@@ -2003,9 +2003,9 @@ window.AIE_DATA = {
       "marketCap": 1315347749.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 0.7247,
-        "net": 0.7247,
-        "attention": 0.7247,
+        "score": 0.7208,
+        "net": 0.7208,
+        "attention": 0.7208,
         "mentions": 10,
         "analystMentions": 10,
         "researchMentions": 0,
@@ -2036,9 +2036,9 @@ window.AIE_DATA = {
       "marketCap": 766373529204.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 3.6637,
-        "net": 3.6637,
-        "attention": 4.2484,
+        "score": 3.6437,
+        "net": 3.6437,
+        "attention": 4.2252,
         "mentions": 48,
         "analystMentions": 39,
         "researchMentions": 9,
@@ -2084,11 +2084,11 @@ window.AIE_DATA = {
       "marketCap": 20328408264.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 3.1917,
-        "net": 3.1917,
-        "attention": 3.1917,
-        "mentions": 17,
-        "analystMentions": 14,
+        "score": 3.6109,
+        "net": 3.6109,
+        "attention": 3.6109,
+        "mentions": 18,
+        "analystMentions": 15,
         "researchMentions": 3,
         "bullMentions": 1,
         "bearMentions": 0,
@@ -2133,9 +2133,9 @@ window.AIE_DATA = {
       "marketCap": 234361179065.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 2.6131,
-        "net": 2.6131,
-        "attention": 3.7826,
+        "score": 2.5989,
+        "net": 2.5989,
+        "attention": 3.762,
         "mentions": 29,
         "analystMentions": 26,
         "researchMentions": 3,
@@ -2181,9 +2181,9 @@ window.AIE_DATA = {
       "marketCap": 1138830219.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 0.0385,
-        "net": 0.0385,
-        "attention": 0.0385,
+        "score": 0.0383,
+        "net": 0.0383,
+        "attention": 0.0383,
         "mentions": 1,
         "analystMentions": 1,
         "researchMentions": 0,
@@ -2213,9 +2213,9 @@ window.AIE_DATA = {
       "marketCap": 49852806849.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 0.44,
-        "net": 0.44,
-        "attention": 0.44,
+        "score": 0.4376,
+        "net": 0.4376,
+        "attention": 0.4376,
         "mentions": 3,
         "analystMentions": 3,
         "researchMentions": 0,
@@ -2246,9 +2246,9 @@ window.AIE_DATA = {
       "marketCap": 1481964033.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 0.2041,
-        "net": 0.2041,
-        "attention": 0.2041,
+        "score": 0.203,
+        "net": 0.203,
+        "attention": 0.203,
         "mentions": 3,
         "analystMentions": 3,
         "researchMentions": 0,
@@ -2278,9 +2278,9 @@ window.AIE_DATA = {
       "marketCap": 632690015.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 2.5111,
-        "net": 2.5111,
-        "attention": 4.9733,
+        "score": 2.4974,
+        "net": 2.4974,
+        "attention": 4.9462,
         "mentions": 37,
         "analystMentions": 31,
         "researchMentions": 6,
@@ -2325,9 +2325,9 @@ window.AIE_DATA = {
       "marketCap": 238199500,
       "asOf": "2026-07-14T17:04:16Z",
       "priority": {
-        "score": 0.0344,
-        "net": 0.0344,
-        "attention": 0.0344,
+        "score": 0.0343,
+        "net": 0.0343,
+        "attention": 0.0343,
         "mentions": 1,
         "analystMentions": 1,
         "researchMentions": 0,
@@ -2357,9 +2357,9 @@ window.AIE_DATA = {
       "marketCap": 671533984.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 0.0344,
-        "net": 0.0344,
-        "attention": 0.0344,
+        "score": 0.0343,
+        "net": 0.0343,
+        "attention": 0.0343,
         "mentions": 1,
         "analystMentions": 1,
         "researchMentions": 0,
@@ -2390,9 +2390,9 @@ window.AIE_DATA = {
       "marketCap": 4706594812.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 0.0344,
-        "net": 0.0344,
-        "attention": 0.0344,
+        "score": 0.0343,
+        "net": 0.0343,
+        "attention": 0.0343,
         "mentions": 1,
         "analystMentions": 1,
         "researchMentions": 0,
@@ -2423,9 +2423,9 @@ window.AIE_DATA = {
       "marketCap": 2365280526.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 0.0344,
-        "net": 0.0344,
-        "attention": 0.0344,
+        "score": 0.0343,
+        "net": 0.0343,
+        "attention": 0.0343,
         "mentions": 1,
         "analystMentions": 1,
         "researchMentions": 0,
@@ -2456,9 +2456,9 @@ window.AIE_DATA = {
       "marketCap": 15751434635.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 1.2756,
-        "net": 1.2756,
-        "attention": 1.9248,
+        "score": 1.2687,
+        "net": 1.2687,
+        "attention": 1.9143,
         "mentions": 19,
         "analystMentions": 16,
         "researchMentions": 3,
@@ -2489,9 +2489,9 @@ window.AIE_DATA = {
       "marketCap": 277653637546.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 0.0314,
-        "net": 0.0314,
-        "attention": 0.0314,
+        "score": 0.0313,
+        "net": 0.0313,
+        "attention": 0.0313,
         "mentions": 1,
         "analystMentions": 1,
         "researchMentions": 0,
@@ -2522,9 +2522,9 @@ window.AIE_DATA = {
       "marketCap": 25972390567.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 2.0246,
-        "net": 2.0246,
-        "attention": 2.0246,
+        "score": 2.0136,
+        "net": 2.0136,
+        "attention": 2.0136,
         "mentions": 25,
         "analystMentions": 25,
         "researchMentions": 0,
@@ -2556,9 +2556,9 @@ window.AIE_DATA = {
       "chg1mUSD": 15.79,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 1.7019,
-        "net": 1.7019,
-        "attention": 1.7019,
+        "score": 1.6927,
+        "net": 1.6927,
+        "attention": 1.6927,
         "mentions": 14,
         "analystMentions": 14,
         "researchMentions": 0,
@@ -2589,9 +2589,9 @@ window.AIE_DATA = {
       "marketCap": 312863829764.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 0.077,
-        "net": 0.077,
-        "attention": 0.077,
+        "score": 0.0766,
+        "net": 0.0766,
+        "attention": 0.0766,
         "mentions": 1,
         "analystMentions": 1,
         "researchMentions": 0,
@@ -2622,9 +2622,9 @@ window.AIE_DATA = {
       "marketCap": 242834640357.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 0.0688,
-        "net": 0.0688,
-        "attention": 0.0688,
+        "score": 0.0684,
+        "net": 0.0684,
+        "attention": 0.0684,
         "mentions": 2,
         "analystMentions": 2,
         "researchMentions": 0,
@@ -2655,9 +2655,9 @@ window.AIE_DATA = {
       "marketCap": 81610291860.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 0.2888,
-        "net": 0.2888,
-        "attention": 0.2888,
+        "score": 0.2872,
+        "net": 0.2872,
+        "attention": 0.2872,
         "mentions": 3,
         "analystMentions": 3,
         "researchMentions": 0,
@@ -2688,9 +2688,9 @@ window.AIE_DATA = {
       "marketCap": 59635886445.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 0.5723,
-        "net": 0.5723,
-        "attention": 0.5723,
+        "score": 0.5692,
+        "net": 0.5692,
+        "attention": 0.5692,
         "mentions": 5,
         "analystMentions": 5,
         "researchMentions": 0,
@@ -2721,9 +2721,9 @@ window.AIE_DATA = {
       "marketCap": 1467958793.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 0.0367,
-        "net": 0.0367,
-        "attention": 0.0367,
+        "score": 0.0365,
+        "net": 0.0365,
+        "attention": 0.0365,
         "mentions": 1,
         "analystMentions": 1,
         "researchMentions": 0,
@@ -2754,9 +2754,9 @@ window.AIE_DATA = {
       "marketCap": 2736662978.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 0.4499,
-        "net": 0.4499,
-        "attention": 0.4499,
+        "score": 0.4475,
+        "net": 0.4475,
+        "attention": 0.4475,
         "mentions": 4,
         "analystMentions": 4,
         "researchMentions": 0,
@@ -2787,9 +2787,9 @@ window.AIE_DATA = {
       "marketCap": 130457285696.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 0.3052,
-        "net": 0.3052,
-        "attention": 0.3052,
+        "score": 0.3036,
+        "net": 0.3036,
+        "attention": 0.3036,
         "mentions": 3,
         "analystMentions": 3,
         "researchMentions": 0,
@@ -2820,9 +2820,9 @@ window.AIE_DATA = {
       "marketCap": 59901938250.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 0.1222,
-        "net": 0.1222,
-        "attention": 0.1222,
+        "score": 0.1216,
+        "net": 0.1216,
+        "attention": 0.1216,
         "mentions": 2,
         "analystMentions": 2,
         "researchMentions": 0,
@@ -2853,9 +2853,9 @@ window.AIE_DATA = {
       "marketCap": 168777005767.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 0.2615,
-        "net": 0.2615,
-        "attention": 0.2615,
+        "score": 0.2601,
+        "net": 0.2601,
+        "attention": 0.2601,
         "mentions": 3,
         "analystMentions": 3,
         "researchMentions": 0,
@@ -2886,9 +2886,9 @@ window.AIE_DATA = {
       "marketCap": 59293120821.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 0.0436,
-        "net": 0.0436,
-        "attention": 0.0436,
+        "score": 0.0433,
+        "net": 0.0433,
+        "attention": 0.0433,
         "mentions": 5,
         "analystMentions": 5,
         "researchMentions": 0,
@@ -2945,9 +2945,9 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-07-03",
       "priority": {
-        "score": 0.0086,
-        "net": 0.0086,
-        "attention": 0.0086,
+        "score": 0.0085,
+        "net": 0.0085,
+        "attention": 0.0085,
         "mentions": 1,
         "analystMentions": 1,
         "researchMentions": 0,
@@ -3004,9 +3004,9 @@ window.AIE_DATA = {
       "marketCap": 7142677967.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 0.1638,
-        "net": 0.1638,
-        "attention": 0.1638,
+        "score": 0.1629,
+        "net": 0.1629,
+        "attention": 0.1629,
         "mentions": 3,
         "analystMentions": 3,
         "researchMentions": 0,
@@ -3037,9 +3037,9 @@ window.AIE_DATA = {
       "marketCap": 8213334040.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 0.1231,
-        "net": 0.1231,
-        "attention": 0.1231,
+        "score": 0.1224,
+        "net": 0.1224,
+        "attention": 0.1224,
         "mentions": 2,
         "analystMentions": 2,
         "researchMentions": 0,
@@ -3070,9 +3070,9 @@ window.AIE_DATA = {
       "marketCap": 50400860294.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 0.1107,
-        "net": 0.1107,
-        "attention": 0.1107,
+        "score": 0.1101,
+        "net": 0.1101,
+        "attention": 0.1101,
         "mentions": 2,
         "analystMentions": 2,
         "researchMentions": 0,
@@ -3103,9 +3103,9 @@ window.AIE_DATA = {
       "marketCap": 409228393997.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 0.8016,
-        "net": 0.8016,
-        "attention": 0.8016,
+        "score": 0.7972,
+        "net": 0.7972,
+        "attention": 0.7972,
         "mentions": 3,
         "analystMentions": 3,
         "researchMentions": 0,
@@ -3136,9 +3136,9 @@ window.AIE_DATA = {
       "marketCap": 5468854164.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 0.027,
-        "net": 0.027,
-        "attention": 0.027,
+        "score": 0.0269,
+        "net": 0.0269,
+        "attention": 0.0269,
         "mentions": 1,
         "analystMentions": 1,
         "researchMentions": 0,
@@ -3169,9 +3169,9 @@ window.AIE_DATA = {
       "marketCap": 6930459479.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 0.027,
-        "net": 0.027,
-        "attention": 0.027,
+        "score": 0.0269,
+        "net": 0.0269,
+        "attention": 0.0269,
         "mentions": 1,
         "analystMentions": 1,
         "researchMentions": 0,
@@ -3195,9 +3195,9 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-07-03",
       "priority": {
-        "score": 0.1914,
-        "net": 0.1914,
-        "attention": 0.1914,
+        "score": 0.1904,
+        "net": 0.1904,
+        "attention": 0.1904,
         "mentions": 3,
         "analystMentions": 3,
         "researchMentions": 0,
@@ -3228,9 +3228,9 @@ window.AIE_DATA = {
       "marketCap": 96347609880.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 0.0349,
-        "net": 0.0349,
-        "attention": 0.0349,
+        "score": 0.0347,
+        "net": 0.0347,
+        "attention": 0.0347,
         "mentions": 1,
         "analystMentions": 1,
         "researchMentions": 0,
@@ -3261,9 +3261,9 @@ window.AIE_DATA = {
       "marketCap": 40539596679.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 0.0349,
-        "net": 0.0349,
-        "attention": 0.0349,
+        "score": 0.0347,
+        "net": 0.0347,
+        "attention": 0.0347,
         "mentions": 1,
         "analystMentions": 1,
         "researchMentions": 0,
@@ -3294,9 +3294,9 @@ window.AIE_DATA = {
       "marketCap": 160443094233.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 0.1964,
-        "net": 0.1964,
-        "attention": 0.1964,
+        "score": 0.1954,
+        "net": 0.1954,
+        "attention": 0.1954,
         "mentions": 2,
         "analystMentions": 2,
         "researchMentions": 0,
@@ -3328,9 +3328,9 @@ window.AIE_DATA = {
       "chg1mUSD": 5.8,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 0.0315,
-        "net": 0.0315,
-        "attention": 0.0315,
+        "score": 0.0313,
+        "net": 0.0313,
+        "attention": 0.0313,
         "mentions": 1,
         "analystMentions": 1,
         "researchMentions": 0,
@@ -3360,9 +3360,9 @@ window.AIE_DATA = {
       "marketCap": 2181308758.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 0.2023,
-        "net": 0.2023,
-        "attention": 0.2023,
+        "score": 0.2012,
+        "net": 0.2012,
+        "attention": 0.2012,
         "mentions": 2,
         "analystMentions": 2,
         "researchMentions": 0,
@@ -3393,9 +3393,9 @@ window.AIE_DATA = {
       "marketCap": 13197576861.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 0.0409,
-        "net": 0.0409,
-        "attention": 0.0409,
+        "score": 0.0407,
+        "net": 0.0407,
+        "attention": 0.0407,
         "mentions": 1,
         "analystMentions": 1,
         "researchMentions": 0,
@@ -3426,9 +3426,9 @@ window.AIE_DATA = {
       "marketCap": 6851309887.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 0.0409,
-        "net": 0.0409,
-        "attention": 0.0409,
+        "score": 0.0407,
+        "net": 0.0407,
+        "attention": 0.0407,
         "mentions": 1,
         "analystMentions": 1,
         "researchMentions": 0,
@@ -3459,9 +3459,9 @@ window.AIE_DATA = {
       "marketCap": 161298597789.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 0.0409,
-        "net": 0.0409,
-        "attention": 0.0409,
+        "score": 0.0407,
+        "net": 0.0407,
+        "attention": 0.0407,
         "mentions": 1,
         "analystMentions": 1,
         "researchMentions": 0,
@@ -3492,9 +3492,9 @@ window.AIE_DATA = {
       "marketCap": 101879402782.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 0.0409,
-        "net": 0.0409,
-        "attention": 0.0409,
+        "score": 0.0407,
+        "net": 0.0407,
+        "attention": 0.0407,
         "mentions": 1,
         "analystMentions": 1,
         "researchMentions": 0,
@@ -3525,9 +3525,9 @@ window.AIE_DATA = {
       "marketCap": 8502931498.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 0.0608,
-        "net": 0.0608,
-        "attention": 0.0608,
+        "score": 0.0605,
+        "net": 0.0605,
+        "attention": 0.0605,
         "mentions": 1,
         "analystMentions": 1,
         "researchMentions": 0,
@@ -3558,9 +3558,9 @@ window.AIE_DATA = {
       "marketCap": 77164019238.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 0.043,
-        "net": 0.043,
-        "attention": 0.043,
+        "score": 0.0428,
+        "net": 0.0428,
+        "attention": 0.0428,
         "mentions": 1,
         "analystMentions": 1,
         "researchMentions": 0,
@@ -3591,9 +3591,9 @@ window.AIE_DATA = {
       "marketCap": 55786453137.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 0.043,
-        "net": 0.043,
-        "attention": 0.043,
+        "score": 0.0428,
+        "net": 0.0428,
+        "attention": 0.0428,
         "mentions": 1,
         "analystMentions": 1,
         "researchMentions": 0,
@@ -3624,16 +3624,16 @@ window.AIE_DATA = {
       "marketCap": 75592448063.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 0.9324,
-        "net": 0.9324,
-        "attention": 0.9324,
-        "mentions": 3,
-        "analystMentions": 3,
+        "score": 1.3639,
+        "net": 1.3639,
+        "attention": 1.3639,
+        "mentions": 4,
+        "analystMentions": 4,
         "researchMentions": 0,
         "bullMentions": 0,
         "bearMentions": 0,
         "convictionHits": 0,
-        "lastMentioned": "2026-08-20T09:45:17Z"
+        "lastMentioned": "2026-08-20T17:24:14Z"
       },
       "tier": "radar"
     },
@@ -3657,9 +3657,9 @@ window.AIE_DATA = {
       "marketCap": 15941853993.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 0.0318,
-        "net": 0.0318,
-        "attention": 0.0318,
+        "score": 0.0316,
+        "net": 0.0316,
+        "attention": 0.0316,
         "mentions": 1,
         "analystMentions": 1,
         "researchMentions": 0,
@@ -3683,9 +3683,9 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-07-06",
       "priority": {
-        "score": 0.0608,
-        "net": 0.0608,
-        "attention": 0.0608,
+        "score": 0.0605,
+        "net": 0.0605,
+        "attention": 0.0605,
         "mentions": 1,
         "analystMentions": 1,
         "researchMentions": 0,
@@ -3716,9 +3716,9 @@ window.AIE_DATA = {
       "marketCap": 7433365066.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 0.0973,
-        "net": 0.0973,
-        "attention": 0.0973,
+        "score": 0.0968,
+        "net": 0.0968,
+        "attention": 0.0968,
         "mentions": 2,
         "analystMentions": 2,
         "researchMentions": 0,
@@ -3749,9 +3749,9 @@ window.AIE_DATA = {
       "marketCap": 11231769600.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 0.0846,
-        "net": 0.0846,
-        "attention": 0.0846,
+        "score": 0.0841,
+        "net": 0.0841,
+        "attention": 0.0841,
         "mentions": 1,
         "analystMentions": 1,
         "researchMentions": 0,
@@ -3782,9 +3782,9 @@ window.AIE_DATA = {
       "marketCap": 12636294301.0,
       "asOf": "2026-08-21T01:00:04Z",
       "priority": {
-        "score": 0.5433,
-        "net": 0.5433,
-        "attention": 0.5433,
+        "score": 0.5403,
+        "net": 0.5403,
+        "attention": 0.5403,
         "mentions": 4,
         "analystMentions": 4,
         "researchMentions": 0,
@@ -3842,9 +3842,9 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-07-22",
       "priority": {
-        "score": 0.1343,
-        "net": 0.1343,
-        "attention": 0.1343,
+        "score": 0.1336,
+        "net": 0.1336,
+        "attention": 0.1336,
         "mentions": 1,
         "analystMentions": 1,
         "researchMentions": 0,
@@ -3868,9 +3868,9 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-07-22",
       "priority": {
-        "score": 0.1343,
-        "net": 0.1343,
-        "attention": 0.1343,
+        "score": 0.1336,
+        "net": 0.1336,
+        "attention": 0.1336,
         "mentions": 1,
         "analystMentions": 1,
         "researchMentions": 0,
@@ -3894,9 +3894,9 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-07-22",
       "priority": {
-        "score": 0.0879,
-        "net": 0.0879,
-        "attention": 0.0879,
+        "score": 0.0874,
+        "net": 0.0874,
+        "attention": 0.0874,
         "mentions": 1,
         "analystMentions": 1,
         "researchMentions": 0,
@@ -3920,9 +3920,9 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-07-22",
       "priority": {
-        "score": 0.0879,
-        "net": 0.0879,
-        "attention": 0.0879,
+        "score": 0.0874,
+        "net": 0.0874,
+        "attention": 0.0874,
         "mentions": 1,
         "analystMentions": 1,
         "researchMentions": 0,
@@ -3946,9 +3946,9 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-07-22",
       "priority": {
-        "score": 0.0879,
-        "net": 0.0879,
-        "attention": 0.0879,
+        "score": 0.0874,
+        "net": 0.0874,
+        "attention": 0.0874,
         "mentions": 1,
         "analystMentions": 1,
         "researchMentions": 0,
@@ -3972,9 +3972,9 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-07-29",
       "priority": {
-        "score": 1.6553,
-        "net": 1.6553,
-        "attention": 1.6553,
+        "score": 1.6463,
+        "net": 1.6463,
+        "attention": 1.6463,
         "mentions": 6,
         "analystMentions": 6,
         "researchMentions": 0,
@@ -3998,9 +3998,9 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-07-30",
       "priority": {
-        "score": 0.2387,
-        "net": 0.2387,
-        "attention": 0.2387,
+        "score": 0.2374,
+        "net": 0.2374,
+        "attention": 0.2374,
         "mentions": 1,
         "analystMentions": 1,
         "researchMentions": 0,
@@ -4024,9 +4024,9 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-07-30",
       "priority": {
-        "score": 0.8695,
-        "net": 0.8695,
-        "attention": 0.8695,
+        "score": 0.8647,
+        "net": 0.8647,
+        "attention": 0.8647,
         "mentions": 4,
         "analystMentions": 4,
         "researchMentions": 0,
@@ -4050,9 +4050,9 @@ window.AIE_DATA = {
       "sourceTweetUrl": "https://x.com/aleabitoreddit/status/2083106805949878330",
       "addedDate": "2026-07-31",
       "priority": {
-        "score": 0.2067,
-        "net": 0.2067,
-        "attention": 0.2067,
+        "score": 0.2055,
+        "net": 0.2055,
+        "attention": 0.2055,
         "mentions": 1,
         "analystMentions": 1,
         "researchMentions": 0,
@@ -4076,9 +4076,9 @@ window.AIE_DATA = {
       "sourceTweetUrl": "https://x.com/aleabitoreddit/status/2085174977272360987",
       "addedDate": "2026-08-07",
       "priority": {
-        "score": 0.3358,
-        "net": 0.3358,
-        "attention": 0.3358,
+        "score": 0.3339,
+        "net": 0.3339,
+        "attention": 0.3339,
         "mentions": 1,
         "analystMentions": 1,
         "researchMentions": 0,
@@ -4102,9 +4102,9 @@ window.AIE_DATA = {
       "sourceTweetUrl": "https://x.com/aleabitoreddit/status/2085823672569467005",
       "addedDate": "2026-08-08",
       "priority": {
-        "score": 0.232,
-        "net": 0.232,
-        "attention": 0.232,
+        "score": 0.2308,
+        "net": 0.2308,
+        "attention": 0.2308,
         "mentions": 1,
         "analystMentions": 1,
         "researchMentions": 0,
@@ -4128,9 +4128,9 @@ window.AIE_DATA = {
       "sourceTweetUrl": "https://x.com/aleabitoreddit/status/2085823672569467005",
       "addedDate": "2026-08-08",
       "priority": {
-        "score": 0.232,
-        "net": 0.232,
-        "attention": 0.232,
+        "score": 0.2308,
+        "net": 0.2308,
+        "attention": 0.2308,
         "mentions": 1,
         "analystMentions": 1,
         "researchMentions": 0,
@@ -4154,9 +4154,9 @@ window.AIE_DATA = {
       "sourceTweetUrl": "https://x.com/aleabitoreddit/status/2085823672569467005",
       "addedDate": "2026-08-08",
       "priority": {
-        "score": 0.232,
-        "net": 0.232,
-        "attention": 0.232,
+        "score": 0.2308,
+        "net": 0.2308,
+        "attention": 0.2308,
         "mentions": 1,
         "analystMentions": 1,
         "researchMentions": 0,
@@ -4180,9 +4180,9 @@ window.AIE_DATA = {
       "sourceTweetUrl": "https://x.com/aleabitoreddit/status/2085823672569467005",
       "addedDate": "2026-08-08",
       "priority": {
-        "score": 0.232,
-        "net": 0.232,
-        "attention": 0.232,
+        "score": 0.2308,
+        "net": 0.2308,
+        "attention": 0.2308,
         "mentions": 1,
         "analystMentions": 1,
         "researchMentions": 0,
@@ -4206,9 +4206,9 @@ window.AIE_DATA = {
       "sourceTweetUrl": "https://x.com/aleabitoreddit/status/2085711500875116887",
       "addedDate": "2026-08-08",
       "priority": {
-        "score": 0.2555,
-        "net": 0.2555,
-        "attention": 0.2555,
+        "score": 0.2541,
+        "net": 0.2541,
+        "attention": 0.2541,
         "mentions": 1,
         "analystMentions": 1,
         "researchMentions": 0,
@@ -4232,9 +4232,9 @@ window.AIE_DATA = {
       "sourceTweetUrl": "https://x.com/aleabitoreddit/status/2086157318065168490",
       "addedDate": "2026-08-10",
       "priority": {
-        "score": 0.2217,
-        "net": 0.2217,
-        "attention": 0.2217,
+        "score": 0.2205,
+        "net": 0.2205,
+        "attention": 0.2205,
         "mentions": 1,
         "analystMentions": 1,
         "researchMentions": 0,
@@ -4258,9 +4258,9 @@ window.AIE_DATA = {
       "sourceTweetUrl": "https://x.com/aleabitoreddit/status/2086157318065168490",
       "addedDate": "2026-08-10",
       "priority": {
-        "score": 0.2217,
-        "net": 0.2217,
-        "attention": 0.2217,
+        "score": 0.2205,
+        "net": 0.2205,
+        "attention": 0.2205,
         "mentions": 1,
         "analystMentions": 1,
         "researchMentions": 0,
@@ -4284,9 +4284,9 @@ window.AIE_DATA = {
       "sourceTweetUrl": "https://x.com/aleabitoreddit/status/2086988264448409739",
       "addedDate": "2026-08-11",
       "priority": {
-        "score": 0.3512,
-        "net": 0.3512,
-        "attention": 0.3512,
+        "score": 0.3493,
+        "net": 0.3493,
+        "attention": 0.3493,
         "mentions": 1,
         "analystMentions": 1,
         "researchMentions": 0,
@@ -4310,9 +4310,9 @@ window.AIE_DATA = {
       "sourceTweetUrl": "https://x.com/aleabitoreddit/status/2087280662802026931",
       "addedDate": "2026-08-12",
       "priority": {
-        "score": 1.66,
-        "net": 1.66,
-        "attention": 1.66,
+        "score": 1.651,
+        "net": 1.651,
+        "attention": 1.651,
         "mentions": 4,
         "analystMentions": 4,
         "researchMentions": 0,
@@ -4336,9 +4336,9 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-08-12",
       "priority": {
-        "score": 0.3738,
-        "net": 0.3738,
-        "attention": 0.3738,
+        "score": 0.3718,
+        "net": 0.3718,
+        "attention": 0.3718,
         "mentions": 1,
         "analystMentions": 1,
         "researchMentions": 0,
@@ -4362,9 +4362,9 @@ window.AIE_DATA = {
       "sourceTweetUrl": "",
       "addedDate": "2026-08-12",
       "priority": {
-        "score": 0.3738,
-        "net": 0.3738,
-        "attention": 0.3738,
+        "score": 0.3718,
+        "net": 0.3718,
+        "attention": 0.3718,
         "mentions": 1,
         "analystMentions": 1,
         "researchMentions": 0,
@@ -4444,9 +4444,9 @@ window.AIE_DATA = {
       "sourceTweetUrl": "https://x.com/aleabitoreddit/status/2087902683474891106",
       "addedDate": "2026-08-14",
       "priority": {
-        "score": 0.3979,
-        "net": 0.3979,
-        "attention": 0.3979,
+        "score": 0.3958,
+        "net": 0.3958,
+        "attention": 0.3958,
         "mentions": 1,
         "analystMentions": 1,
         "researchMentions": 0,
@@ -4470,9 +4470,9 @@ window.AIE_DATA = {
       "sourceTweetUrl": "https://x.com/aleabitoreddit/status/2088181416148562017",
       "addedDate": "2026-08-14",
       "priority": {
-        "score": 0.4134,
-        "net": 0.4134,
-        "attention": 0.4134,
+        "score": 0.4111,
+        "net": 0.4111,
+        "attention": 0.4111,
         "mentions": 1,
         "analystMentions": 1,
         "researchMentions": 0,
@@ -4496,9 +4496,9 @@ window.AIE_DATA = {
       "sourceTweetUrl": "https://x.com/aleabitoreddit/status/2088181416148562017",
       "addedDate": "2026-08-14",
       "priority": {
-        "score": 0.4134,
-        "net": 0.4134,
-        "attention": 0.4134,
+        "score": 0.4111,
+        "net": 0.4111,
+        "attention": 0.4111,
         "mentions": 1,
         "analystMentions": 1,
         "researchMentions": 0,
@@ -4522,9 +4522,9 @@ window.AIE_DATA = {
       "sourceTweetUrl": "https://x.com/aleabitoreddit/status/2088181416148562017",
       "addedDate": "2026-08-14",
       "priority": {
-        "score": 0.4134,
-        "net": 0.4134,
-        "attention": 0.4134,
+        "score": 0.4111,
+        "net": 0.4111,
+        "attention": 0.4111,
         "mentions": 1,
         "analystMentions": 1,
         "researchMentions": 0,
@@ -4548,9 +4548,9 @@ window.AIE_DATA = {
       "sourceTweetUrl": "https://x.com/aleabitoreddit/status/2090374603264929981",
       "addedDate": "2026-08-20",
       "priority": {
-        "score": 0.4321,
-        "net": 0.4321,
-        "attention": 0.4321,
+        "score": 0.4297,
+        "net": 0.4297,
+        "attention": 0.4297,
         "mentions": 1,
         "analystMentions": 1,
         "researchMentions": 0,
@@ -4574,9 +4574,9 @@ window.AIE_DATA = {
       "sourceTweetUrl": "https://x.com/aleabitoreddit/status/2090374603264929981",
       "addedDate": "2026-08-20",
       "priority": {
-        "score": 0.4321,
-        "net": 0.4321,
-        "attention": 0.4321,
+        "score": 0.4297,
+        "net": 0.4297,
+        "attention": 0.4297,
         "mentions": 1,
         "analystMentions": 1,
         "researchMentions": 0,
@@ -20142,28 +20142,74 @@ window.AIE_DATA = {
       ],
       "conviction": "normal",
       "tags": []
+    },
+    {
+      "id": "x_2090490101260591481",
+      "source": "x",
+      "author": "aleabitoreddit",
+      "sourceUrl": "https://x.com/aleabitoreddit/status/2090490101260591481",
+      "postedAt": "2026-08-20T17:24:14Z",
+      "ingestedAt": "2026-08-21T04:58:13Z",
+      "text": "Very positive. My opinion is that the optical sector underperformance recently from $AAOI to $SIVE has been absurd.\n\nThe demand visibility... is just way too stupidly high.\n\nAOI: \u201cEven combined AOI, Coherent program altogether, is still very tough to meet the customer demand in the next 3 years\u201d (2029)\n\nElazr GM: \"entire optical supply chain was facing major shortages.\" \"The shortage will continue to the next few years\"\n\nSivers CEO said the same thing about InP laser demand imbalances expected for the next 3-5 years.\n\nCan go on and on about $LITE, $MTSI and other comments.\n\nWe haven't even hit the inflection point with 1.6T, NPO, CPO scale out/up, and optics with memory (as seen with SK Hynix).\n\nYet the industry is already bottlenecked by EML/CW and all your other upstream components from PDs/TIA/DSPs, transceivers, and soon FAU + others when CPO scales\u2026 \n\nI'm personally extremely comfortable watching this all play out, but just a little confused that markets don't know how to math a year or two ahead. https://x.com/aleabitoreddit/status/2090490101260591481",
+      "tickers": [
+        "AAOI",
+        "GM",
+        "LITE",
+        "MTSI",
+        "SIVE"
+      ],
+      "conviction": "normal",
+      "tags": []
+    },
+    {
+      "id": "x_2090510568474231045",
+      "source": "x",
+      "author": "aleabitoreddit",
+      "sourceUrl": "https://x.com/aleabitoreddit/status/2090510568474231045",
+      "postedAt": "2026-08-20T18:45:33Z",
+      "ingestedAt": "2026-08-21T04:58:15Z",
+      "text": "After seeing how the robotics and space sectors reacted to Unitree and $SPCX IPOs\n\nI\u2019m not quite sure I want Anthropic to go public\u2026 https://x.com/aleabitoreddit/status/2090510568474231045",
+      "tickers": [
+        "SPCX"
+      ],
+      "conviction": "normal",
+      "tags": []
     }
   ],
   "priorities": [
     {
       "ticker": "LITE",
-      "score": 8.9543,
-      "net": 8.9543,
-      "attention": 10.5319,
-      "mentions": 92,
-      "analystMentions": 80,
+      "score": 9.342,
+      "net": 9.342,
+      "attention": 10.911,
+      "mentions": 93,
+      "analystMentions": 81,
       "bullMentions": 5,
       "bearMentions": 3,
       "researchMentions": 12,
-      "weightedMentions": 35.9455,
+      "weightedMentions": 36.3927,
       "convictionHits": 6,
-      "lastMentioned": "2026-08-19T07:11:47Z"
+      "lastMentioned": "2026-08-20T17:24:14Z"
+    },
+    {
+      "ticker": "AAOI",
+      "score": 6.2676,
+      "net": 6.2676,
+      "attention": 12.398,
+      "mentions": 97,
+      "analystMentions": 85,
+      "bullMentions": 1,
+      "bearMentions": 10,
+      "researchMentions": 12,
+      "weightedMentions": 41.5654,
+      "convictionHits": 5,
+      "lastMentioned": "2026-08-20T19:56:29Z"
     },
     {
       "ticker": "NVDA",
-      "score": 6.2079,
-      "net": 6.2079,
-      "attention": 7.2007,
+      "score": 6.174,
+      "net": 6.174,
+      "attention": 7.1615,
       "mentions": 81,
       "analystMentions": 72,
       "bullMentions": 1,
@@ -20174,38 +20220,24 @@ window.AIE_DATA = {
       "lastMentioned": "2026-08-19T02:51:57Z"
     },
     {
-      "ticker": "AAOI",
-      "score": 5.8631,
-      "net": 5.8631,
-      "attention": 12.0271,
-      "mentions": 96,
-      "analystMentions": 84,
-      "bullMentions": 1,
-      "bearMentions": 10,
-      "researchMentions": 12,
-      "weightedMentions": 41.1182,
-      "convictionHits": 5,
-      "lastMentioned": "2026-08-20T19:56:29Z"
-    },
-    {
       "ticker": "SIVE",
-      "score": 4.1112,
-      "net": 4.1112,
-      "attention": 10.6834,
-      "mentions": 128,
-      "analystMentions": 116,
+      "score": 4.5254,
+      "net": 4.5254,
+      "attention": 11.0617,
+      "mentions": 129,
+      "analystMentions": 117,
       "bullMentions": 0,
       "bearMentions": 11,
       "researchMentions": 12,
-      "weightedMentions": 60.2689,
+      "weightedMentions": 60.7161,
       "convictionHits": 12,
       "lastMentioned": "2026-08-20T19:55:21Z"
     },
     {
       "ticker": "AMZN",
-      "score": 3.723,
-      "net": 3.723,
-      "attention": 3.723,
+      "score": 3.7027,
+      "net": 3.7027,
+      "attention": 3.7027,
       "mentions": 28,
       "analystMentions": 25,
       "bullMentions": 1,
@@ -20217,9 +20249,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "AMD",
-      "score": 3.6637,
-      "net": 3.6637,
-      "attention": 4.2484,
+      "score": 3.6437,
+      "net": 3.6437,
+      "attention": 4.2252,
       "mentions": 48,
       "analystMentions": 39,
       "bullMentions": 3,
@@ -20230,10 +20262,24 @@ window.AIE_DATA = {
       "lastMentioned": "2026-08-17T09:26:49Z"
     },
     {
+      "ticker": "MTSI",
+      "score": 3.6109,
+      "net": 3.6109,
+      "attention": 3.6109,
+      "mentions": 18,
+      "analystMentions": 15,
+      "bullMentions": 1,
+      "bearMentions": 0,
+      "researchMentions": 3,
+      "weightedMentions": 6.7185,
+      "convictionHits": 1,
+      "lastMentioned": "2026-08-20T19:55:21Z"
+    },
+    {
       "ticker": "MU",
-      "score": 3.6081,
-      "net": 3.6081,
-      "attention": 4.4243,
+      "score": 3.5884,
+      "net": 3.5884,
+      "attention": 4.4002,
       "mentions": 38,
       "analystMentions": 32,
       "bullMentions": 3,
@@ -20245,9 +20291,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "TSLA",
-      "score": 3.2153,
-      "net": 3.2153,
-      "attention": 3.2153,
+      "score": 3.1978,
+      "net": 3.1978,
+      "attention": 3.1978,
       "mentions": 22,
       "analystMentions": 22,
       "bullMentions": 0,
@@ -20258,24 +20304,10 @@ window.AIE_DATA = {
       "lastMentioned": "2026-08-20T19:56:15Z"
     },
     {
-      "ticker": "MTSI",
-      "score": 3.1917,
-      "net": 3.1917,
-      "attention": 3.1917,
-      "mentions": 17,
-      "analystMentions": 14,
-      "bullMentions": 1,
-      "bearMentions": 0,
-      "researchMentions": 3,
-      "weightedMentions": 6.2713,
-      "convictionHits": 1,
-      "lastMentioned": "2026-08-20T19:55:21Z"
-    },
-    {
       "ticker": "COHR",
-      "score": 3.0737,
-      "net": 3.0737,
-      "attention": 3.6585,
+      "score": 3.057,
+      "net": 3.057,
+      "attention": 3.6385,
       "mentions": 36,
       "analystMentions": 30,
       "bullMentions": 2,
@@ -20287,9 +20319,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "GOOGL",
-      "score": 2.8979,
-      "net": 2.8979,
-      "attention": 3.3061,
+      "score": 2.8821,
+      "net": 2.8821,
+      "attention": 3.288,
       "mentions": 34,
       "analystMentions": 25,
       "bullMentions": 2,
@@ -20301,9 +20333,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "SNDK",
-      "score": 2.6131,
-      "net": 2.6131,
-      "attention": 3.7826,
+      "score": 2.5989,
+      "net": 2.5989,
+      "attention": 3.762,
       "mentions": 29,
       "analystMentions": 26,
       "bullMentions": 0,
@@ -20315,9 +20347,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "AXTI",
-      "score": 2.5686,
-      "net": 2.5686,
-      "attention": 3.3848,
+      "score": 2.5546,
+      "net": 2.5546,
+      "attention": 3.3663,
       "mentions": 36,
       "analystMentions": 33,
       "bullMentions": 0,
@@ -20329,9 +20361,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "CCXI",
-      "score": 2.5111,
-      "net": 2.5111,
-      "attention": 4.9733,
+      "score": 2.4974,
+      "net": 2.4974,
+      "attention": 4.9462,
       "mentions": 37,
       "analystMentions": 31,
       "bullMentions": 0,
@@ -20343,9 +20375,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "TSM",
-      "score": 2.2329,
-      "net": 2.2329,
-      "attention": 2.2329,
+      "score": 2.2207,
+      "net": 2.2207,
+      "attention": 2.2207,
       "mentions": 33,
       "analystMentions": 27,
       "bullMentions": 2,
@@ -20357,9 +20389,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "000660.KS",
-      "score": 2.1975,
-      "net": 2.1975,
-      "attention": 2.1975,
+      "score": 2.1855,
+      "net": 2.1855,
+      "attention": 2.1855,
       "mentions": 7,
       "analystMentions": 7,
       "bullMentions": 0,
@@ -20371,9 +20403,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "GFS",
-      "score": 2.0246,
-      "net": 2.0246,
-      "attention": 2.0246,
+      "score": 2.0136,
+      "net": 2.0136,
+      "attention": 2.0136,
       "mentions": 25,
       "analystMentions": 25,
       "bullMentions": 0,
@@ -20385,9 +20417,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "JBL",
-      "score": 1.9929,
-      "net": 1.9929,
-      "attention": 1.9929,
+      "score": 1.982,
+      "net": 1.982,
+      "attention": 1.982,
       "mentions": 28,
       "analystMentions": 28,
       "bullMentions": 0,
@@ -20399,9 +20431,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "MRVL",
-      "score": 1.8106,
-      "net": 1.8106,
-      "attention": 1.8106,
+      "score": 1.8007,
+      "net": 1.8007,
+      "attention": 1.8007,
       "mentions": 25,
       "analystMentions": 25,
       "bullMentions": 0,
@@ -20413,9 +20445,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "POET",
-      "score": 1.7168,
-      "net": 1.7168,
-      "attention": 2.8863,
+      "score": 1.7074,
+      "net": 1.7074,
+      "attention": 2.8705,
       "mentions": 30,
       "analystMentions": 27,
       "bullMentions": 0,
@@ -20427,9 +20459,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "IQE",
-      "score": 1.7019,
-      "net": 1.7019,
-      "attention": 1.7019,
+      "score": 1.6927,
+      "net": 1.6927,
+      "attention": 1.6927,
       "mentions": 14,
       "analystMentions": 14,
       "bullMentions": 0,
@@ -20441,9 +20473,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "SMCI",
-      "score": 1.66,
-      "net": 1.66,
-      "attention": 1.66,
+      "score": 1.651,
+      "net": 1.651,
+      "attention": 1.651,
       "mentions": 4,
       "analystMentions": 4,
       "bullMentions": 0,
@@ -20455,9 +20487,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "CXMT",
-      "score": 1.6553,
-      "net": 1.6553,
-      "attention": 1.6553,
+      "score": 1.6463,
+      "net": 1.6463,
+      "attention": 1.6463,
       "mentions": 6,
       "analystMentions": 6,
       "bullMentions": 0,
@@ -20469,9 +20501,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "NBIS",
-      "score": 1.5084,
-      "net": 1.5084,
-      "attention": 3.4941,
+      "score": 1.5002,
+      "net": 1.5002,
+      "attention": 3.4751,
       "mentions": 43,
       "analystMentions": 37,
       "bullMentions": 1,
@@ -20483,9 +20515,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "LPK.DE",
-      "score": 1.427,
-      "net": 1.427,
-      "attention": 1.427,
+      "score": 1.4192,
+      "net": 1.4192,
+      "attention": 1.4192,
       "mentions": 16,
       "analystMentions": 16,
       "bullMentions": 0,
@@ -20497,9 +20529,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "SMTC",
-      "score": 1.3826,
-      "net": 1.3826,
-      "attention": 1.3826,
+      "score": 1.3751,
+      "net": 1.3751,
+      "attention": 1.3751,
       "mentions": 5,
       "analystMentions": 5,
       "bullMentions": 0,
@@ -20510,10 +20542,24 @@ window.AIE_DATA = {
       "lastMentioned": "2026-08-17T09:28:06Z"
     },
     {
+      "ticker": "GM",
+      "score": 1.3639,
+      "net": 1.3639,
+      "attention": 1.3639,
+      "mentions": 4,
+      "analystMentions": 4,
+      "bullMentions": 0,
+      "bearMentions": 0,
+      "researchMentions": 0,
+      "weightedMentions": 1.8027,
+      "convictionHits": 0,
+      "lastMentioned": "2026-08-20T17:24:14Z"
+    },
+    {
       "ticker": "AVGO",
-      "score": 1.3258,
-      "net": 1.3258,
-      "attention": 1.3258,
+      "score": 1.3186,
+      "net": 1.3186,
+      "attention": 1.3186,
       "mentions": 13,
       "analystMentions": 13,
       "bullMentions": 0,
@@ -20525,9 +20571,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "IREN",
-      "score": 1.2756,
-      "net": 1.2756,
-      "attention": 1.9248,
+      "score": 1.2687,
+      "net": 1.2687,
+      "attention": 1.9143,
       "mentions": 19,
       "analystMentions": 16,
       "bullMentions": 0,
@@ -20539,9 +20585,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "MSFT",
-      "score": 1.2372,
-      "net": 1.2372,
-      "attention": 1.2372,
+      "score": 1.2304,
+      "net": 1.2304,
+      "attention": 1.2304,
       "mentions": 11,
       "analystMentions": 11,
       "bullMentions": 0,
@@ -20553,9 +20599,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "INTC",
-      "score": 1.2264,
-      "net": 1.2264,
-      "attention": 1.6345,
+      "score": 1.2197,
+      "net": 1.2197,
+      "attention": 1.6256,
       "mentions": 26,
       "analystMentions": 23,
       "bullMentions": 0,
@@ -20567,9 +20613,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "CRWV",
-      "score": 1.1968,
-      "net": 1.1968,
-      "attention": 1.1968,
+      "score": 1.1902,
+      "net": 1.1902,
+      "attention": 1.1902,
       "mentions": 7,
       "analystMentions": 7,
       "bullMentions": 0,
@@ -20581,9 +20627,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "AAPL",
-      "score": 1.1923,
-      "net": 1.1923,
-      "attention": 1.1923,
+      "score": 1.1858,
+      "net": 1.1858,
+      "attention": 1.1858,
       "mentions": 11,
       "analystMentions": 11,
       "bullMentions": 0,
@@ -20595,9 +20641,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "AEHR",
-      "score": 1.1823,
-      "net": 1.1823,
-      "attention": 1.1823,
+      "score": 1.1759,
+      "net": 1.1759,
+      "attention": 1.1759,
       "mentions": 11,
       "analystMentions": 11,
       "bullMentions": 0,
@@ -20609,9 +20655,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "VPG",
-      "score": 1.0716,
-      "net": 1.0716,
-      "attention": 1.0716,
+      "score": 1.0657,
+      "net": 1.0657,
+      "attention": 1.0657,
       "mentions": 4,
       "analystMentions": 4,
       "bullMentions": 0,
@@ -20623,9 +20669,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "META",
-      "score": 1.0226,
-      "net": 1.0226,
-      "attention": 3.0084,
+      "score": 1.0171,
+      "net": 1.0171,
+      "attention": 2.992,
       "mentions": 42,
       "analystMentions": 36,
       "bullMentions": 0,
@@ -20637,9 +20683,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "RDDT",
-      "score": 0.9353,
-      "net": 0.9353,
-      "attention": 0.9353,
+      "score": 0.9302,
+      "net": 0.9302,
+      "attention": 0.9302,
       "mentions": 9,
       "analystMentions": 9,
       "bullMentions": 0,
@@ -20650,24 +20696,10 @@ window.AIE_DATA = {
       "lastMentioned": "2026-08-17T09:26:49Z"
     },
     {
-      "ticker": "GM",
-      "score": 0.9324,
-      "net": 0.9324,
-      "attention": 0.9324,
-      "mentions": 3,
-      "analystMentions": 3,
-      "bullMentions": 0,
-      "bearMentions": 0,
-      "researchMentions": 0,
-      "weightedMentions": 1.3555,
-      "convictionHits": 0,
-      "lastMentioned": "2026-08-20T09:45:17Z"
-    },
-    {
       "ticker": "TSEM",
-      "score": 0.9307,
-      "net": 0.9307,
-      "attention": 0.9307,
+      "score": 0.9256,
+      "net": 0.9256,
+      "attention": 0.9256,
       "mentions": 20,
       "analystMentions": 20,
       "bullMentions": 0,
@@ -20679,9 +20711,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "RKLB",
-      "score": 0.906,
-      "net": 0.906,
-      "attention": 0.906,
+      "score": 0.901,
+      "net": 0.901,
+      "attention": 0.901,
       "mentions": 8,
       "analystMentions": 8,
       "bullMentions": 0,
@@ -20693,9 +20725,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "EWY",
-      "score": 0.8982,
-      "net": 0.8982,
-      "attention": 0.8982,
+      "score": 0.8933,
+      "net": 0.8933,
+      "attention": 0.8933,
       "mentions": 11,
       "analystMentions": 11,
       "bullMentions": 0,
@@ -20707,9 +20739,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "FORM",
-      "score": 0.8695,
-      "net": 0.8695,
-      "attention": 0.8695,
+      "score": 0.8647,
+      "net": 0.8647,
+      "attention": 0.8647,
       "mentions": 4,
       "analystMentions": 4,
       "bullMentions": 0,
@@ -20721,9 +20753,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "SOI.PA",
-      "score": 0.8615,
-      "net": 0.8615,
-      "attention": 0.8615,
+      "score": 0.8568,
+      "net": 0.8568,
+      "attention": 0.8568,
       "mentions": 13,
       "analystMentions": 13,
       "bullMentions": 0,
@@ -20735,9 +20767,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "ASTS",
-      "score": 0.8319,
-      "net": 0.8319,
-      "attention": 0.8319,
+      "score": 0.8273,
+      "net": 0.8273,
+      "attention": 0.8273,
       "mentions": 6,
       "analystMentions": 6,
       "bullMentions": 0,
@@ -20749,9 +20781,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "XFAB",
-      "score": 0.8016,
-      "net": 0.8016,
-      "attention": 0.8016,
+      "score": 0.7973,
+      "net": 0.7973,
+      "attention": 0.7973,
       "mentions": 29,
       "analystMentions": 29,
       "bullMentions": 0,
@@ -20763,9 +20795,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "ORCL",
-      "score": 0.8016,
-      "net": 0.8016,
-      "attention": 0.8016,
+      "score": 0.7972,
+      "net": 0.7972,
+      "attention": 0.7972,
       "mentions": 3,
       "analystMentions": 3,
       "bullMentions": 0,
@@ -20777,9 +20809,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "AEVA",
-      "score": 0.7247,
-      "net": 0.7247,
-      "attention": 0.7247,
+      "score": 0.7208,
+      "net": 0.7208,
+      "attention": 0.7208,
       "mentions": 10,
       "analystMentions": 10,
       "bullMentions": 0,
@@ -20791,9 +20823,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "MELI",
-      "score": 0.6252,
-      "net": 0.6252,
-      "attention": 0.6252,
+      "score": 0.6217,
+      "net": 0.6217,
+      "attention": 0.6217,
       "mentions": 4,
       "analystMentions": 4,
       "bullMentions": 0,
@@ -20805,9 +20837,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "BE",
-      "score": 0.5723,
-      "net": 0.5723,
-      "attention": 0.5723,
+      "score": 0.5692,
+      "net": 0.5692,
+      "attention": 0.5692,
       "mentions": 5,
       "analystMentions": 5,
       "bullMentions": 0,
@@ -20819,9 +20851,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "AMKR",
-      "score": 0.5433,
-      "net": 0.5433,
-      "attention": 0.5433,
+      "score": 0.5403,
+      "net": 0.5403,
+      "attention": 0.5403,
       "mentions": 4,
       "analystMentions": 4,
       "bullMentions": 0,
@@ -20833,9 +20865,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "OUST",
-      "score": 0.4499,
-      "net": 0.4499,
-      "attention": 0.4499,
+      "score": 0.4475,
+      "net": 0.4475,
+      "attention": 0.4475,
       "mentions": 4,
       "analystMentions": 4,
       "bullMentions": 0,
@@ -20847,9 +20879,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "CBRS",
-      "score": 0.44,
-      "net": 0.44,
-      "attention": 0.44,
+      "score": 0.4376,
+      "net": 0.4376,
+      "attention": 0.4376,
       "mentions": 3,
       "analystMentions": 3,
       "bullMentions": 0,
@@ -20861,9 +20893,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "MRNA",
-      "score": 0.4321,
-      "net": 0.4321,
-      "attention": 0.4321,
+      "score": 0.4297,
+      "net": 0.4297,
+      "attention": 0.4297,
       "mentions": 1,
       "analystMentions": 1,
       "bullMentions": 0,
@@ -20875,9 +20907,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "YMTC",
-      "score": 0.4321,
-      "net": 0.4321,
-      "attention": 0.4321,
+      "score": 0.4297,
+      "net": 0.4297,
+      "attention": 0.4297,
       "mentions": 1,
       "analystMentions": 1,
       "bullMentions": 0,
@@ -20889,9 +20921,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "ONDS",
-      "score": 0.4134,
-      "net": 0.4134,
-      "attention": 0.4134,
+      "score": 0.4111,
+      "net": 0.4111,
+      "attention": 0.4111,
       "mentions": 1,
       "analystMentions": 1,
       "bullMentions": 0,
@@ -20903,9 +20935,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "RCAT",
-      "score": 0.4134,
-      "net": 0.4134,
-      "attention": 0.4134,
+      "score": 0.4111,
+      "net": 0.4111,
+      "attention": 0.4111,
       "mentions": 1,
       "analystMentions": 1,
       "bullMentions": 0,
@@ -20917,9 +20949,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "UMAC",
-      "score": 0.4134,
-      "net": 0.4134,
-      "attention": 0.4134,
+      "score": 0.4111,
+      "net": 0.4111,
+      "attention": 0.4111,
       "mentions": 1,
       "analystMentions": 1,
       "bullMentions": 0,
@@ -20931,9 +20963,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "DELL",
-      "score": 0.3979,
-      "net": 0.3979,
-      "attention": 0.3979,
+      "score": 0.3958,
+      "net": 0.3958,
+      "attention": 0.3958,
       "mentions": 1,
       "analystMentions": 1,
       "bullMentions": 0,
@@ -20945,9 +20977,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "GSM",
-      "score": 0.3738,
-      "net": 0.3738,
-      "attention": 0.3738,
+      "score": 0.3718,
+      "net": 0.3718,
+      "attention": 0.3718,
       "mentions": 1,
       "analystMentions": 1,
       "bullMentions": 0,
@@ -20959,9 +20991,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "WCH",
-      "score": 0.3738,
-      "net": 0.3738,
-      "attention": 0.3738,
+      "score": 0.3718,
+      "net": 0.3718,
+      "attention": 0.3718,
       "mentions": 1,
       "analystMentions": 1,
       "bullMentions": 0,
@@ -20973,9 +21005,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "RIOT",
-      "score": 0.3512,
-      "net": 0.3512,
-      "attention": 0.3512,
+      "score": 0.3493,
+      "net": 0.3493,
+      "attention": 0.3493,
       "mentions": 1,
       "analystMentions": 1,
       "bullMentions": 0,
@@ -20987,9 +21019,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "AMAT",
-      "score": 0.3411,
-      "net": 0.3411,
-      "attention": 0.3411,
+      "score": 0.3393,
+      "net": 0.3393,
+      "attention": 0.3393,
       "mentions": 5,
       "analystMentions": 5,
       "bullMentions": 0,
@@ -21001,9 +21033,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "VIAV",
-      "score": 0.3358,
-      "net": 0.3358,
-      "attention": 0.3358,
+      "score": 0.3339,
+      "net": 0.3339,
+      "attention": 0.3339,
       "mentions": 1,
       "analystMentions": 1,
       "bullMentions": 0,
@@ -21015,9 +21047,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "GLW",
-      "score": 0.3052,
-      "net": 0.3052,
-      "attention": 0.3052,
+      "score": 0.3036,
+      "net": 0.3036,
+      "attention": 0.3036,
       "mentions": 3,
       "analystMentions": 3,
       "bullMentions": 0,
@@ -21029,9 +21061,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "ASX",
-      "score": 0.2888,
-      "net": 0.2888,
-      "attention": 0.2888,
+      "score": 0.2872,
+      "net": 0.2872,
+      "attention": 0.2872,
       "mentions": 3,
       "analystMentions": 3,
       "bullMentions": 0,
@@ -21043,9 +21075,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "QCOM",
-      "score": 0.2615,
-      "net": 0.2615,
-      "attention": 0.2615,
+      "score": 0.2601,
+      "net": 0.2601,
+      "attention": 0.2601,
       "mentions": 3,
       "analystMentions": 3,
       "bullMentions": 0,
@@ -21057,9 +21089,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "NVTS",
-      "score": 0.2577,
-      "net": 0.2577,
-      "attention": 0.2577,
+      "score": 0.2563,
+      "net": 0.2563,
+      "attention": 0.2563,
       "mentions": 3,
       "analystMentions": 3,
       "bullMentions": 0,
@@ -21071,9 +21103,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "MXL",
-      "score": 0.2555,
-      "net": 0.2555,
-      "attention": 0.2555,
+      "score": 0.2541,
+      "net": 0.2541,
+      "attention": 0.2541,
       "mentions": 1,
       "analystMentions": 1,
       "bullMentions": 0,
@@ -21085,9 +21117,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "PYPL",
-      "score": 0.2387,
-      "net": 0.2387,
-      "attention": 0.2387,
+      "score": 0.2374,
+      "net": 0.2374,
+      "attention": 0.2374,
       "mentions": 1,
       "analystMentions": 1,
       "bullMentions": 0,
@@ -21099,9 +21131,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "FEAM",
-      "score": 0.232,
-      "net": 0.232,
-      "attention": 0.232,
+      "score": 0.2308,
+      "net": 0.2308,
+      "attention": 0.2308,
       "mentions": 1,
       "analystMentions": 1,
       "bullMentions": 0,
@@ -21113,9 +21145,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "HREE",
-      "score": 0.232,
-      "net": 0.232,
-      "attention": 0.232,
+      "score": 0.2308,
+      "net": 0.2308,
+      "attention": 0.2308,
       "mentions": 1,
       "analystMentions": 1,
       "bullMentions": 0,
@@ -21127,9 +21159,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "SRL",
-      "score": 0.232,
-      "net": 0.232,
-      "attention": 0.232,
+      "score": 0.2308,
+      "net": 0.2308,
+      "attention": 0.2308,
       "mentions": 1,
       "analystMentions": 1,
       "bullMentions": 0,
@@ -21141,9 +21173,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "WWR",
-      "score": 0.232,
-      "net": 0.232,
-      "attention": 0.232,
+      "score": 0.2308,
+      "net": 0.2308,
+      "attention": 0.2308,
       "mentions": 1,
       "analystMentions": 1,
       "bullMentions": 0,
@@ -21155,9 +21187,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "LULU",
-      "score": 0.2217,
-      "net": 0.2217,
-      "attention": 0.2217,
+      "score": 0.2205,
+      "net": 0.2205,
+      "attention": 0.2205,
       "mentions": 1,
       "analystMentions": 1,
       "bullMentions": 0,
@@ -21169,9 +21201,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "NIKE",
-      "score": 0.2217,
-      "net": 0.2217,
-      "attention": 0.2217,
+      "score": 0.2205,
+      "net": 0.2205,
+      "attention": 0.2205,
       "mentions": 1,
       "analystMentions": 1,
       "bullMentions": 0,
@@ -21183,9 +21215,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "POWI",
-      "score": 0.2067,
-      "net": 0.2067,
-      "attention": 0.2067,
+      "score": 0.2055,
+      "net": 0.2055,
+      "attention": 0.2055,
       "mentions": 1,
       "analystMentions": 1,
       "bullMentions": 0,
@@ -21197,9 +21229,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "BRUN",
-      "score": 0.2041,
-      "net": 0.2041,
-      "attention": 0.2041,
+      "score": 0.203,
+      "net": 0.203,
+      "attention": 0.203,
       "mentions": 3,
       "analystMentions": 3,
       "bullMentions": 0,
@@ -21211,9 +21243,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "SHAZ",
-      "score": 0.2023,
-      "net": 0.2023,
-      "attention": 0.2023,
+      "score": 0.2012,
+      "net": 0.2012,
+      "attention": 0.2012,
       "mentions": 2,
       "analystMentions": 2,
       "bullMentions": 0,
@@ -21225,9 +21257,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "UBER",
-      "score": 0.1964,
-      "net": 0.1964,
-      "attention": 0.1964,
+      "score": 0.1954,
+      "net": 0.1954,
+      "attention": 0.1954,
       "mentions": 2,
       "analystMentions": 2,
       "bullMentions": 0,
@@ -21239,9 +21271,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "WUS",
-      "score": 0.1914,
-      "net": 0.1914,
-      "attention": 0.1914,
+      "score": 0.1904,
+      "net": 0.1904,
+      "attention": 0.1904,
       "mentions": 3,
       "analystMentions": 3,
       "bullMentions": 0,
@@ -21253,9 +21285,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "CIFR",
-      "score": 0.1638,
-      "net": 0.1638,
-      "attention": 0.1638,
+      "score": 0.1629,
+      "net": 0.1629,
+      "attention": 0.1629,
       "mentions": 3,
       "analystMentions": 3,
       "bullMentions": 0,
@@ -21267,9 +21299,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "TTMI",
-      "score": 0.1343,
-      "net": 0.1343,
-      "attention": 0.1343,
+      "score": 0.1336,
+      "net": 0.1336,
+      "attention": 0.1336,
       "mentions": 1,
       "analystMentions": 1,
       "bullMentions": 0,
@@ -21281,9 +21313,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "VSH",
-      "score": 0.1343,
-      "net": 0.1343,
-      "attention": 0.1343,
+      "score": 0.1336,
+      "net": 0.1336,
+      "attention": 0.1336,
       "mentions": 1,
       "analystMentions": 1,
       "bullMentions": 0,
@@ -21295,9 +21327,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "HOOD",
-      "score": 0.1231,
-      "net": 0.1231,
-      "attention": 0.1231,
+      "score": 0.1224,
+      "net": 0.1224,
+      "attention": 0.1224,
       "mentions": 4,
       "analystMentions": 4,
       "bullMentions": 0,
@@ -21309,9 +21341,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "WULF",
-      "score": 0.1231,
-      "net": 0.1231,
-      "attention": 0.1231,
+      "score": 0.1224,
+      "net": 0.1224,
+      "attention": 0.1224,
       "mentions": 2,
       "analystMentions": 2,
       "bullMentions": 0,
@@ -21323,9 +21355,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "TER",
-      "score": 0.1222,
-      "net": 0.1222,
-      "attention": 0.1222,
+      "score": 0.1216,
+      "net": 0.1216,
+      "attention": 0.1216,
       "mentions": 2,
       "analystMentions": 2,
       "bullMentions": 0,
@@ -21337,9 +21369,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "HIMX",
-      "score": 0.1188,
-      "net": 0.1188,
-      "attention": 0.1188,
+      "score": 0.1181,
+      "net": 0.1181,
+      "attention": 0.1181,
       "mentions": 3,
       "analystMentions": 3,
       "bullMentions": 0,
@@ -21351,9 +21383,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "ALAB",
-      "score": 0.1107,
-      "net": 0.1107,
-      "attention": 0.1107,
+      "score": 0.1101,
+      "net": 0.1101,
+      "attention": 0.1101,
       "mentions": 2,
       "analystMentions": 2,
       "bullMentions": 0,
@@ -21365,9 +21397,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "HIMS",
-      "score": 0.0973,
-      "net": 0.0973,
-      "attention": 0.0973,
+      "score": 0.0968,
+      "net": 0.0968,
+      "attention": 0.0968,
       "mentions": 2,
       "analystMentions": 2,
       "bullMentions": 0,
@@ -21379,9 +21411,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "CLSK",
-      "score": 0.0879,
-      "net": 0.0879,
-      "attention": 0.0879,
+      "score": 0.0874,
+      "net": 0.0874,
+      "attention": 0.0874,
       "mentions": 1,
       "analystMentions": 1,
       "bullMentions": 0,
@@ -21393,9 +21425,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "HUT",
-      "score": 0.0879,
-      "net": 0.0879,
-      "attention": 0.0879,
+      "score": 0.0874,
+      "net": 0.0874,
+      "attention": 0.0874,
       "mentions": 1,
       "analystMentions": 1,
       "bullMentions": 0,
@@ -21407,9 +21439,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "WYFI",
-      "score": 0.0879,
-      "net": 0.0879,
-      "attention": 0.0879,
+      "score": 0.0874,
+      "net": 0.0874,
+      "attention": 0.0874,
       "mentions": 1,
       "analystMentions": 1,
       "bullMentions": 0,
@@ -21421,9 +21453,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "XPEV",
-      "score": 0.0846,
-      "net": 0.0846,
-      "attention": 0.0846,
+      "score": 0.0841,
+      "net": 0.0841,
+      "attention": 0.0841,
       "mentions": 1,
       "analystMentions": 1,
       "bullMentions": 0,
@@ -21435,9 +21467,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "BABA",
-      "score": 0.077,
-      "net": 0.077,
-      "attention": 0.077,
+      "score": 0.0766,
+      "net": 0.0766,
+      "attention": 0.0766,
       "mentions": 1,
       "analystMentions": 1,
       "bullMentions": 0,
@@ -21449,9 +21481,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "KLAC",
-      "score": 0.0688,
-      "net": 0.0688,
-      "attention": 0.0688,
+      "score": 0.0684,
+      "net": 0.0684,
+      "attention": 0.0684,
       "mentions": 2,
       "analystMentions": 2,
       "bullMentions": 0,
@@ -21463,9 +21495,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "ASML",
-      "score": 0.0636,
-      "net": 0.0636,
-      "attention": 0.0636,
+      "score": 0.0632,
+      "net": 0.0632,
+      "attention": 0.0632,
       "mentions": 2,
       "analystMentions": 2,
       "bullMentions": 0,
@@ -21477,9 +21509,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "SIMO",
-      "score": 0.0608,
-      "net": 0.0608,
-      "attention": 0.0608,
+      "score": 0.0605,
+      "net": 0.0605,
+      "attention": 0.0605,
       "mentions": 1,
       "analystMentions": 1,
       "bullMentions": 0,
@@ -21491,9 +21523,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "SILEX",
-      "score": 0.0608,
-      "net": 0.0608,
-      "attention": 0.0608,
+      "score": 0.0605,
+      "net": 0.0605,
+      "attention": 0.0605,
       "mentions": 1,
       "analystMentions": 1,
       "bullMentions": 0,
@@ -21505,9 +21537,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "CRCL",
-      "score": 0.0516,
-      "net": 0.0516,
-      "attention": 0.0516,
+      "score": 0.0513,
+      "net": 0.0513,
+      "attention": 0.0513,
       "mentions": 3,
       "analystMentions": 3,
       "bullMentions": 0,
@@ -21519,9 +21551,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "NOK",
-      "score": 0.0436,
-      "net": 0.0436,
-      "attention": 0.0436,
+      "score": 0.0433,
+      "net": 0.0433,
+      "attention": 0.0433,
       "mentions": 5,
       "analystMentions": 5,
       "bullMentions": 0,
@@ -21533,9 +21565,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "FDX",
-      "score": 0.043,
-      "net": 0.043,
-      "attention": 0.043,
+      "score": 0.0428,
+      "net": 0.0428,
+      "attention": 0.0428,
       "mentions": 1,
       "analystMentions": 1,
       "bullMentions": 0,
@@ -21547,9 +21579,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "FORD",
-      "score": 0.043,
-      "net": 0.043,
-      "attention": 0.043,
+      "score": 0.0428,
+      "net": 0.0428,
+      "attention": 0.0428,
       "mentions": 1,
       "analystMentions": 1,
       "bullMentions": 0,
@@ -21561,9 +21593,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "BWA",
-      "score": 0.0409,
-      "net": 0.0409,
-      "attention": 0.0409,
+      "score": 0.0407,
+      "net": 0.0407,
+      "attention": 0.0407,
       "mentions": 1,
       "analystMentions": 1,
       "bullMentions": 0,
@@ -21575,9 +21607,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "ENS",
-      "score": 0.0409,
-      "net": 0.0409,
-      "attention": 0.0409,
+      "score": 0.0407,
+      "net": 0.0407,
+      "attention": 0.0407,
       "mentions": 1,
       "analystMentions": 1,
       "bullMentions": 0,
@@ -21589,9 +21621,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "ETN",
-      "score": 0.0409,
-      "net": 0.0409,
-      "attention": 0.0409,
+      "score": 0.0407,
+      "net": 0.0407,
+      "attention": 0.0407,
       "mentions": 1,
       "analystMentions": 1,
       "bullMentions": 0,
@@ -21603,9 +21635,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "VRT",
-      "score": 0.0409,
-      "net": 0.0409,
-      "attention": 0.0409,
+      "score": 0.0407,
+      "net": 0.0407,
+      "attention": 0.0407,
       "mentions": 1,
       "analystMentions": 1,
       "bullMentions": 0,
@@ -21617,9 +21649,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "EOS",
-      "score": 0.0385,
-      "net": 0.0385,
-      "attention": 0.0385,
+      "score": 0.0383,
+      "net": 0.0383,
+      "attention": 0.0383,
       "mentions": 1,
       "analystMentions": 1,
       "bullMentions": 0,
@@ -21631,9 +21663,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "FCEL",
-      "score": 0.0367,
-      "net": 0.0367,
-      "attention": 0.0367,
+      "score": 0.0365,
+      "net": 0.0365,
+      "attention": 0.0365,
       "mentions": 1,
       "analystMentions": 1,
       "bullMentions": 0,
@@ -21645,9 +21677,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "DASH",
-      "score": 0.0349,
-      "net": 0.0349,
-      "attention": 0.0349,
+      "score": 0.0347,
+      "net": 0.0347,
+      "attention": 0.0347,
       "mentions": 1,
       "analystMentions": 1,
       "bullMentions": 0,
@@ -21659,9 +21691,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "JD",
-      "score": 0.0349,
-      "net": 0.0349,
-      "attention": 0.0349,
+      "score": 0.0347,
+      "net": 0.0347,
+      "attention": 0.0347,
       "mentions": 1,
       "analystMentions": 1,
       "bullMentions": 0,
@@ -21673,9 +21705,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "WLAC",
-      "score": 0.0344,
-      "net": 0.0344,
-      "attention": 0.0344,
+      "score": 0.0343,
+      "net": 0.0343,
+      "attention": 0.0343,
       "mentions": 1,
       "analystMentions": 1,
       "bullMentions": 0,
@@ -21687,9 +21719,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "BOT",
-      "score": 0.0344,
-      "net": 0.0344,
-      "attention": 0.0344,
+      "score": 0.0343,
+      "net": 0.0343,
+      "attention": 0.0343,
       "mentions": 1,
       "analystMentions": 1,
       "bullMentions": 0,
@@ -21701,9 +21733,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "BULL",
-      "score": 0.0344,
-      "net": 0.0344,
-      "attention": 0.0344,
+      "score": 0.0343,
+      "net": 0.0343,
+      "attention": 0.0343,
       "mentions": 1,
       "analystMentions": 1,
       "bullMentions": 0,
@@ -21715,9 +21747,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "DJT",
-      "score": 0.0344,
-      "net": 0.0344,
-      "attention": 0.0344,
+      "score": 0.0343,
+      "net": 0.0343,
+      "attention": 0.0343,
       "mentions": 1,
       "analystMentions": 1,
       "bullMentions": 0,
@@ -21729,9 +21761,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "IBM",
-      "score": 0.0337,
-      "net": 0.0337,
-      "attention": 0.0337,
+      "score": 0.0336,
+      "net": 0.0336,
+      "attention": 0.0336,
       "mentions": 1,
       "analystMentions": 1,
       "bullMentions": 0,
@@ -21743,9 +21775,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "IONQ",
-      "score": 0.0337,
-      "net": 0.0337,
-      "attention": 0.0337,
+      "score": 0.0336,
+      "net": 0.0336,
+      "attention": 0.0336,
       "mentions": 1,
       "analystMentions": 1,
       "bullMentions": 0,
@@ -21757,9 +21789,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "QBTS",
-      "score": 0.0337,
-      "net": 0.0337,
-      "attention": 0.0337,
+      "score": 0.0336,
+      "net": 0.0336,
+      "attention": 0.0336,
       "mentions": 1,
       "analystMentions": 1,
       "bullMentions": 0,
@@ -21771,9 +21803,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "RGTI",
-      "score": 0.0337,
-      "net": 0.0337,
-      "attention": 0.0337,
+      "score": 0.0336,
+      "net": 0.0336,
+      "attention": 0.0336,
       "mentions": 1,
       "analystMentions": 1,
       "bullMentions": 0,
@@ -21785,9 +21817,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "FN",
-      "score": 0.0318,
-      "net": 0.0318,
-      "attention": 0.0318,
+      "score": 0.0316,
+      "net": 0.0316,
+      "attention": 0.0316,
       "mentions": 1,
       "analystMentions": 1,
       "bullMentions": 0,
@@ -21798,24 +21830,10 @@ window.AIE_DATA = {
       "lastMentioned": "2026-07-06T15:31:53Z"
     },
     {
-      "ticker": "CATL",
-      "score": 0.0315,
-      "net": 0.0315,
-      "attention": 0.0315,
-      "mentions": 1,
-      "analystMentions": 1,
-      "bullMentions": 0,
-      "bearMentions": 0,
-      "researchMentions": 0,
-      "weightedMentions": 0.3162,
-      "convictionHits": 0,
-      "lastMentioned": "2026-07-05T12:40:49Z"
-    },
-    {
       "ticker": "QQQ",
-      "score": 0.0314,
-      "net": 0.0314,
-      "attention": 0.0314,
+      "score": 0.0313,
+      "net": 0.0313,
+      "attention": 0.0313,
       "mentions": 1,
       "analystMentions": 1,
       "bullMentions": 0,
@@ -21826,10 +21844,24 @@ window.AIE_DATA = {
       "lastMentioned": "2026-06-30T07:46:57Z"
     },
     {
+      "ticker": "CATL",
+      "score": 0.0313,
+      "net": 0.0313,
+      "attention": 0.0313,
+      "mentions": 1,
+      "analystMentions": 1,
+      "bullMentions": 0,
+      "bearMentions": 0,
+      "researchMentions": 0,
+      "weightedMentions": 0.3162,
+      "convictionHits": 0,
+      "lastMentioned": "2026-07-05T12:40:49Z"
+    },
+    {
       "ticker": "ARM",
-      "score": 0.0283,
-      "net": 0.0283,
-      "attention": 0.0283,
+      "score": 0.0282,
+      "net": 0.0282,
+      "attention": 0.0282,
       "mentions": 2,
       "analystMentions": 2,
       "bullMentions": 0,
@@ -21841,9 +21873,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "ACMR",
-      "score": 0.027,
-      "net": 0.027,
-      "attention": 0.027,
+      "score": 0.0269,
+      "net": 0.0269,
+      "attention": 0.0269,
       "mentions": 1,
       "analystMentions": 1,
       "bullMentions": 0,
@@ -21855,9 +21887,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "CAMT",
-      "score": 0.027,
-      "net": 0.027,
-      "attention": 0.027,
+      "score": 0.0269,
+      "net": 0.0269,
+      "attention": 0.0269,
       "mentions": 1,
       "analystMentions": 1,
       "bullMentions": 0,
@@ -21869,9 +21901,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "VECO",
-      "score": 0.0255,
-      "net": 0.0255,
-      "attention": 0.0255,
+      "score": 0.0254,
+      "net": 0.0254,
+      "attention": 0.0254,
       "mentions": 1,
       "analystMentions": 1,
       "bullMentions": 0,
@@ -21882,52 +21914,10 @@ window.AIE_DATA = {
       "lastMentioned": "2026-06-27T15:44:33Z"
     },
     {
-      "ticker": "ALMU",
-      "score": 0.0239,
-      "net": 0.0239,
-      "attention": 0.0239,
-      "mentions": 1,
-      "analystMentions": 1,
-      "bullMentions": 0,
-      "bearMentions": 0,
-      "researchMentions": 0,
-      "weightedMentions": 0.3536,
-      "convictionHits": 0,
-      "lastMentioned": "2026-06-27T15:44:22Z"
-    },
-    {
-      "ticker": "SMHD",
-      "score": 0.0239,
-      "net": 0.0239,
-      "attention": 0.0239,
-      "mentions": 1,
-      "analystMentions": 1,
-      "bullMentions": 0,
-      "bearMentions": 0,
-      "researchMentions": 0,
-      "weightedMentions": 0.3536,
-      "convictionHits": 0,
-      "lastMentioned": "2026-06-27T15:44:22Z"
-    },
-    {
-      "ticker": "SMHMD",
-      "score": 0.0239,
-      "net": 0.0239,
-      "attention": 0.0239,
-      "mentions": 1,
-      "analystMentions": 1,
-      "bullMentions": 0,
-      "bearMentions": 0,
-      "researchMentions": 0,
-      "weightedMentions": 0.3536,
-      "convictionHits": 0,
-      "lastMentioned": "2026-06-27T15:44:22Z"
-    },
-    {
       "ticker": "ETHA",
-      "score": 0.0238,
-      "net": 0.0238,
-      "attention": 0.0238,
+      "score": 0.0237,
+      "net": 0.0237,
+      "attention": 0.0237,
       "mentions": 2,
       "analystMentions": 2,
       "bullMentions": 0,
@@ -21939,9 +21929,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "IBIT",
-      "score": 0.0238,
-      "net": 0.0238,
-      "attention": 0.0238,
+      "score": 0.0237,
+      "net": 0.0237,
+      "attention": 0.0237,
       "mentions": 2,
       "analystMentions": 2,
       "bullMentions": 0,
@@ -21952,10 +21942,52 @@ window.AIE_DATA = {
       "lastMentioned": "2026-06-27T15:38:26Z"
     },
     {
+      "ticker": "ALMU",
+      "score": 0.0237,
+      "net": 0.0237,
+      "attention": 0.0237,
+      "mentions": 1,
+      "analystMentions": 1,
+      "bullMentions": 0,
+      "bearMentions": 0,
+      "researchMentions": 0,
+      "weightedMentions": 0.3536,
+      "convictionHits": 0,
+      "lastMentioned": "2026-06-27T15:44:22Z"
+    },
+    {
+      "ticker": "SMHD",
+      "score": 0.0237,
+      "net": 0.0237,
+      "attention": 0.0237,
+      "mentions": 1,
+      "analystMentions": 1,
+      "bullMentions": 0,
+      "bearMentions": 0,
+      "researchMentions": 0,
+      "weightedMentions": 0.3536,
+      "convictionHits": 0,
+      "lastMentioned": "2026-06-27T15:44:22Z"
+    },
+    {
+      "ticker": "SMHMD",
+      "score": 0.0237,
+      "net": 0.0237,
+      "attention": 0.0237,
+      "mentions": 1,
+      "analystMentions": 1,
+      "bullMentions": 0,
+      "bearMentions": 0,
+      "researchMentions": 0,
+      "weightedMentions": 0.3536,
+      "convictionHits": 0,
+      "lastMentioned": "2026-06-27T15:44:22Z"
+    },
+    {
       "ticker": "LRCX",
-      "score": 0.0225,
-      "net": 0.0225,
-      "attention": 0.0225,
+      "score": 0.0224,
+      "net": 0.0224,
+      "attention": 0.0224,
       "mentions": 1,
       "analystMentions": 1,
       "bullMentions": 0,
@@ -21967,9 +21999,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "LWLG",
-      "score": 0.0225,
-      "net": 0.0225,
-      "attention": 0.0225,
+      "score": 0.0224,
+      "net": 0.0224,
+      "attention": 0.0224,
       "mentions": 1,
       "analystMentions": 1,
       "bullMentions": 0,
@@ -21981,9 +22013,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "NFLX",
-      "score": 0.0144,
-      "net": 0.0144,
-      "attention": 0.0144,
+      "score": 0.0143,
+      "net": 0.0143,
+      "attention": 0.0143,
       "mentions": 1,
       "analystMentions": 1,
       "bullMentions": 0,
@@ -21995,9 +22027,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "UPWK",
-      "score": 0.0144,
-      "net": 0.0144,
-      "attention": 0.0144,
+      "score": 0.0143,
+      "net": 0.0143,
+      "attention": 0.0143,
       "mentions": 1,
       "analystMentions": 1,
       "bullMentions": 0,
@@ -22037,9 +22069,9 @@ window.AIE_DATA = {
     },
     {
       "ticker": "RPI",
-      "score": 0.0086,
-      "net": 0.0086,
-      "attention": 0.0086,
+      "score": 0.0085,
+      "net": 0.0085,
+      "attention": 0.0085,
       "mentions": 1,
       "analystMentions": 1,
       "bullMentions": 0,
@@ -25551,7 +25583,7 @@ window.AIE_DATA = {
   "vault": {
     "meta": {
       "schemaVersion": 1,
-      "syncedAt": "2026-08-21T02:25:53Z",
+      "syncedAt": "2026-08-21T04:58:13Z",
       "pageCount": 65,
       "linkCount": 235
     },
@@ -25833,7 +25865,7 @@ window.AIE_DATA = {
           ],
           "stats": {
             "tier": "core",
-            "mentions": 84,
+            "mentions": 85,
             "lastMentioned": "2026-08-20T19:56:29Z",
             "category": "photonics",
             "market": "US",
@@ -26317,8 +26349,8 @@ window.AIE_DATA = {
           ],
           "stats": {
             "tier": "core",
-            "mentions": 80,
-            "lastMentioned": "2026-08-19T07:11:47Z",
+            "mentions": 81,
+            "lastMentioned": "2026-08-20T17:24:14Z",
             "category": "photonics",
             "market": "US",
             "marketCapTier": "Mid",
@@ -26427,7 +26459,7 @@ window.AIE_DATA = {
           ],
           "stats": {
             "tier": "core",
-            "mentions": 14,
+            "mentions": 15,
             "lastMentioned": "2026-08-20T19:55:21Z",
             "category": "photonics",
             "market": "US",
@@ -26603,7 +26635,7 @@ window.AIE_DATA = {
           ],
           "stats": {
             "tier": "core",
-            "mentions": 116,
+            "mentions": 117,
             "lastMentioned": "2026-08-20T19:55:21Z",
             "category": "photonics",
             "market": "SE",
@@ -28069,6 +28101,2121 @@ window.AIE_DATA = {
         "rateIsMeaningful": false
       }
     ]
+  },
+  "fundamentals": {
+    "meta": {
+      "schemaVersion": 1,
+      "updatedAt": "2026-08-21T05:04:40Z",
+      "source": "SEC EDGAR XBRL companyfacts (data.sec.gov)",
+      "disclaimer": "Figures as filed. Not investment advice.",
+      "covered": 37,
+      "unavailable": 9
+    },
+    "companies": {
+      "AAOI": {
+        "ticker": "AAOI",
+        "cik": "0001158114",
+        "entityName": "Applied Optoelectronics, Inc.",
+        "taxonomy": "us-gaap",
+        "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+        "currency": "USD",
+        "years": [
+          {
+            "fy": 2020,
+            "end": "2020-12-31",
+            "revenue": 234623000,
+            "filed": "2023-02-27"
+          },
+          {
+            "fy": 2021,
+            "end": "2021-12-31",
+            "revenue": 211565000,
+            "filed": "2024-02-23"
+          },
+          {
+            "fy": 2022,
+            "end": "2022-12-31",
+            "revenue": 222818000,
+            "filed": "2025-02-28"
+          },
+          {
+            "fy": 2023,
+            "end": "2023-12-31",
+            "revenue": 217646000,
+            "filed": "2026-02-26"
+          },
+          {
+            "fy": 2024,
+            "end": "2024-12-31",
+            "revenue": 249365000,
+            "filed": "2026-02-26"
+          },
+          {
+            "fy": 2025,
+            "end": "2025-12-31",
+            "revenue": 455715000,
+            "filed": "2026-02-26"
+          }
+        ],
+        "latest": {
+          "fy": 2025,
+          "end": "2025-12-31",
+          "revenue": 455715000,
+          "filed": "2026-02-26"
+        },
+        "growth": {
+          "yoy": 0.8275018547109658,
+          "cagr3y": 0.26934891855818166
+        },
+        "fetchedAt": "2026-08-21T05:04:40Z",
+        "secSymbol": "AAOI"
+      },
+      "LITE": {
+        "ticker": "LITE",
+        "cik": "0001633978",
+        "entityName": "Lumentum Holdings Inc.",
+        "taxonomy": "us-gaap",
+        "tag": "RevenueFromContractWithCustomerIncludingAssessedTax",
+        "currency": "USD",
+        "years": [
+          {
+            "fy": 2021,
+            "end": "2021-07-03",
+            "revenue": 1742800000,
+            "filed": "2023-08-23"
+          },
+          {
+            "fy": 2022,
+            "end": "2022-07-02",
+            "revenue": 1712600000,
+            "filed": "2024-08-21"
+          },
+          {
+            "fy": 2023,
+            "end": "2023-07-01",
+            "revenue": 1767000000,
+            "filed": "2025-08-19"
+          },
+          {
+            "fy": 2024,
+            "end": "2024-06-29",
+            "revenue": 1359200000,
+            "filed": "2026-08-17"
+          },
+          {
+            "fy": 2025,
+            "end": "2025-06-28",
+            "revenue": 1645000000,
+            "filed": "2026-08-17"
+          },
+          {
+            "fy": 2026,
+            "end": "2026-06-27",
+            "revenue": 3014000000,
+            "filed": "2026-08-17"
+          }
+        ],
+        "latest": {
+          "fy": 2026,
+          "end": "2026-06-27",
+          "revenue": 3014000000,
+          "filed": "2026-08-17"
+        },
+        "growth": {
+          "yoy": 0.8322188449848025,
+          "cagr3y": 0.19481931003065855
+        },
+        "fetchedAt": "2026-08-21T05:04:40Z",
+        "secSymbol": "LITE"
+      },
+      "COHR": {
+        "ticker": "COHR",
+        "cik": "0000820318",
+        "entityName": "COHERENT CORP.",
+        "taxonomy": "us-gaap",
+        "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+        "currency": "USD",
+        "years": [
+          {
+            "fy": 2021,
+            "end": "2021-06-30",
+            "revenue": 3105891000,
+            "filed": "2023-08-18"
+          },
+          {
+            "fy": 2022,
+            "end": "2022-06-30",
+            "revenue": 3316616000,
+            "filed": "2024-08-16"
+          },
+          {
+            "fy": 2023,
+            "end": "2023-06-30",
+            "revenue": 5160100000,
+            "filed": "2025-08-15"
+          },
+          {
+            "fy": 2024,
+            "end": "2024-06-30",
+            "revenue": 4707688000,
+            "filed": "2026-08-14"
+          },
+          {
+            "fy": 2025,
+            "end": "2025-06-30",
+            "revenue": 5810115000,
+            "filed": "2026-08-14"
+          },
+          {
+            "fy": 2026,
+            "end": "2026-06-30",
+            "revenue": 7118181000,
+            "filed": "2026-08-14"
+          }
+        ],
+        "latest": {
+          "fy": 2026,
+          "end": "2026-06-30",
+          "revenue": 7118181000,
+          "filed": "2026-08-14"
+        },
+        "growth": {
+          "yoy": 0.22513599128416573,
+          "cagr3y": 0.1131925802114353
+        },
+        "fetchedAt": "2026-08-21T05:04:40Z",
+        "secSymbol": "COHR"
+      },
+      "MU": {
+        "ticker": "MU",
+        "cik": "0000723125",
+        "entityName": "Micron Technology, Inc.",
+        "taxonomy": "us-gaap",
+        "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+        "currency": "USD",
+        "years": [
+          {
+            "fy": 2020,
+            "end": "2020-09-03",
+            "revenue": 21435000000,
+            "filed": "2022-10-07"
+          },
+          {
+            "fy": 2021,
+            "end": "2021-09-02",
+            "revenue": 27705000000,
+            "filed": "2023-10-06"
+          },
+          {
+            "fy": 2022,
+            "end": "2022-09-01",
+            "revenue": 30758000000,
+            "filed": "2024-10-04"
+          },
+          {
+            "fy": 2023,
+            "end": "2023-08-31",
+            "revenue": 15540000000,
+            "filed": "2025-10-03"
+          },
+          {
+            "fy": 2024,
+            "end": "2024-08-29",
+            "revenue": 25111000000,
+            "filed": "2025-10-03"
+          },
+          {
+            "fy": 2025,
+            "end": "2025-08-28",
+            "revenue": 37378000000,
+            "filed": "2025-10-03"
+          }
+        ],
+        "latest": {
+          "fy": 2025,
+          "end": "2025-08-28",
+          "revenue": 37378000000,
+          "filed": "2025-10-03"
+        },
+        "growth": {
+          "yoy": 0.4885110111106685,
+          "cagr3y": 0.06713489726936261
+        },
+        "fetchedAt": "2026-08-21T05:04:40Z",
+        "secSymbol": "MU"
+      },
+      "AXTI": {
+        "ticker": "AXTI",
+        "cik": "0001051627",
+        "entityName": "AXT INC",
+        "taxonomy": "us-gaap",
+        "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+        "currency": "USD",
+        "years": [
+          {
+            "fy": 2020,
+            "end": "2020-12-31",
+            "revenue": 95361000,
+            "filed": "2023-03-16"
+          },
+          {
+            "fy": 2021,
+            "end": "2021-12-31",
+            "revenue": 137393000,
+            "filed": "2024-03-15"
+          },
+          {
+            "fy": 2022,
+            "end": "2022-12-31",
+            "revenue": 141118000,
+            "filed": "2024-03-15"
+          },
+          {
+            "fy": 2023,
+            "end": "2023-12-31",
+            "revenue": 75795000,
+            "filed": "2026-03-17"
+          },
+          {
+            "fy": 2024,
+            "end": "2024-12-31",
+            "revenue": 99361000,
+            "filed": "2026-03-17"
+          },
+          {
+            "fy": 2025,
+            "end": "2025-12-31",
+            "revenue": 88326000,
+            "filed": "2026-03-17"
+          }
+        ],
+        "latest": {
+          "fy": 2025,
+          "end": "2025-12-31",
+          "revenue": 88326000,
+          "filed": "2026-03-17"
+        },
+        "growth": {
+          "yoy": -0.11105967129960448,
+          "cagr3y": -0.14460104223313408
+        },
+        "fetchedAt": "2026-08-21T05:04:40Z",
+        "secSymbol": "AXTI"
+      },
+      "NVDA": {
+        "ticker": "NVDA",
+        "cik": "0001045810",
+        "entityName": "NVIDIA CORP",
+        "taxonomy": "us-gaap",
+        "tag": "Revenues",
+        "currency": "USD",
+        "years": [
+          {
+            "fy": 2021,
+            "end": "2021-01-31",
+            "revenue": 16675000000,
+            "filed": "2023-02-24"
+          },
+          {
+            "fy": 2022,
+            "end": "2022-01-30",
+            "revenue": 26914000000,
+            "filed": "2024-02-21"
+          },
+          {
+            "fy": 2023,
+            "end": "2023-01-29",
+            "revenue": 26974000000,
+            "filed": "2025-02-26"
+          },
+          {
+            "fy": 2024,
+            "end": "2024-01-28",
+            "revenue": 60922000000,
+            "filed": "2026-02-25"
+          },
+          {
+            "fy": 2025,
+            "end": "2025-01-26",
+            "revenue": 130497000000,
+            "filed": "2026-02-25"
+          },
+          {
+            "fy": 2026,
+            "end": "2026-01-25",
+            "revenue": 215938000000,
+            "filed": "2026-02-25"
+          }
+        ],
+        "latest": {
+          "fy": 2026,
+          "end": "2026-01-25",
+          "revenue": 215938000000,
+          "filed": "2026-02-25"
+        },
+        "growth": {
+          "yoy": 0.6547353579009478,
+          "cagr3y": 1.0004509499443963
+        },
+        "fetchedAt": "2026-08-21T05:04:40Z",
+        "secSymbol": "NVDA"
+      },
+      "TSEM": {
+        "ticker": "TSEM",
+        "cik": "0000928876",
+        "entityName": "TOWER SEMICONDUCTOR LTD.",
+        "taxonomy": "us-gaap",
+        "tag": "Revenues",
+        "currency": "USD",
+        "years": [
+          {
+            "fy": 2020,
+            "end": "2020-12-31",
+            "revenue": 1265684000,
+            "filed": "2023-05-16"
+          },
+          {
+            "fy": 2021,
+            "end": "2021-12-31",
+            "revenue": 1508166000,
+            "filed": "2024-04-22"
+          },
+          {
+            "fy": 2022,
+            "end": "2022-12-31",
+            "revenue": 1677614000,
+            "filed": "2025-04-30"
+          },
+          {
+            "fy": 2023,
+            "end": "2023-12-31",
+            "revenue": 1422680000,
+            "filed": "2026-04-30"
+          },
+          {
+            "fy": 2024,
+            "end": "2024-12-31",
+            "revenue": 1436122000,
+            "filed": "2026-04-30"
+          },
+          {
+            "fy": 2025,
+            "end": "2025-12-31",
+            "revenue": 1566104000,
+            "filed": "2026-04-30"
+          }
+        ],
+        "latest": {
+          "fy": 2025,
+          "end": "2025-12-31",
+          "revenue": 1566104000,
+          "filed": "2026-04-30"
+        },
+        "growth": {
+          "yoy": 0.09050902360662949,
+          "cagr3y": -0.022666349128557584
+        },
+        "fetchedAt": "2026-08-21T05:04:40Z",
+        "secSymbol": "TSEM"
+      },
+      "INTC": {
+        "ticker": "INTC",
+        "cik": "0000050863",
+        "entityName": "INTEL CORP",
+        "taxonomy": "us-gaap",
+        "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+        "currency": "USD",
+        "years": [
+          {
+            "fy": 2020,
+            "end": "2020-12-26",
+            "revenue": 77867000000,
+            "filed": "2023-01-27"
+          },
+          {
+            "fy": 2021,
+            "end": "2021-12-25",
+            "revenue": 79024000000,
+            "filed": "2024-01-26"
+          },
+          {
+            "fy": 2022,
+            "end": "2022-12-31",
+            "revenue": 63054000000,
+            "filed": "2025-01-31"
+          },
+          {
+            "fy": 2023,
+            "end": "2023-12-30",
+            "revenue": 54228000000,
+            "filed": "2026-01-23"
+          },
+          {
+            "fy": 2024,
+            "end": "2024-12-28",
+            "revenue": 53101000000,
+            "filed": "2026-01-23"
+          },
+          {
+            "fy": 2025,
+            "end": "2025-12-27",
+            "revenue": 52853000000,
+            "filed": "2026-01-23"
+          }
+        ],
+        "latest": {
+          "fy": 2025,
+          "end": "2025-12-27",
+          "revenue": 52853000000,
+          "filed": "2026-01-23"
+        },
+        "growth": {
+          "yoy": -0.004670345191239322,
+          "cagr3y": -0.05712887978236014
+        },
+        "fetchedAt": "2026-08-21T05:04:40Z",
+        "secSymbol": "INTC"
+      },
+      "TSM": {
+        "ticker": "TSM",
+        "cik": "0001046179",
+        "entityName": "Taiwan Semiconductor Manufacturing Company Limited",
+        "taxonomy": "ifrs-full",
+        "tag": "Revenue",
+        "currency": "USD",
+        "years": [
+          {
+            "fy": 2019,
+            "end": "2019-12-31",
+            "revenue": 35773500000,
+            "filed": "2020-04-15"
+          },
+          {
+            "fy": 2020,
+            "end": "2020-12-31",
+            "revenue": 47694300000,
+            "filed": "2021-04-16"
+          },
+          {
+            "fy": 2021,
+            "end": "2021-12-31",
+            "revenue": 57224800000,
+            "filed": "2022-04-14"
+          },
+          {
+            "fy": 2022,
+            "end": "2022-12-31",
+            "revenue": 73670400000,
+            "filed": "2023-04-20"
+          },
+          {
+            "fy": 2023,
+            "end": "2023-12-31",
+            "revenue": 70598800000,
+            "filed": "2024-04-18"
+          },
+          {
+            "fy": 2024,
+            "end": "2024-12-31",
+            "revenue": 88268000000,
+            "filed": "2025-04-17"
+          }
+        ],
+        "latest": {
+          "fy": 2024,
+          "end": "2024-12-31",
+          "revenue": 88268000000,
+          "filed": "2025-04-17"
+        },
+        "growth": {
+          "yoy": 0.2502762086607704,
+          "cagr3y": 0.15541943286267124
+        },
+        "fetchedAt": "2026-08-21T05:04:40Z",
+        "secSymbol": "TSM"
+      },
+      "NBIS": {
+        "ticker": "NBIS",
+        "cik": "0001513845",
+        "entityName": "NEBIUS GROUP\u00a0N.V.",
+        "taxonomy": "us-gaap",
+        "tag": "Revenues",
+        "currency": "USD",
+        "years": [
+          {
+            "fy": 2020,
+            "end": "2020-12-31",
+            "revenue": 2955600000,
+            "filed": "2021-04-01"
+          },
+          {
+            "fy": 2021,
+            "end": "2021-12-31",
+            "revenue": 4794200000,
+            "filed": "2022-04-20"
+          },
+          {
+            "fy": 2022,
+            "end": "2022-12-31",
+            "revenue": 13500000,
+            "filed": "2025-04-30"
+          },
+          {
+            "fy": 2023,
+            "end": "2023-12-31",
+            "revenue": 9800000,
+            "filed": "2026-04-30"
+          },
+          {
+            "fy": 2024,
+            "end": "2024-12-31",
+            "revenue": 91500000,
+            "filed": "2026-04-30"
+          },
+          {
+            "fy": 2025,
+            "end": "2025-12-31",
+            "revenue": 529800000,
+            "filed": "2026-04-30"
+          }
+        ],
+        "latest": {
+          "fy": 2025,
+          "end": "2025-12-31",
+          "revenue": 529800000,
+          "filed": "2026-04-30"
+        },
+        "growth": {
+          "yoy": 4.7901639344262295,
+          "cagr3y": 2.39828184367049
+        },
+        "fetchedAt": "2026-08-21T05:04:40Z",
+        "secSymbol": "NBIS"
+      },
+      "CRWV": {
+        "ticker": "CRWV",
+        "cik": "0001769628",
+        "entityName": "CoreWeave, Inc.",
+        "taxonomy": "us-gaap",
+        "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+        "currency": "USD",
+        "years": [
+          {
+            "fy": 2023,
+            "end": "2023-12-31",
+            "revenue": 229000000,
+            "filed": "2026-03-02"
+          },
+          {
+            "fy": 2024,
+            "end": "2024-12-31",
+            "revenue": 1915000000,
+            "filed": "2026-03-02"
+          },
+          {
+            "fy": 2025,
+            "end": "2025-12-31",
+            "revenue": 5131000000,
+            "filed": "2026-03-02"
+          }
+        ],
+        "latest": {
+          "fy": 2025,
+          "end": "2025-12-31",
+          "revenue": 5131000000,
+          "filed": "2026-03-02"
+        },
+        "growth": {
+          "yoy": 1.679373368146214,
+          "cagr3y": null
+        },
+        "fetchedAt": "2026-08-21T05:04:40Z",
+        "secSymbol": "CRWV"
+      },
+      "AEHR": {
+        "ticker": "AEHR",
+        "cik": "0001040470",
+        "entityName": "AEHR TEST SYSTEMS",
+        "taxonomy": "us-gaap",
+        "tag": "Revenues",
+        "currency": "USD",
+        "years": [
+          {
+            "fy": 2021,
+            "end": "2021-05-31",
+            "revenue": 16600000,
+            "filed": "2023-08-28"
+          },
+          {
+            "fy": 2022,
+            "end": "2022-05-31",
+            "revenue": 50829000,
+            "filed": "2023-08-28"
+          },
+          {
+            "fy": 2023,
+            "end": "2023-05-31",
+            "revenue": 64961000,
+            "filed": "2025-07-28"
+          },
+          {
+            "fy": 2024,
+            "end": "2024-05-31",
+            "revenue": 66218000,
+            "filed": "2026-07-27"
+          },
+          {
+            "fy": 2025,
+            "end": "2025-05-30",
+            "revenue": 58968000,
+            "filed": "2026-07-27"
+          },
+          {
+            "fy": 2026,
+            "end": "2026-05-29",
+            "revenue": 50001000,
+            "filed": "2026-07-27"
+          }
+        ],
+        "latest": {
+          "fy": 2026,
+          "end": "2026-05-29",
+          "revenue": 50001000,
+          "filed": "2026-07-27"
+        },
+        "growth": {
+          "yoy": -0.15206552706552712,
+          "cagr3y": -0.08355023794173644
+        },
+        "fetchedAt": "2026-08-21T05:04:40Z",
+        "secSymbol": "AEHR"
+      },
+      "JBL": {
+        "ticker": "JBL",
+        "cik": "0000898293",
+        "entityName": "JABIL INC",
+        "taxonomy": "us-gaap",
+        "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+        "currency": "USD",
+        "years": [
+          {
+            "fy": 2020,
+            "end": "2020-08-31",
+            "revenue": 27266000000,
+            "filed": "2022-10-25"
+          },
+          {
+            "fy": 2021,
+            "end": "2021-08-31",
+            "revenue": 29285000000,
+            "filed": "2023-10-20"
+          },
+          {
+            "fy": 2022,
+            "end": "2022-08-31",
+            "revenue": 33478000000,
+            "filed": "2024-10-28"
+          },
+          {
+            "fy": 2023,
+            "end": "2023-08-31",
+            "revenue": 34702000000,
+            "filed": "2025-10-17"
+          },
+          {
+            "fy": 2024,
+            "end": "2024-08-31",
+            "revenue": 28883000000,
+            "filed": "2025-10-17"
+          },
+          {
+            "fy": 2025,
+            "end": "2025-08-31",
+            "revenue": 29802000000,
+            "filed": "2025-10-17"
+          }
+        ],
+        "latest": {
+          "fy": 2025,
+          "end": "2025-08-31",
+          "revenue": 29802000000,
+          "filed": "2025-10-17"
+        },
+        "growth": {
+          "yoy": 0.03181802444344428,
+          "cagr3y": -0.03802902514729234
+        },
+        "fetchedAt": "2026-08-21T05:04:40Z",
+        "secSymbol": "JBL"
+      },
+      "POET": {
+        "ticker": "POET",
+        "cik": "0001437424",
+        "entityName": "POET TECHNOLOGIES INC.",
+        "taxonomy": "ifrs-full",
+        "tag": "Revenue",
+        "currency": "USD",
+        "years": [
+          {
+            "fy": 2018,
+            "end": "2018-12-31",
+            "revenue": 3888185,
+            "filed": "2019-04-30"
+          },
+          {
+            "fy": 2021,
+            "end": "2021-12-31",
+            "revenue": 209100,
+            "filed": "2024-03-28"
+          },
+          {
+            "fy": 2022,
+            "end": "2022-12-31",
+            "revenue": 552748,
+            "filed": "2025-04-01"
+          },
+          {
+            "fy": 2023,
+            "end": "2023-12-31",
+            "revenue": 465777,
+            "filed": "2026-03-31"
+          },
+          {
+            "fy": 2024,
+            "end": "2024-12-31",
+            "revenue": 41427,
+            "filed": "2026-03-31"
+          },
+          {
+            "fy": 2025,
+            "end": "2025-12-31",
+            "revenue": 1074865,
+            "filed": "2026-03-31"
+          }
+        ],
+        "latest": {
+          "fy": 2025,
+          "end": "2025-12-31",
+          "revenue": 1074865,
+          "filed": "2026-03-31"
+        },
+        "growth": {
+          "yoy": 24.946001400053106,
+          "cagr3y": 0.24817528974080805
+        },
+        "fetchedAt": "2026-08-21T05:04:40Z",
+        "secSymbol": "POET"
+      },
+      "TSLA": {
+        "ticker": "TSLA",
+        "cik": "0001318605",
+        "entityName": "Tesla, Inc.",
+        "taxonomy": "us-gaap",
+        "tag": "Revenues",
+        "currency": "USD",
+        "years": [
+          {
+            "fy": 2020,
+            "end": "2020-12-31",
+            "revenue": 31536000000,
+            "filed": "2023-01-31"
+          },
+          {
+            "fy": 2021,
+            "end": "2021-12-31",
+            "revenue": 53823000000,
+            "filed": "2024-01-29"
+          },
+          {
+            "fy": 2022,
+            "end": "2022-12-31",
+            "revenue": 81462000000,
+            "filed": "2025-01-30"
+          },
+          {
+            "fy": 2023,
+            "end": "2023-12-31",
+            "revenue": 96773000000,
+            "filed": "2026-01-29"
+          },
+          {
+            "fy": 2024,
+            "end": "2024-12-31",
+            "revenue": 97690000000,
+            "filed": "2026-01-29"
+          },
+          {
+            "fy": 2025,
+            "end": "2025-12-31",
+            "revenue": 94827000000,
+            "filed": "2026-01-29"
+          }
+        ],
+        "latest": {
+          "fy": 2025,
+          "end": "2025-12-31",
+          "revenue": 94827000000,
+          "filed": "2026-01-29"
+        },
+        "growth": {
+          "yoy": -0.02930699150373628,
+          "cagr3y": 0.051943257367141005
+        },
+        "fetchedAt": "2026-08-21T05:04:40Z",
+        "secSymbol": "TSLA"
+      },
+      "META": {
+        "ticker": "META",
+        "cik": "0001326801",
+        "entityName": "Meta Platforms, Inc.",
+        "taxonomy": "us-gaap",
+        "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+        "currency": "USD",
+        "years": [
+          {
+            "fy": 2020,
+            "end": "2020-12-31",
+            "revenue": 85965000000,
+            "filed": "2023-02-02"
+          },
+          {
+            "fy": 2021,
+            "end": "2021-12-31",
+            "revenue": 117929000000,
+            "filed": "2024-02-02"
+          },
+          {
+            "fy": 2022,
+            "end": "2022-12-31",
+            "revenue": 116609000000,
+            "filed": "2025-01-30"
+          },
+          {
+            "fy": 2023,
+            "end": "2023-12-31",
+            "revenue": 134902000000,
+            "filed": "2026-01-29"
+          },
+          {
+            "fy": 2024,
+            "end": "2024-12-31",
+            "revenue": 164501000000,
+            "filed": "2026-01-29"
+          },
+          {
+            "fy": 2025,
+            "end": "2025-12-31",
+            "revenue": 200966000000,
+            "filed": "2026-01-29"
+          }
+        ],
+        "latest": {
+          "fy": 2025,
+          "end": "2025-12-31",
+          "revenue": 200966000000,
+          "filed": "2026-01-29"
+        },
+        "growth": {
+          "yoy": 0.22167038498246217,
+          "cagr3y": 0.19893831442939258
+        },
+        "fetchedAt": "2026-08-21T05:04:40Z",
+        "secSymbol": "META"
+      },
+      "MRVL": {
+        "ticker": "MRVL",
+        "cik": "0001835632",
+        "entityName": "Marvell Technology, Inc.",
+        "taxonomy": "us-gaap",
+        "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+        "currency": "USD",
+        "years": [
+          {
+            "fy": 2021,
+            "end": "2021-01-30",
+            "revenue": 2968900000,
+            "filed": "2023-03-09"
+          },
+          {
+            "fy": 2022,
+            "end": "2022-01-29",
+            "revenue": 4462400000,
+            "filed": "2024-03-13"
+          },
+          {
+            "fy": 2023,
+            "end": "2023-01-28",
+            "revenue": 5919600000,
+            "filed": "2025-03-12"
+          },
+          {
+            "fy": 2024,
+            "end": "2024-02-03",
+            "revenue": 5507700000,
+            "filed": "2026-03-11"
+          },
+          {
+            "fy": 2025,
+            "end": "2025-02-01",
+            "revenue": 5767300000,
+            "filed": "2026-03-11"
+          },
+          {
+            "fy": 2026,
+            "end": "2026-01-31",
+            "revenue": 8194600000,
+            "filed": "2026-03-11"
+          }
+        ],
+        "latest": {
+          "fy": 2026,
+          "end": "2026-01-31",
+          "revenue": 8194600000,
+          "filed": "2026-03-11"
+        },
+        "growth": {
+          "yoy": 0.42087285211450776,
+          "cagr3y": 0.11449587642355707
+        },
+        "fetchedAt": "2026-08-21T05:04:40Z",
+        "secSymbol": "MRVL"
+      },
+      "MSFT": {
+        "ticker": "MSFT",
+        "cik": "0000789019",
+        "entityName": "MICROSOFT CORPORATION",
+        "taxonomy": "us-gaap",
+        "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+        "currency": "USD",
+        "years": [
+          {
+            "fy": 2021,
+            "end": "2021-06-30",
+            "revenue": 168088000000,
+            "filed": "2023-07-27"
+          },
+          {
+            "fy": 2022,
+            "end": "2022-06-30",
+            "revenue": 198270000000,
+            "filed": "2024-07-30"
+          },
+          {
+            "fy": 2023,
+            "end": "2023-06-30",
+            "revenue": 211915000000,
+            "filed": "2025-07-30"
+          },
+          {
+            "fy": 2024,
+            "end": "2024-06-30",
+            "revenue": 245122000000,
+            "filed": "2026-07-29"
+          },
+          {
+            "fy": 2025,
+            "end": "2025-06-30",
+            "revenue": 281724000000,
+            "filed": "2026-07-29"
+          },
+          {
+            "fy": 2026,
+            "end": "2026-06-30",
+            "revenue": 331839000000,
+            "filed": "2026-07-29"
+          }
+        ],
+        "latest": {
+          "fy": 2026,
+          "end": "2026-06-30",
+          "revenue": 331839000000,
+          "filed": "2026-07-29"
+        },
+        "growth": {
+          "yoy": 0.17788686799846665,
+          "cagr3y": 0.1612397915820203
+        },
+        "fetchedAt": "2026-08-21T05:04:40Z",
+        "secSymbol": "MSFT"
+      },
+      "VPG": {
+        "ticker": "VPG",
+        "cik": "0001487952",
+        "entityName": "Vishay Precision Group, Inc.",
+        "taxonomy": "us-gaap",
+        "tag": "Revenues",
+        "currency": "USD",
+        "years": [
+          {
+            "fy": 2016,
+            "end": "2016-12-31",
+            "revenue": 224929000,
+            "filed": "2019-03-14"
+          },
+          {
+            "fy": 2017,
+            "end": "2017-12-31",
+            "revenue": 254350000,
+            "filed": "2019-03-14"
+          },
+          {
+            "fy": 2018,
+            "end": "2018-12-31",
+            "revenue": 299794000,
+            "filed": "2019-03-14"
+          },
+          {
+            "fy": 2023,
+            "end": "2023-12-31",
+            "revenue": 355048000,
+            "filed": "2026-02-27"
+          },
+          {
+            "fy": 2024,
+            "end": "2024-12-31",
+            "revenue": 306522000,
+            "filed": "2026-02-27"
+          },
+          {
+            "fy": 2025,
+            "end": "2025-12-31",
+            "revenue": 307202000,
+            "filed": "2026-02-27"
+          }
+        ],
+        "latest": {
+          "fy": 2025,
+          "end": "2025-12-31",
+          "revenue": 307202000,
+          "filed": "2026-02-27"
+        },
+        "growth": {
+          "yoy": 0.0022184378282799067,
+          "cagr3y": 0.008169838986643141
+        },
+        "fetchedAt": "2026-08-21T05:04:40Z",
+        "secSymbol": "VPG"
+      },
+      "NVTS": {
+        "ticker": "NVTS",
+        "cik": "0001821769",
+        "entityName": "Navitas Semiconductor Corporation",
+        "taxonomy": "us-gaap",
+        "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+        "currency": "USD",
+        "years": [
+          {
+            "fy": 2020,
+            "end": "2020-12-31",
+            "revenue": 11849000,
+            "filed": "2022-03-31"
+          },
+          {
+            "fy": 2021,
+            "end": "2021-12-31",
+            "revenue": 23736000,
+            "filed": "2023-04-03"
+          },
+          {
+            "fy": 2022,
+            "end": "2022-12-31",
+            "revenue": 37943000,
+            "filed": "2024-03-06"
+          },
+          {
+            "fy": 2023,
+            "end": "2023-12-31",
+            "revenue": 79456000,
+            "filed": "2025-03-19"
+          },
+          {
+            "fy": 2024,
+            "end": "2024-12-31",
+            "revenue": 83302000,
+            "filed": "2026-02-27"
+          },
+          {
+            "fy": 2025,
+            "end": "2025-12-31",
+            "revenue": 45916000,
+            "filed": "2026-02-27"
+          }
+        ],
+        "latest": {
+          "fy": 2025,
+          "end": "2025-12-31",
+          "revenue": 45916000,
+          "filed": "2026-02-27"
+        },
+        "growth": {
+          "yoy": -0.4488007490816547,
+          "cagr3y": 0.06564068687343894
+        },
+        "fetchedAt": "2026-08-21T05:04:40Z",
+        "secSymbol": "NVTS"
+      },
+      "AMZN": {
+        "ticker": "AMZN",
+        "cik": "0001018724",
+        "entityName": "AMAZON COM INC",
+        "taxonomy": "us-gaap",
+        "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+        "currency": "USD",
+        "years": [
+          {
+            "fy": 2020,
+            "end": "2020-12-31",
+            "revenue": 386064000000,
+            "filed": "2023-02-03"
+          },
+          {
+            "fy": 2021,
+            "end": "2021-12-31",
+            "revenue": 469822000000,
+            "filed": "2024-02-02"
+          },
+          {
+            "fy": 2022,
+            "end": "2022-12-31",
+            "revenue": 513983000000,
+            "filed": "2025-02-07"
+          },
+          {
+            "fy": 2023,
+            "end": "2023-12-31",
+            "revenue": 574785000000,
+            "filed": "2026-02-06"
+          },
+          {
+            "fy": 2024,
+            "end": "2024-12-31",
+            "revenue": 637959000000,
+            "filed": "2026-02-06"
+          },
+          {
+            "fy": 2025,
+            "end": "2025-12-31",
+            "revenue": 716924000000,
+            "filed": "2026-02-06"
+          }
+        ],
+        "latest": {
+          "fy": 2025,
+          "end": "2025-12-31",
+          "revenue": 716924000000,
+          "filed": "2026-02-06"
+        },
+        "growth": {
+          "yoy": 0.12377754683294695,
+          "cagr3y": 0.11731283601806397
+        },
+        "fetchedAt": "2026-08-21T05:04:40Z",
+        "secSymbol": "AMZN"
+      },
+      "AVGO": {
+        "ticker": "AVGO",
+        "cik": "0001730168",
+        "entityName": "Broadcom Inc.",
+        "taxonomy": "us-gaap",
+        "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+        "currency": "USD",
+        "years": [
+          {
+            "fy": 2020,
+            "end": "2020-11-01",
+            "revenue": 23888000000,
+            "filed": "2022-12-16"
+          },
+          {
+            "fy": 2021,
+            "end": "2021-10-31",
+            "revenue": 27450000000,
+            "filed": "2023-12-14"
+          },
+          {
+            "fy": 2022,
+            "end": "2022-10-30",
+            "revenue": 33203000000,
+            "filed": "2024-12-20"
+          },
+          {
+            "fy": 2023,
+            "end": "2023-10-29",
+            "revenue": 35819000000,
+            "filed": "2025-12-18"
+          },
+          {
+            "fy": 2024,
+            "end": "2024-11-03",
+            "revenue": 51574000000,
+            "filed": "2025-12-18"
+          },
+          {
+            "fy": 2025,
+            "end": "2025-11-02",
+            "revenue": 63887000000,
+            "filed": "2025-12-18"
+          }
+        ],
+        "latest": {
+          "fy": 2025,
+          "end": "2025-11-02",
+          "revenue": 63887000000,
+          "filed": "2025-12-18"
+        },
+        "growth": {
+          "yoy": 0.23874432853763516,
+          "cagr3y": 0.24378426000041764
+        },
+        "fetchedAt": "2026-08-21T05:04:40Z",
+        "secSymbol": "AVGO"
+      },
+      "AAPL": {
+        "ticker": "AAPL",
+        "cik": "0000320193",
+        "entityName": "Apple Inc.",
+        "taxonomy": "us-gaap",
+        "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+        "currency": "USD",
+        "years": [
+          {
+            "fy": 2020,
+            "end": "2020-09-26",
+            "revenue": 274515000000,
+            "filed": "2022-10-28"
+          },
+          {
+            "fy": 2021,
+            "end": "2021-09-25",
+            "revenue": 365817000000,
+            "filed": "2023-11-03"
+          },
+          {
+            "fy": 2022,
+            "end": "2022-09-24",
+            "revenue": 394328000000,
+            "filed": "2024-11-01"
+          },
+          {
+            "fy": 2023,
+            "end": "2023-09-30",
+            "revenue": 383285000000,
+            "filed": "2025-10-31"
+          },
+          {
+            "fy": 2024,
+            "end": "2024-09-28",
+            "revenue": 391035000000,
+            "filed": "2025-10-31"
+          },
+          {
+            "fy": 2025,
+            "end": "2025-09-27",
+            "revenue": 416161000000,
+            "filed": "2025-10-31"
+          }
+        ],
+        "latest": {
+          "fy": 2025,
+          "end": "2025-09-27",
+          "revenue": 416161000000,
+          "filed": "2025-10-31"
+        },
+        "growth": {
+          "yoy": 0.06425511782832749,
+          "cagr3y": 0.01812535743479393
+        },
+        "fetchedAt": "2026-08-21T05:04:40Z",
+        "secSymbol": "AAPL"
+      },
+      "ARM": {
+        "ticker": "ARM",
+        "cik": "0001973239",
+        "entityName": "ARM HOLDINGS PLC /UK",
+        "taxonomy": "us-gaap",
+        "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+        "currency": "USD",
+        "years": [
+          {
+            "fy": 2022,
+            "end": "2022-03-31",
+            "revenue": 2703000000,
+            "filed": "2024-05-29"
+          },
+          {
+            "fy": 2023,
+            "end": "2023-03-31",
+            "revenue": 2679000000,
+            "filed": "2025-05-28"
+          },
+          {
+            "fy": 2024,
+            "end": "2024-03-31",
+            "revenue": 3233000000,
+            "filed": "2026-05-26"
+          },
+          {
+            "fy": 2025,
+            "end": "2025-03-31",
+            "revenue": 4007000000,
+            "filed": "2026-05-26"
+          },
+          {
+            "fy": 2026,
+            "end": "2026-03-31",
+            "revenue": 4920000000,
+            "filed": "2026-05-26"
+          }
+        ],
+        "latest": {
+          "fy": 2026,
+          "end": "2026-03-31",
+          "revenue": 4920000000,
+          "filed": "2026-05-26"
+        },
+        "growth": {
+          "yoy": 0.22785126029448466,
+          "cagr3y": 0.2246090456460499
+        },
+        "fetchedAt": "2026-08-21T05:04:40Z",
+        "secSymbol": "ARM"
+      },
+      "GOOGL": {
+        "ticker": "GOOGL",
+        "cik": "0001652044",
+        "entityName": "Alphabet Inc.",
+        "taxonomy": "us-gaap",
+        "tag": "Revenues",
+        "currency": "USD",
+        "years": [
+          {
+            "fy": 2019,
+            "end": "2019-12-31",
+            "revenue": 161857000000,
+            "filed": "2022-02-02"
+          },
+          {
+            "fy": 2020,
+            "end": "2020-12-31",
+            "revenue": 182527000000,
+            "filed": "2022-02-02"
+          },
+          {
+            "fy": 2021,
+            "end": "2021-12-31",
+            "revenue": 257637000000,
+            "filed": "2022-02-02"
+          },
+          {
+            "fy": 2023,
+            "end": "2023-12-31",
+            "revenue": 307394000000,
+            "filed": "2026-02-05"
+          },
+          {
+            "fy": 2024,
+            "end": "2024-12-31",
+            "revenue": 350018000000,
+            "filed": "2026-02-05"
+          },
+          {
+            "fy": 2025,
+            "end": "2025-12-31",
+            "revenue": 402836000000,
+            "filed": "2026-02-05"
+          }
+        ],
+        "latest": {
+          "fy": 2025,
+          "end": "2025-12-31",
+          "revenue": 402836000000,
+          "filed": "2026-02-05"
+        },
+        "growth": {
+          "yoy": 0.1509008108154437,
+          "cagr3y": 0.16066444427849325
+        },
+        "fetchedAt": "2026-08-21T05:04:40Z",
+        "secSymbol": "GOOGL"
+      },
+      "SMTC": {
+        "ticker": "SMTC",
+        "cik": "0000088941",
+        "entityName": "SEMTECH CORP",
+        "taxonomy": "us-gaap",
+        "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+        "currency": "USD",
+        "years": [
+          {
+            "fy": 2021,
+            "end": "2021-01-31",
+            "revenue": 595117000,
+            "filed": "2023-03-30"
+          },
+          {
+            "fy": 2022,
+            "end": "2022-01-30",
+            "revenue": 740858000,
+            "filed": "2024-03-28"
+          },
+          {
+            "fy": 2023,
+            "end": "2023-01-29",
+            "revenue": 756533000,
+            "filed": "2025-03-25"
+          },
+          {
+            "fy": 2024,
+            "end": "2024-01-28",
+            "revenue": 868758000,
+            "filed": "2026-03-23"
+          },
+          {
+            "fy": 2025,
+            "end": "2025-01-26",
+            "revenue": 909287000,
+            "filed": "2026-03-23"
+          },
+          {
+            "fy": 2026,
+            "end": "2026-01-25",
+            "revenue": 1049975000,
+            "filed": "2026-03-23"
+          }
+        ],
+        "latest": {
+          "fy": 2026,
+          "end": "2026-01-25",
+          "revenue": 1049975000,
+          "filed": "2026-03-23"
+        },
+        "growth": {
+          "yoy": 0.15472342615697787,
+          "cagr3y": 0.11545064930905613
+        },
+        "fetchedAt": "2026-08-21T05:04:40Z",
+        "secSymbol": "SMTC"
+      },
+      "AEVA": {
+        "ticker": "AEVA",
+        "cik": "0001789029",
+        "entityName": "AEVA TECHNOLOGIES, INC.",
+        "taxonomy": "us-gaap",
+        "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+        "currency": "USD",
+        "years": [
+          {
+            "fy": 2020,
+            "end": "2020-12-31",
+            "revenue": 4843000,
+            "filed": "2023-03-24"
+          },
+          {
+            "fy": 2021,
+            "end": "2021-12-31",
+            "revenue": 9265000,
+            "filed": "2024-03-15"
+          },
+          {
+            "fy": 2022,
+            "end": "2022-12-31",
+            "revenue": 4192000,
+            "filed": "2025-03-21"
+          },
+          {
+            "fy": 2023,
+            "end": "2023-12-31",
+            "revenue": 4312000,
+            "filed": "2026-03-20"
+          },
+          {
+            "fy": 2024,
+            "end": "2024-12-31",
+            "revenue": 9065000,
+            "filed": "2026-03-20"
+          },
+          {
+            "fy": 2025,
+            "end": "2025-12-31",
+            "revenue": 18079000,
+            "filed": "2026-03-20"
+          }
+        ],
+        "latest": {
+          "fy": 2025,
+          "end": "2025-12-31",
+          "revenue": 18079000,
+          "filed": "2026-03-20"
+        },
+        "growth": {
+          "yoy": 0.9943739658025372,
+          "cagr3y": 0.6277375300051125
+        },
+        "fetchedAt": "2026-08-21T05:04:40Z",
+        "secSymbol": "AEVA"
+      },
+      "AMD": {
+        "ticker": "AMD",
+        "cik": "0000002488",
+        "entityName": "ADVANCED MICRO DEVICES INC",
+        "taxonomy": "us-gaap",
+        "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+        "currency": "USD",
+        "years": [
+          {
+            "fy": 2020,
+            "end": "2020-12-26",
+            "revenue": 9763000000,
+            "filed": "2023-02-27"
+          },
+          {
+            "fy": 2021,
+            "end": "2021-12-25",
+            "revenue": 16434000000,
+            "filed": "2024-01-31"
+          },
+          {
+            "fy": 2022,
+            "end": "2022-12-31",
+            "revenue": 23601000000,
+            "filed": "2025-02-05"
+          },
+          {
+            "fy": 2023,
+            "end": "2023-12-30",
+            "revenue": 22680000000,
+            "filed": "2026-02-04"
+          },
+          {
+            "fy": 2024,
+            "end": "2024-12-28",
+            "revenue": 25785000000,
+            "filed": "2026-02-04"
+          },
+          {
+            "fy": 2025,
+            "end": "2025-12-27",
+            "revenue": 34639000000,
+            "filed": "2026-02-04"
+          }
+        ],
+        "latest": {
+          "fy": 2025,
+          "end": "2025-12-27",
+          "revenue": 34639000000,
+          "filed": "2026-02-04"
+        },
+        "growth": {
+          "yoy": 0.3433779329067288,
+          "cagr3y": 0.13643599335368428
+        },
+        "fetchedAt": "2026-08-21T05:04:40Z",
+        "secSymbol": "AMD"
+      },
+      "MTSI": {
+        "ticker": "MTSI",
+        "cik": "0001493594",
+        "entityName": "MACOM Technology Solutions Holdings, Inc.",
+        "taxonomy": "us-gaap",
+        "tag": "Revenues",
+        "currency": "USD",
+        "years": [
+          {
+            "fy": 2020,
+            "end": "2020-10-02",
+            "revenue": 530037000,
+            "filed": "2022-11-14"
+          },
+          {
+            "fy": 2021,
+            "end": "2021-10-01",
+            "revenue": 606920000,
+            "filed": "2023-11-13"
+          },
+          {
+            "fy": 2022,
+            "end": "2022-09-30",
+            "revenue": 675170000,
+            "filed": "2024-11-12"
+          },
+          {
+            "fy": 2023,
+            "end": "2023-09-29",
+            "revenue": 648407000,
+            "filed": "2025-11-14"
+          },
+          {
+            "fy": 2024,
+            "end": "2024-09-27",
+            "revenue": 729578000,
+            "filed": "2025-11-14"
+          },
+          {
+            "fy": 2025,
+            "end": "2025-10-03",
+            "revenue": 967258000,
+            "filed": "2025-11-14"
+          }
+        ],
+        "latest": {
+          "fy": 2025,
+          "end": "2025-10-03",
+          "revenue": 967258000,
+          "filed": "2025-11-14"
+        },
+        "growth": {
+          "yoy": 0.32577736719034833,
+          "cagr3y": 0.12730923420205276
+        },
+        "fetchedAt": "2026-08-21T05:04:40Z",
+        "secSymbol": "MTSI"
+      },
+      "SNDK": {
+        "ticker": "SNDK",
+        "cik": "0002023554",
+        "entityName": "Sandisk Corporation",
+        "taxonomy": "us-gaap",
+        "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+        "currency": "USD",
+        "years": [
+          {
+            "fy": 2023,
+            "end": "2023-06-30",
+            "revenue": 6086000000,
+            "filed": "2025-08-21"
+          },
+          {
+            "fy": 2024,
+            "end": "2024-06-28",
+            "revenue": 6663000000,
+            "filed": "2026-08-17"
+          },
+          {
+            "fy": 2025,
+            "end": "2025-06-27",
+            "revenue": 7355000000,
+            "filed": "2026-08-17"
+          },
+          {
+            "fy": 2026,
+            "end": "2026-07-03",
+            "revenue": 20248000000,
+            "filed": "2026-08-17"
+          }
+        ],
+        "latest": {
+          "fy": 2026,
+          "end": "2026-07-03",
+          "revenue": 20248000000,
+          "filed": "2026-08-17"
+        },
+        "growth": {
+          "yoy": 1.7529571719918424,
+          "cagr3y": 0.49285190975588256
+        },
+        "fetchedAt": "2026-08-21T05:04:40Z",
+        "secSymbol": "SNDK"
+      },
+      "IREN": {
+        "ticker": "IREN",
+        "cik": "0001878848",
+        "entityName": "IREN Limited",
+        "taxonomy": "us-gaap",
+        "tag": "Revenues",
+        "currency": "USD",
+        "years": [
+          {
+            "fy": 2023,
+            "end": "2023-06-30",
+            "revenue": 75509000,
+            "filed": "2025-08-28"
+          },
+          {
+            "fy": 2024,
+            "end": "2024-06-30",
+            "revenue": 187192000,
+            "filed": "2025-08-28"
+          },
+          {
+            "fy": 2025,
+            "end": "2025-06-30",
+            "revenue": 501023000,
+            "filed": "2025-08-28"
+          }
+        ],
+        "latest": {
+          "fy": 2025,
+          "end": "2025-06-30",
+          "revenue": 501023000,
+          "filed": "2025-08-28"
+        },
+        "growth": {
+          "yoy": 1.6765192956963975,
+          "cagr3y": null
+        },
+        "fetchedAt": "2026-08-21T05:04:40Z",
+        "secSymbol": "IREN"
+      },
+      "GFS": {
+        "ticker": "GFS",
+        "cik": "0001709048",
+        "entityName": "GLOBALFOUNDRIES Inc.",
+        "taxonomy": "ifrs-full",
+        "tag": "Revenue",
+        "currency": "USD",
+        "years": [
+          {
+            "fy": 2020,
+            "end": "2020-12-31",
+            "revenue": 4851000000,
+            "filed": "2023-04-14"
+          },
+          {
+            "fy": 2021,
+            "end": "2021-12-31",
+            "revenue": 6585000000,
+            "filed": "2024-04-29"
+          },
+          {
+            "fy": 2022,
+            "end": "2022-12-31",
+            "revenue": 8108000000,
+            "filed": "2025-03-20"
+          },
+          {
+            "fy": 2023,
+            "end": "2023-12-31",
+            "revenue": 7392000000,
+            "filed": "2026-02-27"
+          },
+          {
+            "fy": 2024,
+            "end": "2024-12-31",
+            "revenue": 6750000000,
+            "filed": "2026-02-27"
+          },
+          {
+            "fy": 2025,
+            "end": "2025-12-31",
+            "revenue": 6791000000,
+            "filed": "2026-02-27"
+          }
+        ],
+        "latest": {
+          "fy": 2025,
+          "end": "2025-12-31",
+          "revenue": 6791000000,
+          "filed": "2026-02-27"
+        },
+        "growth": {
+          "yoy": 0.006074074074074121,
+          "cagr3y": -0.057372736151414694
+        },
+        "fetchedAt": "2026-08-21T05:04:40Z",
+        "secSymbol": "GFS"
+      },
+      "BE": {
+        "ticker": "BE",
+        "cik": "0001664703",
+        "entityName": "BLOOM ENERGY CORPORATION",
+        "taxonomy": "us-gaap",
+        "tag": "Revenues",
+        "currency": "USD",
+        "years": [
+          {
+            "fy": 2020,
+            "end": "2020-12-31",
+            "revenue": 794247000,
+            "filed": "2023-02-21"
+          },
+          {
+            "fy": 2021,
+            "end": "2021-12-31",
+            "revenue": 972176000,
+            "filed": "2024-02-15"
+          },
+          {
+            "fy": 2022,
+            "end": "2022-12-31",
+            "revenue": 1199125000,
+            "filed": "2025-02-27"
+          },
+          {
+            "fy": 2023,
+            "end": "2023-12-31",
+            "revenue": 1333470000,
+            "filed": "2026-02-09"
+          },
+          {
+            "fy": 2024,
+            "end": "2024-12-31",
+            "revenue": 1473856000,
+            "filed": "2026-02-09"
+          },
+          {
+            "fy": 2025,
+            "end": "2025-12-31",
+            "revenue": 2023994000,
+            "filed": "2026-02-09"
+          }
+        ],
+        "latest": {
+          "fy": 2025,
+          "end": "2025-12-31",
+          "revenue": 2023994000,
+          "filed": "2026-02-09"
+        },
+        "growth": {
+          "yoy": 0.37326441660515,
+          "cagr3y": 0.19064306780764095
+        },
+        "fetchedAt": "2026-08-21T05:04:40Z",
+        "secSymbol": "BE"
+      },
+      "NOK": {
+        "ticker": "NOK",
+        "cik": "0000924613",
+        "entityName": "Nokia Corporation",
+        "taxonomy": "ifrs-full",
+        "tag": "RevenueFromContractsWithCustomers",
+        "currency": "EUR",
+        "years": [
+          {
+            "fy": 2020,
+            "end": "2020-12-31",
+            "revenue": 21852000000,
+            "filed": "2023-03-02"
+          },
+          {
+            "fy": 2021,
+            "end": "2021-12-31",
+            "revenue": 22202000000,
+            "filed": "2024-02-29"
+          },
+          {
+            "fy": 2022,
+            "end": "2022-12-31",
+            "revenue": 23761000000,
+            "filed": "2025-03-13"
+          },
+          {
+            "fy": 2023,
+            "end": "2023-12-31",
+            "revenue": 21138000000,
+            "filed": "2026-03-05"
+          },
+          {
+            "fy": 2024,
+            "end": "2024-12-31",
+            "revenue": 19220000000,
+            "filed": "2026-03-05"
+          },
+          {
+            "fy": 2025,
+            "end": "2025-12-31",
+            "revenue": 19889000000,
+            "filed": "2026-03-05"
+          }
+        ],
+        "latest": {
+          "fy": 2025,
+          "end": "2025-12-31",
+          "revenue": 19889000000,
+          "filed": "2026-03-05"
+        },
+        "growth": {
+          "yoy": 0.03480749219562962,
+          "cagr3y": -0.05756932997732567
+        },
+        "fetchedAt": "2026-08-21T05:04:40Z",
+        "secSymbol": "NOK"
+      },
+      "AMKR": {
+        "ticker": "AMKR",
+        "cik": "0001047127",
+        "entityName": "AMKOR TECHNOLOGY, INC.",
+        "taxonomy": "us-gaap",
+        "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+        "currency": "USD",
+        "years": [
+          {
+            "fy": 2020,
+            "end": "2020-12-31",
+            "revenue": 5050589000,
+            "filed": "2023-02-22"
+          },
+          {
+            "fy": 2021,
+            "end": "2021-12-31",
+            "revenue": 6138329000,
+            "filed": "2024-02-16"
+          },
+          {
+            "fy": 2022,
+            "end": "2022-12-31",
+            "revenue": 7091585000,
+            "filed": "2025-02-21"
+          },
+          {
+            "fy": 2023,
+            "end": "2023-12-31",
+            "revenue": 6503065000,
+            "filed": "2026-02-20"
+          },
+          {
+            "fy": 2024,
+            "end": "2024-12-31",
+            "revenue": 6317692000,
+            "filed": "2026-02-20"
+          },
+          {
+            "fy": 2025,
+            "end": "2025-12-31",
+            "revenue": 6707981000,
+            "filed": "2026-02-20"
+          }
+        ],
+        "latest": {
+          "fy": 2025,
+          "end": "2025-12-31",
+          "revenue": 6707981000,
+          "filed": "2026-02-20"
+        },
+        "growth": {
+          "yoy": 0.0617771489968173,
+          "cagr3y": -0.018366200177342695
+        },
+        "fetchedAt": "2026-08-21T05:04:40Z",
+        "secSymbol": "AMKR"
+      },
+      "FORM": {
+        "ticker": "FORM",
+        "cik": "0001039399",
+        "entityName": "FormFactor, Inc.",
+        "taxonomy": "us-gaap",
+        "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+        "currency": "USD",
+        "years": [
+          {
+            "fy": 2020,
+            "end": "2020-12-26",
+            "revenue": 693616000,
+            "filed": "2023-02-24"
+          },
+          {
+            "fy": 2021,
+            "end": "2021-12-25",
+            "revenue": 769674000,
+            "filed": "2024-02-23"
+          },
+          {
+            "fy": 2022,
+            "end": "2022-12-31",
+            "revenue": 747937000,
+            "filed": "2025-02-21"
+          },
+          {
+            "fy": 2023,
+            "end": "2023-12-30",
+            "revenue": 663102000,
+            "filed": "2026-02-20"
+          },
+          {
+            "fy": 2024,
+            "end": "2024-12-28",
+            "revenue": 763599000,
+            "filed": "2026-02-20"
+          },
+          {
+            "fy": 2025,
+            "end": "2025-12-27",
+            "revenue": 784993000,
+            "filed": "2026-02-20"
+          }
+        ],
+        "latest": {
+          "fy": 2025,
+          "end": "2025-12-27",
+          "revenue": 784993000,
+          "filed": "2026-02-20"
+        },
+        "growth": {
+          "yoy": 0.028017323228553215,
+          "cagr3y": 0.016249290345112577
+        },
+        "fetchedAt": "2026-08-21T05:04:40Z",
+        "secSymbol": "FORM"
+      },
+      "SMCI": {
+        "ticker": "SMCI",
+        "cik": "0001375365",
+        "entityName": "SUPER MICRO COMPUTER, INC.",
+        "taxonomy": "us-gaap",
+        "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+        "currency": "USD",
+        "years": [
+          {
+            "fy": 2020,
+            "end": "2020-06-30",
+            "revenue": 3339281000,
+            "filed": "2022-08-29"
+          },
+          {
+            "fy": 2021,
+            "end": "2021-06-30",
+            "revenue": 3557422000,
+            "filed": "2023-08-28"
+          },
+          {
+            "fy": 2022,
+            "end": "2022-06-30",
+            "revenue": 5196099000,
+            "filed": "2025-02-25"
+          },
+          {
+            "fy": 2023,
+            "end": "2023-06-30",
+            "revenue": 7123482000,
+            "filed": "2025-08-28"
+          },
+          {
+            "fy": 2024,
+            "end": "2024-06-30",
+            "revenue": 14989251000,
+            "filed": "2025-08-28"
+          },
+          {
+            "fy": 2025,
+            "end": "2025-06-30",
+            "revenue": 21972042000,
+            "filed": "2025-08-28"
+          }
+        ],
+        "latest": {
+          "fy": 2025,
+          "end": "2025-06-30",
+          "revenue": 21972042000,
+          "filed": "2025-08-28"
+        },
+        "growth": {
+          "yoy": 0.46585323042492255,
+          "cagr3y": 0.6170781210288652
+        },
+        "fetchedAt": "2026-08-21T05:04:40Z",
+        "secSymbol": "SMCI"
+      }
+    },
+    "unavailable": {
+      "000660.KS": "no annual revenue concept in EDGAR filings",
+      "SOI.PA": "no SEC filer for this symbol (not US-listed)",
+      "LPK.DE": "no SEC filer for this symbol (not US-listed)",
+      "SIVE": "no SEC filer for this symbol (not US-listed)",
+      "XFAB": "no SEC filer for this symbol (not US-listed)",
+      "CCXI": "symbol collision: EDGAR CIK 0002074973 is 'Churchill Capital Corp XI', not 'Agility Robotics' \u2014 not stored",
+      "IQE": "no SEC filer for this symbol (not US-listed)",
+      "RPI": "no SEC filer for this symbol (not US-listed)",
+      "CXMT": "no SEC filer for this symbol (not US-listed)"
+    }
   },
   "benchmarkQuote": {
     "price": 562.65,

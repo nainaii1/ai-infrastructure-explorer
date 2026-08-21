@@ -1,0 +1,2115 @@
+{
+  "meta": {
+    "schemaVersion": 1,
+    "updatedAt": "2026-08-21T05:04:40Z",
+    "source": "SEC EDGAR XBRL companyfacts (data.sec.gov)",
+    "disclaimer": "Figures as filed. Not investment advice.",
+    "covered": 37,
+    "unavailable": 9
+  },
+  "companies": {
+    "AAOI": {
+      "ticker": "AAOI",
+      "cik": "0001158114",
+      "entityName": "Applied Optoelectronics, Inc.",
+      "taxonomy": "us-gaap",
+      "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+      "currency": "USD",
+      "years": [
+        {
+          "fy": 2020,
+          "end": "2020-12-31",
+          "revenue": 234623000,
+          "filed": "2023-02-27"
+        },
+        {
+          "fy": 2021,
+          "end": "2021-12-31",
+          "revenue": 211565000,
+          "filed": "2024-02-23"
+        },
+        {
+          "fy": 2022,
+          "end": "2022-12-31",
+          "revenue": 222818000,
+          "filed": "2025-02-28"
+        },
+        {
+          "fy": 2023,
+          "end": "2023-12-31",
+          "revenue": 217646000,
+          "filed": "2026-02-26"
+        },
+        {
+          "fy": 2024,
+          "end": "2024-12-31",
+          "revenue": 249365000,
+          "filed": "2026-02-26"
+        },
+        {
+          "fy": 2025,
+          "end": "2025-12-31",
+          "revenue": 455715000,
+          "filed": "2026-02-26"
+        }
+      ],
+      "latest": {
+        "fy": 2025,
+        "end": "2025-12-31",
+        "revenue": 455715000,
+        "filed": "2026-02-26"
+      },
+      "growth": {
+        "yoy": 0.8275018547109658,
+        "cagr3y": 0.26934891855818166
+      },
+      "fetchedAt": "2026-08-21T05:04:40Z",
+      "secSymbol": "AAOI"
+    },
+    "LITE": {
+      "ticker": "LITE",
+      "cik": "0001633978",
+      "entityName": "Lumentum Holdings Inc.",
+      "taxonomy": "us-gaap",
+      "tag": "RevenueFromContractWithCustomerIncludingAssessedTax",
+      "currency": "USD",
+      "years": [
+        {
+          "fy": 2021,
+          "end": "2021-07-03",
+          "revenue": 1742800000,
+          "filed": "2023-08-23"
+        },
+        {
+          "fy": 2022,
+          "end": "2022-07-02",
+          "revenue": 1712600000,
+          "filed": "2024-08-21"
+        },
+        {
+          "fy": 2023,
+          "end": "2023-07-01",
+          "revenue": 1767000000,
+          "filed": "2025-08-19"
+        },
+        {
+          "fy": 2024,
+          "end": "2024-06-29",
+          "revenue": 1359200000,
+          "filed": "2026-08-17"
+        },
+        {
+          "fy": 2025,
+          "end": "2025-06-28",
+          "revenue": 1645000000,
+          "filed": "2026-08-17"
+        },
+        {
+          "fy": 2026,
+          "end": "2026-06-27",
+          "revenue": 3014000000,
+          "filed": "2026-08-17"
+        }
+      ],
+      "latest": {
+        "fy": 2026,
+        "end": "2026-06-27",
+        "revenue": 3014000000,
+        "filed": "2026-08-17"
+      },
+      "growth": {
+        "yoy": 0.8322188449848025,
+        "cagr3y": 0.19481931003065855
+      },
+      "fetchedAt": "2026-08-21T05:04:40Z",
+      "secSymbol": "LITE"
+    },
+    "COHR": {
+      "ticker": "COHR",
+      "cik": "0000820318",
+      "entityName": "COHERENT CORP.",
+      "taxonomy": "us-gaap",
+      "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+      "currency": "USD",
+      "years": [
+        {
+          "fy": 2021,
+          "end": "2021-06-30",
+          "revenue": 3105891000,
+          "filed": "2023-08-18"
+        },
+        {
+          "fy": 2022,
+          "end": "2022-06-30",
+          "revenue": 3316616000,
+          "filed": "2024-08-16"
+        },
+        {
+          "fy": 2023,
+          "end": "2023-06-30",
+          "revenue": 5160100000,
+          "filed": "2025-08-15"
+        },
+        {
+          "fy": 2024,
+          "end": "2024-06-30",
+          "revenue": 4707688000,
+          "filed": "2026-08-14"
+        },
+        {
+          "fy": 2025,
+          "end": "2025-06-30",
+          "revenue": 5810115000,
+          "filed": "2026-08-14"
+        },
+        {
+          "fy": 2026,
+          "end": "2026-06-30",
+          "revenue": 7118181000,
+          "filed": "2026-08-14"
+        }
+      ],
+      "latest": {
+        "fy": 2026,
+        "end": "2026-06-30",
+        "revenue": 7118181000,
+        "filed": "2026-08-14"
+      },
+      "growth": {
+        "yoy": 0.22513599128416573,
+        "cagr3y": 0.1131925802114353
+      },
+      "fetchedAt": "2026-08-21T05:04:40Z",
+      "secSymbol": "COHR"
+    },
+    "MU": {
+      "ticker": "MU",
+      "cik": "0000723125",
+      "entityName": "Micron Technology, Inc.",
+      "taxonomy": "us-gaap",
+      "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+      "currency": "USD",
+      "years": [
+        {
+          "fy": 2020,
+          "end": "2020-09-03",
+          "revenue": 21435000000,
+          "filed": "2022-10-07"
+        },
+        {
+          "fy": 2021,
+          "end": "2021-09-02",
+          "revenue": 27705000000,
+          "filed": "2023-10-06"
+        },
+        {
+          "fy": 2022,
+          "end": "2022-09-01",
+          "revenue": 30758000000,
+          "filed": "2024-10-04"
+        },
+        {
+          "fy": 2023,
+          "end": "2023-08-31",
+          "revenue": 15540000000,
+          "filed": "2025-10-03"
+        },
+        {
+          "fy": 2024,
+          "end": "2024-08-29",
+          "revenue": 25111000000,
+          "filed": "2025-10-03"
+        },
+        {
+          "fy": 2025,
+          "end": "2025-08-28",
+          "revenue": 37378000000,
+          "filed": "2025-10-03"
+        }
+      ],
+      "latest": {
+        "fy": 2025,
+        "end": "2025-08-28",
+        "revenue": 37378000000,
+        "filed": "2025-10-03"
+      },
+      "growth": {
+        "yoy": 0.4885110111106685,
+        "cagr3y": 0.06713489726936261
+      },
+      "fetchedAt": "2026-08-21T05:04:40Z",
+      "secSymbol": "MU"
+    },
+    "AXTI": {
+      "ticker": "AXTI",
+      "cik": "0001051627",
+      "entityName": "AXT INC",
+      "taxonomy": "us-gaap",
+      "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+      "currency": "USD",
+      "years": [
+        {
+          "fy": 2020,
+          "end": "2020-12-31",
+          "revenue": 95361000,
+          "filed": "2023-03-16"
+        },
+        {
+          "fy": 2021,
+          "end": "2021-12-31",
+          "revenue": 137393000,
+          "filed": "2024-03-15"
+        },
+        {
+          "fy": 2022,
+          "end": "2022-12-31",
+          "revenue": 141118000,
+          "filed": "2024-03-15"
+        },
+        {
+          "fy": 2023,
+          "end": "2023-12-31",
+          "revenue": 75795000,
+          "filed": "2026-03-17"
+        },
+        {
+          "fy": 2024,
+          "end": "2024-12-31",
+          "revenue": 99361000,
+          "filed": "2026-03-17"
+        },
+        {
+          "fy": 2025,
+          "end": "2025-12-31",
+          "revenue": 88326000,
+          "filed": "2026-03-17"
+        }
+      ],
+      "latest": {
+        "fy": 2025,
+        "end": "2025-12-31",
+        "revenue": 88326000,
+        "filed": "2026-03-17"
+      },
+      "growth": {
+        "yoy": -0.11105967129960448,
+        "cagr3y": -0.14460104223313408
+      },
+      "fetchedAt": "2026-08-21T05:04:40Z",
+      "secSymbol": "AXTI"
+    },
+    "NVDA": {
+      "ticker": "NVDA",
+      "cik": "0001045810",
+      "entityName": "NVIDIA CORP",
+      "taxonomy": "us-gaap",
+      "tag": "Revenues",
+      "currency": "USD",
+      "years": [
+        {
+          "fy": 2021,
+          "end": "2021-01-31",
+          "revenue": 16675000000,
+          "filed": "2023-02-24"
+        },
+        {
+          "fy": 2022,
+          "end": "2022-01-30",
+          "revenue": 26914000000,
+          "filed": "2024-02-21"
+        },
+        {
+          "fy": 2023,
+          "end": "2023-01-29",
+          "revenue": 26974000000,
+          "filed": "2025-02-26"
+        },
+        {
+          "fy": 2024,
+          "end": "2024-01-28",
+          "revenue": 60922000000,
+          "filed": "2026-02-25"
+        },
+        {
+          "fy": 2025,
+          "end": "2025-01-26",
+          "revenue": 130497000000,
+          "filed": "2026-02-25"
+        },
+        {
+          "fy": 2026,
+          "end": "2026-01-25",
+          "revenue": 215938000000,
+          "filed": "2026-02-25"
+        }
+      ],
+      "latest": {
+        "fy": 2026,
+        "end": "2026-01-25",
+        "revenue": 215938000000,
+        "filed": "2026-02-25"
+      },
+      "growth": {
+        "yoy": 0.6547353579009478,
+        "cagr3y": 1.0004509499443963
+      },
+      "fetchedAt": "2026-08-21T05:04:40Z",
+      "secSymbol": "NVDA"
+    },
+    "TSEM": {
+      "ticker": "TSEM",
+      "cik": "0000928876",
+      "entityName": "TOWER SEMICONDUCTOR LTD.",
+      "taxonomy": "us-gaap",
+      "tag": "Revenues",
+      "currency": "USD",
+      "years": [
+        {
+          "fy": 2020,
+          "end": "2020-12-31",
+          "revenue": 1265684000,
+          "filed": "2023-05-16"
+        },
+        {
+          "fy": 2021,
+          "end": "2021-12-31",
+          "revenue": 1508166000,
+          "filed": "2024-04-22"
+        },
+        {
+          "fy": 2022,
+          "end": "2022-12-31",
+          "revenue": 1677614000,
+          "filed": "2025-04-30"
+        },
+        {
+          "fy": 2023,
+          "end": "2023-12-31",
+          "revenue": 1422680000,
+          "filed": "2026-04-30"
+        },
+        {
+          "fy": 2024,
+          "end": "2024-12-31",
+          "revenue": 1436122000,
+          "filed": "2026-04-30"
+        },
+        {
+          "fy": 2025,
+          "end": "2025-12-31",
+          "revenue": 1566104000,
+          "filed": "2026-04-30"
+        }
+      ],
+      "latest": {
+        "fy": 2025,
+        "end": "2025-12-31",
+        "revenue": 1566104000,
+        "filed": "2026-04-30"
+      },
+      "growth": {
+        "yoy": 0.09050902360662949,
+        "cagr3y": -0.022666349128557584
+      },
+      "fetchedAt": "2026-08-21T05:04:40Z",
+      "secSymbol": "TSEM"
+    },
+    "INTC": {
+      "ticker": "INTC",
+      "cik": "0000050863",
+      "entityName": "INTEL CORP",
+      "taxonomy": "us-gaap",
+      "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+      "currency": "USD",
+      "years": [
+        {
+          "fy": 2020,
+          "end": "2020-12-26",
+          "revenue": 77867000000,
+          "filed": "2023-01-27"
+        },
+        {
+          "fy": 2021,
+          "end": "2021-12-25",
+          "revenue": 79024000000,
+          "filed": "2024-01-26"
+        },
+        {
+          "fy": 2022,
+          "end": "2022-12-31",
+          "revenue": 63054000000,
+          "filed": "2025-01-31"
+        },
+        {
+          "fy": 2023,
+          "end": "2023-12-30",
+          "revenue": 54228000000,
+          "filed": "2026-01-23"
+        },
+        {
+          "fy": 2024,
+          "end": "2024-12-28",
+          "revenue": 53101000000,
+          "filed": "2026-01-23"
+        },
+        {
+          "fy": 2025,
+          "end": "2025-12-27",
+          "revenue": 52853000000,
+          "filed": "2026-01-23"
+        }
+      ],
+      "latest": {
+        "fy": 2025,
+        "end": "2025-12-27",
+        "revenue": 52853000000,
+        "filed": "2026-01-23"
+      },
+      "growth": {
+        "yoy": -0.004670345191239322,
+        "cagr3y": -0.05712887978236014
+      },
+      "fetchedAt": "2026-08-21T05:04:40Z",
+      "secSymbol": "INTC"
+    },
+    "TSM": {
+      "ticker": "TSM",
+      "cik": "0001046179",
+      "entityName": "Taiwan Semiconductor Manufacturing Company Limited",
+      "taxonomy": "ifrs-full",
+      "tag": "Revenue",
+      "currency": "USD",
+      "years": [
+        {
+          "fy": 2019,
+          "end": "2019-12-31",
+          "revenue": 35773500000,
+          "filed": "2020-04-15"
+        },
+        {
+          "fy": 2020,
+          "end": "2020-12-31",
+          "revenue": 47694300000,
+          "filed": "2021-04-16"
+        },
+        {
+          "fy": 2021,
+          "end": "2021-12-31",
+          "revenue": 57224800000,
+          "filed": "2022-04-14"
+        },
+        {
+          "fy": 2022,
+          "end": "2022-12-31",
+          "revenue": 73670400000,
+          "filed": "2023-04-20"
+        },
+        {
+          "fy": 2023,
+          "end": "2023-12-31",
+          "revenue": 70598800000,
+          "filed": "2024-04-18"
+        },
+        {
+          "fy": 2024,
+          "end": "2024-12-31",
+          "revenue": 88268000000,
+          "filed": "2025-04-17"
+        }
+      ],
+      "latest": {
+        "fy": 2024,
+        "end": "2024-12-31",
+        "revenue": 88268000000,
+        "filed": "2025-04-17"
+      },
+      "growth": {
+        "yoy": 0.2502762086607704,
+        "cagr3y": 0.15541943286267124
+      },
+      "fetchedAt": "2026-08-21T05:04:40Z",
+      "secSymbol": "TSM"
+    },
+    "NBIS": {
+      "ticker": "NBIS",
+      "cik": "0001513845",
+      "entityName": "NEBIUS GROUP N.V.",
+      "taxonomy": "us-gaap",
+      "tag": "Revenues",
+      "currency": "USD",
+      "years": [
+        {
+          "fy": 2020,
+          "end": "2020-12-31",
+          "revenue": 2955600000,
+          "filed": "2021-04-01"
+        },
+        {
+          "fy": 2021,
+          "end": "2021-12-31",
+          "revenue": 4794200000,
+          "filed": "2022-04-20"
+        },
+        {
+          "fy": 2022,
+          "end": "2022-12-31",
+          "revenue": 13500000,
+          "filed": "2025-04-30"
+        },
+        {
+          "fy": 2023,
+          "end": "2023-12-31",
+          "revenue": 9800000,
+          "filed": "2026-04-30"
+        },
+        {
+          "fy": 2024,
+          "end": "2024-12-31",
+          "revenue": 91500000,
+          "filed": "2026-04-30"
+        },
+        {
+          "fy": 2025,
+          "end": "2025-12-31",
+          "revenue": 529800000,
+          "filed": "2026-04-30"
+        }
+      ],
+      "latest": {
+        "fy": 2025,
+        "end": "2025-12-31",
+        "revenue": 529800000,
+        "filed": "2026-04-30"
+      },
+      "growth": {
+        "yoy": 4.7901639344262295,
+        "cagr3y": 2.39828184367049
+      },
+      "fetchedAt": "2026-08-21T05:04:40Z",
+      "secSymbol": "NBIS"
+    },
+    "CRWV": {
+      "ticker": "CRWV",
+      "cik": "0001769628",
+      "entityName": "CoreWeave, Inc.",
+      "taxonomy": "us-gaap",
+      "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+      "currency": "USD",
+      "years": [
+        {
+          "fy": 2023,
+          "end": "2023-12-31",
+          "revenue": 229000000,
+          "filed": "2026-03-02"
+        },
+        {
+          "fy": 2024,
+          "end": "2024-12-31",
+          "revenue": 1915000000,
+          "filed": "2026-03-02"
+        },
+        {
+          "fy": 2025,
+          "end": "2025-12-31",
+          "revenue": 5131000000,
+          "filed": "2026-03-02"
+        }
+      ],
+      "latest": {
+        "fy": 2025,
+        "end": "2025-12-31",
+        "revenue": 5131000000,
+        "filed": "2026-03-02"
+      },
+      "growth": {
+        "yoy": 1.679373368146214,
+        "cagr3y": null
+      },
+      "fetchedAt": "2026-08-21T05:04:40Z",
+      "secSymbol": "CRWV"
+    },
+    "AEHR": {
+      "ticker": "AEHR",
+      "cik": "0001040470",
+      "entityName": "AEHR TEST SYSTEMS",
+      "taxonomy": "us-gaap",
+      "tag": "Revenues",
+      "currency": "USD",
+      "years": [
+        {
+          "fy": 2021,
+          "end": "2021-05-31",
+          "revenue": 16600000,
+          "filed": "2023-08-28"
+        },
+        {
+          "fy": 2022,
+          "end": "2022-05-31",
+          "revenue": 50829000,
+          "filed": "2023-08-28"
+        },
+        {
+          "fy": 2023,
+          "end": "2023-05-31",
+          "revenue": 64961000,
+          "filed": "2025-07-28"
+        },
+        {
+          "fy": 2024,
+          "end": "2024-05-31",
+          "revenue": 66218000,
+          "filed": "2026-07-27"
+        },
+        {
+          "fy": 2025,
+          "end": "2025-05-30",
+          "revenue": 58968000,
+          "filed": "2026-07-27"
+        },
+        {
+          "fy": 2026,
+          "end": "2026-05-29",
+          "revenue": 50001000,
+          "filed": "2026-07-27"
+        }
+      ],
+      "latest": {
+        "fy": 2026,
+        "end": "2026-05-29",
+        "revenue": 50001000,
+        "filed": "2026-07-27"
+      },
+      "growth": {
+        "yoy": -0.15206552706552712,
+        "cagr3y": -0.08355023794173644
+      },
+      "fetchedAt": "2026-08-21T05:04:40Z",
+      "secSymbol": "AEHR"
+    },
+    "JBL": {
+      "ticker": "JBL",
+      "cik": "0000898293",
+      "entityName": "JABIL INC",
+      "taxonomy": "us-gaap",
+      "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+      "currency": "USD",
+      "years": [
+        {
+          "fy": 2020,
+          "end": "2020-08-31",
+          "revenue": 27266000000,
+          "filed": "2022-10-25"
+        },
+        {
+          "fy": 2021,
+          "end": "2021-08-31",
+          "revenue": 29285000000,
+          "filed": "2023-10-20"
+        },
+        {
+          "fy": 2022,
+          "end": "2022-08-31",
+          "revenue": 33478000000,
+          "filed": "2024-10-28"
+        },
+        {
+          "fy": 2023,
+          "end": "2023-08-31",
+          "revenue": 34702000000,
+          "filed": "2025-10-17"
+        },
+        {
+          "fy": 2024,
+          "end": "2024-08-31",
+          "revenue": 28883000000,
+          "filed": "2025-10-17"
+        },
+        {
+          "fy": 2025,
+          "end": "2025-08-31",
+          "revenue": 29802000000,
+          "filed": "2025-10-17"
+        }
+      ],
+      "latest": {
+        "fy": 2025,
+        "end": "2025-08-31",
+        "revenue": 29802000000,
+        "filed": "2025-10-17"
+      },
+      "growth": {
+        "yoy": 0.03181802444344428,
+        "cagr3y": -0.03802902514729234
+      },
+      "fetchedAt": "2026-08-21T05:04:40Z",
+      "secSymbol": "JBL"
+    },
+    "POET": {
+      "ticker": "POET",
+      "cik": "0001437424",
+      "entityName": "POET TECHNOLOGIES INC.",
+      "taxonomy": "ifrs-full",
+      "tag": "Revenue",
+      "currency": "USD",
+      "years": [
+        {
+          "fy": 2018,
+          "end": "2018-12-31",
+          "revenue": 3888185,
+          "filed": "2019-04-30"
+        },
+        {
+          "fy": 2021,
+          "end": "2021-12-31",
+          "revenue": 209100,
+          "filed": "2024-03-28"
+        },
+        {
+          "fy": 2022,
+          "end": "2022-12-31",
+          "revenue": 552748,
+          "filed": "2025-04-01"
+        },
+        {
+          "fy": 2023,
+          "end": "2023-12-31",
+          "revenue": 465777,
+          "filed": "2026-03-31"
+        },
+        {
+          "fy": 2024,
+          "end": "2024-12-31",
+          "revenue": 41427,
+          "filed": "2026-03-31"
+        },
+        {
+          "fy": 2025,
+          "end": "2025-12-31",
+          "revenue": 1074865,
+          "filed": "2026-03-31"
+        }
+      ],
+      "latest": {
+        "fy": 2025,
+        "end": "2025-12-31",
+        "revenue": 1074865,
+        "filed": "2026-03-31"
+      },
+      "growth": {
+        "yoy": 24.946001400053106,
+        "cagr3y": 0.24817528974080805
+      },
+      "fetchedAt": "2026-08-21T05:04:40Z",
+      "secSymbol": "POET"
+    },
+    "TSLA": {
+      "ticker": "TSLA",
+      "cik": "0001318605",
+      "entityName": "Tesla, Inc.",
+      "taxonomy": "us-gaap",
+      "tag": "Revenues",
+      "currency": "USD",
+      "years": [
+        {
+          "fy": 2020,
+          "end": "2020-12-31",
+          "revenue": 31536000000,
+          "filed": "2023-01-31"
+        },
+        {
+          "fy": 2021,
+          "end": "2021-12-31",
+          "revenue": 53823000000,
+          "filed": "2024-01-29"
+        },
+        {
+          "fy": 2022,
+          "end": "2022-12-31",
+          "revenue": 81462000000,
+          "filed": "2025-01-30"
+        },
+        {
+          "fy": 2023,
+          "end": "2023-12-31",
+          "revenue": 96773000000,
+          "filed": "2026-01-29"
+        },
+        {
+          "fy": 2024,
+          "end": "2024-12-31",
+          "revenue": 97690000000,
+          "filed": "2026-01-29"
+        },
+        {
+          "fy": 2025,
+          "end": "2025-12-31",
+          "revenue": 94827000000,
+          "filed": "2026-01-29"
+        }
+      ],
+      "latest": {
+        "fy": 2025,
+        "end": "2025-12-31",
+        "revenue": 94827000000,
+        "filed": "2026-01-29"
+      },
+      "growth": {
+        "yoy": -0.02930699150373628,
+        "cagr3y": 0.051943257367141005
+      },
+      "fetchedAt": "2026-08-21T05:04:40Z",
+      "secSymbol": "TSLA"
+    },
+    "META": {
+      "ticker": "META",
+      "cik": "0001326801",
+      "entityName": "Meta Platforms, Inc.",
+      "taxonomy": "us-gaap",
+      "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+      "currency": "USD",
+      "years": [
+        {
+          "fy": 2020,
+          "end": "2020-12-31",
+          "revenue": 85965000000,
+          "filed": "2023-02-02"
+        },
+        {
+          "fy": 2021,
+          "end": "2021-12-31",
+          "revenue": 117929000000,
+          "filed": "2024-02-02"
+        },
+        {
+          "fy": 2022,
+          "end": "2022-12-31",
+          "revenue": 116609000000,
+          "filed": "2025-01-30"
+        },
+        {
+          "fy": 2023,
+          "end": "2023-12-31",
+          "revenue": 134902000000,
+          "filed": "2026-01-29"
+        },
+        {
+          "fy": 2024,
+          "end": "2024-12-31",
+          "revenue": 164501000000,
+          "filed": "2026-01-29"
+        },
+        {
+          "fy": 2025,
+          "end": "2025-12-31",
+          "revenue": 200966000000,
+          "filed": "2026-01-29"
+        }
+      ],
+      "latest": {
+        "fy": 2025,
+        "end": "2025-12-31",
+        "revenue": 200966000000,
+        "filed": "2026-01-29"
+      },
+      "growth": {
+        "yoy": 0.22167038498246217,
+        "cagr3y": 0.19893831442939258
+      },
+      "fetchedAt": "2026-08-21T05:04:40Z",
+      "secSymbol": "META"
+    },
+    "MRVL": {
+      "ticker": "MRVL",
+      "cik": "0001835632",
+      "entityName": "Marvell Technology, Inc.",
+      "taxonomy": "us-gaap",
+      "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+      "currency": "USD",
+      "years": [
+        {
+          "fy": 2021,
+          "end": "2021-01-30",
+          "revenue": 2968900000,
+          "filed": "2023-03-09"
+        },
+        {
+          "fy": 2022,
+          "end": "2022-01-29",
+          "revenue": 4462400000,
+          "filed": "2024-03-13"
+        },
+        {
+          "fy": 2023,
+          "end": "2023-01-28",
+          "revenue": 5919600000,
+          "filed": "2025-03-12"
+        },
+        {
+          "fy": 2024,
+          "end": "2024-02-03",
+          "revenue": 5507700000,
+          "filed": "2026-03-11"
+        },
+        {
+          "fy": 2025,
+          "end": "2025-02-01",
+          "revenue": 5767300000,
+          "filed": "2026-03-11"
+        },
+        {
+          "fy": 2026,
+          "end": "2026-01-31",
+          "revenue": 8194600000,
+          "filed": "2026-03-11"
+        }
+      ],
+      "latest": {
+        "fy": 2026,
+        "end": "2026-01-31",
+        "revenue": 8194600000,
+        "filed": "2026-03-11"
+      },
+      "growth": {
+        "yoy": 0.42087285211450776,
+        "cagr3y": 0.11449587642355707
+      },
+      "fetchedAt": "2026-08-21T05:04:40Z",
+      "secSymbol": "MRVL"
+    },
+    "MSFT": {
+      "ticker": "MSFT",
+      "cik": "0000789019",
+      "entityName": "MICROSOFT CORPORATION",
+      "taxonomy": "us-gaap",
+      "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+      "currency": "USD",
+      "years": [
+        {
+          "fy": 2021,
+          "end": "2021-06-30",
+          "revenue": 168088000000,
+          "filed": "2023-07-27"
+        },
+        {
+          "fy": 2022,
+          "end": "2022-06-30",
+          "revenue": 198270000000,
+          "filed": "2024-07-30"
+        },
+        {
+          "fy": 2023,
+          "end": "2023-06-30",
+          "revenue": 211915000000,
+          "filed": "2025-07-30"
+        },
+        {
+          "fy": 2024,
+          "end": "2024-06-30",
+          "revenue": 245122000000,
+          "filed": "2026-07-29"
+        },
+        {
+          "fy": 2025,
+          "end": "2025-06-30",
+          "revenue": 281724000000,
+          "filed": "2026-07-29"
+        },
+        {
+          "fy": 2026,
+          "end": "2026-06-30",
+          "revenue": 331839000000,
+          "filed": "2026-07-29"
+        }
+      ],
+      "latest": {
+        "fy": 2026,
+        "end": "2026-06-30",
+        "revenue": 331839000000,
+        "filed": "2026-07-29"
+      },
+      "growth": {
+        "yoy": 0.17788686799846665,
+        "cagr3y": 0.1612397915820203
+      },
+      "fetchedAt": "2026-08-21T05:04:40Z",
+      "secSymbol": "MSFT"
+    },
+    "VPG": {
+      "ticker": "VPG",
+      "cik": "0001487952",
+      "entityName": "Vishay Precision Group, Inc.",
+      "taxonomy": "us-gaap",
+      "tag": "Revenues",
+      "currency": "USD",
+      "years": [
+        {
+          "fy": 2016,
+          "end": "2016-12-31",
+          "revenue": 224929000,
+          "filed": "2019-03-14"
+        },
+        {
+          "fy": 2017,
+          "end": "2017-12-31",
+          "revenue": 254350000,
+          "filed": "2019-03-14"
+        },
+        {
+          "fy": 2018,
+          "end": "2018-12-31",
+          "revenue": 299794000,
+          "filed": "2019-03-14"
+        },
+        {
+          "fy": 2023,
+          "end": "2023-12-31",
+          "revenue": 355048000,
+          "filed": "2026-02-27"
+        },
+        {
+          "fy": 2024,
+          "end": "2024-12-31",
+          "revenue": 306522000,
+          "filed": "2026-02-27"
+        },
+        {
+          "fy": 2025,
+          "end": "2025-12-31",
+          "revenue": 307202000,
+          "filed": "2026-02-27"
+        }
+      ],
+      "latest": {
+        "fy": 2025,
+        "end": "2025-12-31",
+        "revenue": 307202000,
+        "filed": "2026-02-27"
+      },
+      "growth": {
+        "yoy": 0.0022184378282799067,
+        "cagr3y": 0.008169838986643141
+      },
+      "fetchedAt": "2026-08-21T05:04:40Z",
+      "secSymbol": "VPG"
+    },
+    "NVTS": {
+      "ticker": "NVTS",
+      "cik": "0001821769",
+      "entityName": "Navitas Semiconductor Corporation",
+      "taxonomy": "us-gaap",
+      "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+      "currency": "USD",
+      "years": [
+        {
+          "fy": 2020,
+          "end": "2020-12-31",
+          "revenue": 11849000,
+          "filed": "2022-03-31"
+        },
+        {
+          "fy": 2021,
+          "end": "2021-12-31",
+          "revenue": 23736000,
+          "filed": "2023-04-03"
+        },
+        {
+          "fy": 2022,
+          "end": "2022-12-31",
+          "revenue": 37943000,
+          "filed": "2024-03-06"
+        },
+        {
+          "fy": 2023,
+          "end": "2023-12-31",
+          "revenue": 79456000,
+          "filed": "2025-03-19"
+        },
+        {
+          "fy": 2024,
+          "end": "2024-12-31",
+          "revenue": 83302000,
+          "filed": "2026-02-27"
+        },
+        {
+          "fy": 2025,
+          "end": "2025-12-31",
+          "revenue": 45916000,
+          "filed": "2026-02-27"
+        }
+      ],
+      "latest": {
+        "fy": 2025,
+        "end": "2025-12-31",
+        "revenue": 45916000,
+        "filed": "2026-02-27"
+      },
+      "growth": {
+        "yoy": -0.4488007490816547,
+        "cagr3y": 0.06564068687343894
+      },
+      "fetchedAt": "2026-08-21T05:04:40Z",
+      "secSymbol": "NVTS"
+    },
+    "AMZN": {
+      "ticker": "AMZN",
+      "cik": "0001018724",
+      "entityName": "AMAZON COM INC",
+      "taxonomy": "us-gaap",
+      "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+      "currency": "USD",
+      "years": [
+        {
+          "fy": 2020,
+          "end": "2020-12-31",
+          "revenue": 386064000000,
+          "filed": "2023-02-03"
+        },
+        {
+          "fy": 2021,
+          "end": "2021-12-31",
+          "revenue": 469822000000,
+          "filed": "2024-02-02"
+        },
+        {
+          "fy": 2022,
+          "end": "2022-12-31",
+          "revenue": 513983000000,
+          "filed": "2025-02-07"
+        },
+        {
+          "fy": 2023,
+          "end": "2023-12-31",
+          "revenue": 574785000000,
+          "filed": "2026-02-06"
+        },
+        {
+          "fy": 2024,
+          "end": "2024-12-31",
+          "revenue": 637959000000,
+          "filed": "2026-02-06"
+        },
+        {
+          "fy": 2025,
+          "end": "2025-12-31",
+          "revenue": 716924000000,
+          "filed": "2026-02-06"
+        }
+      ],
+      "latest": {
+        "fy": 2025,
+        "end": "2025-12-31",
+        "revenue": 716924000000,
+        "filed": "2026-02-06"
+      },
+      "growth": {
+        "yoy": 0.12377754683294695,
+        "cagr3y": 0.11731283601806397
+      },
+      "fetchedAt": "2026-08-21T05:04:40Z",
+      "secSymbol": "AMZN"
+    },
+    "AVGO": {
+      "ticker": "AVGO",
+      "cik": "0001730168",
+      "entityName": "Broadcom Inc.",
+      "taxonomy": "us-gaap",
+      "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+      "currency": "USD",
+      "years": [
+        {
+          "fy": 2020,
+          "end": "2020-11-01",
+          "revenue": 23888000000,
+          "filed": "2022-12-16"
+        },
+        {
+          "fy": 2021,
+          "end": "2021-10-31",
+          "revenue": 27450000000,
+          "filed": "2023-12-14"
+        },
+        {
+          "fy": 2022,
+          "end": "2022-10-30",
+          "revenue": 33203000000,
+          "filed": "2024-12-20"
+        },
+        {
+          "fy": 2023,
+          "end": "2023-10-29",
+          "revenue": 35819000000,
+          "filed": "2025-12-18"
+        },
+        {
+          "fy": 2024,
+          "end": "2024-11-03",
+          "revenue": 51574000000,
+          "filed": "2025-12-18"
+        },
+        {
+          "fy": 2025,
+          "end": "2025-11-02",
+          "revenue": 63887000000,
+          "filed": "2025-12-18"
+        }
+      ],
+      "latest": {
+        "fy": 2025,
+        "end": "2025-11-02",
+        "revenue": 63887000000,
+        "filed": "2025-12-18"
+      },
+      "growth": {
+        "yoy": 0.23874432853763516,
+        "cagr3y": 0.24378426000041764
+      },
+      "fetchedAt": "2026-08-21T05:04:40Z",
+      "secSymbol": "AVGO"
+    },
+    "AAPL": {
+      "ticker": "AAPL",
+      "cik": "0000320193",
+      "entityName": "Apple Inc.",
+      "taxonomy": "us-gaap",
+      "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+      "currency": "USD",
+      "years": [
+        {
+          "fy": 2020,
+          "end": "2020-09-26",
+          "revenue": 274515000000,
+          "filed": "2022-10-28"
+        },
+        {
+          "fy": 2021,
+          "end": "2021-09-25",
+          "revenue": 365817000000,
+          "filed": "2023-11-03"
+        },
+        {
+          "fy": 2022,
+          "end": "2022-09-24",
+          "revenue": 394328000000,
+          "filed": "2024-11-01"
+        },
+        {
+          "fy": 2023,
+          "end": "2023-09-30",
+          "revenue": 383285000000,
+          "filed": "2025-10-31"
+        },
+        {
+          "fy": 2024,
+          "end": "2024-09-28",
+          "revenue": 391035000000,
+          "filed": "2025-10-31"
+        },
+        {
+          "fy": 2025,
+          "end": "2025-09-27",
+          "revenue": 416161000000,
+          "filed": "2025-10-31"
+        }
+      ],
+      "latest": {
+        "fy": 2025,
+        "end": "2025-09-27",
+        "revenue": 416161000000,
+        "filed": "2025-10-31"
+      },
+      "growth": {
+        "yoy": 0.06425511782832749,
+        "cagr3y": 0.01812535743479393
+      },
+      "fetchedAt": "2026-08-21T05:04:40Z",
+      "secSymbol": "AAPL"
+    },
+    "ARM": {
+      "ticker": "ARM",
+      "cik": "0001973239",
+      "entityName": "ARM HOLDINGS PLC /UK",
+      "taxonomy": "us-gaap",
+      "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+      "currency": "USD",
+      "years": [
+        {
+          "fy": 2022,
+          "end": "2022-03-31",
+          "revenue": 2703000000,
+          "filed": "2024-05-29"
+        },
+        {
+          "fy": 2023,
+          "end": "2023-03-31",
+          "revenue": 2679000000,
+          "filed": "2025-05-28"
+        },
+        {
+          "fy": 2024,
+          "end": "2024-03-31",
+          "revenue": 3233000000,
+          "filed": "2026-05-26"
+        },
+        {
+          "fy": 2025,
+          "end": "2025-03-31",
+          "revenue": 4007000000,
+          "filed": "2026-05-26"
+        },
+        {
+          "fy": 2026,
+          "end": "2026-03-31",
+          "revenue": 4920000000,
+          "filed": "2026-05-26"
+        }
+      ],
+      "latest": {
+        "fy": 2026,
+        "end": "2026-03-31",
+        "revenue": 4920000000,
+        "filed": "2026-05-26"
+      },
+      "growth": {
+        "yoy": 0.22785126029448466,
+        "cagr3y": 0.2246090456460499
+      },
+      "fetchedAt": "2026-08-21T05:04:40Z",
+      "secSymbol": "ARM"
+    },
+    "GOOGL": {
+      "ticker": "GOOGL",
+      "cik": "0001652044",
+      "entityName": "Alphabet Inc.",
+      "taxonomy": "us-gaap",
+      "tag": "Revenues",
+      "currency": "USD",
+      "years": [
+        {
+          "fy": 2019,
+          "end": "2019-12-31",
+          "revenue": 161857000000,
+          "filed": "2022-02-02"
+        },
+        {
+          "fy": 2020,
+          "end": "2020-12-31",
+          "revenue": 182527000000,
+          "filed": "2022-02-02"
+        },
+        {
+          "fy": 2021,
+          "end": "2021-12-31",
+          "revenue": 257637000000,
+          "filed": "2022-02-02"
+        },
+        {
+          "fy": 2023,
+          "end": "2023-12-31",
+          "revenue": 307394000000,
+          "filed": "2026-02-05"
+        },
+        {
+          "fy": 2024,
+          "end": "2024-12-31",
+          "revenue": 350018000000,
+          "filed": "2026-02-05"
+        },
+        {
+          "fy": 2025,
+          "end": "2025-12-31",
+          "revenue": 402836000000,
+          "filed": "2026-02-05"
+        }
+      ],
+      "latest": {
+        "fy": 2025,
+        "end": "2025-12-31",
+        "revenue": 402836000000,
+        "filed": "2026-02-05"
+      },
+      "growth": {
+        "yoy": 0.1509008108154437,
+        "cagr3y": 0.16066444427849325
+      },
+      "fetchedAt": "2026-08-21T05:04:40Z",
+      "secSymbol": "GOOGL"
+    },
+    "SMTC": {
+      "ticker": "SMTC",
+      "cik": "0000088941",
+      "entityName": "SEMTECH CORP",
+      "taxonomy": "us-gaap",
+      "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+      "currency": "USD",
+      "years": [
+        {
+          "fy": 2021,
+          "end": "2021-01-31",
+          "revenue": 595117000,
+          "filed": "2023-03-30"
+        },
+        {
+          "fy": 2022,
+          "end": "2022-01-30",
+          "revenue": 740858000,
+          "filed": "2024-03-28"
+        },
+        {
+          "fy": 2023,
+          "end": "2023-01-29",
+          "revenue": 756533000,
+          "filed": "2025-03-25"
+        },
+        {
+          "fy": 2024,
+          "end": "2024-01-28",
+          "revenue": 868758000,
+          "filed": "2026-03-23"
+        },
+        {
+          "fy": 2025,
+          "end": "2025-01-26",
+          "revenue": 909287000,
+          "filed": "2026-03-23"
+        },
+        {
+          "fy": 2026,
+          "end": "2026-01-25",
+          "revenue": 1049975000,
+          "filed": "2026-03-23"
+        }
+      ],
+      "latest": {
+        "fy": 2026,
+        "end": "2026-01-25",
+        "revenue": 1049975000,
+        "filed": "2026-03-23"
+      },
+      "growth": {
+        "yoy": 0.15472342615697787,
+        "cagr3y": 0.11545064930905613
+      },
+      "fetchedAt": "2026-08-21T05:04:40Z",
+      "secSymbol": "SMTC"
+    },
+    "AEVA": {
+      "ticker": "AEVA",
+      "cik": "0001789029",
+      "entityName": "AEVA TECHNOLOGIES, INC.",
+      "taxonomy": "us-gaap",
+      "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+      "currency": "USD",
+      "years": [
+        {
+          "fy": 2020,
+          "end": "2020-12-31",
+          "revenue": 4843000,
+          "filed": "2023-03-24"
+        },
+        {
+          "fy": 2021,
+          "end": "2021-12-31",
+          "revenue": 9265000,
+          "filed": "2024-03-15"
+        },
+        {
+          "fy": 2022,
+          "end": "2022-12-31",
+          "revenue": 4192000,
+          "filed": "2025-03-21"
+        },
+        {
+          "fy": 2023,
+          "end": "2023-12-31",
+          "revenue": 4312000,
+          "filed": "2026-03-20"
+        },
+        {
+          "fy": 2024,
+          "end": "2024-12-31",
+          "revenue": 9065000,
+          "filed": "2026-03-20"
+        },
+        {
+          "fy": 2025,
+          "end": "2025-12-31",
+          "revenue": 18079000,
+          "filed": "2026-03-20"
+        }
+      ],
+      "latest": {
+        "fy": 2025,
+        "end": "2025-12-31",
+        "revenue": 18079000,
+        "filed": "2026-03-20"
+      },
+      "growth": {
+        "yoy": 0.9943739658025372,
+        "cagr3y": 0.6277375300051125
+      },
+      "fetchedAt": "2026-08-21T05:04:40Z",
+      "secSymbol": "AEVA"
+    },
+    "AMD": {
+      "ticker": "AMD",
+      "cik": "0000002488",
+      "entityName": "ADVANCED MICRO DEVICES INC",
+      "taxonomy": "us-gaap",
+      "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+      "currency": "USD",
+      "years": [
+        {
+          "fy": 2020,
+          "end": "2020-12-26",
+          "revenue": 9763000000,
+          "filed": "2023-02-27"
+        },
+        {
+          "fy": 2021,
+          "end": "2021-12-25",
+          "revenue": 16434000000,
+          "filed": "2024-01-31"
+        },
+        {
+          "fy": 2022,
+          "end": "2022-12-31",
+          "revenue": 23601000000,
+          "filed": "2025-02-05"
+        },
+        {
+          "fy": 2023,
+          "end": "2023-12-30",
+          "revenue": 22680000000,
+          "filed": "2026-02-04"
+        },
+        {
+          "fy": 2024,
+          "end": "2024-12-28",
+          "revenue": 25785000000,
+          "filed": "2026-02-04"
+        },
+        {
+          "fy": 2025,
+          "end": "2025-12-27",
+          "revenue": 34639000000,
+          "filed": "2026-02-04"
+        }
+      ],
+      "latest": {
+        "fy": 2025,
+        "end": "2025-12-27",
+        "revenue": 34639000000,
+        "filed": "2026-02-04"
+      },
+      "growth": {
+        "yoy": 0.3433779329067288,
+        "cagr3y": 0.13643599335368428
+      },
+      "fetchedAt": "2026-08-21T05:04:40Z",
+      "secSymbol": "AMD"
+    },
+    "MTSI": {
+      "ticker": "MTSI",
+      "cik": "0001493594",
+      "entityName": "MACOM Technology Solutions Holdings, Inc.",
+      "taxonomy": "us-gaap",
+      "tag": "Revenues",
+      "currency": "USD",
+      "years": [
+        {
+          "fy": 2020,
+          "end": "2020-10-02",
+          "revenue": 530037000,
+          "filed": "2022-11-14"
+        },
+        {
+          "fy": 2021,
+          "end": "2021-10-01",
+          "revenue": 606920000,
+          "filed": "2023-11-13"
+        },
+        {
+          "fy": 2022,
+          "end": "2022-09-30",
+          "revenue": 675170000,
+          "filed": "2024-11-12"
+        },
+        {
+          "fy": 2023,
+          "end": "2023-09-29",
+          "revenue": 648407000,
+          "filed": "2025-11-14"
+        },
+        {
+          "fy": 2024,
+          "end": "2024-09-27",
+          "revenue": 729578000,
+          "filed": "2025-11-14"
+        },
+        {
+          "fy": 2025,
+          "end": "2025-10-03",
+          "revenue": 967258000,
+          "filed": "2025-11-14"
+        }
+      ],
+      "latest": {
+        "fy": 2025,
+        "end": "2025-10-03",
+        "revenue": 967258000,
+        "filed": "2025-11-14"
+      },
+      "growth": {
+        "yoy": 0.32577736719034833,
+        "cagr3y": 0.12730923420205276
+      },
+      "fetchedAt": "2026-08-21T05:04:40Z",
+      "secSymbol": "MTSI"
+    },
+    "SNDK": {
+      "ticker": "SNDK",
+      "cik": "0002023554",
+      "entityName": "Sandisk Corporation",
+      "taxonomy": "us-gaap",
+      "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+      "currency": "USD",
+      "years": [
+        {
+          "fy": 2023,
+          "end": "2023-06-30",
+          "revenue": 6086000000,
+          "filed": "2025-08-21"
+        },
+        {
+          "fy": 2024,
+          "end": "2024-06-28",
+          "revenue": 6663000000,
+          "filed": "2026-08-17"
+        },
+        {
+          "fy": 2025,
+          "end": "2025-06-27",
+          "revenue": 7355000000,
+          "filed": "2026-08-17"
+        },
+        {
+          "fy": 2026,
+          "end": "2026-07-03",
+          "revenue": 20248000000,
+          "filed": "2026-08-17"
+        }
+      ],
+      "latest": {
+        "fy": 2026,
+        "end": "2026-07-03",
+        "revenue": 20248000000,
+        "filed": "2026-08-17"
+      },
+      "growth": {
+        "yoy": 1.7529571719918424,
+        "cagr3y": 0.49285190975588256
+      },
+      "fetchedAt": "2026-08-21T05:04:40Z",
+      "secSymbol": "SNDK"
+    },
+    "IREN": {
+      "ticker": "IREN",
+      "cik": "0001878848",
+      "entityName": "IREN Limited",
+      "taxonomy": "us-gaap",
+      "tag": "Revenues",
+      "currency": "USD",
+      "years": [
+        {
+          "fy": 2023,
+          "end": "2023-06-30",
+          "revenue": 75509000,
+          "filed": "2025-08-28"
+        },
+        {
+          "fy": 2024,
+          "end": "2024-06-30",
+          "revenue": 187192000,
+          "filed": "2025-08-28"
+        },
+        {
+          "fy": 2025,
+          "end": "2025-06-30",
+          "revenue": 501023000,
+          "filed": "2025-08-28"
+        }
+      ],
+      "latest": {
+        "fy": 2025,
+        "end": "2025-06-30",
+        "revenue": 501023000,
+        "filed": "2025-08-28"
+      },
+      "growth": {
+        "yoy": 1.6765192956963975,
+        "cagr3y": null
+      },
+      "fetchedAt": "2026-08-21T05:04:40Z",
+      "secSymbol": "IREN"
+    },
+    "GFS": {
+      "ticker": "GFS",
+      "cik": "0001709048",
+      "entityName": "GLOBALFOUNDRIES Inc.",
+      "taxonomy": "ifrs-full",
+      "tag": "Revenue",
+      "currency": "USD",
+      "years": [
+        {
+          "fy": 2020,
+          "end": "2020-12-31",
+          "revenue": 4851000000,
+          "filed": "2023-04-14"
+        },
+        {
+          "fy": 2021,
+          "end": "2021-12-31",
+          "revenue": 6585000000,
+          "filed": "2024-04-29"
+        },
+        {
+          "fy": 2022,
+          "end": "2022-12-31",
+          "revenue": 8108000000,
+          "filed": "2025-03-20"
+        },
+        {
+          "fy": 2023,
+          "end": "2023-12-31",
+          "revenue": 7392000000,
+          "filed": "2026-02-27"
+        },
+        {
+          "fy": 2024,
+          "end": "2024-12-31",
+          "revenue": 6750000000,
+          "filed": "2026-02-27"
+        },
+        {
+          "fy": 2025,
+          "end": "2025-12-31",
+          "revenue": 6791000000,
+          "filed": "2026-02-27"
+        }
+      ],
+      "latest": {
+        "fy": 2025,
+        "end": "2025-12-31",
+        "revenue": 6791000000,
+        "filed": "2026-02-27"
+      },
+      "growth": {
+        "yoy": 0.006074074074074121,
+        "cagr3y": -0.057372736151414694
+      },
+      "fetchedAt": "2026-08-21T05:04:40Z",
+      "secSymbol": "GFS"
+    },
+    "BE": {
+      "ticker": "BE",
+      "cik": "0001664703",
+      "entityName": "BLOOM ENERGY CORPORATION",
+      "taxonomy": "us-gaap",
+      "tag": "Revenues",
+      "currency": "USD",
+      "years": [
+        {
+          "fy": 2020,
+          "end": "2020-12-31",
+          "revenue": 794247000,
+          "filed": "2023-02-21"
+        },
+        {
+          "fy": 2021,
+          "end": "2021-12-31",
+          "revenue": 972176000,
+          "filed": "2024-02-15"
+        },
+        {
+          "fy": 2022,
+          "end": "2022-12-31",
+          "revenue": 1199125000,
+          "filed": "2025-02-27"
+        },
+        {
+          "fy": 2023,
+          "end": "2023-12-31",
+          "revenue": 1333470000,
+          "filed": "2026-02-09"
+        },
+        {
+          "fy": 2024,
+          "end": "2024-12-31",
+          "revenue": 1473856000,
+          "filed": "2026-02-09"
+        },
+        {
+          "fy": 2025,
+          "end": "2025-12-31",
+          "revenue": 2023994000,
+          "filed": "2026-02-09"
+        }
+      ],
+      "latest": {
+        "fy": 2025,
+        "end": "2025-12-31",
+        "revenue": 2023994000,
+        "filed": "2026-02-09"
+      },
+      "growth": {
+        "yoy": 0.37326441660515,
+        "cagr3y": 0.19064306780764095
+      },
+      "fetchedAt": "2026-08-21T05:04:40Z",
+      "secSymbol": "BE"
+    },
+    "NOK": {
+      "ticker": "NOK",
+      "cik": "0000924613",
+      "entityName": "Nokia Corporation",
+      "taxonomy": "ifrs-full",
+      "tag": "RevenueFromContractsWithCustomers",
+      "currency": "EUR",
+      "years": [
+        {
+          "fy": 2020,
+          "end": "2020-12-31",
+          "revenue": 21852000000,
+          "filed": "2023-03-02"
+        },
+        {
+          "fy": 2021,
+          "end": "2021-12-31",
+          "revenue": 22202000000,
+          "filed": "2024-02-29"
+        },
+        {
+          "fy": 2022,
+          "end": "2022-12-31",
+          "revenue": 23761000000,
+          "filed": "2025-03-13"
+        },
+        {
+          "fy": 2023,
+          "end": "2023-12-31",
+          "revenue": 21138000000,
+          "filed": "2026-03-05"
+        },
+        {
+          "fy": 2024,
+          "end": "2024-12-31",
+          "revenue": 19220000000,
+          "filed": "2026-03-05"
+        },
+        {
+          "fy": 2025,
+          "end": "2025-12-31",
+          "revenue": 19889000000,
+          "filed": "2026-03-05"
+        }
+      ],
+      "latest": {
+        "fy": 2025,
+        "end": "2025-12-31",
+        "revenue": 19889000000,
+        "filed": "2026-03-05"
+      },
+      "growth": {
+        "yoy": 0.03480749219562962,
+        "cagr3y": -0.05756932997732567
+      },
+      "fetchedAt": "2026-08-21T05:04:40Z",
+      "secSymbol": "NOK"
+    },
+    "AMKR": {
+      "ticker": "AMKR",
+      "cik": "0001047127",
+      "entityName": "AMKOR TECHNOLOGY, INC.",
+      "taxonomy": "us-gaap",
+      "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+      "currency": "USD",
+      "years": [
+        {
+          "fy": 2020,
+          "end": "2020-12-31",
+          "revenue": 5050589000,
+          "filed": "2023-02-22"
+        },
+        {
+          "fy": 2021,
+          "end": "2021-12-31",
+          "revenue": 6138329000,
+          "filed": "2024-02-16"
+        },
+        {
+          "fy": 2022,
+          "end": "2022-12-31",
+          "revenue": 7091585000,
+          "filed": "2025-02-21"
+        },
+        {
+          "fy": 2023,
+          "end": "2023-12-31",
+          "revenue": 6503065000,
+          "filed": "2026-02-20"
+        },
+        {
+          "fy": 2024,
+          "end": "2024-12-31",
+          "revenue": 6317692000,
+          "filed": "2026-02-20"
+        },
+        {
+          "fy": 2025,
+          "end": "2025-12-31",
+          "revenue": 6707981000,
+          "filed": "2026-02-20"
+        }
+      ],
+      "latest": {
+        "fy": 2025,
+        "end": "2025-12-31",
+        "revenue": 6707981000,
+        "filed": "2026-02-20"
+      },
+      "growth": {
+        "yoy": 0.0617771489968173,
+        "cagr3y": -0.018366200177342695
+      },
+      "fetchedAt": "2026-08-21T05:04:40Z",
+      "secSymbol": "AMKR"
+    },
+    "FORM": {
+      "ticker": "FORM",
+      "cik": "0001039399",
+      "entityName": "FormFactor, Inc.",
+      "taxonomy": "us-gaap",
+      "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+      "currency": "USD",
+      "years": [
+        {
+          "fy": 2020,
+          "end": "2020-12-26",
+          "revenue": 693616000,
+          "filed": "2023-02-24"
+        },
+        {
+          "fy": 2021,
+          "end": "2021-12-25",
+          "revenue": 769674000,
+          "filed": "2024-02-23"
+        },
+        {
+          "fy": 2022,
+          "end": "2022-12-31",
+          "revenue": 747937000,
+          "filed": "2025-02-21"
+        },
+        {
+          "fy": 2023,
+          "end": "2023-12-30",
+          "revenue": 663102000,
+          "filed": "2026-02-20"
+        },
+        {
+          "fy": 2024,
+          "end": "2024-12-28",
+          "revenue": 763599000,
+          "filed": "2026-02-20"
+        },
+        {
+          "fy": 2025,
+          "end": "2025-12-27",
+          "revenue": 784993000,
+          "filed": "2026-02-20"
+        }
+      ],
+      "latest": {
+        "fy": 2025,
+        "end": "2025-12-27",
+        "revenue": 784993000,
+        "filed": "2026-02-20"
+      },
+      "growth": {
+        "yoy": 0.028017323228553215,
+        "cagr3y": 0.016249290345112577
+      },
+      "fetchedAt": "2026-08-21T05:04:40Z",
+      "secSymbol": "FORM"
+    },
+    "SMCI": {
+      "ticker": "SMCI",
+      "cik": "0001375365",
+      "entityName": "SUPER MICRO COMPUTER, INC.",
+      "taxonomy": "us-gaap",
+      "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+      "currency": "USD",
+      "years": [
+        {
+          "fy": 2020,
+          "end": "2020-06-30",
+          "revenue": 3339281000,
+          "filed": "2022-08-29"
+        },
+        {
+          "fy": 2021,
+          "end": "2021-06-30",
+          "revenue": 3557422000,
+          "filed": "2023-08-28"
+        },
+        {
+          "fy": 2022,
+          "end": "2022-06-30",
+          "revenue": 5196099000,
+          "filed": "2025-02-25"
+        },
+        {
+          "fy": 2023,
+          "end": "2023-06-30",
+          "revenue": 7123482000,
+          "filed": "2025-08-28"
+        },
+        {
+          "fy": 2024,
+          "end": "2024-06-30",
+          "revenue": 14989251000,
+          "filed": "2025-08-28"
+        },
+        {
+          "fy": 2025,
+          "end": "2025-06-30",
+          "revenue": 21972042000,
+          "filed": "2025-08-28"
+        }
+      ],
+      "latest": {
+        "fy": 2025,
+        "end": "2025-06-30",
+        "revenue": 21972042000,
+        "filed": "2025-08-28"
+      },
+      "growth": {
+        "yoy": 0.46585323042492255,
+        "cagr3y": 0.6170781210288652
+      },
+      "fetchedAt": "2026-08-21T05:04:40Z",
+      "secSymbol": "SMCI"
+    }
+  },
+  "unavailable": {
+    "000660.KS": "no annual revenue concept in EDGAR filings",
+    "SOI.PA": "no SEC filer for this symbol (not US-listed)",
+    "LPK.DE": "no SEC filer for this symbol (not US-listed)",
+    "SIVE": "no SEC filer for this symbol (not US-listed)",
+    "XFAB": "no SEC filer for this symbol (not US-listed)",
+    "CCXI": "symbol collision: EDGAR CIK 0002074973 is 'Churchill Capital Corp XI', not 'Agility Robotics' — not stored",
+    "IQE": "no SEC filer for this symbol (not US-listed)",
+    "RPI": "no SEC filer for this symbol (not US-listed)",
+    "CXMT": "no SEC filer for this symbol (not US-listed)"
+  }
+}

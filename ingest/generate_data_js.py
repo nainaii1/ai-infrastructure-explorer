@@ -63,7 +63,7 @@ PRICE_FIELDS = ("price", "currency", "chg7d", "chg1m", "chg1y", "marketCap",
 REQUIRED_KEYS = (
     "meta", "countries", "categories", "center", "mapIntro", "glossary",
     "zones", "tickers", "theses", "priorities", "brain", "desk", "memos",
-    "vault", "calls", "benchmarkQuote", "claims",
+    "vault", "calls", "benchmarkQuote", "claims", "fundamentals",
 )
 
 # Keys whose content comes from a store file. If the file has content, the
@@ -75,6 +75,7 @@ STORE_BACKED = {
     "vault": "vault.json",
     "calls": "calls.json",
     "claims": "claims.json",
+    "fundamentals": "fundamentals.json",
 }
 
 
@@ -129,6 +130,8 @@ def build_data():
     vault = _load_optional("vault.json", {})    # {} until synced; {meta, pages} after (knowledge vault)
     calls = _load_optional("calls.json", {})    # {} until a first call is stamped; {meta, calls} after
     claims = _load_optional("claims.json", {})  # {} until the first claim; {meta, claims} after
+    # {} until the first SEC fetch; {meta, companies, unavailable} after.
+    fundamentals = _load_optional("fundamentals.json", {})
     # Precompute the per-source scores here rather than in the browser, so the
     # hit rate and the unfalsifiable share physically travel together (plan
     # C2). A page that recomputed them could render one without the other.
@@ -229,6 +232,10 @@ def build_data():
         "vault": vault,
         "calls": calls,
         "claims": claims,
+        # Revenue history as filed with the SEC (fetch_fundamentals.py). The
+        # first block in this payload that describes the COMPANIES rather than
+        # the analyst's attention.
+        "fundamentals": fundamentals,
         # Latest benchmark quote (fetched by fetch_prices.py alongside the
         # tickers) so performance.html can compute vs-SMH without a fetch().
         "benchmarkQuote": prices.get((calls.get("meta") or {}).get("benchmark", "SMH")) or None,

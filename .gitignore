@@ -42,3 +42,7 @@ ingest/store/*.json.bak-*
 # `extract_views.py --emit` writes this for the in-session manual pass; it is
 # regenerated every batch and holds no state worth keeping.
 ingest/store/.views_batch.json
+
+# --- SEC ticker->CIK map cache ---
+# ~800KB, refetched monthly by fetch_fundamentals.py. Derived data, not state.
+ingest/store/.cik_map.json
