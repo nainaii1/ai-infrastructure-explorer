@@ -129,7 +129,7 @@
     "candidate": "PCB",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:39:18Z",
-    "count": 6
+    "count": 7
   },
   {
     "candidate": "TW",
@@ -177,7 +177,7 @@
     "candidate": "SK",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:39:49Z",
-    "count": 23
+    "count": 24
   },
   {
     "candidate": "SMIC",
@@ -285,7 +285,7 @@
     "candidate": "ELS",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:44:22Z",
-    "count": 13
+    "count": 14
   },
   {
     "candidate": "EML",
@@ -411,7 +411,7 @@
     "candidate": "CW",
     "sourceUrl": "",
     "firstSeen": "2026-06-30T07:39:56Z",
-    "count": 42
+    "count": 43
   },
   {
     "candidate": "ERIC",
@@ -657,7 +657,7 @@
     "candidate": "NPO",
     "sourceUrl": "",
     "firstSeen": "2026-06-30T07:49:19Z",
-    "count": 16
+    "count": 17
   },
   {
     "candidate": "SKC",
@@ -765,7 +765,7 @@
     "candidate": "MS",
     "sourceUrl": "",
     "firstSeen": "2026-07-01T14:57:24Z",
-    "count": 4
+    "count": 5
   },
   {
     "candidate": "OSAT",
@@ -1365,7 +1365,7 @@
     "candidate": "HDI",
     "sourceUrl": "",
     "firstSeen": "2026-07-22T15:26:50Z",
-    "count": 1
+    "count": 2
   },
   {
     "candidate": "HVLP",
@@ -1695,6 +1695,18 @@
     "candidate": "SUB",
     "sourceUrl": "",
     "firstSeen": "2026-08-17T09:26:49Z",
+    "count": 1
+  },
+  {
+    "candidate": "CMXT",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2090374603264929981",
+    "firstSeen": "2026-08-20T19:54:25Z",
+    "count": 1
+  },
+  {
+    "candidate": "PD",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2090374603264929981",
+    "firstSeen": "2026-08-20T19:54:25Z",
     "count": 1
   }
 ]

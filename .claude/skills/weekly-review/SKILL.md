@@ -131,11 +131,13 @@ further without the operator asking.
    already happened, and never backdate `calledAt`. If prices are stale, run
    `python3 ingest/fetch_prices.py` first — `entryPrice` comes from
    `prices.json` (same day), `benchmark.priceAtCall` from its `SMH` row.
-   Record shape: `{ id: "c_<TICKER>_<yyyy-mm-dd>", ticker, kind:
-   "new-position"|"add-on-dip"|"trim"|"exit", calledAt, entryPrice,
+   Record shape: `{ id: "c_<TICKER>_<yyyy-mm-dd>", ticker, source: "desk",
+   kind: "new-position"|"add-on-dip"|"trim"|"exit", calledAt, entryPrice,
    entryCurrency, stanceAtCall, memoId (or null), thesisIds, closedAt: null,
    exitPrice: null, outcome: "open"|"win"|"loss"|"wash",
    benchmark: {symbol: "SMH", priceAtCall} }`. Bump `meta.updatedAt`.
+   **`source` is required** — `test_generate.py` asserts every call records
+   which source made it (`desk` or `analyst`), so omitting it fails the suite.
    No qualifying event this week → stamp nothing (most weeks stamp nothing).
 
 5. **Refresh Brain digests** for categories with new theses — author digests

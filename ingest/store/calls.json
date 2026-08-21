@@ -1,7 +1,7 @@
 {
   "meta": {
     "schemaVersion": 1,
-    "updatedAt": "2026-08-17T00:00:00Z",
+    "updatedAt": "2026-08-21T00:00:00Z",
     "author": "claude-desk",
     "benchmark": "SMH",
     "disclaimer": "The calls ledger tracks the desk's own dated suggestions against a buy-the-index benchmark. Stamped forward-only, never retro-fitted. Personal research tool - not investment advice."
@@ -94,9 +94,9 @@
         "r_1300d026219d841e",
         "x_2084468063228060092"
       ],
-      "closedAt": null,
-      "exitPrice": null,
-      "outcome": "open",
+      "closedAt": "2026-08-21T00:00:00Z",
+      "exitPrice": 1603.59,
+      "outcome": "win",
       "benchmark": {
         "symbol": "SMH",
         "priceAtCall": 582.7
@@ -189,6 +189,52 @@
       "benchmark": {
         "symbol": "SMH",
         "priceAtCall": 587.82
+      }
+    },
+    {
+      "id": "c_COHR_2026-08-21",
+      "ticker": "COHR",
+      "source": "desk",
+      "kind": "new-position",
+      "calledAt": "2026-08-21T00:00:00Z",
+      "entryPrice": 289.67,
+      "entryCurrency": "USD",
+      "stanceAtCall": "accumulate",
+      "memoId": "m_COHR_2026w34",
+      "thesisIds": [
+        "r_54517cb32669697a",
+        "r_7305632c54df2f72",
+        "r_12e664657cdcf6bc",
+        "x_2089973586425766134"
+      ],
+      "closedAt": null,
+      "exitPrice": null,
+      "outcome": "open",
+      "benchmark": {
+        "symbol": "SMH",
+        "priceAtCall": 562.59
+      }
+    },
+    {
+      "id": "c_SNDK_2026-08-21",
+      "ticker": "SNDK",
+      "source": "desk",
+      "kind": "trim",
+      "calledAt": "2026-08-21T00:00:00Z",
+      "entryPrice": 1603.59,
+      "entryCurrency": "USD",
+      "stanceAtCall": "watch",
+      "memoId": "m_SNDK_2026w34",
+      "thesisIds": [
+        "x_2088850910529323315",
+        "h_46c927b8e8e6582f"
+      ],
+      "closedAt": null,
+      "exitPrice": null,
+      "outcome": "open",
+      "benchmark": {
+        "symbol": "SMH",
+        "priceAtCall": 562.59
       }
     }
   ]

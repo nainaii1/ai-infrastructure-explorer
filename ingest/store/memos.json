@@ -1,7 +1,7 @@
 {
   "meta": {
     "schemaVersion": 1,
-    "updatedAt": "2026-08-17T09:00:00Z",
+    "updatedAt": "2026-08-21T09:00:00Z",
     "author": "claude-desk",
     "disclaimer": "Coverage memos are second-opinion research notes on @aleabitoreddit's ideas. Personal research tool — not investment advice."
   },
@@ -1779,40 +1779,40 @@
     {
       "id": "m_MTSI_2026w34",
       "ticker": "MTSI",
-      "kind": "coverage",
-      "title": "The best margins in the optical stack",
-      "dek": "$MTSI enters coverage on the thinnest analyst attention on the roster and the strongest operating numbers in it.",
+      "kind": "update",
+      "title": "Right thesis, wrong week",
+      "dek": "$MTSI holds at accumulate one week after initiation and immediately underwater. The sector de-rated; the numbers did not.",
       "publishedAt": "2026-08-17T09:00:00Z",
-      "updatedAt": "2026-08-17T09:00:00Z",
+      "updatedAt": "2026-08-21T09:00:00Z",
       "rating": "accumulate",
       "basedOnVerdict": true,
       "sourceThesisIds": [
+        "x_2089973586425766134",
         "r_f4aff742d7392a8c",
         "r_aad0a5a6af425ec6",
         "r_be5158b14027da1d",
-        "x_2087675367595380783",
-        "x_2087838176677376186"
+        "h_7fae5e1415c6cabe"
       ],
       "sections": [
         {
           "heading": "Snapshot",
-          "body": "MACOM makes the RF, microwave and photonic components that sit inside optical modules — lasers, drivers, transimpedance amplifiers — rather than the modules themselves. It enters Core coverage this week on eleven analyst mentions, fewer than any other name on the roster."
+          "body": "MACOM entered Core coverage last week on the strongest operating numbers on the roster and the thinnest analyst file. It is now well below the initiation level. Nothing company-specific caused that, and the stance is unchanged — but the drawdown deserves to be recorded rather than smoothed over."
         },
         {
           "heading": "Thesis",
-          "body": "The case is the margin line, and it is filed rather than argued.\n\nFiscal Q3 revenue was **$342.2M, up 35.8%** year on year, with fiscal Q4 guided to **$415-425M** — another 21-24% sequential step — on a record **1.6 book-to-bill**. Adjusted gross margin is guided to **60-61%**.\n\nSet that against the rest of the layer. $AAOI guides Q3 gross margin to 29-30.5%. $COHR guides 39.5-41.5%. $LITE, the best of the module makers, guides just over 50%. MACOM sits ten to thirty points above all of them, because it sells content into the module instead of assembling it. That is a structurally different business wearing the same theme.\n\nThe analyst frames MACOM through its indium phosphide supply — long-term epiwafer agreements and a stake in [[iqe]]. The desk could not locate a primary filing confirming the stake size or the agreement terms, so that leg is carried as unverified and counts for nothing here. The filed numbers carry the case without it."
+          "body": "The case is still the margin line, and it is filed rather than argued.\n\nFiscal Q3 revenue was **$342.2M, up 35.8%** year on year, with fiscal Q4 guided to **$415-425M** — another 21-24% sequential step — on a record **1.6 book-to-bill**. Adjusted gross margin is guided to **60-61%**, roughly double $AAOI's and ten to thirty points above everyone else in the layer, because MACOM sells content into the module rather than assembling it.\n\nHe argued it directly this week as part of the broader shortage, alongside $LITE and $AAOI, citing an optical supply chain where \"the entire supply chain is out of stock\" across laser chip, PCB, carrier board and packaging.\n\nWhat happened to the price was a whole-sector event. The optical complex de-rated together this week while [[memory]] names ran — a rotation, not a revision."
         },
         {
           "heading": "Why own it",
-          "body": "It is the component layer of [[photonics]] rather than the assembly layer, which means it participates in the 800G and 1.6T ramp without carrying module price competition.\n\nA 1.6 book-to-bill is the kind of disclosure that is hard to dress up: orders are running well ahead of shipments across all three end markets, not only datacenter."
+          "body": "It is the component layer of [[photonics]] rather than the assembly layer, so it participates in the 800G and 1.6T ramp without carrying module price competition.\n\nA record book-to-bill is hard to dress up: orders are running well ahead of shipments across all three end markets, not only datacenter."
         },
         {
           "heading": "Risks",
-          "body": "Coverage is starting after a 20% week and a 167% year, so nothing here is cheap. Fiscal Q4 guidance annualises to roughly $1.7B and the multiple already assumes the step-up continues.\n\nThe thinness of the analyst file cuts both ways. There is no bear case in this corpus to push against, which is a reason for caution rather than comfort — the desk is initiating on company disclosure alone.\n\nAnd a record book-to-bill is a peak indicator as often as a leading one. If the datacenter step-up was order pull-forward, it shows up as a book-to-bill falling back through 1.0 before it shows up in revenue."
+          "body": "The pm seat's advice to size this as an initiation rather than a conviction was correct, and is the only reason this drawdown is uncomfortable rather than damaging. That is the argument for position sizing generally.\n\nThe thin analyst file still cuts both ways: there is no bear case in this corpus to push against, so the desk is underwriting on company disclosure alone.\n\nAnd a record book-to-bill is a peak indicator as often as a leading one. If the datacenter step-up was pull-forward, it shows up as book-to-bill falling back through 1.0 before it shows up in revenue."
         },
         {
           "heading": "Bottom line",
-          "body": "Accumulate, initiated small. One starter tranche now; the second only after fiscal Q4 confirms the guide. It complements the $JBL ballast leg rather than replacing it."
+          "body": "Accumulate, unchanged, but no second tranche yet. The desk is already expressing this week's optical de-rating through $COHR, and buying two optical names on one idea in one week is concentration wearing conviction's clothes."
         }
       ]
     },
@@ -1857,37 +1857,39 @@
       "ticker": "CCXI",
       "kind": "exit-note",
       "title": "A trust is not a company",
-      "dek": "$CCXI leaves the roster. The de-SPAC has not closed, the S-4 is still confidential, and the price is 70% above trust.",
+      "dek": "$CCXI is back in the top fifteen on humanoid enthusiasm and the desk still passes. The S-4 has not been filed publicly, and the price is a large premium to cash.",
       "publishedAt": "2026-08-17T09:00:00Z",
-      "updatedAt": "2026-08-17T09:00:00Z",
-      "rating": "watch",
-      "basedOnVerdict": false,
+      "updatedAt": "2026-08-21T09:00:00Z",
+      "rating": "pass",
+      "basedOnVerdict": true,
       "sourceThesisIds": [
-        "r_036cd32e907a7e15",
-        "r_e9286da82e5c2cde",
-        "r_41b41b60ce8eb149",
-        "x_2085644051446108223"
+        "x_2089908198694351064",
+        "h_308cc9df383a870c",
+        "h_4cc1730000253ba8",
+        "r_402ddce83473f542",
+        "r_43d0f0dec3e0703d",
+        "r_805172fca88980dc"
       ],
       "sections": [
         {
           "heading": "Snapshot",
-          "body": "Churchill Capital Corp XI drops off the verdict roster this week after the desk's own research pushed its priority score below the Core top fifteen. It never carried a position."
+          "body": "Churchill Capital Corp XI re-enters the Core top fifteen this week after the Unitree listing reset humanoid sentiment. The desk re-initiates coverage at pass. It has never carried a position and will not open one at this price against this structure."
         },
         {
           "heading": "Thesis",
-          "body": "The reason for the exit is structural rather than a change of view on humanoids.\n\n$CCXI is a pre-close special purpose acquisition company. The Agility Robotics combination was announced on **24 June 2026** at roughly **$2.5B**, and the Form S-4 was only **confidentially submitted on 14 July**. Closing still requires shareholder approval, SEC review, regulatory clearances and exchange listing, after which the ticker becomes AGLT.\n\nUntil that sequence completes, there is no operating company to own here — only a trust with redemption and dilution terms that are not yet public. Agility's Digit deployments at Schaeffler, GXO, Toyota Motor Manufacturing Canada and Mercado Libre are disclosed as programmes, not volumes, so the per-robot compute, memory and lidar content that would justify a place on this map remains unquantified."
+          "body": "The commercial argument for Agility is reasonable and got better this week.\n\nUnitree listed publicly and closed far above its IPO valuation, giving the sector its first major public benchmark and suggesting appetite for pure-play humanoids well beyond what was assumed. The analyst bought between **0.25% and 0.75%** of the float and argues Agility is a relative laggard to that comparable. His operating point is also the right one: Digit targets commercial logistics inside $AMZN and $MELI warehouses rather than general-purpose capability, and warehouse automation does not require backflips. Deployments with Schaeffler, GXO, Toyota Motor Manufacturing Canada and Mercado Libre are real.\n\nThe instrument is the problem, not the company. $CCXI is a **pre-close special purpose acquisition company**. The Agility combination was announced **24 June 2026** at roughly **$2.5B**, with more than **$620M** of expected gross proceeds, and the Form S-4 was only **confidentially submitted**. Closing still requires public filing, SEC effectiveness, a shareholder vote, regulatory clearances and exchange listing before the ticker becomes **AGLT**.\n\nUntil the S-4 goes effective there are no audited Agility financials to read and no way to know redemption levels. Those two unknowns determine what a share actually represents."
         },
         {
           "heading": "Why own it",
-          "body": "The underlying business is the most credible US pure-play humanoid asset available to a public investor, with named industrial customers running real deployments rather than demonstrations. If humanoids become a compute vertical, this is one of very few ways to hold it directly.\n\nThat case does not expire with this exit note. It resumes post-close, on disclosed unit economics."
+          "body": "Agility is the most credible US pure-play humanoid asset available to a public investor, with named industrial customers running real deployments rather than demonstrations. If humanoids become a compute vertical, this is one of very few direct ways to hold it.\n\nThat case does not expire with this note. It resumes post-close, on disclosed unit economics."
         },
         {
           "heading": "Risks",
-          "body": "The price is the risk. The shares trade well above a typical trust value, which means a buyer today is paying a large premium for a deal that has not been approved and terms that have not been filed. High redemptions or a downsized PIPE change the equity story before the company has published a single quarter.\n\nThere is also a scoring lesson worth recording: $CCXI reached ninth by priority on analyst mentions alone. The score measures posting behaviour and cannot see corporate structure."
+          "body": "The price is the risk. The shares trade at a substantial premium to a typical trust value, which means a buyer today pays well above cash for an option on a deal that has not publicly filed. If the deal breaks, the floor is redemption at trust — materially below the current price.\n\nThe deployments are disclosed as programmes rather than volumes, so the per-robot compute, memory and sensor content that would justify a read-through into this desk's map remains unquantified.\n\nAnd there is a bias check worth stating plainly: the analyst holds a position sized in percent-of-float and is publicly arguing the comparable upward. That is not a reason to dismiss the idea, but it is a reason not to mistake enthusiasm for underwriting."
         },
         {
           "heading": "Bottom line",
-          "body": "Off the roster, no position, no regret. The entry — if there is one — is post-close on disclosed Digit v5 order economics, under the AGLT ticker, and it is venture-shaped risk in public clothing."
+          "body": "Pass. If the exposure is wanted, wait for the S-4 to go effective and buy AGLT once redemptions are known — accepting a worse headline price for a knowable balance sheet."
         }
       ]
     },
@@ -1965,6 +1967,360 @@
           "heading": "Bottom line",
           "body": "Off the roster until it publishes. Reconsider after 16 September, on AI Cloud Services as a share of total revenue and on disclosed contracted megawatts."
         }
+      ]
+    },
+    {
+      "id": "m_LITE_2026w34",
+      "ticker": "LITE",
+      "kind": "update",
+      "title": "Everything went right, which is the problem",
+      "dek": "$LITE goes to wait. Nothing broke — the business is compounding faster than plan, and that is now fully in the price.",
+      "publishedAt": "2026-08-21T09:00:00Z",
+      "updatedAt": "2026-08-21T09:00:00Z",
+      "rating": "watch",
+      "basedOnVerdict": true,
+      "sections": [
+        {
+          "heading": "Snapshot",
+          "body": "Lumentum steps down from accumulate to wait after a year in which it did almost nothing wrong. This is a valuation call, not a business call, and it is worth being explicit about that distinction because the two get conflated constantly."
+        },
+        {
+          "heading": "Thesis",
+          "body": "The operating record keeps improving.\n\nLumentum crossed **50% non-GAAP gross margin** a full quarter ahead of its own timeline, while shipping record 800G volume and starting 1.6T module production. Fiscal Q4 revenue was **$1.01B, up 109%** year on year, at a **36.6%** non-GAAP operating margin. Fiscal Q1 FY27 is guided to **$1.225-1.275B** with non-GAAP EPS of **$4.05-4.35**, against $3.23 just delivered.\n\nThat internal capacity scaling faster than planned is also the most useful datapoint in the whole [[photonics]] file, because it reframes the shortage. If the best operator in the layer is running ahead of schedule, the laser bottleneck is a merchant-supply problem, not an industry yield problem — which is bullish for anyone with in-house capacity and harsher on anyone buying on the open market."
+        },
+        {
+          "heading": "Why own it",
+          "body": "It remains the highest-quality operator in the optical layer, with the margin structure to prove it and demand visibility that now extends years rather than quarters.\n\nNothing in this note argues for selling. The desk's August entry is comfortably ahead of the benchmark and stays open."
+        },
+        {
+          "heading": "Risks",
+          "body": "The asymmetry is gone. At a guided $5B annualised run-rate and roughly 40% operating margin, Lumentum is priced as a finished AI winner rather than the turnaround the desk originally bought.\n\nThat changes the shape of the downside. It no longer requires the thesis to break — a single hyperscaler order-timing slip against a very high bar is enough. When a stock is priced for perfect execution, perfect execution stops being an edge and becomes the minimum entry requirement.\n\nThis downgrade is also deliberately made ahead of the $NVDA print, which is the sector-wide risk event sitting under every name in this book."
+        },
+        {
+          "heading": "Bottom line",
+          "body": "Wait. Hold what is held, stop adding. Accumulate comes back on a drawdown driven by sector multiple compression rather than by a Lumentum-specific order slip — or on a fiscal Q2 guide that shows the run-rate is still being underestimated."
+        }
+      ],
+      "sourceThesisIds": [
+        "x_2089973586425766134",
+        "r_6e91f959d42ac872",
+        "r_50a22b8f006ff7d5",
+        "r_7fc06742ac405d74",
+        "h_9f67de1d3c5c793a"
+      ]
+    },
+    {
+      "id": "m_COHR_2026w34",
+      "ticker": "COHR",
+      "kind": "update",
+      "title": "The one that owns the bottleneck",
+      "dek": "$COHR goes to accumulate. Every piece of news this week says indium phosphide is the constraint — and Coherent is the only name here that makes its own.",
+      "publishedAt": "2026-08-21T09:00:00Z",
+      "updatedAt": "2026-08-21T09:00:00Z",
+      "rating": "accumulate",
+      "basedOnVerdict": true,
+      "sections": [
+        {
+          "heading": "Snapshot",
+          "body": "Coherent moves from wait to accumulate. This is the desk's own call rather than the analyst's: he referenced Coherent twice this week and both were back-references rather than arguments. That absence is the opportunity."
+        },
+        {
+          "heading": "Thesis",
+          "body": "Read this week's news as one story and the conclusion is hard to avoid.\n\n$AXTI reported the largest indium phosphide price increase on record, the fourth consecutive quarterly hike, with suppliers saying money alone will not secure material. Elazr's general manager told an investor conference that \"the entire supply chain is out of stock\" and expects the shortage to run for years across laser chip, PCB, carrier board and packaging capacity. $AAOI says it is sold out well beyond next year. $LITE says the same.\n\nThe binding constraint in AI optics is InP and laser capacity. Coherent is the one company in this layer that owns that constraint instead of buying it: it **doubled six-inch indium phosphide capacity ahead of plan** and took datacenter and communications to **79% of Q4 revenue, up 59%** year on year. Keeping InP lasers in-house is an allocation decision, and it makes merchant supply scarcer for everyone else in [[photonics]].\n\nThe delivered numbers are not the problem either: record fiscal Q4 revenue of **$2.05B, up 34%**, FY26 revenue of **$7.12B, up 22.5%**, non-GAAP EPS up **59% to $5.61**, and fiscal Q1 FY27 guided to **$2.2-2.4B** with non-GAAP EPS of **$1.85-2.05**."
+        },
+        {
+          "heading": "Why own it",
+          "body": "Vertical integration is worth more in a shortage, not less, and the market is currently pricing it as worth less.\n\nCoherent beat on every line and the shares fell — the same reaction Cisco and Applied Materials drew in the same week. The group is being repriced on gross margin rather than on growth, and Coherent guides **39.5-41.5%**, roughly ten points below $LITE. That gap is the entire bear case, and it is also the reason the vertically integrated name can be bought at a discount to the pure-play optics leader while holding the scarce asset."
+        },
+        {
+          "heading": "Risks",
+          "body": "The margin gap may be structural rather than temporary. If in-house InP is genuinely advantaged, it should show up as datacenter gross margin expanding; if it does not, the integration argument collapses into a lower-margin version of the peers and the discount is deserved.\n\nThis is also a contrarian entry into a sector de-rating that is still in progress. Buying a group the market is actively repricing means accepting that the timing will probably look wrong before it looks right.\n\nAnd the whole optical complex now carries a single shared event risk in the $NVDA print."
+        },
+        {
+          "heading": "Bottom line",
+          "body": "Accumulate, half-size here. The second half goes below the current level or in the session after $NVDA reports. This is the desk rotating out of names that have already priced the shortage and into the one that has not."
+        }
+      ],
+      "sourceThesisIds": [
+        "r_54517cb32669697a",
+        "r_7305632c54df2f72",
+        "r_12e664657cdcf6bc",
+        "x_2089973586425766134",
+        "h_7fae5e1415c6cabe"
+      ]
+    },
+    {
+      "id": "m_SNDK_2026w34",
+      "ticker": "SNDK",
+      "kind": "update",
+      "title": "A very good model is not yet a very good quarter",
+      "dek": "$SNDK goes to wait after the investor day. The margin targets are real and verified; one load-bearing number in the bull summary is not.",
+      "publishedAt": "2026-08-21T09:00:00Z",
+      "updatedAt": "2026-08-21T09:00:00Z",
+      "rating": "watch",
+      "basedOnVerdict": true,
+      "sections": [
+        {
+          "heading": "Snapshot",
+          "body": "Sandisk steps down from accumulate to wait. The business case got stronger this week. The price got stronger faster, and one figure being circulated does not appear in the company's own disclosure."
+        },
+        {
+          "heading": "Thesis",
+          "body": "What Sandisk actually guided at its 2026 investor day, verified against the release:\n\nFor **FY2028 through FY2030**, non-GAAP gross margins to sustain at **approximately 80%**, non-GAAP operating margins at **approximately 75%**, and adjusted free cash flow margin at **approximately 50%** after taxes, capex and working capital. Revenue to grow **mid-to-high teens**, consistent with bit growth. New Business Model agreements are signed with **eight customers**, covering **approximately 50% of bits in FY2027** and **approximately two-thirds in FY2028**, built on committed volumes, minimum financial guarantees and structured pricing.\n\nThat is a genuine attempt to engineer the cycle out of a cyclical business, and the independent corroboration is there: Phison's CEO expects 2027 capacity constraints more severe than 2026, on the logic that upstream suppliers need up to four years from plant construction to production.\n\nOne number does not check out. The claim that minimum contracted revenue reaches **$93B** appears in the bull summary but **not in Sandisk's investor day release**, which discloses no total committed-revenue figure at all. The desk could not source it and is not underwriting it. It may exist in the presentation materials; it is not company-confirmed in the announcement, and it is doing a lot of work in the valuation argument being built on top of it."
+        },
+        {
+          "heading": "Why own it",
+          "body": "The NBM structure is the most credible mechanism anyone in memory has put forward for making margins durable, and the demand side is corroborated independently of management.\n\nNothing here argues for exiting the core position. The [[memory]] shortage is real and multi-year."
+        },
+        {
+          "heading": "Risks",
+          "body": "An approximately 80% sustained gross margin has no precedent in NAND's history. The contracts are a plausible mechanism for it, but they are a mechanism presented at an investor day, not a delivered result — and the market repriced roughly four years of that model in five sessions.\n\nAccumulate means add. Adding after a move of that size means paying for flawless execution through fiscal 2030 up front, on a model whose most quotable supporting number the desk cannot source.\n\nThe honest test is contract renewal, not demand commentary. Committed volumes only protect margin if the committed price holds."
+        },
+        {
+          "heading": "Bottom line",
+          "body": "Wait. Take the August dip-buy tranche off into this strength and keep the core. New money returns when an NBM renewal is disclosed at pricing consistent with the model, or when the price gives back a meaningful part of this move."
+        }
+      ],
+      "sourceThesisIds": [
+        "x_2088850910529323315",
+        "x_2089264987328151637",
+        "h_46c927b8e8e6582f",
+        "h_26a7400d327fb6ac"
+      ]
+    },
+    {
+      "id": "m_XFAB_2026w34",
+      "ticker": "XFAB",
+      "kind": "exit-note",
+      "title": "Twenty-nine bull arguments, no delivery",
+      "dek": "$XFAB is retired at pass. The CPO and 800V exposure is real; a year of design wins has not turned into revenue, and the desk carried it too long.",
+      "publishedAt": "2026-08-21T09:00:00Z",
+      "updatedAt": "2026-08-21T09:00:00Z",
+      "rating": "pass",
+      "basedOnVerdict": false,
+      "sections": [
+        {
+          "heading": "Snapshot",
+          "body": "X-FAB leaves coverage at pass. It never carried a dated desk entry, which is itself part of the lesson: it was held on the analyst's conviction rather than on the desk's own, and nothing in the calls ledger records it. Nothing is being stamped as an exit, because there was never an entry to close."
+        },
+        {
+          "heading": "Thesis",
+          "body": "The file is unusually one-sided. He has argued X-FAB **29 times and every single one is bull** — including a high-conviction add in early August after earnings that he said proved the bear posts wrong, confirming CPO and 800V exposure with design wins that should drive a rerating \"once the ramp arrives\".\n\nThe exposure is genuine. X-FAB is a real specialty foundry with real silicon carbide, gallium nitride and [[photonics]] positioning, and a sellside upgrade earlier in the summer cited strengthening lead-customer demand.\n\nThe delivery is the problem. Over the same twelve months in which $LITE, $AAOI and $AXTI all rose by multiples on the identical CPO and 800V thesis, X-FAB fell. A photonics-adjacent foundry that declines while the entire photonics complex re-rates is not a mispricing waiting to correct. It is the market telling you the design wins are not converting to revenue on any timeline an operator can actually hold.\n\nHe has not argued it once since the end of July. That silence is the same conclusion, reached quietly."
+        },
+        {
+          "heading": "Why own it",
+          "body": "If CPO volumes arrive at the specialty-foundry layer, X-FAB is positioned for them, and the underlying automotive and industrial base is not going away.\n\nThat case can be re-underwritten later. It just has to be re-underwritten from reported revenue rather than from design-win commentary."
+        },
+        {
+          "heading": "Risks",
+          "body": "The specific failure mode to record: \"rerating once the ramp arrives\" has been the argument for a year, and the ramp date has moved every time. A thesis whose payoff is always one catalyst away is not falsifiable, and an unfalsifiable thesis cannot be sized.\n\nThere is a scoring lesson too. Twenty-nine bull arguments push a name up the priority score regardless of whether any of them proved out, because the score measures the analyst's posting behaviour, not outcomes. This is the clearest case yet of that gap."
+        },
+        {
+          "heading": "Bottom line",
+          "body": "Pass, coverage closed. Re-underwrite only from a reported quarter with disclosed CPO or 800V revenue and a raised full-year guide — printed numbers, not design wins."
+        }
+      ],
+      "sourceThesisIds": [
+        "x_2083106805949878330",
+        "h_36781819bfe0ee75",
+        "h_81c95bb99a13f5d0"
+      ]
+    },
+    {
+      "id": "m_AAOI_2026w34",
+      "ticker": "AAOI",
+      "kind": "update",
+      "title": "\"I can't see how anyone can be bearish\"",
+      "dek": "$AAOI stays at wait. The demand is real and the analyst is at maximum conviction — while his own stated entry sits far below the current price.",
+      "publishedAt": "2026-08-21T09:00:00Z",
+      "updatedAt": "2026-08-21T09:00:00Z",
+      "rating": "watch",
+      "basedOnVerdict": true,
+      "sections": [
+        {
+          "heading": "Snapshot",
+          "body": "Applied Optoelectronics drew nine new posts this week, the most of any name on the roster, and the most emphatic language of the year. The stance does not move. This is the week's sharpest disagreement between the analyst file and the desk."
+        },
+        {
+          "heading": "Thesis",
+          "body": "His Rosenblatt summit notes are the strongest version of the bull case, and they are worth taking seriously.\n\nAOI expects to be paid premiums for US production of 800G and 1.6T, which lifts ASP and margin; it has several long-term agreements on the table but does not want capacity blocked by a single customer; it is sold out at least through the second half of next year; it already has 300-400mW lasers; and it expects margins above 40% once CPO arrives, which he reads as the trigger for a rerating. He also argues AOI could approach or pass $LITE on revenue in early 2028 if it executes its capacity plan, on a far smaller valuation.\n\nThe accounting has not caught up to the narrative. The reiterated roughly **$1.1B FY26** target requires Q4 revenue near **$485M** against a Q3 guide midpoint of **$272M** — a **78% sequential step in one quarter**, off $343M of first-half revenue. Q2 non-GAAP EPS was **$0.06** on $191.9M of revenue, so profitability is one cent thick, and Q3 gross margin is guided to **29-30.5%**, roughly twenty points below $LITE's. Management guided more than **$70M** of 1.6T revenue in Q4, which would be its first material 1.6T quarter — a ramp beginning, not a ramp proven.\n\nA company whose entire year rests on one quarter nearly doubling, with no earnings cushion beneath it, is a company about which reasonable people can be bearish."
+        },
+        {
+          "heading": "Why own it",
+          "body": "The demand visibility is not in dispute. Being sold out into 2027 with US-production premiums available is a genuinely strong position, and if CPO lifts margins above 40% the rerating case is real.\n\nThere is also a tell worth using: the analyst says he is waiting for a much lower price to add. The most bullish voice in the file has a stated entry well below spot."
+        },
+        {
+          "heading": "Risks",
+          "body": "The margin structure is the risk, not the demand. At roughly 30% gross margin and one cent of quarterly EPS, a revenue miss has nothing underneath it — the same miss at $LITE or $MTSI is absorbed by margin that AOI does not have.\n\nQualification at 1.6T remains a quarterly event risk with a hyperscaler customer base, and the Q4 concentration makes a single slipped qualification a full-year miss.\n\nCertainty language is itself a warning sign. \"I can't see how anyone can be bearish\" names no falsifier, and a thesis with no falsifier cannot be sized."
+        },
+        {
+          "heading": "Bottom line",
+          "body": "Wait. Use his number rather than his conviction: a limit meaningfully below spot, sized as a starter given the margin structure. If Q4 lands near $485M the entry is missed — accept that instead of paying up on faith."
+        }
+      ],
+      "sourceThesisIds": [
+        "x_2089766053274661143",
+        "x_2089973586425766134",
+        "h_26a7400d327fb6ac",
+        "r_4e2a5eb97ddd6805",
+        "r_bcbda28ceb74b29b",
+        "r_71d49edd46ffa918"
+      ]
+    },
+    {
+      "id": "m_SIVE_2026w34",
+      "ticker": "SIVE",
+      "kind": "update",
+      "title": "His favourite long, six days from a print",
+      "dek": "$SIVE stays at wait. The highest-conviction post of the week rests partly on two claims the primary record does not support.",
+      "publishedAt": "2026-08-21T09:00:00Z",
+      "updatedAt": "2026-08-21T09:00:00Z",
+      "rating": "watch",
+      "basedOnVerdict": true,
+      "sections": [
+        {
+          "heading": "Snapshot",
+          "body": "Sivers drew the analyst's only high-conviction post of the week, calling it his favourite high-beta optical long. The stance does not move, and the reason is specific rather than general."
+        },
+        {
+          "heading": "Thesis",
+          "body": "His case has four supports. Two hold up well.\n\nSivers supplies lasers into $JBL pluggables, $POET and O-Net optical engines, Ayar optical I/O and $GFS photonic foundry work across NPO, pluggable and CPO architectures, with independent CW capacity coming online via Win Semi during a structural bottleneck. As a description of where the company sits in [[photonics]], that is fair and it is genuinely high-beta exposure to the CW laser squeeze.\n\nThe other two supports do not survive checking.\n\nHe argues the CEO is aligned because he buys stock on the open market. The CEO did buy **70,000 shares**. But on **16 July 2026**, the day a lock-up from the April directed issue expired, the Chairman sold **275,000 shares** and board member Todd Thomson sold **950,000 shares** through Headwaters Capital. The two most senior board figures sold roughly 1.2 million shares in the same window in which the CEO bought seventy thousand. That is a split signal, not alignment.\n\nHe also credits \"low dilution to get all of this done\". The company issued **12,280,701 new shares at SEK 57** on 1 July, raising approximately **SEK 700M** — upsized from an indicated SEK 600M — and separately converted roughly **SEK 109M** of debt into equity. Whatever else that is, it is not low dilution.\n\nUnderneath the narrative, Q1 revenue fell **22%** year on year to **SEK 61.9M**, the company has pre-announced revenue expected in H1 slipping into H2, and Q2 carries a **SEK 42.9M** non-cash social-security charge. Q2 lands on **27 August**."
+        },
+        {
+          "heading": "Why own it",
+          "body": "The positioning is real. If the CW laser bottleneck is as structural as the rest of this week's evidence suggests, a small supplier with independent capacity coming online is the highest-torque way to own it, and the SemiNex and CPO development programmes point the right direction.\n\nThe Nasdaq listing ambition, if it lands, widens the buyer base considerably."
+        },
+        {
+          "heading": "Risks",
+          "body": "The desk has no numbers for a print that is six days away, after an extraordinary twelve-month move and a pre-announced revenue slip. That is a position-sizing problem before it is a conviction problem.\n\nThe SemiNex programme he cites is a **$3.4M development contract** targeting early production in H2 2027 — a qualification milestone, not capacity, and it changes no shipped volume in 2026 or 2027.\n\nAnd the analyst holds this personally and says so. That is honest of him, and it is exactly when a second opinion has to check the load-bearing claims rather than the conclusion."
+        },
+        {
+          "heading": "Bottom line",
+          "body": "Wait until 27 August. Do not average down the existing dip-buy into the print. After the numbers, the test is simple: did the slipped H1 revenue actually land in H2."
+        }
+      ],
+      "sourceThesisIds": [
+        "h_66aa14a680b9c2c7",
+        "h_7fae5e1415c6cabe",
+        "r_85051614ff3694d8",
+        "r_89dbbbea51f8802f",
+        "r_5ced96f622eb7fcd"
+      ]
+    },
+    {
+      "id": "m_NVDA_2026w34",
+      "ticker": "NVDA",
+      "kind": "update",
+      "title": "Read the margin line first",
+      "dek": "$NVDA stays at wait into the 26 August print. The number that matters for this whole book is gross margin, not revenue.",
+      "publishedAt": "2026-08-21T09:00:00Z",
+      "updatedAt": "2026-08-21T09:00:00Z",
+      "rating": "watch",
+      "basedOnVerdict": true,
+      "sections": [
+        {
+          "heading": "Snapshot",
+          "body": "NVIDIA reports fiscal Q2 2027 on **26 August**. Every verdict in this book is written ahead of it. The stance does not move five days before a print."
+        },
+        {
+          "heading": "Thesis",
+          "body": "His framing this week is that NVIDIA telegraphs each theme roughly a year early and the market dismisses it every time — EML and laser capacity in 2025, then CW capacity, the 800V shift, explicit CPO commitments and physical AI in 2026. On the record of the last cycle that argument has earned its keep, and it is the reason this desk's map is shaped the way it is.\n\nFor the print itself, the useful number is not the headline. NVIDIA has guided fiscal Q2 to **$91.0B plus or minus 2%**, two quarters after delivering $81.6B, with GAAP gross margin guided at **74.9%**.\n\nThat margin line is the supply-chain signal. Guiding 74.9% while HBM, ABF substrate and advanced-packaging costs are all inflating means NVIDIA expects to **absorb its own suppliers' cost increases rather than pass them through**. If it holds, the pricing power this desk has been tracking across [[memory]] and [[photonics]] is real and NVIDIA is paying for it — which validates the supplier names. If it slips, the entire read-through gets repriced in one line."
+        },
+        {
+          "heading": "Why own it",
+          "body": "It remains the demand hub the whole map hangs from, and the forward commitments it keeps making are the leading indicator that has worked repeatedly."
+        },
+        {
+          "heading": "Risks",
+          "body": "A $91B guide two quarters after $81.6B leaves no room for a supply-driven shortfall to be read as anything other than demand weakness. Holding into the print is a bet on the guide holding, which is a different risk from the buildout thesis and should be sized as such.\n\nThe concentration risk is not NVIDIA's alone: a disappointing margin line repricess $LITE, $COHR, $AAOI, $MU and the rest of this book simultaneously. This is the one event where the desk's diversification is largely illusory."
+        },
+        {
+          "heading": "Bottom line",
+          "body": "Wait. No action before 26 August. Read gross margin first, revenue second, and let every supplier-name sizing decision in this book wait for it rather than anticipate it."
+        }
+      ],
+      "sourceThesisIds": [
+        "r_177cc7abd695e018",
+        "r_38f0ce8728dd7282",
+        "r_2319826fe767a14e",
+        "x_2088947694886920409"
+      ]
+    },
+    {
+      "id": "m_AMZN_2026w34",
+      "ticker": "AMZN",
+      "kind": "coverage",
+      "title": "The boring way to own the demand side",
+      "dek": "$AMZN enters coverage at accumulate. He keeps pointing at the suppliers; this is the risk-adjusted way to own the same spending.",
+      "publishedAt": "2026-08-21T09:00:00Z",
+      "updatedAt": "2026-08-21T09:00:00Z",
+      "rating": "accumulate",
+      "basedOnVerdict": true,
+      "sections": [
+        {
+          "heading": "Snapshot",
+          "body": "Amazon enters written coverage at accumulate, having carried the stance without a memo. It is the desk's primary [[hyperscalers]] exposure alongside $GOOGL."
+        },
+        {
+          "heading": "Thesis",
+          "body": "He names AWS and the Trainium ramp repeatedly, but each time says the position he actually wants is the supplier — Alchip, not Amazon. That is a fair read of where the operating leverage is, and a poor read of where the risk-adjusted return is.\n\nQ2 net sales were **$200.6B, up 20%**, with AWS up **37%** — its fastest growth in eighteen quarters — at a **$169B annualised run-rate** and **$16.6B** of segment operating income. Property and equipment purchases rose **$66.1B** year on year on AI.\n\nOne caveat specific to this desk's map: AWS capacity at this growth rate is increasingly gated by power and datacenter shell availability rather than by silicon, which makes the [[power]] layer a tighter read on AWS's 2027 ceiling than the accelerator layer is."
+        },
+        {
+          "heading": "Why own it",
+          "body": "It is the lowest-variance way to own the demand side of this map. The suppliers offer more torque and considerably more single-technology risk; Amazon offers the spending itself, funded by a business that already works.\n\nThe Trainium programme also means Amazon captures some of the silicon economics it would otherwise pay away."
+        },
+        {
+          "heading": "Risks",
+          "body": "Trailing-twelve-month free cash flow has swung to a **$7.6B outflow** on that capital spending. Amazon is funding this build from its own balance sheet, so the equity question has moved from whether AWS grows to whether the depreciation is ever earned back.\n\nThat is the same question sitting under every hyperscaler, and it is not answerable from a single quarter. It is answerable from the trend: growth decelerating while capex stays high is the pattern that would break it."
+        },
+        {
+          "heading": "Bottom line",
+          "body": "Accumulate on weakness, in tranches rather than at once. Core-sized and held for years. The stance goes to wait on two consecutive quarters of AWS growth below 30% with capex unchanged."
+        }
+      ],
+      "sourceThesisIds": [
+        "h_46c927b8e8e6582f",
+        "r_010e1d186031fb9f",
+        "r_d9128701e2ba8584",
+        "r_4d31760f07a624bb"
+      ]
+    },
+    {
+      "id": "m_TSLA_2026w34",
+      "ticker": "TSLA",
+      "kind": "coverage",
+      "title": "Ranked eighth, argued zero times",
+      "dek": "$TSLA enters coverage at pass — as the standing example of why rank is not importance in this book.",
+      "publishedAt": "2026-08-21T09:00:00Z",
+      "updatedAt": "2026-08-21T09:00:00Z",
+      "rating": "pass",
+      "basedOnVerdict": true,
+      "sections": [
+        {
+          "heading": "Snapshot",
+          "body": "Tesla sits eighth by priority score and has no position, no thesis and no desk conviction. It gets a memo precisely because that combination is confusing on the surface, and the explanation is worth writing down once."
+        },
+        {
+          "heading": "Thesis",
+          "body": "Of the twenty-one times the analyst has argued Tesla, seventeen are neutral. This week he named it three times and made no investment case in any of them.\n\nHe noted that Optimus's form factor should converge toward a human shape. He observed that Optimus is wrapped inside a company worth over a trillion dollars, and therefore is **not** the pure-play humanoid exposure he is pointing at — he was pointing at $CCXI and Unitree. And on general-purpose robotics he said plainly that he does not think Tesla can pull it off yet.\n\nThat is three mentions and zero arguments. The priority score cannot tell the difference, because it measures how often a symbol appears in his posts, and large-cap names appear constantly inside multi-ticker recap posts without any conviction attached."
+        },
+        {
+          "heading": "Why own it",
+          "body": "Nothing in this file supports owning it. If Optimus ever produces a dated, quantified production or revenue commitment that he argues rather than relays, this becomes a real name in this book."
+        },
+        {
+          "heading": "Risks",
+          "body": "The risk being managed here is the desk's own, not Tesla's: mistaking rank for importance. Tiering is mention-driven, which means a name that gets name-dropped in recap posts can rank top-ten on no conviction, while a genuinely load-bearing name the analyst never mentions cannot rise above radar however important it is.\n\nTesla is the clearest live example of the first failure mode. The [[power]] layer names are the clearest example of the second."
+        },
+        {
+          "heading": "Bottom line",
+          "body": "Pass, no position. Kept on the roster as the running check on the scoring model — if Tesla ever leaves the top ten without having been argued once, the score is working."
+        }
+      ],
+      "sourceThesisIds": [
+        "x_2089908198694351064",
+        "x_2089057857652338993",
+        "h_4cc1730000253ba8"
       ]
     }
   ]

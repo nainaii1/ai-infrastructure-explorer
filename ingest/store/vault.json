@@ -1,9 +1,9 @@
 {
   "meta": {
     "schemaVersion": 1,
-    "syncedAt": "2026-08-19T16:27:39Z",
-    "pageCount": 68,
-    "linkCount": 217
+    "syncedAt": "2026-08-21T02:25:53Z",
+    "pageCount": 65,
+    "linkCount": 235
   },
   "pages": [
     {
@@ -14,14 +14,15 @@
         "refs": [
           "amd",
           "arm",
-          "nvda"
+          "nvda",
+          "smci"
         ],
         "stats": {
           "label": "Accelerators",
           "flowRole": "chip",
-          "memberCount": 3,
+          "memberCount": 4,
           "coreCount": 2,
-          "watchCount": 1
+          "watchCount": 2
         }
       },
       "note": "This is the demand engine's silicon \u2014 [[nvda]] plus the challengers. Little new standalone signal this week; the names mostly appeared inside the indiscriminate-selloff list ([[amd]] and peers down 4-10% in the Samsung-triggered rout), which [[aleabitoreddit]] reads as margin cascades rather than fundamentals. He treats [[nvda]] as the gravitational center rather than a pick \u2014 the edge is in the layers beneath it ([[photonics]], [[memory]], [[fabs]]).\n\n[[amd]] is the merchant-GPU alternative; [[arm]] the architecture licensor riding the same compute wave. The desk's stance on the group is deliberately hands-off: express the view through the suppliers this map surfaces, not the headline chip.",
@@ -136,8 +137,8 @@
           "watchCount": 3
         }
       },
-      "note": "The [[hbm]] memory upcycle is a high-conviction supply theme, and it got a clean real-world stress test in July 2026: Samsung pre-announced record Q2 operating profit up ~1,800% Y/Y \u2014 on his telling the most profitable quarter in the world \u2014 and the stock still fell ~7% after a +150% YTD run. [[aleabitoreddit]] reads that as priced-to-perfection profit-taking, not a fundamentals break, and notes the same Samsung print was the actual trigger for the broader chip rout.\n\n[[mu]] is the liquid US expression of the DRAM/HBM cycle; [[sndk]] the NAND leg; [[axti]] the upstream substrate/materials feed (torque he also pairs with the [[photonics]] sleeve); [[rpi]] rounds out the group. The through-line is [[hbm]] scarcity \u2014 stacked memory bonded next to the GPU is the scarcest ingredient in every accelerator the [[hyperscalers]] are buying.\n\nThe 16 Jul 2026 review made memory the week's headline: TrendForce confirmed 13-18% server-DRAM contract hikes for Q3 with Samsung seeking 20%, [[mu]] disclosed 16+ long-term agreements, and [[sndk]]'s supply deal with [[meta]] was confirmed \u2014 while memory equities sold off into all of it. The desk opened SNDK coverage on that disconnect. The structural nuance worth keeping: SK Hynix reportedly scrapped LTA price caps while Micron kept ceilings-and-floors, so the same upcycle is captured very differently across the complex.\n\nOn 17 Aug 2026 the desk finally split the theme in two and added the DRAM leg through [[mu]], having held only NAND for a month. The correction worth remembering: treating \"memory\" as one bottleneck meant owning the loose half of it while the tight half compounded. The two markets are now held separately and sized together.",
-      "noteUpdatedAt": "2026-08-17T09:00:00Z"
+      "note": "The [[hbm]] and NAND upcycle is the highest-conviction supply theme in the vault, and through August 2026 it decoupled upward from [[photonics]] \u2014 memory names ran in the same week the optical complex de-rated.\n\nThe evidence hardened from price headlines into contracts. TrendForce has server DRAM contract prices rising 13-18% quarter over quarter in 3Q26 against RDIMM bit supply growing only 15-20%, so supply is setting price. [[sndk]]'s investor day guided FY2028-FY2030 gross margins near 80% on New Business Model agreements covering two-thirds of FY2028 bits with minimum financial guarantees. Phison's CEO expects 2027 NAND constraints more severe than 2026, because upstream capacity takes up to four years to build. [[mu]] posted a quarter that nearly doubled sequentially.\n\n[[aleabitoreddit]] extended the same crowding-out logic into MLCCs, tracking Samsung lead times near 40 weeks and Murata moving 24 to 30 to 36 weeks with new capacity slipping into 2027 \u2014 his read is that AI-grade demand squeezes the consumer grades next, the way it did in legacy DRAM. The discipline the desk applies here is that this remains the most cyclical link in the chain: the exit signal is the first quarter long-term-agreement pricing stops rising, not a demand miss. Nothing in the 3Q26 contract data says that is close.",
+      "noteUpdatedAt": "2026-08-21T00:00:00Z"
     },
     {
       "slug": "neoclouds",
@@ -206,8 +207,8 @@
           "watchCount": 0
         }
       },
-      "note": "The theme the desk is built around: lasers, transceivers and the substrates beneath them, feeding the optical interconnect that co-packaged optics makes load-bearing.\n\nAugust 2026 was the month the theme stopped being a narrative and started producing filed numbers. [[lite]] reported revenue up 109% year over year and crossed 50% non-GAAP gross margin a quarter early. [[cohr]] posted a record $2.05B quarter with datacom at 79% of revenue and six-inch indium phosphide capacity doubled ahead of plan. [[aaoi]] printed a fifth consecutive record quarter and returned to profit. The rotation the analyst describes is visible in the results, not only in the tape.\n\nTwo things the desk now reads differently. First, the margin ladder inside the layer is enormous and is the cleanest sorting mechanism available: [[mtsi]] guides 60-61%, [[lite]] just above 50%, [[cohr]] 39.5-41.5%, [[aaoi]] 29-30.5%. Content sold into the module earns roughly double what assembling the module earns. Second, Lumentum crossing its margin target early suggests the laser constraint is a merchant-supply problem rather than an industry yield problem \u2014 which is more bullish for the integrated names and less bullish for the small merchant suppliers the analyst prefers.\n\nThe discipline this theme needs is separating what is reported from what is modelled, because the two look alike when read quickly. Reported: Lumentum's guidance, Coherent's segment mix, AOI's margins, and the substrate reservation deposits at [[axti]]. Modelled: Sivers' capacity revenue figure at [[sive]], AOI's roughly $485M implied fourth quarter, and every read-through built on the proposed United States restriction on Chinese transceivers, which remains a draft rule.",
-      "noteUpdatedAt": "2026-08-17T09:00:00Z"
+      "note": "The theme the desk is built around: lasers, transceivers and the substrates beneath them, feeding the optical interconnect that [[cpo]] makes load-bearing.\n\nBy late August 2026 the shortage evidence had become overwhelming and consistent across independent sources. [[axti]] reported the largest indium phosphide price increase on record \u2014 a fourth consecutive quarterly hike, with suppliers saying money alone will not secure material. Elazr's general manager told an investor conference that the entire supply chain is out of stock and expects it to last years, across laser chip, PCB, carrier board and packaging. [[aaoi]] is sold out beyond next year; [[lite]] crossed 50% gross margin a quarter early; [[mtsi]] guides adjusted gross margin near 60%.\n\nAnd the whole complex de-rated anyway in the week to 21 Aug 2026, while [[memory]] ran \u2014 [[cohr]], [[mtsi]] and [[sive]] all fell together on no company-specific news. The market is repricing this group on gross margin rather than growth, which is why the desk's August rotation ran toward the vertically integrated name ([[cohr]], upgraded) and away from the ones already priced as winners ([[lite]], cut to wait). The unresolved question underneath the page is who actually captures the [[chokepoint]] rent: the substrate makers ([[axti]], [[iqe]]), the laser owners ([[cohr]], [[sive]]), or the assemblers ([[aaoi]], [[jbl]], [[poet]]).",
+      "noteUpdatedAt": "2026-08-21T00:00:00Z"
     },
     {
       "slug": "power",
@@ -246,8 +247,8 @@
           "watchCount": 1
         }
       },
-      "note": "Physical-AI is a high-conviction, high-euphoria theme \u2014 and one [[aleabitoreddit]]'s own posts became a case study in the anchoring psychology he critiques. His frame: Agility ([[ccxi]], becoming AGLT) is the purest US mass-production humanoid play via the Amazon/MercadoLibre supply chains, going public via SPAC to give retail access 'before it gets big.'\n\n[[ccxi]] is the humanoid pure-play; [[aeva]] the lidar/perception supplier; [[tsla]] the mega-cap Optimus optionality. The desk treats the group as the most sentiment-driven corner of the map \u2014 real end-demand, but valuations running on narrative.",
-      "noteUpdatedAt": "2026-07-12T00:00:00Z"
+      "note": "Physical AI is a high-conviction, high-euphoria theme, and August 2026 gave it its first hard public benchmark. Unitree listed in China and closed far above its IPO valuation, which [[aleabitoreddit]] reads as proof that public-market appetite for pure-play humanoids is much larger than assumed.\n\nThat benchmark reframes the page rather than settling it. Agility ([[ccxi]]) is the US pure-play, but it is still a pre-close SPAC with a confidentially submitted S-4, so the comparison prices a deal rather than a company \u2014 and the desk holds it at pass on exactly that distinction. [[tsla]] is the other humanoid name here and he explicitly rules it out as the exposure he means: Optimus sits inside a company far too large for it to move, and he does not think general-purpose capability is close. The component angle is thinner than the narrative suggests \u2014 he names Harmonic, LeaderDrive and Schaeffler as present almost everywhere, with Schaeffler claiming work with around 45 humanoid players, and smaller suppliers like [[vpg]] as niche possibilities.\n\nThe honest read is that the Chinese supply chain into Agibot and Unitree probably books revenue first, and that the investable Western exposure is still mostly structure rather than earnings.",
+      "noteUpdatedAt": "2026-08-21T00:00:00Z"
     },
     {
       "slug": "000660-ks",
@@ -260,8 +261,8 @@
         ],
         "stats": {
           "tier": "watch",
-          "mentions": 6,
-          "lastMentioned": "2026-08-17T08:16:04Z",
+          "mentions": 7,
+          "lastMentioned": "2026-08-20T09:45:17Z",
           "category": "memory",
           "market": "KR",
           "marketCapTier": "Mega",
@@ -282,8 +283,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 82,
-          "lastMentioned": "2026-08-19T07:11:47Z",
+          "mentions": 84,
+          "lastMentioned": "2026-08-20T19:56:29Z",
           "category": "photonics",
           "market": "US",
           "marketCapTier": "Small",
@@ -414,8 +415,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 24,
-          "lastMentioned": "2026-08-19T15:49:36Z",
+          "mentions": 25,
+          "lastMentioned": "2026-08-20T19:56:15Z",
           "category": "hyperscalers",
           "market": "US",
           "marketCapTier": "Mega",
@@ -448,27 +449,6 @@
       "noteUpdatedAt": null
     },
     {
-      "slug": "asts",
-      "type": "ticker",
-      "title": "ASTS",
-      "auto": {
-        "refs": [
-          "aleabitoreddit"
-        ],
-        "stats": {
-          "tier": "watch",
-          "mentions": 6,
-          "lastMentioned": "2026-08-12T07:45:50Z",
-          "category": "unsorted",
-          "market": "",
-          "marketCapTier": "",
-          "company": ""
-        }
-      },
-      "note": "",
-      "noteUpdatedAt": null
-    },
-    {
       "slug": "avgo",
       "type": "ticker",
       "title": "AVGO \u00b7 Broadcom",
@@ -487,8 +467,8 @@
           "company": "Broadcom"
         }
       },
-      "note": "",
-      "noteUpdatedAt": null
+      "note": "Broadcom crossed from watch into the Core [[conviction-tier]] in the 21 Aug 2026 review on accumulated mentions rather than on a fresh argument \u2014 a useful reminder that the score measures [[aleabitoreddit]]'s posting behaviour, not the desk's judgement.\n\nHe names it in two distinct roles. It is a custom-accelerator counterweight to [[nvda]] in the hyperscaler ASIC race alongside [[mrvl]], and separately he lists it among the remaining Western CW laser players in [[photonics]] \u2014 hedged with 'maybe', alongside [[aaoi]], [[mtsi]] and [[smtc]]. Neither is a developed thesis in this corpus, and the desk has never written a verdict on it. It sits just outside the top-fifteen roster line.",
+      "noteUpdatedAt": "2026-08-21T00:00:00Z"
     },
     {
       "slug": "axti",
@@ -545,16 +525,16 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 30,
-          "lastMentioned": "2026-08-19T02:51:57Z",
+          "mentions": 31,
+          "lastMentioned": "2026-08-20T19:56:15Z",
           "category": "robotics",
           "market": "US",
           "marketCapTier": "Mid",
           "company": "Agility Robotics"
         }
       },
-      "note": "Agility rotated off the desk's verdict roster in the 22 Jul 2026 review \u2014 zero new theses in a crash-dominated week let its priority score slip below the top-15 line, and a watch stance carries no sticky holdover protection. Nothing changed in the underlying story: the IBK actuator-capacity framing, the SPAC-structure caution, and the funded-Amazon-deployment upgrade trigger all stand exactly as the last verdict left them, and the [[robotics]] theme digest still carries the thesis.\n\nThe name re-enters coverage the same way it left \u2014 on score. A robotics news cycle or a dedicated post from [[aleabitoreddit]] would do it; the operator can also re-add it by request, as [[mu]] once was.",
-      "noteUpdatedAt": "2026-07-22T00:00:00Z"
+      "note": "Agility ([[ccxi]], becoming AGLT) is the purest US mass-production humanoid play via the Amazon and Mercado Libre warehouse supply chains, and it re-entered the Core top fifteen in the 21 Aug 2026 review after Unitree's listing reset [[robotics]] sentiment across the board. The desk re-initiated it at pass.\n\nThe separation that matters here is between the company and the instrument. Digit is deployed with Schaeffler, GXO, Toyota Motor Manufacturing Canada and Mercado Libre, and [[aleabitoreddit]]'s operating read is sound \u2014 warehouse logistics does not require the acrobatic capability Unitree markets, so the comparison flatters Agility rather than embarrassing it. But $CCXI is Churchill Capital Corp XI, a pre-close SPAC. The combination was announced 24 June 2026 at roughly $2.5B with more than $620M of expected gross proceeds, and the Form S-4 was only confidentially submitted. Until it is filed publicly and goes effective there are no audited Agility financials and no way to know redemption levels \u2014 and those two unknowns are what determine what a share represents.\n\nHe holds a position sized in percent-of-float and argues the comparable upward, which is disclosed and honest of him, and is exactly the situation where a second opinion checks the structure rather than the story. The entry, if there is one, is post-close under AGLT on disclosed unit economics.",
+      "noteUpdatedAt": "2026-08-21T00:00:00Z"
     },
     {
       "slug": "cohr",
@@ -575,8 +555,8 @@
           "company": "Coherent Corp"
         }
       },
-      "note": "",
-      "noteUpdatedAt": null
+      "note": "Coherent is the vertically integrated one. Where [[aaoi]] and [[lite]] assemble modules around lasers they largely buy, Coherent grows its own indium phosphide \u2014 it doubled six-inch InP capacity ahead of plan and took datacenter and communications to 79% of Q4 revenue. In a [[photonics]] layer where the binding constraint is laser and substrate supply, keeping InP in-house is an allocation decision that makes merchant supply scarcer for everyone else on this page.\n\nThe desk upgraded it to accumulate in the 21 Aug 2026 review, and it is the desk's own call rather than [[aleabitoreddit]]'s \u2014 he referenced Coherent only as a back-reference that week, listing it among the names $NVDA invested in directly. The trigger was a disconnect: record fiscal Q4 revenue of $2.05B and FY26 revenue up 22.5% with EPS up 59%, and the shares de-rated anyway, alongside [[mtsi]] and [[sive]], while [[memory]] names ran. The market is repricing this group on gross margin rather than growth.\n\nThat margin gap is the whole bear case and it is real \u2014 Coherent guides roughly ten points below [[lite]]. The bet is that owning the [[chokepoint]] is worth more in a shortage than the module margin it gives up, and the falsifier is clean: datacenter gross margin has to actually expand, or vertical integration is just a lower-margin version of the peers.",
+      "noteUpdatedAt": "2026-08-21T00:00:00Z"
     },
     {
       "slug": "crwv",
@@ -655,8 +635,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 24,
-          "lastMentioned": "2026-08-17T09:26:49Z",
+          "mentions": 25,
+          "lastMentioned": "2026-08-20T19:55:21Z",
           "category": "fabs",
           "market": "",
           "marketCapTier": "",
@@ -765,8 +745,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 27,
-          "lastMentioned": "2026-08-17T09:26:49Z",
+          "mentions": 28,
+          "lastMentioned": "2026-08-20T19:55:21Z",
           "category": "photonics",
           "market": "US",
           "marketCapTier": "Large",
@@ -795,8 +775,8 @@
           "company": "Lumentum Holdings"
         }
       },
-      "note": "Lumentum is the liquid, reported way to own the laser bottleneck that [[photonics]] is built on \u2014 the place where the theme shows up in guidance rather than in a model.\n\nThe desk moved it twice in three days in August 2026, and the second move was an admission. It was cut to wait on 10 August on one stated condition: an in-line print with unchanged capacity commentary. The 11 August result was the opposite \u2014 revenue up 109% year over year, guidance raised, and the operating-margin target reached more than a quarter early \u2014 so the call was restored on 12 August. Worth remembering as a case of trimming into a known event that was one day away.\n\nThe nuance the feed skips: the beat is current datacom optics. Management places the ultra-high-power laser and co-packaged optics ramp in the second half of calendar 2027, which is Lumentum's fiscal 2028, so no CPO revenue sits in these numbers. The confirming evidence is one floor down at [[axti]], where Lumentum prepaid a $43.5M deposit to reserve indium phosphide substrate capacity \u2014 a customer putting cash behind the volumes it expects to need.",
-      "noteUpdatedAt": "2026-08-12T00:00:00Z"
+      "note": "Lumentum is the liquid, reported way to own the laser bottleneck that [[photonics]] is built on \u2014 the place where the theme shows up in guidance rather than in a model. It crossed 50% non-GAAP gross margin a full quarter ahead of its own timeline while shipping record 800G and starting 1.6T production, and that fact does double duty: it is the bull case for the stock, and it is the evidence that the laser shortage is a merchant-supply problem rather than an industry yield problem. The best operator is running ahead of schedule; it is everyone buying on the open market who is short.\n\nThe desk cut it from accumulate to wait in the 21 Aug 2026 review, and was explicit that this is a valuation call and not a business call. Nothing deteriorated \u2014 fiscal Q1 FY27 is guided above the quarter just delivered on both revenue and EPS. What changed is that after a year of compounding, the downside no longer requires the thesis to break; a single hyperscaler order-timing slip against a very high bar is enough. The desk rotated that capital toward [[cohr]], which holds the same [[chokepoint]] exposure without the finished-winner multiple.\n\nThe August entry stays open. This is a downgrade of future buying, not a sell.",
+      "noteUpdatedAt": "2026-08-21T00:00:00Z"
     },
     {
       "slug": "lpk-de",
@@ -897,8 +877,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 13,
-          "lastMentioned": "2026-08-19T07:11:47Z",
+          "mentions": 14,
+          "lastMentioned": "2026-08-20T19:55:21Z",
           "category": "photonics",
           "market": "US",
           "marketCapTier": "Mid",
@@ -941,8 +921,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 36,
-          "lastMentioned": "2026-08-12T12:23:43Z",
+          "mentions": 37,
+          "lastMentioned": "2026-08-20T19:56:29Z",
           "category": "neoclouds",
           "market": "US",
           "marketCapTier": "Mid",
@@ -1029,54 +1009,12 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 26,
-          "lastMentioned": "2026-08-13T10:17:49Z",
+          "mentions": 27,
+          "lastMentioned": "2026-08-20T19:55:21Z",
           "category": "photonics",
           "market": "US",
           "marketCapTier": "Small",
           "company": "POET Technologies"
-        }
-      },
-      "note": "",
-      "noteUpdatedAt": null
-    },
-    {
-      "slug": "rddt",
-      "type": "ticker",
-      "title": "RDDT",
-      "auto": {
-        "refs": [
-          "aleabitoreddit"
-        ],
-        "stats": {
-          "tier": "core",
-          "mentions": 9,
-          "lastMentioned": "2026-08-17T09:26:49Z",
-          "category": "unsorted",
-          "market": "",
-          "marketCapTier": "",
-          "company": ""
-        }
-      },
-      "note": "",
-      "noteUpdatedAt": null
-    },
-    {
-      "slug": "rklb",
-      "type": "ticker",
-      "title": "RKLB",
-      "auto": {
-        "refs": [
-          "aleabitoreddit"
-        ],
-        "stats": {
-          "tier": "watch",
-          "mentions": 8,
-          "lastMentioned": "2026-08-10T02:03:29Z",
-          "category": "unsorted",
-          "market": "",
-          "marketCapTier": "",
-          "company": ""
         }
       },
       "note": "",
@@ -1115,8 +1053,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 115,
-          "lastMentioned": "2026-08-17T09:27:37Z",
+          "mentions": 116,
+          "lastMentioned": "2026-08-20T19:55:21Z",
           "category": "photonics",
           "market": "SE",
           "marketCapTier": "Small",
@@ -1129,19 +1067,20 @@
     {
       "slug": "smci",
       "type": "ticker",
-      "title": "SMCI",
+      "title": "SMCI \u00b7 Super Micro Computer",
       "auto": {
         "refs": [
+          "accelerators",
           "aleabitoreddit"
         ],
         "stats": {
           "tier": "watch",
           "mentions": 4,
           "lastMentioned": "2026-08-17T09:26:49Z",
-          "category": "unsorted",
-          "market": "",
+          "category": "accelerators",
+          "market": "US",
           "marketCapTier": "",
-          "company": ""
+          "company": "Super Micro Computer"
         }
       },
       "note": "",
@@ -1180,16 +1119,16 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 25,
-          "lastMentioned": "2026-08-17T09:26:49Z",
+          "mentions": 26,
+          "lastMentioned": "2026-08-20T19:56:29Z",
           "category": "memory",
           "market": "",
           "marketCapTier": "",
           "company": "SanDisk"
         }
       },
-      "note": "SanDisk entered desk coverage in the 16 Jul 2026 weekly review as the expression of the [[memory]] repricing \u2014 the week the story hardened from price-hike headlines into contracts, with the $META long-term agreement confirmed and an [[aehr]] NAND burn-in benchmark the analyst reads as SanDisk. Notably, [[aleabitoreddit]] has never written a dedicated SNDK thesis; the desk's accumulate stance rests on a mosaic of his memory-macro posts plus third-party verification (TrendForce, Jefferies), which the coverage memo flags openly.\n\nThe desk's caveat is the LTA cut-both-ways problem: long-term agreements guarantee volume but can cap price capture, and SanDisk's terms are undisclosed \u2014 the single most decision-relevant unknown on the name.",
-      "noteUpdatedAt": "2026-07-16T00:00:00Z"
+      "note": "SanDisk entered desk coverage in the 16 Jul 2026 weekly review as the expression of the [[memory]] repricing, and its 2026 investor day is the most ambitious attempt anyone in NAND has made to engineer the cycle out of a cyclical business: FY2028-FY2030 non-GAAP gross margins of approximately 80%, operating margins of approximately 75%, adjusted free cash flow margin near 50%, and New Business Model agreements with eight customers covering roughly half of FY2027 bits and two-thirds of FY2028 bits on committed volumes with minimum financial guarantees.\n\nThe desk stepped it down to wait in the 21 Aug 2026 review, and the reason is worth recording precisely. The business case got stronger; the price got stronger faster, repricing roughly four years of that model in five sessions. One number circulating in [[aleabitoreddit]]'s summary \u2014 minimum contracted revenue reaching $93B \u2014 does not appear in SanDisk's own investor day release, which discloses no total committed-revenue figure. The desk could not source it and does not underwrite it.\n\nThe demand side stands on independent evidence: Phison's CEO expects 2027 capacity constraints more severe than 2026, since upstream suppliers need up to four years from plant construction to production. That is the same multi-year shortage logic running through [[mu]] and [[000660-ks]]. The test is contract renewal pricing, not demand commentary \u2014 committed volume only protects margin if the committed price holds.",
+      "noteUpdatedAt": "2026-08-21T00:00:00Z"
     },
     {
       "slug": "soi-pa",
@@ -1246,8 +1185,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 21,
-          "lastMentioned": "2026-08-19T02:51:57Z",
+          "mentions": 22,
+          "lastMentioned": "2026-08-20T19:56:15Z",
           "category": "robotics",
           "market": "US",
           "marketCapTier": "Mega",
@@ -1290,8 +1229,8 @@
         ],
         "stats": {
           "tier": "watch",
-          "mentions": 3,
-          "lastMentioned": "2026-07-05T12:40:49Z",
+          "mentions": 4,
+          "lastMentioned": "2026-08-20T19:55:54Z",
           "category": "materials",
           "market": "US",
           "marketCapTier": "Small",
@@ -1320,8 +1259,8 @@
           "company": "X-FAB Silicon Foundries"
         }
       },
-      "note": "X-FAB is a specialty foundry that carries two stacked theses. The value leg: Kepler's upgrade calls it the cheapest specialty foundry at 4.8x 2027 EV/EBITDA versus a ~14.5x peer median, with Melexis demand strengthening. The free option: its 'photonixfab' silicon-photonics ([[siph]]) line, which [[aleabitoreddit]] thinks the market is not pricing at all.\n\nThat [[siph]] leg is why it lives on the [[photonics]] page rather than with the [[fabs]]. Desk stance is **accumulate** \u2014 the value floor justifies a real starter position, the photonics upside is the kicker \u2014 tempered by European-listing illiquidity and specialty-foundry cyclicality, which argue for patience.",
-      "noteUpdatedAt": "2026-07-12T00:00:00Z"
+      "note": "X-FAB is a specialty foundry carrying two stacked theses: a value leg on cheap 2027 EV/EBITDA against the peer median with Melexis demand strengthening, and a free option on its 'photonixfab' silicon-photonics ([[siph]]) line that [[aleabitoreddit]] believes the market is not pricing at all. That [[siph]] leg is why it sits on the [[photonics]] page rather than with [[fabs]].\n\nThe desk retired it at pass in the 21 Aug 2026 review, and it is the clearest case yet of the gap this vault exists to record. He has argued X-FAB 29 times and every single one is bull, including a high-conviction add after earnings he said proved the bear posts wrong. Over the same twelve months, [[lite]], [[aaoi]] and [[axti]] all rose by multiples on the identical CPO and 800V thesis and X-FAB fell. A photonics-adjacent foundry that declines while the whole complex re-rates is not a mispricing waiting to correct.\n\nThe failure mode is specific: 'a rerating once the ramp arrives' has been the argument for a year and the ramp date has moved every time. A thesis whose payoff is permanently one catalyst away cannot be falsified, and cannot be sized. It also shows how [[conviction-tier]] can mislead \u2014 29 bull arguments lift a priority score regardless of whether any of them proved out.",
+      "noteUpdatedAt": "2026-08-21T00:00:00Z"
     },
     {
       "slug": "aleabitoreddit",

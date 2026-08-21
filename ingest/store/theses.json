@@ -711,9 +711,14 @@
         "ticker": "POET",
         "direction": "neutral",
         "why": "used only as the comparator for the kind of dilution risk he's trying to avoid in quantum-dot names"
+      },
+      {
+        "ticker": "SMHMD",
+        "direction": "neutral",
+        "why": "listed among the names he passed on, with no discussion of the company itself"
       }
     ],
-    "viewsExtractedAt": "2026-08-20T02:52:21Z"
+    "viewsExtractedAt": "2026-08-20T19:31:34Z"
   },
   {
     "id": "h_076a7bf5684e1f29",
@@ -3530,9 +3535,14 @@
         "ticker": "TSEM",
         "direction": "neutral",
         "why": "used only as the comparator XFAB's trajectory resembles"
+      },
+      {
+        "ticker": "NVDA",
+        "direction": "neutral",
+        "why": "named only as a validator of X-Fab in a relayed third-party note"
       }
     ],
-    "viewsExtractedAt": "2026-08-20T03:09:29Z"
+    "viewsExtractedAt": "2026-08-20T19:31:34Z"
   },
   {
     "id": "h_5efa675a4b2c7f1d",
@@ -5965,7 +5975,17 @@
       "LPK"
     ],
     "conviction": "normal",
-    "tags": []
+    "tags": [],
+    "views": [
+      {
+        "ticker": "LPK.DE",
+        "direction": "neutral",
+        "why": "relays Serenity's positive readthrough on the glass-substrate chain naming it a key LIDE/TGV beneficiary; adds no view of his own",
+        "numbers": "claimed 80% customer penetration, 70% targeted LIDE share, GlaSSEM KRW 482.1B capital",
+        "horizon": "H2 2027"
+      }
+    ],
+    "viewsExtractedAt": "2026-08-20T19:28:08Z"
   },
   {
     "id": "h_6d5dbad8581d8139",
@@ -6379,9 +6399,14 @@
         "ticker": "FN",
         "direction": "neutral",
         "why": "named only as a possible downstream contract-manufacturing path for future IP acquisition"
+      },
+      {
+        "ticker": "AAOI",
+        "direction": "neutral",
+        "why": "grouped with the laser names he argues markets misread as pure CPO plays; no case for AAOI itself"
       }
     ],
-    "viewsExtractedAt": "2026-08-19T18:49:52Z"
+    "viewsExtractedAt": "2026-08-20T19:31:34Z"
   },
   {
     "id": "h_36781819bfe0ee75",
@@ -7495,9 +7520,14 @@
         "ticker": "COHR",
         "direction": "bull",
         "why": "same short-seller capitulation read, positive going forward"
+      },
+      {
+        "ticker": "SIVE",
+        "direction": "bull",
+        "why": "Rosenblatt reads recent optical weakness as short-seller positioning rather than a broken thesis, which he calls very positive for the laser names"
       }
     ],
-    "viewsExtractedAt": "2026-08-19T18:44:48Z"
+    "viewsExtractedAt": "2026-08-20T19:26:41Z"
   },
   {
     "id": "h_d087ebd537bedd40",
@@ -7806,9 +7836,39 @@
         "ticker": "SIVE",
         "direction": "bull",
         "why": "Morgan Stanley validated it as one of the critical global CPO players — a ~$1.5B company standing next to two $60B+ peers, with China laser suppliers reportedly far behind, magnifying the importance of the three Western leaders"
+      },
+      {
+        "ticker": "COHR",
+        "direction": "neutral",
+        "why": "named in the laser-supply section of a Morgan Stanley CPO note he relays; his case in this post is for Sivers"
+      },
+      {
+        "ticker": "LITE",
+        "direction": "neutral",
+        "why": "named in the laser-supply section of a Morgan Stanley CPO note he relays; his case in this post is for Sivers"
+      },
+      {
+        "ticker": "TSM",
+        "direction": "neutral",
+        "why": "named in the silicon-photonics foundry-capacity section of a Morgan Stanley CPO note he relays; his case in this post is for Sivers"
+      },
+      {
+        "ticker": "GFS",
+        "direction": "neutral",
+        "why": "named in the silicon-photonics foundry-capacity section of a Morgan Stanley CPO note he relays; his case in this post is for Sivers"
+      },
+      {
+        "ticker": "TSEM",
+        "direction": "neutral",
+        "why": "named in the silicon-photonics foundry-capacity section of a Morgan Stanley CPO note he relays; his case in this post is for Sivers"
+      },
+      {
+        "ticker": "POET",
+        "direction": "neutral",
+        "why": "named in the optical-engines and photonics section of a Morgan Stanley CPO note he relays; his case in this post is for Sivers"
       }
     ],
-    "viewsExtractedAt": "2026-08-19T18:44:48Z"
+    "viewsExtractedAt": "2026-08-20T19:31:34Z"
   },
   {
     "id": "h_bd58cc613a0f3c1c",
@@ -8539,9 +8599,16 @@
         "ticker": "INTC",
         "direction": "neutral",
         "why": "its CEO's quote on no memory relief until 2028 is cited as corroborating evidence for the broader memory thesis, not a case on Intel itself"
+      },
+      {
+        "ticker": "000660.KS",
+        "direction": "bull",
+        "why": "cites Meritz arguing this is not the time to sell, with the DRAM shortage intensifying while the stock trades on a low 2027 multiple",
+        "numbers": "2027 P/E 3.5x; DRAM fulfilment 75-80% H2 2026 falling to the 60% range in 2027",
+        "horizon": "2027-2028"
       }
     ],
-    "viewsExtractedAt": "2026-08-19T18:39:25Z"
+    "viewsExtractedAt": "2026-08-20T19:26:41Z"
   },
   {
     "id": "h_28f15a9f3f766e1a",
@@ -8732,9 +8799,15 @@
         "ticker": "TSM",
         "direction": "neutral",
         "why": "used only as the comparator framework for how he thinks about Innolight as a semi-capex bellwether"
+      },
+      {
+        "ticker": "SOI.PA",
+        "direction": "bull",
+        "why": "higher silicon-photonics penetration behind Goldman's raised Innolight estimates means more SOI wafer demand",
+        "numbers": "GS raised Innolight 2026-28 earnings estimates 65%/108%/119%"
       }
     ],
-    "viewsExtractedAt": "2026-08-19T18:39:25Z"
+    "viewsExtractedAt": "2026-08-20T19:26:41Z"
   },
   {
     "id": "h_aab19b2aaa60c0de",
@@ -8783,7 +8856,17 @@
       "SKHY"
     ],
     "conviction": "normal",
-    "tags": []
+    "tags": [],
+    "views": [
+      {
+        "ticker": "000660.KS",
+        "direction": "neutral",
+        "why": "flags the ADR premium becoming convertible on 29 July, which arbitrage should compress, possibly by lifting the Korean shares and possibly by pressuring the US line",
+        "numbers": "25%+ ADR premium; 2.5% of the stock is the ADR, a further 22.5% convertible",
+        "horizon": "29 July 2026"
+      }
+    ],
+    "viewsExtractedAt": "2026-08-20T19:32:40Z"
   },
   {
     "id": "h_0bb1061a13b64f17",
@@ -9106,9 +9189,33 @@
         "ticker": "MRVL",
         "direction": "neutral",
         "why": "single-day recovery percentage listed, no argument"
+      },
+      {
+        "ticker": "SIVE",
+        "direction": "neutral",
+        "why": "single-day recovery percentage listed, no argument",
+        "numbers": "+30.89%"
+      },
+      {
+        "ticker": "IQE",
+        "direction": "neutral",
+        "why": "single-day recovery percentage listed, no argument",
+        "numbers": "+28.6%"
+      },
+      {
+        "ticker": "LPK.DE",
+        "direction": "neutral",
+        "why": "single-day recovery percentage listed, no argument",
+        "numbers": "+14.48%"
+      },
+      {
+        "ticker": "SOI.PA",
+        "direction": "neutral",
+        "why": "single-day recovery percentage listed, no argument",
+        "numbers": "+11.1%"
       }
     ],
-    "viewsExtractedAt": "2026-08-19T18:39:25Z"
+    "viewsExtractedAt": "2026-08-20T19:26:41Z"
   },
   {
     "id": "h_da50e651ff55e4bd",
@@ -9576,9 +9683,22 @@
         "ticker": "CXMT",
         "direction": "neutral",
         "why": "notes its IPO date without commentary or a view"
+      },
+      {
+        "ticker": "SOI.PA",
+        "direction": "bull",
+        "why": "guides FY2027 silicon photonics revenue to double year on year, ahead of Morgan Stanley's 60% growth projection",
+        "numbers": "FY2027 SiPh revenue 2x vs MS +60%",
+        "horizon": "FY2027"
+      },
+      {
+        "ticker": "LPK.DE",
+        "direction": "neutral",
+        "why": "relays the SKC Absolics glass-core delay to 2027 as pushing back its ramp and explaining the earnings drop, reported rather than argued",
+        "horizon": "2027"
       }
     ],
-    "viewsExtractedAt": "2026-08-19T18:36:33Z"
+    "viewsExtractedAt": "2026-08-20T19:26:41Z"
   },
   {
     "id": "h_eb941a6b810a07bd",
@@ -9615,7 +9735,16 @@
       "CMXT"
     ],
     "conviction": "normal",
-    "tags": []
+    "tags": [],
+    "views": [
+      {
+        "ticker": "CXMT",
+        "direction": "bear",
+        "why": "mocks the IPO pop as a very normal 470% and the day-one valuation it implies, and says he is not opening new positions for now",
+        "numbers": "+469.98% to ~$487.31B from $85.5B"
+      }
+    ],
+    "viewsExtractedAt": "2026-08-20T19:28:08Z"
   },
   {
     "id": "h_c7235ee4c03ced94",
@@ -10134,9 +10263,15 @@
         "direction": "neutral",
         "why": "listed with its one-day move after the liquidation",
         "numbers": "+12.16%"
+      },
+      {
+        "ticker": "000660.KS",
+        "direction": "neutral",
+        "why": "listed with its one-day move after the liquidation",
+        "numbers": "+16.98%"
       }
     ],
-    "viewsExtractedAt": "2026-08-19T18:14:49Z"
+    "viewsExtractedAt": "2026-08-20T19:26:41Z"
   },
   {
     "id": "x_2082578803189268855",
@@ -10656,9 +10791,16 @@
         "ticker": "SPCX",
         "direction": "neutral",
         "why": "used as the halo-effect analogy for a listing lifting a sector"
+      },
+      {
+        "ticker": "LPK.DE",
+        "direction": "bull",
+        "why": "bought the EU drop; reads the glass-core ramp as delayed a quarter by the Absolics slip rather than lost, with CoPoS and Samsung driving 2027 demand",
+        "numbers": "added at 13",
+        "horizon": "2027"
       }
     ],
-    "viewsExtractedAt": "2026-08-19T18:14:49Z"
+    "viewsExtractedAt": "2026-08-20T19:26:41Z"
   },
   {
     "id": "r_c173439107ef44c4",
@@ -12928,9 +13070,15 @@
         "ticker": "AAOI",
         "direction": "neutral",
         "why": "explicitly excluded from the positive read-through because it is missing out on first-gen CPO deployments"
+      },
+      {
+        "ticker": "SIVE",
+        "direction": "bull",
+        "why": "Lumentum's ultra-high-power CPO laser demand and first ELS order read across positively to the other CPO laser suppliers",
+        "numbers": "LITE guides Q1 FY2027 revenue $1.225-1.275B"
       }
     ],
-    "viewsExtractedAt": "2026-08-19T16:47:31Z"
+    "viewsExtractedAt": "2026-08-20T19:26:41Z"
   },
   {
     "id": "x_2087280662802026931",
@@ -13583,9 +13731,14 @@
         "ticker": "IQE",
         "direction": "neutral",
         "why": "named in an aside about optical jargon and his bottleneck scavenger hunt, no view expressed"
+      },
+      {
+        "ticker": "SOI.PA",
+        "direction": "neutral",
+        "why": "named as one of the optical-bottleneck names his followers have tracked with him, in a post about jargon rather than a case"
       }
     ],
-    "viewsExtractedAt": "2026-08-19T16:44:13Z"
+    "viewsExtractedAt": "2026-08-20T19:26:41Z"
   },
   {
     "id": "x_2087807614172488131",
@@ -13779,7 +13932,17 @@
       "LPK"
     ],
     "conviction": "normal",
-    "tags": []
+    "tags": [],
+    "views": [
+      {
+        "ticker": "LPK.DE",
+        "direction": "neutral",
+        "why": "flags glass substrate timelines slipping another quarter and says its volume ramp tracks those dates, while holding that the shift itself is imminent",
+        "numbers": "SKC Absolics H2 2026 to H1 2027; Samsung H2 2027 to H1 2028",
+        "horizon": "2027-2028"
+      }
+    ],
+    "viewsExtractedAt": "2026-08-20T19:28:08Z"
   },
   {
     "id": "x_2088181416148562017",
@@ -13822,9 +13985,14 @@
         "ticker": "MU",
         "direction": "bull",
         "why": "short reaffirmation that the memory bottleneck is unchanged"
+      },
+      {
+        "ticker": "000660.KS",
+        "direction": "bull",
+        "why": "asserts the memory bottleneck he has been arguing is unchanged"
       }
     ],
-    "viewsExtractedAt": "2026-08-19T16:41:46Z"
+    "viewsExtractedAt": "2026-08-20T19:26:41Z"
   },
   {
     "id": "x_2088457278928412812",
@@ -13857,9 +14025,14 @@
         "ticker": "AAPL",
         "direction": "neutral",
         "why": "observes Apple had extreme supplier leverage only before the AI boom, implying it has lost it"
+      },
+      {
+        "ticker": "000660.KS",
+        "direction": "bull",
+        "why": "US pressure on Apple to avoid Chinese memory hands pricing power back to the non-Chinese suppliers, and CXMT/YMTC are hiking anyway"
       }
     ],
-    "viewsExtractedAt": "2026-08-19T16:41:46Z"
+    "viewsExtractedAt": "2026-08-20T19:26:41Z"
   },
   {
     "id": "x_2088501133543407959",
@@ -15085,9 +15258,15 @@
         "direction": "bull",
         "why": "same NAND demand imbalance; disagrees with the view that the memory cycle is over",
         "horizon": "2027"
+      },
+      {
+        "ticker": "000660.KS",
+        "direction": "bull",
+        "why": "same NAND demand imbalance as the other memory names; Phison sees 2027 capacity constraints more severe than 2026 and a multi-year shortage",
+        "horizon": "2027"
       }
     ],
-    "viewsExtractedAt": "2026-08-19T16:29:47Z"
+    "viewsExtractedAt": "2026-08-20T19:26:41Z"
   },
   {
     "id": "x_2089355682286092748",
@@ -15289,5 +15468,89 @@
       }
     ],
     "viewsExtractedAt": "2026-08-19T16:29:47Z"
+  },
+  {
+    "id": "x_2090374603264929981",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2090374603264929981",
+    "postedAt": "2026-08-20T09:45:17Z",
+    "ingestedAt": "2026-08-20T19:54:25Z",
+    "text": "I'm glad the leverage bros moved from AI stocks back to Hyerliquid and biotech like $MRNA, so maybe we'll see a faster recovery. \n\nAside from that just some TLDR stuff:\n\n- $EWY up, primarily from SK Hynix buybacks (they're just too profitable), and Samsung Foundry roughly ~10-15% price hikes. \n\n- $SKHY unveils CPO roadmap?? Apparently they're doing something with photonic interposer that links to memory, so I gotta look a bit deeper into this\n\nProbably going to be more TAM expansion, more supply chain beneficiaries (eg. lasers, PICs, packaging) off this.\n\n- $YMTC pursuing IPO next quarter following CMXT's successful IPO. \n\nThe Chinese IPO market is just going brrr from Unitree to memory makers. \n\nUS needs to do something similar rather than IPOing companies at trillion dollar valuations already. \n\n- Tyntek limit up there's now order visibility through 2028, given photodiode demand imbalance for photonics. \n\nElazr GM did say the entire optical supply chain was facing major shortages... I'll probably look more at high-end PD bottlenecks next.\n\n- MS forecasts a 50% Q/Q price increase for DDR4 for Q3, and 10%+ increase for Q4 2026. (Nanya/2408, Windbond/2344, should be happy). \n\n- China reportedly delays clearance from germanium, quartz-based materials, and neodymium magnets To taiwan. \n\nSo I'll probably have some fun looking into supply chains disruptions there over cup noodles.\n\n- High-end PCB drill shortage (still ongoing), Kawei (5498) said AI DCs, servers and optical communications are driving demand for PCBs, HDI and package substrates, while tungsten prices are rising. \n\nThough the world's five largest drill manufacturers are aggressively expanding capacity, supply remains far below overall market demand\n\nJust stuff I found interesting recently, obviously $MRNA stuff is too. https://x.com/aleabitoreddit/status/2090374603264929981",
+    "tickers": [
+      "EWY",
+      "GM",
+      "MRNA",
+      "SKHY",
+      "YMTC"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_66aa14a680b9c2c7",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-08-20T19:55:21Z",
+    "ingestedAt": "2026-08-20T19:55:21Z",
+    "text": "Yeah, $SIVE is my favorite high-beta optical long. \n\nYou have a small company supplying lasers for: \n- Hyperscaler suppliers like \n$JBL\n with pluggables. \n- ELS + optical engines with \n$POET\n / O-Net. \n- Scale up with optical I/O with Ayar and others. \n- Photonic Foundries like \n$GFS\n across all architectures like NPO/pluggables/CPO. \n\nwith independent CW capacity coming online with Win Semi during a structural bottleneck... NASDAQ listing likely in the next few quarters. \n\nAnd the CEO actually knows what he's doing + aligned with shareholders (in terms of buying stock on the open market), with low dilution to get all of this done.   \n\nAnd they hinted at M&A, which is ideal for TAM expansion (look at what happened with Lumentum after Cloud Light H2 2023 M&A). \n\nThen you have \n$MTSI\n, \n$AAOI\n likely no meaningful participating in first-gen CPO deployments (smaller pool of players)... Industry CW shortages currently before volume ramp. Regulation tailwinds targeting Chinese competition. \n\nI'm not sure if it's just me but they have the ideal setup, main downside is that it's just listed on some small Swedish exchange and that harms valuations.",
+    "tickers": [
+      "AAOI",
+      "GFS",
+      "JBL",
+      "MTSI",
+      "POET",
+      "SIVE"
+    ],
+    "conviction": "high",
+    "tags": []
+  },
+  {
+    "id": "h_073550c82e450a55",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-08-20T19:55:54Z",
+    "ingestedAt": "2026-08-20T19:55:54Z",
+    "text": "Harmonic/LeaderDrive/Schaeffler seem to be in pretty much everywhere. \n\nThere's some more niche component suppliers like \n$VPG\n for maybe Optimus/Figure. But I think the scale is vastly different since Schaeffler claimed they were wokring with ~45 humanoid players. \n\nChinese suppliers to Agibot/Unitree probably hit revenue first though, I can do more research into that area soon.",
+    "tickers": [
+      "VPG"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_4cc1730000253ba8",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-08-20T19:56:15Z",
+    "ingestedAt": "2026-08-20T19:56:15Z",
+    "text": "$CCXI\n is targeting commercialization first, since they're in places like \n$AMZN\n and \n$MELI\n warehouses for human automation.\n\nI don't think Agility's Robots need to do backflips to do deliveries or packaging. Same with Amazon warehouse workers.\n\nTwo different use cases, think Boston Dynamics is the closest peer in terms of breaking limits on what robotics can do. \n\n$TSLA\n is also targeting general purpose, but I don't quite think they can pull that off yet. \n\nRegardless, seeing if the US can catch up and leapfrog China will be very interesting.",
+    "tickers": [
+      "AMZN",
+      "CCXI",
+      "MELI",
+      "TSLA"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "h_26a7400d327fb6ac",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "",
+    "postedAt": "2026-08-20T19:56:29Z",
+    "ingestedAt": "2026-08-20T19:56:30Z",
+    "text": "$AAOI\n is actually the one stock I'm hoping goes back to $80 so I can acquire more. \n\nThe demand visibility is pretty insane for laser names throughout 2027...\n\nSame can be said with neoclouds like \n$NBIS\n or memory names like \n$SNDK\n.",
+    "tickers": [
+      "AAOI",
+      "NBIS",
+      "SNDK"
+    ],
+    "conviction": "normal",
+    "tags": []
   }
 ]

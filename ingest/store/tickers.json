@@ -234,19 +234,6 @@
     "addedDate": "2026-06-26"
   },
   {
-    "ticker": "ASTS",
-    "company": "",
-    "category": "unsorted",
-    "market": "",
-    "exchange": "",
-    "whatTheyDo": "",
-    "whyNVDA": "",
-    "marketCapTier": "",
-    "rating": "watch",
-    "sourceTweetUrl": "",
-    "addedDate": "2026-06-27"
-  },
-  {
     "ticker": "ETHA",
     "company": "",
     "category": "unsorted",
@@ -346,19 +333,6 @@
     "whatTheyDo": "Makes precision resistors, strain gauges and force-measurement sensors for test, measurement and industrial equipment.",
     "whyNVDA": "Thin link. VPG entered the store on breadth and beaten-down list-posts, not on a dedicated thesis — there is no disclosed AI data centre exposure in this corpus. Kept for completeness, not as a coverage candidate.",
     "marketCapTier": "Small",
-    "rating": "watch",
-    "sourceTweetUrl": "",
-    "addedDate": "2026-06-27"
-  },
-  {
-    "ticker": "RKLB",
-    "company": "",
-    "category": "unsorted",
-    "market": "",
-    "exchange": "",
-    "whatTheyDo": "",
-    "whyNVDA": "",
-    "marketCapTier": "",
     "rating": "watch",
     "sourceTweetUrl": "",
     "addedDate": "2026-06-27"
@@ -935,19 +909,6 @@
     "rating": "watch",
     "sourceTweetUrl": "",
     "addedDate": "2026-07-01"
-  },
-  {
-    "ticker": "MELI",
-    "company": "",
-    "category": "unsorted",
-    "market": "",
-    "exchange": "",
-    "whatTheyDo": "",
-    "whyNVDA": "",
-    "marketCapTier": "",
-    "rating": "watch",
-    "sourceTweetUrl": "",
-    "addedDate": "2026-07-02"
   },
   {
     "ticker": "GLW",
@@ -1614,12 +1575,12 @@
   },
   {
     "ticker": "SMCI",
-    "company": "",
-    "category": "unsorted",
-    "market": "",
-    "exchange": "",
-    "whatTheyDo": "",
-    "whyNVDA": "",
+    "company": "Super Micro Computer",
+    "category": "accelerators",
+    "market": "US",
+    "exchange": "NASDAQ",
+    "whatTheyDo": "Designs and builds GPU-dense AI servers and full rack-scale systems, including liquid-cooled deployments, integrating accelerators from NVIDIA and AMD into shippable racks.",
+    "whyNVDA": "One of the largest integrators of NVIDIA GPU platforms into deployable racks — its revenue tracks GPU platform shipment volume and how fast it can bring each new NVIDIA generation to market.",
     "marketCapTier": "",
     "rating": "watch",
     "sourceTweetUrl": "https://x.com/aleabitoreddit/status/2087280662802026931",
@@ -1743,7 +1704,7 @@
     "addedDate": "2026-08-14"
   },
   {
-    "ticker": "RDDT",
+    "ticker": "MRNA",
     "company": "",
     "category": "unsorted",
     "market": "",
@@ -1752,7 +1713,20 @@
     "whyNVDA": "",
     "marketCapTier": "",
     "rating": "watch",
-    "sourceTweetUrl": "",
-    "addedDate": "2026-08-17"
+    "sourceTweetUrl": "https://x.com/aleabitoreddit/status/2090374603264929981",
+    "addedDate": "2026-08-20"
+  },
+  {
+    "ticker": "YMTC",
+    "company": "",
+    "category": "unsorted",
+    "market": "",
+    "exchange": "",
+    "whatTheyDo": "",
+    "whyNVDA": "",
+    "marketCapTier": "",
+    "rating": "watch",
+    "sourceTweetUrl": "https://x.com/aleabitoreddit/status/2090374603264929981",
+    "addedDate": "2026-08-20"
   }
 ]
