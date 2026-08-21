@@ -149,8 +149,13 @@ Everything below is shipped and live:
   be mistaken for a measurement. An unassessed name shows "Not assessed yet",
   never 0%. A fraction like `0.45` is refused, not silently multiplied.
   `AIE.aiRevenue(sym)` multiplies filed revenue by judged exposure and returns
-  null unless both halves exist. **Nothing auto-populates this file** — run
-  `python3 ingest/assess_exposure.py --todo` for the worklist.
+  null unless both halves exist. **Nothing auto-populates this file.** Driven by
+  the **`/assess-exposure`** skill, not by handing the operator a command: he
+  does not use a terminal, so every routine he needs repeatedly gets a skill and
+  Claude runs the CLI on his behalf. Same rule for the launchd services
+  (`com.aie.bot`, `com.aie.watch-x`, `com.aie.refresh-prices`) — restart with
+  `launchctl kickstart -k gui/$(id -u)/<label>`, never `pkill`, which fights
+  launchd's auto-restart and leaves two copies polling.
 
 **Ticker/thesis/verdict counts change constantly — read `ingest/store/*.json`
 or `data.js`, never assume a number from this file.**
@@ -425,6 +430,7 @@ ai-supply-desk/
 ├── CLAUDE.md                   this file — build spec + current status
 ├── README.md                   quick start + project map
 ├── .claude/skills/weekly-review/SKILL.md   the /weekly-review desk procedure
+├── .claude/skills/assess-exposure/SKILL.md the /assess-exposure worklist procedure
 ├── docs/
 │   ├── EXECUTION.md             v7 "Private Coverage" upgrade — phased prompt guide (the to-do doc)
 │   ├── GUIDE.md                 how to run everything + FAQ / troubleshooting (read first if stuck)

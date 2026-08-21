@@ -40,21 +40,31 @@ the site by itself.
 start it or keep a window open. If it stops replying, check
 `launchctl list | grep com.aie.bot` (see the FAQ).
 
-> ⚠️ **Restart the bot after anything changes in `ingest/`.** A bot left
-> running holds an old copy of the code in memory. There's a guard that makes
-> it refuse to save rather than corrupt your data — but "refuse to save"
-> looks like "the bot ignored me". If Claude Code has been working on this
-> project, restart it before you next forward anything:
+> ⚠️ **The bot needs a restart after Claude Code changes anything in
+> `ingest/`.** A bot left running holds an old copy of the code in memory.
+> There's a guard that makes it refuse to save rather than corrupt your data —
+> but "refuse to save" looks like "the bot ignored me".
+>
+> **Just ask Claude to restart it** — it is one command and Claude should run
+> it for you, not hand it to you. If you ever do want it yourself:
 > ```bash
 > launchctl kickstart -k gui/$(id -u)/com.aie.bot
 > ```
-> This kills and immediately relaunches it fresh — no terminal window to
-> babysit, no risk of a second poller.
+> That kills and instantly relaunches it. **Do not use `pkill`** — launchd
+> restarts the bot the moment you kill it, so `pkill` plus a manual start
+> leaves you running two bots that fight over the same Telegram connection.
 
 ### Prices — automatic, nothing to do
 
 A scheduled job refreshes prices twice a day. If you want them *right now*:
 `desk.command` → option **2**.
+
+### Whenever you have a view — the AI-exposure worklist
+
+Say **"the worklist"** in chat. Claude shows which companies still need your
+judgement on how much of them is genuinely AI, gives you the evidence, and
+records your answer. Nothing is automatic here and nothing is invented — see
+§11. Do one name or ten; stopping early is fine.
 
 ### Once a week — three commands, in this order
 
@@ -579,6 +589,74 @@ deliberate future step, not a side effect of running this; see PROJECT.md
 "Scoring impact" before ever doing that.
 
 ---
+
+## 11. Company numbers, and how much of each one is AI
+
+Two things sit on every ticker card and every watchlist row you open, just
+under what the analyst argued and just above your own call.
+
+### Revenue — automatic, nothing to do
+
+Real revenue, straight from the companies' own filings with the US regulator.
+Six years of it, drawn as six bars so you can see the shape at a glance:
+NVIDIA climbs steeply, Intel shrinks.
+
+This refreshes itself when asked; you never have to do anything. **37 of your
+46 main names have it.** The other nine say why they don't, rather than showing
+a blank:
+
+- *"Not a US filer, so nothing to read"* — Sivers, IQE, X-FAB, LPKF, Soitec
+  and CXMT are listed outside the US, which is the one place this data comes
+  from.
+- *"Registered with the SEC but files no revenue figures"* — SK Hynix.
+- *"Ticker clashes with a different company"* — CCXI. On the US register that
+  symbol belongs to a shell company, not Agility Robotics, so the numbers are
+  refused rather than attached to the wrong business.
+
+### AI exposure — your judgement, and only yours
+
+Underneath the revenue sits one line: **how much of this company is genuinely
+the AI buildout**, as opposed to its older business. Nokia sells telecoms kit
+*and* optical parts for datacentres. Vishay sells resistors to everyone. The
+share that is AI is the whole question this desk implies and has never
+answered.
+
+**Nobody publishes it.** It genuinely cannot be looked up — company filings
+report one consolidated number, not a breakdown. So it is a judgement call,
+and it has to be yours.
+
+Right now **none of your 46 names have one**, on purpose. Nothing invents these.
+
+### How to do it — just ask
+
+Say **"the worklist"** or **"assess exposure"** in chat and Claude will:
+
+1. show you which names still need a call, biggest company first
+2. put the evidence in front of you for each one — what they do, their revenue
+   trend, what the analyst has argued
+3. take your number and your reasoning
+4. record it and confirm what landed
+
+You never touch a terminal. Claude runs it.
+
+Stop whenever you want. A judgement made to clear a list is worth less than no
+judgement, and half a list of real calls beats a full list of guesses.
+
+### What gets refused
+
+The store deliberately will not accept:
+
+- a percentage with **no reason attached** — "88%" alone is rejected, and so is
+  a reason like "obvious"
+- a percentage without **how sure you are** (high / medium / low), because that
+  is shown next to the number so a rough call never looks like a hard fact
+- **0.45 when you mean 45%** — it could mean half a percent, and it will ask
+  rather than guess
+
+Once a name has both a filed revenue and your judgement, the card shows the
+result — e.g. *88% · roughly $190B of FY2026 · high confidence* — always with
+the confidence next to it, because it multiplies an audited number by your
+estimate.
 
 ## FAQ / Troubleshooting
 
