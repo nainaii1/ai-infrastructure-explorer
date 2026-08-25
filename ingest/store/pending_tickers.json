@@ -177,7 +177,7 @@
     "candidate": "SK",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:39:49Z",
-    "count": 24
+    "count": 26
   },
   {
     "candidate": "SMIC",
@@ -291,7 +291,7 @@
     "candidate": "EML",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:44:22Z",
-    "count": 22
+    "count": 23
   },
   {
     "candidate": "QD",
@@ -333,7 +333,7 @@
     "candidate": "TPU",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:45:35Z",
-    "count": 2
+    "count": 3
   },
   {
     "candidate": "USDC",
@@ -411,7 +411,7 @@
     "candidate": "CW",
     "sourceUrl": "",
     "firstSeen": "2026-06-30T07:39:56Z",
-    "count": 43
+    "count": 44
   },
   {
     "candidate": "ERIC",
@@ -525,7 +525,7 @@
     "candidate": "IP",
     "sourceUrl": "",
     "firstSeen": "2026-06-30T07:39:58Z",
-    "count": 7
+    "count": 8
   },
   {
     "candidate": "MSA",
@@ -639,7 +639,7 @@
     "candidate": "FAU",
     "sourceUrl": "",
     "firstSeen": "2026-06-30T07:49:19Z",
-    "count": 5
+    "count": 6
   },
   {
     "candidate": "HBF",
@@ -657,7 +657,7 @@
     "candidate": "NPO",
     "sourceUrl": "",
     "firstSeen": "2026-06-30T07:49:19Z",
-    "count": 17
+    "count": 18
   },
   {
     "candidate": "SKC",
@@ -1563,7 +1563,7 @@
     "candidate": "AOI",
     "sourceUrl": "https://x.com/aleabitoreddit/status/2085499853099208716",
     "firstSeen": "2026-08-07T14:31:07Z",
-    "count": 5
+    "count": 6
   },
   {
     "candidate": "DWDM",
@@ -1581,7 +1581,7 @@
     "candidate": "TIA",
     "sourceUrl": "https://x.com/aleabitoreddit/status/2085711500875116887",
     "firstSeen": "2026-08-08T08:15:16Z",
-    "count": 3
+    "count": 4
   },
   {
     "candidate": "YMTC",
@@ -1707,6 +1707,24 @@
     "candidate": "PD",
     "sourceUrl": "https://x.com/aleabitoreddit/status/2090374603264929981",
     "firstSeen": "2026-08-20T19:54:25Z",
+    "count": 1
+  },
+  {
+    "candidate": "AMS",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2090735668532224224",
+    "firstSeen": "2026-08-21T16:22:13Z",
+    "count": 1
+  },
+  {
+    "candidate": "HCS",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2090735668532224224",
+    "firstSeen": "2026-08-21T16:22:13Z",
+    "count": 1
+  },
+  {
+    "candidate": "IEEE",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2090735668532224224",
+    "firstSeen": "2026-08-21T16:22:13Z",
     "count": 1
   }
 ]

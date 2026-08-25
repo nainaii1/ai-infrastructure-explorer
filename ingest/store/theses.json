@@ -15552,5 +15552,823 @@
     ],
     "conviction": "normal",
     "tags": []
+  },
+  {
+    "id": "x_2090490101260591481",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2090490101260591481",
+    "postedAt": "2026-08-20T17:24:14Z",
+    "ingestedAt": "2026-08-21T04:58:13Z",
+    "text": "Very positive. My opinion is that the optical sector underperformance recently from $AAOI to $SIVE has been absurd.\n\nThe demand visibility... is just way too stupidly high.\n\nAOI: “Even combined AOI, Coherent program altogether, is still very tough to meet the customer demand in the next 3 years” (2029)\n\nElazr GM: \"entire optical supply chain was facing major shortages.\" \"The shortage will continue to the next few years\"\n\nSivers CEO said the same thing about InP laser demand imbalances expected for the next 3-5 years.\n\nCan go on and on about $LITE, $MTSI and other comments.\n\nWe haven't even hit the inflection point with 1.6T, NPO, CPO scale out/up, and optics with memory (as seen with SK Hynix).\n\nYet the industry is already bottlenecked by EML/CW and all your other upstream components from PDs/TIA/DSPs, transceivers, and soon FAU + others when CPO scales… \n\nI'm personally extremely comfortable watching this all play out, but just a little confused that markets don't know how to math a year or two ahead. https://x.com/aleabitoreddit/status/2090490101260591481",
+    "tickers": [
+      "AAOI",
+      "GM",
+      "LITE",
+      "MTSI",
+      "SIVE"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "x_2090510568474231045",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2090510568474231045",
+    "postedAt": "2026-08-20T18:45:33Z",
+    "ingestedAt": "2026-08-21T04:58:15Z",
+    "text": "After seeing how the robotics and space sectors reacted to Unitree and $SPCX IPOs\n\nI’m not quite sure I want Anthropic to go public… https://x.com/aleabitoreddit/status/2090510568474231045",
+    "tickers": [
+      "SPCX"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "x_2090735668532224224",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2090735668532224224",
+    "postedAt": "2026-08-21T09:40:02Z",
+    "ingestedAt": "2026-08-21T16:22:13Z",
+    "text": "Since people are having fun speculating on $SKHY CPO roadmap supply chains.\n\nI'm gonna do my own guess and say SK Hynix is evaluating Celestial/Ayar. Then doing heavy evaluation into microLEDs past first-gen deployments. \n\nBoth have been kinda working on it for awhile. \n\n- Ayar shown up in SK hynix's own website in the context of optical <-> memory links. \n- Marvell is actively working with SK Hynix in custom memory solutions (and guess who owns Celestial now). \n\nCelestial/Ayar are both also cited in SK Hynix's linked Nature Paper, which helps a bit with technical relevance: \n\n(121): Stojanovic, V. A UCIe optical I/O retimer chiplet for AI scale-up. In 2025 IEEE Hot Chips 37 Symposium (HCS) 1–22 (IEEE, 2025) \n\n- This is Ayar reference (Ayar’s teraphy optical I/O chiplet), Stojanovic is Ayar Lab's co-founder btw. \n\n(123): Winterbottom, P. Photonic interconnect for accelerated computing celestial AI photonic fabric module (cough cough Celestial)\n\nThere's more breadcrumbs out there, but wanted to keep this relatively short-form. \n\nFor more upstream beneficaries: \n\n-> I still think $SIVE is the cleanest read through since they're likely supplying to both Celestial/Ayar. \n\nThe interposer/packaging IP layer... People were speculating $POET, but Marvell probably vertically integrated players them out this year after the announcement. \n\nGiven they've had their own SiPH interposer tech/integration IP before Celestials acquisition (eg. presented a silicon-photonics interposer back in 2023)\n\n-> AMS Osram (which I don't own), seems like they're co-developing in this area given they randomly went out of their way this year to say HBM <-> optics was a TAM increase for them. \n\nTLDR: I see Ayar/Celestial as candidates for SK Hynix's CPO roadmap, then microLEDs being commercialized past gen-1 maybe 2029. (this is all speculation)\n\nJust to throw a bone to quantum dot bros, this got cited like 5 times. https://x.com/aleabitoreddit/status/2090735668532224224",
+    "tickers": [
+      "POET",
+      "SIVE",
+      "SKHY"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "x_2090816483861696517",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2090816483861696517",
+    "postedAt": "2026-08-21T15:01:09Z",
+    "ingestedAt": "2026-08-21T16:22:17Z",
+    "text": "Uhh Citadel?\n\n> Say emergency rate hike. More crashes/liquidations follow\n\n> No rate hike\n\n> Reaches out to buy liquidated hedge fund portfolios\n\n> buys billions of Situational Awareness holdings.\n\n> Says AI bull case is intact\n\n>markets rally\n\n> Sells AI stocks into the buying pressure\n\nI’m just stating the timeline here… https://x.com/aleabitoreddit/status/2090816483861696517",
+    "tickers": [],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "x_2090903631793127644",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2090903631793127644",
+    "postedAt": "2026-08-21T20:47:27Z",
+    "ingestedAt": "2026-08-22T16:01:04Z",
+    "text": "It's getting much harder to support $AAOI when they keep dropping $500m or $600M ATMs left and right. \n\nAt a certain point, the operating outlook could be positive. \n\nBut the share structure/financing becomes increasingly shareholder unfriendly. \n\nReally, really, dislike ATMs and incessant capital raises, even if they're building up capacity. https://x.com/aleabitoreddit/status/2090903631793127644",
+    "tickers": [
+      "AAOI"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "x_2091177173789069797",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2091177173789069797",
+    "postedAt": "2026-08-22T14:54:25Z",
+    "ingestedAt": "2026-08-23T16:28:54Z",
+    "text": "It's been fun to read these US Gov fact sheets (few a week) recently. \n\nEarlier this week was \"Golden Age of Space Transportation\", with $SPCX hard carrying the launch sector like Faker. \n\nAnd $RKLB + other rocket companies as beneficiaries of the 1K launch/reentry goal by 2030. \n\nThis month we also had:\n- Drone component tariffs \n-  American Mining / Critical Mineral deals\n- Polysilicon supply chains tariffs\n\nand a lot more... So helpful to see what sectors US policy is focusing on. https://x.com/aleabitoreddit/status/2091177173789069797",
+    "tickers": [
+      "RKLB",
+      "SPCX"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "x_2091264273007960320",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2091264273007960320",
+    "postedAt": "2026-08-22T20:40:31Z",
+    "ingestedAt": "2026-08-23T16:28:58Z",
+    "text": "Apparently, $RDDT thinks $MRVL had two major catalysts recently:\n\nThe $12.2B Google TPU ecosystem agreement.\n\nAnd…\n\nSpider-Man: “Brand New Day” https://x.com/aleabitoreddit/status/2091264273007960320",
+    "tickers": [
+      "MRVL",
+      "RDDT"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "x_2091488091110531106",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2091488091110531106",
+    "postedAt": "2026-08-23T11:29:53Z",
+    "ingestedAt": "2026-08-23T16:29:03Z",
+    "text": "Having a mid-X identity crisis rn:\n\n✓ saw 2025 ideas from $AXTI to $NBIS play out with everyone\n✓ we got $AMD bandanas\n✓ #1 most subscribed person on X by accident\n✓ Chinese “White Hair” nicknames\n✓ 1M followers\n\nStill here to track ideas, but what’s the next side quest? https://x.com/aleabitoreddit/status/2091488091110531106",
+    "tickers": [
+      "AMD",
+      "AXTI",
+      "NBIS"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "x_2091612406900564407",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2091612406900564407",
+    "postedAt": "2026-08-23T19:43:52Z",
+    "ingestedAt": "2026-08-24T04:52:16Z",
+    "text": "After watching clips of China's humanoid Olympics... \n\nI think we're cooked chat. \n\nStill can't believe $GOOGL sold Boston Dynamics, don't think we have another humanoid that can backflip. https://x.com/aleabitoreddit/status/2091612406900564407",
+    "tickers": [
+      "GOOGL"
+    ],
+    "conviction": "normal",
+    "tags": []
+  },
+  {
+    "id": "r_fa81e088bcaa6727",
+    "source": "research",
+    "author": "semi-expert",
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1633978/000162828026055726/lite_ex991xq4fy26.htm",
+    "postedAt": "2026-08-25T04:00:00Z",
+    "ingestedAt": "2026-08-25T04:00:00Z",
+    "text": "Semiconductor expert: Lumentum's Q4 release claims an initial ELS module order, rising ultra-high-power CPO laser demand and NPO engagements, but states no H2 2027 CPO shipment date. That timeline is call commentary, not a figure the filed release carries.",
+    "tickers": [
+      "LITE"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "semi-expert"
+    ],
+    "direction": "neutral",
+    "verification": "verified"
+  },
+  {
+    "id": "r_e1733242bf2fbff2",
+    "source": "research",
+    "author": "fundamental",
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1633978/000162828026055726/lite_ex991xq4fy26.htm",
+    "postedAt": "2026-08-25T04:00:00Z",
+    "ingestedAt": "2026-08-25T04:00:00Z",
+    "text": "Fundamental analyst: Shares outstanding went 69.9m to 89.7m, up 28% in twelve months, as convertibles were equitized. That produced a one-time $7.8bn non-cash extinguishment loss and a $7.2bn GAAP quarterly net loss. The analyst reported only non-GAAP per-share figures.",
+    "tickers": [
+      "LITE"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "fundamental"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_a79ec4f20030590b",
+    "source": "research",
+    "author": "pm",
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1633978/000162828026055726/lite_ex991xq4fy26.htm",
+    "postedAt": "2026-08-25T04:00:00Z",
+    "ingestedAt": "2026-08-25T04:00:00Z",
+    "text": "Portfolio manager: At $841 Lumentum is roughly 25x FY2026 revenue of $3.01bn and 97x FY2026 non-GAAP EPS of $8.67. Annualising the Q1 FY2027 guide midpoint still leaves about 50x forward. The demand is real; the price assumes flawless execution through FY2028.",
+    "tickers": [
+      "LITE"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "pm"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_0972846c8b959818",
+    "source": "research",
+    "author": "semi-expert",
+    "sourceUrl": "",
+    "postedAt": "2026-08-25T04:00:00Z",
+    "ingestedAt": "2026-08-25T04:00:00Z",
+    "text": "Semiconductor expert: Could not verify from a primary source the earnings-call quote that Coherent will not sell indium phosphide lasers externally. The Q4 release says only that capital allocation prioritises expanding manufacturing capacity. Treat the merchant-supply exclusion as unconfirmed.",
+    "tickers": [
+      "COHR"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "semi-expert"
+    ],
+    "direction": "neutral",
+    "verification": "unverified"
+  },
+  {
+    "id": "r_fe60bb2fe79c77b3",
+    "source": "research",
+    "author": "fundamental",
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/820318/000119312526346860/d128030dex991.htm",
+    "postedAt": "2026-08-25T04:00:00Z",
+    "ingestedAt": "2026-08-25T04:00:00Z",
+    "text": "Fundamental analyst: Coherent's FY2026 non-GAAP gross margin was 39.4% and operating margin 20.5%, against Lumentum's 46.0% and 29.8%. But Coherent trades near 7.7x FY2026 revenue of $7.12bn versus roughly 25x for Lumentum. Weaker margins, materially cheaper entry to the same demand.",
+    "tickers": [
+      "COHR"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "fundamental"
+    ],
+    "direction": "bull",
+    "verification": "verified"
+  },
+  {
+    "id": "r_273375686245c947",
+    "source": "research",
+    "author": "pm",
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/820318/000119312526346860/d128030dex991.htm",
+    "postedAt": "2026-08-25T04:00:00Z",
+    "ingestedAt": "2026-08-25T04:00:00Z",
+    "text": "Portfolio manager: Coherent's FY2026 GAAP operating margin was 12.6% against 20.5% non-GAAP, a 790bp gap from stock compensation and amortisation. Q4 revenue grew 33.8% year over year versus Lumentum's 109.3%. Owning Coherent is a bet on catch-up, not on the same growth rate.",
+    "tickers": [
+      "COHR"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "pm"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_133f701737dcb4c4",
+    "source": "research",
+    "author": "semi-expert",
+    "sourceUrl": "https://www.trendforce.com/presscenter/news/20260703-13134.html",
+    "postedAt": "2026-08-25T04:00:00Z",
+    "ingestedAt": "2026-08-25T04:00:00Z",
+    "text": "Semiconductor expert: TrendForce forecasts 3Q26 NAND contract prices up only 10-15% quarter on quarter, a noticeably slower pace than previous quarters, citing weaker consumer demand and a higher base. Supply stays tight, but the rate of price increase has already turned down.",
+    "tickers": [
+      "SNDK"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "semi-expert"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_574015a73d9972e2",
+    "source": "research",
+    "author": "fundamental",
+    "sourceUrl": "https://data.sec.gov/api/xbrl/companyconcept/CIK0002023554/us-gaap/GrossProfit.json",
+    "postedAt": "2026-08-25T04:00:00Z",
+    "ingestedAt": "2026-08-25T04:00:00Z",
+    "text": "Fundamental analyst: SanDisk's FY2026 GAAP gross margin was already 71.5%, $14.47bn on $20.25bn revenue, against 30.1% in FY2025 and 16.1% in FY2024. The 80% target is a small step from a shortage-set base, not a structural cost gain. That 55-point swing took one year.",
+    "tickers": [
+      "SNDK"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "fundamental"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_bdeb5f65ef14723a",
+    "source": "research",
+    "author": "pm",
+    "sourceUrl": "https://investor.sandisk.com/news-releases/news-release-details/sandisk-details-growth-strategy-and-long-term-financial-model",
+    "postedAt": "2026-08-25T04:00:00Z",
+    "ingestedAt": "2026-08-25T04:00:00Z",
+    "text": "Portfolio manager: Minimum contracted revenue of $93bn sits against a market capitalisation near $221bn, so 2.4x the contracted book is already paid, and contracted revenue is not profit. At the guided 50% free cash flow margin that book is roughly $46bn of undiscounted cash.",
+    "tickers": [
+      "SNDK"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "pm"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_29b5a71e396c7805",
+    "source": "research",
+    "author": "semi-expert",
+    "sourceUrl": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0002074973&type=S-4&dateb=&owner=include&count=40",
+    "postedAt": "2026-08-25T04:00:00Z",
+    "ingestedAt": "2026-08-25T04:00:00Z",
+    "text": "Semiconductor expert: No Form S-4 is publicly filed for the Agility merger; the registration statement was submitted confidentially. There are therefore no audited Agility financials, no segment detail and no customer disclosure on file. The technical claims cannot be diligenced from primary sources.",
+    "tickers": [
+      "CCXI"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "semi-expert"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_e68672eed9cce94e",
+    "source": "research",
+    "author": "fundamental",
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2074973/000121390026089245/ea0300779-10q_churchill11.htm",
+    "postedAt": "2026-08-25T04:00:00Z",
+    "ingestedAt": "2026-08-25T04:00:00Z",
+    "text": "Fundamental analyst: The Exchange Ratio is Agility's per-share equity value divided by the trust redemption price, $10.17 at 30 June 2026, not by CCXI's market price. Buying at $14.16 pays about 1.39x that, an effective pre-money valuation near $3.5bn rather than the $2.5bn headline.",
+    "tickers": [
+      "CCXI"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "fundamental"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_bb90141c8a53b8c5",
+    "source": "research",
+    "author": "pm",
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2074973/000121390026089245/ea0300779-10q_churchill11.htm",
+    "postedAt": "2026-08-25T04:00:00Z",
+    "ingestedAt": "2026-08-25T04:00:00Z",
+    "text": "Portfolio manager: Structure the headline hides: 13.8m founder Class B shares against 41.4m public shares, a $15.99m deferred underwriting fee payable only on closing, and a $201m PIPE priced at $10.00 while the open market pays $14.16. The deadline to close is 18 March 2028.",
+    "tickers": [
+      "CCXI"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "pm"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_b46ab3235f4abdf2",
+    "source": "research",
+    "author": "semi-expert",
+    "sourceUrl": "",
+    "postedAt": "2026-08-25T04:00:00Z",
+    "ingestedAt": "2026-08-25T04:00:00Z",
+    "text": "Semiconductor expert: Could not verify from a primary source that Applied Optoelectronics holds 300-400mW CW lasers, or that it is sold out through H2 2027. Both are conference remarks and appear in neither the 10-Q nor the August prospectus supplement.",
+    "tickers": [
+      "AAOI"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "semi-expert"
+    ],
+    "direction": "neutral",
+    "verification": "unverified"
+  },
+  {
+    "id": "r_9b6a2ea5d3eb8b2c",
+    "source": "research",
+    "author": "fundamental",
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1158114/000110465926099685/tm2623389-1_424b5.htm",
+    "postedAt": "2026-08-25T04:00:00Z",
+    "ingestedAt": "2026-08-25T04:00:00Z",
+    "text": "Fundamental analyst: Shares went 62.4m to 84.6m in twelve months, up 36%, and the new $600m ATM at $129.10 adds 4.65m more. That is the third raise since April, roughly $1.7bn, while first-half 2026 operating cash flow was negative $73.8m on $343m of revenue.",
+    "tickers": [
+      "AAOI"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "fundamental"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_dfb0ede03688b0c5",
+    "source": "research",
+    "author": "pm",
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1158114/000110465926099685/tm2623389-1_424b5.htm",
+    "postedAt": "2026-08-25T04:00:00Z",
+    "ingestedAt": "2026-08-25T04:00:00Z",
+    "text": "Portfolio manager: The prospectus commits proceeds to general corporate purposes, which may include debt repayment, working capital, capital expenditures and acquisitions. Nothing earmarks the $600m for laser capacity. The capacity story is management's; the filing commits to none of it.",
+    "tickers": [
+      "AAOI"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "pm"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_7b7d06294e26b774",
+    "source": "research",
+    "author": "semi-expert",
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000069/nvda-20260817.htm",
+    "postedAt": "2026-08-25T04:00:00Z",
+    "ingestedAt": "2026-08-25T04:00:00Z",
+    "text": "Semiconductor expert: The Portsmouth leases cover about 4.25GW of IT load with ready-for-service conditions expected beginning in 2028, plus optional credit support for 3.8GW more. The compute this secures is a 2028-and-beyond event, not a fiscal 2027 revenue contributor.",
+    "tickers": [
+      "NVDA"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "semi-expert"
+    ],
+    "direction": "neutral",
+    "verification": "verified"
+  },
+  {
+    "id": "r_a1c77f5b5d1fefb6",
+    "source": "research",
+    "author": "fundamental",
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000069/nvda-20260817.htm",
+    "postedAt": "2026-08-25T04:00:00Z",
+    "ingestedAt": "2026-08-25T04:00:00Z",
+    "text": "Fundamental analyst: NVIDIA signed residual value guaranties on about 4.25GW of leases with aggregate payment obligation capped at $105bn, disclosed under Item 2.03 as an off-balance-sheet obligation. OpenAI is the tenant; on OpenAI insolvency or non-payment NVIDIA pays the shortfall.",
+    "tickers": [
+      "NVDA"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "fundamental"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_61965e0669622956",
+    "source": "research",
+    "author": "pm",
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000069/nvda-20260817.htm",
+    "postedAt": "2026-08-25T04:00:00Z",
+    "ingestedAt": "2026-08-25T04:00:00Z",
+    "text": "Portfolio manager: The guaranty agreements will be filed with the 10-Q for the quarter ended 26 July 2026, reported 26 August. That exhibit, not the revenue beat, is the thing to read: it sizes how much of its own demand NVIDIA is now underwriting.",
+    "tickers": [
+      "NVDA"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "pm"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_17cb91704b1f722e",
+    "source": "research",
+    "author": "semi-expert",
+    "sourceUrl": "https://www.sivers-semiconductors.com/press/sivers-semiconductors-ab-publ-publishes-interim-report-q1-january-march-2026/",
+    "postedAt": "2026-08-25T04:00:00Z",
+    "ingestedAt": "2026-08-25T04:00:00Z",
+    "text": "Semiconductor expert: Sivers' Q1 report lists demonstrations of DFB laser arrays at OFC 2026 and partnerships with O-Net and Enablence. Those are engagements and demos, not qualified volume production. No filed document shows a production-volume laser design win at a named customer.",
+    "tickers": [
+      "SIVE"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "semi-expert"
+    ],
+    "direction": "neutral",
+    "verification": "verified"
+  },
+  {
+    "id": "r_8e5011e7d1ca254d",
+    "source": "research",
+    "author": "fundamental",
+    "sourceUrl": "https://www.sivers-semiconductors.com/press/sivers-semiconductors-ab-publ-publishes-interim-report-q1-january-march-2026/",
+    "postedAt": "2026-08-25T04:00:00Z",
+    "ingestedAt": "2026-08-25T04:00:00Z",
+    "text": "Fundamental analyst: Q1 2026 net sales were SEK 61.9m, down 22% year over year, with EBITDA of negative SEK 24.7m. Against a market capitalisation near SEK 10.7bn that is roughly 43x annualised sales, on revenue that shrank. The laser revenue is not in the numbers yet.",
+    "tickers": [
+      "SIVE"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "fundamental"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_95d7d61884e4ffdf",
+    "source": "research",
+    "author": "pm",
+    "sourceUrl": "https://www.sivers-semiconductors.com/press/sivers-semiconductors-ab-publ-publishes-interim-report-q1-january-march-2026/",
+    "postedAt": "2026-08-25T04:00:00Z",
+    "ingestedAt": "2026-08-25T04:00:00Z",
+    "text": "Portfolio manager: The $799m the bull case cites is an opportunity pipeline, up 77% year to date, not order backlog and not revenue. Management pushed defence revenue into the second half of 2026. The Q2 report on 27 August is the first test of that promise.",
+    "tickers": [
+      "SIVE"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "pm"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_1634b9e3ba46c6f7",
+    "source": "research",
+    "author": "semi-expert",
+    "sourceUrl": "https://www.riotplatforms.com/riot-announces-fee-simple-acquisition-of-land-and-first-data-center-lease-with-amd-at-the-rockdale-site/",
+    "postedAt": "2026-08-25T04:00:00Z",
+    "ingestedAt": "2026-08-25T04:00:00Z",
+    "text": "Semiconductor expert: Riot's own disclosure puts AMD at 50MW firmly contracted at Rockdale, 25MW delivered and 25MW targeted for November 2026 and May 2027. The $9.1bn, 191MW twenty-year lease grouped with it belongs to a different tenant, a frontier AI lab.",
+    "tickers": [
+      "AMD"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "semi-expert"
+    ],
+    "direction": "neutral",
+    "verification": "verified"
+  },
+  {
+    "id": "r_344c2aed15b35d36",
+    "source": "research",
+    "author": "fundamental",
+    "sourceUrl": "https://data.sec.gov/api/xbrl/companyconcept/CIK0000002488/us-gaap/RevenueFromContractWithCustomerExcludingAssessedTax.json",
+    "postedAt": "2026-08-25T04:00:00Z",
+    "ingestedAt": "2026-08-25T04:00:00Z",
+    "text": "Fundamental analyst: Q2 2026 revenue was $11.54bn, up 50% year over year, with gross profit $6.20bn, a 53.8% gross margin against 39.8% a year earlier. The margin expansion, not only the volume, is what the data-centre mix shift is delivering.",
+    "tickers": [
+      "AMD"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "fundamental"
+    ],
+    "direction": "bull",
+    "verification": "verified"
+  },
+  {
+    "id": "r_e4b9bde4336ccf79",
+    "source": "research",
+    "author": "pm",
+    "sourceUrl": "https://data.sec.gov/api/xbrl/companyconcept/CIK0000002488/us-gaap/RevenueFromContractWithCustomerExcludingAssessedTax.json",
+    "postedAt": "2026-08-25T04:00:00Z",
+    "ingestedAt": "2026-08-25T04:00:00Z",
+    "text": "Portfolio manager: At $458 AMD is roughly 16x annualised revenue after a 160% twelve-month run, so a 9% one-month drawdown is noise against the re-rating. Its Riot footprint is 50MW; the position rests on accelerator share, not on colocation capacity.",
+    "tickers": [
+      "AMD"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "pm"
+    ],
+    "direction": "neutral",
+    "verification": "verified"
+  },
+  {
+    "id": "r_8feaef9b54bbec43",
+    "source": "research",
+    "author": "semi-expert",
+    "sourceUrl": "",
+    "postedAt": "2026-08-25T04:00:00Z",
+    "ingestedAt": "2026-08-25T04:00:00Z",
+    "text": "Semiconductor expert: Could not verify from a primary source the Marvell warrant terms or the $120bn-through-2033 revenue figure attributed to the TPU relationship. Neither appears in an Alphabet or Marvell filing I could read. Treat both as press characterisation.",
+    "tickers": [
+      "GOOGL"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "semi-expert"
+    ],
+    "direction": "neutral",
+    "verification": "unverified"
+  },
+  {
+    "id": "r_bbf0c349c427521b",
+    "source": "research",
+    "author": "fundamental",
+    "sourceUrl": "https://data.sec.gov/api/xbrl/companyconcept/CIK0001652044/us-gaap/NetCashProvidedByUsedInOperatingActivities.json",
+    "postedAt": "2026-08-25T04:00:00Z",
+    "ingestedAt": "2026-08-25T04:00:00Z",
+    "text": "Fundamental analyst: Alphabet's Q2 2026 operating cash flow was $39.07bn against $44.92bn of capital expenditure, so free cash flow was negative $5.86bn, and 2026 capex guidance rose to $195-205bn. The bull case cites record cloud demand; the cash statement shows what serving it costs.",
+    "tickers": [
+      "GOOGL"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "fundamental"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_66d55858c9526841",
+    "source": "research",
+    "author": "pm",
+    "sourceUrl": "https://data.sec.gov/api/xbrl/companyconcept/CIK0001652044/us-gaap/PaymentsToAcquirePropertyPlantAndEquipment.json",
+    "postedAt": "2026-08-25T04:00:00Z",
+    "ingestedAt": "2026-08-25T04:00:00Z",
+    "text": "Portfolio manager: First-half 2026 capex of $80.6bn already nearly matches full-year 2025's $91.4bn, and the cash cushion is gone. Alphabet's AI position is now funded from the balance sheet, so the multiple has to survive a capex cycle it cannot pause.",
+    "tickers": [
+      "GOOGL"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "pm"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_9de588a623aba8b8",
+    "source": "research",
+    "author": "semi-expert",
+    "sourceUrl": "",
+    "postedAt": "2026-08-25T04:00:00Z",
+    "ingestedAt": "2026-08-25T04:00:00Z",
+    "text": "Semiconductor expert: Could not verify from a primary filing the claim that leading AI labs made multi-year, multi-gigawatt Trainium commitments, or the $25bn custom-silicon run rate. Both are earnings-call remarks and appear in no Amazon filing I could read.",
+    "tickers": [
+      "AMZN"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "semi-expert"
+    ],
+    "direction": "neutral",
+    "verification": "unverified"
+  },
+  {
+    "id": "r_8e541d817a996c52",
+    "source": "research",
+    "author": "fundamental",
+    "sourceUrl": "https://data.sec.gov/api/xbrl/companyconcept/CIK0001018724/us-gaap/NetCashProvidedByUsedInOperatingActivities.json",
+    "postedAt": "2026-08-25T04:00:00Z",
+    "ingestedAt": "2026-08-25T04:00:00Z",
+    "text": "Fundamental analyst: Amazon's Q2 2026 operating cash flow was $45.39bn against $54.21bn of capital expenditure, so free cash flow was negative $8.82bn, and negative $26.99bn across the first half. Capex guidance rose to about $220bn on higher memory costs.",
+    "tickers": [
+      "AMZN"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "fundamental"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_1b7c57fef29dfbeb",
+    "source": "research",
+    "author": "pm",
+    "sourceUrl": "https://data.sec.gov/api/xbrl/companyconcept/CIK0001018724/us-gaap/PaymentsToAcquireProductiveAssets.json",
+    "postedAt": "2026-08-25T04:00:00Z",
+    "ingestedAt": "2026-08-25T04:00:00Z",
+    "text": "Portfolio manager: First-half 2026 capex of $98.4bn is up 72% on $57.2bn a year earlier, and Amazon guides that capacity constraints persist into 2027. For this desk Amazon reads as a leading indicator for memory and optics, not as a position competing with them.",
+    "tickers": [
+      "AMZN"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "pm"
+    ],
+    "direction": "neutral",
+    "verification": "verified"
+  },
+  {
+    "id": "r_430c60235d981131",
+    "source": "research",
+    "author": "semi-expert",
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1493594/000149359426000036/ex99_1earningsreleaseq3fy26.htm",
+    "postedAt": "2026-08-25T04:00:00Z",
+    "ingestedAt": "2026-08-25T04:00:00Z",
+    "text": "Semiconductor expert: MACOM guides fiscal Q4 revenue of $415-425m against $342.2m delivered, with adjusted gross margin rising to 60-61% from 59.7%. Capacity is converting into shipments and price at once, which is what a genuine bottleneck looks like from the supplier's side.",
+    "tickers": [
+      "MTSI"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "semi-expert"
+    ],
+    "direction": "bull",
+    "verification": "verified"
+  },
+  {
+    "id": "r_ee206912ee68f675",
+    "source": "research",
+    "author": "fundamental",
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1493594/000149359426000036/ex99_1earningsreleaseq3fy26.htm",
+    "postedAt": "2026-08-25T04:00:00Z",
+    "ingestedAt": "2026-08-25T04:00:00Z",
+    "text": "Fundamental analyst: Q3 revenue was $342.2m, up 35.8% year over year, GAAP gross margin 58.3%, adjusted operating margin 31.5%. The Q4 guide implies about $8 of annualised adjusted EPS on 78.9m diluted shares, roughly 32x at $259, against Lumentum's 50x for the same demand.",
+    "tickers": [
+      "MTSI"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "fundamental"
+    ],
+    "direction": "bull",
+    "verification": "verified"
+  },
+  {
+    "id": "r_1d0394be51d90dee",
+    "source": "research",
+    "author": "pm",
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1493594/000149359426000036/ex99_1earningsreleaseq3fy26.htm",
+    "postedAt": "2026-08-25T04:00:00Z",
+    "ingestedAt": "2026-08-25T04:00:00Z",
+    "text": "Portfolio manager: MACOM fell 15.6% in a week while guiding revenue up 21-24% sequentially and gross margin up 100bp. Nothing in the release explains the move, so the drawdown is positioning rather than a change in the filed numbers.",
+    "tickers": [
+      "MTSI"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "pm"
+    ],
+    "direction": "neutral",
+    "verification": "verified"
+  },
+  {
+    "id": "r_00bfa8603013a675",
+    "source": "research",
+    "author": "semi-expert",
+    "sourceUrl": "https://www.trendforce.com/presscenter/news/20260703-13134.html",
+    "postedAt": "2026-08-25T04:00:00Z",
+    "ingestedAt": "2026-08-25T04:00:00Z",
+    "text": "Semiconductor expert: TrendForce has conventional DRAM contract prices up 13-18% quarter on quarter in 3Q26 and NAND up 10-15%, but says weaker consumer demand and a higher comparison base will moderate the increases. The shortage holds; the second derivative of pricing has rolled over.",
+    "tickers": [
+      "MU"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "semi-expert"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_bbea42c25fab1d99",
+    "source": "research",
+    "author": "fundamental",
+    "sourceUrl": "https://data.sec.gov/api/xbrl/companyconcept/CIK0000723125/us-gaap/GrossProfit.json",
+    "postedAt": "2026-08-25T04:00:00Z",
+    "ingestedAt": "2026-08-25T04:00:00Z",
+    "text": "Fundamental analyst: Micron's quarterly gross margin ran 56.0%, then 74.4%, then 84.6% across the three quarters to 28 May 2026, on revenue rising $13.6bn to $41.5bn. That 84.6% is above the 80% SanDisk targets for 2030. No memory cycle has held a peak near this.",
+    "tickers": [
+      "MU"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "fundamental"
+    ],
+    "direction": "bear",
+    "verification": "verified"
+  },
+  {
+    "id": "r_9a40bb5a113de436",
+    "source": "research",
+    "author": "pm",
+    "sourceUrl": "https://data.sec.gov/api/xbrl/companyconcept/CIK0000723125/us-gaap/GrossProfit.json",
+    "postedAt": "2026-08-25T04:00:00Z",
+    "ingestedAt": "2026-08-25T04:00:00Z",
+    "text": "Portfolio manager: At $919 Micron carries a $1.04trn market capitalisation on roughly $166bn of annualised revenue and $140bn of annualised gross profit. That is fair only if 84.6% gross margin is a plateau, not a peak. Size the position off the margin, not the shortage.",
+    "tickers": [
+      "MU"
+    ],
+    "conviction": "normal",
+    "tags": [
+      "research",
+      "pm"
+    ],
+    "direction": "bear",
+    "verification": "verified"
   }
 ]

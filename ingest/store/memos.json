@@ -1,7 +1,7 @@
 {
   "meta": {
     "schemaVersion": 1,
-    "updatedAt": "2026-08-21T09:00:00Z",
+    "updatedAt": "2026-08-25T09:00:00Z",
     "author": "claude-desk",
     "disclaimer": "Coverage memos are second-opinion research notes on @aleabitoreddit's ideas. Personal research tool — not investment advice."
   },
@@ -2321,6 +2321,160 @@
         "x_2089908198694351064",
         "x_2089057857652338993",
         "h_4cc1730000253ba8"
+      ]
+    },
+    {
+      "id": "m_MU_2026w35",
+      "ticker": "MU",
+      "kind": "update",
+      "title": "The margin nobody has ever held",
+      "dek": "Micron printed an 84.6% gross margin. Sandisk is guiding to 80% as a 2030 ambition. That gap is the whole downgrade.",
+      "publishedAt": "2026-08-25T09:00:00Z",
+      "updatedAt": "2026-08-25T09:00:00Z",
+      "rating": "watch",
+      "basedOnVerdict": true,
+      "sourceThesisIds": [
+        "r_bbea42c25fab1d99",
+        "r_00bfa8603013a675",
+        "r_9a40bb5a113de436",
+        "x_2089264987328151637",
+        "x_2089183484556480536"
+      ],
+      "sections": [
+        {
+          "heading": "Snapshot",
+          "body": "The desk upgraded $MU to accumulate on 17 August and is stepping back to **wait** eight days later. Nothing in the demand case broke. What changed is that this week's seat review finally measured the base the case is built on, and the number is one the memory industry has never sustained."
+        },
+        {
+          "heading": "Thesis",
+          "body": "Micron's quarterly gross margin ran **56.0%**, then **74.4%**, then **84.6%** across the three quarters to 28 May 2026, on revenue rising from $13.6B to $41.5B.\n\nThat 84.6% deserves to be read slowly. It is above the roughly **80%** that $SNDK presented at its investor day as a 2030 target after a full decade of [[memory]] consolidation. Micron is already there, now, and the market is capitalising it as though it is the floor.\n\nAgainst that, TrendForce has 3Q26 conventional DRAM contract prices rising 13-18% quarter on quarter and NAND 10-15% — both still steeply positive, and both explicitly slower than the prior quarter on weaker consumer demand and a higher comparison base. The shortage is intact. The rate of change is not."
+        },
+        {
+          "heading": "Why own it",
+          "body": "The reasons to hold rather than sell are unchanged and they are good ones. 2027 DRAM and HBM capacity is sold out, customers are being allocated 60-70% of requested volumes, and the pricing mechanism is contractual rather than spot, which caps the upside quarter to quarter and carries it through a downturn the same way.\n\nThe analyst's MLCC work also still looks correct: the crowding-out pattern he tracked from AI-grade components into legacy parts is the same mechanism that repriced legacy DRAM, and it argues the tightness broadens rather than fades."
+        },
+        {
+          "heading": "Risks",
+          "body": "This is the most cyclical position in the book and the entry was late. At a **$1.03 trillion** market capitalisation the equity no longer pays you to own a shortage — it pays only if 84.6% gross margin turns out to be a plateau rather than a peak.\n\nEvery prior memory cycle mean-reverted from a peak far below this one. The desk has no evidence that this cycle is structurally different, only that it is currently larger. Absence of a turn is not evidence against one."
+        },
+        {
+          "heading": "Bottom line",
+          "body": "**Wait.** Hold the 17 August entry at $971.66, now 6.3% underwater, trim back toward a starter, and put no new money in above $850. The signal that reverses this is 4Q26 contract prices re-accelerating above the 3Q26 range, or a quarter that holds margin above 84% on bit volume rather than price."
+        }
+      ]
+    },
+    {
+      "id": "m_NBIS_2026w35",
+      "ticker": "NBIS",
+      "kind": "update",
+      "title": "Back in coverage, still unresearched",
+      "dek": "Nebius re-enters the top fifteen on numbers that look extraordinary. The desk has not checked the depreciation schedule, so it is a wait.",
+      "publishedAt": "2026-08-25T09:00:00Z",
+      "updatedAt": "2026-08-25T09:00:00Z",
+      "rating": "watch",
+      "basedOnVerdict": true,
+      "sourceThesisIds": [
+        "x_2087515371750490383",
+        "h_26a7400d327fb6ac",
+        "x_2091488091110531106"
+      ],
+      "sections": [
+        {
+          "heading": "Snapshot",
+          "body": "$NBIS returns to the roster after being dropped in week 33. It comes back on sustained attention rather than a single post, and on an operating quarter that is hard to ignore."
+        },
+        {
+          "heading": "Thesis",
+          "body": "Q2 revenue was **$582.3M**, up 454% year on year and 46% sequentially, at roughly 50% adjusted EBITDA margin in AI Cloud, with **$8.04B** of cash on hand. Full-year guidance of $3.0-3.4B revenue and $7-9B exit ARR was reiterated rather than raised, which the analyst flagged himself as mildly disappointing.\n\nThe [[neoclouds]] question this desk keeps returning to is not demand. It is whether a business that buys depreciating accelerators and sells them forward on multi-year contracts is earning a spread or borrowing one."
+        },
+        {
+          "heading": "Why own it",
+          "body": "The demand side is verified upstream rather than asserted. $GOOGL, $AMZN and $META have all reported capacity shortfalls at their own scale, and Amazon has guided that constraints persist into 2027. A neocloud with capacity already installed sells into that gap at prices the hyperscalers themselves cannot meet."
+        },
+        {
+          "heading": "Risks",
+          "body": "The desk has done no primary work on this name — it was dropped by the pre-review cap and the stance is being set on the analyst's numbers plus the company's own release. That is a weaker footing than any other position on the roster and the rating reflects the desk's evidence, not the company's quality.\n\nThe specific unknowns are the depreciation schedule against GPU useful life, contract duration versus that schedule, and how the buildout is financed."
+        },
+        {
+          "heading": "Bottom line",
+          "body": "**Wait**, with a queue placement rather than a shrug. $NBIS goes first into next week's seat review; if contract-covered depreciation and no near-term refinancing need check out, this moves to accumulate quickly."
+        }
+      ]
+    },
+    {
+      "id": "m_POET_2026w35",
+      "ticker": "POET",
+      "kind": "update",
+      "title": "He is bearish on it and he owns it",
+      "dek": "The analyst wrote that he has zero idea how POET was allowed to dilute this much. The desk is taking that at face value.",
+      "publishedAt": "2026-08-25T09:00:00Z",
+      "updatedAt": "2026-08-25T09:00:00Z",
+      "rating": "watch",
+      "basedOnVerdict": true,
+      "sourceThesisIds": [
+        "x_2087846074027295020",
+        "h_66aa14a680b9c2c7",
+        "x_2090735668532224224"
+      ],
+      "sections": [
+        {
+          "heading": "Snapshot",
+          "body": "$POET re-enters the top fifteen. Unusually for this feed, the most useful thing said about it this month was negative, and it came from the analyst himself."
+        },
+        {
+          "heading": "Thesis",
+          "body": "On 13 August he wrote that he has zero idea how POET convinced shareholders to permit that much dilution, that the company now sits on roughly **$830M** of cash, and that he took only small positions.\n\nThat is a rare piece of candour in a long-only feed and it is the right frame. The asset is real: the optical interposer sits between $SIVE lasers and the optical engines that reach hyperscaler programmes, and earlier in the year he noted POET upgrading its own language from readiness to production with Sivers lasers. But an $830M cash pile at this revenue scale is a call option on execution, priced as though execution is already underway."
+        },
+        {
+          "heading": "Why own it",
+          "body": "If [[photonics]] scale-up lands the way $LITE and $MTSI earnings imply, an interposer supplier with no funding risk and named partners is positioned better than most of the group. The cash that reads as dilution today is also the reason POET does not need to raise into a downturn."
+        },
+        {
+          "heading": "Risks",
+          "body": "No desk research has been done here. POET was dropped by the pre-review cap and is being initiated on the analyst's posts alone. The dilution he objects to is real and permanent; the production wording he cites is a company claim, not a filed order."
+        },
+        {
+          "heading": "Bottom line",
+          "body": "**Wait.** Queue $POET alongside $SIVE for next week's seats — they are the same supply chain and should be underwritten together, not separately. A dated interposer production order at a named customer, funded without further dilution, is what turns the cash pile from a warning into an advantage."
+        }
+      ]
+    },
+    {
+      "id": "m_TSLA_2026w35",
+      "ticker": "TSLA",
+      "kind": "exit-note",
+      "title": "Off the roster, for the reason it went on",
+      "dek": "Tesla ranked top-15 because it appears inside multi-ticker recap posts. It never had a case here.",
+      "publishedAt": "2026-08-25T09:00:00Z",
+      "updatedAt": "2026-08-25T09:00:00Z",
+      "rating": "pass",
+      "basedOnVerdict": true,
+      "sourceThesisIds": [
+        "x_2089057857652338993",
+        "h_4cc1730000253ba8",
+        "x_2089908198694351064"
+      ],
+      "sections": [
+        {
+          "heading": "Snapshot",
+          "body": "$TSLA drops off the verdict roster this week at rank 16, having been recorded **pass** on 12 August. No position was ever taken, so nothing closes."
+        },
+        {
+          "heading": "Thesis",
+          "body": "Tesla is the cleanest illustration of the tiering caveat this desk documents but has to keep re-learning. It reached the top fifteen on 22 analyst mentions, almost all of them inside list-posts about humanoids where Optimus is named alongside $CCXI and Unitree rather than argued for.\n\nThe score measures how often he types the symbol. It does not measure whether he has a view."
+        },
+        {
+          "heading": "Why own it",
+          "body": "Nothing in this desk's mandate. Optimus is a general-purpose [[robotics]] programme wrapped inside a trillion-dollar automaker, so even if the humanoid thesis is right, the exposure is diluted to the point of irrelevance — which is the analyst's own argument for preferring pure plays."
+        },
+        {
+          "heading": "Risks",
+          "body": "The risk of carrying it was never price risk, it was attention risk: a name in the verdict roster implies the desk has a view worth the reader's time. It did not."
+        },
+        {
+          "heading": "Bottom line",
+          "body": "**Pass**, and off the roster. If Optimus becomes a separately disclosed segment with its own revenue line, it earns a fresh look on the numbers rather than on mention count."
+        }
       ]
     }
   ]

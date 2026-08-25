@@ -1728,5 +1728,31 @@
     "rating": "watch",
     "sourceTweetUrl": "https://x.com/aleabitoreddit/status/2090374603264929981",
     "addedDate": "2026-08-20"
+  },
+  {
+    "ticker": "RKLB",
+    "company": "Rocket Lab USA",
+    "category": "unsorted",
+    "market": "US",
+    "exchange": "NASDAQ",
+    "whatTheyDo": "Small-lift launch (Electron) and the Neutron medium-lift vehicle, plus spacecraft components and satellite manufacturing.",
+    "whyNVDA": "Not part of the AI hardware supply chain. Tracked because the analyst posts on the launch sector; held in triage rather than placed on the map.",
+    "marketCapTier": "Mid",
+    "rating": "watch",
+    "sourceTweetUrl": "https://x.com/aleabitoreddit/status/2091177173789069797",
+    "addedDate": "2026-08-23"
+  },
+  {
+    "ticker": "RDDT",
+    "company": "Reddit",
+    "category": "unsorted",
+    "market": "US",
+    "exchange": "NYSE",
+    "whatTheyDo": "Social platform licensing its human-written content corpus to AI labs for model training and grounding.",
+    "whyNVDA": "Demand-side AI beneficiary, not a hardware supplier. Tracked because the analyst posts on it; held in triage rather than placed on the map.",
+    "marketCapTier": "Large",
+    "rating": "watch",
+    "sourceTweetUrl": "https://x.com/aleabitoreddit/status/2091264273007960320",
+    "addedDate": "2026-08-23"
   }
 ]

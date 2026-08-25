@@ -1,7 +1,7 @@
 {
   "meta": {
     "schemaVersion": 1,
-    "updatedAt": "2026-08-21T00:00:00Z",
+    "updatedAt": "2026-08-25T00:00:00Z",
     "author": "claude-desk",
     "benchmark": "SMH",
     "disclaimer": "The calls ledger tracks the desk's own dated suggestions against a buy-the-index benchmark. Stamped forward-only, never retro-fitted. Personal research tool - not investment advice."
@@ -235,6 +235,52 @@
       "benchmark": {
         "symbol": "SMH",
         "priceAtCall": 562.59
+      }
+    },
+    {
+      "id": "c_MU_2026-08-25",
+      "ticker": "MU",
+      "source": "desk",
+      "kind": "trim",
+      "calledAt": "2026-08-25T00:00:00Z",
+      "entryPrice": 910.43,
+      "entryCurrency": "USD",
+      "stanceAtCall": "watch",
+      "memoId": "m_MU_2026w35",
+      "thesisIds": [
+        "r_bbea42c25fab1d99",
+        "r_00bfa8603013a675",
+        "r_9a40bb5a113de436"
+      ],
+      "closedAt": null,
+      "exitPrice": null,
+      "outcome": "open",
+      "benchmark": {
+        "symbol": "SMH",
+        "priceAtCall": 546.8
+      }
+    },
+    {
+      "id": "c_MTSI_2026-08-25",
+      "ticker": "MTSI",
+      "source": "desk",
+      "kind": "add-on-dip",
+      "calledAt": "2026-08-25T00:00:00Z",
+      "entryPrice": 257.43,
+      "entryCurrency": "USD",
+      "stanceAtCall": "accumulate",
+      "memoId": null,
+      "thesisIds": [
+        "r_ee206912ee68f675",
+        "r_430c60235d981131",
+        "r_1d0394be51d90dee"
+      ],
+      "closedAt": null,
+      "exitPrice": null,
+      "outcome": "open",
+      "benchmark": {
+        "symbol": "SMH",
+        "priceAtCall": 546.8
       }
     }
   ]

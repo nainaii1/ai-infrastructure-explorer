@@ -1,9 +1,9 @@
 {
   "meta": {
     "schemaVersion": 1,
-    "syncedAt": "2026-08-21T02:25:53Z",
-    "pageCount": 65,
-    "linkCount": 235
+    "syncedAt": "2026-08-25T08:05:08Z",
+    "pageCount": 67,
+    "linkCount": 238
   },
   "pages": [
     {
@@ -137,8 +137,8 @@
           "watchCount": 3
         }
       },
-      "note": "The [[hbm]] and NAND upcycle is the highest-conviction supply theme in the vault, and through August 2026 it decoupled upward from [[photonics]] \u2014 memory names ran in the same week the optical complex de-rated.\n\nThe evidence hardened from price headlines into contracts. TrendForce has server DRAM contract prices rising 13-18% quarter over quarter in 3Q26 against RDIMM bit supply growing only 15-20%, so supply is setting price. [[sndk]]'s investor day guided FY2028-FY2030 gross margins near 80% on New Business Model agreements covering two-thirds of FY2028 bits with minimum financial guarantees. Phison's CEO expects 2027 NAND constraints more severe than 2026, because upstream capacity takes up to four years to build. [[mu]] posted a quarter that nearly doubled sequentially.\n\n[[aleabitoreddit]] extended the same crowding-out logic into MLCCs, tracking Samsung lead times near 40 weeks and Murata moving 24 to 30 to 36 weeks with new capacity slipping into 2027 \u2014 his read is that AI-grade demand squeezes the consumer grades next, the way it did in legacy DRAM. The discipline the desk applies here is that this remains the most cyclical link in the chain: the exit signal is the first quarter long-term-agreement pricing stops rising, not a demand miss. Nothing in the 3Q26 contract data says that is close.",
-      "noteUpdatedAt": "2026-08-21T00:00:00Z"
+      "note": "Still the highest-conviction supply theme in the vault, and as of 25 Aug 2026 the first one where the desk has taken money off rather than put it on. Both memory positions now sit at **wait**: [[sndk]] since 21 Aug on price, [[mu]] since 25 Aug on margin.\n\nThe reason is a single comparison. Micron printed an 84.6% gross margin last reported quarter; Sandisk's FY2026 GAAP gross margin was already 71.5%, against 16.1% two years earlier, and its investor day guides ~80% as a 2030 ambition. The industry is currently earning more than its own long-range plans, which is the definition of a peak rather than a plateau \u2014 unless this cycle is structurally different, and the desk has no evidence for that beyond its size.\n\nThe shortage itself is not in question. TrendForce has 3Q26 DRAM contract prices up 13-18% and NAND up 10-15% quarter on quarter, with capacity additions requiring roughly four years. [[amzn]] raised 2026 capex to ~$220bn explicitly on higher memory costs, which is the cleanest confirmation available: the hyperscalers' cost line is this theme's revenue line. That is also why memory and [[hyperscalers]] cannot both be cheap at the same time.",
+      "noteUpdatedAt": "2026-08-25T00:00:00Z"
     },
     {
       "slug": "neoclouds",
@@ -158,8 +158,8 @@
           "watchCount": 1
         }
       },
-      "note": "The neocloud sleeve holds [[nbis]] and, from 3 August 2026, [[iren]] \u2014 companies that contract power and capacity ahead of demand and convert it into annualised run-rate. The bet is that compute scarcity persists long enough for capacity secured today to be revenue two to four quarters out.\n\nThe week of 3 August 2026 clarified what risk this sleeve actually carries, and it is not demand. Nebius reported $399.0m of quarterly revenue against a $3-3.4bn full-year target, with capex plans an order of magnitude above revenue; IREN revised its ARR target above $4bn with Microsoft, Nvidia, Perplexity and Figure named as customers, but with less disclosure behind it. Both are financing stories wearing compute stories' clothes, and both were placed on watch.\n\nContracted ARR is not funded capacity. Until a second-half revenue step-up shows up on schedule, doubling this sleeve is a sizing decision rather than a reason to add a second correlated name.",
-      "noteUpdatedAt": "2026-08-03T00:00:00Z"
+      "note": "The theme returned to the verdict roster on 25 Aug 2026 through [[nbis]], initiated at **wait** \u2014 on roster because of attention and operating momentum, at wait because the desk has not researched it.\n\nThe structural case is the strongest it has been. Every hyperscaler in the book has now reported that it cannot meet its own demand: [[amzn]] guides capacity constraints into 2027 and raised capex to ~$220bn, [[googl]] raised 2026 capex to $195-205bn and printed a negative free-cash-flow quarter doing it. A neocloud with installed capacity sells into that gap at prices the hyperscalers themselves cannot offer.\n\nThe unresolved question is the one that always decides this theme: whether an operator buying depreciating accelerators and selling them forward on multi-year contracts is earning a spread or borrowing one. Contract duration against GPU useful life is the number that settles it, and it is the first thing the seats will be asked.",
+      "noteUpdatedAt": "2026-08-25T00:00:00Z"
     },
     {
       "slug": "networking",
@@ -207,8 +207,8 @@
           "watchCount": 0
         }
       },
-      "note": "The theme the desk is built around: lasers, transceivers and the substrates beneath them, feeding the optical interconnect that [[cpo]] makes load-bearing.\n\nBy late August 2026 the shortage evidence had become overwhelming and consistent across independent sources. [[axti]] reported the largest indium phosphide price increase on record \u2014 a fourth consecutive quarterly hike, with suppliers saying money alone will not secure material. Elazr's general manager told an investor conference that the entire supply chain is out of stock and expects it to last years, across laser chip, PCB, carrier board and packaging. [[aaoi]] is sold out beyond next year; [[lite]] crossed 50% gross margin a quarter early; [[mtsi]] guides adjusted gross margin near 60%.\n\nAnd the whole complex de-rated anyway in the week to 21 Aug 2026, while [[memory]] ran \u2014 [[cohr]], [[mtsi]] and [[sive]] all fell together on no company-specific news. The market is repricing this group on gross margin rather than growth, which is why the desk's August rotation ran toward the vertically integrated name ([[cohr]], upgraded) and away from the ones already priced as winners ([[lite]], cut to wait). The unresolved question underneath the page is who actually captures the [[chokepoint]] rent: the substrate makers ([[axti]], [[iqe]]), the laser owners ([[cohr]], [[sive]]), or the assemblers ([[aaoi]], [[jbl]], [[poet]]).",
-      "noteUpdatedAt": "2026-08-21T00:00:00Z"
+      "note": "The theme de-rated hard in the week to 25 Aug 2026 \u2014 [[sive]] -20%, [[mtsi]] -16%, [[cohr]] -14%, [[aaoi]] -15% \u2014 while [[memory]] held. Nothing in the filings deteriorated, which is why the desk added to [[mtsi]] into it rather than trimming.\n\nThe evidence got better, not worse. [[lite]] delivered $1.01B of revenue at a 50.4% non-GAAP gross margin and guided up; MACOM guided fiscal Q4 to $415-425m with gross margin stepping to 60-61%; [[cohr]] grew 33.8% year on year. Against that, two cautions the desk added this week: Lumentum's share count went 69.9m to 89.7m in twelve months as convertibles were equitized, so 28% of the per-share growth story is dilution, and the widely quoted line that Coherent will not sell indium phosphide lasers externally could not be verified against a primary source \u2014 do not build the merchant-scarcity case on it.\n\nThe theme now splits cleanly by evidence quality. [[mtsi]] and [[cohr]] are held on filed numbers at roughly 32x and 7.7x. [[lite]] and [[aaoi]] are at wait on price and financing respectively. [[sive]] and [[poet]] are at wait on the absence of revenue \u2014 Sivers' last reported quarter shrank 22% year on year, and its Q2 print on 27 Aug is the theme's next real test.",
+      "noteUpdatedAt": "2026-08-25T00:00:00Z"
     },
     {
       "slug": "power",
@@ -261,8 +261,8 @@
         ],
         "stats": {
           "tier": "watch",
-          "mentions": 7,
-          "lastMentioned": "2026-08-20T09:45:17Z",
+          "mentions": 8,
+          "lastMentioned": "2026-08-21T09:40:02Z",
           "category": "memory",
           "market": "KR",
           "marketCapTier": "Mega",
@@ -283,8 +283,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 84,
-          "lastMentioned": "2026-08-20T19:56:29Z",
+          "mentions": 86,
+          "lastMentioned": "2026-08-21T20:47:27Z",
           "category": "photonics",
           "market": "US",
           "marketCapTier": "Small",
@@ -371,8 +371,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 39,
-          "lastMentioned": "2026-08-17T09:26:49Z",
+          "mentions": 40,
+          "lastMentioned": "2026-08-23T11:29:53Z",
           "category": "accelerators",
           "market": "US",
           "marketCapTier": "Mega",
@@ -481,8 +481,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 33,
-          "lastMentioned": "2026-08-17T01:39:22Z",
+          "mentions": 34,
+          "lastMentioned": "2026-08-23T11:29:53Z",
           "category": "materials",
           "market": "US",
           "marketCapTier": "Small",
@@ -657,8 +657,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 25,
-          "lastMentioned": "2026-08-19T15:49:36Z",
+          "mentions": 26,
+          "lastMentioned": "2026-08-23T19:43:52Z",
           "category": "hyperscalers",
           "market": "US",
           "marketCapTier": "Mega",
@@ -767,8 +767,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 80,
-          "lastMentioned": "2026-08-19T07:11:47Z",
+          "mentions": 81,
+          "lastMentioned": "2026-08-20T17:24:14Z",
           "category": "photonics",
           "market": "US",
           "marketCapTier": "Mid",
@@ -833,8 +833,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 25,
-          "lastMentioned": "2026-08-19T15:49:36Z",
+          "mentions": 26,
+          "lastMentioned": "2026-08-22T20:40:31Z",
           "category": "networking",
           "market": "US",
           "marketCapTier": "Large",
@@ -877,7 +877,7 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 14,
+          "mentions": 15,
           "lastMentioned": "2026-08-20T19:55:21Z",
           "category": "photonics",
           "market": "US",
@@ -907,8 +907,8 @@
           "company": "Micron Technology"
         }
       },
-      "note": "The desk's DRAM and HBM leg, opened 17 Aug 2026 after two passes declining it. The earlier reasoning \u2014 that a cycle where the seller sets the price is the wrong moment to underwrite a multiple \u2014 was reversed on two facts. Scale: the last reported quarter put revenue at $41.46B against $9.30B a year earlier, with data centre alone above $25B, an annualised run-rate over $100B. And market: [[sndk]] expresses NAND, while the structural shortage is in DRAM and HBM, where 3Q26 server contract prices rise 13-18% quarter on quarter under long-term agreements and 2027 HBM contract prices are expected multiples higher against RDIMM bit supply growing only 15-20%.\n\nThe distinction between the two memory legs matters and is easy to lose. [[aleabitoreddit]] posts the [[memory]] bottleneck as a single undifferentiated theme; it is two markets tightening for different reasons, and only one of them was in the book before this week. They will still correlate hard in a drawdown, so combined memory weight \u2014 not either position alone \u2014 is what gets sized.\n\nThe falsifier is deliberately not a demand miss. It is the first quarter long-term agreement pricing stops rising.",
-      "noteUpdatedAt": "2026-08-17T09:00:00Z"
+      "note": "Downgraded to **wait** on 25 Aug 2026, eight days after the desk opened it. The demand case did not break \u2014 2027 DRAM and HBM remain sold out and allocation is running at 60-70% of requested volumes. What changed is that the desk measured the base.\n\nMicron's quarterly gross margin ran 56.0%, then 74.4%, then **84.6%** across the three quarters to 28 May 2026, on revenue rising from $13.6B to $41.5B. That 84.6% is above the ~80% [[sndk]] presented as a *2030 target*. No [[memory]] cycle in the industry's history has held a peak near it, and at a $1.03tn market capitalisation the equity is priced as though it is a floor rather than a peak.\n\nTrendForce has 3Q26 conventional DRAM contract prices up 13-18% quarter on quarter \u2014 steeply positive, and explicitly slower than 2Q26 on weaker consumer demand and a higher base. The shortage holds; the second derivative has rolled. The 17 Aug entry at $971.66 stays open and a trim was stamped 25 Aug. What reverses it: 4Q26 contract prices re-accelerating, or a quarter holding margin above 84% on bit volume rather than price.",
+      "noteUpdatedAt": "2026-08-25T00:00:00Z"
     },
     {
       "slug": "nbis",
@@ -921,16 +921,16 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 37,
-          "lastMentioned": "2026-08-20T19:56:29Z",
+          "mentions": 38,
+          "lastMentioned": "2026-08-23T11:29:53Z",
           "category": "neoclouds",
           "market": "US",
           "marketCapTier": "Mid",
           "company": "Nebius Group"
         }
       },
-      "note": "Nebius is the [[neoclouds]] position \u2014 the way to own AI compute demand without owning a hyperscaler or a chip designer. The operating execution is visible and on schedule: up to 1.2GW of power and land secured for an owned Pennsylvania site, and more than 3GW expected under contract by year-end. For a neocloud, energised capacity is the binding constraint and it is being cleared ahead of the revenue.\n\nOn 3 August 2026 the desk stepped the stance from accumulate to watch. Q1 revenue was $399.0m, annualising near $1.6bn against a full-year target of $3-3.4bn, so almost the entire guide sits in the second half. Capex plans run an order of magnitude above revenue, which makes the terms of the next capital raise a larger determinant of the equity return than GPU demand is.\n\nAccumulate implied the risk being underwritten was demand. It is not \u2014 it is financing. Q2 results on 12 August are the next test. [[iren]] entered coverage the same week with better counterparties and the same unresolved funding question.",
-      "noteUpdatedAt": "2026-08-03T00:00:00Z"
+      "note": "Back on the verdict roster 25 Aug 2026 at **wait**, having been dropped in week 33. It returns on sustained attention and on a Q2 that is hard to ignore: revenue of $582.3M, up 454% year on year and 46% sequentially, roughly 50% adjusted EBITDA margin in AI Cloud, $8.04B of cash, and reiterated 2026 guidance of $3.0-3.4B revenue with $7-9B exit ARR.\n\nThe rating reflects the desk's evidence, not the company. NBIS was dropped by the pre-review cap, so no primary research has been done on it and the stance rests on the analyst's posts plus the company's own release \u2014 a weaker footing than anything else on the roster. The open questions are specific: the depreciation schedule against GPU useful life, contract duration against that schedule, and how the buildout is financed.\n\nThe demand side is verified upstream rather than asserted, which is what makes the name interesting at all. [[googl]], [[amzn]] and [[meta]] have each reported capacity shortfalls at their own scale, and Amazon guides that constraints persist into 2027. A [[neoclouds]] operator with capacity already installed sells into a gap the hyperscalers cannot close themselves.",
+      "noteUpdatedAt": "2026-08-25T00:00:00Z"
     },
     {
       "slug": "nok",
@@ -1009,12 +1009,54 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 27,
-          "lastMentioned": "2026-08-20T19:55:21Z",
+          "mentions": 28,
+          "lastMentioned": "2026-08-21T09:40:02Z",
           "category": "photonics",
           "market": "US",
           "marketCapTier": "Small",
           "company": "POET Technologies"
+        }
+      },
+      "note": "Initiated on the verdict roster 25 Aug 2026 at **wait**, and the most useful thing said about it this month was negative \u2014 from the analyst himself. On 13 Aug he wrote that he has zero idea how POET convinced shareholders to permit that much dilution, that it now holds roughly $830M of cash, and that he took only small positions. In a long-only feed that is rare candour and the desk takes it at face value.\n\nThe asset is real. The optical interposer sits between [[sive]] lasers and the optical engines that reach hyperscaler programmes, and earlier in 2026 the analyst noted POET upgrading its own language from \"readiness\" to \"production\" with Sivers lasers. But at this revenue scale an $830M cash pile is a call option on execution, priced as though execution is underway. The cash that reads as dilution today is also why POET will not need to raise into a downturn.\n\nNo desk research exists yet \u2014 POET was dropped by the pre-review cap. It is queued alongside [[sive]] for the next seat review, because they are the same [[photonics]] supply chain and should be underwritten together rather than separately. What would change the rating: a dated interposer production order at a named customer, funded without further dilution.",
+      "noteUpdatedAt": "2026-08-25T00:00:00Z"
+    },
+    {
+      "slug": "rddt",
+      "type": "ticker",
+      "title": "RDDT \u00b7 Reddit",
+      "auto": {
+        "refs": [
+          "aleabitoreddit"
+        ],
+        "stats": {
+          "tier": "core",
+          "mentions": 10,
+          "lastMentioned": "2026-08-22T20:40:31Z",
+          "category": "unsorted",
+          "market": "US",
+          "marketCapTier": "Large",
+          "company": "Reddit"
+        }
+      },
+      "note": "",
+      "noteUpdatedAt": null
+    },
+    {
+      "slug": "rklb",
+      "type": "ticker",
+      "title": "RKLB \u00b7 Rocket Lab USA",
+      "auto": {
+        "refs": [
+          "aleabitoreddit"
+        ],
+        "stats": {
+          "tier": "core",
+          "mentions": 9,
+          "lastMentioned": "2026-08-22T14:54:25Z",
+          "category": "unsorted",
+          "market": "US",
+          "marketCapTier": "Mid",
+          "company": "Rocket Lab USA"
         }
       },
       "note": "",
@@ -1053,8 +1095,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 116,
-          "lastMentioned": "2026-08-20T19:55:21Z",
+          "mentions": 118,
+          "lastMentioned": "2026-08-21T09:40:02Z",
           "category": "photonics",
           "market": "SE",
           "marketCapTier": "Small",

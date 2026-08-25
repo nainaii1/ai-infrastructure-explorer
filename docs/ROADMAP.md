@@ -1,6 +1,6 @@
 # Roadmap & Status — AI Infrastructure Explorer
 
-_Last updated: 2026-08-10 (v9 "soft two-tone" redesign, X watcher, symbol canonicalization shipped). Living document — update as things ship or change._
+_Last updated: 2026-08-22 (per-ticker views, SEC fundamentals, AI-exposure plumbing, daily price record, first judged claims). Living document — update as things ship or change._
 
 > **Expert review team, Phase 1 — direction-aware scoring (✅ 2026-07-26).**
 > Theses carry an optional `direction` (`bull`/`bear`/`neutral`), and
@@ -287,9 +287,9 @@ TELEGRAM_BOT_TOKEN=...` in-session, or exclude the folder from sync.
 
 ### MEDIUM — affects ingest quality
 
-**3. SSL certificate verification globally disabled in `bot.py`**
-Swap the blanket `ssl._create_unverified_context` for the `_ssl_context()`
-pattern already in `fetch_prices.py`. Still open.
+**3. SSL certificate verification globally disabled in `bot.py`** — ✅ FIXED
+`bot.py` and `watcher.py` both use the shared `store_io.ssl_context()` now
+("verified — never disable certificate checks globally"). Verified 2026-08-22.
 
 **4. Mention-count inflation from list-posts** ✅ FIXED (2026-07-03)
 `scorer.py` now focus-weights each mention by `1/√(tickers-in-post)`, so a name
@@ -314,8 +314,9 @@ interim option if Signal Digest isn't built soon: line-clamp each `.th-text` to
 now opens on Core with natural page flow (no nested scroll / sticky header), so
 the bleed-through issue is gone.
 **6. "Note" conviction badge is ambiguous** — rename to "Normal" or drop.
-**7. Desk verdict on watchlist is tooltip-only** — consider an expandable
-row so verdicts are readable without hovering (mobile especially).
+**7. Desk verdict on watchlist is tooltip-only** — ✅ FIXED. Watchlist rows
+expand in place (`makeRowDetailRow`) and now carry the verdict, his argued
+views, and the SEC revenue block. Verified 2026-08-22.
 
 ### Decisions taken (2026-07-03) — deliberate non-actions
 
@@ -339,41 +340,40 @@ design.
 
 ## Next up (build order)
 
-1. **Backfill via signal-bot forwarding** — operator task, no code: forward
-   the existing @aleabitoreddit alert-bot history into the ingest bot
-   (GUIDE.md §9). Priority: most recent months first.
-2. **First real `/weekly-review` cycle** (next week) — proves the loop and
-   produces the first stance *changes*, which is where the value is.
-3. **`start_bot.sh`** + **SSL fix in `bot.py`** (issues 1 & 3).
-4. **List-post mention weighting** in `scorer.py` (issue 4) — makes tiers
-   trustworthy enough to stop second-guessing counts.
-5. ~~**Telethon watcher (`ingest/watcher.py`)**~~ — ✅ **done 2026-07-30**, but
-   built against **X directly** rather than the signal-bot chats, which turned
-   out to be unnecessary: the public logged-out profile page renders fine in a
-   headless browser, so discovery costs nothing and needs no account. See
-   `docs/WATCHER.md`. Approve-first by design — posts queue into
-   `store/pending_posts.json` and reach `theses.json` only on a Telegram
-   button tap. **Tweet discovery is no longer manual.**
-6. **Radar-tier triage, gradually** — `review.py classify` a few per week;
-   no urgency since Radar is hidden by default.
-7. **Watchlist verdict expandable rows** (issue 7).
-8. **View extraction, remaining posts** — 44 radar/unsorted-only posts left
-   unread after the Core/Watch pass (2026-08-19); re-run
-   `extract_views.py --emit` without `--core-only` whenever there's time, or
-   whenever a name's tier changes and its back-catalog becomes worth reading.
-9. **Wire `views[]` into the UI** — `views.summarize_ticker_views()` already
-   returns the per-ticker argument feed, newest first; nothing renders it yet.
-   Natural fit: a ticker card section that reads "what he's said about this
-   name" instead of a mention count.
-10. **Decide on Step 1b (scoring) and Step 2 (SEC EDGAR fundamentals)** — both
-    spec'd and ready in `PROJECT.md`, neither started. Step 1b needs a
-    deliberate before/after review since it moves real rankings; Step 2 is
-    free (`data.sec.gov`, no key) and covers ~40 of 49 Core+Watch names.
+_Rewritten 2026-08-22. Items 1-7 and 9-10 of the previous list are done or
+superseded; what remains is below._
 
----
+1. **"Since he argued it" receipts** — **newly unblocked.** `price_history.csv`
+   now records daily closes, so a view dated 13 Aug can finally be scored
+   against what the price did next. `price_history.forward_return()` already
+   computes it. This is the feature that makes the desk unlike any TradFi
+   screen: not "here is the revenue", but "here is what happened after he made
+   the case". Needs a few weeks of observed closes before the numbers are
+   worth rendering — the seeded anchors are approximate.
+2. **Step 3 — record the AI-exposure judgements.** Plumbing shipped; **0 of 46
+   assessed**. Operator input, one name at a time, via `/assess-exposure`.
+   Blocks item 3.
+3. **Step 4 — re-point the charts.** The five parked mockups still plot
+   mention-count. Real variables now exist (revenue, growth, argued density);
+   the one worth building — exposure vs performance — waits on item 2.
+4. **Step 1b — wire direction into scoring.** Still a deliberate decision, and
+   still low-value: only 19 bear views out of 1,208 would move anything, and
+   the per-post vs per-ticker mismatch has to be resolved first. See
+   PROJECT.md "Scoring impact".
+5. **View extraction, the last 11 posts** — radar/unsorted only; `--emit`
+   without `--core-only` whenever convenient.
+6. **Short-symbol parser false positives** — `$GM` from "Elazr GM at their
+   investor conference" is still tagged and still counts as a mention. Worth a
+   pass over symbols that double as English words (GM, ON, ARM, ALL, KEY).
+   PROJECT.md known issue 1.
+7. **Radar-tier triage, gradually** — `review.py classify` a few per week.
 
 ## Discussed but not yet built
 
+- ~~**Signal Digest**~~ — **obsolete.** v8 removed the Evidence chapter it was
+  designed to replace, and the per-ticker argument feed (`views[]`, shipped
+  2026-08-20) delivers what it was actually for. Spec kept for history only.
+  Original description follows.
 - **Signal Digest** (full design spec, ready to plan+implement) — replaces the
   raw thesis feed in the Evidence chapter with short, Claude-authored
   per-ticker digests (AI Signal Watch style: one overview paragraph + one
@@ -386,10 +386,10 @@ design.
   See `docs/superpowers/specs/2026-07-03-signal-digest-design.md` for the
   full schema (`ingest/store/signal_digests.json`), the `ingest/digest.py`
   module design, and the rendering plan.
-- **"Since mention" receipts** (from reviewing semiconstocks.com — the Serenity
-  tracker of the same analyst): stamp a baseline price in `bot.py` at
-  thesis-capture time so future theses can show % return since the call.
-  Impossible retroactively — the sooner it lands, the sooner receipts accrue.
+- ~~**"Since mention" receipts**~~ — **substrate shipped 2026-08-21**, promoted
+  to "Next up" item 1. Rather than stamping a baseline in `bot.py`, every price
+  refresh appends the day's closes to `price_history.csv`, which scores ALL
+  1,200 existing views rather than only theses captured from here on.
 - **Rotation arc**: a "where the analyst's attention is moving" phase timeline
   in the Synthesis chapter, driven by the Brain's mention-trend data.
 
@@ -398,8 +398,9 @@ design.
   fully-unattended weekly cron once a paid key exists.
 - **Make.com auto-forward** — superseded in spirit by the Telethon watcher
   plan (item 5 above); keep as fallback.
-- **Real price history sparklines** — replace the synthetic "Trend (sample)"
-  lines once `fetch_prices.py` stores dailies.
+- **Real price history sparklines** — **unblocked 2026-08-21**: `fetch_prices.py`
+  now stores dailies to `price_history.csv`. Needs a few weeks of observed
+  closes before a sparkline shows anything the seeded anchors do not.
 
 ---
 

@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "meta": {
-    "reviewedAt": "2026-08-21T09:00:00Z",
+    "reviewedAt": "2026-08-25T09:00:00Z",
     "reviewer": "Claude (Opus 5) via Claude Code weekly review",
-    "thesesConsidered": 481,
-    "coverage": "Core tier, top 15 by priority score, plus sticky accumulate holdovers AMKR and JBL (17 names). 2026-08-21 pass: COHR upgraded to accumulate; LITE, SNDK downgraded to watch; XFAB retired to pass after 29 bull arguments and no delivery; CCXI re-initiated at pass on SPAC structure; LPK.DE and GFS dropped from the roster. Written before NVDA reports on 26 August and before SIVE reports on 27 August. /pre-review was last run 2026-08-17 and covers 12 of these names; SNDK, AXTI, COHR and CCXI carry desk research done in this pass.",
+    "thesesConsidered": 526,
+    "coverage": "The 15 names he writes about most, plus TSM, AMKR and JBL, which the desk still holds. Micron moved to wait. Nebius and POET are new here and not yet researched. Tesla came off. Written before NVIDIA reports on 26 August and Sivers on 27 August.",
     "cadence": "weekly",
     "disclaimer": "Second-opinion research notes on @aleabitoreddit's ideas. Personal research tool — not investment advice.",
     "focus": {
@@ -19,264 +19,268 @@
   },
   "verdicts": [
     {
-      "ticker": "LITE",
-      "stance": "watch",
-      "previousStance": "accumulate",
-      "view": "He is still right about the business and that is now the problem. Lumentum crossed 50% non-GAAP gross margin a quarter ahead of its own timeline while shipping record 800G and starting 1.6T production, and guided FQ1 FY27 to $1.225-1.275B with non-GAAP EPS of $4.05-4.35 against $3.23 just delivered. Nothing in that is deteriorating. But the stock is up roughly 630% in a year and 8% in the past week alone, to a $79B market cap, and it is now priced as the finished AI winner rather than the 2025 turnaround the desk originally bought. The asymmetry that justified accumulate is gone: the downside case no longer needs a thesis break, only a single hyperscaler order-timing slip against a very high bar. This is a valuation call, not a business call, and it is deliberately being made five days before NVIDIA reports.",
-      "execution": "Stop adding. Hold what is held; no new money at $880. The desk's 12 August entry at $820.59 is up 7.3% against SMH down 1.8% and stays open — this is a downgrade of future buying, not a sell. Revisit accumulate only on a drawdown toward the $700s that is driven by sector multiple compression rather than by a Lumentum-specific order slip.",
-      "changesMind": "A 1.6T order book that keeps outrunning the guide — specifically an FQ2 guide above $1.45B — would say the run-rate is still being underestimated and would put accumulate back on the table.",
-      "basedOnThesisIds": [
-        "x_2089973586425766134",
-        "r_6e91f959d42ac872",
-        "r_50a22b8f006ff7d5",
-        "r_7fc06742ac405d74",
-        "h_9f67de1d3c5c793a"
-      ],
-      "updatedAt": "2026-08-21T09:00:00Z"
-    },
-    {
       "ticker": "NVDA",
       "stance": "watch",
-      "previousStance": "watch",
-      "view": "His framing this week is that Jensen telegraphs each theme a year early and the market dismisses it every time, and on the record of CW lasers, 800V and CPO he has earned that argument. It is not a reason to change a stance five days before the print. The number that matters on 26 August is not the $91.0B revenue guide but the 74.9% gross margin line: guiding that while HBM, ABF substrate and advanced-packaging costs are all inflating means NVIDIA expects to absorb its own suppliers' price increases rather than pass them through. If that margin holds, the supply chain's pricing power is being paid for by NVIDIA and the desk's supplier names are validated. If it slips, the entire read-through this desk is built on gets repriced in one line.",
-      "execution": "No action before 26 August. Read the gross margin line first and the revenue line second. Position sizing decisions on every supplier name in this book should wait for that print rather than anticipate it.",
-      "changesMind": "A Q3 gross margin guide below roughly 73% would mean NVIDIA is no longer absorbing supplier cost inflation, which changes the read-through for LITE, COHR, AAOI and MU simultaneously.",
+      "view": "The single most important disclosure in this book landed on 17 August and he has not mentioned it once. NVIDIA signed residual value guaranties on roughly 4.25GW of leases at the Portsmouth site with aggregate payment obligation capped at $105 billion, filed under Item 2.03 as an off-balance-sheet obligation, with an OpenAI affiliate as the tenant and NVIDIA covering the shortfall on OpenAI insolvency or non-payment. It can add credit support for another 3.8GW at its own discretion. His whole method is that Jensen telegraphs the theme a year early and the market dismisses it, and on CW lasers and CPO he earned that. But the thing being telegraphed here is not a capacity buy — it is NVIDIA underwriting its largest customer's credit to get the capacity built. That is a different risk, and nobody in the feed is pricing it.",
+      "execution": "No action before 26 August, and read the filing before the headline. The exhibit carrying these agreements attaches to the 10-Q for the quarter ended 26 July 2026, filed with tomorrow's print. Read that exhibit and the gross margin line first; revenue third. Every supplier position in this book keys off that read, so do not size anything ahead of it.",
+      "changesMind": "Disclosure that the $105 billion is collateralised, or that OpenAI's reimbursement obligation is secured rather than a bare covenant, would make this ordinary vendor financing and take it off the risk list.",
       "basedOnThesisIds": [
-        "r_177cc7abd695e018",
-        "r_38f0ce8728dd7282",
-        "r_2319826fe767a14e",
+        "r_a1c77f5b5d1fefb6",
+        "r_61965e0669622956",
+        "r_7b7d06294e26b774",
         "x_2088947694886920409"
       ],
-      "updatedAt": "2026-08-21T09:00:00Z"
+      "updatedAt": "2026-08-25T09:00:00Z",
+      "previousStance": "watch"
+    },
+    {
+      "ticker": "MU",
+      "stance": "watch",
+      "view": "Downgrade. Nothing in his case broke — the shortage is real, 2027 DRAM is sold out, and the MLCC crowding-out work still looks right. What changed is that the desk finally put a number on the base. Micron's quarterly gross margin ran 56.0%, then 74.4%, then 84.6% across the three quarters to 28 May 2026, on revenue rising from $13.6B to $41.5B. That 84.6% is above the roughly 80% Sandisk is guiding to as a 2030 target, and no memory cycle in the industry's history has held a peak anywhere near it. Meanwhile TrendForce has 3Q26 conventional DRAM at +13-18% and NAND at +10-15% quarter on quarter, explicitly slower than 2Q26 on weaker consumer demand and a higher base. The shortage holds; the second derivative has rolled over. At a $1.03 trillion market capitalisation you are no longer paid to own the shortage — you are paid only if 84.6% is a plateau.",
+      "execution": "Hold the 17 August entry at $971.66, which is 6.3% underwater, and trim the position back to a starter rather than adding. No new money above $850. This is a downgrade of future buying on valuation and margin mathematics, not a call that the cycle has turned.",
+      "changesMind": "4Q26 contract prices re-accelerating above the 3Q26 range, or a Micron quarter holding gross margin above 84% on higher bit volume rather than price, would say the plateau is real and put accumulate straight back on.",
+      "basedOnThesisIds": [
+        "r_bbea42c25fab1d99",
+        "r_00bfa8603013a675",
+        "r_9a40bb5a113de436",
+        "x_2089264987328151637",
+        "x_2089183484556480536"
+      ],
+      "updatedAt": "2026-08-25T09:00:00Z",
+      "previousStance": "accumulate"
     },
     {
       "ticker": "AAOI",
       "stance": "watch",
-      "previousStance": "watch",
-      "view": "This is the week's sharpest disagreement. He wrote \"I can't see how anyone can be bearish on this company\" after the Rosenblatt summit, citing US-production premiums on 800G/1.6T, being sold out through at least H2 2027, 300-400mW lasers in hand and 40%+ margins once CPO arrives. The demand is real; the accounting is not yet. The reiterated ~$1.1B FY26 target requires Q4 revenue near $485M against a Q3 guide midpoint of $272M — a 78% sequential step in a single quarter, off $343M of first-half revenue. Q2 non-GAAP EPS was $0.06 on $191.9M, so profitability is one cent thick, and Q3 gross margin is guided to 29-30.5%, roughly twenty points below Lumentum's. A company whose whole year rests on one quarter nearly doubling, with no earnings cushion underneath, is not a name where nobody can be bearish. Note also that he undercuts his own enthusiasm: he says he is waiting for $80 to add, which is 38% below spot.",
-      "execution": "Use his number, not his conviction. No entry at $129. The stated bull himself wants $80; a limit in the $85-95 band is the disciplined version of that, sized as a starter given the margin structure. If Q4 comes in near $485M the multiple re-rates and the entry is missed — accept that rather than pay 4.6x the Q3 guide on faith.",
-      "changesMind": "Q3 revenue landing at or above the guide midpoint with gross margin printing above 33% would show the ramp is carrying margin as well as volume, and would justify buying before the $1.1B quarter rather than after it.",
+      "view": "For the first time this year he moved toward the desk rather than away from it. On 21 August he wrote that it is getting much harder to support the name when they keep dropping $500m and $600m ATMs, and that the share structure is becoming shareholder-unfriendly. He is right, and the filings are worse than the post. Shares went 62.4m to 84.6m in twelve months, up 36%, the new $600m ATM at $129.10 adds 4.65m more, and this is the third raise since April for roughly $1.7bn. First-half operating cash flow was negative $73.8m on $343m of revenue. His own caveat was 'even if they're building up capacity' — but the prospectus commits proceeds to general corporate purposes including debt repayment, working capital and acquisitions. Nothing in the filing earmarks a dollar of it for lasers. The demand is real and revenue is up 86% year on year; the financing is a tax on owning it.",
+      "execution": "Still no entry at $108. His own stated level is $80 and the desk's band of $85-95 stands, sized as a starter. An ATM sells into strength by construction, so every rally into the $120s is supply — let it come to the band rather than chasing it.",
+      "changesMind": "An announced long-term agreement that funds capacity directly, replacing ATM issuance with customer prepayment, would remove the dilution objection and justify paying up.",
       "basedOnThesisIds": [
+        "x_2090903631793127644",
+        "r_9b6a2ea5d3eb8b2c",
+        "r_dfb0ede03688b0c5",
         "x_2089766053274661143",
-        "x_2089973586425766134",
-        "h_26a7400d327fb6ac",
-        "r_4e2a5eb97ddd6805",
-        "r_bcbda28ceb74b29b",
-        "r_71d49edd46ffa918"
-      ],
-      "updatedAt": "2026-08-21T09:00:00Z"
-    },
-    {
-      "ticker": "SIVE",
-      "stance": "watch",
-      "previousStance": "watch",
-      "view": "His highest-conviction post of the week called Sivers his favourite high-beta optical long, resting on four supports: it supplies lasers into JBL pluggables, POET/O-Net optical engines, Ayar optical I/O and GFS photonic foundry work; independent CW capacity is coming with Win Semi; the CEO buys on the open market and is aligned; and it has taken \"low dilution to get all of this done\". The first two are fair. The last two do not survive the primary record. The CEO did buy 70,000 shares, but on 16 July — the day a lock-up from the April directed issue expired — the Chairman sold 275,000 shares and board member Todd Thomson sold 950,000 through Headwaters Capital. The two most senior board figures sold roughly 1.2 million shares while the CEO bought 70,000. And \"low dilution\" describes a company that issued 12,280,701 new shares at SEK 57 on 1 July for about SEK 700M, upsized from SEK 600M, plus converted about SEK 109M of debt to equity. Separately, Q1 revenue fell 22% year over year to SEK 61.9M, the company has already pre-announced H1 revenue slipping into H2, and Q2 carries a SEK 42.9M non-cash social-security charge. The stock is down 20% this week and reports on 27 August. The thesis may well be right; it is simply not underwritable six days before a print the desk has no numbers for.",
-      "execution": "Do nothing before 27 August. The 12 July add-on-dip at SEK 47.28 is 26% underwater and stays open as the record of that call — do not average it down into the print. After Q2, the test is whether H1's slipped revenue actually lands in H2; if it does, reconsider on the numbers rather than on the narrative.",
-      "changesMind": "A Q2 report on 27 August showing the slipped H1 revenue recognised and a credible CW capacity date with Win Semi would make this a numbers story instead of a story story, and would support re-entry.",
-      "basedOnThesisIds": [
-        "h_66aa14a680b9c2c7",
-        "h_7fae5e1415c6cabe",
-        "r_85051614ff3694d8",
-        "r_89dbbbea51f8802f",
-        "r_5ced96f622eb7fcd"
-      ],
-      "updatedAt": "2026-08-21T09:00:00Z"
-    },
-    {
-      "ticker": "AMZN",
-      "stance": "accumulate",
-      "previousStance": "accumulate",
-      "view": "He names AWS and Trainium repeatedly but keeps saying the position he actually wants is Alchip, not Amazon — which is a fair read of where the torque is, and a poor read of where the risk-adjusted return is. Q2 net sales were $200.6B, up 20%, with AWS up 37%, its fastest growth in eighteen quarters, at a $169B annualised run-rate and $16.6B of segment operating income. The honest counterweight is that trailing-twelve-month free cash flow has swung to a $7.6B outflow as property and equipment purchases rose $66.1B year over year: Amazon is funding this build from its own balance sheet, so the equity question has moved from whether AWS grows to whether the depreciation is ever earned back. At a 6.4% drawdown this week that is a reasonable price to underwrite that question.",
-      "execution": "Add on this week's weakness, in thirds rather than at once, treating $250 and $235 as the next two tranche levels. Core-sized, not trading-sized — this is the low-variance way to own the demand side of the desk's map.",
-      "changesMind": "Two consecutive quarters of AWS growth decelerating below 30% while capex stays at this level would mean the spending is not converting, and the stance would go to watch.",
-      "basedOnThesisIds": [
-        "h_46c927b8e8e6582f",
-        "r_010e1d186031fb9f",
-        "r_d9128701e2ba8584",
-        "r_4d31760f07a624bb"
-      ],
-      "updatedAt": "2026-08-21T09:00:00Z"
-    },
-    {
-      "ticker": "AMD",
-      "stance": "watch",
-      "previousStance": "watch",
-      "view": "His case is Helios plus CPUs plus copying NVIDIA's neocloud fundraise-into-GPUs flywheel, and the quarter supports the direction: record Q2 revenue of $11.5B, up 50%, data center $6.7B, up 107%, now 58% of the company, with Q3 guided to roughly $13B and data-center AI guided to well over 100% growth. The MI400 series shipping makes rack-scale accelerators a two-vendor market, which genuinely helps every supplier in this book. What it does not do is make AMD the better stock. It guides about 56% gross margin against NVIDIA's 74.9% — it is winning volume at structurally worse economics, so the bet is share, not margin. A $13B quarter leaves very little tolerance for an MI400 ramp slipping by even one quarter.",
-      "execution": "No new money at $470. AMD is best held here as a supplier-thesis confirmation rather than a position: it is the reason to own HBM, substrate and optics names, not the cleanest way to own the theme itself. Reconsider if gross margin guides above 58% while data-center growth holds.",
-      "changesMind": "Gross margin guided above 58% on a data-center quarter above $8B would show it is winning share without giving away the economics, and would move this to accumulate.",
-      "basedOnThesisIds": [
-        "r_020df90c96ddf765",
-        "r_95e6f060751b9516",
-        "r_fd7f012b5ff37e9f",
-        "h_46c927b8e8e6582f"
-      ],
-      "updatedAt": "2026-08-21T09:00:00Z"
-    },
-    {
-      "ticker": "MU",
-      "stance": "accumulate",
-      "previousStance": "accumulate",
-      "view": "Upgraded to accumulate last week and this week's evidence extends it rather than complicating it. His MLCC work is the useful part: he is tracking Samsung lead times at roughly 40 weeks and Murata moving 24 to 30 to 36 weeks, with new capacity slipping from Q4 2026 into 2027, and reading it as the same crowding-out pattern that hit legacy DRAM. Underneath that, TrendForce has server DRAM contract prices rising 13-18% quarter over quarter in 3Q26 against RDIMM bit supply growing only 15-20%, and Phison's CEO expects 2027 NAND constraints more severe than 2026 because upstream capacity takes up to four years to build. FQ3 revenue was $41.46B against $23.86B the prior quarter, with FQ4 guided near $50B. Supply is setting the price. The discipline required is remembering this is still the most cyclical link in the chain at a $1.1T market cap, so the exit is a pricing signal, not a demand signal.",
-      "execution": "Hold the 17 August entry at $971.66 and add only on a drawdown toward $850, not on strength — it is up 13% this week. Size this as the largest memory position but cap it: one name should not carry the whole cycle call.",
-      "changesMind": "The first quarter in which long-term-agreement pricing stops rising is the exit, regardless of how strong demand commentary still sounds. Nothing in the 3Q26 contract data says that is close.",
-      "basedOnThesisIds": [
-        "x_2089264987328151637",
-        "x_2089183484556480536",
-        "r_7c7e14dfebc8a2ed",
-        "r_7275cf4db297df5b",
-        "r_4347c21804cf872a"
-      ],
-      "updatedAt": "2026-08-21T09:00:00Z"
-    },
-    {
-      "ticker": "TSLA",
-      "stance": "pass",
-      "previousStance": "pass",
-      "view": "Tesla remains the clearest illustration of why this desk does not read rank as importance. It sits eighth by priority score, and of the 21 times he has argued it, 17 are neutral. This week he named it three times and made no investment case in any of them: a note that Optimus should converge toward a human form factor, an observation that Optimus is wrapped inside a $1T+ company and therefore is not the pure-play humanoid exposure he is pointing at, and an explicit \"I don't quite think they can pull that off yet\" on general-purpose robotics. The score is measuring how often a large-cap name appears in multi-ticker recap posts, not conviction. There is no thesis here to underwrite.",
-      "execution": "No position. Keep it on the roster only as the running check on the scoring model: if TSLA ever leaves the top ten without the analyst having argued it once, the score is working.",
-      "changesMind": "A dated, quantified Optimus production or revenue commitment that he actually argues rather than relays would make this a real name in this book.",
-      "basedOnThesisIds": [
-        "x_2089908198694351064",
-        "x_2089057857652338993",
-        "h_4cc1730000253ba8"
-      ],
-      "updatedAt": "2026-08-21T09:00:00Z"
-    },
-    {
-      "ticker": "MTSI",
-      "stance": "accumulate",
-      "previousStance": "accumulate",
-      "view": "Initiated last week at $316.44 and immediately down 16% against SMH down 4.3% — a bad start that deserves stating plainly. Nothing company-specific caused it: the entire optical complex de-rated this week, with COHR down 10.9%, MTSI down 10.5% and SIVE down 19.9%, while memory ran. The fundamentals are intact and were the reason for the call: FQ3 revenue of $342.2M, up 35.8%, FQ4 guided to $415-425M for another 21-24% sequential step, on a record 1.6 book-to-bill, with adjusted gross margin guided to 60-61% — roughly double AAOI's. He argued it directly on 19 August as part of the shortage that has \"the entire supply chain out of stock\". The pm seat's advice to size it as an initiation rather than a conviction was right and is now the reason this is uncomfortable but not wrong.",
-      "execution": "Hold the initiation; do not add yet. The desk is already expressing this week's optical de-rating through COHR, and adding to two optical names in the same week on the same idea is concentration disguised as conviction. If MTSI holds above $240 through the NVIDIA print, add the second tranche then.",
-      "changesMind": "FQ4 landing below the $415M low end, or book-to-bill falling under 1.0, would say the sequential step was pull-forward rather than demand, and the stance goes to watch.",
-      "basedOnThesisIds": [
-        "x_2089973586425766134",
-        "r_f4aff742d7392a8c",
-        "r_aad0a5a6af425ec6",
-        "r_be5158b14027da1d",
-        "h_7fae5e1415c6cabe"
-      ],
-      "updatedAt": "2026-08-21T09:00:00Z"
-    },
-    {
-      "ticker": "COHR",
-      "stance": "accumulate",
-      "previousStance": "watch",
-      "view": "This is the desk's own call rather than his — he mentioned Coherent twice this week and both were back-references, not arguments. That is precisely the opportunity. Every piece of news this week says the binding constraint in AI optics is indium phosphide and laser capacity: AXT reports the largest InP price hike on record, Elazr's GM says \"the entire supply chain is out of stock\" and expects it to last years, and AAOI and LITE are both sold out well into 2027. Coherent is the one name in this complex that owns that constraint rather than buying it — it doubled six-inch InP capacity ahead of plan and took datacenter and communications to 79% of Q4 revenue, up 59% year over year. Keeping InP in-house is an allocation choice that makes merchant laser supply scarcer for everyone else. Against that, it delivered record FQ4 revenue of $2.05B, up 34%, FY26 revenue of $7.12B, up 22.5%, non-GAAP EPS up 59% to $5.61, and guided FQ1 FY27 to $2.2-2.4B — and the stock fell 11% this week. The market is repricing this group on gross margin, and Coherent's 39.5-41.5% guide sits about ten points below Lumentum's. That gap is the whole bear case, and it is also why you are being paid to own the vertically integrated one at a discount to the pure-play optics leader.",
-      "execution": "Open a position here at roughly $290, half-size, with the second half reserved for below $260 or for the session after NVIDIA reports on 26 August. This is the desk rotating from names that have already priced the shortage (LITE, SNDK) into the one that has not.",
-      "changesMind": "Two consecutive quarters of datacenter gross margin failing to expand would mean the in-house InP advantage is not reaching the P&L, and the vertical-integration argument collapses into a lower-margin version of the peers.",
-      "basedOnThesisIds": [
-        "r_54517cb32669697a",
-        "r_7305632c54df2f72",
-        "r_12e664657cdcf6bc",
-        "x_2089973586425766134",
-        "h_7fae5e1415c6cabe"
-      ],
-      "updatedAt": "2026-08-21T09:00:00Z"
-    },
-    {
-      "ticker": "GOOGL",
-      "stance": "accumulate",
-      "previousStance": "accumulate",
-      "view": "Alphabet appeared this week only as the counterparty to Marvell's warrant, with no view taken on Google itself, which is a fair reflection of how he uses it — as a demand signal rather than a position. The desk's reason to own it is unchanged: Q2 revenue of $119.8B, up 24%, with Google Cloud at $24.8B, up 82%, and consolidated operating margin still expanding two points to 34% while capital spending scaled hard. The risk has moved location rather than size. 2026 capex is guided to $180-190B with 2027 to increase significantly, so the repricing risk now sits in depreciation schedules, not in revenue. One caveat for this desk specifically: because Alphabet serves much of its cloud growth on internal TPUs, each capex dollar converts into less merchant GPU, HBM and optics demand than a neocloud's does, so its headline capex is a weaker read-through to the supplier names than it looks.",
-      "execution": "Continue adding on weakness; it is down 4.7% this week. Treat $320 as the next tranche level. This is a core holding sized for years, not a trade around the capex cycle.",
-      "changesMind": "Cloud growth decelerating below 40% while capex guidance rises again would mean the spend is being pushed ahead of the demand, and the stance goes to watch.",
-      "basedOnThesisIds": [
-        "x_2090103899302826302",
-        "r_ee74ed3cc64164bc",
-        "r_eb0b51a3387ac7be",
-        "r_f03b2b27359600c8"
-      ],
-      "updatedAt": "2026-08-21T09:00:00Z"
-    },
-    {
-      "ticker": "SNDK",
-      "stance": "watch",
-      "previousStance": "accumulate",
-      "view": "The business case got better this week and the price got better faster. Sandisk's investor day is verified on the substance: it guided FY2028-FY2030 non-GAAP gross margin to approximately 80%, non-GAAP operating margin to approximately 75%, adjusted free cash flow margin to approximately 50%, revenue growth of mid-to-high teens, and disclosed New Business Model agreements with eight customers covering about 50% of bits in FY2027 and about two-thirds in FY2028. Phison's CEO independently expects 2027 NAND constraints worse than 2026. One number in his summary does not check out: he cites minimum contracted revenue reaching $93B against a ~$239B market cap, and that figure does not appear in Sandisk's investor day release — the desk could not source it and is not underwriting it. That matters because the stock added roughly 30% in five sessions, about $53B of market cap, on a model that runs to fiscal 2030. An approximately 80% sustained gross margin has no precedent in NAND's history; the NBM contracts are a real mechanism for it, but they are a mechanism presented at an investor day, not a delivered result. Accumulate means add, and adding after this move means paying for four years of flawless execution up front.",
-      "execution": "Take the 10 August add-on-dip tranche off at $1,603.59 — it is up 32% in eleven days against SMH down 3.5%, and that is what a dip-buy is for. Keep the 16 July core position. No new money until either an NBM contract renewal prices at the model, or the stock gives back toward $1,300.",
-      "changesMind": "The first NBM renewal or extension disclosed at pricing consistent with roughly 80% gross margin would convert the model into evidence and put accumulate straight back on.",
-      "basedOnThesisIds": [
-        "x_2088850910529323315",
-        "x_2089264987328151637",
-        "h_46c927b8e8e6582f",
         "h_26a7400d327fb6ac"
       ],
-      "updatedAt": "2026-08-21T09:00:00Z"
-    },
-    {
-      "ticker": "AXTI",
-      "stance": "accumulate",
-      "previousStance": "accumulate",
-      "view": "Held at accumulate, and the verified numbers are better than the desk knew when it entered on 12 August. Q2 revenue was a record $47.6M, up 164% year over year and 77% sequentially, with indium phosphide at a record $30.7M, and non-GAAP gross margin at 45.0% against 8.2% a year earlier — a genuine operating inflection, not a story. Management plans to more than double InP capacity in 2026 toward a $60M quarterly run rate and $130M quarterly by end-2027. Two cautions on his framing. First, the InP price-hike article he posted is Taiwan-centric and names VPEC, Landmark and IET as the beneficiaries — his own source credits AXT's competitors, so the price signal is industry-wide rather than AXT-specific. Second, and more important, every wafer is made by Beijing Tongmei inside China across three sites, and InP has been under Chinese export control since February 2025, with permits granted customer by customer; AXT has said germanium permits for sales outside China are difficult to obtain and that certain customers prefer to source substrates outside China. The shortage is real and AXT benefits from it, but its access to Western customers runs through Beijing's licensing regime at exactly the moment this supply chain is being re-shored.",
-      "execution": "Hold the 12 August entry at $73.78; it is flat since. Add only below $60, and cap this at a starter-sized position regardless of momentum — the position size, not the entry price, is where the export-control risk gets managed.",
-      "changesMind": "A Chinese export-control action restricting InP substrate shipments to US or Taiwanese customers would break this outright. In the other direction, AXT qualifying meaningful InP capacity outside China would remove the single largest risk and justify sizing up.",
-      "basedOnThesisIds": [
-        "x_2089165155741622679",
-        "x_2088947694886920409",
-        "x_2087838176677376186"
-      ],
-      "updatedAt": "2026-08-21T09:00:00Z"
+      "updatedAt": "2026-08-25T09:00:00Z",
+      "previousStance": "watch"
     },
     {
       "ticker": "CCXI",
       "stance": "pass",
-      "previousStance": "watch",
-      "view": "Back in the top fifteen on humanoid enthusiasm, and the desk still will not own it. He bought between 0.25% and 0.75% of the float, argues that Unitree listing at roughly $53B on a 492% first-day move proves public demand for pure-play humanoids is far larger than expected, and points to Agility's Digit being commercialised in Amazon and Mercado Libre warehouses rather than chasing general-purpose capability. The commercial argument is reasonable. The instrument is not. CCXI is Churchill Capital Corp XI, a pre-close SPAC, not an operating company. The Agility combination was announced 24 June 2026 at roughly $2.5B with more than $620M of expected gross proceeds, the Form S-4 was only confidentially submitted, and closing still requires public filing, SEC effectiveness, a shareholder vote and exchange listing before the ticker becomes AGLT. Until the S-4 clears you cannot see audited financials and cannot know redemption levels. The price makes this concrete: at $14.06 against a trust of roughly $10 a share, the market is asking a premium of about 40% over cash for an option on a deal that has not yet publicly filed. If the deal breaks, the floor is redemption at trust — roughly 29% below spot. Agility may be a good company; this is not yet a way to own it.",
-      "execution": "No position. If the exposure is genuinely wanted, wait for the S-4 to go effective and buy AGLT after redemptions are known, accepting a worse headline price for a knowable balance sheet. Do not pay a 40% premium to trust for a pre-filing SPAC on a comparable listing in another market.",
-      "changesMind": "The S-4 filed publicly and declared effective, with audited Agility financials and disclosed redemption levels, turns this into an underwritable equity and the desk would re-rate it on the numbers.",
+      "view": "Last week's pass was right and this week the arithmetic is on the record. The merger agreement sets the Exchange Ratio as Agility's per-share equity value divided by the trust redemption price, which was $10.17 at 30 June 2026 — not by CCXI's market price. Buying at $14.09 therefore pays about 1.39 times trust, an effective pre-money valuation near $3.5bn rather than the $2.5bn headline he has repeated five times. Underneath that sit 13.8m founder Class B shares against 41.4m public shares, a $15.99m deferred underwriting fee payable only on closing, and a $201m PIPE priced at $10.00 while the open market pays $14.09. No Form S-4 is publicly filed — the registration statement went in confidentially — so there are no audited Agility financials to underwrite. He may still be right about humanoid demand and wrong about this instrument.",
+      "execution": "No position. If the exposure is genuinely wanted, wait for the S-4 to go effective and buy AGLT once redemptions are known, accepting a worse headline price for a knowable balance sheet. The outside date is 18 March 2028, so there is no urgency premium to pay.",
+      "changesMind": "A publicly filed and effective S-4 with audited Agility financials and disclosed redemption levels turns this into an underwritable equity and the desk would re-rate it on the numbers.",
       "basedOnThesisIds": [
+        "r_e68672eed9cce94e",
+        "r_bb90141c8a53b8c5",
+        "r_29b5a71e396c7805",
         "x_2089908198694351064",
-        "h_308cc9df383a870c",
-        "h_4cc1730000253ba8",
-        "r_402ddce83473f542",
-        "r_43d0f0dec3e0703d",
-        "r_805172fca88980dc"
+        "h_4cc1730000253ba8"
       ],
-      "updatedAt": "2026-08-21T09:00:00Z"
+      "updatedAt": "2026-08-25T09:00:00Z",
+      "previousStance": "pass"
+    },
+    {
+      "ticker": "GOOGL",
+      "stance": "accumulate",
+      "view": "Stance unchanged, but the cushion he never mentions is gone. Alphabet's Q2 operating cash flow was $39.07bn against $44.92bn of capital expenditure, so free cash flow was negative $5.86bn, and full-year capex guidance rose to $195-205bn. First-half capex of $80.6bn already nearly matches all of 2025's $91.4bn. He cites hyperscaler earnings as proof of the bull case for everything upstream — record cloud demand, backlog, expanding margins — and all of that is true. The part he leaves out is that Alphabet is now funding its AI position from the balance sheet rather than from the quarter. For a company with this balance sheet that is a choice, not a warning, and cloud growing 82% justifies it. But the multiple now has to survive a capex cycle Alphabet cannot pause without conceding the race.",
+      "execution": "Continue adding on weakness; $320 remains the next tranche level. Core-sized and held for years. Do not treat a negative free cash flow quarter as a reason to stop — treat it as the reason to stop expecting buybacks to support the price.",
+      "changesMind": "Cloud growth decelerating below 40% while capex guidance rises again would mean the spend is running ahead of the demand, and the stance goes to watch.",
+      "basedOnThesisIds": [
+        "r_bbf0c349c427521b",
+        "r_66d55858c9526841",
+        "x_2091612406900564407",
+        "x_2090103899302826302"
+      ],
+      "updatedAt": "2026-08-25T09:00:00Z",
+      "previousStance": "accumulate"
+    },
+    {
+      "ticker": "AMZN",
+      "stance": "accumulate",
+      "view": "Same shape as Alphabet and the same omission. Q2 operating cash flow was $45.39bn against $54.21bn of capital expenditure, so free cash flow was negative $8.82bn, and negative $26.99bn across the first half. First-half capex of $98.4bn is up 72% year on year, and guidance rose to about $220bn explicitly because memory costs went up. That last detail is the most useful thing in the quarter for this desk: Amazon's cost line is Micron's and Sandisk's revenue line, which is why the memory names and the hyperscalers cannot both be cheap. AWS at $42.2bn and up 36.7% is still the fastest growth since 2021, and Jassy guides that capacity constraints persist into 2027. He wants Alchip rather than Amazon, which is the right read of where the torque is and the wrong read of risk-adjusted return.",
+      "execution": "Add on weakness in thirds, with $250 and $235 as the next two tranche levels. Core-sized. This remains the low-variance way to own the demand side of the map.",
+      "changesMind": "Two consecutive quarters of AWS growth decelerating below 30% while capex stays at this level would mean the spending is not converting, and the stance goes to watch.",
+      "basedOnThesisIds": [
+        "r_8e541d817a996c52",
+        "r_1b7c57fef29dfbeb",
+        "r_9de588a623aba8b8",
+        "h_46c927b8e8e6582f"
+      ],
+      "updatedAt": "2026-08-25T09:00:00Z",
+      "previousStance": "accumulate"
+    },
+    {
+      "ticker": "LITE",
+      "stance": "watch",
+      "view": "Downgraded last week on price; this week the per-share picture got worse in a way his post did not show. He reported the quarter accurately — $1,006.3m revenue, up 24.5% sequentially and 109.3% year on year, 50.4% non-GAAP gross margin, $3.23 non-GAAP EPS, and a $1.225-1.275bn guide — and every one of those numbers checks out against the release. What he did not carry is that the same release shows a $7.2bn GAAP net loss for the quarter, driven by a $7.8bn non-cash charge on extinguishing convertible notes, and that shares outstanding went 69.9m to 89.7m over twelve months. That is 28% dilution funding the growth he is measuring per share. At roughly 25 times FY2026 revenue and 50 times the annualised forward guide, the business is excellent and the entry is not.",
+      "execution": "Stop adding. The 12 August entry at $820.59 is up 1.2% against SMH and stays open — this is a downgrade of future buying, not a sell. Revisit accumulate on a drawdown into the $700s that does not come with a guide cut.",
+      "changesMind": "An FQ2 guide above $1.45bn would say the run-rate is still being underestimated and would put accumulate back on the table despite the share count.",
+      "basedOnThesisIds": [
+        "r_e1733242bf2fbff2",
+        "r_a79ec4f20030590b",
+        "r_fa81e088bcaa6727",
+        "x_2089973586425766134"
+      ],
+      "updatedAt": "2026-08-25T09:00:00Z",
+      "previousStance": "watch"
+    },
+    {
+      "ticker": "SIVE",
+      "stance": "watch",
+      "view": "His favourite high-beta optical long reports in two days and the desk still cannot find the revenue. Q1 2026 net sales were SEK 61.9m, down 22% year on year, with EBITDA of negative SEK 24.7m, against a market capitalisation near SEK 10.7bn — roughly 43 times annualised sales on a business that shrank. The $799m figure the bull case leans on is an opportunity pipeline, up 77% year to date, not backlog and not revenue. The four supports he names are real relationships — JBL pluggables, POET and O-Net optical engines, Ayar optical I/O, GFS foundry work — but they are demonstrations and partnerships, not qualified volume production at a named customer. Management pushed slipped defence revenue into the second half. The 27 August print is where that promise gets tested.",
+      "execution": "Do nothing before 27 August. The 12 July add-on-dip at SEK 47.28 stays open as the record of that call; do not average it down into the print. If H1's slipped revenue lands and a Win Semi CW capacity date is given, this becomes a numbers story and re-entry is arguable.",
+      "changesMind": "A Q2 report showing the slipped H1 revenue recognised, positive EBITDA, and a dated CW capacity commitment would convert this from a story to a position.",
+      "basedOnThesisIds": [
+        "r_8e5011e7d1ca254d",
+        "r_95d7d61884e4ffdf",
+        "r_17cb91704b1f722e",
+        "h_66aa14a680b9c2c7"
+      ],
+      "updatedAt": "2026-08-25T09:00:00Z",
+      "previousStance": "watch"
+    },
+    {
+      "ticker": "SNDK",
+      "stance": "watch",
+      "view": "Held at watch, and this week's work explains why the 80% target is less of a leap than it sounds. Sandisk's FY2026 GAAP gross margin was already 71.5% — $14.47bn of gross profit on $20.25bn of revenue — against 30.1% in FY2025 and 16.1% in FY2024. A 55-point swing in one year is a shortage repricing, not a cost programme, and guiding 80% through 2030 assumes that repricing holds for four more years. TrendForce already has 3Q26 NAND contract prices rising only 10-15% quarter on quarter, noticeably slower than the last one. He is right that the $93bn minimum contracted revenue makes this less cyclical than the tape assumes; the desk's objection is that $93bn of contracted revenue against a $221bn market capitalisation is already 2.4 times paid, and contracted revenue is not profit.",
+      "execution": "The 10 August add-on-dip is already banked at $1,603.59. Keep the 16 July core position and add nothing here. No new money until a contract renewal prices at the model.",
+      "changesMind": "The first New Business Model renewal disclosed at pricing consistent with roughly 80% gross margin would convert the model into evidence and put accumulate straight back on.",
+      "basedOnThesisIds": [
+        "r_574015a73d9972e2",
+        "r_133f701737dcb4c4",
+        "r_bdeb5f65ef14723a",
+        "x_2088850910529323315"
+      ],
+      "updatedAt": "2026-08-25T09:00:00Z",
+      "previousStance": "watch"
+    },
+    {
+      "ticker": "MTSI",
+      "stance": "accumulate",
+      "view": "The condition set last week was met, so the desk is adding. MACOM held above $240 through a week in which it fell 15.6% with nothing company-specific behind the move: fiscal Q3 revenue was $342.2m, up 35.8% year on year, GAAP gross margin 58.3%, adjusted operating margin 31.5%, and the fiscal Q4 guide is $415-425m with adjusted gross margin stepping to 60-61% and adjusted EPS of $1.97-2.03. That guide implies roughly $8 of annualised adjusted EPS on 78.9m diluted shares, about 32 times at $257, against Lumentum near 50 times forward for the same demand. He mentions it mostly in passing inside optical list-posts, which is why it scores low on attention and high on evidence — the one name in the book where the filings are stronger than the coverage.",
+      "execution": "Add a second tranche here at $257, taking the position to a full Core weight. The 17 August entry at $316.44 is 18.6% underwater and this is a declared average-down on an unchanged guide, not a rescue. Stop adding below $220.",
+      "changesMind": "Fiscal Q4 landing below the $415m low end, or book-to-bill under 1.0, would say the sequential step was pull-forward rather than demand, and the stance goes to watch.",
+      "basedOnThesisIds": [
+        "r_430c60235d981131",
+        "r_ee206912ee68f675",
+        "r_1d0394be51d90dee",
+        "x_2089973586425766134"
+      ],
+      "updatedAt": "2026-08-25T09:00:00Z",
+      "previousStance": "accumulate"
+    },
+    {
+      "ticker": "AMD",
+      "stance": "watch",
+      "view": "The numbers argue for an upgrade and the price does not. Q2 revenue was $11.54bn, up 50% year on year, with gross profit of $6.20bn — a 53.8% gross margin against 39.8% a year earlier. That margin expansion is the data-centre mix shift showing up, and it is the strongest single quarter in this book after Micron's. Against that, AMD is roughly 16 times annualised revenue after a 160% twelve-month run, so the 9% one-month drawdown is noise. One correction to the feed: he grouped AMD with Riot's $9.1bn, 191MW twenty-year lease, but Riot's own disclosure puts AMD at 50MW firmly contracted at Rockdale, 25MW delivered and 25MW due November 2026 and May 2027. The $9.1bn tenant is a different counterparty. AMD's case is accelerator share, not colocation.",
+      "execution": "No new money at $457. Wait for either a quarter that holds gross margin above 54% or a drawdown toward $380. This is a name to buy on a disappointment, not on a guide.",
+      "changesMind": "A third consecutive quarter of gross margin expansion with data-centre revenue growing faster than the group would justify accumulate even at this multiple.",
+      "basedOnThesisIds": [
+        "r_344c2aed15b35d36",
+        "r_1634b9e3ba46c6f7",
+        "r_e4b9bde4336ccf79",
+        "x_2086988264448409739"
+      ],
+      "updatedAt": "2026-08-25T09:00:00Z",
+      "previousStance": "watch"
+    },
+    {
+      "ticker": "COHR",
+      "stance": "accumulate",
+      "view": "Upgraded last week and the relative-value case got sharper. Coherent's FY2026 non-GAAP gross margin was 39.4% with a 20.5% operating margin, against Lumentum's 46.0% and 29.8%, and Q4 revenue grew 33.8% year on year against Lumentum's 109.3%. It is plainly the lower-quality business. It is also near 7.7 times FY2026 revenue of $7.12bn against roughly 25 times for Lumentum, which is a three-fold valuation gap for a two-fold quality gap. One caution the desk could not clear: the widely quoted line that Coherent will not sell indium phosphide lasers externally could not be verified against a primary source, so do not build the merchant-supply scarcity case on it. The GAAP-to-non-GAAP operating margin gap of 790 basis points is real and should be held against the multiple.",
+      "execution": "Hold the 21 August entry at $289.67, down 4.9%, and add a second tranche below $260. This is the cheap way to own the optical demand the desk is already paying up for elsewhere.",
+      "changesMind": "Gross margin failing to expand in fiscal Q1 while Lumentum's keeps rising would mean the discount is deserved rather than temporary, and the stance goes to watch.",
+      "basedOnThesisIds": [
+        "r_fe60bb2fe79c77b3",
+        "r_273375686245c947",
+        "r_0972846c8b959818",
+        "x_2087675367595380783"
+      ],
+      "updatedAt": "2026-08-25T09:00:00Z",
+      "previousStance": "accumulate"
+    },
+    {
+      "ticker": "AXTI",
+      "stance": "accumulate",
+      "view": "Unchanged and still the cleanest chokepoint in the book. His 17 August note on the InP substrate price hike is the operative fact — suppliers saying that even with the money you may not get the material is the definition of a bottleneck with pricing power, and AXT sits upstream of every laser name the desk owns. He also used it this week as one of the two ideas he says played out, which is a fair claim. The desk has not independently researched AXTI this pass; the cap dropped it. Treat this as a carried stance rather than a refreshed one.",
+      "execution": "Hold the 12 August entry at $73.78. No change this week. Queue AXTI first for next week's seat review so the stance is carried on evidence rather than momentum.",
+      "changesMind": "InP substrate pricing rolling over, or a competitor qualifying capacity at a major laser customer, would break the chokepoint case.",
+      "basedOnThesisIds": [
+        "x_2089165155741622679",
+        "x_2091488091110531106",
+        "x_2087838176677376186"
+      ],
+      "updatedAt": "2026-08-25T09:00:00Z",
+      "previousStance": "accumulate"
     },
     {
       "ticker": "TSM",
       "stance": "accumulate",
-      "previousStance": "accumulate",
-      "view": "He put TSMC at the centre of the AI buildout this week without elaborating, and for once the absence of argument is not a weakness — the monthly disclosure does the work. July net revenue was NT$467.58B, up 44.7% year over year and 5.6% month over month, with January through July at NT$2,872.06B, up 37.0%. Monthly reporting removes any argument that the AI order book is still a forecast. The honest limit is that monthly revenue is a shipment number, not a capacity number: it confirms advanced-node output is being consumed but says nothing about how CoWoS allocation splits between NVIDIA and AMD, which is where the 2027 constraint actually sits. The case against TSMC is price and Taiwan concentration, not the business, and that is a materially better risk profile than anything else in this book.",
-      "execution": "Continue accumulating; the 10 August entry at $420.04 is roughly flat while SMH is down 3.4%. Treat this as the position that gets added to mechanically on any 10% drawdown rather than on news, and let it be the largest single weight in the book.",
-      "changesMind": "A monthly revenue print showing two consecutive months of sequential decline outside the normal seasonal pattern would be the first hard evidence the order book is turning, and would move this to watch.",
+      "view": "Sticky holdover, unchanged. It sits outside the analyst-attention top fifteen because he rarely writes about it directly, not because anything deteriorated — this is the tiering caveat working as documented. The reason to own it is that every accelerator in this book, NVIDIA and AMD alike, is fabricated there, and advanced packaging remains the binding constraint on the whole map. Not researched this pass.",
+      "execution": "Hold the 10 August entry at $270.30. No change. This is a position sized to be forgotten about, not traded.",
+      "changesMind": "A CoWoS capacity glut, or a major customer qualifying a second foundry for leading-edge accelerators, would end the structural case.",
       "basedOnThesisIds": [
         "h_46c927b8e8e6582f",
-        "r_2f83c5e904eacb2f",
-        "r_2c9c1492b5ddce7b",
-        "r_e59d5f89ad46b93d"
+        "x_2088850910529323315",
+        "h_81c95bb99a13f5d0"
       ],
-      "updatedAt": "2026-08-21T09:00:00Z"
+      "updatedAt": "2026-08-25T09:00:00Z",
+      "previousStance": "accumulate"
     },
     {
       "ticker": "AMKR",
       "stance": "accumulate",
-      "previousStance": "accumulate",
-      "view": "Held as a sticky holdover at rank 49, which is exactly the situation the sticky rule exists for: he has argued Amkor only four times, so the score cannot see it, but the last argument was a high-conviction personal add in the $40s on post-earnings weakness he found surprising given the NVIDIA deal and a ten-year TSMC agreement, and he was explicit that it is more a 2028 name with a separate 2027 ramp. That is a duration bet, and it is behaving like one: down 19% in a month. The supporting evidence got better this week from an unrelated direction — Applied Materials raised its advanced packaging growth guidance and said customer discussions now extend to 2030. Advanced packaging is genuinely the tightest link after memory, and Amkor is the largest Western-listed way to own it.",
-      "execution": "Hold. Do not add on this drawdown — a 2028 thesis does not need to be bought in 2026, and there will be better entries. Revisit sizing after the NVIDIA print, when packaging commentary is fresher.",
-      "changesMind": "Losing share on the NVIDIA or TSMC packaging programmes, or a 2027 capex guide that does not fund the advertised ramp, ends the thesis regardless of how tight the industry looks.",
+      "view": "Sticky holdover on a watch-tier name with four analyst mentions all year, carried because the stance is live rather than because the feed is loud. His August note is the whole case: he added in the $40s after the post-earnings drop, citing the NVIDIA $1.5bn deal and the TSMC ten-year agreement, and framed it as a 2028 name with separate 2027 ramps. That framing is still right and nothing this week touched it. Not researched this pass.",
+      "execution": "Hold. No adds — a 2028 story does not need to be chased in August 2026.",
+      "changesMind": "Advanced packaging capacity arriving faster than accelerator demand would remove the scarcity premium and end the case.",
       "basedOnThesisIds": [
-        "h_46c927b8e8e6582f",
         "h_81c95bb99a13f5d0",
-        "h_69684ea60ee93290"
+        "h_46c927b8e8e6582f"
       ],
-      "updatedAt": "2026-08-21T09:00:00Z"
+      "updatedAt": "2026-08-25T09:00:00Z",
+      "previousStance": "accumulate"
     },
     {
       "ticker": "JBL",
       "stance": "accumulate",
-      "previousStance": "accumulate",
-      "view": "The most under-discussed name he holds. He argued it directly this week — the 1.6T LRO optical transceiver ramp plus continued cycles should bring blended margin upside that is not in consensus — and separately, when laying out the Sivers case, he named Jabil as one of the customers Sivers supplies lasers into. That cross-reference is useful: it means Jabil is positioned in the same shortage that is repricing every laser and transceiver name, but as the assembler rather than the component maker, so it carries far less single-technology risk than AAOI or Sivers and trades at a fraction of their multiples. Of his 27 arguments on it, 13 are outright bull and none are bear. It is down 6% this week with the rest of the optical complex, which is the wrong reason to sell an assembler.",
-      "execution": "Hold and add on weakness below $300. This is the low-beta way to own the optical ramp and should be sized larger than the component names it supplies, not smaller.",
-      "changesMind": "Blended margin failing to expand across two consecutive quarters while the 1.6T ramp is running would mean the mix benefit is being competed away at the assembly level, and the stance goes to watch.",
+      "view": "Sticky holdover, unchanged. His case is the 1.6T LRO transceiver ramp plus ordinary cycle recovery producing blended margin upside, and he lists it second among the larger names he likes. The attraction for this desk is that it is the only way in the book to own the optical ramp through a diversified manufacturer rather than a single-product supplier, which matters in a week when the pure plays de-rated 15-20% together. Not researched this pass.",
+      "execution": "Hold. Add only below $200. The diversification that makes it dull is the reason it is held.",
+      "changesMind": "Transceiver programme share loss at its main hyperscaler customer would remove the reason to own it over the pure plays.",
       "basedOnThesisIds": [
         "h_46c927b8e8e6582f",
         "h_66aa14a680b9c2c7",
-        "x_2085499853099208716"
+        "x_2083114743729107236"
       ],
-      "updatedAt": "2026-08-21T09:00:00Z"
+      "updatedAt": "2026-08-25T09:00:00Z",
+      "previousStance": "accumulate"
+    },
+    {
+      "ticker": "NBIS",
+      "stance": "watch",
+      "view": "Initiating coverage at watch. It re-enters the top fifteen on sustained attention and the operating numbers are genuinely striking: Q2 revenue of $582.3m, up 454% year on year and 46% sequentially, at roughly 50% adjusted EBITDA margin in AI Cloud, with $8.04bn of cash and reiterated 2026 guidance of $3.0-3.4bn revenue and $7-9bn exit ARR. He noted, fairly, that he wanted a raise and did not get one. The desk has not researched this name — it was dropped by the pre-review cap — and a neocloud reselling depreciating GPUs against multi-year contracts is exactly the kind of business where the balance sheet matters more than the growth rate. Initiating at watch is a statement about the desk's evidence, not about the company.",
+      "execution": "No position. Queue NBIS for next week's seat review, specifically the depreciation schedule, contract duration versus GPU useful life, and how the buildout is financed.",
+      "changesMind": "A pre-review pass confirming contract-covered depreciation and no near-term refinancing need would move this to accumulate quickly.",
+      "basedOnThesisIds": [
+        "x_2087515371750490383",
+        "h_26a7400d327fb6ac",
+        "x_2091488091110531106"
+      ],
+      "updatedAt": "2026-08-25T09:00:00Z"
+    },
+    {
+      "ticker": "POET",
+      "stance": "watch",
+      "view": "Initiating coverage at watch, and his own post is the reason. On 13 August he wrote that he has zero idea how POET convinced shareholders to permit that much dilution, that it now sits on roughly $830m of cash, and that he took only small positions. That is an unusually candid piece of bearishness from a long-only feed and the desk takes it at face value. The asset is real — the optical interposer sits between Sivers' lasers and the engines that reach hyperscalers, and he upgraded his own read from readiness to production wording earlier in the year. But a company with $830m of cash and no revenue scale is a call option on execution, and it has not been researched by this desk.",
+      "execution": "No position. Queue POET alongside SIVE for next week's seat review — they are the same supply chain and should be underwritten together.",
+      "changesMind": "A dated production order for interposers at a named customer, funded without further dilution, would turn the cash pile from a warning into an advantage.",
+      "basedOnThesisIds": [
+        "x_2087846074027295020",
+        "h_66aa14a680b9c2c7",
+        "x_2090735668532224224"
+      ],
+      "updatedAt": "2026-08-25T09:00:00Z"
     }
   ]
 }
