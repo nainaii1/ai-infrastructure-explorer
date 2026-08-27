@@ -92,6 +92,53 @@ class TestNewerThan(unittest.TestCase):
         self.assertIsNone(watcher.max_id([]))
 
 
+def _posts(*ids):
+    return [{"id": str(i), "url": "https://x.com/h/status/{}".format(i)} for i in ids]
+
+
+class TestNextWatermark(unittest.TestCase):
+    def test_all_verified_advances_to_top(self):
+        top, retry, gave_up = watcher.next_watermark(_posts(10, 11, 12), [], {})
+        self.assertEqual(top, "12")
+        self.assertEqual((retry, gave_up), ([], []))
+
+    def test_mark_stops_below_the_failed_post(self):
+        # 12 failed -> the mark must not pass it, or it is lost forever.
+        top, retry, gave_up = watcher.next_watermark(
+            _posts(10, 11, 12, 13), _posts(12), {})
+        self.assertEqual(top, "11")
+        self.assertEqual(retry, ["12"])
+        self.assertEqual(gave_up, [])
+
+    def test_oldest_failure_wins_when_several_fail(self):
+        top, _, _ = watcher.next_watermark(
+            _posts(10, 11, 12, 13), _posts(13, 11), {})
+        self.assertEqual(top, "10")
+
+    def test_mark_does_not_move_when_the_oldest_post_failed(self):
+        top, retry, _ = watcher.next_watermark(_posts(10, 11), _posts(10), {})
+        self.assertIsNone(top)
+        self.assertEqual(retry, ["10"])
+
+    def test_gives_up_after_max_attempts_and_moves_on(self):
+        attempts = {"12": watcher.MAX_VERIFY_ATTEMPTS - 1}
+        top, retry, gave_up = watcher.next_watermark(
+            _posts(10, 11, 12, 13), _posts(12), attempts)
+        self.assertEqual(gave_up, ["12"])
+        self.assertEqual(retry, [])
+        self.assertEqual(top, "13")  # no longer held back
+
+    def test_a_post_still_under_the_limit_is_retried_not_abandoned(self):
+        attempts = {"12": watcher.MAX_VERIFY_ATTEMPTS - 2}
+        top, retry, gave_up = watcher.next_watermark(
+            _posts(11, 12, 13), _posts(12), attempts)
+        self.assertEqual((retry, gave_up), (["12"], []))
+        self.assertEqual(top, "11")
+
+    def test_empty_page_moves_nothing(self):
+        self.assertEqual(watcher.next_watermark([], [], {}), (None, [], []))
+
+
 class TestStaleness(unittest.TestCase):
     def state(self, hours_ago, alarm_hours_ago=None):
         now = datetime.now(timezone.utc)

@@ -76,6 +76,10 @@ DELIVERY_HOURS = {0, 12}
 # ambiguous — it looks identical whether he stopped posting or X put the
 # logged-out view behind a login wall again. Never let that pass unnoticed.
 STALE_AFTER_HOURS = 24
+
+# How many runs a post may fail verification before the watcher stops holding
+# the high-water mark back for it. See next_watermark().
+MAX_VERIFY_ATTEMPTS = 3
 ALARM_COOLDOWN_HOURS = 24
 
 MAX_TG_LEN = 3500  # Telegram hard-caps at 4096; leave room for our own chrome
@@ -157,6 +161,43 @@ def max_id(posts):
     return str(max(int(p["id"]) for p in posts))
 
 
+def next_watermark(found, failed, attempts, max_attempts=MAX_VERIFY_ATTEMPTS):
+    """Where lastSeenId may safely advance to, plus who to retry and who to give up on.
+
+    Returns (watermark, retry_ids, gave_up_ids). A None watermark means
+    "do not move it at all this run".
+
+    THE BUG THIS EXISTS TO PREVENT (observed live 26 Aug 2026): the mark used
+    to advance to the highest id ON THE PAGE regardless of whether each post
+    actually made it into the queue. A post that failed fxtwitter verification
+    was therefore skipped AND put permanently out of reach on the same run,
+    because the next run only looks at posts newer than the mark. Two of his
+    posts were lost that way with nothing but a line in a log file.
+
+    So the mark stops BELOW the oldest post still awaiting a retry. That
+    trades a stuck mark for a lost post, which is the right way round.
+
+    A post that can never be verified (fxtwitter 500s on some posts
+    indefinitely, not just transiently) would otherwise stick the mark
+    forever, so each failure is counted and abandoned after max_attempts —
+    reported to the operator by url, never dropped in silence.
+    """
+    retry, gave_up = [], []
+    for post in failed or []:
+        pid = str(post["id"])
+        if attempts.get(pid, 0) + 1 >= max_attempts:
+            gave_up.append(pid)
+        else:
+            retry.append(pid)
+
+    top = max_id(found)
+    if retry:
+        floor = min(int(pid) for pid in retry)
+        below = [int(p["id"]) for p in (found or []) if int(p["id"]) < floor]
+        top = str(max(below)) if below else None
+    return top, retry, gave_up
+
+
 def is_stale(state, now=None, hours=STALE_AFTER_HOURS):
     """True when no post has been FOUND for `hours` — i.e. discovery may be broken."""
     stamp = (state or {}).get("lastPostFoundAt")
@@ -220,6 +261,28 @@ _EXTRACT_JS = """
 """
 
 
+def _launch_browser(pw, headless):
+    """Launch the browser X will actually serve.
+
+    Verified 27 Aug 2026: X answers Playwright's BUNDLED Chromium with a bare
+    HTTP 403 and an empty body — no login wall, no markup change, just a
+    fingerprint block at the edge. Real Google Chrome (channel="chrome") from
+    the same machine, same IP, same user agent, headless, gets 200 and renders
+    the timeline. So the browser build is the thing that matters here, not the
+    headless flag and not the UA string.
+
+    Bundled Chromium stays as the fallback so a machine without Chrome still
+    runs (and fails with the usual plain-English discovery error) rather than
+    crashing on launch.
+    """
+    try:
+        return pw.chromium.launch(headless=headless, channel="chrome")
+    except Exception as exc:
+        print("watcher: Google Chrome unavailable ({}), falling back to "
+              "bundled Chromium — X currently blocks it.".format(exc))
+        return pw.chromium.launch(headless=headless)
+
+
 def discover(handle=HANDLE, scrolls=DEFAULT_SCROLLS, headless=True):
     """Load the public profile page and return classified post records.
 
@@ -237,7 +300,7 @@ def discover(handle=HANDLE, scrolls=DEFAULT_SCROLLS, headless=True):
 
     raw = []
     with sync_playwright() as pw:
-        browser = pw.chromium.launch(headless=headless)
+        browser = _launch_browser(pw, headless)
         ctx = browser.new_context(
             viewport={"width": 1280, "height": 1600},
             user_agent=("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
@@ -246,8 +309,16 @@ def discover(handle=HANDLE, scrolls=DEFAULT_SCROLLS, headless=True):
         )
         page = ctx.new_page()
         try:
-            page.goto(PROFILE_URL.format(handle=handle),
-                      timeout=PAGE_TIMEOUT_MS, wait_until="domcontentloaded")
+            resp = page.goto(PROFILE_URL.format(handle=handle),
+                             timeout=PAGE_TIMEOUT_MS,
+                             wait_until="domcontentloaded")
+            if resp is not None and resp.status == 403:
+                raise RuntimeError(
+                    "X refused the page outright (HTTP 403, empty body) — "
+                    "this browser build is fingerprint-blocked, NOT a markup "
+                    "change or a login wall. Install/repair Google Chrome so "
+                    "_launch_browser can use channel='chrome'."
+                )
             try:
                 page.wait_for_selector("article", timeout=PAGE_TIMEOUT_MS)
             except Exception:
@@ -491,7 +562,37 @@ def run(scrolls=DEFAULT_SCROLLS, dry_run=False, notify_enabled=True, since=None,
     now = datetime.now(timezone.utc)
     state["lastRunAt"] = now_iso()
     state.pop("lastError", None)
-    top = max_id(found)
+
+    # Advance the high-water mark only as far as verification actually got.
+    # See next_watermark() for the loss this guards against.
+    attempts = dict(state.get("verifyAttempts") or {})
+    top, retry_ids, gave_up = next_watermark(found, failed, attempts)
+    for pid in retry_ids:
+        attempts[pid] = attempts.get(pid, 0) + 1
+    for pid in gave_up:
+        attempts.pop(pid, None)
+    for p_ok in verified:
+        attempts.pop(str(p_ok["id"]), None)
+    state["verifyAttempts"] = attempts
+
+    if retry_ids:
+        print("watcher: holding the mark at {} — {} post(s) await a retry.".format(
+            top or "(unmoved)", len(retry_ids)))
+    if gave_up:
+        urls = ["https://x.com/{}/status/{}".format(HANDLE, pid) for pid in gave_up]
+        print("watcher: GIVING UP after {} attempts on:".format(MAX_VERIFY_ATTEMPTS))
+        for u in urls:
+            print("   ", u)
+        if notify_enabled and token and chat_id:
+            try:
+                alert(token, chat_id,
+                      "⚠️ Could not verify {} post(s) after {} tries — they will NOT "
+                      "be queued and I am moving past them. Forward manually if you "
+                      "want them:\n\n{}".format(
+                          len(urls), MAX_VERIFY_ATTEMPTS, "\n".join(urls)))
+            except Exception:
+                pass
+
     if top:
         state["lastSeenId"] = top
     if fresh:
