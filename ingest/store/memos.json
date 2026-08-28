@@ -1,7 +1,7 @@
 {
   "meta": {
     "schemaVersion": 1,
-    "updatedAt": "2026-08-28T19:45:00Z",
+    "updatedAt": "2026-08-29T00:00:00Z",
     "author": "claude-desk",
     "disclaimer": "Coverage memos are second-opinion research notes on @aleabitoreddit's ideas. Personal research tool — not investment advice."
   },
@@ -2507,7 +2507,7 @@
         },
         {
           "heading": "Risks",
-          "body": "The residual value guaranties on roughly 4.25GW at the Portsmouth site remain the least-discussed disclosure in this book: an aggregate payment obligation capped near **$105 billion**, filed as an off-balance-sheet obligation, with an OpenAI affiliate as tenant and NVIDIA covering the shortfall on insolvency or non-payment. That is a chip company underwriting its largest customer's credit, and nobody in the feed is pricing it.\n\nThe second risk is that the $279bn of commitments is pull-forward rather than demand. If hyperscalers are double-ordering memory and compute against a 2027 shortage, some of that unwinds."
+          "body": "The residual value guaranties at the Portsmouth site remain the least-discussed disclosure in this book, and the way they are usually described is wrong. NVIDIA did not guarantee OpenAI's rent. It guaranteed the **residual value** of the asset: filed 17 August under Item 2.03, covering roughly 4.25GW of IT load leased from SB Energy with OpenAI as tenant on a 20-year term, capped in aggregate near **$105 billion**. If OpenAI defaults, SB Energy must first re-lease or sell the site; NVIDIA covers only the shortfall against a guaranteed minimum. That is a much narrower obligation than the headline implies — but it is still a chip company underwriting the asset risk of its largest customer's landlord, with a further 3.8GW available at its own discretion.\n\nThe second risk is that the $279bn of commitments is pull-forward rather than demand. If hyperscalers are double-ordering memory and compute against a 2027 shortage, some of that unwinds."
         },
         {
           "heading": "Bottom line",
