@@ -1,7 +1,7 @@
 {
   "meta": {
     "schemaVersion": 1,
-    "syncedAt": "2026-08-28T10:03:51Z",
+    "syncedAt": "2026-08-28T15:23:00Z",
     "pageCount": 68,
     "linkCount": 239
   },
@@ -125,16 +125,16 @@
         "refs": [
           "000660-ks",
           "cxmt",
+          "ewy",
           "mu",
-          "rpi",
           "sndk"
         ],
         "stats": {
           "label": "AI Memory",
           "flowRole": "supply",
           "memberCount": 5,
-          "coreCount": 2,
-          "watchCount": 3
+          "coreCount": 3,
+          "watchCount": 2
         }
       },
       "note": "Still the highest-conviction supply theme in the vault, and as of 25 Aug 2026 the first one where the desk has taken money off rather than put it on. Both memory positions now sit at **wait**: [[sndk]] since 21 Aug on price, [[mu]] since 25 Aug on margin.\n\nThe reason is a single comparison. Micron printed an 84.6% gross margin last reported quarter; Sandisk's FY2026 GAAP gross margin was already 71.5%, against 16.1% two years earlier, and its investor day guides ~80% as a 2030 ambition. The industry is currently earning more than its own long-range plans, which is the definition of a peak rather than a plateau \u2014 unless this cycle is structurally different, and the desk has no evidence for that beyond its size.\n\nThe shortage itself is not in question. TrendForce has 3Q26 DRAM contract prices up 13-18% and NAND up 10-15% quarter on quarter, with capacity additions requiring roughly four years. [[amzn]] raised 2026 capex to ~$220bn explicitly on higher memory costs, which is the cleanest confirmation available: the hyperscalers' cost line is this theme's revenue line. That is also why memory and [[hyperscalers]] cannot both be cheap at the same time.",
@@ -605,19 +605,20 @@
     {
       "slug": "ewy",
       "type": "ticker",
-      "title": "EWY",
+      "title": "EWY \u00b7 iShares MSCI South Korea ETF",
       "auto": {
         "refs": [
+          "memory",
           "aleabitoreddit"
         ],
         "stats": {
           "tier": "core",
           "mentions": 12,
           "lastMentioned": "2026-08-27T05:46:04Z",
-          "category": "unsorted",
-          "market": "",
+          "category": "memory",
+          "market": "US",
           "marketCapTier": "",
-          "company": ""
+          "company": "iShares MSCI South Korea ETF"
         }
       },
       "note": "",
@@ -1086,20 +1087,19 @@
     {
       "slug": "rpi",
       "type": "ticker",
-      "title": "RPI",
+      "title": "RPI \u00b7 Unidentified",
       "auto": {
         "refs": [
-          "memory",
           "aleabitoreddit"
         ],
         "stats": {
           "tier": "watch",
           "mentions": 1,
           "lastMentioned": "2026-06-05T14:20:31Z",
-          "category": "memory",
+          "category": "unsorted",
           "market": "",
           "marketCapTier": "",
-          "company": ""
+          "company": "Unidentified"
         }
       },
       "note": "",

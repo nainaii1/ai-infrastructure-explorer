@@ -8622,7 +8622,15 @@
       "EWY"
     ],
     "conviction": "normal",
-    "tags": []
+    "tags": [],
+    "views": [
+      {
+        "ticker": "EWY",
+        "direction": "bull",
+        "why": "His longs crashed but he is holding, on the view that the operating income SK Hynix and Samsung produce will eventually catch up to the market cap"
+      }
+    ],
+    "viewsExtractedAt": "2026-08-28T15:27:15Z"
   },
   {
     "id": "h_d90a44185ab68228",
@@ -15485,7 +15493,31 @@
       "YMTC"
     ],
     "conviction": "normal",
-    "tags": []
+    "tags": [],
+    "views": [
+      {
+        "ticker": "EWY",
+        "direction": "bull",
+        "why": "Up primarily on SK Hynix buybacks, which he attributes to them being too profitable, plus Samsung Foundry price hikes",
+        "numbers": "Samsung Foundry ~10-15% price hikes"
+      },
+      {
+        "ticker": "000660.KS",
+        "direction": "neutral",
+        "why": "Unveiled a CPO roadmap with a photonic interposer linking to memory; he says he needs to look deeper and expects TAM expansion for lasers, PICs and packaging rather than making a call on the stock"
+      },
+      {
+        "ticker": "YMTC",
+        "direction": "neutral",
+        "why": "Pursuing an IPO next quarter following CXMT's, cited as evidence the Chinese memory IPO market is running hot"
+      },
+      {
+        "ticker": "MRNA",
+        "direction": "neutral",
+        "why": "Named only as where leveraged traders rotated out of AI stocks, which he reads as helpful for an AI recovery"
+      }
+    ],
+    "viewsExtractedAt": "2026-08-28T15:27:15Z"
   },
   {
     "id": "h_66aa14a680b9c2c7",
@@ -15504,7 +15536,40 @@
       "SIVE"
     ],
     "conviction": "high",
-    "tags": []
+    "tags": [],
+    "views": [
+      {
+        "ticker": "SIVE",
+        "direction": "bull",
+        "why": "His favourite high-beta optical long: supplying Jabil pluggables, POET and O-Net engines, Ayar optical I/O and GlobalFoundries, with independent CW capacity, a Nasdaq listing coming, low dilution and an aligned CEO"
+      },
+      {
+        "ticker": "JBL",
+        "direction": "neutral",
+        "why": "Named as the hyperscaler pluggable customer Sivers supplies"
+      },
+      {
+        "ticker": "POET",
+        "direction": "neutral",
+        "why": "Named as an external laser source and optical engine path for Sivers"
+      },
+      {
+        "ticker": "GFS",
+        "direction": "neutral",
+        "why": "Named as the photonic foundry Sivers serves across NPO, pluggable and CPO architectures"
+      },
+      {
+        "ticker": "MTSI",
+        "direction": "bear",
+        "why": "Likely not meaningfully participating in first-generation CPO deployments, which he frames as a smaller pool of players Sivers is inside of and MACOM is not"
+      },
+      {
+        "ticker": "AAOI",
+        "direction": "bear",
+        "why": "Named alongside MACOM as likely not meaningfully participating in first-generation CPO deployments"
+      }
+    ],
+    "viewsExtractedAt": "2026-08-28T15:27:15Z"
   },
   {
     "id": "h_073550c82e450a55",
@@ -15518,7 +15583,15 @@
       "VPG"
     ],
     "conviction": "normal",
-    "tags": []
+    "tags": [],
+    "views": [
+      {
+        "ticker": "VPG",
+        "direction": "neutral",
+        "why": "Flagged as a niche component supplier possibly into Optimus or Figure, but he tempers it immediately because the scale is vastly different from suppliers working with dozens of humanoid players"
+      }
+    ],
+    "viewsExtractedAt": "2026-08-28T15:27:15Z"
   },
   {
     "id": "h_4cc1730000253ba8",
@@ -15535,7 +15608,25 @@
       "TSLA"
     ],
     "conviction": "normal",
-    "tags": []
+    "tags": [],
+    "views": [
+      {
+        "ticker": "CCXI",
+        "direction": "bull",
+        "why": "Targeting commercialization first and already deployed in Amazon and Mercado Libre warehouses; argues its robots do not need to do backflips to do delivery and packaging work"
+      },
+      {
+        "ticker": "AMZN",
+        "direction": "neutral",
+        "why": "Named as one of the warehouses Agility robots are deployed in"
+      },
+      {
+        "ticker": "TSLA",
+        "direction": "bear",
+        "why": "Also targeting general purpose humanoids, but he does not think Tesla can pull that off yet"
+      }
+    ],
+    "viewsExtractedAt": "2026-08-28T15:27:15Z"
   },
   {
     "id": "h_26a7400d327fb6ac",
@@ -15551,7 +15642,29 @@
       "SNDK"
     ],
     "conviction": "normal",
-    "tags": []
+    "tags": [],
+    "views": [
+      {
+        "ticker": "AAOI",
+        "direction": "bull",
+        "why": "The one stock he is hoping falls back to $80 so he can acquire more, on demand visibility he calls insane for laser names through 2027",
+        "numbers": "hoping for $80",
+        "horizon": "2027"
+      },
+      {
+        "ticker": "NBIS",
+        "direction": "bull",
+        "why": "Same demand-visibility read applied to neoclouds",
+        "horizon": "2027"
+      },
+      {
+        "ticker": "SNDK",
+        "direction": "bull",
+        "why": "Same demand-visibility read applied to memory names",
+        "horizon": "2027"
+      }
+    ],
+    "viewsExtractedAt": "2026-08-28T15:27:15Z"
   },
   {
     "id": "x_2090490101260591481",
@@ -15569,7 +15682,32 @@
       "SIVE"
     ],
     "conviction": "normal",
-    "tags": []
+    "tags": [],
+    "views": [
+      {
+        "ticker": "AAOI",
+        "direction": "bull",
+        "why": "Calls the optical sector's recent underperformance absurd against demand visibility he says is stupidly high, citing AOI that even combined with Coherent it is very tough to meet customer demand for three years",
+        "horizon": "through 2029"
+      },
+      {
+        "ticker": "SIVE",
+        "direction": "bull",
+        "why": "Same argument, citing the Sivers CEO on InP laser demand imbalance expected to persist, and noting the industry is bottlenecked before 1.6T, NPO and CPO scale-up have even inflected",
+        "horizon": "next 3-5 years"
+      },
+      {
+        "ticker": "LITE",
+        "direction": "neutral",
+        "why": "Named as further corroboration of the same shortage commentary, without a separate case"
+      },
+      {
+        "ticker": "MTSI",
+        "direction": "neutral",
+        "why": "Named alongside Lumentum as further corroboration of the shortage commentary"
+      }
+    ],
+    "viewsExtractedAt": "2026-08-28T15:27:15Z"
   },
   {
     "id": "x_2090510568474231045",
@@ -15599,7 +15737,25 @@
       "SKHY"
     ],
     "conviction": "normal",
-    "tags": []
+    "tags": [],
+    "views": [
+      {
+        "ticker": "SIVE",
+        "direction": "bull",
+        "why": "Calls it the cleanest read-through on the SK Hynix CPO roadmap because it likely supplies both Celestial and Ayar, the two names he thinks are being evaluated"
+      },
+      {
+        "ticker": "000660.KS",
+        "direction": "neutral",
+        "why": "His own speculation that SK Hynix is evaluating Celestial and Ayar for optical memory links, evidenced from its website and Nature paper citations; no directional call on the stock"
+      },
+      {
+        "ticker": "POET",
+        "direction": "bear",
+        "why": "People speculated POET for the interposer and packaging IP layer, but he thinks Marvell has vertically integrated them out of it this year"
+      }
+    ],
+    "viewsExtractedAt": "2026-08-28T15:27:15Z"
   },
   {
     "id": "x_2090816483861696517",
@@ -15625,7 +15781,16 @@
       "AAOI"
     ],
     "conviction": "normal",
-    "tags": []
+    "tags": [],
+    "views": [
+      {
+        "ticker": "AAOI",
+        "direction": "bear",
+        "why": "Says it is getting much harder to support the name given repeated large ATMs, and that the share structure and financing are becoming increasingly shareholder unfriendly even if the operating outlook is positive",
+        "numbers": "$500m and $600M ATMs"
+      }
+    ],
+    "viewsExtractedAt": "2026-08-28T15:27:15Z"
   },
   {
     "id": "x_2091177173789069797",
@@ -15640,7 +15805,21 @@
       "SPCX"
     ],
     "conviction": "normal",
-    "tags": []
+    "tags": [],
+    "views": [
+      {
+        "ticker": "RKLB",
+        "direction": "neutral",
+        "why": "Named as a beneficiary of the US government's 1,000 launch and reentry goal by 2030, reported from a policy fact sheet without a case",
+        "horizon": "2030"
+      },
+      {
+        "ticker": "SPCX",
+        "direction": "neutral",
+        "why": "Described as hard carrying the launch sector in the Golden Age of Space Transportation fact sheet; no investment argument"
+      }
+    ],
+    "viewsExtractedAt": "2026-08-28T15:27:15Z"
   },
   {
     "id": "x_2091264273007960320",
@@ -15655,7 +15834,21 @@
       "RDDT"
     ],
     "conviction": "normal",
-    "tags": []
+    "tags": [],
+    "views": [
+      {
+        "ticker": "MRVL",
+        "direction": "neutral",
+        "why": "The Google TPU ecosystem agreement named as a recent catalyst, delivered as a joke rather than an argued case",
+        "numbers": "$12.2B Google TPU ecosystem agreement"
+      },
+      {
+        "ticker": "RDDT",
+        "direction": "neutral",
+        "why": "The subject of the joke, cited as the source of the catalyst list; no view on Reddit itself"
+      }
+    ],
+    "viewsExtractedAt": "2026-08-28T15:27:15Z"
   },
   {
     "id": "x_2091488091110531106",
@@ -15671,7 +15864,25 @@
       "NBIS"
     ],
     "conviction": "normal",
-    "tags": []
+    "tags": [],
+    "views": [
+      {
+        "ticker": "AXTI",
+        "direction": "neutral",
+        "why": "Cited as one of his 2025 ideas that played out, in a personal milestone post rather than a fresh case"
+      },
+      {
+        "ticker": "NBIS",
+        "direction": "neutral",
+        "why": "Cited alongside AXTI as a 2025 idea that played out; no new argument"
+      },
+      {
+        "ticker": "AMD",
+        "direction": "neutral",
+        "why": "Named only in a joke about AMD bandanas among personal milestones"
+      }
+    ],
+    "viewsExtractedAt": "2026-08-28T15:27:15Z"
   },
   {
     "id": "x_2091612406900564407",
@@ -15685,7 +15896,15 @@
       "GOOGL"
     ],
     "conviction": "normal",
-    "tags": []
+    "tags": [],
+    "views": [
+      {
+        "ticker": "GOOGL",
+        "direction": "neutral",
+        "why": "A joke about selling Boston Dynamics after watching China's humanoid competition; no investment case made"
+      }
+    ],
+    "viewsExtractedAt": "2026-08-28T15:27:15Z"
   },
   {
     "id": "r_fa81e088bcaa6727",
@@ -16394,7 +16613,73 @@
       "SIVE"
     ],
     "conviction": "normal",
-    "tags": []
+    "tags": [],
+    "views": [
+      {
+        "ticker": "SIVE",
+        "direction": "bull",
+        "why": "Guesses many companies are now approaching Sivers for qualifications and allocation because the incumbents are full, and says sticking with Sivers and downstream was the right call over the laser foundries",
+        "numbers": "$70m fundraise likely tied to securing allocations; CPO laser gross margins 55-60%"
+      },
+      {
+        "ticker": "LITE",
+        "direction": "neutral",
+        "why": "Channel checks have it saying InP is fine for 2027, which he finds funny, and it has too much capacity allocated to NVIDIA to have space for others"
+      },
+      {
+        "ticker": "AAOI",
+        "direction": "neutral",
+        "why": "Named as one of the suppliers CSPs and semi leaders are approaching to secure CW laser supply, and as an InP channel check saying 2027 is fine"
+      },
+      {
+        "ticker": "MTSI",
+        "direction": "neutral",
+        "why": "Named alongside AAOI as a supplier CSPs are approaching to secure CW laser supply"
+      },
+      {
+        "ticker": "COHR",
+        "direction": "neutral",
+        "why": "Said to be using its laser capacity internally and to have too much allocated to NVIDIA, leaving little merchant space"
+      },
+      {
+        "ticker": "NVDA",
+        "direction": "neutral",
+        "why": "Named only as the customer absorbing Lumentum and Coherent laser allocation"
+      },
+      {
+        "ticker": "IQE",
+        "direction": "bull",
+        "why": "Epiwafer capacity already constrained, and he calls IQE the leader in the quantum-dot epitaxial space even while warning that specific TAM is very small"
+      },
+      {
+        "ticker": "LPK.DE",
+        "direction": "neutral",
+        "why": "Glass core substrate ramp pushed back about half a year by Samsung Electro-Mechanics and SKC Absolics, with full ramp likely 2029; he tempers it as not the end of the world",
+        "horizon": "full ramp 2029"
+      },
+      {
+        "ticker": "CCXI",
+        "direction": "bull",
+        "why": "Says a downstream leader like Agility or Unitree has to carry the humanoid sector first, so he is sticking with the humanoid players rather than upstream component suppliers"
+      },
+      {
+        "ticker": "ALRIB",
+        "direction": "bull",
+        "why": "Guesses Riber plus Veeco become the quantum-dot equipment chokepoint within about a year and thinks most people do not understand what Riber does",
+        "horizon": "~1 year"
+      },
+      {
+        "ticker": "ALMU",
+        "direction": "neutral",
+        "why": "Named in the quantum-dot theme as a route to lessen the InP bottleneck, likely driven by US national security interest"
+      },
+      {
+        "ticker": "AIXA",
+        "direction": "neutral",
+        "why": "Used only as the comparator for what he expects Riber to become in quantum-dot equipment"
+      }
+    ],
+    "viewsExtractedAt": "2026-08-28T15:27:15Z"
   },
   {
     "id": "x_2091955482613486028",
@@ -16410,7 +16695,28 @@
       "TSM"
     ],
     "conviction": "normal",
-    "tags": []
+    "tags": [],
+    "views": [
+      {
+        "ticker": "BE",
+        "direction": "neutral",
+        "why": "Named only as the stock Pelosi copytraders sent up, with no case of his own",
+        "numbers": "+11.83%"
+      },
+      {
+        "ticker": "NVDA",
+        "direction": "neutral",
+        "why": "Cited on the fibre array unit bottleneck for CPO roadmaps, with Largan, FOCI and TFC entering the FAU supply chain and capacity unable to meet demand",
+        "numbers": "20,000 Spectrum-X systems need ~600-700k FAUs",
+        "horizon": "mass production H2 2027"
+      },
+      {
+        "ticker": "TSM",
+        "direction": "neutral",
+        "why": "Named alongside NVIDIA as the CPO roadmap he flagged FAU as a future bottleneck for"
+      }
+    ],
+    "viewsExtractedAt": "2026-08-28T15:27:15Z"
   },
   {
     "id": "x_2091889047325335611",
@@ -16438,7 +16744,26 @@
       "XPEV"
     ],
     "conviction": "normal",
-    "tags": []
+    "tags": [],
+    "views": [
+      {
+        "ticker": "AMZN",
+        "direction": "neutral",
+        "why": "Named only as a backer of Agility Robotics in a note about humanoid sector funding"
+      },
+      {
+        "ticker": "NVDA",
+        "direction": "neutral",
+        "why": "Named only as a backer of Agility Robotics alongside Amazon"
+      },
+      {
+        "ticker": "XPEV",
+        "direction": "neutral",
+        "why": "Carved out its robotics unit and raised over $900M, cited as evidence humanoid funding is taking off; he argues Agility is further ahead in commercialization",
+        "numbers": ">$900M raised at $6.3B+ valuation"
+      }
+    ],
+    "viewsExtractedAt": "2026-08-28T15:27:15Z"
   },
   {
     "id": "x_2091843192639672553",
@@ -16454,7 +16779,26 @@
       "POET"
     ],
     "conviction": "normal",
-    "tags": []
+    "tags": [],
+    "views": [
+      {
+        "ticker": "AAOI",
+        "direction": "bull",
+        "why": "Still bullish with large positions and overweight versus the rest because AOI is genuinely capacity constrained with high demand visibility, while criticising the ATM timing as poorly executed",
+        "numbers": "$600m ATM issued on the drop from $220 to $130"
+      },
+      {
+        "ticker": "POET",
+        "direction": "bear",
+        "why": "Explicitly contrasted against AAOI as the name he is not overweight, singled out for dilution without the capacity constraint or demand visibility that justifies it"
+      },
+      {
+        "ticker": "IREN",
+        "direction": "bear",
+        "why": "Named as one of the companies he has criticised before for overusing ATMs and dilution to finance"
+      }
+    ],
+    "viewsExtractedAt": "2026-08-28T15:27:15Z"
   },
   {
     "id": "x_2091909391238979970",
@@ -16469,7 +16813,22 @@
       "NVDA"
     ],
     "conviction": "normal",
-    "tags": []
+    "tags": [],
+    "views": [
+      {
+        "ticker": "NBIS",
+        "direction": "bull",
+        "why": "First to adopt Groq3 LPX through its token factory, which he reads as the special treatment promised after NVIDIA's investment gave it early access to latest-generation architectures",
+        "numbers": "3,400 tok/s on Gemma 4 31B, 4x faster than nearest alternative"
+      },
+      {
+        "ticker": "NVDA",
+        "direction": "neutral",
+        "why": "Announced Groq3 LPX in full production following the $20B deal; the point he draws is about Nebius, not NVIDIA",
+        "numbers": "$20B deal, $2B investment into Nebius"
+      }
+    ],
+    "viewsExtractedAt": "2026-08-28T15:27:15Z"
   },
   {
     "id": "x_2092186856792506435",
@@ -16488,7 +16847,43 @@
       "SIVE"
     ],
     "conviction": "normal",
-    "tags": []
+    "tags": [],
+    "views": [
+      {
+        "ticker": "SIVE",
+        "direction": "bull",
+        "why": "Reads AAOI and MACOM turning CPO laser customers away as a positive setup for Sivers, which sits as a merchant supplier with independent CW DFB supply and CPO-grade lasers"
+      },
+      {
+        "ticker": "AAOI",
+        "direction": "neutral",
+        "why": "Stated multiple customers approached it for CPO lasers but it had to turn them away"
+      },
+      {
+        "ticker": "MTSI",
+        "direction": "neutral",
+        "why": "Stated many customers approached it for CW capacity, which does not come online until the second half of 2027",
+        "horizon": "H2 2027"
+      },
+      {
+        "ticker": "JBL",
+        "direction": "neutral",
+        "why": "The developments he is most excited about, as the main Sivers revenue ramp channel rather than a case on Jabil",
+        "horizon": "H1 2027"
+      },
+      {
+        "ticker": "AEVA",
+        "direction": "neutral",
+        "why": "Likely a much smaller contributor than Jabil but should start contributing in the second half of 2026",
+        "horizon": "H2 2026"
+      },
+      {
+        "ticker": "GFS",
+        "direction": "neutral",
+        "why": "Named as the foundry Sivers serves as reference laser for"
+      }
+    ],
+    "viewsExtractedAt": "2026-08-28T15:27:15Z"
   },
   {
     "id": "h_046666c36eb25586",
@@ -16502,7 +16897,15 @@
       "SNDK"
     ],
     "conviction": "normal",
-    "tags": []
+    "tags": [],
+    "views": [
+      {
+        "ticker": "SNDK",
+        "direction": "neutral",
+        "why": "Named only as the style of setup he was hunting for when he found ESMT; the analysis is entirely about ESMT"
+      }
+    ],
+    "viewsExtractedAt": "2026-08-28T15:27:15Z"
   },
   {
     "id": "h_a0d83e2418445132",
@@ -16529,7 +16932,22 @@
       "SMTC"
     ],
     "conviction": "high",
-    "tags": []
+    "tags": [],
+    "views": [
+      {
+        "ticker": "SMTC",
+        "direction": "bull",
+        "why": "Availability matters more than pricing, no erosion on booked optical orders, 1.6T FiberEdge qualifications finishing early and targeting majority share, with capacity possibly short for fiscal 2028",
+        "numbers": "Q2 rev $341.9M vs $329M est; 50%+ 1.6T FiberEdge share target; >70% of next year booked",
+        "horizon": "CW laser revenue H1 FY28"
+      },
+      {
+        "ticker": "AAOI",
+        "direction": "bull",
+        "why": "He reads the early completion of 1.6T FiberEdge qualifications as a good read-through for pluggable makers, naming AOI, and notes AAOI earnings confirmed the TIA and driver shortage"
+      }
+    ],
+    "viewsExtractedAt": "2026-08-28T15:27:15Z"
   },
   {
     "id": "h_b49bf3221b8ec88b",
@@ -16543,7 +16961,15 @@
       "SNDK"
     ],
     "conviction": "high",
-    "tags": []
+    "tags": [],
+    "views": [
+      {
+        "ticker": "SNDK",
+        "direction": "neutral",
+        "why": "Used as the archetype he was screening for — a name actively converting price hikes into profit — while the actual positions he argues are Taiwanese legacy DRAM names"
+      }
+    ],
+    "viewsExtractedAt": "2026-08-28T15:27:15Z"
   },
   {
     "id": "x_2092517102339162263",
@@ -16557,7 +16983,15 @@
       "SIVE"
     ],
     "conviction": "normal",
-    "tags": []
+    "tags": [],
+    "views": [
+      {
+        "ticker": "SIVE",
+        "direction": "bull",
+        "why": "Reads Saxo Japan listing the stock on client request as evidence of how much investor demand there is, ahead of earnings and the planned Nasdaq listing"
+      }
+    ],
+    "viewsExtractedAt": "2026-08-28T15:27:15Z"
   },
   {
     "id": "x_2092718416683819292",
@@ -16571,7 +17005,16 @@
       "NVDA"
     ],
     "conviction": "high",
-    "tags": []
+    "tags": [],
+    "views": [
+      {
+        "ticker": "NVDA",
+        "direction": "neutral",
+        "why": "Beat on revenue, EPS and datacentre with a strong guide, but he says explicitly that most of the alpha now comes from how NVIDIA's architecture decisions hit the supply chain rather than from mispricing in NVIDIA itself",
+        "numbers": "rev $96.22B vs $92.17B, DC $89.0B, guide $108B, commitments $119B to $279B"
+      }
+    ],
+    "viewsExtractedAt": "2026-08-28T15:27:15Z"
   },
   {
     "id": "x_2092723047107355133",
@@ -16585,7 +17028,17 @@
       "NVDA"
     ],
     "conviction": "normal",
-    "tags": []
+    "tags": [],
+    "views": [
+      {
+        "ticker": "NVDA",
+        "direction": "bull",
+        "why": "Calls the fiscal 2028 growth guide more important than the earnings beat itself, a large upward revision on a supply-constrained outlook, and reads it as good for the high-beta supply chain",
+        "numbers": "+70% FY2028 vs 43.9% expected; hyperscaler capex ~$800B 2026 and $1.3T 2027",
+        "horizon": "fiscal 2028"
+      }
+    ],
+    "viewsExtractedAt": "2026-08-28T15:27:15Z"
   },
   {
     "id": "x_2092789800428622128",
@@ -16599,7 +17052,15 @@
       "SNDK"
     ],
     "conviction": "high",
-    "tags": []
+    "tags": [],
+    "views": [
+      {
+        "ticker": "SNDK",
+        "direction": "neutral",
+        "why": "Used only as the pattern reference for ESMT's price-hike and earnings inflection; the position he is arguing is ESMT, not Sandisk"
+      }
+    ],
+    "viewsExtractedAt": "2026-08-28T15:27:15Z"
   },
   {
     "id": "x_2092851118233764178",
@@ -16617,7 +17078,37 @@
       "SNDK"
     ],
     "conviction": "normal",
-    "tags": []
+    "tags": [],
+    "views": [
+      {
+        "ticker": "MU",
+        "direction": "neutral",
+        "why": "Structurally bullish on memory unchanged, but he trimmed the position after the rerating and thinks the largest price discovery period has played out",
+        "numbers": "Micron $300 to $1000+ already"
+      },
+      {
+        "ticker": "SNDK",
+        "direction": "neutral",
+        "why": "Listed among the H1 2026 memory overweights he has since trimmed; no fresh case made"
+      },
+      {
+        "ticker": "NVDA",
+        "direction": "neutral",
+        "why": "Earnings cited as reaffirming structural memory demand, with commitments jumping largely on memory procurement",
+        "numbers": "commitments $119B to $279B"
+      },
+      {
+        "ticker": "EWY",
+        "direction": "neutral",
+        "why": "Part of the memory basket he ran overweight; he kept the Samsung and SK Hynix longs while trimming the rest"
+      },
+      {
+        "ticker": "SIMO",
+        "direction": "neutral",
+        "why": "Listed in the H1 2026 overweight memory basket as the controller exposure, no case made"
+      }
+    ],
+    "viewsExtractedAt": "2026-08-28T15:27:15Z"
   },
   {
     "id": "x_2093014569279189295",
@@ -16631,7 +17122,17 @@
       "SIVE"
     ],
     "conviction": "high",
-    "tags": []
+    "tags": [],
+    "views": [
+      {
+        "ticker": "SIVE",
+        "direction": "bull",
+        "why": "Revenue opportunity pipeline grew 268% since December and resources are shifting from NRE to product ramp, though he is explicit that current financials still reflect a qualification-stage player",
+        "numbers": "$1.2B pipeline vs $799M last ER, $5.64M revenue, -$3.72M adj EBITDA",
+        "horizon": "visible Q4 2026, accelerating through 2027"
+      }
+    ],
+    "viewsExtractedAt": "2026-08-28T15:27:15Z"
   },
   {
     "id": "x_2093054882282651723",
@@ -16648,7 +17149,32 @@
       "SIVE"
     ],
     "conviction": "normal",
-    "tags": []
+    "tags": [],
+    "views": [
+      {
+        "ticker": "SIVE",
+        "direction": "bull",
+        "why": "Earnings call added six new pluggable players and a new foundry partner with capacity available now, which de-risks the Win Semi dependence during a CW laser shortage",
+        "numbers": "$1.2B revenue pipeline, 6 new pluggable players, 3 in alpha sample evaluation"
+      },
+      {
+        "ticker": "JBL",
+        "direction": "neutral",
+        "why": "Initial production orders expected first half 2027 with the ramp planned second half; he reads it as clear revenue timing for Sivers rather than a case on Jabil",
+        "horizon": "H1 2027 orders, H2 2027 ramp"
+      },
+      {
+        "ticker": "AAOI",
+        "direction": "neutral",
+        "why": "Cited only as the vertical-integration comparator Sivers will eventually need to follow"
+      },
+      {
+        "ticker": "LITE",
+        "direction": "neutral",
+        "why": "Cited alongside AAOI as the vertical-integration comparator, no view on Lumentum here"
+      }
+    ],
+    "viewsExtractedAt": "2026-08-28T15:27:15Z"
   },
   {
     "id": "x_2093087267594314182",
@@ -16667,6 +17193,41 @@
       "SIVE"
     ],
     "conviction": "normal",
-    "tags": []
+    "tags": [],
+    "views": [
+      {
+        "ticker": "SIVE",
+        "direction": "bull",
+        "why": "Calls it the most unusual $1B photonics company he has seen and his #1 on market cap relative to qualification paths, listing eight AI datacentre engagements plus two CW DFB capacity allocations during a shortage",
+        "numbers": "~$1B MC, 7 pluggable engagements disclosed"
+      },
+      {
+        "ticker": "GFS",
+        "direction": "neutral",
+        "why": "Named as the SCALE reference-laser customer in the list of Sivers engagements; no case made on GlobalFoundries itself"
+      },
+      {
+        "ticker": "JBL",
+        "direction": "neutral",
+        "why": "Named as the primary pluggable ramp partner for Sivers",
+        "horizon": "H1 2027"
+      },
+      {
+        "ticker": "NVDA",
+        "direction": "neutral",
+        "why": "Named only because Ayar, a Sivers laser customer, now sits in the NVLink ecosystem"
+      },
+      {
+        "ticker": "POET",
+        "direction": "neutral",
+        "why": "Named as one of the external laser source paths Sivers supplies"
+      },
+      {
+        "ticker": "AEVA",
+        "direction": "neutral",
+        "why": "Named as a Sivers laser customer that now has NPO agreements with optical engine providers for hyperscalers"
+      }
+    ],
+    "viewsExtractedAt": "2026-08-28T15:27:15Z"
   }
 ]
