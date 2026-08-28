@@ -854,6 +854,8 @@ a.th-ticker:hover {
   background: var(--sem-pass-bg); color: var(--sem-pass-fg);
 }
 .aie-exp-by + .aie-exp-conf { margin-left: 0; }
+/* A transcribed disclosure is not a guess; it should not wear the warning. */
+.aie-exp-by.is-sourced { background: var(--violet-wash); color: var(--violet); }
 
 /* ============================================================================
    8. FOOTER COLOPHON

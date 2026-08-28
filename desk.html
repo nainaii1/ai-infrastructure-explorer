@@ -3195,7 +3195,10 @@
             cat: t.category, tier: t.tier,
             x: a.aiExposure, y: perf - base, abs: perf,
             conf: a.confidence,
-            est: !!(a.assessedBy && a.assessedBy !== "operator")
+            /* Hollow means "this is a judgement", not "this is not the
+               operator's". A figure transcribed from the company's own
+               segment disclosure is as solid as the price on the y-axis. */
+            est: String(a.assessedBy || "").indexOf("estimate") !== -1
           });
         });
         return out;
@@ -3356,19 +3359,18 @@
             strong.textContent = "Every point on this axis is a desk estimate, not researched. ";
             note.appendChild(strong);
             note.appendChild(document.createTextNode(
-              "Nobody publishes AI share of revenue and SEC filings carry no segment "
-              + "breakdown, so the horizontal position of every name is a judgement "
-              + "recorded with its reasoning. Replace one with your own call and it "
-              + "starts rendering solid while the estimates go hollow. The vertical "
-              + "axis is real: prices as of "
+              "SEC filings carry no segment breakdown, so the horizontal position of "
+              + "every name here is a judgement recorded with its reasoning. The "
+              + "vertical axis is real: prices as of "
               + AIE.fmtDate((AIE_DATA.benchmarkQuote || {}).asOf) + "."));
           } else {
             strong.textContent = est + " of " + rows.length
-              + " points are still desk estimates (hollow). ";
+              + " points are still judgements (hollow). ";
             note.appendChild(strong);
             note.appendChild(document.createTextNode(
-              "Solid dots are your own researched calls. The vertical axis is real: "
-              + "prices as of "
+              "Solid dots are anchored to a figure the company reported itself, or to "
+              + "your own research \u2014 hover one for the basis. The vertical axis is "
+              + "real throughout: prices as of "
               + AIE.fmtDate((AIE_DATA.benchmarkQuote || {}).asOf) + "."));
           }
         }

@@ -164,12 +164,61 @@ From `docs/EXECUTION-EXPERT-REVIEW.md`:
 | 1 — per-ticker view extraction | **done for Core/Watch** — 316 of 356 posts read, 0 Core/Watch pending (and now honestly 0, see Step 5) |
 | 1b — wire direction into scoring | not started, needs a decision |
 | 2 — SEC EDGAR fundamentals | **shipped 21 Aug 2026** — 37 of 46 Core+Watch, on the card and the watchlist row |
-| 3 — `aiExposure` judgement fields | **plumbing shipped 21 Aug 2026** — 0 of 46 assessed; the numbers are the operator's to make |
+| 3 — `aiExposure` judgement fields | **plumbing 21 Aug, filled 28-29 Aug 2026** — 45 of 49 recorded; 4 anchored to company disclosure, 41 still judgements |
 | 4 — re-point charts | **shipped 29 Aug 2026** — one real chart in `desk.html`; the parked mockups are gone (see below) |
 | 4a — surface `views[]` in the app | **shipped 20 Aug 2026** — see below |
 | 4b — density as a sortable watchlist column | **shipped 20 Aug 2026** — see below |
 | 4c — plain label + bear flag on the column | **shipped 20 Aug 2026** — see below |
 | 5 — close the ticker-alias gap | **shipped 21 Aug 2026** — see below |
+
+### Filling and then upgrading the exposure figures (28-29 Aug 2026)
+
+Step 3 shipped the instrument with nothing in it, on the rule that the
+judgement is the operator's. He delegated it ("you decide, you become my
+brain"), so 45 of 49 Core/Watch names were recorded as **Claude estimates,
+stamped as such** — `assessedBy: claude-estimate`, a source line reading "NOT
+operator-researched", and no `high` confidence anywhere. Skipped: CCXI and POET
+(his call), EWY and RPI (an ETF and an unidentified symbol — not companies).
+
+That exposed a hole in the renderer worth recording: `assessedBy` was **stored
+but never displayed**, and the confidence tooltip read "How sure you were when
+you recorded this". Forty-five delegated guesses would have rendered
+indistinguishably from researched work. `makeExposureRow` now emits a
+provenance chip whenever the call was not the operator's own.
+
+**Then five were upgraded from real disclosure, which corrected a false premise
+in this document.** `exposure.py` says AI share "cannot be derived". What is
+actually true is narrower: *SEC's XBRL `companyfacts` API* has no segment
+dimension. Several companies publish the number themselves.
+
+| | was | now | basis |
+|---|---|---|---|
+| NVDA | 88% | **90%** | Data Center $193.7B of $215.9B, FY2026 release |
+| AMD | 48% | **48%** | Data Center $16.6B of $34.64B, FY2025 |
+| AVGO | 42% | **31%** | AI revenue $20B of $64B — Broadcom's own AI line |
+| MU | 58% | **56%** | Micron states "56% of company revenue", FY2025 |
+| TSM | 62% | **10%** | see below |
+
+The four disclosure-backed figures are `assessedBy: claude-sourced`,
+`confidence: high`. They validate the arithmetic: `aiRevenue()` now reproduces
+each company's own reported AI figure within rounding — AVGO computes $19.8B
+against a reported $20B, MU $20.9B against $20.75B, NVDA $194.3B against
+$193.7B.
+
+**TSM was wrong by 6x and is the reason this pass was worth doing.** 62% was
+implicitly TSMC's HPC *platform* share (~51%), which is mostly non-AI compute.
+TSMC does not disclose AI as a share of revenue at all — its last hard figure
+was 6% in June 2023. Against a third-party estimate of $9.1B AI-related chip
+sales in 2024 and the $88.3B on file, the honest number is ~10%, recorded at
+low confidence and still `claude-estimate`. It drops TSM from second place in
+estimated AI revenue ($54.7B) to well outside the top eight ($8.8B). 2025 is
+tracking to high-teens, so this rises when FY2025 revenue lands.
+
+So the provenance model is now three-valued, and the surfaces reflect it:
+`operator` (no chip), `claude-sourced` ("reported" chip, solid on the chart),
+`claude-estimate` ("est." chip, hollow on the chart). Hollow means *this is a
+judgement*, not *this is not the operator's* — a transcribed disclosure is as
+solid as the price on the y-axis.
 
 ### Step 4 — what shipped (29 Aug 2026)
 

@@ -655,9 +655,18 @@
        chip on every row would teach the eye to skip it. */
     var by = a.assessedBy;
     if (by && by !== "operator") {
-      var byChip = mk("span", "aie-exp-by", by === "claude-estimate" ? "est." : by);
-      byChip.title = "Not your own researched judgement — recorded by " + by
-        + ". Treat it as a placeholder until you have checked it.";
+      /* Two very different things live behind "not the operator": a figure
+         transcribed from the company's own segment disclosure, and a guess.
+         Rendering both as "est." would flatten that, so they get separate
+         chips — the guess is the one that should still look unfinished. */
+      var sourced = by.indexOf("sourced") !== -1;
+      var byChip = mk("span", "aie-exp-by" + (sourced ? " is-sourced" : ""),
+                      sourced ? "reported" : "est.");
+      byChip.title = sourced
+        ? "Not your own research, but not a guess either — transcribed from the "
+          + "company's own reported segment revenue. See the basis for the figures."
+        : "A judgement, not a measurement — recorded by " + by
+          + ". Treat it as a placeholder until you have checked it.";
       row.appendChild(byChip);
     }
     var conf = mk("span", "aie-exp-conf conf-" + a.confidence, a.confidence);

@@ -1,7 +1,7 @@
 {
   "meta": {
     "schemaVersion": 1,
-    "updatedAt": "2026-08-28T15:10:22Z",
+    "updatedAt": "2026-08-28T18:27:48Z",
     "source": "operator judgement",
     "disclaimer": "Not filed data and not derivable from filings. Each figure carries its own basis and confidence.",
     "assessed": 45
@@ -54,13 +54,13 @@
     "AMD": {
       "ticker": "AMD",
       "aiExposure": 48.0,
-      "confidence": "medium",
-      "basis": "Datacenter (MI-series plus server CPU) is around half of $34.6B and rising — gross margin moved 39.8% to 53.8% on that mix shift. Client, gaming and embedded remain substantial non-AI revenue.",
+      "confidence": "high",
+      "basis": "Company-reported segment revenue: Data Center was $16.6B of $34.64B in FY2025, or 47.9%, up 32% on EPYC and Instinct. Client, Gaming and Embedded are the balance.",
       "sources": [
-        "Claude desk estimate delegated by operator 28 Aug 2026 — inferred from SEC filed revenue, company segment mix and store thesis data. NOT operator-researched, NOT a filed segment figure."
+        "AMD Q4/FY2025 results, 3 Feb 2026 — ir.amd.com press release and FY2025 10-K. Transcribed by Claude, not operator-researched."
       ],
       "assessedAt": "2026-08-28",
-      "assessedBy": "claude-estimate"
+      "assessedBy": "claude-sourced"
     },
     "NBIS": {
       "ticker": "NBIS",
@@ -86,14 +86,14 @@
     },
     "MU": {
       "ticker": "MU",
-      "aiExposure": 58.0,
-      "confidence": "medium",
-      "basis": "HBM and datacenter DRAM drove $25.1B to $37.4B with gross margin running to 84%. Mobile, auto, embedded and consumer NAND remain a real minority of the mix.",
+      "aiExposure": 56.0,
+      "confidence": "high",
+      "basis": "Micron states the figure directly: data centre reached a record 56% of company revenue in FY2025, $20.75B of $37.4B, up 137%. Mobile, embedded, auto and consumer NAND are the remainder.",
       "sources": [
-        "Claude desk estimate delegated by operator 28 Aug 2026 — inferred from SEC filed revenue, company segment mix and store thesis data. NOT operator-researched, NOT a filed segment figure."
+        "Micron FY2025 Q4 results and prepared remarks, Sep 2025 — investors.micron.com. The 56% is Micron's own stated share. Transcribed by Claude, not operator-researched."
       ],
       "assessedAt": "2026-08-28",
-      "assessedBy": "claude-estimate"
+      "assessedBy": "claude-sourced"
     },
     "COHR": {
       "ticker": "COHR",
@@ -119,11 +119,11 @@
     },
     "TSM": {
       "ticker": "TSM",
-      "aiExposure": 62.0,
-      "confidence": "medium",
-      "basis": "HPC and AI accelerator wafers are now the largest revenue platform, having overtaken smartphone. Smartphone, IoT and automotive still account for a substantial minority of $88.3B.",
+      "aiExposure": 10.0,
+      "confidence": "low",
+      "basis": "Still a judgement: TSMC does NOT disclose AI as a share of revenue. Anchored to a third-party estimate of $9.1B AI-related chip sales in 2024 against the $88.3B on file, about 10%. Do not read the HPC platform share (~51%) as AI — it is mostly non-AI compute.",
       "sources": [
-        "Claude desk estimate delegated by operator 28 Aug 2026 — inferred from SEC filed revenue, company segment mix and store thesis data. NOT operator-researched, NOT a filed segment figure."
+        "AI share not disclosed by TSMC; $9.1B 2024 estimate from The Next Platform, 16 Oct 2025, which states plainly that TSMC's last hard figure was 6% in June 2023. 2025 is tracking to high-teens, so this"
       ],
       "assessedAt": "2026-08-28",
       "assessedBy": "claude-estimate"
@@ -196,14 +196,14 @@
     },
     "NVDA": {
       "ticker": "NVDA",
-      "aiExposure": 88.0,
-      "confidence": "medium",
-      "basis": "Data Center is the overwhelming majority of $215.9B after 65% growth; gaming, professional visualisation and automotive are the small remainder.",
+      "aiExposure": 90.0,
+      "confidence": "high",
+      "basis": "Company-reported segment revenue, not a judgement: Data Center was $193.7B of $215.9B total in fiscal 2026, or 89.7%. Gaming $16.0B, ProViz $3.2B, Automotive $2.3B make up nearly all the rest.",
       "sources": [
-        "Claude desk estimate delegated by operator 28 Aug 2026 — inferred from SEC filed revenue, company segment mix and store thesis data. NOT operator-researched, NOT a filed segment figure."
+        "NVIDIA Q4/FY2026 results, 25 Feb 2026 — nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-fourth-quarter-and-fiscal-2026. Total matches the SEC figure already on file. Transcribed by C"
       ],
       "assessedAt": "2026-08-28",
-      "assessedBy": "claude-estimate"
+      "assessedBy": "claude-sourced"
     },
     "AMZN": {
       "ticker": "AMZN",
@@ -372,14 +372,14 @@
     },
     "AVGO": {
       "ticker": "AVGO",
-      "aiExposure": 42.0,
-      "confidence": "medium",
-      "basis": "Custom AI ASICs and datacenter networking silicon are a large and growing share of $63.9B, but infrastructure software and broadband are the majority of the combined company.",
+      "aiExposure": 31.0,
+      "confidence": "high",
+      "basis": "Broadcom reports an AI revenue line of its own: $20B of $64B in FY2025, or 31%, up 65%. The rest is non-AI semiconductors and Infrastructure Software, which is $27B on its own.",
       "sources": [
-        "Claude desk estimate delegated by operator 28 Aug 2026 — inferred from SEC filed revenue, company segment mix and store thesis data. NOT operator-researched, NOT a filed segment figure."
+        "Broadcom Q4/FY2025 results, 11 Dec 2025 — investors.broadcom.com. AI revenue is the company's own disclosed metric. Transcribed by Claude, not operator-researched."
       ],
       "assessedAt": "2026-08-28",
-      "assessedBy": "claude-estimate"
+      "assessedBy": "claude-sourced"
     },
     "ARM": {
       "ticker": "ARM",
