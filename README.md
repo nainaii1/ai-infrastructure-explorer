@@ -1,182 +1,136 @@
-# ⚡ AI Infrastructure Explorer
+# AI Infrastructure Explorer
 
-A personal research page that maps the **AI hardware supply chain** — who
-NVIDIA and the big tech companies actually depend on to build and run AI
-chips (laser makers, memory makers, chip factories, cloud providers, and so
-on). It also keeps a running, sourced log of one analyst's stock ideas, plus
-a weekly "second opinion" from Claude on the names that matter most.
+A private research desk for the AI hardware supply chain — the companies
+NVIDIA and the big cloud firms depend on to build AI chips: laser makers,
+memory makers, chip factories, cloud providers, materials.
 
-> Personal project, just for me. Not investment advice.
+It does three things:
 
-## 🚀 Quick start
-**Just open the app:** double-click **`desk.html`** — the Desk is the front
-door (watchlist, map, synthesis). "Coverage" in the top nav is the
-memo index. It works completely offline — no internet, no server, nothing to
-install. Everything it shows lives in one file, `data.js`; the shared look
-and helpers live in `shared/`.
+1. **Captures** one analyst's ideas so they don't scroll away
+2. **Checks** them — against SEC filings, and against a second opinion
+3. **Scores** both of us, so being wrong is on the record
 
-**Backend chores** (capture bot, prices, local server, status): double-click
-**`desk.command`** and pick from the menu. For the full story read
-**[docs/GUIDE.md](docs/GUIDE.md)** — it also answers the #1 question people
-ask: *"I messaged the bot and nothing replied — why?"*
+> Personal project. Single user. Not investment advice.
 
-## What it does
-It's a small multi-page site (plain HTML — every page opens by double-click):
+---
 
-- **The Desk** (`desk.html`) — the front door and main working surface. One
-  scrolling page that opens straight onto the watchlist, with a compact strip
-  of live counts up top (theses / names / verdicts / last reviewed) and a
-  floating pill nav to jump between three chapters:
-- **01 · The Watchlist** — a sortable table of every tracked stock: price,
-  how it moved this week/month/year, market cap, the desk's verdict, and your
-  own rating. Opens already narrowed to the highest-conviction names.
-- **02 · The Map** — the supply chain laid out visually: who supplies →
-  what NVIDIA makes → who buys it. Click any layer to see what to watch and
-  which companies sit there.
-- **03 · The Synthesis** — Claude reads all the captured theses and writes one
-  short summary per theme: what the story is, how confident, which stocks
-  matter. Expand any digest to see the source posts behind it.
-- **A second opinion, on purpose.** Everything captured here comes from one
-  long-only analyst, so the data has no bear case by construction. Before each
-  weekly review, three reviewers — a semiconductor expert, a fundamental
-  analyst and a portfolio manager — research the top names and file what they
-  find. A finding that can't cite a real primary source is recorded but made
-  worth zero to every ranking, and outside research can only ever lower a
-  name, never raise it. Run it by saying **"pre-review"** in Claude Code.
-- **New posts find you.** A watcher checks the analyst's X profile every 4
-  hours and sends anything new to Telegram with ✅ Ingest / ❌ Skip buttons —
-  nothing gets added to the corpus without you tapping approve. No API key,
-  no manual forwarding required. See [docs/WATCHER.md](docs/WATCHER.md).
-- **Coverage** (`index.html`) — the memo ledger: every research memo the desk
-  has written, filterable by kind and rating. (The raw thesis feed is no longer
-  a page of its own — posts live in the data and show up cited under memos,
-  vault pages, and Synthesis digests.)
-- **Coverage memos** (`memo.html`) — full research notes on the
-  highest-conviction names: thesis, why own it, risks, bottom line, with the
-  source posts cited underneath and live price/tier/stance pulled in at the top.
-- **The Vault** (`vault.html`) — an Obsidian-style knowledge base: one page
-  per company, theme, and concept, cross-linked with `[[wikilinks]]` and
-  backlinks — plus a **Graph view** that draws the whole web as an
-  interactive force-directed map (hover to trace, click for details).
-- **Performance** (`performance.html`) — the track record, in two halves.
-  **Calls**: every dated position action with its entry price, current return,
-  and whether it beat simply buying the SMH semiconductor index that day —
-  stamped forward-only, never back-dated. **Claims**: every dated *prediction*
-  made by the analyst or by the desk, judged once its date arrives. The hit
-  rate is always shown next to the share of claims that could never be tested
-  at all, so nobody scores well by being vague. Score the ones that have come
-  due by saying **"judge claims"** in Claude Code.
+## Open it
 
-## 📚 Which doc do I open?
+**Double-click `desk.html`.** That's it — no internet, no server, nothing to
+install. Every page works offline.
 
-| I want to... | Open this |
+For backend chores (bot, prices, status) double-click **`desk.command`** and
+pick from the menu.
+
+---
+
+## The five pages
+
+| Page | What it's for |
 |---|---|
-| Just use the app | Nothing — double-click `index.html` |
-| **Know what to actually do each week** | **[docs/GUIDE.md](docs/GUIDE.md) → "Your routine, start to finish"** |
-| Add a new idea, refresh prices, or fix "the bot isn't replying" | [docs/GUIDE.md](docs/GUIDE.md) |
-| Run the weekly routine — second opinion, review, scoring predictions | [docs/GUIDE.md](docs/GUIDE.md) §6–§8 |
-| Remember why this project exists and what it's supposed to do | [docs/PRD.md](docs/PRD.md) |
-| See what's built, what's coming next, and known issues | [docs/ROADMAP.md](docs/ROADMAP.md) |
-| Set up the Telegram bot for the first time | [docs/TELEGRAM_SETUP.md](docs/TELEGRAM_SETUP.md) |
-| Understand the X watcher (auto-discovery, approve queue) | [docs/WATCHER.md](docs/WATCHER.md) |
+| **desk.html** | The main surface — watchlist, supply-chain map, theme summaries |
+| **index.html** | The memo index |
+| **memo.html** | Reads one memo |
+| **vault.html** | Wiki-style notes, one page per company and theme |
+| **performance.html** | The scoreboard — my calls and everyone's predictions |
 
-Everything else you'll see in this repo (`CLAUDE.md`, `docs/DESIGN.md`,
-`ingest/README.md`, `.claude/skills/*`, `docs/superpowers/specs/*`) is
-technical reference that Claude Code reads on its own when it works on the
-project — you don't need to open those unless you're curious.
+---
 
-## 🗺️ Where things live
+## Your weekly loop
+
+This is the whole routine. It takes about 20 minutes a week.
+
+**Daily — 2 minutes.** Telegram sends you candidate posts. Tap ✅ or ❌.
+Nothing enters the system without your tap.
+
+**Weekly — two commands in Claude Code:**
+
 ```
-ai-supply-desk/
-├── desk.html           THE DESK (front door) — watchlist, map, synthesis
-├── index.html          COVERAGE — the memo ledger
-├── memo.html           COVERAGE MEMOS — full research notes per name (?ticker=)
-├── vault.html          THE VAULT — knowledge base, List/Graph views (?view=graph)
-├── performance.html    THE TRACK RECORD — dated calls vs SMH, and the claims ledger
-├── design.html         DESIGN REFERENCE — live style guide (not in the nav; open directly)
-├── desk.command        BACKEND MENU — double-click: start bot / prices / serve / status
-├── check-x-now.command  double-click: run the X watcher check right now (skip the 4h wait)
-├── shared/             the shared look + helpers used by every page
-│   ├── theme.css        design tokens + components
-│   └── common.js        shared logic (window.AIE)
-├── data.js             all the data the app shows — auto-generated, don't hand-edit
-├── README.md           you are here
-├── CLAUDE.md           technical build notes (for Claude Code — not needed for everyday use)
-├── docs/
-│   ├── GUIDE.md         ⭐ how to run everything + troubleshooting
-│   ├── PRD.md           what this project is trying to do, and why
-│   ├── ROADMAP.md       what's done / what's next
-│   ├── DESIGN.md        the visual design reference
-│   ├── TELEGRAM_SETUP.md  → pointer into GUIDE.md
-│   ├── WATCHER.md        the X watcher — how auto-discovery works
-│   └── images/          screenshots
-└── ingest/              THE BACKEND — the tools that update data.js
-    ├── bot.py            the Telegram bot that captures new ideas
-    ├── watcher.py         checks the analyst's X profile every 4h, queues finds for approval
-    ├── synthesize.py     writes the "Synthesis" summaries
-    ├── seats.py / pre_review.py   the three reviewers: the second-opinion pass
-    ├── claims.py         the claims ledger: record predictions, judge them later
-    ├── fetch_prices.py / serve.py   weekly price updates + local server
-    ├── parser.py  scorer.py  fetcher.py  review.py  generate_data_js.py
-    ├── store/*.json      the actual saved data (tickers, ideas, summaries, …)
-    ├── tests/             automated checks (python3 -m unittest discover -s ingest/tests)
-    ├── .env.example       copy to .env, add your own keys (never shared/committed)
-    └── requirements.txt
+/pre-review      three expert reviewers research this week's shortlist
+/weekly-review   prices refresh, tiers recompute, verdicts get rewritten
 ```
 
-## How the two halves fit
-- **The app** (`index.html` + `desk.html`, sharing `shared/theme.css` +
-  `shared/common.js`, all reading `data.js`) is what you actually look at — it
-  opens in your browser and always works, just by opening the file.
-- **The backend** (everything in `ingest/`) is a set of small tools you run
-  yourself, only when you want to update something — capture a new idea,
-  refresh prices, or get a fresh AI summary. The Telegram bot only replies
-  while `python3 ingest/bot.py` is running in a terminal on your Mac. See
-  [docs/GUIDE.md](docs/GUIDE.md) for exactly how.
+Then read the report and decide. `/pre-review` puts a bear case on the table
+before the verdicts are written — don't skip it.
 
-## What it's built with
-- Plain HTML/CSS/JavaScript — no frameworks, no build tools, nothing to
-  install just to use it.
-- Works completely offline by double-clicking `index.html`.
-- Your keys/tokens live only in a private file (`ingest/.env`) that's never
-  shared or uploaded anywhere.
+**Occasionally:** `/judge-claims` when predictions come due.
 
-## Where things stand
-**The "Private Coverage" upgrade is complete** (all phases, Jul 2026): the
-coverage ledger, the desk (map / watchlist / synthesis), full coverage memos,
-the knowledge vault with its interactive graph view, site-wide cross-linking,
-and the forward-only performance ledger.
+---
 
-**The expert review team is live** (Phases 1–3, Jul 2026) — the fix for being
-downstream of exactly one person. Bearish views now lower a score instead of
-raising it; three reviewers research the top names before each weekly review
-and must cite a real source or count for nothing; and a claims ledger records
-dated predictions and scores them when their date arrives.
+## What's in it right now
 
-**New posts find you now** — the X watcher (Jul 2026) polls the analyst's
-public profile every 4 hours and queues anything new to Telegram for a
-✅/❌ tap, so manual forwarding is a fallback, not the daily routine.
+_As of 29 Aug 2026. These change constantly — read `ingest/store/` for truth._
 
-**v9 "soft two-tone"** (Jul–Aug 2026) is the current visual design — see
-[docs/DESIGN.md](docs/DESIGN.md).
+```
+137 companies       39 Core · 10 Watch · 88 Radar
+549 captured posts  392 his · 156 my own research
+1,330 arguments     what he actually argued, per post per company
+19 verdicts         my call on each name that matters
+73 predictions      3 judged · 13 untestable · 57 open
+14 calls            13 open · 1 closed
+```
 
-Currently tracking 127 companies, 379 captured ideas, 18 desk verdicts,
-42 coverage memos and 44 claims (exact counts drift as the pipeline runs —
-see `ingest/store/*.json` for the live numbers). Two phases remain and both
-are waiting rather than unbuilt: feeding a track record back into the
-rankings needs 20+ judged claims per source, and running the reviewers
-unattended overnight needs a decision about API access. See
-[docs/ROADMAP.md](docs/ROADMAP.md) for the full history.
+---
 
-## Screenshots
+## Why it's built this way
 
-| The front page | The field guide |
+**One analyst is not enough.** He is long-only, so the data has no bear case
+by construction. That's why three expert reviewers — a chip expert, a numbers
+person and a portfolio manager — research the shortlist before each weekly
+review, and why every finding they can't tie to a real filing is marked
+unverified and counts for zero.
+
+**Counting mentions tells you nothing.** Testing showed almost no relationship
+between how often he names a stock and how it performs. So the desk now reads
+*what he argued* about each company in each post, not how often he typed the
+ticker. NVIDIA: 81 mentions, 12 actual arguments. Sivers: 125 and 115.
+
+**Being wrong has to be recorded.** Every call gets an entry price and a
+benchmark. Every prediction gets a deadline. And "couldn't be tested" is a
+real outcome, reported next to the hit rate — when this was first run on the
+analyst's predictions, **13 of 25 were untestable.**
+
+**Numbers must be real or clearly labelled.** Revenue comes from SEC filings.
+AI-exposure percentages are judgements, and every one displays a chip saying
+whether it came from a company's own disclosure or is an estimate.
+
+---
+
+## Where things live
+
+```
+desk.html, index.html, memo.html, vault.html, performance.html   the pages
+shared/          the shared look and helpers (2 files only)
+data.js          everything the pages read — GENERATED, never edit by hand
+ingest/          the Python backend that rebuilds data.js
+ingest/store/    the real data (JSON files) — this is the source of truth
+docs/            guides and reference
+```
+
+---
+
+## Docs, in the order worth reading
+
+| Doc | Read it when |
 |---|---|
-| ![Front page](docs/images/screen-index.png) | ![Field guide](docs/images/screen-desk.png) |
+| **[docs/GUIDE.md](docs/GUIDE.md)** | Something isn't working, or you forgot how to run a thing |
+| **[docs/ROADMAP.md](docs/ROADMAP.md)** | You want to know what's done and what's next |
+| **[CLAUDE.md](CLAUDE.md)** | Claude reads this first every session — the build rules |
+| **[PROJECT.md](PROJECT.md)** | The "read what he argued, not how often" rework |
+| **[docs/X-CONTENT.md](docs/X-CONTENT.md)** | The posting-on-X idea (draft, not built) |
+| **[docs/WATCHER.md](docs/WATCHER.md)** | The thing that finds his posts automatically |
+| **[docs/PRD.md](docs/PRD.md)** | What this was originally for |
+| **[docs/DESIGN.md](docs/DESIGN.md)** | Colours, fonts, spacing |
 
-| A coverage memo | The knowledge graph |
-|---|---|
-| ![Coverage memo](docs/images/screen-memo.png) | ![Vault graph](docs/images/screen-graph.png) |
+---
 
-## License
-All rights reserved. No open-source license is granted at this time.
+## Known problems
+
+- **Recorded daily closes are stamped one day late.** Both price fetches run
+  outside US market hours, so each row holds the previous session's close. The
+  live prices are fine; only the saved history is shifted. Blocks the
+  "what happened after he argued it" feature.
+- **41 of 45 AI-exposure numbers are estimates**, not researched. They show an
+  `est.` chip so they can't be mistaken for data.
+- **The parser invents tickers from jargon** — `CW`, `NAND`, `UTC`, `DRAM` and
+  ~300 others. Harmless but noisy.

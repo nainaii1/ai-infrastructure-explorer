@@ -1,6 +1,6 @@
 # Roadmap & Status — AI Infrastructure Explorer
 
-_Last updated: 2026-08-22 (per-ticker views, SEC fundamentals, AI-exposure plumbing, daily price record, first judged claims). Living document — update as things ship or change._
+_Last updated: 2026-08-29 (weekly review run, view extraction complete, exposure filled, exposure-vs-price chart shipped). Living document — update as things ship or change._
 
 > **Expert review team, Phase 1 — direction-aware scoring (✅ 2026-07-26).**
 > Theses carry an optional `direction` (`bull`/`bear`/`neutral`), and
@@ -218,25 +218,24 @@ _Last updated: 2026-08-22 (per-ticker views, SEC fundamentals, AI-exposure plumb
 
 ## Current snapshot
 
-| | |
-|---|---|
-_Measured from `ingest/store/*.json` and `data.js` on 2026-07-27._
+_Read live from `ingest/store/*.json` and `data.js` on **29 Aug 2026**. These
+numbers move every week — when this file and the store disagree, the store is
+right._
 
 | | |
 |---|---|
-| Tickers tracked | **120** — tiered **28 Core / 17 Watch / 75 Radar** (after focus-weighting and canonicalization) |
-| Categorized layers | 10 (`photonics, memory, fabs, neoclouds, materials, networking, glass, robotics, accelerators, hyperscalers`) |
-| Unsorted (needs triage) | **55** names in the `unsorted` bucket: **1 Core (RDDT)**, 7 Watch (ASTS, CRCL, EWY, HOOD, NVTS, RKLB, VPG), 47 Radar. RDDT is the only one that matters — it doesn't cleanly fit any of the 10 categories (Reddit/AI-training-data play), so it's left in triage rather than misclassified. The Radar tail is mostly one-off name-drops and is not worth triaging by hand. Note `DRAM` and `SPCX` are `themeTags` in `base.json`, not tickers — they no longer count toward any name's mentions, though a stale `SPCX` ticker record still exists at Radar |
-| Theses ingested | **258** — all `source: "x"`, author `aleabitoreddit`. No research theses written yet; the seats have not been run |
-| Brain digests | 10 themes, generated 2026-07-22 — 9 re-synthesized that day, `robotics` carried forward from 2026-07-16 |
-| **Desk verdicts** | **17 Core names** (`ingest/store/verdicts.json`, reviewed 2026-07-22): 9 `accumulate`, 8 `watch`. Roster rule is "top 15 by score + sticky act/accumulate holdovers". Stance *moves* are not recoverable for this pass — `previousStance` did not exist when it was written; the next `/weekly-review` starts recording them |
-| GitHub repo | Public — github.com/nainaii1/ai-infrastructure-explorer, working branch `feat/expert-review-seats` |
-
-Counts drift constantly as posts get ingested — trust `ingest/store/*.json` /
-`git log` over this file when they disagree. Regenerate the tier split with
-`python3 ingest/generate_data_js.py` and read it back from `data.js`.
-
----
+| Companies tracked | **137** — 39 Core / 10 Watch / 88 Radar |
+| Captured posts | **549** — 392 from the analyst, 156 from the desk's own expert seats |
+| Arguments extracted | **1,330** — what he actually argued, per post per company. **Extraction is complete: 0 pending** |
+| Desk verdicts | **19** names, reviewed **28 Aug** (8 accumulate / 9 wait / 2 pass) |
+| Coverage memos | 69 · **Vault** 68 pages, 30 with written notes · **Brain** 11 theme digests |
+| Calls ledger | **14** — 13 open, 1 closed (a win). Oldest call 12 Jul |
+| Claims ledger | **73** — 3 judged correct, **13 unfalsifiable**, 57 open |
+| SEC revenue | 37 companies covered, 9 gaps recorded with reasons |
+| AI exposure | 45 assessed — **4 from company disclosure, 41 desk estimates** |
+| Telegram queue | 104 ingested / 14 skipped / **0 pending** |
+| Tests | 506, green |
+| GitHub | Public — github.com/nainaii1/ai-infrastructure-explorer, branch `main` |
 
 ## The operating loop (v5 — this is the product now)
 
@@ -275,48 +274,39 @@ He tweets → you forward to the Telegram bot (or backfill from signal bots)
 
 ## Current issues to fix
 
-### HIGH — affects daily use
+_Rewritten 29 Aug 2026. Only genuinely open items are listed; everything that
+was fixed has been removed rather than left ticked, and the "Evidence chapter
+is 90,000px tall" entry is gone because v8 deleted that chapter._
 
-**1. Bot must be started from the project directory** — ✅ FIXED 18 Jul 2026
-`desk.command` (double-clickable menu: start bot / refresh prices / serve /
-status) handles cd + env + launch. Supersedes the planned `start_bot.sh`.
+**1. Recorded daily closes are stamped one day late.** `record_prices` takes
+the row's date from the FETCH timestamp, and both scheduled fetches run outside
+US market hours, so every observed row holds the previous session's close.
+Proved by a Saturday row carrying a value that differs from Friday's. Live
+prices in `prices.json` are unaffected — only the saved history. Blocks the
+"since he argued it" feature.
 
-**2. `ingest/.env` iCloud sync**
-`.env` can hit sync conflicts under iCloud Drive. Workaround: `export
-TELEGRAM_BOT_TOKEN=...` in-session, or exclude the folder from sync.
+**2. The parser invents tickers from jargon.** 306 candidate symbols have piled
+up in `pending_tickers.json` and the most frequent are not companies: `CW` 50x,
+`MC` 39x, `CEST` 35x, `UTC` 29x, `EML`, `NAND`, `NPO`, `DRAM`, `MLCC`. 159 were
+seen exactly once. Same cause as `$GM` from "Elazr GM" and `$ASX` from
+"SRL (ASX)". Harmless — nothing auto-promotes — but it is the reason every
+symbol so far has needed hand-triage.
 
-### MEDIUM — affects ingest quality
+**3. 41 of 45 AI-exposure figures are desk estimates, not research.** They
+render an `est.` chip and sit at low or medium confidence so they cannot be
+mistaken for measurements, but they are guesses. The four sourced from company
+disclosure (NVDA, AMD, AVGO, MU) show a `reported` chip instead.
 
-**3. SSL certificate verification globally disabled in `bot.py`** — ✅ FIXED
-`bot.py` and `watcher.py` both use the shared `store_io.ssl_context()` now
-("verified — never disable certificate checks globally"). Verified 2026-08-22.
+**4. `ingest/.env` and iCloud sync.** The file can hit sync conflicts under
+iCloud Drive. Workaround: `export TELEGRAM_BOT_TOKEN=...` in-session, or
+exclude the folder from sync.
 
-**4. Mention-count inflation from list-posts** ✅ FIXED (2026-07-03)
-`scorer.py` now focus-weights each mention by `1/√(tickers-in-post)`, so a name
-in a 12-ticker digest dump counts ~0.29 vs. 1.0 for a dedicated post. Tiers are
-assigned on `weightedMentions`; raw `mentions` is kept for display. This
-dropped Core from an inflated 35 back to a meaningful 21 after the backfill.
+**5. "Note" conviction badge is ambiguous** — rename to "Normal" or drop it.
+Cosmetic, open since July.
 
-### NEW — biggest scroll problem (2026-07-03)
-
-**Evidence chapter (03) is ~90,000px tall.** After the June-July backfill the
-raw thesis feed is 154 full-text digest cards. This is the real "too long to
-scroll" surface (the Watchlist, chapter 02, is now a tidy ~1,500px). The proper
-fix is the **Signal Digest** feature (spec'd in
-`docs/superpowers/specs/2026-07-03-signal-digest-design.md`) — replace the raw
-feed with short per-ticker digests, raw posts behind a drill-down. Cheap
-interim option if Signal Digest isn't built soon: line-clamp each `.th-text` to
-~5 lines with a "show full" expander (reuses the grid drill-down).
-
-### LOW — polish
-
-**5. Watchlist sticky header z-index** ✅ RESOLVED (2026-07-03) — the Watchlist
-now opens on Core with natural page flow (no nested scroll / sticky header), so
-the bleed-through issue is gone.
-**6. "Note" conviction badge is ambiguous** — rename to "Normal" or drop.
-**7. Desk verdict on watchlist is tooltip-only** — ✅ FIXED. Watchlist rows
-expand in place (`makeRowDetailRow`) and now carry the verdict, his argued
-views, and the SEC revenue block. Verified 2026-08-22.
+**6. Eight orphan views** point at tickers no longer in the universe (ASTS 5,
+MELI 3). They render nowhere because the ticker cards that would show them do
+not exist. Deleting them is a decision nobody has taken.
 
 ### Decisions taken (2026-07-03) — deliberate non-actions
 
@@ -340,36 +330,53 @@ design.
 
 ## Next up (build order)
 
-_Rewritten 2026-08-22. Items 1-7 and 9-10 of the previous list are done or
-superseded; what remains is below._
+_Rewritten 29 Aug 2026 after the weekly review. Items 2, 3 and 5 of the
+previous list shipped; the rest is below._
 
-1. **"Since he argued it" receipts** — **newly unblocked.** `price_history.csv`
-   now records daily closes, so a view dated 13 Aug can finally be scored
-   against what the price did next. `price_history.forward_return()` already
-   computes it. This is the feature that makes the desk unlike any TradFi
-   screen: not "here is the revenue", but "here is what happened after he made
-   the case". Needs a few weeks of observed closes before the numbers are
-   worth rendering — the seeded anchors are approximate.
-2. **Step 3 — record the AI-exposure judgements.** Plumbing shipped; **0 of 46
-   assessed**. Operator input, one name at a time, via `/assess-exposure`.
-   Blocks item 3.
-3. ~~**Step 4 — re-point the charts.**~~ **Done 29 Aug 2026.** The parked
-   mockups turned out not to exist — never tracked, in no commit, nowhere on
-   disk — so this shipped as one real chart instead: AI exposure against price
-   vs SMH, in the Watchlist chapter of `desk.html`. See PROJECT.md "Step 4 —
-   what shipped" for the provenance handling and for why the predicted
-   hunting-ground quadrant is empty on a 1-month view.
-4. **Step 1b — wire direction into scoring.** Still a deliberate decision, and
-   still low-value: only 19 bear views out of 1,208 would move anything, and
+**The main focus is not on this list.** It is to run the weekly loop and let
+the calls ledger fill. 14 calls, 1 closed. Until roughly 20 have closed there
+is no evidence this desk beats simply buying the index, and that single fact
+gates every larger question — publishing, product, all of it. Nothing below is
+more valuable than letting a few months pass.
+
+Small jobs, if there is appetite for one:
+
+1. **Fix the price-history date bug.** Every recorded close is stamped one day
+   late: the row takes the FETCH date, and both scheduled fetches run outside
+   US market hours, so each row holds the previous session's close. Live prices
+   are unaffected. This blocks item 2. Two decisions attached — how to map a
+   fetch to a trading day, and whether to relabel the 8 existing days or start
+   clean.
+2. **"Since he argued it" receipts** — blocked on item 1. Scoring 1,330 dated
+   arguments against a date-shifted price series would be wrong by a trading
+   day, and by three across a weekend. This is still the feature that would
+   make the desk unlike any screen you can buy.
+3. **Upgrade the hyperscaler exposures.** AMZN, MSFT and GOOGL are still desk
+   estimates and *are* derivable from segment reporting, the way NVDA, AMD,
+   AVGO and MU were on 29 Aug.
+4. **Parser stop-list.** 306 candidate symbols have accumulated and the most
+   frequent are jargon, not companies: `CW` 50x, `MC` 39x, `CEST` 35x, `UTC`
+   29x, `EML`, `NAND`, `NPO`, `DRAM`, `MLCC`. Same root cause as `$GM` from
+   "Elazr GM" and `$ASX` from "SRL (ASX)". Cosmetic but it is the source of
+   every hand-triage so far.
+5. **Step 1b — wire direction into scoring.** Still deliberately not done, and
+   still low-value: only 30 bear views out of 1,330 would move anything, and
    the per-post vs per-ticker mismatch has to be resolved first. See
    PROJECT.md "Scoring impact".
-5. **View extraction, the last 11 posts** — radar/unsorted only; `--emit`
-   without `--core-only` whenever convenient.
-6. **Short-symbol parser false positives** — `$GM` from "Elazr GM at their
-   investor conference" is still tagged and still counts as a mention. Worth a
-   pass over symbols that double as English words (GM, ON, ARM, ALL, KEY).
-   PROJECT.md known issue 1.
-7. **Radar-tier triage, gradually** — `review.py classify` a few per week.
+6. **Radar-tier triage, gradually** — `review.py classify` a few per week.
+
+### Considered and rejected (29 Aug 2026)
+
+- **A fourth expert seat for positioning and flows.** Proposed after the
+  upstream selloff, then withdrawn on inspection: the desk holds price, market
+  cap, three percentage changes and revenue. No volume, no float, no short
+  interest, no ownership. A positioning analyst with no positioning data would
+  cite nothing, be marked unverified, and score exactly zero by the desk's own
+  rules. Revisit only if a data source appears first.
+- **More roles generally** (macro, PM, ops, investors). The tool has one user
+  and already produces 69 memos, 68 vault pages, 19 verdicts and 156 research
+  findings. Output already exceeds one person's reading. Adding producers makes
+  that worse, not better.
 
 ## Discussed but not yet built
 
@@ -415,6 +422,7 @@ superseded; what remains is below._
 | Weekly review procedure | `.claude/skills/weekly-review/SKILL.md` | The exact steps Claude Code runs each week |
 | Product requirements | `docs/PRD.md` | Problem, jobs, success criteria, architecture, data model |
 | Design system reference | `docs/DESIGN.md` | Tokens, components, states |
+| Posting on X (draft idea) | `docs/X-CONTENT.md` | The content plan — not built, for review |
 | Engineering rules + status | `CLAUDE.md` | **Read first in a new session** |
 | Ingest backend reference | `ingest/README.md` | Pipeline file-by-file |
 

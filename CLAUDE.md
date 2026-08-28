@@ -178,6 +178,53 @@ Everything below is shipped and live:
   challenge instead of CSV (checked 21 Aug 2026), and the Google Sheet returns
   a snapshot with no history. The data already flows through twice a day.
 
+- **View extraction COMPLETE (2026-08-29)** — 0 pending, the first time ever.
+  357 of 393 analyst posts carry `views[]` (the other 36 have no tickers, so
+  `needs_extraction` correctly refuses them); **1,330 arguments**. Two symbol
+  classes are deliberately never extracted because they are not companies:
+  `$GM` from "Elazr GM" (a job title) and `$ASX` from "SRL (ASX)" (an
+  exchange). A general "missing view" re-selector was considered and rejected
+  for exactly that reason — it would re-queue those forever.
+
+- **AI exposure filled, with three-valued provenance (2026-08-28/29)** — 45 of
+  49 Core/Watch assessed. **`assessedBy` is now load-bearing and rendered**:
+  `operator` (no chip), `claude-sourced` (a `reported` chip — transcribed from
+  the company's own segment disclosure), `claude-estimate` (an `est.` chip — a
+  judgement). Before this, `assessedBy` was stored but never displayed and the
+  confidence tooltip read "How sure **you** were", so delegated estimates would
+  have rendered identically to researched work. Four figures are sourced (NVDA
+  90%, AMD 48%, AVGO 31%, MU 56%) and validate the arithmetic: `aiRevenue()`
+  reproduces each company's own reported figure within rounding. **TSM was
+  corrected 62% -> 10%** — 62% was the HPC *platform* share, which is mostly
+  non-AI compute; TSMC does not disclose AI share at all.
+  Skipped deliberately: CCXI and POET (operator's call), EWY and RPI (an ETF
+  and an unidentified symbol — not companies, now labelled as such).
+
+- **Exposure-vs-price chart (2026-08-29, PROJECT.md Step 4)** — AI share (x)
+  against performance vs SMH (y), 1M/1Y toggle, in the Watchlist chapter of
+  `desk.html`. **Page-local by rule 3** — markup, `.xp-*` CSS and renderer all
+  live in `desk.html`; nothing was added to `shared/`. Estimates render hollow,
+  disclosure-backed and operator calls render solid, and while *every* point is
+  an estimate the note says so rather than marking all 42 (same reasoning as
+  the bear flag in Step 4c). The five `mockup-charts*.html` files PROJECT.md
+  referred to do not exist and never did — untracked, in no commit, nowhere on
+  disk.
+
+- **Weekly review 28 Aug 2026** — 19 verdicts, six stance moves (NVDA to
+  accumulate, POET to pass, MTSI trimmed, GFS / 000660.KS / TSLA new). The
+  measured finding: the upstream selloff did **not** track AI exposure
+  (correlation -0.21) but tracked position in the chain almost monotonically —
+  hyperscalers +4.7% vs SMH through to materials -17.9%. `/pre-review` was
+  skipped for time and `meta.coverage` records that.
+
+- **KNOWN BUG — recorded daily closes are stamped one day late.**
+  `record_prices` takes the row date from the FETCH timestamp, and both
+  scheduled fetches run outside US market hours, so every observed row in
+  `price_history.csv` holds the PREVIOUS session's close. Proved by a Saturday
+  row differing from Friday's. `prices.json` is unaffected; only the saved
+  history. This blocks the "since he argued it" feature and is unfixed by
+  operator decision.
+
 **Ticker/thesis/verdict counts change constantly — read `ingest/store/*.json`
 or `data.js`, never assume a number from this file.**
 
