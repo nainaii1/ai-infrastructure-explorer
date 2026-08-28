@@ -1,10 +1,506 @@
 {
   "meta": {
     "schemaVersion": 1,
-    "updatedAt": "2026-08-21T07:00:52Z",
+    "updatedAt": "2026-08-28T15:10:22Z",
     "source": "operator judgement",
     "disclaimer": "Not filed data and not derivable from filings. Each figure carries its own basis and confidence.",
-    "assessed": 0
+    "assessed": 45
   },
-  "companies": {}
+  "companies": {
+    "CRWV": {
+      "ticker": "CRWV",
+      "aiExposure": 97.0,
+      "confidence": "medium",
+      "basis": "Pure-play GPU neocloud with no legacy business line: revenue is AI compute rental, $1.92B to $5.13B in one year. Residual non-AI is negligible.",
+      "sources": [
+        "SEC filed revenue FY2023-2025 + company description; Claude desk estimate delegated by operator 28 Aug 2026, not operator-researched"
+      ],
+      "assessedAt": "2026-08-28",
+      "assessedBy": "claude-estimate"
+    },
+    "SIVE": {
+      "ticker": "SIVE",
+      "aiExposure": 42.0,
+      "confidence": "low",
+      "basis": "InP CW laser photonics is the growth story but not yet the revenue: Q1 2026 net sales SEK 61.9m fell 22% YoY and the $799m figure is an opportunity pipeline, not backlog. Legacy wireless/mmWave still carries much of the base.",
+      "sources": [
+        "Claude desk estimate delegated by operator 28 Aug 2026 — inferred from SEC filed revenue, company segment mix and store thesis data. NOT operator-researched, NOT a filed segment figure."
+      ],
+      "assessedAt": "2026-08-28",
+      "assessedBy": "claude-estimate"
+    },
+    "AAOI": {
+      "ticker": "AAOI",
+      "aiExposure": 78.0,
+      "confidence": "medium",
+      "basis": "Datacenter optical transceivers are the bulk of a book that doubled to $0.46B, sold out beyond next year on 800G/1.6T. A legacy CATV/telecom segment remains but is the minority.",
+      "sources": [
+        "Claude desk estimate delegated by operator 28 Aug 2026 — inferred from SEC filed revenue, company segment mix and store thesis data. NOT operator-researched, NOT a filed segment figure."
+      ],
+      "assessedAt": "2026-08-28",
+      "assessedBy": "claude-estimate"
+    },
+    "LITE": {
+      "ticker": "LITE",
+      "aiExposure": 68.0,
+      "confidence": "medium",
+      "basis": "Revenue jumped $1.65B to $3.01B in one year almost entirely on datacenter lasers and transceivers; an industrial and telecom laser segment still carries the remainder.",
+      "sources": [
+        "Claude desk estimate delegated by operator 28 Aug 2026 — inferred from SEC filed revenue, company segment mix and store thesis data. NOT operator-researched, NOT a filed segment figure."
+      ],
+      "assessedAt": "2026-08-28",
+      "assessedBy": "claude-estimate"
+    },
+    "AMD": {
+      "ticker": "AMD",
+      "aiExposure": 48.0,
+      "confidence": "medium",
+      "basis": "Datacenter (MI-series plus server CPU) is around half of $34.6B and rising — gross margin moved 39.8% to 53.8% on that mix shift. Client, gaming and embedded remain substantial non-AI revenue.",
+      "sources": [
+        "Claude desk estimate delegated by operator 28 Aug 2026 — inferred from SEC filed revenue, company segment mix and store thesis data. NOT operator-researched, NOT a filed segment figure."
+      ],
+      "assessedAt": "2026-08-28",
+      "assessedBy": "claude-estimate"
+    },
+    "NBIS": {
+      "ticker": "NBIS",
+      "aiExposure": 97.0,
+      "confidence": "medium",
+      "basis": "Pure-play AI cloud: revenue $0.09B to $0.53B, up 454% YoY at roughly 50% AI Cloud adjusted EBITDA margin, with no material legacy business.",
+      "sources": [
+        "Claude desk estimate delegated by operator 28 Aug 2026 — inferred from SEC filed revenue, company segment mix and store thesis data. NOT operator-researched, NOT a filed segment figure."
+      ],
+      "assessedAt": "2026-08-28",
+      "assessedBy": "claude-estimate"
+    },
+    "AXTI": {
+      "ticker": "AXTI",
+      "aiExposure": 40.0,
+      "confidence": "low",
+      "basis": "InP substrates for photonics are the bottleneck he argues, but revenue is $0.09B and shrinking — the price hikes have not landed yet. Legacy GaAs into LED and wireless is still a large share.",
+      "sources": [
+        "Claude desk estimate delegated by operator 28 Aug 2026 — inferred from SEC filed revenue, company segment mix and store thesis data. NOT operator-researched, NOT a filed segment figure."
+      ],
+      "assessedAt": "2026-08-28",
+      "assessedBy": "claude-estimate"
+    },
+    "MU": {
+      "ticker": "MU",
+      "aiExposure": 58.0,
+      "confidence": "medium",
+      "basis": "HBM and datacenter DRAM drove $25.1B to $37.4B with gross margin running to 84%. Mobile, auto, embedded and consumer NAND remain a real minority of the mix.",
+      "sources": [
+        "Claude desk estimate delegated by operator 28 Aug 2026 — inferred from SEC filed revenue, company segment mix and store thesis data. NOT operator-researched, NOT a filed segment figure."
+      ],
+      "assessedAt": "2026-08-28",
+      "assessedBy": "claude-estimate"
+    },
+    "COHR": {
+      "ticker": "COHR",
+      "aiExposure": 52.0,
+      "confidence": "medium",
+      "basis": "Datacenter optical transceivers and lasers drove $5.81B to $7.12B, but a large industrial laser and engineered materials book sits underneath at roughly half.",
+      "sources": [
+        "Claude desk estimate delegated by operator 28 Aug 2026 — inferred from SEC filed revenue, company segment mix and store thesis data. NOT operator-researched, NOT a filed segment figure."
+      ],
+      "assessedAt": "2026-08-28",
+      "assessedBy": "claude-estimate"
+    },
+    "XFAB": {
+      "ticker": "XFAB",
+      "aiExposure": 18.0,
+      "confidence": "low",
+      "basis": "Silicon photonics and 800V design wins are confirmed but pre-revenue by his own account — he accepted there may be a wait. Today's revenue is mostly automotive, SiC and legacy specialty foundry.",
+      "sources": [
+        "Claude desk estimate delegated by operator 28 Aug 2026 — inferred from SEC filed revenue, company segment mix and store thesis data. NOT operator-researched, NOT a filed segment figure."
+      ],
+      "assessedAt": "2026-08-28",
+      "assessedBy": "claude-estimate"
+    },
+    "TSM": {
+      "ticker": "TSM",
+      "aiExposure": 62.0,
+      "confidence": "medium",
+      "basis": "HPC and AI accelerator wafers are now the largest revenue platform, having overtaken smartphone. Smartphone, IoT and automotive still account for a substantial minority of $88.3B.",
+      "sources": [
+        "Claude desk estimate delegated by operator 28 Aug 2026 — inferred from SEC filed revenue, company segment mix and store thesis data. NOT operator-researched, NOT a filed segment figure."
+      ],
+      "assessedAt": "2026-08-28",
+      "assessedBy": "claude-estimate"
+    },
+    "JBL": {
+      "ticker": "JBL",
+      "aiExposure": 22.0,
+      "confidence": "low",
+      "basis": "1.6T LRO optical modules and AI datacenter work are a growing but minority line inside a $29.8B diversified EMS business spanning healthcare, auto and connected devices.",
+      "sources": [
+        "Claude desk estimate delegated by operator 28 Aug 2026 — inferred from SEC filed revenue, company segment mix and store thesis data. NOT operator-researched, NOT a filed segment figure."
+      ],
+      "assessedAt": "2026-08-28",
+      "assessedBy": "claude-estimate"
+    },
+    "MRVL": {
+      "ticker": "MRVL",
+      "aiExposure": 72.0,
+      "confidence": "medium",
+      "basis": "Custom AI silicon, optical DSP and datacenter interconnect drove $5.77B to $8.19B; carrier, enterprise networking, consumer and auto are the shrinking remainder.",
+      "sources": [
+        "Claude desk estimate delegated by operator 28 Aug 2026 — inferred from SEC filed revenue, company segment mix and store thesis data. NOT operator-researched, NOT a filed segment figure."
+      ],
+      "assessedAt": "2026-08-28",
+      "assessedBy": "claude-estimate"
+    },
+    "SNDK": {
+      "ticker": "SNDK",
+      "aiExposure": 55.0,
+      "confidence": "medium",
+      "basis": "Datacenter NAND drove gross margin from 16.1% to 71.5% and revenue to $20.25B on AI-driven shortage pricing, but client and consumer NAND remain a large share of bit volume.",
+      "sources": [
+        "Claude desk estimate delegated by operator 28 Aug 2026 — inferred from SEC filed revenue, company segment mix and store thesis data. NOT operator-researched, NOT a filed segment figure."
+      ],
+      "assessedAt": "2026-08-28",
+      "assessedBy": "claude-estimate"
+    },
+    "GFS": {
+      "ticker": "GFS",
+      "aiExposure": 15.0,
+      "confidence": "low",
+      "basis": "Photonics and the CPO reference design are the case, but revenue has been flat near $6.8B for three years — the mix is still automotive, IoT and smart mobile.",
+      "sources": [
+        "Claude desk estimate delegated by operator 28 Aug 2026 — inferred from SEC filed revenue, company segment mix and store thesis data. NOT operator-researched, NOT a filed segment figure."
+      ],
+      "assessedAt": "2026-08-28",
+      "assessedBy": "claude-estimate"
+    },
+    "INTC": {
+      "ticker": "INTC",
+      "aiExposure": 27.0,
+      "confidence": "low",
+      "basis": "Datacenter and AI is a minority of $52.9B and revenue is declining; client computing still dominates, and foundry AI work is largely prospective.",
+      "sources": [
+        "Claude desk estimate delegated by operator 28 Aug 2026 — inferred from SEC filed revenue, company segment mix and store thesis data. NOT operator-researched, NOT a filed segment figure."
+      ],
+      "assessedAt": "2026-08-28",
+      "assessedBy": "claude-estimate"
+    },
+    "TSEM": {
+      "ticker": "TSEM",
+      "aiExposure": 17.0,
+      "confidence": "low",
+      "basis": "Silicon photonics foundry capacity is one line in a $1.57B specialty analog business weighted to RF, power and sensors. He has never argued the name directly — all views neutral.",
+      "sources": [
+        "Claude desk estimate delegated by operator 28 Aug 2026 — inferred from SEC filed revenue, company segment mix and store thesis data. NOT operator-researched, NOT a filed segment figure."
+      ],
+      "assessedAt": "2026-08-28",
+      "assessedBy": "claude-estimate"
+    },
+    "NVDA": {
+      "ticker": "NVDA",
+      "aiExposure": 88.0,
+      "confidence": "medium",
+      "basis": "Data Center is the overwhelming majority of $215.9B after 65% growth; gaming, professional visualisation and automotive are the small remainder.",
+      "sources": [
+        "Claude desk estimate delegated by operator 28 Aug 2026 — inferred from SEC filed revenue, company segment mix and store thesis data. NOT operator-researched, NOT a filed segment figure."
+      ],
+      "assessedAt": "2026-08-28",
+      "assessedBy": "claude-estimate"
+    },
+    "AMZN": {
+      "ticker": "AMZN",
+      "aiExposure": 7.0,
+      "confidence": "low",
+      "basis": "Revenue-share basis: AWS is roughly a sixth of $716.9B and the AI-specific portion is a subset of that. Amazon's AI position is a capex line, not a revenue line — retail dominates.",
+      "sources": [
+        "Claude desk estimate delegated by operator 28 Aug 2026 — inferred from SEC filed revenue, company segment mix and store thesis data. NOT operator-researched, NOT a filed segment figure."
+      ],
+      "assessedAt": "2026-08-28",
+      "assessedBy": "claude-estimate"
+    },
+    "GOOGL": {
+      "ticker": "GOOGL",
+      "aiExposure": 9.0,
+      "confidence": "low",
+      "basis": "Revenue-share basis: Google Cloud is roughly an eighth of $402.8B and AI is a subset of that. Search advertising remains the overwhelming majority.",
+      "sources": [
+        "Claude desk estimate delegated by operator 28 Aug 2026 — inferred from SEC filed revenue, company segment mix and store thesis data. NOT operator-researched, NOT a filed segment figure."
+      ],
+      "assessedAt": "2026-08-28",
+      "assessedBy": "claude-estimate"
+    },
+    "MSFT": {
+      "ticker": "MSFT",
+      "aiExposure": 16.0,
+      "confidence": "low",
+      "basis": "Revenue-share basis: Azure is roughly a quarter of $331.8B with AI services a subset. Office, Windows, gaming and LinkedIn are the majority.",
+      "sources": [
+        "Claude desk estimate delegated by operator 28 Aug 2026 — inferred from SEC filed revenue, company segment mix and store thesis data. NOT operator-researched, NOT a filed segment figure."
+      ],
+      "assessedAt": "2026-08-28",
+      "assessedBy": "claude-estimate"
+    },
+    "META": {
+      "ticker": "META",
+      "aiExposure": 4.0,
+      "confidence": "low",
+      "basis": "Revenue-share basis: advertising is essentially all of $201.0B. Selling excess compute as a cloud is new and immaterial so far; AI is a capex line, not revenue.",
+      "sources": [
+        "Claude desk estimate delegated by operator 28 Aug 2026 — inferred from SEC filed revenue, company segment mix and store thesis data. NOT operator-researched, NOT a filed segment figure."
+      ],
+      "assessedAt": "2026-08-28",
+      "assessedBy": "claude-estimate"
+    },
+    "AAPL": {
+      "ticker": "AAPL",
+      "aiExposure": 2.0,
+      "confidence": "low",
+      "basis": "Revenue-share basis: devices and services are effectively all of $416.2B. The AI-chip M&A scenario he argues would be a future capex event, not current revenue.",
+      "sources": [
+        "Claude desk estimate delegated by operator 28 Aug 2026 — inferred from SEC filed revenue, company segment mix and store thesis data. NOT operator-researched, NOT a filed segment figure."
+      ],
+      "assessedAt": "2026-08-28",
+      "assessedBy": "claude-estimate"
+    },
+    "SMCI": {
+      "ticker": "SMCI",
+      "aiExposure": 82.0,
+      "confidence": "medium",
+      "basis": "GPU-dense AI servers and liquid-cooled racks drove $14.99B to $21.97B; general-purpose enterprise and storage servers are the minority remainder.",
+      "sources": [
+        "Claude desk estimate delegated by operator 28 Aug 2026 — inferred from SEC filed revenue, company segment mix and store thesis data. NOT operator-researched, NOT a filed segment figure."
+      ],
+      "assessedAt": "2026-08-28",
+      "assessedBy": "claude-estimate"
+    },
+    "000660.KS": {
+      "ticker": "000660.KS",
+      "aiExposure": 57.0,
+      "confidence": "medium",
+      "basis": "HBM leadership and datacenter DRAM are the growth engine, but commodity DRAM and NAND for mobile and consumer remain a large share of the book.",
+      "sources": [
+        "Claude desk estimate delegated by operator 28 Aug 2026 — inferred from SEC filed revenue, company segment mix and store thesis data. NOT operator-researched, NOT a filed segment figure."
+      ],
+      "assessedAt": "2026-08-28",
+      "assessedBy": "claude-estimate"
+    },
+    "IQE": {
+      "ticker": "IQE",
+      "aiExposure": 30.0,
+      "confidence": "low",
+      "basis": "InP epiwafers into the laser chain benefit from the squeeze he argues, but the base is still weighted to GaAs VCSEL and RF for consumer handsets.",
+      "sources": [
+        "Claude desk estimate delegated by operator 28 Aug 2026 — inferred from SEC filed revenue, company segment mix and store thesis data. NOT operator-researched, NOT a filed segment figure."
+      ],
+      "assessedAt": "2026-08-28",
+      "assessedBy": "claude-estimate"
+    },
+    "SOI.PA": {
+      "ticker": "SOI.PA",
+      "aiExposure": 22.0,
+      "confidence": "low",
+      "basis": "FY2027 silicon photonics revenue is guided to double, off a small base. Today's SOI wafer revenue is predominantly RF for smartphones plus power and imaging.",
+      "sources": [
+        "Claude desk estimate delegated by operator 28 Aug 2026 — inferred from SEC filed revenue, company segment mix and store thesis data. NOT operator-researched, NOT a filed segment figure."
+      ],
+      "assessedAt": "2026-08-28",
+      "assessedBy": "claude-estimate"
+    },
+    "MTSI": {
+      "ticker": "MTSI",
+      "aiExposure": 37.0,
+      "confidence": "low",
+      "basis": "Datacenter optical components (lasers, drivers, TIAs) are growing into the shortage, but defence, industrial and telecom RF still carry the majority of $0.97B.",
+      "sources": [
+        "Claude desk estimate delegated by operator 28 Aug 2026 — inferred from SEC filed revenue, company segment mix and store thesis data. NOT operator-researched, NOT a filed segment figure."
+      ],
+      "assessedAt": "2026-08-28",
+      "assessedBy": "claude-estimate"
+    },
+    "AMKR": {
+      "ticker": "AMKR",
+      "aiExposure": 32.0,
+      "confidence": "low",
+      "basis": "Advanced packaging backstopped by NVIDIA and a ten-year TSMC agreement is the AI slice; communications and automotive packaging still dominate $6.71B.",
+      "sources": [
+        "Claude desk estimate delegated by operator 28 Aug 2026 — inferred from SEC filed revenue, company segment mix and store thesis data. NOT operator-researched, NOT a filed segment figure."
+      ],
+      "assessedAt": "2026-08-28",
+      "assessedBy": "claude-estimate"
+    },
+    "FORM": {
+      "ticker": "FORM",
+      "aiExposure": 35.0,
+      "confidence": "low",
+      "basis": "CPO test revenue is beginning to land, and DRAM/HBM probe cards are AI-adjacent, but foundry and logic test for non-AI end markets remain a large share of $0.78B.",
+      "sources": [
+        "Claude desk estimate delegated by operator 28 Aug 2026 — inferred from SEC filed revenue, company segment mix and store thesis data. NOT operator-researched, NOT a filed segment figure."
+      ],
+      "assessedAt": "2026-08-28",
+      "assessedBy": "claude-estimate"
+    },
+    "AEHR": {
+      "ticker": "AEHR",
+      "aiExposure": 40.0,
+      "confidence": "low",
+      "basis": "Expanding fast into AI processor burn-in, memory and silicon photonics, but revenue is $0.05B and shrinking — the AI verticals are orders, not yet recognised revenue.",
+      "sources": [
+        "Claude desk estimate delegated by operator 28 Aug 2026 — inferred from SEC filed revenue, company segment mix and store thesis data. NOT operator-researched, NOT a filed segment figure."
+      ],
+      "assessedAt": "2026-08-28",
+      "assessedBy": "claude-estimate"
+    },
+    "SMTC": {
+      "ticker": "SMTC",
+      "aiExposure": 32.0,
+      "confidence": "low",
+      "basis": "CopperEdge and FiberEdge PMDs for datacenter interconnect are real but a minority of $1.05B, which is still weighted to IoT, industrial and broadcast analog.",
+      "sources": [
+        "Claude desk estimate delegated by operator 28 Aug 2026 — inferred from SEC filed revenue, company segment mix and store thesis data. NOT operator-researched, NOT a filed segment figure."
+      ],
+      "assessedAt": "2026-08-28",
+      "assessedBy": "claude-estimate"
+    },
+    "LPK.DE": {
+      "ticker": "LPK.DE",
+      "aiExposure": 12.0,
+      "confidence": "low",
+      "basis": "Glass-core LIDE tooling is the AI thesis and its ramp is a 2027 event that has already slipped a quarter. Current revenue is legacy PCB and electronics laser systems.",
+      "sources": [
+        "Claude desk estimate delegated by operator 28 Aug 2026 — inferred from SEC filed revenue, company segment mix and store thesis data. NOT operator-researched, NOT a filed segment figure."
+      ],
+      "assessedAt": "2026-08-28",
+      "assessedBy": "claude-estimate"
+    },
+    "AVGO": {
+      "ticker": "AVGO",
+      "aiExposure": 42.0,
+      "confidence": "medium",
+      "basis": "Custom AI ASICs and datacenter networking silicon are a large and growing share of $63.9B, but infrastructure software and broadband are the majority of the combined company.",
+      "sources": [
+        "Claude desk estimate delegated by operator 28 Aug 2026 — inferred from SEC filed revenue, company segment mix and store thesis data. NOT operator-researched, NOT a filed segment figure."
+      ],
+      "assessedAt": "2026-08-28",
+      "assessedBy": "claude-estimate"
+    },
+    "ARM": {
+      "ticker": "ARM",
+      "aiExposure": 22.0,
+      "confidence": "low",
+      "basis": "Datacenter and AI royalty share is growing on Neoverse, but mobile handset royalties and licensing still dominate $4.92B.",
+      "sources": [
+        "Claude desk estimate delegated by operator 28 Aug 2026 — inferred from SEC filed revenue, company segment mix and store thesis data. NOT operator-researched, NOT a filed segment figure."
+      ],
+      "assessedAt": "2026-08-28",
+      "assessedBy": "claude-estimate"
+    },
+    "NOK": {
+      "ticker": "NOK",
+      "aiExposure": 5.0,
+      "confidence": "low",
+      "basis": "Silicon photonics is an evaluation programme only. Revenue is mobile networks, network infrastructure and licensing; datacenter is a small emerging line in EUR 19.9B.",
+      "sources": [
+        "Claude desk estimate delegated by operator 28 Aug 2026 — inferred from SEC filed revenue, company segment mix and store thesis data. NOT operator-researched, NOT a filed segment figure."
+      ],
+      "assessedAt": "2026-08-28",
+      "assessedBy": "claude-estimate"
+    },
+    "BE": {
+      "ticker": "BE",
+      "aiExposure": 42.0,
+      "confidence": "low",
+      "basis": "On-site fuel cells for datacenter power are now the stated growth driver behind $1.47B to $2.02B, but utility, commercial and international non-datacenter deployments remain large.",
+      "sources": [
+        "Claude desk estimate delegated by operator 28 Aug 2026 — inferred from SEC filed revenue, company segment mix and store thesis data. NOT operator-researched, NOT a filed segment figure."
+      ],
+      "assessedAt": "2026-08-28",
+      "assessedBy": "claude-estimate"
+    },
+    "NVTS": {
+      "ticker": "NVTS",
+      "aiExposure": 25.0,
+      "confidence": "low",
+      "basis": "800V DC power semis for AI racks are the thesis and he holds a small position, but revenue is $0.05B and shrinking — today's mix is EV, solar and mobile charging.",
+      "sources": [
+        "Claude desk estimate delegated by operator 28 Aug 2026 — inferred from SEC filed revenue, company segment mix and store thesis data. NOT operator-researched, NOT a filed segment figure."
+      ],
+      "assessedAt": "2026-08-28",
+      "assessedBy": "claude-estimate"
+    },
+    "IREN": {
+      "ticker": "IREN",
+      "aiExposure": 25.0,
+      "confidence": "low",
+      "basis": "Pivoting datacenter capacity from bitcoin mining to GPU/AI hosting; on $0.50B most revenue is still mining. The only Core name he argues net negative, five bear views.",
+      "sources": [
+        "Claude desk estimate delegated by operator 28 Aug 2026 — inferred from SEC filed revenue, company segment mix and store thesis data. NOT operator-researched, NOT a filed segment figure."
+      ],
+      "assessedAt": "2026-08-28",
+      "assessedBy": "claude-estimate"
+    },
+    "CXMT": {
+      "ticker": "CXMT",
+      "aiExposure": 17.0,
+      "confidence": "low",
+      "basis": "Commodity DDR is the business; domestic HBM is ramping but early. Private Chinese filer with no accessible statements, so the split is inferred from product mix only.",
+      "sources": [
+        "Claude desk estimate delegated by operator 28 Aug 2026 — inferred from SEC filed revenue, company segment mix and store thesis data. NOT operator-researched, NOT a filed segment figure."
+      ],
+      "assessedAt": "2026-08-28",
+      "assessedBy": "claude-estimate"
+    },
+    "AEVA": {
+      "ticker": "AEVA",
+      "aiExposure": 20.0,
+      "confidence": "low",
+      "basis": "Automotive FMCW LiDAR is the business at $0.02B; the CPO/NPO optical source JDA for hyperscaler deployment is new TAM and not yet revenue.",
+      "sources": [
+        "Claude desk estimate delegated by operator 28 Aug 2026 — inferred from SEC filed revenue, company segment mix and store thesis data. NOT operator-researched, NOT a filed segment figure."
+      ],
+      "assessedAt": "2026-08-28",
+      "assessedBy": "claude-estimate"
+    },
+    "RDDT": {
+      "ticker": "RDDT",
+      "aiExposure": 10.0,
+      "confidence": "low",
+      "basis": "Content licensing to AI labs is genuine AI revenue but a minority line; advertising dominates. Note this is AI training data, not the datacenter buildout the field measures.",
+      "sources": [
+        "Claude desk estimate delegated by operator 28 Aug 2026 — inferred from SEC filed revenue, company segment mix and store thesis data. NOT operator-researched, NOT a filed segment figure."
+      ],
+      "assessedAt": "2026-08-28",
+      "assessedBy": "claude-estimate"
+    },
+    "VPG": {
+      "ticker": "VPG",
+      "aiExposure": 5.0,
+      "confidence": "low",
+      "basis": "Precision resistors and strain gauges into humanoid robotics are the thesis, and he explicitly caveats it does not move the needle until humanoid volumes reach massive scale.",
+      "sources": [
+        "Claude desk estimate delegated by operator 28 Aug 2026 — inferred from SEC filed revenue, company segment mix and store thesis data. NOT operator-researched, NOT a filed segment figure."
+      ],
+      "assessedAt": "2026-08-28",
+      "assessedBy": "claude-estimate"
+    },
+    "TSLA": {
+      "ticker": "TSLA",
+      "aiExposure": 3.0,
+      "confidence": "low",
+      "basis": "Revenue is vehicles and energy. Optimus is a robotics programme inside a trillion-dollar company and, as he says himself, not the pure-play exposure he points at. Not datacenter buildout.",
+      "sources": [
+        "Claude desk estimate delegated by operator 28 Aug 2026 — inferred from SEC filed revenue, company segment mix and store thesis data. NOT operator-researched, NOT a filed segment figure."
+      ],
+      "assessedAt": "2026-08-28",
+      "assessedBy": "claude-estimate"
+    },
+    "RKLB": {
+      "ticker": "RKLB",
+      "aiExposure": 1.0,
+      "confidence": "low",
+      "basis": "Launch services, spacecraft components and satellite manufacturing. No datacenter AI revenue; both of his recent views on it are explicit non-views.",
+      "sources": [
+        "Claude desk estimate delegated by operator 28 Aug 2026 — inferred from SEC filed revenue, company segment mix and store thesis data. NOT operator-researched, NOT a filed segment figure."
+      ],
+      "assessedAt": "2026-08-28",
+      "assessedBy": "claude-estimate"
+    }
+  }
 }

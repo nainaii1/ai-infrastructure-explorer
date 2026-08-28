@@ -844,6 +844,16 @@ a.th-ticker:hover {
   color: var(--text);
 }
 .aie-exp-none { font-family: var(--sans); font-size: var(--fs-xs); color: var(--muted); }
+/* Provenance. Only renders when the call was NOT the operator's own, so a
+   delegated desk estimate can never be read back as researched judgement. */
+.aie-exp-by {
+  margin-left: auto;
+  font-family: var(--mono); font-size: var(--fs-2xs); font-weight: 700;
+  letter-spacing: .06em; text-transform: uppercase;
+  padding: 1px var(--s-2); border-radius: var(--r-chip);
+  background: var(--sem-pass-bg); color: var(--sem-pass-fg);
+}
+.aie-exp-by + .aie-exp-conf { margin-left: 0; }
 
 /* ============================================================================
    8. FOOTER COLOPHON

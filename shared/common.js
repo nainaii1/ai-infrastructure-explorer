@@ -650,8 +650,20 @@
         + "filed figure.";
       row.appendChild(e);
     }
+    /* Whose call this was. Absent/"operator" renders nothing — the field is
+       only interesting when the judgement was NOT the operator's own, and a
+       chip on every row would teach the eye to skip it. */
+    var by = a.assessedBy;
+    if (by && by !== "operator") {
+      var byChip = mk("span", "aie-exp-by", by === "claude-estimate" ? "est." : by);
+      byChip.title = "Not your own researched judgement — recorded by " + by
+        + ". Treat it as a placeholder until you have checked it.";
+      row.appendChild(byChip);
+    }
     var conf = mk("span", "aie-exp-conf conf-" + a.confidence, a.confidence);
-    conf.title = "How sure you were when you recorded this";
+    conf.title = by && by !== "operator"
+      ? "How sure the estimate is — not a measurement"
+      : "How sure you were when you recorded this";
     row.appendChild(conf);
     if (a.basis) {
       var basis = mk("p", "aie-exp-basis", a.basis);
