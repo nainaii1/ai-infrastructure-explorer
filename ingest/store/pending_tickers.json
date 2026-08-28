@@ -39,13 +39,13 @@
     "candidate": "JX",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:37:23Z",
-    "count": 3
+    "count": 4
   },
   {
     "candidate": "MC",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:37:23Z",
-    "count": 34
+    "count": 39
   },
   {
     "candidate": "MF",
@@ -57,7 +57,7 @@
     "candidate": "MLCC",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:37:23Z",
-    "count": 13
+    "count": 14
   },
   {
     "candidate": "MOCVD",
@@ -153,19 +153,19 @@
     "candidate": "DRAM",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:39:49Z",
-    "count": 8
+    "count": 12
   },
   {
     "candidate": "NAND",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:39:49Z",
-    "count": 16
+    "count": 19
   },
   {
     "candidate": "OP",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:39:49Z",
-    "count": 2
+    "count": 3
   },
   {
     "candidate": "SHA",
@@ -177,7 +177,7 @@
     "candidate": "SK",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:39:49Z",
-    "count": 26
+    "count": 27
   },
   {
     "candidate": "SMIC",
@@ -267,7 +267,7 @@
     "candidate": "NFA",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:42:40Z",
-    "count": 10
+    "count": 12
   },
   {
     "candidate": "GAA",
@@ -285,19 +285,19 @@
     "candidate": "ELS",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:44:22Z",
-    "count": 14
+    "count": 15
   },
   {
     "candidate": "EML",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:44:22Z",
-    "count": 23
+    "count": 24
   },
   {
     "candidate": "QD",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:44:22Z",
-    "count": 1
+    "count": 2
   },
   {
     "candidate": "MBE",
@@ -315,7 +315,7 @@
     "candidate": "ASIC",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:45:35Z",
-    "count": 9
+    "count": 10
   },
   {
     "candidate": "LPO",
@@ -345,7 +345,7 @@
     "candidate": "DFB",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:54:29Z",
-    "count": 13
+    "count": 15
   },
   {
     "candidate": "FMCW",
@@ -363,7 +363,7 @@
     "candidate": "NRE",
     "sourceUrl": "",
     "firstSeen": "2026-06-30T07:19:13Z",
-    "count": 1
+    "count": 2
   },
   {
     "candidate": "OSINT",
@@ -411,7 +411,7 @@
     "candidate": "CW",
     "sourceUrl": "",
     "firstSeen": "2026-06-30T07:39:56Z",
-    "count": 44
+    "count": 49
   },
   {
     "candidate": "ERIC",
@@ -477,7 +477,7 @@
     "candidate": "TFLN",
     "sourceUrl": "",
     "firstSeen": "2026-06-30T07:39:56Z",
-    "count": 4
+    "count": 5
   },
   {
     "candidate": "YSS",
@@ -525,7 +525,7 @@
     "candidate": "IP",
     "sourceUrl": "",
     "firstSeen": "2026-06-30T07:39:58Z",
-    "count": 8
+    "count": 9
   },
   {
     "candidate": "MSA",
@@ -597,7 +597,7 @@
     "candidate": "LNG",
     "sourceUrl": "",
     "firstSeen": "2026-06-30T07:46:58Z",
-    "count": 3
+    "count": 4
   },
   {
     "candidate": "OFC",
@@ -639,7 +639,7 @@
     "candidate": "FAU",
     "sourceUrl": "",
     "firstSeen": "2026-06-30T07:49:19Z",
-    "count": 6
+    "count": 7
   },
   {
     "candidate": "HBF",
@@ -657,13 +657,13 @@
     "candidate": "NPO",
     "sourceUrl": "",
     "firstSeen": "2026-06-30T07:49:19Z",
-    "count": 18
+    "count": 20
   },
   {
     "candidate": "SKC",
     "sourceUrl": "",
     "firstSeen": "2026-06-30T07:49:19Z",
-    "count": 3
+    "count": 4
   },
   {
     "candidate": "AWS",
@@ -729,7 +729,7 @@
     "candidate": "HVM",
     "sourceUrl": "",
     "firstSeen": "2026-07-01T14:56:53Z",
-    "count": 9
+    "count": 10
   },
   {
     "candidate": "CWTC",
@@ -765,7 +765,7 @@
     "candidate": "MS",
     "sourceUrl": "",
     "firstSeen": "2026-07-01T14:57:24Z",
-    "count": 5
+    "count": 6
   },
   {
     "candidate": "OSAT",
@@ -813,7 +813,7 @@
     "candidate": "ATM",
     "sourceUrl": "",
     "firstSeen": "2026-07-02T09:30:58Z",
-    "count": 5
+    "count": 6
   },
   {
     "candidate": "ISO",
@@ -849,7 +849,7 @@
     "candidate": "AXT",
     "sourceUrl": "",
     "firstSeen": "2026-07-03T10:07:17Z",
-    "count": 2
+    "count": 3
   },
   {
     "candidate": "AGENT",
@@ -915,7 +915,7 @@
     "candidate": "JV",
     "sourceUrl": "",
     "firstSeen": "2026-07-03T10:12:58Z",
-    "count": 3
+    "count": 4
   },
   {
     "candidate": "KRW",
@@ -993,7 +993,7 @@
     "candidate": "VPEC",
     "sourceUrl": "",
     "firstSeen": "2026-07-03T13:22:38Z",
-    "count": 3
+    "count": 4
   },
   {
     "candidate": "CNBC",
@@ -1053,7 +1053,7 @@
     "candidate": "FOCI",
     "sourceUrl": "",
     "firstSeen": "2026-07-03T13:26:09Z",
-    "count": 2
+    "count": 3
   },
   {
     "candidate": "KGD",
@@ -1071,7 +1071,7 @@
     "candidate": "PE",
     "sourceUrl": "",
     "firstSeen": "2026-07-03T13:26:17Z",
-    "count": 1
+    "count": 2
   },
   {
     "candidate": "KQ",
@@ -1107,7 +1107,7 @@
     "candidate": "UDN",
     "sourceUrl": "",
     "firstSeen": "2026-07-05T07:37:20Z",
-    "count": 1
+    "count": 2
   },
   {
     "candidate": "ABB",
@@ -1191,7 +1191,7 @@
     "candidate": "SCALE",
     "sourceUrl": "",
     "firstSeen": "2026-07-06T15:31:53Z",
-    "count": 3
+    "count": 4
   },
   {
     "candidate": "EV",
@@ -1323,7 +1323,7 @@
     "candidate": "ER",
     "sourceUrl": "",
     "firstSeen": "2026-07-14T09:36:28Z",
-    "count": 13
+    "count": 17
   },
   {
     "candidate": "CPI",
@@ -1479,7 +1479,7 @@
     "candidate": "TFC",
     "sourceUrl": "",
     "firstSeen": "2026-07-29T16:35:45Z",
-    "count": 1
+    "count": 2
   },
   {
     "candidate": "SB",
@@ -1521,7 +1521,7 @@
     "candidate": "LFG",
     "sourceUrl": "https://x.com/aleabitoreddit/status/2083088870942642391",
     "firstSeen": "2026-07-31T16:11:42Z",
-    "count": 1
+    "count": 2
   },
   {
     "candidate": "DAU",
@@ -1563,7 +1563,7 @@
     "candidate": "AOI",
     "sourceUrl": "https://x.com/aleabitoreddit/status/2085499853099208716",
     "firstSeen": "2026-08-07T14:31:07Z",
-    "count": 6
+    "count": 9
   },
   {
     "candidate": "DWDM",
@@ -1581,7 +1581,7 @@
     "candidate": "TIA",
     "sourceUrl": "https://x.com/aleabitoreddit/status/2085711500875116887",
     "firstSeen": "2026-08-08T08:15:16Z",
-    "count": 4
+    "count": 5
   },
   {
     "candidate": "YMTC",
@@ -1725,6 +1725,90 @@
     "candidate": "IEEE",
     "sourceUrl": "https://x.com/aleabitoreddit/status/2090735668532224224",
     "firstSeen": "2026-08-21T16:22:13Z",
+    "count": 1
+  },
+  {
+    "candidate": "MEGA",
+    "sourceUrl": "",
+    "firstSeen": "2026-08-25T15:24:55Z",
+    "count": 1
+  },
+  {
+    "candidate": "SMALL",
+    "sourceUrl": "",
+    "firstSeen": "2026-08-25T15:24:55Z",
+    "count": 1
+  },
+  {
+    "candidate": "LPX",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2091909391238979970",
+    "firstSeen": "2026-08-25T15:26:10Z",
+    "count": 1
+  },
+  {
+    "candidate": "ADATA",
+    "sourceUrl": "",
+    "firstSeen": "2026-08-26T06:44:12Z",
+    "count": 2
+  },
+  {
+    "candidate": "COGS",
+    "sourceUrl": "",
+    "firstSeen": "2026-08-26T06:44:12Z",
+    "count": 1
+  },
+  {
+    "candidate": "ESMT",
+    "sourceUrl": "",
+    "firstSeen": "2026-08-26T06:44:12Z",
+    "count": 5
+  },
+  {
+    "candidate": "FX",
+    "sourceUrl": "",
+    "firstSeen": "2026-08-26T06:44:12Z",
+    "count": 1
+  },
+  {
+    "candidate": "NT",
+    "sourceUrl": "",
+    "firstSeen": "2026-08-26T06:44:12Z",
+    "count": 1
+  },
+  {
+    "candidate": "PSMC",
+    "sourceUrl": "",
+    "firstSeen": "2026-08-26T06:44:12Z",
+    "count": 3
+  },
+  {
+    "candidate": "TTM",
+    "sourceUrl": "",
+    "firstSeen": "2026-08-26T06:44:12Z",
+    "count": 1
+  },
+  {
+    "candidate": "TWSE",
+    "sourceUrl": "",
+    "firstSeen": "2026-08-26T06:44:12Z",
+    "count": 1
+  },
+  {
+    "candidate": "NOR",
+    "sourceUrl": "",
+    "firstSeen": "2026-08-26T09:26:54Z",
+    "count": 2
+  },
+  {
+    "candidate": "THIS",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2093054882282651723",
+    "firstSeen": "2026-08-28T10:03:26Z",
+    "count": 1
+  },
+  {
+    "candidate": "VERY",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2093054882282651723",
+    "firstSeen": "2026-08-28T10:03:26Z",
     "count": 1
   }
 ]
