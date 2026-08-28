@@ -153,13 +153,13 @@
     "candidate": "DRAM",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:39:49Z",
-    "count": 12
+    "count": 13
   },
   {
     "candidate": "NAND",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:39:49Z",
-    "count": 19
+    "count": 20
   },
   {
     "candidate": "OP",
@@ -411,7 +411,7 @@
     "candidate": "CW",
     "sourceUrl": "",
     "firstSeen": "2026-06-30T07:39:56Z",
-    "count": 49
+    "count": 50
   },
   {
     "candidate": "ERIC",
@@ -1203,7 +1203,7 @@
     "candidate": "GAAP",
     "sourceUrl": "",
     "firstSeen": "2026-07-07T07:03:37Z",
-    "count": 5
+    "count": 6
   },
   {
     "candidate": "PT",
@@ -1809,6 +1809,30 @@
     "candidate": "VERY",
     "sourceUrl": "https://x.com/aleabitoreddit/status/2093054882282651723",
     "firstSeen": "2026-08-28T10:03:26Z",
+    "count": 1
+  },
+  {
+    "candidate": "AMC",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2093265972207718782",
+    "firstSeen": "2026-08-28T19:10:52Z",
+    "count": 1
+  },
+  {
+    "candidate": "GAP",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2093265972207718782",
+    "firstSeen": "2026-08-28T19:10:52Z",
+    "count": 1
+  },
+  {
+    "candidate": "IHOP",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2093265972207718782",
+    "firstSeen": "2026-08-28T19:10:52Z",
+    "count": 1
+  },
+  {
+    "candidate": "KFC",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2093265972207718782",
+    "firstSeen": "2026-08-28T19:10:52Z",
     "count": 1
   }
 ]

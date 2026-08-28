@@ -1,7 +1,7 @@
 {
   "meta": {
     "schemaVersion": 1,
-    "updatedAt": "2026-08-25T00:00:00Z",
+    "updatedAt": "2026-08-28T19:30:00Z",
     "author": "claude-desk",
     "benchmark": "SMH",
     "disclaimer": "The calls ledger tracks the desk's own dated suggestions against a buy-the-index benchmark. Stamped forward-only, never retro-fitted. Personal research tool - not investment advice."
@@ -281,6 +281,52 @@
       "benchmark": {
         "symbol": "SMH",
         "priceAtCall": 546.8
+      }
+    },
+    {
+      "id": "c_NVDA_2026-08-28",
+      "ticker": "NVDA",
+      "source": "desk",
+      "kind": "new-position",
+      "calledAt": "2026-08-28T19:30:00Z",
+      "entryPrice": 217.13,
+      "entryCurrency": "USD",
+      "stanceAtCall": "accumulate",
+      "memoId": null,
+      "thesisIds": [
+        "x_2092723047107355133",
+        "x_2092718416683819292",
+        "x_2092851118233764178"
+      ],
+      "closedAt": null,
+      "exitPrice": null,
+      "outcome": "open",
+      "benchmark": {
+        "symbol": "SMH",
+        "priceAtCall": 553.69
+      }
+    },
+    {
+      "id": "c_MTSI_2026-08-28",
+      "ticker": "MTSI",
+      "source": "desk",
+      "kind": "trim",
+      "calledAt": "2026-08-28T19:30:00Z",
+      "entryPrice": 264.76,
+      "entryCurrency": "USD",
+      "stanceAtCall": "watch",
+      "memoId": null,
+      "thesisIds": [
+        "x_2092186856792506435",
+        "h_66aa14a680b9c2c7",
+        "h_6c43446068975dda"
+      ],
+      "closedAt": null,
+      "exitPrice": null,
+      "outcome": "open",
+      "benchmark": {
+        "symbol": "SMH",
+        "priceAtCall": 553.69
       }
     }
   ]

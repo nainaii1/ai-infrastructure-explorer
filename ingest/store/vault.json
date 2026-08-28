@@ -1,7 +1,7 @@
 {
   "meta": {
     "schemaVersion": 1,
-    "syncedAt": "2026-08-28T15:23:00Z",
+    "syncedAt": "2026-08-28T19:10:47Z",
     "pageCount": 68,
     "linkCount": 239
   },
@@ -133,8 +133,8 @@
           "label": "AI Memory",
           "flowRole": "supply",
           "memberCount": 5,
-          "coreCount": 3,
-          "watchCount": 2
+          "coreCount": 4,
+          "watchCount": 1
         }
       },
       "note": "Still the highest-conviction supply theme in the vault, and as of 25 Aug 2026 the first one where the desk has taken money off rather than put it on. Both memory positions now sit at **wait**: [[sndk]] since 21 Aug on price, [[mu]] since 25 Aug on margin.\n\nThe reason is a single comparison. Micron printed an 84.6% gross margin last reported quarter; Sandisk's FY2026 GAAP gross margin was already 71.5%, against 16.1% two years earlier, and its investor day guides ~80% as a 2030 ambition. The industry is currently earning more than its own long-range plans, which is the definition of a peak rather than a plateau \u2014 unless this cycle is structurally different, and the desk has no evidence for that beyond its size.\n\nThe shortage itself is not in question. TrendForce has 3Q26 DRAM contract prices up 13-18% and NAND up 10-15% quarter on quarter, with capacity additions requiring roughly four years. [[amzn]] raised 2026 capex to ~$220bn explicitly on higher memory costs, which is the cleanest confirmation available: the hyperscalers' cost line is this theme's revenue line. That is also why memory and [[hyperscalers]] cannot both be cheap at the same time.",
@@ -260,9 +260,9 @@
           "aleabitoreddit"
         ],
         "stats": {
-          "tier": "watch",
-          "mentions": 8,
-          "lastMentioned": "2026-08-21T09:40:02Z",
+          "tier": "core",
+          "mentions": 9,
+          "lastMentioned": "2026-08-28T08:20:47Z",
           "category": "memory",
           "market": "KR",
           "marketCapTier": "Mega",
@@ -987,8 +987,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 80,
-          "lastMentioned": "2026-08-27T21:24:26Z",
+          "mentions": 81,
+          "lastMentioned": "2026-08-28T08:20:47Z",
           "category": "accelerators",
           "market": "US",
           "marketCapTier": "Mega",
@@ -1116,8 +1116,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 124,
-          "lastMentioned": "2026-08-27T21:24:26Z",
+          "mentions": 125,
+          "lastMentioned": "2026-08-28T06:53:51Z",
           "category": "photonics",
           "market": "SE",
           "marketCapTier": "Small",
@@ -1182,8 +1182,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 30,
-          "lastMentioned": "2026-08-27T05:46:04Z",
+          "mentions": 31,
+          "lastMentioned": "2026-08-28T08:20:47Z",
           "category": "memory",
           "market": "",
           "marketCapTier": "",
