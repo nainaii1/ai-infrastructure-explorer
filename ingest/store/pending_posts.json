@@ -1437,9 +1437,11 @@
     "text": "Lost interest in $SMTC and every other earnings report today after finding a memory name way too interesting not to research...",
     "postedAt": "2026-08-25T20:51:59Z",
     "verifiedAuthor": "aleabitoreddit",
-    "status": "pending",
+    "status": "ingested",
     "queuedAt": "2026-08-26T00:20:11Z",
-    "notifiedAt": "2026-08-26T04:05:14Z"
+    "notifiedAt": "2026-08-26T04:05:14Z",
+    "decidedAt": "2026-08-28T20:07:38Z",
+    "thesisId": "x_2092354322432684098"
   },
   {
     "id": "2092408620277457255",

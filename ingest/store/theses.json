@@ -17499,5 +17499,27 @@
     "tickers": [],
     "conviction": "normal",
     "tags": []
+  },
+  {
+    "id": "x_2092354322432684098",
+    "source": "x",
+    "author": "aleabitoreddit",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2092354322432684098",
+    "postedAt": "2026-08-25T20:51:59Z",
+    "ingestedAt": "2026-08-28T20:07:38Z",
+    "text": "Lost interest in $SMTC and every other earnings report today after finding a memory name way too interesting not to research... https://x.com/aleabitoreddit/status/2092354322432684098",
+    "tickers": [
+      "SMTC"
+    ],
+    "conviction": "normal",
+    "tags": [],
+    "views": [
+      {
+        "ticker": "SMTC",
+        "direction": "neutral",
+        "why": "Says he lost interest in the Semtech earnings report, and in every other report that day, after finding a memory name more worth researching — an attention signal against the name rather than an argued view on it"
+      }
+    ],
+    "viewsExtractedAt": "2026-08-28T20:07:55Z"
   }
 ]
