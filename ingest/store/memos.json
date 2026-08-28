@@ -1,7 +1,7 @@
 {
   "meta": {
     "schemaVersion": 1,
-    "updatedAt": "2026-08-25T09:00:00Z",
+    "updatedAt": "2026-08-28T19:45:00Z",
     "author": "claude-desk",
     "disclaimer": "Coverage memos are second-opinion research notes on @aleabitoreddit's ideas. Personal research tool — not investment advice."
   },
@@ -2404,38 +2404,38 @@
     {
       "id": "m_POET_2026w35",
       "ticker": "POET",
-      "kind": "update",
-      "title": "He is bearish on it and he owns it",
-      "dek": "The analyst wrote that he has zero idea how POET was allowed to dilute this much. The desk is taking that at face value.",
+      "kind": "exit-note",
+      "title": "POET: the analyst made the bear case, three times",
+      "dek": "Downgraded to pass. No visible demand, integrated out of interposers, and a dilution habit — all his words, not the desk's.",
       "publishedAt": "2026-08-25T09:00:00Z",
-      "updatedAt": "2026-08-25T09:00:00Z",
-      "rating": "watch",
+      "updatedAt": "2026-08-28T19:45:00Z",
+      "rating": "pass",
       "basedOnVerdict": true,
       "sourceThesisIds": [
-        "x_2087846074027295020",
-        "h_66aa14a680b9c2c7",
-        "x_2090735668532224224"
+        "x_2091843192639672553",
+        "x_2090735668532224224",
+        "x_2093087267594314182"
       ],
       "sections": [
         {
           "heading": "Snapshot",
-          "body": "$POET re-enters the top fifteen. Unusually for this feed, the most useful thing said about it this month was negative, and it came from the analyst himself."
+          "body": "$POET moves from wait to **pass**. The desk held a wait too long here, and the evidence that it was wrong came from the analyst who introduced the name."
         },
         {
           "heading": "Thesis",
-          "body": "On 13 August he wrote that he has zero idea how POET convinced shareholders to permit that much dilution, that the company now sits on roughly **$830M** of cash, and that he took only small positions.\n\nThat is a rare piece of candour in a long-only feed and it is the right frame. The asset is real: the optical interposer sits between $SIVE lasers and the optical engines that reach hyperscaler programmes, and earlier in the year he noted POET upgrading its own language from readiness to production with Sivers lasers. But an $830M cash pile at this revenue scale is a call option on execution, priced as though execution is already underway."
+          "body": "Three separate posts this month argue against it. On 13 August he described it as cash-rich with huge capacity coming but no visible demand to fill it and a weaker moat, and said he holds it only as a deliberate small risk position, explicitly not a clear long. On 21 August he judged that Marvell has probably vertically integrated POET out of the interposer and packaging layer that people had been speculating about. On 24 August he named it alongside $IREN as a company he has criticised for overusing ATMs and dilution, and contrasted it directly against $AAOI as the name he is *not* overweight — the difference being that AOI is genuinely capacity constrained and POET is not."
         },
         {
           "heading": "Why own it",
-          "body": "If [[photonics]] scale-up lands the way $LITE and $MTSI earnings imply, an interposer supplier with no funding risk and named partners is positioned better than most of the group. The cash that reads as dilution today is also the reason POET does not need to raise into a downturn."
+          "body": "The residual case is a large balance sheet and optionality. He noted roughly **$830m** of cash against a market capitalisation not far above it, capacity for around 12m engines a year, and a revenue ceiling near **$1.8bn** at the assumed ASP if that capacity ever fills. The Lumilens arrangement gives visibility into a well-funded hyperscaler supplier. None of that is nothing.\n\nIt is also the reason he keeps a small position rather than none. The desk's view is that optionality at this price is not the same as a position."
         },
         {
           "heading": "Risks",
-          "body": "No desk research has been done here. POET was dropped by the pre-review cap and is being initiated on the analyst's posts alone. The dilution he objects to is real and permanent; the production wording he cites is a company claim, not a filed order."
+          "body": "Filed revenue rounds to zero across all four years on record. The company has no disclosed first-generation CPO participation, faces a vertically integrating competitor in the layer it targeted, and has funded itself through dilution he calls hard to justify. In a market that has just stopped paying for 2027 revenue entirely, a company with no revenue and no dated conversion is the worst-positioned profile in the book."
         },
         {
           "heading": "Bottom line",
-          "body": "**Wait.** Queue $POET alongside $SIVE for next week's seats — they are the same supply chain and should be underwritten together, not separately. A dated interposer production order at a named customer, funded without further dilution, is what turns the cash pile from a warning into an advantage."
+          "body": "Exit into strength rather than at the current level. Reopening requires one specific thing: a named first-generation CPO design win with disclosed volumes. Nothing short of that."
         }
       ]
     },
@@ -2474,6 +2474,234 @@
         {
           "heading": "Bottom line",
           "body": "**Pass**, and off the roster. If Optimus becomes a separately disclosed segment with its own revenue line, it earns a fresh look on the numbers rather than on mention count."
+        }
+      ]
+    },
+    {
+      "id": "m_NVDA_2026w35",
+      "ticker": "NVDA",
+      "kind": "update",
+      "title": "NVIDIA: the guide, not the beat",
+      "dek": "Upgraded to accumulate. A 26-point upward revision to its own multi-year growth rate, while everything it feeds was sold.",
+      "publishedAt": "2026-08-28T19:45:00Z",
+      "updatedAt": "2026-08-28T19:45:00Z",
+      "rating": "accumulate",
+      "basedOnVerdict": true,
+      "sourceThesisIds": [
+        "x_2092723047107355133",
+        "x_2092718416683819292",
+        "x_2092851118233764178"
+      ],
+      "sections": [
+        {
+          "heading": "Snapshot",
+          "body": "$NVDA reported a quarter that beat on every line and then said something far more important about the next two years. The desk moves from wait to **accumulate** — the first upgrade here since coverage opened."
+        },
+        {
+          "heading": "Thesis",
+          "body": "The beat was real but ordinary for this company: revenue of **$96.22bn** against roughly $92.17bn expected, data centre at **$89.0bn**, adjusted EPS of $2.22, and a guide of $108bn that assumes zero China data centre compute revenue.\n\nThe number that matters is the outlook. Management guided fiscal 2028 revenue growth of approximately **70%**, against a consensus near 43.9%, and described it explicitly as a supply-constrained figure. A company of this size revising its own multi-year growth rate upward by twenty-six points is not a normal event.\n\nUnderneath it, commitments rose from **$119bn to $279bn**, primarily memory procurement, and the CFO said the company is experiencing extreme pricing conditions in memory. That single sentence validates the entire memory thesis this desk holds through $MU and $SNDK, from the buyer's side rather than the seller's."
+        },
+        {
+          "heading": "Why own it",
+          "body": "He is usually right that the alpha sits downstream of an NVIDIA print rather than inside it, and for most of this year that has been the correct trade. This week inverted it. The supply chain he prefers fell hard while the company causing the demand rose slightly.\n\nOwning $NVDA here is not a bet that it is cheap. It is the observation that the risk-adjusted way to hold a confirmed multi-year demand signal is through the balance sheet that does not need capital markets to survive a drawdown — which is precisely what [[sive]], [[aaoi]] and [[poet]] demonstrated they do need."
+        },
+        {
+          "heading": "Risks",
+          "body": "The residual value guaranties on roughly 4.25GW at the Portsmouth site remain the least-discussed disclosure in this book: an aggregate payment obligation capped near **$105 billion**, filed as an off-balance-sheet obligation, with an OpenAI affiliate as tenant and NVIDIA covering the shortfall on insolvency or non-payment. That is a chip company underwriting its largest customer's credit, and nobody in the feed is pricing it.\n\nThe second risk is that the $279bn of commitments is pull-forward rather than demand. If hyperscalers are double-ordering memory and compute against a 2027 shortage, some of that unwinds."
+        },
+        {
+          "heading": "Bottom line",
+          "body": "Accumulate in two tranches rather than one, the second only on a retrace toward the pre-earnings level. This is the position that funds patience in the high-beta names, not a trade against them."
+        }
+      ]
+    },
+    {
+      "id": "m_SIVE_2026w35",
+      "ticker": "SIVE",
+      "kind": "update",
+      "title": "Sivers: the pipeline tripled and the stock halved the difference",
+      "dek": "Held at wait through a severe drawdown and a genuinely good quarter. Revenue is still measured in single-digit millions.",
+      "publishedAt": "2026-08-28T19:45:00Z",
+      "updatedAt": "2026-08-28T19:45:00Z",
+      "rating": "watch",
+      "basedOnVerdict": true,
+      "sourceThesisIds": [
+        "x_2093054882282651723",
+        "x_2093014569279189295",
+        "x_2093087267594314182"
+      ],
+      "sections": [
+        {
+          "heading": "Snapshot",
+          "body": "$SIVE reported the quarter he had been waiting all month for, and the market sold it hard along with everything else upstream. The desk holds at **wait**, which is the same call as last week for a different reason."
+        },
+        {
+          "heading": "Thesis",
+          "body": "The earnings were strong on every measure that describes the future. The revenue opportunity pipeline reached **$1.2bn**, up 268% since December and up from $799m at the last report. Six new pluggable players are now engaged, three in alpha sample evaluation and three in technical assessment. Initial production orders with $JBL are guided to the first half of 2027 with the ramp in the second half. Most materially, a new foundry partner brings capacity described as available now, which de-risks the single-source dependence on Win Semi during a structural CW laser shortage.\n\nHe called it his favourite high-beta optical long and the most unusual billion-dollar photonics company he has seen, pointing to the breadth of qualification paths: reference laser for the $GFS platform, external light source paths with $POET and O-Net, lasers into Ayar for optical I/O, and $AEVA for hyperscaler NPO work."
+        },
+        {
+          "heading": "Why own it",
+          "body": "The desk does not dispute any of that. The chokepoint is real, the qualifications are real, and the customer list is unusually broad for a company this size. If the CW laser shortage persists as both he and the Sivers CEO claim — three to five years of InP demand imbalance — this is the most direct merchant exposure to it available on a public exchange."
+        },
+        {
+          "heading": "Risks",
+          "body": "The other half of the same report: quarterly revenue was **$5.64m** and adjusted EBITDA was **negative $3.72m**. This remains a qualification-stage company whose revenue inflection is guided to become visible in Q4 2026 and accelerate through 2027.\n\nThat is the entire problem this week. The market did not reject the pipeline; it stopped paying for revenue that arrives in 2027 at all. A name with no current revenue, listed on a small Swedish exchange, is the purest expression of that duration risk. He names the listing discount himself as the main drawback."
+        },
+        {
+          "heading": "Bottom line",
+          "body": "No add despite the drawdown. Position sizing rather than conviction has been the error here. A first add belongs after the Nasdaq listing removes the exchange discount, or on the first quarter where revenue actually reflects the transition management has guided to."
+        }
+      ]
+    },
+    {
+      "id": "m_AAOI_2026w35",
+      "ticker": "AAOI",
+      "kind": "update",
+      "title": "Applied Optoelectronics: he moved to the desk's side",
+      "dek": "Held at wait. For the first time this year he argued against a core holding of his own — the ATMs.",
+      "publishedAt": "2026-08-28T19:45:00Z",
+      "updatedAt": "2026-08-28T19:45:00Z",
+      "rating": "watch",
+      "basedOnVerdict": true,
+      "sourceThesisIds": [
+        "x_2090903631793127644",
+        "x_2091843192639672553",
+        "x_2092408620277457255"
+      ],
+      "sections": [
+        {
+          "heading": "Snapshot",
+          "body": "$AAOI fell sharply on the week alongside the rest of the optical complex, and the more interesting development is that the analyst who found the name has now argued most of the desk's case for it."
+        },
+        {
+          "heading": "Thesis",
+          "body": "On 21 August he wrote that it is getting much harder to support the name when they keep dropping **$500m and $600m** ATMs, and that the share structure and financing are becoming increasingly shareholder unfriendly even where the operating outlook is positive. That is the first time this year he has publicly pushed back on a core holding of his own.\n\nThree days later he clarified rather than retracted: still bullish, still holding large positions, and still overweight versus the rest — but on the specific grounds that AOI is genuinely capacity constrained with high demand visibility, unlike the names he contrasts it against. He faulted the timing, noting the raise came on the drop rather than after the 1.6T qualifications complete, and said convertible notes above market would have been the better structure."
+        },
+        {
+          "heading": "Why own it",
+          "body": "The demand side has never been the argument. Semtech's quarter confirmed that TIA and driver solutions remain in exceptionally strong demand and that availability now matters more than pricing. AOI's own management said that even combined with Coherent it is very tough to meet customer demand over the next three years. 1.6T FiberEdge qualifications are finishing earlier than expected, which reads through directly to the pluggable makers."
+        },
+        {
+          "heading": "Risks",
+          "body": "The demand case does not fix a share count. Shares went from 62.4m to 84.6m in twelve months, up 36%, and the new ATM was struck at $129.10 into a falling tape. The operating outlook and the per-share outcome have decoupled, and every subsequent raise widens the gap.\n\nHe also judged this month that AOI is likely not meaningfully participating in first-generation CPO deployments, which caps the most valuable part of the optical transition."
+        },
+        {
+          "heading": "Bottom line",
+          "body": "No new capital. Wait for the 1.6T qualification to land as recognised revenue and for one quarter with no new ATM. That combination moves this to accumulate quickly, because the demand side was never in doubt."
+        }
+      ]
+    },
+    {
+      "id": "m_MTSI_2026w35",
+      "ticker": "MTSI",
+      "kind": "update",
+      "title": "MACOM: right shortage, wrong timetable",
+      "dek": "Stepped down to wait. His own reporting says the capacity arrives in H2 2027 and first-generation CPO happens without them.",
+      "publishedAt": "2026-08-28T19:45:00Z",
+      "updatedAt": "2026-08-28T19:45:00Z",
+      "rating": "watch",
+      "basedOnVerdict": true,
+      "sourceThesisIds": [
+        "x_2092186856792506435",
+        "h_66aa14a680b9c2c7",
+        "h_6c43446068975dda"
+      ],
+      "sections": [
+        {
+          "heading": "Snapshot",
+          "body": "$MTSI steps down from accumulate to **wait**. Nothing about the shortage changed; the desk simply read his own timing notes more carefully than it had."
+        },
+        {
+          "heading": "Thesis",
+          "body": "Two statements from his posts this month cut against the position. First, MACOM has told customers approaching it for CW capacity that the capacity does not come online until the **second half of 2027**. Second, he judges MACOM likely not meaningfully participating in first-generation CPO deployments, framing that as a smaller pool of players which [[sive]] is inside of and MACOM is not.\n\nAgainst that, the demand evidence is as strong as anywhere in the book: he reports the entire optical supply chain out of stock across laser chip, PCB and packaging, and MACOM is one of the names customers are approaching to secure supply."
+        },
+        {
+          "heading": "Why own it",
+          "body": "It is a real merchant supplier of the exact components in shortage — lasers, drivers and TIAs that go inside optical modules — attached to an established RF and microwave business that generates revenue today. That combination is rarer in this book than it sounds, and is why the desk was at accumulate."
+        },
+        {
+          "heading": "Risks",
+          "body": "The timing is the risk and it is specific. A capacity story dated to H2 2027, in a name excluded from the first generation of the transition, priced in a market that has just stopped paying for 2027 revenue. Defence, industrial and telecom RF still carry the majority of revenue, so the AI mix is real but minority."
+        },
+        {
+          "heading": "Bottom line",
+          "body": "Step down rather than sell. No new capital until either the H2 2027 date pulls forward or MACOM appears in a first-generation CPO design win. The second of those reverses this immediately."
+        }
+      ]
+    },
+    {
+      "id": "m_SNDK_2026w35",
+      "ticker": "SNDK",
+      "kind": "update",
+      "title": "SanDisk: the buyer confirmed the shortage",
+      "dek": "Held at wait. NVIDIA's own memory commitments and CFO commentary validate the case from the other side of the trade.",
+      "publishedAt": "2026-08-28T19:45:00Z",
+      "updatedAt": "2026-08-28T19:45:00Z",
+      "rating": "watch",
+      "basedOnVerdict": true,
+      "sourceThesisIds": [
+        "x_2092851118233764178",
+        "x_2092789800428622128",
+        "h_b49bf3221b8ec88b"
+      ],
+      "sections": [
+        {
+          "heading": "Snapshot",
+          "body": "$SNDK sold off with the complex while the strongest confirmation of its thesis all year arrived from an unrelated company's earnings call."
+        },
+        {
+          "heading": "Thesis",
+          "body": "NVIDIA disclosed that its commitments rose from **$119bn to $279bn**, primarily memory procurement for the next several years, and its CFO said the company is experiencing extreme pricing conditions in memory. That is the largest buyer in the market validating the shortage that the sellers have been claiming.\n\nHis own case is unchanged and specific: the NAND shortage likely lasts years because upstream capacity takes up to four years to build while demand grows explosively. From the investor day he cites roughly **80% adjusted gross margin**, about **75% operating margin**, and **$93bn of minimum contracted revenue** with long-term agreements already covering two thirds of 2028 output."
+        },
+        {
+          "heading": "Why own it",
+          "body": "The margin transition is already in the filings rather than in guidance. FY2026 GAAP gross margin was **71.5%**, $14.47bn of gross profit on $20.25bn of revenue, against 30.1% in FY2025 and 16.1% in FY2024. A fifty-five point swing in two years is not a cycle, and contracted revenue means the thesis does not expire if you are late to it."
+        },
+        {
+          "heading": "Risks",
+          "body": "Contracted volumes can be renegotiated on price even when they cannot be cancelled on volume. The larger risk is that hyperscaler memory procurement — the very number NVIDIA just disclosed — turns out to include double-ordering against a feared shortage, in which case the contracted book is softer than it reads.\n\nClient and consumer NAND remain a large share of bit volume and do not carry data-centre economics."
+        },
+        {
+          "heading": "Bottom line",
+          "body": "No chase. The entry has been poor all month and the contracted book means patience costs little. Wait for a retrace rather than adding into a falling tape."
+        }
+      ]
+    },
+    {
+      "id": "m_JBL_2026w35",
+      "ticker": "JBL",
+      "kind": "update",
+      "title": "Jabil: the ramp finally has a date",
+      "dek": "Held at accumulate. Sivers' earnings turned the 1.6T story into a scheduled event with a named supplier.",
+      "publishedAt": "2026-08-28T19:45:00Z",
+      "updatedAt": "2026-08-28T19:45:00Z",
+      "rating": "accumulate",
+      "basedOnVerdict": true,
+      "sourceThesisIds": [
+        "x_2093054882282651723",
+        "x_2093087267594314182",
+        "x_2092186856792506435"
+      ],
+      "sections": [
+        {
+          "heading": "Snapshot",
+          "body": "$JBL holds at **accumulate**, and this week supplied the thing the position was missing: a date."
+        },
+        {
+          "heading": "Thesis",
+          "body": "Sivers guided initial production orders with Jabil to the **first half of 2027**, with the production ramp planned for the second half. That converts the 1.6T LRO transceiver story from a theme into a scheduled event with a named counterparty on both sides. He describes Jabil as a massive hyperscaler supplier and lists it second among the larger names he likes, expecting the ramp plus ordinary cycle recovery to surprise on blended margin.\n\nHe also names it as the primary pluggable ramp partner across several of his Sivers posts, which makes the two positions read-throughs of each other rather than independent bets."
+        },
+        {
+          "heading": "Why own it",
+          "body": "This is the defensive expression of the optical thesis, and this week is exactly why that matters. At roughly $29.8bn of revenue spread across healthcare, automotive and connected devices, Jabil is the only way in this book to hold the 1.6T ramp without also holding a pre-revenue balance sheet that depends on capital markets staying open.\n\nEvery name that lacked that diversification was sold hard this week. Jabil was sold less."
+        },
+        {
+          "heading": "Risks",
+          "body": "The same diversification caps the upside: optical is a minority line inside a large contract manufacturer, so even a strong ramp moves the blended number modestly. The ramp date is also inherited from [[sive]] — if that slips, this slips with it.\n\nEMS margin compression would remove the thesis independently of the optical mix."
+        },
+        {
+          "heading": "Bottom line",
+          "body": "Add on the drawdown at mid to upper-tier size. It went on sale with the complex while gaining the one thing the complex still lacks — a dated conversion to revenue."
         }
       ]
     }
