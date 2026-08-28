@@ -165,11 +165,55 @@ From `docs/EXECUTION-EXPERT-REVIEW.md`:
 | 1b — wire direction into scoring | not started, needs a decision |
 | 2 — SEC EDGAR fundamentals | **shipped 21 Aug 2026** — 37 of 46 Core+Watch, on the card and the watchlist row |
 | 3 — `aiExposure` judgement fields | **plumbing shipped 21 Aug 2026** — 0 of 46 assessed; the numbers are the operator's to make |
-| 4 — re-point charts | blocked on 3 only |
+| 4 — re-point charts | **shipped 29 Aug 2026** — one real chart in `desk.html`; the parked mockups are gone (see below) |
 | 4a — surface `views[]` in the app | **shipped 20 Aug 2026** — see below |
 | 4b — density as a sortable watchlist column | **shipped 20 Aug 2026** — see below |
 | 4c — plain label + bear flag on the column | **shipped 20 Aug 2026** — see below |
 | 5 — close the ticker-alias gap | **shipped 21 Aug 2026** — see below |
+
+### Step 4 — what shipped (29 Aug 2026)
+
+**First, a correction to this file.** Step 4 was written as "re-point the five
+parked `mockup-charts*.html` at real variables". Those files do not exist. They
+were never tracked (this document says so, deliberately, in "Next session
+should start by"), they are in no commit on any branch, and a filesystem search
+found nothing under the home directory. There was nothing to re-point.
+
+So Step 4 shipped as one real chart rather than five rehabilitated mockups —
+the one this file already named as the point of the exercise: **AI exposure
+against price**, in the Watchlist chapter of `desk.html`, directly under the
+table.
+
+- x = judged AI share of revenue (0-100%). y = performance versus SMH, from
+  `benchmarkQuote`, on a 1M / 1Y toggle. Colour = category, from `data.js`.
+  Core names plot slightly larger. Every dot links to its memo or vault page.
+- Page-local by rule 3: markup, `.xp-*` CSS and the renderer all live in
+  `desk.html`, because exactly one page uses them. Nothing in `shared/` moved.
+- Read-only over `data.js`. No score, tier or ranking is touched.
+
+**The provenance problem this chart creates, and how it is handled.** Every
+other axis in the app is fetched or computed. This one is a judgement, and all
+45 assessments are currently desk estimates rather than the operator's own
+research. A scatter plot makes anything on it look measured, so:
+
+- while every point is an estimate, the note under the chart says exactly that
+  in bold, and all dots render alike — marking all 42 would only teach the eye
+  to skip the mark, the same reasoning as the bear flag in Step 4c;
+- the moment one researched call exists, estimates render hollow, researched
+  calls render solid, and the note flips to count the split. Verified by
+  flipping `assessedBy` on NVDA in a harness: 41 of 42 went hollow and the note
+  rewrote itself.
+
+**What it shows on live data, which is not what the plan assumed.** The plan
+predicted a hunting ground of high-exposure names the price had left behind. On
+a 1-month view that set is **empty** — all seven names above 60% exposure are
+beating SMH. On 1Y there are three: NVDA (-69 vs SMH), CRWV (-104), TSM (-11).
+So the chart states the count including zero ("nothing in the corner right
+now") and falls back to labelling the three heaviest-exposure names, because an
+unlabelled empty band reads as a broken chart rather than as a finding.
+
+**Caveat worth keeping in view:** the y-axis bar is SMH, which is +99% over a
+year. A name can be up 130% and still plot below the line.
 
 ### Step 3 — what shipped (21 Aug 2026)
 

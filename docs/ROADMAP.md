@@ -353,9 +353,12 @@ superseded; what remains is below._
 2. **Step 3 — record the AI-exposure judgements.** Plumbing shipped; **0 of 46
    assessed**. Operator input, one name at a time, via `/assess-exposure`.
    Blocks item 3.
-3. **Step 4 — re-point the charts.** The five parked mockups still plot
-   mention-count. Real variables now exist (revenue, growth, argued density);
-   the one worth building — exposure vs performance — waits on item 2.
+3. ~~**Step 4 — re-point the charts.**~~ **Done 29 Aug 2026.** The parked
+   mockups turned out not to exist — never tracked, in no commit, nowhere on
+   disk — so this shipped as one real chart instead: AI exposure against price
+   vs SMH, in the Watchlist chapter of `desk.html`. See PROJECT.md "Step 4 —
+   what shipped" for the provenance handling and for why the predicted
+   hunting-ground quadrant is empty on a 1-month view.
 4. **Step 1b — wire direction into scoring.** Still a deliberate decision, and
    still low-value: only 19 bear views out of 1,208 would move anything, and
    the per-post vs per-ticker mismatch has to be resolved first. See
