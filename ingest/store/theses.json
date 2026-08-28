@@ -17439,7 +17439,15 @@
       "SIVE"
     ],
     "conviction": "normal",
-    "tags": []
+    "tags": [],
+    "views": [
+      {
+        "ticker": "SIVE",
+        "direction": "bull",
+        "why": "His framing is scarcity of qualified supply: customers and CSPs are going out of their way to lock up any qualified CW laser capacity, and Sivers arrives with Win Semi volume plus the newly disclosed foundry capacity. The post is"
+      }
+    ],
+    "viewsExtractedAt": "2026-08-28T20:04:14Z"
   },
   {
     "id": "x_2093252439973777674",
@@ -17455,7 +17463,30 @@
       "SNDK"
     ],
     "conviction": "normal",
-    "tags": []
+    "tags": [],
+    "views": [
+      {
+        "ticker": "000660.KS",
+        "direction": "bull",
+        "why": "Quotes the SK Hynix CEO saying the memory shortage is expected to last until the end of 2030, which he uses as the anchor for extending demand visibility across the whole sector",
+        "numbers": "shortage to end of 2030",
+        "horizon": "2030"
+      },
+      {
+        "ticker": "SNDK",
+        "direction": "bull",
+        "why": "Quotes SanDisk on structurally huge NAND demand running to 2030 with non-GAAP gross margin holding near 80%, and argues the sector's forward multiples have room to rise further",
+        "numbers": "~80% non-GAAP gross margin, demand to 2030",
+        "horizon": "2030"
+      },
+      {
+        "ticker": "NVDA",
+        "direction": "neutral",
+        "why": "Cited as third-party evidence for the memory case — supply commitments rising largely on memory procurement while pricing is described as extreme and still climbing",
+        "numbers": "commitments $119B to $279B"
+      }
+    ],
+    "viewsExtractedAt": "2026-08-28T20:04:14Z"
   },
   {
     "id": "x_2093265972207718782",
