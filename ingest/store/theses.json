@@ -188,11 +188,6 @@
         "why": "likes Bitcoin exposure around current levels"
       },
       {
-        "ticker": "ASTS",
-        "direction": "bull",
-        "why": "from a swing perspective, always seems to recover from this level"
-      },
-      {
         "ticker": "META",
         "direction": "bull",
         "why": "beaten down a lot on capex fears despite growing remarkably fast"
@@ -273,9 +268,14 @@
         "ticker": "MRVL",
         "direction": "neutral",
         "why": "same — priced about right with high IV, would sell covered calls rather than add"
+      },
+      {
+        "ticker": "EWY",
+        "direction": "neutral",
+        "why": "Still holding the position and his memory exposure, but explicitly not adding more at these levels"
       }
     ],
-    "viewsExtractedAt": "2026-08-20T02:55:16Z"
+    "viewsExtractedAt": "2026-08-28T18:21:22Z"
   },
   {
     "id": "h_b909b8380988782b",
@@ -423,7 +423,34 @@
       "RGTI"
     ],
     "conviction": "normal",
-    "tags": []
+    "tags": [],
+    "views": [
+      {
+        "ticker": "QBTS",
+        "direction": "bear",
+        "why": "Says whatever is happening now looks way too early and it is typically a bad idea to serve as the dilution during prototyping; he puts any frontrunning window well out",
+        "horizon": "H2 2028 - H1 2029"
+      },
+      {
+        "ticker": "RGTI",
+        "direction": "bear",
+        "why": "Same too-early call as the other quantum names, with commercialization timelines flagged at 2030",
+        "horizon": "H2 2028 - H1 2029"
+      },
+      {
+        "ticker": "IONQ",
+        "direction": "bear",
+        "why": "Same too-early call; he is explicit that he is not familiar with quantum and is reasoning from the commercialization timelines",
+        "horizon": "H2 2028 - H1 2029"
+      },
+      {
+        "ticker": "IBM",
+        "direction": "neutral",
+        "why": "Starling named as a 2029 timeline datapoint alongside Foxconn flagging 2030 commercialization and 2027 prototyping",
+        "horizon": "2029"
+      }
+    ],
+    "viewsExtractedAt": "2026-08-28T18:20:38Z"
   },
   {
     "id": "h_12f8d9a81dd12747",
@@ -946,9 +973,14 @@
         "direction": "neutral",
         "why": "calls it his favorite long-term stock but explicitly flags the valuation as an extreme premium now with little Neutron revenue until 2028+, and says faster returns are probably available elsewhere",
         "numbers": "long at $10s, now ~$40B MC"
+      },
+      {
+        "ticker": "EWY",
+        "direction": "bull",
+        "why": "His LEAPs on it hit triple-digit returns and he is simply holding, seeing no red flags and dismissing the Google algorithm paper as no threat to DRAM and NAND pricing"
       }
     ],
-    "viewsExtractedAt": "2026-08-20T02:49:34Z"
+    "viewsExtractedAt": "2026-08-28T18:21:22Z"
   },
   {
     "id": "h_0624b30e04390f33",
@@ -1576,9 +1608,14 @@
         "ticker": "QQQ",
         "direction": "neutral",
         "why": "named only to note Nebius's inclusion in it now, not a direct case"
+      },
+      {
+        "ticker": "EWY",
+        "direction": "neutral",
+        "why": "Cited as the precedent for an unvalidated thesis he had to defend for months, on memory projections plus helium, LNG and oil analysis, before the market agreed"
       }
     ],
-    "viewsExtractedAt": "2026-08-20T02:46:41Z"
+    "viewsExtractedAt": "2026-08-28T18:21:22Z"
   },
   {
     "id": "h_e4cc0612983c7052",
@@ -1721,9 +1758,14 @@
         "direction": "bull",
         "why": "same track record defense despite being down a lot",
         "numbers": "posted at $44"
+      },
+      {
+        "ticker": "EWY",
+        "direction": "neutral",
+        "why": "Listed among the entry levels he posted publicly, to argue a macro correction does not make the original ideas wrong"
       }
     ],
-    "viewsExtractedAt": "2026-08-20T02:46:41Z"
+    "viewsExtractedAt": "2026-08-28T18:21:22Z"
   },
   {
     "id": "h_2f93712c7f08d25e",
@@ -1863,7 +1905,15 @@
       "BABA"
     ],
     "conviction": "normal",
-    "tags": []
+    "tags": [],
+    "views": [
+      {
+        "ticker": "BABA",
+        "direction": "bull",
+        "why": "Argues rewards outweigh risks on Qwen distilling Anthropic models because no penalties have followed, with US AI startups adopting Qwen on cost effectiveness versus Gemini"
+      }
+    ],
+    "viewsExtractedAt": "2026-08-28T18:20:38Z"
   },
   {
     "id": "h_ce671144dffe7b6c",
@@ -4412,9 +4462,14 @@
         "ticker": "JBL",
         "direction": "bull",
         "why": "likes it and would add if running a hedge fund, though personally prefers smaller ideas for higher returns"
+      },
+      {
+        "ticker": "EWY",
+        "direction": "neutral",
+        "why": "The volatility-expansion trade reported as validated with strong returns; a result, not a fresh case"
       }
     ],
-    "viewsExtractedAt": "2026-08-20T03:04:53Z"
+    "viewsExtractedAt": "2026-08-28T18:21:22Z"
   },
   {
     "id": "h_1ad73a9ad63114ae",
@@ -4447,9 +4502,14 @@
         "ticker": "XFAB",
         "direction": "bull",
         "why": "significantly undervalued given its leading European silicon photonics supply chain position"
+      },
+      {
+        "ticker": "EWY",
+        "direction": "neutral",
+        "why": "The volatility arbitrage trade highlighted as a past success alongside the photonics names, with no forward view attached"
       }
     ],
-    "viewsExtractedAt": "2026-08-20T03:04:53Z"
+    "viewsExtractedAt": "2026-08-28T18:21:22Z"
   },
   {
     "id": "h_edf39cb9fef7f875",
@@ -4514,9 +4574,14 @@
         "ticker": "NBIS",
         "direction": "bull",
         "why": "same — included in the attractive-ROI AI-exposed names list"
+      },
+      {
+        "ticker": "EWY",
+        "direction": "neutral",
+        "why": "The options trade praised as a winner on the memory supercycle; backward-looking, no current stance given"
       }
     ],
-    "viewsExtractedAt": "2026-08-20T03:04:53Z"
+    "viewsExtractedAt": "2026-08-28T18:21:22Z"
   },
   {
     "id": "h_82499b0f22fcced0",
@@ -5272,9 +5337,14 @@
         "ticker": "MU",
         "direction": "bull",
         "why": "maintains a bullish view as memory theme leader"
+      },
+      {
+        "ticker": "EWY",
+        "direction": "neutral",
+        "why": "His LEAPs reported as having delivered significant gains, listed after the SIVE, AMD and MU items"
       }
     ],
-    "viewsExtractedAt": "2026-08-20T03:01:51Z"
+    "viewsExtractedAt": "2026-08-28T18:21:22Z"
   },
   {
     "id": "h_e7720e250de56618",
@@ -5517,7 +5587,26 @@
       "WUS"
     ],
     "conviction": "normal",
-    "tags": []
+    "tags": [],
+    "views": [
+      {
+        "ticker": "ACMR",
+        "direction": "bull",
+        "why": "Bullish on an upcoming H-share subsidiary listing, a large NAV discount and independent growth, and planning to add concentration"
+      },
+      {
+        "ticker": "WUS",
+        "direction": "bull",
+        "why": "Bullish on an upcoming H-share listing plus activist involvement and a significant NAV discount, and planning to add concentration"
+      },
+      {
+        "ticker": "CAMT",
+        "direction": "neutral",
+        "why": "Priortech's 21% stake valued at roughly 1.35x its own market cap, which he reads as more of a holding company with a less clean NAV discount",
+        "numbers": "21% stake, ~1.35x market cap"
+      }
+    ],
+    "viewsExtractedAt": "2026-08-28T18:20:38Z"
   },
   {
     "id": "h_76b06718fb16b539",
@@ -5698,7 +5787,9 @@
       "DRAM"
     ],
     "conviction": "normal",
-    "tags": []
+    "tags": [],
+    "views": [],
+    "viewsExtractedAt": "2026-08-28T18:20:38Z"
   },
   {
     "id": "h_2e0cb004d84f0180",
@@ -6467,7 +6558,16 @@
       "WULF"
     ],
     "conviction": "normal",
-    "tags": []
+    "tags": [],
+    "views": [
+      {
+        "ticker": "WULF",
+        "direction": "bull",
+        "why": "Signed a very large datacentre lease with Anthropic, which he reads as a positive tailwind for the whole neocloud and colocation sector",
+        "numbers": "$19B DC lease"
+      }
+    ],
+    "viewsExtractedAt": "2026-08-28T18:20:38Z"
   },
   {
     "id": "h_34534f43456cd196",
@@ -7264,7 +7364,15 @@
       "BRUN"
     ],
     "conviction": "normal",
-    "tags": []
+    "tags": [],
+    "views": [
+      {
+        "ticker": "BRUN",
+        "direction": "bear",
+        "why": "Cited as the cautionary example of a SPAC that did not work, which is why he is not waiting on the Agility de-SPAC rather than a case for owning it"
+      }
+    ],
+    "viewsExtractedAt": "2026-08-28T18:20:38Z"
   },
   {
     "id": "h_e71a026cc505204c",
@@ -7285,9 +7393,14 @@
         "ticker": "AXTI",
         "direction": "bull",
         "why": "still holding, thesis intact even though he mentions it less often now"
+      },
+      {
+        "ticker": "EWY",
+        "direction": "bull",
+        "why": "Names it among the older theses he is still holding and that are up hundreds of percent, even though he mentions it far less now"
       }
     ],
-    "viewsExtractedAt": "2026-08-19T18:47:03Z"
+    "viewsExtractedAt": "2026-08-28T18:21:22Z"
   },
   {
     "id": "h_5459f5d7ade0192e",
@@ -8704,7 +8817,16 @@
       "GLW"
     ],
     "conviction": "normal",
-    "tags": []
+    "tags": [],
+    "views": [
+      {
+        "ticker": "GLW",
+        "direction": "neutral",
+        "why": "Its glass bridge named alongside CPO delay reports as a source of the uncertainty he sees, with the earnings in question leaning on 2028 FAU TAM",
+        "horizon": "2028 TAM"
+      }
+    ],
+    "viewsExtractedAt": "2026-08-28T18:20:38Z"
   },
   {
     "id": "h_34983c202eabcd13",
@@ -8890,7 +9012,28 @@
       "WUS"
     ],
     "conviction": "normal",
-    "tags": []
+    "tags": [],
+    "views": [
+      {
+        "ticker": "TTMI",
+        "direction": "neutral",
+        "why": "Listed as one of the multilayer board makers against a bottleneck timeline of roughly six months; a supplier map, not a case",
+        "horizon": "~6 months"
+      },
+      {
+        "ticker": "WUS",
+        "direction": "neutral",
+        "why": "Listed alongside TTMI as a multilayer board maker in the same bottleneck timeline table",
+        "horizon": "~6 months"
+      },
+      {
+        "ticker": "VSH",
+        "direction": "neutral",
+        "why": "Listed twice in the passive-component map, as a chip resistor maker and a tantalum capacitor maker, against lead times of 15-20 weeks to over a year",
+        "horizon": "15-20 weeks to 1 year+"
+      }
+    ],
+    "viewsExtractedAt": "2026-08-28T18:20:38Z"
   },
   {
     "id": "h_43deb65515cd551f",
@@ -11961,7 +12104,34 @@
       "WWR"
     ],
     "conviction": "normal",
-    "tags": []
+    "tags": [],
+    "views": [
+      {
+        "ticker": "WWR",
+        "direction": "neutral",
+        "why": "Reported as receiving a White House critical-minerals award for graphite; he supports the policy move and says explicitly he owns none of the names",
+        "numbers": "$25M"
+      },
+      {
+        "ticker": "SRL",
+        "direction": "neutral",
+        "why": "Reported as receiving the largest of the critical-minerals awards, for scandium; no position and no case on the stock",
+        "numbers": "$400M"
+      },
+      {
+        "ticker": "FEAM",
+        "direction": "neutral",
+        "why": "Reported as receiving a critical-minerals award for boron; no position and no case on the stock",
+        "numbers": "$8M"
+      },
+      {
+        "ticker": "HREE",
+        "direction": "neutral",
+        "why": "Reported as receiving a critical-minerals award for magnet rare earths; no position and no case on the stock",
+        "numbers": "$4.8M"
+      }
+    ],
+    "viewsExtractedAt": "2026-08-28T18:20:38Z"
   },
   {
     "id": "x_2085711500875116887",
@@ -13966,7 +14136,26 @@
       "UMAC"
     ],
     "conviction": "normal",
-    "tags": []
+    "tags": [],
+    "views": [
+      {
+        "ticker": "UMAC",
+        "direction": "bull",
+        "why": "Named as a US drone component supplier that benefits from the proclamation putting 100% tariffs on docking stations and critical components; he states he holds no position",
+        "numbers": "100% tariffs on UAS docking stations and drones over 25kg, 25% on broader components"
+      },
+      {
+        "ticker": "ONDS",
+        "direction": "bull",
+        "why": "Named as a US UAS manufacturer benefiting from the same drone supply-chain tariffs; he states he holds no position"
+      },
+      {
+        "ticker": "RCAT",
+        "direction": "bull",
+        "why": "Named alongside ONDS as a US UAS manufacturer benefiting from the drone tariffs; he states he holds no position"
+      }
+    ],
+    "viewsExtractedAt": "2026-08-28T18:20:38Z"
   },
   {
     "id": "x_2088226398708338889",
@@ -15721,7 +15910,15 @@
       "SPCX"
     ],
     "conviction": "normal",
-    "tags": []
+    "tags": [],
+    "views": [
+      {
+        "ticker": "SPCX",
+        "direction": "neutral",
+        "why": "Named only as one of the IPOs whose market reaction prompted a joke about not wanting Anthropic to go public"
+      }
+    ],
+    "viewsExtractedAt": "2026-08-28T18:20:38Z"
   },
   {
     "id": "x_2090735668532224224",
