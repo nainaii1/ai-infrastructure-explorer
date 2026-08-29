@@ -602,8 +602,8 @@ Six years of it, drawn as six bars so you can see the shape at a glance:
 NVIDIA climbs steeply, Intel shrinks.
 
 This refreshes itself when asked; you never have to do anything. **37 of your
-46 main names have it.** The other nine say why they don't, rather than showing
-a blank:
+Core/Watch names have it.** The other nine say why they don't, rather than
+showing a blank:
 
 - *"Not a US filer, so nothing to read"* — Sivers, IQE, X-FAB, LPKF, Soitec
   and CXMT are listed outside the US, which is the one place this data comes
@@ -621,11 +621,17 @@ the AI buildout**, as opposed to its older business. Nokia sells telecoms kit
 share that is AI is the whole question this desk implies and has never
 answered.
 
-**Nobody publishes it.** It genuinely cannot be looked up — company filings
-report one consolidated number, not a breakdown. So it is a judgement call,
-and it has to be yours.
+**Mostly nobody publishes it.** Company filings usually report one
+consolidated number, not a breakdown, so most of the time it's a judgement
+call. A handful of companies (NVIDIA, AMD, Broadcom, Micron, so far) do break
+out an AI or Data Center revenue line themselves — when that exists, the card
+uses the real figure and shows a **`reported`** chip instead of `est.`, so a
+transcribed fact is never mistaken for a guess.
 
-Right now **none of your 46 names have one**, on purpose. Nothing invents these.
+Right now **45 of your 49 Core/Watch names have a number: 41 are Claude's
+estimates (`est.` chip), 4 are transcribed from a company's own disclosure
+(`reported` chip).** The estimates are real judgements worth checking — none
+of them were invented, but none were researched by you either.
 
 ### How to do it — just ask
 
@@ -702,9 +708,17 @@ answer using them is flagged `approximate: true`. Observed closes recorded from
 here on are exact, and an exact close always overrides a rough anchor for the
 same day.
 
-Right now: **428 rows, 111 companies, back to Aug 2025.** Ask in chat — e.g.
-*"what happened to SIVE in the year after August 2025"* — and Claude reads it
-for you. The record gets more useful every day it runs.
+**Known bug (29 Aug 2026):** every recorded daily close is currently stamped
+one day late — both scheduled refreshes run outside US market hours, so each
+row saves the *previous* session's close under *today's* date. Live prices on
+the app are unaffected; only this saved history is shifted. It's a small,
+understood fix that hasn't been made yet — ask Claude Code for status before
+trusting a "what happened after" answer from this file.
+
+Right now: **~900 observed rows across ~110 companies, back to Aug 2025.** Ask
+in chat — e.g. *"what happened to SIVE in the year after August 2025"* — and
+Claude reads it for you. The record gets more useful every day it runs, once
+the date bug above is fixed.
 
 ## FAQ / Troubleshooting
 

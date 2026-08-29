@@ -1,5 +1,10 @@
 # Execution Guide — "Private Coverage" Editorial Upgrade
 
+> **✅ COMPLETE — historical build record, not an active to-do list.** All six
+> phases below shipped between 6-15 Jul 2026 (every box is ticked). Kept for the
+> reasoning behind each design decision. For what's actually next, read
+> `docs/ROADMAP.md` instead.
+
 _Created 2026-07-06 from the approved plan
 (`~/.claude/plans/my-friend-build-a-mutable-volcano.md`). This is the to-do doc:
 tick boxes as prompts land. One prompt = one Claude Code session = one commit._

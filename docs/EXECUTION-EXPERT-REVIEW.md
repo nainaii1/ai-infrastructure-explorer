@@ -1,5 +1,12 @@
 # Execution Guide — Expert Review Team
 
+> **Mostly complete, historical build record.** Phases 1-3 shipped 26-28 Jul
+> 2026. Phases 4-5 are genuinely still open (see the table below) but are not
+> active work — Phase 4 is blocked on having enough judged claims, Phase 5 needs
+> a decision on paid API access. The **"Invariants" section below is still live
+> reference** — read it before touching `scorer.py`, `seats.py` or
+> `pre_review.py`, same as always. For current status, `docs/ROADMAP.md`.
+
 _Created 2026-07-26. This is the to-do doc for the expert-review-team programme:
 tick boxes as sessions land. One prompt = one Claude Code session = one commit._
 
