@@ -1,7 +1,7 @@
 {
   "meta": {
     "schemaVersion": 1,
-    "updatedAt": "2026-08-25T04:00:00Z",
+    "updatedAt": "2026-09-01T06:20:00Z",
     "disclaimer": "Dated, testable predictions and how they turned out. Hit rate is correct/(correct+wrong); open and unfalsifiable are excluded from that denominator and the unfalsifiable share is reported alongside, so a source cannot score well by saying nothing testable. Research support, not investment advice."
   },
   "claims": [
@@ -958,6 +958,58 @@
       "madeAt": "2026-08-25",
       "judgeBy": "2026-09-05",
       "thesisId": "r_95d7d61884e4ffdf",
+      "status": "open",
+      "judgedAt": null,
+      "evidence": null
+    },
+    {
+      "id": "cl_d58978aca148",
+      "source": "semi-expert",
+      "ticker": "MTSI",
+      "claim": "MACOM will not begin production of its 75mW CW laser before late calendar 2027, and near-packaged optics revenue will not contribute before 2028.",
+      "testableBy": "MACOM quarterly filings and earnings calls reporting a CW laser production start",
+      "madeAt": "2026-09-01",
+      "judgeBy": "2027-12-31",
+      "thesisId": "r_3f697c87a50f0e6c",
+      "status": "open",
+      "judgedAt": null,
+      "evidence": null
+    },
+    {
+      "id": "cl_4c3ecf856267",
+      "source": "semi-expert",
+      "ticker": "000660.KS",
+      "claim": "SK hynix's Yongin Phase 1 cleanroom will open in early 2027 as the company has stated.",
+      "testableBy": "SK hynix quarterly results or newsroom confirming the Yongin Phase 1 cleanroom opening",
+      "madeAt": "2026-09-01",
+      "judgeBy": "2027-06-30",
+      "thesisId": "r_eac36b3958909dc2",
+      "status": "open",
+      "judgedAt": null,
+      "evidence": null
+    },
+    {
+      "id": "cl_d96669b90f31",
+      "source": "fundamental",
+      "ticker": "SNDK",
+      "claim": "SanDisk's gross margin will be below the 71.5% recorded in fiscal 2026 when fiscal 2027 results are filed.",
+      "testableBy": "SanDisk fiscal 2027 Form 10-K gross margin line",
+      "madeAt": "2026-09-01",
+      "judgeBy": "2027-09-30",
+      "thesisId": "r_d1c1e71dc4d80de7",
+      "status": "open",
+      "judgedAt": null,
+      "evidence": null
+    },
+    {
+      "id": "cl_2634845edefe",
+      "source": "pm",
+      "ticker": "SIVE",
+      "claim": "Sivers will not book Jabil initial production orders before the first half of 2027.",
+      "testableBy": "Sivers interim reports or press releases announcing Jabil production orders",
+      "madeAt": "2026-09-01",
+      "judgeBy": "2027-06-30",
+      "thesisId": "r_8b83a93c35e8766f",
       "status": "open",
       "judgedAt": null,
       "evidence": null
