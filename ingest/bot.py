@@ -158,9 +158,16 @@ def ingest_message(text, source_url="", posted_at=None, author="aleabitoreddit")
     added = []
     # Alias symbols (SIVEF) and theme tags (DRAM, SPCX) never become ticker
     # records — scoring canonicalizes them via base.json config instead.
+    # outOfScope is a third, distinct case: a real listed company he posts
+    # about that is NOT in the AI hardware supply chain this desk maps (RDDT,
+    # RKLB). Without it, auto-add recreates the record on his next mention and
+    # the name climbs back into a Core-tier slot it does not belong in. Kept
+    # separate from themeTags because these ARE tradable stocks — collapsing
+    # the two would misdescribe both.
     base = _load("base.json")
     non_tickers = {s.upper() for s in (base.get("themeTags") or [])}
     non_tickers |= {s.upper() for s in (base.get("tickerAliases") or {})}
+    non_tickers |= {s.upper() for s in (base.get("outOfScope") or {})}
     for sym in thesis["tickers"]:
         if sym.upper() in non_tickers:
             continue

@@ -1,8 +1,8 @@
 {
   "meta": {
-    "version": "1.454",
+    "version": "1.485",
     "schemaVersion": 1,
-    "lastUpdated": "2026-08-28T20:07:38Z",
+    "lastUpdated": "2026-09-01T15:40:00Z",
     "source": "ingest"
   },
   "countries": {
@@ -29,6 +29,14 @@
     "DE": {
       "flag": "🇩🇪",
       "label": "Germany"
+    },
+    "CA": {
+      "flag": "🇨🇦",
+      "label": "Canada"
+    },
+    "IT": {
+      "flag": "🇮🇹",
+      "label": "Italy"
     }
   },
   "categories": {
@@ -221,10 +229,17 @@
     "SHKY": "000660.KS",
     "SIVEF": "SIVE",
     "SKHY": "000660.KS",
-    "SOI": "SOI.PA"
+    "SOI": "SOI.PA",
+    "LPKF": "LPK.DE"
   },
   "themeTags": [
     "DRAM",
-    "SPCX"
-  ]
+    "SPCX",
+    "GM"
+  ],
+  "outOfScope": {
+    "RDDT": "Reddit — a consumer internet company, not a supply-chain name. Its mention count is also inflated by posts using $RDDT to mean the forum ('everyone on $RDDT blew up their portfolios'), not the stock.",
+    "RKLB": "Rocket Lab — space launch. He tracks it as a separate frontier industry alongside space and robotics; nothing in it feeds NVIDIA's chips.",
+    "RPI": "Raspberry Pi Holdings — single-board edge compute. Three mentions, one substantive (Anthropic's hardware standard). Not a supplier to the AI datacentre build."
+  }
 }
