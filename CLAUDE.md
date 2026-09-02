@@ -79,6 +79,28 @@ Everything below is shipped and live:
   and failure modes: `docs/WATCHER.md`.
 - **Symbol canonicalization** — `base.json` `tickerAliases`/`themeTags`,
   applied by `scorer.canonicalize_theses()` before any priority/tier math.
+  **Three distinct config lists now gate what becomes a ticker record**, and
+  they are deliberately NOT collapsed into one:
+  - `tickerAliases` — same company, second symbol (`SIVEF`→`SIVE`,
+    `LPKF`→`LPK.DE`). Remapped, then counted.
+  - `themeTags` — pseudo-tickers that name a theme or are false positives, not
+    a tradable stock in this universe (`DRAM`, `SPCX`, and `GM`, which comes
+    from "Elazr GM", a job title). Dropped from counting entirely.
+  - `outOfScope` (added 1 Sep 2026) — **real listed companies he posts about
+    that are not in the AI hardware chain** (`RDDT`, `RKLB`, `RPI`). Kept
+    separate from `themeTags` because these ARE tradable stocks; collapsing
+    the two would misdescribe both. Each entry carries a written reason.
+
+  `bot.py` unions all three into `non_tickers` so none can auto-add itself
+  back; without that, a rejected name reappears on his next mention and climbs
+  into a Core-tier slot it does not belong in. Note `scorer.canonicalize_theses`
+  reads only the first two — an `outOfScope` name keeps its historical
+  mentions in `priorities` but, having no ticker record, is never tiered and
+  renders nowhere.
+
+  **`$RDDT` is a live example of why mention-count is not conviction**: several
+  posts use it to mean *the forum* ("everyone on $RDDT blew up their
+  portfolios"), not the stock, and it had reached Core rank 19 on that.
 - **Per-ticker view extraction** — `ingest/views.py` + `ingest/extract_views.py`
   read what the analyst actually argued about each ticker in each post, not
   just how often he named it. Every `source: "x"` thesis touching a Core/Watch
@@ -217,6 +239,41 @@ Everything below is shipped and live:
   hyperscalers +4.7% vs SMH through to materials -17.9%. `/pre-review` was
   skipped for time and `meta.coverage` records that.
 
+- **Pre-review + weekly review 1 Sep 2026** — the first pass where
+  `/pre-review` ran the same day as `/weekly-review`, so every verdict carries
+  independent seat research. 36 findings over 12 names, **all verified against
+  primary sources** (SEC filings, the SK hynix newsroom, Sivers' own release, a
+  MACOM call transcript), 0 rejected, 4 dated claims logged. Roster 19 → 21.
+  Two stance moves, **both driven by the desk's research rather than his
+  posts**: AXTI accumulate → watch (the InP thesis worked — gross margin 8.0%
+  → 44.9% — but 66% of revenue is China and AXT names Chinese export permits
+  for InP wafers as a live uncertainty), and MTSI watch → pass (MACOM's own
+  call put the CW laser at 75mW with a *potential* late-calendar-2027 start and
+  NPO revenue in 2028, later and softer than the desk had on file; the exit
+  closed the 17 Aug entry at -16.6%). MRVL and AVGO initiated at watch on
+  NVIDIA's $3.5bn MediaTek investment reshaping the ASIC field.
+
+- **KNOWN CONFLICT — bear research de-ranks a name out of its own coverage.**
+  Direction-aware scoring is designed so research can only correct a name
+  downward. But the weekly verdict roster is chosen by *score*, so a name the
+  seats find problems with drops out of the list the desk writes verdicts on.
+  Measured 1 Sep: MTSI **#13 → #148** (score 2.52 → 0.00), POET #18 → #151,
+  SNDK #16 → #49, AXTI #7 → #13 — entirely from that day's own findings, with
+  no analyst input. **No tier moved**, so the `assign_tiers` guard held and
+  nothing was silently promoted or demoted in the UI. The 1 Sep roster was
+  fixed by hand (Core-tier membership, not rank, decided who stayed). Unfixed
+  — the rule needs an operator decision. Do NOT "fix" it by letting research
+  raise a score; the asymmetry is deliberate (see the `tier` note above).
+
+- **KNOWN BUG — a removed ticker survives in the browser.** `AIE.seed()`
+  merges on a version bump and deliberately keeps any localStorage ticker
+  absent from `data.js` ("locally-added tickers are kept"), so a name deleted
+  from the store lingers in an already-seeded browser. Verified inert on
+  1 Sep: `GM` sits in localStorage but renders in no view, because the
+  watchlist is Core-only and the map card grid hides Radar. Fixable in one
+  line in `shared/common.js`; left alone pending an operator decision, since
+  it changes seeding for every page.
+
 - **KNOWN BUG — recorded daily closes are stamped one day late.**
   `record_prices` takes the row date from the FETCH timestamp, and both
   scheduled fetches run outside US market hours, so every observed row in
@@ -341,7 +398,7 @@ so newly-ingested tickers and theses surface. Categories / center / countries
 ```
 {
   meta:       { version, schemaVersion, lastUpdated, source },
-  countries:  { US|KR|TW|SE|FR|DE: { flag, label } },
+  countries:  { US|KR|TW|SE|FR|DE|CA|IT: { flag, label } },
   categories: { <id>: { id, label, subtitle, color, layer, tooltip,
                         flowRole: "demand"|"chip"|"supply", investorAngle } },
   center:     { title, subtitle, tooltip },           // the NVIDIA + Hyperscalers demand hub
@@ -426,7 +483,15 @@ so newly-ingested tickers and theses surface. Categories / center / countries
   liquid cooling. It is the first category built from the desk's own research
   rather than grown from the analyst's feed, so most of its names carry zero
   analyst mentions and therefore sit at `radar` no matter how load-bearing they
-  are (see the tiering caveat under `tier` below).
+  are (see the tiering caveat under `tier` below). **Grew 10 → 17 names on
+  1 Sep 2026** when the cooling and electrical-infrastructure names he pulled
+  from Musk's list of AI buildout failure points (transformers, wiring, liquid
+  cooling, chillers) were triaged in: AAON, NVT, MOD, JCI, IESC, HPS.A, MTRS.
+  All Radar, all zero-to-one analyst mentions — the category still illustrates
+  its own caveat.
+  A ticker with `category: "unsorted"` and tier `core`/`watch` is a triage
+  backlog item and should be cleared each weekly review; as of 1 Sep there are
+  none, and `unsorted` holds only Radar noise.
 - `tier` → conviction tier from `scorer.assign_tiers()`. The UI treats
   `radar` as hidden-by-default (map card grid, watchlist "Signal" filter).
   **Tiering is mention-driven, which cuts both ways.** A name the analyst never

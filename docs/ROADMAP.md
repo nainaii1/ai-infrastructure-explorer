@@ -218,24 +218,31 @@ _Last updated: 2026-08-29 (weekly review run, view extraction complete, exposure
 
 ## Current snapshot
 
-_Read live from `ingest/store/*.json` and `data.js` on **29 Aug 2026**. These
+_Read live from `ingest/store/*.json` and `data.js` on **1 Sep 2026**. These
 numbers move every week — when this file and the store disagree, the store is
 right._
 
 | | |
 |---|---|
-| Companies tracked | **137** — 39 Core / 10 Watch / 88 Radar |
-| Captured posts | **549** — 392 from the analyst, 156 from the desk's own expert seats |
+| Companies tracked | **148** — 37 Core / 9 Watch / 102 Radar |
+| Captured posts | **612** — 420 from the analyst, 192 from the desk's own expert seats |
 | Arguments extracted | **1,330** — what he actually argued, per post per company. **Extraction is complete: 0 pending** |
-| Desk verdicts | **19** names, reviewed **28 Aug** (8 accumulate / 9 wait / 2 pass) |
-| Coverage memos | 69 · **Vault** 68 pages, 30 with written notes · **Brain** 11 theme digests |
-| Calls ledger | **14** — 13 open, 1 closed (a win). Oldest call 12 Jul |
-| Claims ledger | **73** — 3 judged correct, **13 unfalsifiable**, 57 open |
+| Desk verdicts | **21** names, reviewed **1 Sep** (7 accumulate / 11 wait / 3 pass) |
+| Coverage memos | 78 · **Vault** 65 pages, 31 with written notes · **Brain** 11 theme digests |
+| Calls ledger | **16** — 12 open, 4 closed (1 win / 2 losses / 1 wash). Oldest call 12 Jul |
+| Claims ledger | **77** — 3 judged correct, **13 unfalsifiable**, 61 open (2 ripe, awaiting `/judge-claims`) |
 | SEC revenue | 37 companies covered, 9 gaps recorded with reasons |
-| AI exposure | 45 assessed — **4 from company disclosure, 41 desk estimates** |
-| Telegram queue | 104 ingested / 14 skipped / **0 pending** |
+| AI exposure | 45 assessed — **4 from company disclosure, 41 desk estimates**. AXTI and AMD bases now stale (see issue 2) |
+| Telegram queue | **0 pending** |
 | Tests | 506, green |
 | GitHub | Public — github.com/nainaii1/ai-infrastructure-explorer, branch `main` |
+
+**1 Sep pass in one line:** `/pre-review` and `/weekly-review` ran the same
+day for the first time — 36 seat findings, all verified against primary
+sources, drove both stance moves (AXTI accumulate→wait on China export-permit
+risk, MTSI wait→pass on MACOM's own later laser date). MRVL and AVGO
+initiated. 14 names triaged out of the unsorted backlog, `GM` rejected, and
+three out-of-scope names (RDDT, RKLB, RPI) removed from the universe.
 
 ## The operating loop (v5 — this is the product now)
 
@@ -274,9 +281,21 @@ He tweets → you forward to the Telegram bot (or backfill from signal bots)
 
 ## Current issues to fix
 
-_Rewritten 29 Aug 2026. Only genuinely open items are listed; everything that
-was fixed has been removed rather than left ticked, and the "Evidence chapter
-is 90,000px tall" entry is gone because v8 deleted that chapter._
+_Rewritten 29 Aug 2026, re-cut 1 Sep 2026. Only genuinely open items are
+listed; everything that was fixed has been removed rather than left ticked._
+
+**0. Bear research de-ranks a name out of its own coverage.** THE ONE TO
+DECIDE FIRST. Direction-aware scoring is built so outside research can only
+correct a name downward — that asymmetry is deliberate and must not be
+reversed. But `/weekly-review` picks the verdict roster by *score*, so the
+moment the seats find a problem with a name, that name falls out of the list
+the desk writes verdicts on. Measured on the 1 Sep pass, from that day's own
+findings with no analyst input: **MTSI #13 → #148** (score 2.52 → 0.00),
+POET #18 → #151, SNDK #16 → #49, AXTI #7 → #13. No tier moved, so the
+`assign_tiers` guard held and nothing shifted in the UI. The roster was fixed
+by hand that week — Core-tier *membership* rather than rank decided who
+stayed. Needs a written rule so it stops being a manual override. Do **not**
+fix it by letting research raise a score.
 
 **1. Recorded daily closes are stamped one day late.** `record_prices` takes
 the row's date from the FETCH timestamp, and both scheduled fetches run outside
@@ -285,26 +304,40 @@ Proved by a Saturday row carrying a value that differs from Friday's. Live
 prices in `prices.json` are unaffected — only the saved history. Blocks the
 "since he argued it" feature.
 
-**2. The parser invents tickers from jargon.** 306 candidate symbols have piled
-up in `pending_tickers.json` and the most frequent are not companies: `CW` 50x,
-`MC` 39x, `CEST` 35x, `UTC` 29x, `EML`, `NAND`, `NPO`, `DRAM`, `MLCC`. 159 were
-seen exactly once. Same cause as `$GM` from "Elazr GM" and `$ASX` from
-"SRL (ASX)". Harmless — nothing auto-promotes — but it is the reason every
-symbol so far has needed hand-triage.
+**2. Two AI-exposure bases are stale and understate their names.** AXTI's
+basis still reads "revenue is $0.09bn and shrinking" against a filed half-year
+of $74.5m with gross margin up from 8.0% to 44.9%; AMD's records Data Center
+at 47.9% on FY2025 against a filed quarterly 58.2%. Both were caught by the
+1 Sep seat research. Fix with `/assess-exposure`.
 
-**3. 41 of 45 AI-exposure figures are desk estimates, not research.** They
+**3. The parser invents tickers from jargon.** Candidate symbols pile up in
+`pending_tickers.json` and the most frequent are not companies: `CW`, `MC`,
+`CEST`, `UTC`, `EML`, `NAND`, `NPO`, `DRAM`, `MLCC`, most seen once. Same
+cause as `$GM` from "Elazr GM" and `$ASX` from "SRL (ASX)". Harmless —
+nothing auto-promotes — but it is why every symbol needs hand-triage. Partly
+mitigated 1 Sep: `themeTags` and the new `outOfScope` list now block the known
+offenders from ever re-adding themselves.
+
+**4. A removed ticker survives in the browser.** `AIE.seed()` merges on a
+version bump and deliberately keeps any localStorage ticker absent from
+`data.js`, so a name deleted from the store lingers in an already-seeded
+browser. Verified inert on 1 Sep — `GM` is in localStorage but renders in no
+view, because the watchlist is Core-only and the map hides Radar. One-line fix
+in `shared/common.js`; left alone because it changes seeding for every page.
+
+**5. 41 of 45 AI-exposure figures are desk estimates, not research.** They
 render an `est.` chip and sit at low or medium confidence so they cannot be
 mistaken for measurements, but they are guesses. The four sourced from company
 disclosure (NVDA, AMD, AVGO, MU) show a `reported` chip instead.
 
-**4. `ingest/.env` and iCloud sync.** The file can hit sync conflicts under
+**6. `ingest/.env` and iCloud sync.** The file can hit sync conflicts under
 iCloud Drive. Workaround: `export TELEGRAM_BOT_TOKEN=...` in-session, or
 exclude the folder from sync.
 
-**5. "Note" conviction badge is ambiguous** — rename to "Normal" or drop it.
+**7. "Note" conviction badge is ambiguous** — rename to "Normal" or drop it.
 Cosmetic, open since July.
 
-**6. Eight orphan views** point at tickers no longer in the universe (ASTS 5,
+**8. Eight orphan views** point at tickers no longer in the universe (ASTS 5,
 MELI 3). They render nowhere because the ticker cards that would show them do
 not exist. Deleting them is a decision nobody has taken.
 
@@ -374,7 +407,7 @@ Small jobs, if there is appetite for one:
   cite nothing, be marked unverified, and score exactly zero by the desk's own
   rules. Revisit only if a data source appears first.
 - **More roles generally** (macro, PM, ops, investors). The tool has one user
-  and already produces 69 memos, 68 vault pages, 19 verdicts and 156 research
+  and already produces 78 memos, 65 vault pages, 21 verdicts and 192 research
   findings. Output already exceeds one person's reading. Adding producers makes
   that worse, not better.
 

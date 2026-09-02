@@ -59,15 +59,15 @@ before the verdicts are written — don't skip it.
 
 ## What's in it right now
 
-_As of 29 Aug 2026. These change constantly — read `ingest/store/` for truth._
+_As of 1 Sep 2026. These change constantly — read `ingest/store/` for truth._
 
 ```
-137 companies       39 Core · 10 Watch · 88 Radar
-549 captured posts  392 his · 156 my own research
+148 companies       37 Core · 9 Watch · 102 Radar
+612 captured posts  420 his · 192 my own research
 1,330 arguments     what he actually argued, per post per company
-19 verdicts         my call on each name that matters
-73 predictions      3 judged · 13 untestable · 57 open
-14 calls            13 open · 1 closed
+21 verdicts         my call on each name that matters
+77 predictions      3 judged · 13 untestable · 61 open
+16 calls            12 open · 4 closed (1 win · 2 losses · 1 wash)
 ```
 
 ---

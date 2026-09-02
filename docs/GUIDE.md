@@ -384,8 +384,24 @@ python3 ingest/review.py classify CCXI \
 for the current list). This rewrites `tickers.json` **and** regenerates
 `data.js` automatically — refresh the app to see it move out of Unsorted.
 
-Not interested in a symbol? `python3 ingest/review.py reject SYM` removes it
-from the store entirely.
+Not interested in a symbol? `python3 ingest/review.py reject SYM` drops it
+from the **pending queue** (`pending_tickers.json`). Note what it does *not*
+do: if the symbol already became a ticker record, `reject` leaves that record
+untouched — it only ever clears candidates that have not been promoted yet.
+
+Removing a symbol that is already tracked is a two-step job, and step two is
+the one people forget:
+
+1. Delete its entry from `tickers.json`.
+2. Add it to the right list in `base.json`, or the bot re-adds it on his very
+   next mention:
+   - `themeTags` — not a real company (`DRAM`, `SPCX`, `GM` from "Elazr GM").
+   - `outOfScope` — a real listed company that is not in the AI hardware chain
+     (`RDDT`, `RKLB`, `RPI`). Give it a written reason.
+   - `tickerAliases` — it is a second symbol for a company you already track
+     (`LPKF` → `LPK.DE`).
+
+`bot.py` unions all three, so anything listed can never auto-add itself back.
 
 ---
 
