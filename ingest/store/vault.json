@@ -1,9 +1,9 @@
 {
   "meta": {
     "schemaVersion": 1,
-    "syncedAt": "2026-08-28T20:07:38Z",
-    "pageCount": 68,
-    "linkCount": 236
+    "syncedAt": "2026-09-02T08:11:16Z",
+    "pageCount": 65,
+    "linkCount": 227
   },
   "pages": [
     {
@@ -114,8 +114,8 @@
           "watchCount": 4
         }
       },
-      "note": "A lighter-touch, picks-and-shovels research theme sitting upstream of the [[fabs]] and [[advanced-packaging]] layers. [[aleabitoreddit]] views AEHR ([[aehr]])'s ~100% rally as largely priced in absent a new catalyst; LPKF ([[lpk-de]]) is his recurring bullish idea on a glass-core substrate near-monopoly \u2014 a bridge into the [[glass]] theme \u2014 with a stated multi-billion factory ambition; Soitec ([[soi-pa]]) rounds out the specialty-materials group.\n\nThese are second-derivative plays: they win if the [[memory]], [[photonics]] and packaging build-outs they supply keep scaling.",
-      "noteUpdatedAt": "2026-07-12T00:00:00Z"
+      "note": "Re-cut on 1 September after the desk read AXT's filing rather than the commentary about it.\n\n[[axti]] is the theme's live position and it stepped down from accumulate to wait \u2014 not on weak numbers, which are the best in the book (revenue +164.8%, gross margin 8.0% to 44.9%), but on where the material is made. China is 66% of revenue, Tongmei manufactures there, and Chinese export permits for indium phosphide wafers are a named uncertainty. A [[chokepoint]] thesis is only as good as the ability to ship through it.\n\nThe theme's second mechanism showed up elsewhere this week: OSAT providers have warned that traditional packaging capacity could face a deficit exceeding 20% by 2027, with wire bonding the primary bottleneck and [[amkr]] a named beneficiary. That is the same cascading pattern already visible in legacy DRAM \u2014 AI server demand absorbs mature capacity, and early access becomes the scarce thing. LPKF ([[lpk-de]]) remains the glass-substrate expression and is unchanged.",
+      "noteUpdatedAt": "2026-09-01T14:30:00Z"
     },
     {
       "slug": "memory",
@@ -207,8 +207,8 @@
           "watchCount": 0
         }
       },
-      "note": "The week of 24-28 August was the most violent repricing this theme has seen since coverage opened. [[aehr]], [[axti]], [[sive]], [[aaoi]] and [[coherent]] all fell between 20% and 44% while the hyperscalers that ultimately fund them rose. Measured across the book, the selloff did not discriminate by AI exposure at all \u2014 it discriminated almost perfectly by position in the chain, and photonics sits far upstream.\n\nNothing in the evidence deteriorated. [[sive]] tripled its opportunity pipeline to $1.2bn and added six pluggable engagements and a second foundry. The InP substrate squeeze behind [[axti]] got worse, not better, with a fourth consecutive price hike. Semtech confirmed that availability now matters more than price. AOI's own management said that even combined with Coherent it cannot meet customer demand for three years.\n\nThe honest reading is that the market stopped paying for revenue arriving in 2027, and this theme is where the 2027 revenue lives. That is a duration repricing, not a thesis break \u2014 but it is a genuine risk for the names inside it that need capital markets open to reach the ramp.",
-      "noteUpdatedAt": "2026-08-28T19:50:00Z"
+      "note": "The theme's third consecutive week of de-rating, and the first in which the desk's own research \u2014 not the analyst's \u2014 moved two stances.\n\nThe validation arrived from the best possible source. TSMC's VP of advanced packaging said foundries can scale the optical engine but the real bottlenecks to large-scale [[cpo]] deployment lie elsewhere, naming lasers, optical fibre, connectors and test. That is the customer of the entire [[siph]] stack confirming the scarce input is what [[lite]], [[cohr]] and [[sive]] make rather than what the foundry makes. TSMC separately sees silicon photonics taking over 50% of the optical transceiver market in 2027, and Soitec ([[soi-pa]]) reported more than ten capacity reservation agreements with $200m of photonics-SOI revenue described as a floor.\n\nAgainst that, the desk moved [[mtsi]] to pass on MACOM's own later, softer laser guidance, and stepped [[axti]] down to wait on a China export-permit dependency no thesis had priced. [[sive]] held at wait after net sales fell 12% while its opportunity pipeline tripled, and [[aaoi]] held at wait with management having sold roughly $490m of stock at an average $103.51 against a $107.69 close. The theme's demand case has never been better evidenced; its financing and jurisdiction risks have never been more visible.",
+      "noteUpdatedAt": "2026-09-01T14:30:00Z"
     },
     {
       "slug": "power",
@@ -261,8 +261,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 9,
-          "lastMentioned": "2026-08-28T08:20:47Z",
+          "mentions": 11,
+          "lastMentioned": "2026-09-01T08:30:14Z",
           "category": "memory",
           "market": "KR",
           "marketCapTier": "Mega",
@@ -283,8 +283,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 91,
-          "lastMentioned": "2026-08-27T19:15:45Z",
+          "mentions": 94,
+          "lastMentioned": "2026-09-01T13:55:24Z",
           "category": "photonics",
           "market": "US",
           "marketCapTier": "Small",
@@ -305,8 +305,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 11,
-          "lastMentioned": "2026-08-15T02:46:31Z",
+          "mentions": 14,
+          "lastMentioned": "2026-09-01T08:30:14Z",
           "category": "hyperscalers",
           "market": "US",
           "marketCapTier": "Mega",
@@ -327,8 +327,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 11,
-          "lastMentioned": "2026-08-12T11:44:46Z",
+          "mentions": 12,
+          "lastMentioned": "2026-08-30T06:24:05Z",
           "category": "materials",
           "market": "US",
           "marketCapTier": "Small",
@@ -349,8 +349,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 12,
-          "lastMentioned": "2026-08-27T21:24:26Z",
+          "mentions": 13,
+          "lastMentioned": "2026-08-30T09:04:08Z",
           "category": "robotics",
           "market": "",
           "marketCapTier": "",
@@ -371,8 +371,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 40,
-          "lastMentioned": "2026-08-23T11:29:53Z",
+          "mentions": 43,
+          "lastMentioned": "2026-09-01T08:30:14Z",
           "category": "accelerators",
           "market": "US",
           "marketCapTier": "Mega",
@@ -393,8 +393,8 @@
         ],
         "stats": {
           "tier": "watch",
-          "mentions": 4,
-          "lastMentioned": "2026-08-17T09:26:49Z",
+          "mentions": 5,
+          "lastMentioned": "2026-08-29T14:48:53Z",
           "category": "materials",
           "market": "US",
           "marketCapTier": "Mid",
@@ -415,8 +415,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 26,
-          "lastMentioned": "2026-08-24T11:35:16Z",
+          "mentions": 28,
+          "lastMentioned": "2026-09-01T08:30:14Z",
           "category": "hyperscalers",
           "market": "US",
           "marketCapTier": "Mega",
@@ -437,8 +437,8 @@
         ],
         "stats": {
           "tier": "watch",
-          "mentions": 2,
-          "lastMentioned": "2026-06-27T15:45:34Z",
+          "mentions": 3,
+          "lastMentioned": "2026-08-30T06:24:05Z",
           "category": "accelerators",
           "market": "",
           "marketCapTier": "",
@@ -459,16 +459,16 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 13,
-          "lastMentioned": "2026-08-17T09:27:37Z",
+          "mentions": 17,
+          "lastMentioned": "2026-09-01T08:30:14Z",
           "category": "networking",
           "market": "",
           "marketCapTier": "",
           "company": "Broadcom"
         }
       },
-      "note": "Broadcom crossed from watch into the Core [[conviction-tier]] in the 21 Aug 2026 review on accumulated mentions rather than on a fresh argument \u2014 a useful reminder that the score measures [[aleabitoreddit]]'s posting behaviour, not the desk's judgement.\n\nHe names it in two distinct roles. It is a custom-accelerator counterweight to [[nvda]] in the hyperscaler ASIC race alongside [[mrvl]], and separately he lists it among the remaining Western CW laser players in [[photonics]] \u2014 hedged with 'maybe', alongside [[aaoi]], [[mtsi]] and [[smtc]]. Neither is a developed thesis in this corpus, and the desk has never written a verdict on it. It sits just outside the top-fifteen roster line.",
-      "noteUpdatedAt": "2026-08-21T00:00:00Z"
+      "note": "Coverage formally opened at **wait** on 1 September, and unusually the trigger is a negative catalyst.\n\nFor two years Broadcom has been the default beneficiary of every hyperscaler-diversifies-from-NVIDIA story. [[aleabitoreddit]] now reads [[nvda]]'s $3.5bn MediaTek investment as a deliberate move to build alternative ASIC leaders aligned to NVIDIA standards, with the explicit second-order effect of eroding Broadcom's position \u2014 and a likely counter-move pushing [[amd]], Broadcom and certain hyperscalers closer together. An alliance formed because a larger competitor is funding your rivals is a defensive formation, not an advance.\n\nThe desk has no view yet on whether the attack works: custom silicon is won on multi-year design cycles and a 2026 cheque does not dislodge a programme already in production. What changed is that the thesis now has an identified adversary rather than only a tailwind. The falsifier is specific \u2014 a flagship hyperscaler ASIC programme moving to [[mrvl]] or MediaTek.",
+      "noteUpdatedAt": "2026-09-01T14:30:00Z"
     },
     {
       "slug": "axti",
@@ -481,16 +481,16 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 34,
-          "lastMentioned": "2026-08-23T11:29:53Z",
+          "mentions": 37,
+          "lastMentioned": "2026-09-01T16:57:19Z",
           "category": "materials",
           "market": "US",
           "marketCapTier": "Small",
           "company": "AXT Inc"
         }
       },
-      "note": "AXT sells the wafer everything else in [[photonics]] is grown on: indium phosphide and gallium arsenide compound substrates, the layer beneath the lasers at [[lite]], [[sive]] and [[aaoi]].\n\nThis is the desk's best-evidenced position in the stack, and the reason is unusual for this book. Almost every number carrying the photonics theme is modelled \u2014 Sivers' capacity revenue is a projection, AOI's 2028 external-light-source figure is a unit plan times an assumed price, Lumentum's CPO ramp is a dated statement about 2027. AXT's is not: Lumentum signed a long-term agreement with a $43.5M capacity reservation deposit, and Coherent signed earlier with $22.3M. Customers do not prepay for capacity they are unsure they will need, which makes these agreements evidence about the whole theme rather than just this company.\n\nTwo housekeeping notes. The desk dropped coverage of this name on 3 August and restored it on 12 August \u2014 the LTAs were already public at the time of the drop, so that was a miss rather than a change of facts. And the store currently files AXT under [[memory]], which is wrong: it sells compound substrate material, not memory, and the categorisation should move before it distorts the map or the theme digests.",
-      "noteUpdatedAt": "2026-08-12T00:00:00Z"
+      "note": "Stepped down from accumulate to **wait** on 1 September \u2014 not because the thesis failed, but because it succeeded and the desk then read the filing properly.\n\nThe indium phosphide price hikes [[aleabitoreddit]] has tracked since Q4 last year have landed: quarterly revenue up 164.8% to $47.6m, gross profit from $1.4m to $21.4m, gross margin from 8.0% to 44.9%. That is what a [[chokepoint]] looks like when pricing power arrives \u2014 revenue and margin moving together.\n\nWhat changed is the jurisdiction. China is 66% of revenue, the substrates are made there by Tongmei, and AXT names the receipt and timing of Chinese export permits for indium phosphide wafers as a live uncertainty rather than boilerplate. Chinese private equity holders retain redemption rights over Tongmei, which is pursuing a Hong Kong listing. The company that solves the West's InP shortage ships out of the jurisdiction the shortage is about \u2014 and the export channel is the growth channel. A 17% fall on no company news, after 38.5% the week before, suggests the market is reaching the same place.",
+      "noteUpdatedAt": "2026-09-01T14:30:00Z"
     },
     {
       "slug": "be",
@@ -525,8 +525,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 32,
-          "lastMentioned": "2026-08-25T15:24:55Z",
+          "mentions": 33,
+          "lastMentioned": "2026-08-30T06:24:05Z",
           "category": "robotics",
           "market": "US",
           "marketCapTier": "Mid",
@@ -547,8 +547,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 31,
-          "lastMentioned": "2026-08-25T15:24:55Z",
+          "mentions": 36,
+          "lastMentioned": "2026-08-31T05:35:30Z",
           "category": "photonics",
           "market": "US",
           "marketCapTier": "Large",
@@ -569,8 +569,8 @@
         ],
         "stats": {
           "tier": "watch",
-          "mentions": 7,
-          "lastMentioned": "2026-08-16T04:50:40Z",
+          "mentions": 8,
+          "lastMentioned": "2026-08-31T13:26:03Z",
           "category": "neoclouds",
           "market": "US",
           "marketCapTier": "Large",
@@ -591,8 +591,8 @@
         ],
         "stats": {
           "tier": "watch",
-          "mentions": 6,
-          "lastMentioned": "2026-08-16T04:50:40Z",
+          "mentions": 7,
+          "lastMentioned": "2026-09-01T08:30:14Z",
           "category": "memory",
           "market": "",
           "marketCapTier": "Large",
@@ -613,8 +613,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 12,
-          "lastMentioned": "2026-08-27T05:46:04Z",
+          "mentions": 14,
+          "lastMentioned": "2026-08-30T18:27:51Z",
           "category": "memory",
           "market": "US",
           "marketCapTier": "",
@@ -635,8 +635,8 @@
         ],
         "stats": {
           "tier": "watch",
-          "mentions": 4,
-          "lastMentioned": "2026-08-06T01:23:49Z",
+          "mentions": 5,
+          "lastMentioned": "2026-08-31T05:35:30Z",
           "category": "materials",
           "market": "US",
           "marketCapTier": "Mid",
@@ -657,8 +657,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 27,
-          "lastMentioned": "2026-08-27T21:24:26Z",
+          "mentions": 29,
+          "lastMentioned": "2026-08-30T09:04:08Z",
           "category": "fabs",
           "market": "",
           "marketCapTier": "",
@@ -679,8 +679,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 26,
-          "lastMentioned": "2026-08-23T19:43:52Z",
+          "mentions": 28,
+          "lastMentioned": "2026-09-01T08:30:14Z",
           "category": "hyperscalers",
           "market": "US",
           "marketCapTier": "Mega",
@@ -701,8 +701,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 23,
-          "lastMentioned": "2026-07-30T18:31:07Z",
+          "mentions": 25,
+          "lastMentioned": "2026-09-01T08:30:14Z",
           "category": "fabs",
           "market": "US",
           "marketCapTier": "Large",
@@ -723,8 +723,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 15,
-          "lastMentioned": "2026-08-25T15:24:55Z",
+          "mentions": 16,
+          "lastMentioned": "2026-08-30T06:24:05Z",
           "category": "photonics",
           "market": "",
           "marketCapTier": "",
@@ -745,8 +745,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 17,
-          "lastMentioned": "2026-08-24T11:00:56Z",
+          "mentions": 18,
+          "lastMentioned": "2026-09-01T16:57:19Z",
           "category": "neoclouds",
           "market": "",
           "marketCapTier": "",
@@ -767,8 +767,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 31,
-          "lastMentioned": "2026-08-27T21:24:26Z",
+          "mentions": 33,
+          "lastMentioned": "2026-08-30T09:04:08Z",
           "category": "photonics",
           "market": "US",
           "marketCapTier": "Large",
@@ -789,8 +789,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 83,
-          "lastMentioned": "2026-08-27T19:15:45Z",
+          "mentions": 88,
+          "lastMentioned": "2026-08-31T05:35:30Z",
           "category": "photonics",
           "market": "US",
           "marketCapTier": "Mid",
@@ -811,8 +811,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 17,
-          "lastMentioned": "2026-08-25T15:24:55Z",
+          "mentions": 18,
+          "lastMentioned": "2026-08-30T06:24:05Z",
           "category": "glass",
           "market": "DE",
           "marketCapTier": "Small",
@@ -855,16 +855,16 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 26,
-          "lastMentioned": "2026-08-22T20:40:31Z",
+          "mentions": 32,
+          "lastMentioned": "2026-09-01T08:30:14Z",
           "category": "networking",
           "market": "US",
           "marketCapTier": "Large",
           "company": "Marvell Technology"
         }
       },
-      "note": "",
-      "noteUpdatedAt": null
+      "note": "Entered coverage at **wait** on 1 September, arriving fourth in the book in a single week.\n\nThe catalyst is NVIDIA's $3.5bn investment into MediaTek, which [[aleabitoreddit]] reads as [[nvda]] playing kingmaker across the ASIC ecosystem \u2014 creating the next leaders, then aligning them financially and strategically, the same playbook already run on neoclouds like [[nbis]]. Marvell is a beneficiary; the second-order effect is erosion of [[avgo]]'s incumbent position.\n\nThe Celestial AI acquisition is the specific asset. He estimates a $6-10bn standalone valuation against 2028 revenue projections of $500m and 2029 of $1bn, while noting honestly that Celestial books close to zero revenue today and loses about $12.5m a quarter. [[sive]] independently lists Marvell's Celestial as a potential optical I/O customer from 2028, which triangulates the horizon.\n\nEverything here settles in 2028, and the stock fell 15.7% in the week the thesis improved \u2014 which is what happens to long-duration assets when the 30-year yield sits at its highest since 2007.",
+      "noteUpdatedAt": "2026-09-01T14:30:00Z"
     },
     {
       "slug": "msft",
@@ -877,8 +877,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 11,
-          "lastMentioned": "2026-08-16T04:50:40Z",
+          "mentions": 13,
+          "lastMentioned": "2026-08-31T10:02:55Z",
           "category": "hyperscalers",
           "market": "US",
           "marketCapTier": "Mega",
@@ -907,8 +907,8 @@
           "company": "MACOM Technology Solutions"
         }
       },
-      "note": "Stepped down from accumulate to wait on 28 August, on timing rather than on the shortage. Two of his own notes did it: MACOM has told customers that its CW capacity does not come online until the second half of 2027, and he judges it likely absent from first-generation CPO deployments \u2014 a smaller pool that [[sive]] is inside of and MACOM is not.\n\nThe demand evidence is unchanged and strong. He reports the whole optical chain out of stock across laser chip, PCB and packaging, and MACOM is among the names customers approach to secure supply. The RF and microwave base gives it revenue today, which is what separated it from the pre-revenue names in [[photonics]].\n\nThe trade is now a question about the tape rather than the technology: a 2027 capacity date, with first-generation exclusion, in a market that has just repriced everything dated 2027.",
-      "noteUpdatedAt": "2026-08-28T19:50:00Z"
+      "note": "Moved to **pass** on 1 September, one week after the step down from accumulate, and the reason is that MACOM's own guidance moved against the position rather than [[aleabitoreddit]]'s read of it.\n\nThe desk held at wait with an explicit reversal condition: the H2 2027 capacity date pulling forward, or a first-generation CPO win appearing. On the fiscal Q3 call management described the continuous-wave laser as a 75mW part still in high-temperature operating life testing, with production a *potential* start in late calendar 2027 and near-packaged optics revenue from 2028. Capital spending stays near $60-65m a year, which is not what building merchant laser capacity costs \u2014 compare [[lite]] and [[cohr]]. Seventy-five milliwatts also sits below the ultra-high-power class Lumentum already ships into the same sockets.\n\nThe pre-review pass added a second exposure nobody had priced: China is now $133.8m of $342.2m of quarterly revenue, 39% and rising from 28%, inside a company whose largest segment is Industrial and Defense. The 17 August entry closed at a 16.6% loss and the 25 August add closed flat.",
+      "noteUpdatedAt": "2026-09-01T14:30:00Z"
     },
     {
       "slug": "mu",
@@ -921,8 +921,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 33,
-          "lastMentioned": "2026-08-27T05:46:04Z",
+          "mentions": 36,
+          "lastMentioned": "2026-08-30T06:24:05Z",
           "category": "memory",
           "market": "US",
           "marketCapTier": "Large",
@@ -943,8 +943,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 39,
-          "lastMentioned": "2026-08-24T15:23:59Z",
+          "mentions": 42,
+          "lastMentioned": "2026-08-31T18:28:51Z",
           "category": "neoclouds",
           "market": "US",
           "marketCapTier": "Mid",
@@ -987,8 +987,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 81,
-          "lastMentioned": "2026-08-28T08:20:47Z",
+          "mentions": 90,
+          "lastMentioned": "2026-09-01T08:30:14Z",
           "category": "accelerators",
           "market": "US",
           "marketCapTier": "Mega",
@@ -1031,8 +1031,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 30,
-          "lastMentioned": "2026-08-27T21:24:26Z",
+          "mentions": 31,
+          "lastMentioned": "2026-08-30T09:04:08Z",
           "category": "photonics",
           "market": "US",
           "marketCapTier": "Small",
@@ -1041,69 +1041,6 @@
       },
       "note": "Closed to pass on 28 August. The decisive evidence was not the desk's \u2014 it was [[aleabitoreddit]]'s own, three times in one month: cash-rich with huge capacity but no visible demand and a weaker moat; Marvell probably vertically integrating POET out of the interposer layer people had speculated about; and a place on his short list of names that overuse ATMs and dilution, alongside [[iren]].\n\nHe still holds a small position as optionality on the balance sheet and the Lumilens arrangement. The desk's judgement is that optionality is not a position when filed revenue rounds to zero across every year on record and the market has stopped paying for undated 2027 revenue.\n\nThe page stays because the [[photonics]] story runs through it \u2014 POET is one of the external light source paths [[sive]] supplies, so it remains a read-through even with no position. Reopening requires a named first-generation CPO design win with disclosed volumes.",
       "noteUpdatedAt": "2026-08-28T19:50:00Z"
-    },
-    {
-      "slug": "rddt",
-      "type": "ticker",
-      "title": "RDDT \u00b7 Reddit",
-      "auto": {
-        "refs": [
-          "aleabitoreddit"
-        ],
-        "stats": {
-          "tier": "core",
-          "mentions": 10,
-          "lastMentioned": "2026-08-22T20:40:31Z",
-          "category": "unsorted",
-          "market": "US",
-          "marketCapTier": "Large",
-          "company": "Reddit"
-        }
-      },
-      "note": "",
-      "noteUpdatedAt": null
-    },
-    {
-      "slug": "rklb",
-      "type": "ticker",
-      "title": "RKLB \u00b7 Rocket Lab USA",
-      "auto": {
-        "refs": [
-          "aleabitoreddit"
-        ],
-        "stats": {
-          "tier": "core",
-          "mentions": 9,
-          "lastMentioned": "2026-08-22T14:54:25Z",
-          "category": "unsorted",
-          "market": "US",
-          "marketCapTier": "Mid",
-          "company": "Rocket Lab USA"
-        }
-      },
-      "note": "",
-      "noteUpdatedAt": null
-    },
-    {
-      "slug": "rpi",
-      "type": "ticker",
-      "title": "RPI \u00b7 Unidentified",
-      "auto": {
-        "refs": [
-          "aleabitoreddit"
-        ],
-        "stats": {
-          "tier": "watch",
-          "mentions": 1,
-          "lastMentioned": "2026-06-05T14:20:31Z",
-          "category": "unsorted",
-          "market": "",
-          "marketCapTier": "",
-          "company": "Unidentified"
-        }
-      },
-      "note": "",
-      "noteUpdatedAt": null
     },
     {
       "slug": "sive",
@@ -1116,8 +1053,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 125,
-          "lastMentioned": "2026-08-28T06:53:51Z",
+          "mentions": 130,
+          "lastMentioned": "2026-08-31T05:35:30Z",
           "category": "photonics",
           "market": "SE",
           "marketCapTier": "Small",
@@ -1138,8 +1075,8 @@
         ],
         "stats": {
           "tier": "watch",
-          "mentions": 4,
-          "lastMentioned": "2026-08-17T09:26:49Z",
+          "mentions": 5,
+          "lastMentioned": "2026-08-31T18:28:51Z",
           "category": "accelerators",
           "market": "US",
           "marketCapTier": "",
@@ -1204,8 +1141,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 13,
-          "lastMentioned": "2026-08-13T02:52:11Z",
+          "mentions": 16,
+          "lastMentioned": "2026-09-01T08:30:14Z",
           "category": "materials",
           "market": "FR",
           "marketCapTier": "Mid",
@@ -1226,8 +1163,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 20,
-          "lastMentioned": "2026-08-13T09:46:26Z",
+          "mentions": 21,
+          "lastMentioned": "2026-08-30T06:24:05Z",
           "category": "fabs",
           "market": "US",
           "marketCapTier": "Mid",
@@ -1270,8 +1207,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 28,
-          "lastMentioned": "2026-08-24T18:27:08Z",
+          "mentions": 30,
+          "lastMentioned": "2026-08-31T10:56:00Z",
           "category": "fabs",
           "market": "TW",
           "marketCapTier": "Mega",
@@ -1314,8 +1251,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 29,
-          "lastMentioned": "2026-08-03T06:24:54Z",
+          "mentions": 30,
+          "lastMentioned": "2026-08-30T06:24:05Z",
           "category": "photonics",
           "market": "",
           "marketCapTier": "",

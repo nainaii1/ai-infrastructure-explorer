@@ -1,7 +1,7 @@
 {
   "meta": {
     "schemaVersion": 1,
-    "updatedAt": "2026-08-28T19:30:00Z",
+    "updatedAt": "2026-09-01T14:30:00Z",
     "author": "claude-desk",
     "benchmark": "SMH",
     "disclaimer": "The calls ledger tracks the desk's own dated suggestions against a buy-the-index benchmark. Stamped forward-only, never retro-fitted. Personal research tool - not investment advice."
@@ -183,9 +183,9 @@
         "r_f4aff742d7392a8c",
         "x_2087675367595380783"
       ],
-      "closedAt": null,
-      "exitPrice": null,
-      "outcome": "open",
+      "closedAt": "2026-09-01",
+      "exitPrice": 263.83,
+      "outcome": "loss",
       "benchmark": {
         "symbol": "SMH",
         "priceAtCall": 587.82
@@ -275,9 +275,9 @@
         "r_430c60235d981131",
         "r_1d0394be51d90dee"
       ],
-      "closedAt": null,
-      "exitPrice": null,
-      "outcome": "open",
+      "closedAt": "2026-09-01",
+      "exitPrice": 263.83,
+      "outcome": "wash",
       "benchmark": {
         "symbol": "SMH",
         "priceAtCall": 546.8
@@ -327,6 +327,52 @@
       "benchmark": {
         "symbol": "SMH",
         "priceAtCall": 553.69
+      }
+    },
+    {
+      "id": "c_MTSI_2026-09-01",
+      "ticker": "MTSI",
+      "source": "desk",
+      "kind": "exit",
+      "calledAt": "2026-09-01",
+      "entryPrice": 316.44,
+      "entryCurrency": "USD",
+      "stanceAtCall": "pass",
+      "memoId": "m_MTSI_2026w36",
+      "thesisIds": [
+        "r_3f697c87a50f0e6c",
+        "r_8c6715b297366cad",
+        "r_6af2b0712ccbfd87"
+      ],
+      "closedAt": "2026-09-01",
+      "exitPrice": 263.83,
+      "outcome": "loss",
+      "benchmark": {
+        "symbol": "SMH",
+        "priceAtCall": 556.63
+      }
+    },
+    {
+      "id": "c_AXTI_2026-09-01",
+      "ticker": "AXTI",
+      "source": "desk",
+      "kind": "trim",
+      "calledAt": "2026-09-01",
+      "entryPrice": 60.61,
+      "entryCurrency": "USD",
+      "stanceAtCall": "watch",
+      "memoId": "m_AXTI_2026w36",
+      "thesisIds": [
+        "r_6b6d454a11183af2",
+        "r_c43390178534d64c",
+        "r_5a35a1f639a091b6"
+      ],
+      "closedAt": null,
+      "exitPrice": null,
+      "outcome": "open",
+      "benchmark": {
+        "symbol": "SMH",
+        "priceAtCall": 556.63
       }
     }
   ]
