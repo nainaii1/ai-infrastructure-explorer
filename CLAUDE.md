@@ -253,26 +253,30 @@ Everything below is shipped and live:
   closed the 17 Aug entry at -16.6%). MRVL and AVGO initiated at watch on
   NVIDIA's $3.5bn MediaTek investment reshaping the ASIC field.
 
-- **KNOWN CONFLICT — bear research de-ranks a name out of its own coverage.**
-  Direction-aware scoring is designed so research can only correct a name
-  downward. But the weekly verdict roster is chosen by *score*, so a name the
-  seats find problems with drops out of the list the desk writes verdicts on.
-  Measured 1 Sep: MTSI **#13 → #148** (score 2.52 → 0.00), POET #18 → #151,
-  SNDK #16 → #49, AXTI #7 → #13 — entirely from that day's own findings, with
-  no analyst input. **No tier moved**, so the `assign_tiers` guard held and
-  nothing was silently promoted or demoted in the UI. The 1 Sep roster was
-  fixed by hand (Core-tier membership, not rank, decided who stayed). Unfixed
-  — the rule needs an operator decision. Do NOT "fix" it by letting research
-  raise a score; the asymmetry is deliberate (see the `tier` note above).
+- **FIXED 11 Sep 2026 — bear research used to de-rank a name out of its own
+  coverage.** The verdict roster was picked by `score`, which carries
+  research's downward correction, so a bearish finding could drop a name off
+  the list the desk writes verdicts on. Measured 1 Sep: MTSI #13 → #148,
+  POET #18 → #151. `compute_priorities` now also publishes **`analystScore`**
+  (and `netAnalyst`) — the same sum with research excluded outright rather
+  than merely weighted to zero — and coverage ranks on that.
+  `pre_review.select_coverage` sorts on it itself rather than trusting the
+  caller's order. `score` keeps its corrective asymmetry untouched, and
+  nothing about display or tiering changed. This is a FOURTH guarded
+  aggregate: see EXECUTION-EXPERT-REVIEW invariant 2, and guard any fifth.
+  Pinned by `BearResearchMustNotRemoveCoverage` in `tests/test_pre_review.py`,
+  whose fixture deliberately supplies more names than the cap — with every
+  name inside the cap the remainder fill takes them all and ordering cannot
+  be tested. Verified to fail without the fix.
 
-- **KNOWN BUG — a removed ticker survives in the browser.** `AIE.seed()`
-  merges on a version bump and deliberately keeps any localStorage ticker
-  absent from `data.js` ("locally-added tickers are kept"), so a name deleted
-  from the store lingers in an already-seeded browser. Verified inert on
-  1 Sep: `GM` sits in localStorage but renders in no view, because the
-  watchlist is Core-only and the map card grid hides Radar. Fixable in one
-  line in `shared/common.js`; left alone pending an operator decision, since
-  it changes seeding for every page.
+- **FIXED 11 Sep 2026 — a removed ticker survived in the browser.**
+  `AIE.seed()` kept every localStorage ticker absent from `data.js`, so a name
+  deleted from the store lingered in an already-seeded browser and a rejection
+  never reached the user's view. It now keeps only genuine local rating stubs
+  (`{ticker, rating}`, written when the user rates a row) and drops records the
+  backend removed — a rejected symbol, an out-of-scope name, a typo folded into
+  an alias. A stub is told apart by having no `category`, because nothing
+  client-side ever writes one.
 
 - **KNOWN BUG — recorded daily closes are stamped one day late.**
   `record_prices` takes the row date from the FETCH timestamp, and both
@@ -421,9 +425,10 @@ so newly-ingested tickers and theses surface. Categories / center / countries
                   // optional, since 2026-07-26 — read by scorer.py:
                   direction,        // "bull" | "bear" | "neutral", LOWERCASE
                   verification } ], // "verified" | "unverified" (research only)
-  priorities: [ { ticker, score, net, attention, mentions, analystMentions,
-                  bullMentions, bearMentions, researchMentions,
-                  weightedMentions, convictionHits, lastMentioned } ],
+  priorities: [ { ticker, score, analystScore, net, netAnalyst, attention,
+                  mentions, analystMentions, bullMentions, bearMentions,
+                  researchMentions, weightedMentions, convictionHits,
+                  lastMentioned } ],
   brain:      { meta: { generatedAt, model, thesesConsidered,
                         categoriesSynthesized, schemaVersion, failures? },
                 digests: [ { category, narrative, conviction, keyPoints[],
@@ -450,6 +455,15 @@ so newly-ingested tickers and theses surface. Categories / center / countries
   `source: "research"` contributes 0 to the score and to `weightedMentions`
   regardless of direction unless it is `bear`: outside research can only
   correct a name downward, never inflate its rank or buy it tier coverage.
+- `analystScore` / `netAnalyst` → `score` / `net` with research excluded
+  outright rather than weighted to zero. **Coverage selection ranks on
+  `analystScore`; nothing else does.** `score` keeps research's downward
+  correction and still drives display ordering, so the two differ whenever a
+  seat has filed a bear finding. Ranking coverage on `score` meant a bearish
+  finding could push a name off the list the desk writes verdicts on — the
+  mirror image of the asymmetry, and not what it was for. `analystScore` is
+  always ≥ `score`, because it is the same sum minus a contribution that is
+  never positive. Added 11 Sep 2026; see EXECUTION-EXPERT-REVIEW invariant 2.
 - `verification` → `verified` | `unverified`, on research theses only. A
   finding the seat could not tie to a citable primary source is stamped
   `unverified` and forced to `direction: "neutral"`, so it is visible in the

@@ -281,21 +281,12 @@ He tweets → you forward to the Telegram bot (or backfill from signal bots)
 
 ## Current issues to fix
 
-_Rewritten 29 Aug 2026, re-cut 1 Sep 2026. Only genuinely open items are
-listed; everything that was fixed has been removed rather than left ticked._
-
-**0. Bear research de-ranks a name out of its own coverage.** THE ONE TO
-DECIDE FIRST. Direction-aware scoring is built so outside research can only
-correct a name downward — that asymmetry is deliberate and must not be
-reversed. But `/weekly-review` picks the verdict roster by *score*, so the
-moment the seats find a problem with a name, that name falls out of the list
-the desk writes verdicts on. Measured on the 1 Sep pass, from that day's own
-findings with no analyst input: **MTSI #13 → #148** (score 2.52 → 0.00),
-POET #18 → #151, SNDK #16 → #49, AXTI #7 → #13. No tier moved, so the
-`assign_tiers` guard held and nothing shifted in the UI. The roster was fixed
-by hand that week — Core-tier *membership* rather than rank decided who
-stayed. Needs a written rule so it stops being a manual override. Do **not**
-fix it by letting research raise a score.
+_Rewritten 29 Aug 2026, re-cut 11 Sep 2026. Only genuinely open items are
+listed; everything fixed has been removed rather than left ticked. Cleared on
+11 Sep: the coverage/scoring conflict (now `analystScore`, pinned by a
+regression test), the localStorage seed keeping removed tickers, and the two
+stale AI-exposure bases (AXTI re-cut 40% → 65%, AMD 48% → 58% on filed
+figures)._
 
 **1. Recorded daily closes are stamped one day late.** `record_prices` takes
 the row's date from the FETCH timestamp, and both scheduled fetches run outside
@@ -304,13 +295,7 @@ Proved by a Saturday row carrying a value that differs from Friday's. Live
 prices in `prices.json` are unaffected — only the saved history. Blocks the
 "since he argued it" feature.
 
-**2. Two AI-exposure bases are stale and understate their names.** AXTI's
-basis still reads "revenue is $0.09bn and shrinking" against a filed half-year
-of $74.5m with gross margin up from 8.0% to 44.9%; AMD's records Data Center
-at 47.9% on FY2025 against a filed quarterly 58.2%. Both were caught by the
-1 Sep seat research. Fix with `/assess-exposure`.
-
-**3. The parser invents tickers from jargon.** Candidate symbols pile up in
+**2. The parser invents tickers from jargon.** Candidate symbols pile up in
 `pending_tickers.json` and the most frequent are not companies: `CW`, `MC`,
 `CEST`, `UTC`, `EML`, `NAND`, `NPO`, `DRAM`, `MLCC`, most seen once. Same
 cause as `$GM` from "Elazr GM" and `$ASX` from "SRL (ASX)". Harmless —
@@ -318,26 +303,19 @@ nothing auto-promotes — but it is why every symbol needs hand-triage. Partly
 mitigated 1 Sep: `themeTags` and the new `outOfScope` list now block the known
 offenders from ever re-adding themselves.
 
-**4. A removed ticker survives in the browser.** `AIE.seed()` merges on a
-version bump and deliberately keeps any localStorage ticker absent from
-`data.js`, so a name deleted from the store lingers in an already-seeded
-browser. Verified inert on 1 Sep — `GM` is in localStorage but renders in no
-view, because the watchlist is Core-only and the map hides Radar. One-line fix
-in `shared/common.js`; left alone because it changes seeding for every page.
-
-**5. 41 of 45 AI-exposure figures are desk estimates, not research.** They
+**3. 43 of 45 AI-exposure figures are desk estimates, not research.** They
 render an `est.` chip and sit at low or medium confidence so they cannot be
 mistaken for measurements, but they are guesses. The four sourced from company
 disclosure (NVDA, AMD, AVGO, MU) show a `reported` chip instead.
 
-**6. `ingest/.env` and iCloud sync.** The file can hit sync conflicts under
+**4. `ingest/.env` and iCloud sync.** The file can hit sync conflicts under
 iCloud Drive. Workaround: `export TELEGRAM_BOT_TOKEN=...` in-session, or
 exclude the folder from sync.
 
-**7. "Note" conviction badge is ambiguous** — rename to "Normal" or drop it.
+**5. "Note" conviction badge is ambiguous** — rename to "Normal" or drop it.
 Cosmetic, open since July.
 
-**8. Eight orphan views** point at tickers no longer in the universe (ASTS 5,
+**6. Eight orphan views** point at tickers no longer in the universe (ASTS 5,
 MELI 3). They render nowhere because the ticker cards that would show them do
 not exist. Deleting them is a decision nobody has taken.
 
