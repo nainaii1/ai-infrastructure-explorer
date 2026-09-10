@@ -156,9 +156,9 @@ def canonicalize_theses(theses, aliases=None, theme_tags=None):
 
 
 def compute_priorities(theses, now=None, half_life_days=HALF_LIFE_DAYS):
-    """Return a list of {ticker, score, net, attention, mentions,
-    analystMentions, bullMentions, bearMentions, researchMentions,
-    weightedMentions, convictionHits, lastMentioned} ranked by
+    """Return a list of {ticker, score, analystScore, net, netAnalyst,
+    attention, mentions, analystMentions, bullMentions, bearMentions,
+    researchMentions, weightedMentions, convictionHits, lastMentioned} ranked by
     score descending, then net (so a net-negative name doesn't out-rank a
     less-hated one just because both floor to score 0), then raw mentions."""
     now = now or datetime.now(timezone.utc)
@@ -178,8 +178,8 @@ def compute_priorities(theses, now=None, half_life_days=HALF_LIFE_DAYS):
             a = agg.setdefault(
                 sym,
                 {"mentions": 0, "weighted": 0.0, "recency": 0.0,
-                 "net": 0.0, "bull": 0, "bear": 0, "research": 0,
-                 "convictionHits": 0, "lastMentioned": None},
+                 "net": 0.0, "netAnalyst": 0.0, "bull": 0, "bear": 0,
+                 "research": 0, "convictionHits": 0, "lastMentioned": None},
             )
             a["mentions"] += 1              # raw count, for display ("12x mentioned")
             # Research findings never create coverage — only analyst attention
@@ -195,6 +195,27 @@ def compute_priorities(theses, now=None, half_life_days=HALF_LIFE_DAYS):
             if not research:
                 a["recency"] += weight * focus  # recency + focus, for `attention`
             a["net"] += signed
+            # A FOURTH guarded aggregate (see EXECUTION-EXPERT-REVIEW invariant
+            # 2). `netAnalyst` is `net` with research excluded outright rather
+            # than merely weighted to zero, and it exists to fix a defect the
+            # other three guards could not reach.
+            #
+            # The asymmetry is "research may correct a name downward but never
+            # inflate its rank or buy it tier coverage". What was missed is the
+            # mirror image: research must not REMOVE coverage either. Because
+            # the weekly verdict roster is picked by score rank, a bearish
+            # finding could drop a name out of the very list the desk writes
+            # verdicts on — measured 1 Sep 2026, MTSI fell from rank 13 to 148
+            # (score 2.52 -> 0.00) on the desk's own findings, with no analyst
+            # input at all. The desk stopped covering the name it had just
+            # found a problem with.
+            #
+            # Fixing it by letting research raise `score` would break invariant
+            # 2, so coverage instead ranks on this analyst-only figure while
+            # `score` keeps its corrective asymmetry untouched. Both numbers
+            # are published; nothing about display or tiering changes.
+            if not research:
+                a["netAnalyst"] += signed
             if direction == "bear":
                 a["bear"] += 1
             elif direction == "bull":
@@ -218,10 +239,17 @@ def compute_priorities(theses, now=None, half_life_days=HALF_LIFE_DAYS):
     ranked = []
     for sym, a in agg.items():
         score = max(a["net"] * (1 + CONVICTION_WEIGHT * a["convictionHits"]), 0.0)
+        analyst_score = max(
+            a["netAnalyst"] * (1 + CONVICTION_WEIGHT * a["convictionHits"]), 0.0)
         ranked.append({
             "ticker": sym,
             "score": round(score, 4),
+            # Coverage selection ranks on this, never on `score` — see the
+            # netAnalyst note above. Always >= score, because it is the same
+            # sum with the (never-positive) research contribution removed.
+            "analystScore": round(analyst_score, 4),
             "net": round(a["net"], 4),
+            "netAnalyst": round(a["netAnalyst"], 4),
             "attention": round(a["recency"], 4),
             "mentions": a["mentions"],
             # Derived here, once, rather than left to each surface to subtract:

@@ -65,7 +65,19 @@ def select_coverage(priorities, verdicts, theses, since, cap=MAX_COVERAGE):
     returned so the caller can log what the cap cut; silent truncation reads
     as full coverage when it is not.
     """
-    ranked = [p["ticker"] for p in priorities]
+    # Coverage ranks on the ANALYST-only score, never on `score`. The caller's
+    # list order is deliberately not trusted here: `score` carries research's
+    # downward correction, so ranking on it let a bearish finding drop a name
+    # out of the very shortlist the seats had just flagged it on (MTSI, rank 13
+    # -> 148 on 1 Sep 2026). Research may correct a name; it may not decide
+    # whether the name gets looked at. Falls back to `score` for a caller
+    # passing priorities computed before analystScore existed.
+    ranked = [p["ticker"] for p in sorted(
+        priorities,
+        key=lambda p: (p.get("analystScore", p.get("score", 0.0)),
+                       p.get("netAnalyst", p.get("net", 0.0)),
+                       p.get("mentions", 0)),
+        reverse=True)]
     rank_of = {t: i for i, t in enumerate(ranked)}
 
     since_day = seats.day(since)

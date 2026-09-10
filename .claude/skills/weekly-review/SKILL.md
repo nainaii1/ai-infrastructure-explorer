@@ -12,11 +12,20 @@ session — no Anthropic API key needed.
 
 ## Token budget rule
 
-Verdicts are written for the **Core tier only: top 15 by priority score,
+Verdicts are written for the **Core tier only: top 15 by `analystScore`,
 plus sticky holdovers** — a name with a live act/accumulate verdict stays
 on the roster even if its score slips out of the top 15, until its stance
 drops to watch/pass (operator decision, 2026-07-16). Score decides who
-*enters*. Never write verdicts for the whole universe — everything else is
+*enters*.
+
+**Rank on `analystScore`, never on `score`.** They differ, and the difference
+is the point: `score` carries the desk's own research corrections, so ranking
+the roster on it let a bearish finding push a name out of the coverage list —
+the desk would stop writing verdicts on exactly the name it had just found a
+problem with (MTSI, rank 13 to 148, 1 Sep 2026). `analystScore` excludes
+research outright, so a finding can still correct the name downward everywhere
+else while never deciding whether it gets looked at. `pre_review.select_coverage`
+enforces the same ordering itself and does not trust the caller's list order. Never write verdicts for the whole universe — everything else is
 covered by tier badges and per-theme Brain digests. Do not expand coverage
 further without the operator asking.
 

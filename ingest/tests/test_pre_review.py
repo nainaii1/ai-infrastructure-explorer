@@ -436,5 +436,89 @@ class TestMerge(unittest.TestCase):
         self.assertEqual([t["text"] for t in merged], ["first", "second", "x"])
 
 
+class BearResearchMustNotRemoveCoverage(unittest.TestCase):
+    """The 1 Sep 2026 defect: a bearish finding dropped a name out of the
+    shortlist the seats had just flagged it on.
+
+    `score` carries research's downward correction by design (research may
+    correct a name, never inflate it). But coverage was ranked on `score`, so
+    bear findings could zero a name and push it from rank 13 to rank 148 — the
+    desk stopped covering exactly the name it had just found a problem with.
+    Coverage now ranks on `analystScore`, which excludes research outright, so
+    the correction survives in the score and cannot decide who gets looked at.
+
+    These tests only mean something when the CAP BITES. With every name inside
+    the cap the remainder fill takes them all and ordering is irrelevant, so
+    the fixture below deliberately supplies more names than `cap`."""
+
+    POSTED = "2026-07-20T00:00:00Z"
+    SINCE = "2026-07-25"          # after every post: `changed`/`busy` stay empty
+                                  # so ranking alone decides who makes the cap.
+
+    def _analyst(self, sym, n):
+        return [thesis("%s focus %d" % (sym, i), [sym], self.POSTED)
+                for i in range(n)]
+
+    def _bear_research(self, sym, n):
+        return [{"id": "r_%s_%d" % (sym, i), "text": "bear", "tickers": [sym],
+                 "postedAt": self.POSTED, "source": "research",
+                 "author": "pm", "direction": "bear"} for i in range(n)]
+
+    def _select(self, theses, cap):
+        prios = scorer.compute_priorities(theses)
+        return pre_review.select_coverage(prios, [], theses, self.SINCE, cap=cap)
+
+    def _book(self):
+        # MU is the most-discussed name and must lead on analyst attention.
+        theses = self._analyst("MU", 6)
+        for sym in ("LITE", "SIVE"):
+            theses += self._analyst(sym, 4)
+        return theses
+
+    def test_the_cap_actually_bites_in_this_fixture(self):
+        # Guards the test itself: if this ever stops holding, the two tests
+        # below would pass for the wrong reason.
+        selected, dropped = self._select(self._book(), cap=2)
+        self.assertEqual(len(selected), 2)
+        self.assertTrue(dropped)
+
+    def test_bear_research_does_not_drop_a_name_off_the_shortlist(self):
+        book = self._book()
+        self.assertIn("MU", self._select(book, cap=2)[0])
+        # Enough bear findings to sink MU's score below both rivals.
+        sunk = book + self._bear_research("MU", 12)
+        prios = {p["ticker"]: p for p in scorer.compute_priorities(sunk)}
+        self.assertLess(prios["MU"]["score"], prios["LITE"]["score"],
+                        "fixture no longer sinks MU's score")
+        self.assertIn("MU", self._select(sunk, cap=2)[0],
+                      "bear research removed the name from its own coverage")
+
+    def test_research_still_corrects_the_score_downward(self):
+        # The asymmetry must survive the fix: this is the behaviour we keep.
+        book = self._book()
+        plain = {p["ticker"]: p for p in scorer.compute_priorities(book)}["MU"]
+        corrected = {p["ticker"]: p for p in scorer.compute_priorities(
+            book + self._bear_research("MU", 12))}["MU"]
+        self.assertLess(corrected["score"], plain["score"])
+        self.assertEqual(corrected["analystScore"], plain["analystScore"])
+
+    def test_analyst_score_never_sits_below_score(self):
+        rows = scorer.compute_priorities(
+            self._book() + self._bear_research("MU", 3))
+        for row in rows:
+            self.assertGreaterEqual(row["analystScore"], row["score"])
+
+    def test_research_bull_still_cannot_raise_either_number(self):
+        book = self._analyst("MU", 2)
+        bull = [{"id": "r_%d" % i, "text": "bull", "tickers": ["MU"],
+                 "postedAt": self.POSTED, "source": "research",
+                 "author": "pm", "direction": "bull"} for i in range(5)]
+        plain = {p["ticker"]: p for p in scorer.compute_priorities(book)}["MU"]
+        with_bull = {p["ticker"]: p
+                     for p in scorer.compute_priorities(book + bull)}["MU"]
+        self.assertEqual(with_bull["score"], plain["score"])
+        self.assertEqual(with_bull["analystScore"], plain["analystScore"])
+
+
 if __name__ == "__main__":
     unittest.main()
