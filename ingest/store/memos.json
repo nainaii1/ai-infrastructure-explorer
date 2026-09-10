@@ -1,7 +1,7 @@
 {
   "meta": {
     "schemaVersion": 1,
-    "updatedAt": "2026-09-01T14:30:00Z",
+    "updatedAt": "2026-09-10T01:40:00Z",
     "author": "claude-desk",
     "disclaimer": "Coverage memos are second-opinion research notes on @aleabitoreddit's ideas. Personal research tool — not investment advice."
   },
@@ -3051,6 +3051,87 @@
         {
           "heading": "Bottom line",
           "body": "No position. Revisit if a frontier-lab contract on Lambda's scale lands at Nebius specifically.\n\nThe category thesis is intact; the company-specific case for paying up ahead of a rate decision is not."
+        }
+      ]
+    },
+    {
+      "id": "m_AVGO_2026w37",
+      "ticker": "AVGO",
+      "kind": "update",
+      "title": "Broadcom: one customer, half the revenue",
+      "dek": "Held at wait — but the reason was wrong. The risk is not a rival eroding share. It is that concentration went vertical in twelve months.",
+      "publishedAt": "2026-09-10T01:40:00Z",
+      "updatedAt": "2026-09-10T01:40:00Z",
+      "rating": "watch",
+      "basedOnVerdict": true,
+      "sourceThesisIds": [
+        "x_2095261816767283663",
+        "x_2095279986701951461",
+        "x_2094405648293482965",
+        "x_2094416430032896428",
+        "x_2095882424932766163"
+      ],
+      "sections": [
+        {
+          "heading": "Snapshot",
+          "body": "$AVGO holds at **wait**, and this note exists to correct the reasoning rather than the call.\n\nCoverage opened two weeks ago on the argument that $NVDA was sponsoring rival ASIC designers — MediaTek, $MRVL — and eroding Broadcom's incumbency. That framing was too clever, and the quarter filed since has shown why. Broadcom does not have a demand problem. It has a **counterparty problem**, and the filing quantifies it in a way no thesis on file had."
+        },
+        {
+          "heading": "Thesis",
+          "body": "The third-quarter numbers are, plainly, exceptional. Revenue rose **85.5%**. The semiconductor segment alone reached **$20,839m, up 127% year on year**, at a **61.3% operating margin**. Infrastructure software added $8,752m at an **83.7%** operating margin. Group gross margin was **69.1%** and operating margin **53.9%**. Net income more than tripled to **$13,088m**, and total debt actually fell to $59.4bn from $65.1bn — the company is deleveraging through the ramp rather than borrowing into it.\n\nManagement's forward case, as [[aleabitoreddit]] captured it from the call, is AI revenue running from the mid $50bn range to roughly $115bn in fiscal 2027 and about $230bn in fiscal 2028, against a street modelling nearer $180bn, with a stated target of exceeding $30 of earnings per share in fiscal 2028. He also noted the quieter line that matters most to this desk: AI networking revenue is expected to grow just as fast as XPUs.\n\nNow the number that reframes it. **Direct sales to one semiconductor customer — a distributor — accounted for 50% of net revenue in the quarter, against 32% a year earlier. Aggregate sales to the top five end customers reached roughly 55%, against roughly 40%.** Concentration did not drift. It went vertical in twelve months."
+        },
+        {
+          "heading": "Why own it",
+          "body": "The custom-silicon franchise is real, compounding, and now demonstrably more profitable than the market treats it. A 61.3% operating margin in semiconductors is a licensing business wearing a chip company's clothes, and the software half at 83.7% is what pays for the debt.\n\nBroadcom also supplied the single most useful piece of third-party evidence in this book this fortnight, and it was about somebody else's business. Its CEO said demand for lasers, whether EML or CW, is far surpassing supply across the industry — and said it while tripling Broadcom's own laser capacity. One of the largest laser suppliers in the world confirming the shortage is worth more to $LITE, $COHR and $SIVE than to Broadcom itself. It is the reason [[photonics]] moved to high conviction.\n\nAnd the desk should acknowledge what the guide does to the original bear case: a company promising to double revenue twice in a row is not a company being squeezed out of its market."
+        },
+        {
+          "heading": "Risks",
+          "body": "**Concentration changes the shape of the downside, and this is the whole note.** With one distributor at half of revenue and five end customers at 55%, Broadcom is not exposed to gradual share drift. It is exposed to **binary programme risk**. A single flagship XPU programme moving elsewhere is not a rounding error against a diversified book; it is a step change in a majority of the revenue base.\n\nThat is the correct version of the erosion argument. If $NVDA is funding alternative ASIC leaders, the thing genuinely at risk is not Broadcom's market share in the abstract — it is one or two specific mega-programmes that now constitute more of the company than they ever have. The mechanism is different from the one this desk wrote down, and the consequence is larger.\n\nOn valuation, the widely-quoted forward multiple rests entirely on the fiscal 2028 target. Against the current quarterly run rate, exceeding $30 of earnings per share requires earnings to roughly **triple in two years**. That may well happen on the guide. It is still a 2028 number being used to justify a present price.\n\nThe market's own verdict is the last flag. The shares fell over the month after that guidance. When a company guides to double revenue twice and the stock declines, either the guide is not believed or something else is being priced."
+        },
+        {
+          "heading": "Bottom line",
+          "body": "Hold at **wait**. No position. The call is unchanged and the reasoning behind it is now better grounded.\n\nWhat would move this to accumulate: the customer concentration falling as new programmes ramp — breadth arriving to match the growth — or a December quarter confirming XPU bookings are compounding at the guided pace with more than one name behind them.\n\nWhat would move it to pass: a named flagship programme moving to $MRVL or MediaTek. Watch for it in the disclosed concentration percentages rather than in a press release; the filings will show it before anyone announces it."
+        }
+      ]
+    },
+    {
+      "id": "m_LITE_2026w37",
+      "ticker": "LITE",
+      "kind": "update",
+      "title": "Lumentum: the second charge is already in motion",
+      "dek": "Held at wait. The $7.76bn convertible loss was not the end of it — $757.8m of principal was already converting when the book closed.",
+      "publishedAt": "2026-09-10T01:40:00Z",
+      "updatedAt": "2026-09-10T01:40:00Z",
+      "rating": "watch",
+      "basedOnVerdict": true,
+      "sourceThesisIds": [
+        "x_2097660318369697875",
+        "x_2096890295128625153",
+        "x_2094298008955535500",
+        "r_68c89c7fb8f75a09",
+        "r_c63555b76c744f15",
+        "r_78734007368ea667"
+      ],
+      "sections": [
+        {
+          "heading": "Snapshot",
+          "body": "$LITE holds at **wait**, and the reason has moved from valuation to capital structure.\n\nThe desk flagged a **$7,756.6m loss on debt extinguishment** in the fiscal 2026 accounts two weeks ago — conversion value paid above principal to holders of the 2026, 2028 and 2029 notes, and an item that appeared in no thesis on file. Reading the filing properly this week turned up something worse: that charge was not a closing event. It is a process, and it is still running."
+        },
+        {
+          "heading": "Thesis",
+          "body": "Buried in the annual report, dated after the fiscal year had already closed, is this: **as of 14 August 2026 the company had received early conversion requests totalling $757.8m of aggregate principal**. The principal settles in cash. The conversion value in excess of it settles in cash, shares, or a combination, at Lumentum's election.\n\nEvery series is deep in the money. The stated conversion prices are approximately $69.54 for the 2029 notes, $99.29 for the 2026 notes, $131.03 for the 2028 notes and $187.77 for the 2032 notes, against a share price that has spent the year far above all four. The mix inside that $757.8m is not disclosed, so the outcome is a range rather than a figure — but at recent prices it implies roughly **four to eleven million additional shares**, and value leaving common equity measured in **billions**, on top of the $7.76bn already booked.\n\nThe mechanism deserves stating plainly, because it is counter-intuitive: **the better the share price does, the more this costs the people holding the shares.** A rising stock does not reduce a convertible overhang. It enlarges the transfer.\n\nWhat it has already done is visible in the count. Weighted average shares went from 69.0m in fiscal 2025 to 74.6m in fiscal 2026, and **89.7m were outstanding by 14 August** — roughly 30% more than the prior year's average."
+        },
+        {
+          "heading": "Why own it",
+          "body": "The operating business is not the problem, and the evidence for it got stronger this fortnight, not weaker.\n\nNet revenue rose **83.2% to $3,014.0m**, components up 79.7%, with gross margin expanding from **28.0% to 41.7%** as cost of sales fell from 67.0% to 55.7% of revenue. Volume and margin moving together, with cost of sales falling as a share, is pricing power rather than favourable mix. Operating cash flow was **positive $751.4m** — the enormous reported loss is non-cash and did not touch the operations.\n\nThe demand case is now confirmed from three directions that do not sell lasers for a living. TSMC's VP of advanced packaging said foundries can scale the optical engine but the real bottlenecks lie in lasers, fibre, connectors and test. Broadcom's CEO said laser demand far surpasses supply while tripling his own capacity. Citi has begun positioning lasers and optical fibre as the next [[hbm]], with tight supply supporting a scarcity premium. Goldman meanwhile raised its optical module forecasts sharply and, more usefully, raised optical content per GPU.\n\n[[aleabitoreddit]] makes the best structural argument for the name: a laser company does not have to stay a laser company. He points at the Cloud Light acquisition, which he says expanded Lumentum's served opportunity inside data centres more than fivefold, and at external light sources roughly doubling the addressable opportunity again."
+        },
+        {
+          "heading": "Risks",
+          "body": "The convertible process above is the first and largest risk, and it is disclosed rather than speculative. A second charge of material size is already in motion, and the desk should expect it in the next filing rather than be surprised by it.\n\nThe second is a discipline point about what is and is not evidence. The figure circulating for a single ultra-high-power laser fab — roughly $5bn of revenue capacity, ramping early 2028 — **is not in the annual report.** It comes from an investor presentation. It may well be achievable, and the desk applied exactly the same test to [[sive]]'s Jabil date and foundry allocation, which were also call commentary rather than disclosure. A number that has never been filed should not be load-bearing in a position.\n\nThird, concentration of a different kind: **79.2% of revenue ships outside the United States and 58.2% into Asia-Pacific**, into tariff and export-control risk that no thesis on file has priced, at a moment when China has reportedly begun restricting material shipments in the other direction.\n\nAgainst all of that, the honest counterweight: converts funded this build, holders have been rewarded, and the objection is not that convertible debt existed. It is that its cost is entirely invisible in the framing everyone is using — revenue up 83%, margin from 28% to 42% — which is how a shareholder ends up owning 30% less of a company that is performing well."
+        },
+        {
+          "heading": "Bottom line",
+          "body": "Hold at **wait**. This is the safest operating business in the [[photonics]] book and it is not the cheapest way to own the thesis, which is the same conclusion as two weeks ago reached by a better route.\n\nThe change: the falsifier is no longer only gross-margin compression. It is now **the conversion process** — read the share count and the extinguishment line in the next filing before anything else, and size any position against a count that is still moving.\n\nTo accumulate: the conversion requests clearing with the share count settling, and the ultra-high-power ramp appearing as filed revenue rather than deck capacity. To pass: further conversions on the same terms with no disclosed end to them."
         }
       ]
     }

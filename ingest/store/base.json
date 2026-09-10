@@ -1,8 +1,8 @@
 {
   "meta": {
-    "version": "1.529",
+    "version": "1.531",
     "schemaVersion": 1,
-    "lastUpdated": "2026-09-10T00:30:00Z",
+    "lastUpdated": "2026-09-10T01:40:00Z",
     "source": "ingest"
   },
   "countries": {
@@ -230,7 +230,9 @@
     "SIVEF": "SIVE",
     "SKHY": "000660.KS",
     "SOI": "SOI.PA",
-    "LPKF": "LPK.DE"
+    "LPKF": "LPK.DE",
+    "KLA": "KLAC",
+    "LCRX": "LRCX"
   },
   "themeTags": [
     "DRAM",
