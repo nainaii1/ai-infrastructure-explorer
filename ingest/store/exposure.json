@@ -1,7 +1,7 @@
 {
   "meta": {
     "schemaVersion": 1,
-    "updatedAt": "2026-08-28T18:27:48Z",
+    "updatedAt": "2026-09-11T01:50:00Z",
     "source": "operator judgement",
     "disclaimer": "Not filed data and not derivable from filings. Each figure carries its own basis and confidence.",
     "assessed": 45
@@ -53,13 +53,14 @@
     },
     "AMD": {
       "ticker": "AMD",
-      "aiExposure": 48.0,
+      "aiExposure": 58.0,
       "confidence": "high",
-      "basis": "Company-reported segment revenue: Data Center was $16.6B of $34.64B in FY2025, or 47.9%, up 32% on EPYC and Instinct. Client, Gaming and Embedded are the balance.",
+      "basis": "Company-reported segment revenue, updated to the latest filed quarter: Data Center was $6,718m of $11,536m in Q2 2026, or 58.2%, against $3,240m of $7,685m (42.2%) a year earlier. Segment operating income swung to $2,103m from a $155m loss. The prior basis read 47.9% on FY2025 and understated the current mix. Client, Gaming and Embedded are the balance, and Gaming fell 31%.",
       "sources": [
-        "AMD Q4/FY2025 results, 3 Feb 2026 — ir.amd.com press release and FY2025 10-K. Transcribed by Claude, not operator-researched."
+        "AMD Q2 2026 Form 10-Q, filed 5 Aug 2026 — https://www.sec.gov/Archives/edgar/data/2488/000000248826000123/amd-20260627.htm",
+        "Transcribed by Claude from that filing, not operator-researched."
       ],
-      "assessedAt": "2026-08-28",
+      "assessedAt": "2026-09-11",
       "assessedBy": "claude-sourced"
     },
     "NBIS": {
@@ -75,13 +76,14 @@
     },
     "AXTI": {
       "ticker": "AXTI",
-      "aiExposure": 40.0,
-      "confidence": "low",
-      "basis": "InP substrates for photonics are the bottleneck he argues, but revenue is $0.09B and shrinking — the price hikes have not landed yet. Legacy GaAs into LED and wireless is still a large share.",
+      "aiExposure": 65.0,
+      "confidence": "medium",
+      "basis": "Re-cut on the filed half-year after the 1 Sep seat research found the prior basis stale. Quarterly revenue rose 164.8% to $47.6m and gross margin from 8.0% to 44.9%, so the InP price hikes HAVE landed — the earlier note said they had not. Photonics-grade InP is now the majority of the mix; legacy GaAs into LED and wireless is the shrinking balance. Still a judgement: AXT discloses no AI or photoni",
       "sources": [
-        "Claude desk estimate delegated by operator 28 Aug 2026 — inferred from SEC filed revenue, company segment mix and store thesis data. NOT operator-researched, NOT a filed segment figure."
+        "AXT Q2 2026 Form 10-Q, filed 13 Aug 2026 — https://www.sec.gov/Archives/edgar/data/1051627/000143774926027677/axti20260630_10q.htm",
+        "Claude desk estimate re-cut 11 Sep 2026 from that filing. NOT operator-researched, NOT a filed segment figure."
       ],
-      "assessedAt": "2026-08-28",
+      "assessedAt": "2026-09-11",
       "assessedBy": "claude-estimate"
     },
     "MU": {

@@ -23,7 +23,7 @@
       "stance": "accumulate",
       "previousStance": "accumulate",
       "view": "Held at accumulate, and the week added a structural argument rather than another data point. The $3.5bn investment into MediaTek, read alongside the Marvell relationship, is NVIDIA paying to pick the next generation of ASIC winners; he reads it as eroding Broadcom's position and cementing NVIDIA in inference, which was the one durable long-term bear case on the name. Management is now projecting $1.3T of hyperscaler capex in 2027 against roughly $800bn this year. The desk's own reading of the 10-Q agrees the supply is contracted rather than aspirational: $92bn of the $279bn commitment falls in the rest of fiscal 2027, $87bn in 2028 and $88bn in 2029. What he does not discuss is the other side of that balance sheet. Receivables are $63.1bn against $96.2bn of quarterly revenue, five direct customers hold 70% of it against three at 56% in January, and NVIDIA now grants investment-grade buyers 90-day to one-year terms on large builds. Total commitments are $366bn once cloud agreements, equity investments and uncommenced leases are added. The demand is real and the financing of it is increasingly NVIDIA's own.",
-      "execution": "Continue accumulating, second tranche still only on a retrace toward $208-213. Top-tier size. The MediaTek move is a reason to hold through the macro rather than a reason to add at $220.",
+      "execution": "Continue accumulating, second tranche still only on a retrace toward $208-213. Top-tier size. The MediaTek move is a reason to hold through the macro rather than a reason to chase the current level.",
       "changesMind": "Receivables growing faster than revenue for a second quarter, days sales outstanding extending further, or the extended payment terms appearing alongside a customer credit event. Also any sign the $279bn is pull-forward rather than demand.",
       "basedOnThesisIds": [
         "x_2094405648293482965",
@@ -34,7 +34,7 @@
         "r_d6dcde76ab894523",
         "r_b7de03d2ec2c5792"
       ],
-      "updatedAt": "2026-09-01T14:30:00Z"
+      "updatedAt": "2026-09-11T01:40:00Z"
     },
     {
       "ticker": "MRVL",
@@ -107,7 +107,7 @@
       "ticker": "AAOI",
       "stance": "watch",
       "previousStance": "watch",
-      "view": "Held at wait, unchanged, and the reason has hardened rather than softened. The demand side is confirmed by the 10-Q: manufacturing expansion in the United States and Taiwan through 2026 and 2027 for laser diode production and 800G and 1.6T transceivers, with capex held above prior-year levels, and quarterly revenue nearly doubling to $191.9m. The financing side is the problem he named on 21 August and the desk can now size. Net ATM proceeds were $1.03bn in the first half against $343.1m of half-year revenue, three times the revenue raised in equity. Weighted basic shares went from 56.8m to 81.6m, up 43.7% in a year, and the company still lost $37.1m over the half. The sharpest fact is the price: management sold roughly $490m at an average of $103.51, and the stock closed this week at $107.69 after a 16.6% fall. The people with the most information chose to sell within four percent of here.",
+      "view": "Held at wait, unchanged, and the reason has hardened rather than softened. The demand side is confirmed by the 10-Q: manufacturing expansion in the United States and Taiwan through 2026 and 2027 for laser diode production and 800G and 1.6T transceivers, with capex held above prior-year levels, and quarterly revenue nearly doubling to $191.9m. The financing side is the problem he named on 21 August and the desk can now size. Net ATM proceeds were $1.03bn in the first half against $343.1m of half-year revenue, three times the revenue raised in equity. Weighted basic shares went from 56.8m to 81.6m, up 43.7% in a year, and the company still lost $37.1m over the half. The sharpest fact is the price: management sold roughly $490m at an average of $103.51, and the shares have since traded either side of it. The people with the most information chose to sell within four percent of here.",
       "execution": "No new capital. The $103.51 average ATM price is the reference level, not the recent high. Wait for a quarter with no new ATM and 1.6T revenue actually recognised.",
       "changesMind": "A quarter with no fresh equity issuance and 1.6T revenue recognised would move this to accumulate quickly. Another ATM at a lower average price moves it to pass.",
       "basedOnThesisIds": [
@@ -117,7 +117,7 @@
         "r_140ca09be9e52571",
         "r_94ac01adf9ad6b2f"
       ],
-      "updatedAt": "2026-09-01T14:30:00Z"
+      "updatedAt": "2026-09-11T01:40:00Z"
     },
     {
       "ticker": "AXTI",
@@ -166,13 +166,13 @@
       "stance": "accumulate",
       "previousStance": "accumulate",
       "view": "Held at accumulate, and this week TSMC itself supplied the map. Its VP of advanced packaging said foundries can scale the optical engine but the bottlenecks lie in lasers, fibre, connectors and test, and TSMC separately sees silicon photonics going mainstream in 2027 with over 50% share of the optical transceiver market. Read together those are a foundry telling the market both that its own step is not the constraint and that the technology it has invested in takes the majority of a large market within eighteen months. Soitec's commentary the same week supports the substrate half: more than ten capacity reservation agreements expected, with $200m of photonics-SOI revenue described as an absolute floor. The desk continues to treat TSMC as the lowest-variance way to own the silicon-photonics transition, which is why it holds accumulate through a week when the high-beta expressions of the same idea fell double digits.",
-      "execution": "Continue accumulating. The 10 August entry at $420.04 is roughly flat at $415.32; add in tranches on any move below $400. Upper-tier size given it is the defensive holding in a book full of high-beta optical names.",
+      "execution": "Continue accumulating. The 10 August entry at $420.04 is the reference; add in tranches on any move below $400. Upper-tier size given it is the defensive holding in a book full of high-beta optical names.",
       "changesMind": "COUPE or SoIC packaging timelines slipping past 2027, or silicon photonics share tracking well below the 50% TSMC is guiding to.",
       "basedOnThesisIds": [
         "x_2094298008955535500",
         "x_2094378666927239596"
       ],
-      "updatedAt": "2026-09-01T14:30:00Z"
+      "updatedAt": "2026-09-11T01:40:00Z"
     },
     {
       "ticker": "GFS",
@@ -222,7 +222,7 @@
       "stance": "watch",
       "previousStance": "watch",
       "view": "Held at wait, and the memory case keeps widening while the desk keeps declining to chase it. He assembles the strongest version of it: SK hynix's CEO expecting shortage through end-2030, SanDisk describing structurally huge NAND demand to 2030 with non-GAAP gross margin around 80%, NVIDIA's commitments rising to $279bn largely on memory with pricing described as extreme, Winbond negotiating quotas into 2029-2030, and reportedly Samsung reserving around 70% of its memory capacity through 2031 via long-term agreements with NVIDIA, Microsoft and Google as counterparties. Five years of visibility is a real argument. The desk's reservation is what that visibility is priced at. The filed fiscal 2026 accounts show revenue rising from $7,355m to $20,248m and gross margin from 30.1% to 71.5%, attributed to higher sales and higher pricing. Revenue tripled on price, not on bits. A 71.5% NAND gross margin is a cycle peak, the same business earned 16.1% two years ago, and top-ten customers are 44% of revenue with none above 10%, so no contracted volume protects it.",
-      "execution": "No chase at $1,567 and 11x revenue earned at an all-time margin. The 21 August trim at $1,603.59 stands. If the shortage genuinely runs to 2030 there will be better entries than the top of the first repricing.",
+      "execution": "No chase at roughly eleven times revenue earned at an all-time margin. The 21 August trim at $1,603.59 stands. If the shortage genuinely runs to 2030 there will be better entries than the top of the first repricing.",
       "changesMind": "Contracted volumes being renegotiated on price, hyperscaler memory procurement proving to be double-ordering, or SanDisk signing long-term agreements that actually fix its volumes rather than leaving it spot-exposed.",
       "basedOnThesisIds": [
         "x_2093252439973777674",
@@ -231,7 +231,7 @@
         "r_d1c1e71dc4d80de7",
         "r_299e20f1d147fa06"
       ],
-      "updatedAt": "2026-09-01T14:30:00Z"
+      "updatedAt": "2026-09-11T01:40:00Z"
     },
     {
       "ticker": "000660.KS",
@@ -282,24 +282,24 @@
       "stance": "accumulate",
       "previousStance": "accumulate",
       "view": "Held at accumulate on a quiet week. The only new mention is incidental and slightly comic: Anthropic renting Apple Mac mini units from AWS for reinforcement-learning work, alongside OpenAI hoarding Mac minis and Mac Studios, which he uses to observe that Apple keeps winning by doing nothing. The read-through that matters is that AWS is the place frontier labs go for capacity that is not GPU, which is a reminder that the hyperscaler position is broader than the accelerator cycle. The Alchip and Trainium ramp remains the substantive part of the thesis and nothing this week moved it either way. Amazon is one of the counterparties in the reported Samsung memory reservation only indirectly; the named ones are NVIDIA, Microsoft and Google.",
-      "execution": "Hold. No add at $260 after a 12% month; the position is already sized and there is no new information to act on.",
+      "execution": "Hold, no add. The position is already sized and this week produced no new information to act on. Revisit on Trainium volumes or an AWS capex revision, not on price.",
       "changesMind": "Trainium volumes disappointing in the 2027 procurement cycle, or AWS capex guidance being cut.",
       "basedOnThesisIds": [
         "x_2094306322812666156"
       ],
-      "updatedAt": "2026-09-01T14:30:00Z"
+      "updatedAt": "2026-09-11T01:40:00Z"
     },
     {
       "ticker": "GOOGL",
       "stance": "accumulate",
       "previousStance": "accumulate",
       "view": "Held at accumulate. The one new datapoint is meaningful: Google appears as a named counterparty, alongside NVIDIA and Microsoft, in the reported Samsung arrangement reserving roughly 70% of memory capacity through 2031. Locking five years of memory supply is a statement about how long Google expects to be building, and it is the kind of commitment that only makes sense if the TPU roadmap is funded well into the next decade. That supports the existing thesis rather than changing it: Google is the hyperscaler with its own silicon, its own models and now its own contracted memory. Nothing this week argued against it and the stock was flat.",
-      "execution": "Hold, no change. Add only on a market-wide de-rating rather than on company news; at $339 and a 63% year the easy re-rating has happened.",
+      "execution": "Hold, no change. Add only on a market-wide de-rating rather than on company news — after the run of the past year, the easy re-rating has happened.",
       "changesMind": "TPU roadmap slipping, or the memory reservation proving to be an option rather than a commitment.",
       "basedOnThesisIds": [
         "x_2094365307876040857"
       ],
-      "updatedAt": "2026-09-01T14:30:00Z"
+      "updatedAt": "2026-09-11T01:40:00Z"
     },
     {
       "ticker": "POET",
