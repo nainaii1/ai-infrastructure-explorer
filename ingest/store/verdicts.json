@@ -55,13 +55,13 @@
       "stance": "watch",
       "view": "Initiating at wait, and unusually the reason to open coverage is a negative catalyst. He reads NVIDIA's $3.5bn MediaTek investment as a deliberate move to build alternative ASIC leaders and erode Broadcom's position, while noting the second-order effect may push AMD, Broadcom and certain hyperscalers closer together. Broadcom has been the default custom-silicon beneficiary of every hyperscaler diversification story for two years, and this is the first credible argument that the incumbent's position is being attacked by the company it was supposed to displace. The desk does not yet have a view on whether the attack works. What it does have is a name at $1.76tn that fell 3.4% over the month while the sector's dispersion widened, and a thesis that now has an identified adversary rather than only a tailwind.",
       "execution": "No position. This is coverage rather than a call. Wait for the December quarter to show whether custom ASIC bookings are still compounding at the pace the story assumes before taking any view on price.",
-      "changesMind": "A flagship hyperscaler ASIC programme moving from Broadcom to Marvell or MediaTek would confirm the erosion; a large new custom-silicon win would refute it.",
+      "changesMind": "The disclosed customer concentration, which moves before any announcement does. One distributor was 50% of net revenue in the third quarter against 32% a year earlier, and the top five end customers roughly 55% against roughly 40%. Concentration falling as new programmes ramp means breadth is arriving to match the growth, and moves this to accumulate. A step-down in that distributor line is a flagship programme leaving, and moves it to pass — the 10-Q will show it before any press release. The erosion argument is otherwise unfalsifiable from outside.",
       "basedOnThesisIds": [
         "x_2094405648293482965",
         "x_2094416430032896428",
         "x_2093652781928448279"
       ],
-      "updatedAt": "2026-09-01T14:30:00Z"
+      "updatedAt": "2026-09-11T00:20:00Z"
     },
     {
       "ticker": "SIVE",
@@ -87,7 +87,7 @@
       "previousStance": "watch",
       "view": "Held at wait, and the strongest independent validation of the laser thesis this year arrived from the foundry rather than the sell side. TSMC's VP of advanced packaging said foundries can scale the optical engine but the real bottlenecks to large-scale deployment lie elsewhere, naming lasers, optical fibre, connectors and test. That is the customer of the whole silicon-photonics stack confirming that the scarce input is the thing Lumentum makes. The filed numbers support it: net revenue up 83.2% to $3,014.0m, components up 79.7%, gross margin from 28.0% to 41.7% as cost of sales fell from 67.0% to 55.7%. The desk's reservation is not operational. Fiscal 2026 also carried a $7,756.6m loss on debt extinguishment, of which $7,755.1m was conversion value paid above principal to holders of the 2026, 2028 and 2029 notes. That is 2.6 times full-year revenue transferred out of common equity because the stock ran, and it appears in no thesis on file. Add 79.2% of revenue shipping outside the United States, and the safest optical name is carrying risks nobody has priced.",
       "execution": "No add at $915 and 27x sales. Relative resilience through a week that took AAOI down 17% and Sivers down 24% is exactly why this is the wrong end of the trade during a rotation out of optical.",
-      "changesMind": "Gross margin compressing as the NVIDIA allocation mix grows, or further convertible settlements on the same terms. Conversely, a genuine pullback toward the $700s with the TSMC bottleneck framing intact would make this the first optical add.",
+      "changesMind": "The conversion process, not the margin. As of 14 August the company had received early conversion requests totalling $757.8m of principal, with the value in excess settling in cash, shares or both at its election, so read the share count and the extinguishment line in the next filing before anything else. Conversions clearing with the share count settling moves this to accumulate. Further conversions on the same terms, with no disclosed end to them, moves it to pass. Gross-margin compression as the NVIDIA allocation mix grows is now the secondary check rather than the primary one.",
       "basedOnThesisIds": [
         "x_2094298008955535500",
         "x_2093988125144207710",
@@ -96,7 +96,7 @@
         "r_c63555b76c744f15",
         "r_78734007368ea667"
       ],
-      "updatedAt": "2026-09-01T14:30:00Z"
+      "updatedAt": "2026-09-11T00:20:00Z"
     },
     {
       "ticker": "AAOI",
