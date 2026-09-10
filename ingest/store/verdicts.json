@@ -53,15 +53,17 @@
     {
       "ticker": "AVGO",
       "stance": "watch",
-      "view": "Initiating at wait, and unusually the reason to open coverage is a negative catalyst. He reads NVIDIA's $3.5bn MediaTek investment as a deliberate move to build alternative ASIC leaders and erode Broadcom's position, while noting the second-order effect may push AMD, Broadcom and certain hyperscalers closer together. Broadcom has been the default custom-silicon beneficiary of every hyperscaler diversification story for two years, and this is the first credible argument that the incumbent's position is being attacked by the company it was supposed to displace. The desk does not yet have a view on whether the attack works. What it does have is a name at $1.76tn that fell 3.4% over the month while the sector's dispersion widened, and a thesis that now has an identified adversary rather than only a tailwind.",
+      "view": "Held at wait, and this is a rewrite rather than a refresh. The desk opened coverage on 1 September arguing that NVIDIA's $3.5bn MediaTek investment was building rival ASIC sponsors and eroding Broadcom's incumbency. He has since answered that argument directly, and answered it better. Naming Broadcom one of his five favourite mega-caps on 9 September, his position is that the ASIC pie keeps getting bigger despite MediaTek and Marvell going after share. The quarter filed on 10 September supports him: semiconductor revenue reached $20,839m, up 127% year on year, at a 61.3% operating margin, with group operating margin at 53.9% and net income more than tripling to $13,088m. A company being squeezed out of its market does not print that. He is also right that the reaction was odd — management pointed to roughly $115bn of AI revenue in fiscal 2027 and $230bn in fiscal 2028 against a street nearer $180bn, said demand exceeds even that, and the shares fell anyway.\n\nWhere the desk parts company is on what the same filing discloses about how that growth arrives. One distributor was 50% of net revenue in the quarter against 32% a year earlier, and the top five end customers roughly 55% against roughly 40%. The pie growing and the channel narrowing are both true at once, and he holds only the first. That combination changes the shape of the downside: it is no longer gradual share loss but a step change in a majority of revenue if a single flagship programme moves. A different risk from the one the desk wrote down, and a larger one.\n\nTwo notes on him rather than on Broadcom. He is long the theme and calls this a favourite, so he is not a neutral reader of it. But he is also carrying a bear point against his own book — flagging caution through 2027 in case capex peaks in 2028 — which is the most useful thing anyone in this feed has said about the far end of this cycle, and the desk should hold it for every accelerator name rather than just this one. Last, the 12.2x he quotes is a fiscal 2028 multiple: against the current quarterly run rate, exceeding $30 of earnings per share means roughly tripling from here.",
       "execution": "No position. This is coverage rather than a call. Wait for the December quarter to show whether custom ASIC bookings are still compounding at the pace the story assumes before taking any view on price.",
       "changesMind": "The disclosed customer concentration, which moves before any announcement does. One distributor was 50% of net revenue in the third quarter against 32% a year earlier, and the top five end customers roughly 55% against roughly 40%. Concentration falling as new programmes ramp means breadth is arriving to match the growth, and moves this to accumulate. A step-down in that distributor line is a flagship programme leaving, and moves it to pass — the 10-Q will show it before any press release. The erosion argument is otherwise unfalsifiable from outside.",
       "basedOnThesisIds": [
-        "x_2094405648293482965",
+        "h_1a497b02efae06ff",
+        "x_2095261816767283663",
+        "x_2095882424932766163",
         "x_2094416430032896428",
-        "x_2093652781928448279"
+        "x_2095279986701951461"
       ],
-      "updatedAt": "2026-09-11T00:20:00Z"
+      "updatedAt": "2026-09-11T00:55:00Z"
     },
     {
       "ticker": "SIVE",
