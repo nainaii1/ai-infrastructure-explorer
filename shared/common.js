@@ -94,7 +94,22 @@
         });
         var known = {};
         refreshed.forEach(function (t) { known[t.ticker] = true; });
-        tickers.forEach(function (t) { if (!known[t.ticker]) refreshed.push(t); });
+        // A stored ticker missing from data.js is one of two things, and they
+        // need opposite treatment:
+        //   - a local rating stub ({ticker, rating}, written when the user
+        //     rates a row) -> keep it, that is the user's own data;
+        //   - a full record the backend deliberately REMOVED -> drop it. A
+        //     rejected symbol ($GM from "Elazr GM"), an out-of-scope name
+        //     (RDDT, RKLB), a typo folded into an alias (LPKF, KLA).
+        // Keeping both is what this line used to do, so a rejection never
+        // actually reached an already-seeded browser: GM sat in localStorage
+        // indefinitely after being deleted from the store. A stub has no
+        // `category` because nothing client-side ever writes one; a record
+        // that came from data.js always does.
+        tickers.forEach(function (t) {
+          if (known[t.ticker] || t.category) { return; }
+          refreshed.push(t);
+        });
         tickers = refreshed;
       }
       localStorage.setItem(STORAGE_KEYS.tickers, JSON.stringify(tickers));
