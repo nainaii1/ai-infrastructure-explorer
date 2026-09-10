@@ -1,7 +1,7 @@
 {
   "meta": {
     "schemaVersion": 1,
-    "syncedAt": "2026-09-10T11:36:39Z",
+    "syncedAt": "2026-09-10T16:15:30Z",
     "pageCount": 70,
     "linkCount": 236
   },
@@ -263,8 +263,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 15,
-          "lastMentioned": "2026-09-07T07:09:05Z",
+          "mentions": 16,
+          "lastMentioned": "2026-09-10T06:38:22Z",
           "category": "memory",
           "market": "KR",
           "marketCapTier": "Mega",
@@ -1008,8 +1008,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 41,
-          "lastMentioned": "2026-09-07T07:09:05Z",
+          "mentions": 42,
+          "lastMentioned": "2026-09-10T06:38:22Z",
           "category": "memory",
           "market": "US",
           "marketCapTier": "Large",

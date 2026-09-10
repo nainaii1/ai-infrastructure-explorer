@@ -2662,8 +2662,23 @@
     "text": "Wow, HBM reportedly drove up AI accelerator/card prices by 20-50% in China.\n\nSo $SKHY, Samsung, $MU, should be happy to hear this:\n\n- Huawei has raised indicated pricing for the Ascend 950DT 20–50% above quotes from just 2 months ago\n\n- Cambricon's upcoming 690 is reportedly +20–30%\n\nReuters stated that HBM acquired through grey market channels in China can cost several times regular pricing. \n\nAs someone who is long memory, I'm happy about memory causing this much inflation.",
     "postedAt": "2026-09-10T06:38:22Z",
     "verifiedAuthor": "aleabitoreddit",
-    "status": "pending",
+    "status": "ingested",
     "queuedAt": "2026-09-10T08:05:12Z",
-    "notifiedAt": null
+    "notifiedAt": "2026-09-10T16:05:19Z",
+    "decidedAt": "2026-09-10T16:15:30Z",
+    "thesisId": "x_2097937708178186303"
+  },
+  {
+    "id": "2098031064002535908",
+    "url": "https://x.com/aleabitoreddit/status/2098031064002535908",
+    "author": "aleabitoreddit",
+    "isRepost": false,
+    "text": "共和党が議会で多数派を維持できたら、トランプが成人1人につき5,000ドルを配ると約束している理由が、正直よく分からない。（総額約1.35兆ドル）\n\nそれより、アメリカ中のトイレを、日本にあるような便座が温かくなるTOTO（5332.T）のトイレにアップグレードしたほうが、支持率はもっと上がるんじゃないかと思う。\n\n計算してみた：\n\n3億3,500万台のトイレをTOTO UltraMax II + S7Aに交換すると、約9,900億ドル。\n設置費用まで含めると、総額は約1.3兆ドル。\n\n僕の案のほうがかなり安い。",
+    "postedAt": "2026-09-10T12:49:19Z",
+    "verifiedAuthor": "aleabitoreddit",
+    "status": "skipped",
+    "queuedAt": "2026-09-10T16:05:17Z",
+    "notifiedAt": "2026-09-10T16:05:19Z",
+    "decidedAt": "2026-09-10T16:15:26Z"
   }
 ]
