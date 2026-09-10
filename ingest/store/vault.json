@@ -1,9 +1,9 @@
 {
   "meta": {
     "schemaVersion": 1,
-    "syncedAt": "2026-09-02T08:11:16Z",
-    "pageCount": 65,
-    "linkCount": 227
+    "syncedAt": "2026-09-10T11:36:39Z",
+    "pageCount": 70,
+    "linkCount": 236
   },
   "pages": [
     {
@@ -15,13 +15,14 @@
           "amd",
           "arm",
           "nvda",
+          "qcom",
           "smci"
         ],
         "stats": {
           "label": "Accelerators",
           "flowRole": "chip",
-          "memberCount": 4,
-          "coreCount": 2,
+          "memberCount": 5,
+          "coreCount": 3,
           "watchCount": 2
         }
       },
@@ -56,14 +57,15 @@
       "title": "Glass Substrates",
       "auto": {
         "refs": [
+          "glw",
           "lpk-de"
         ],
         "stats": {
           "label": "Glass Substrates",
           "flowRole": "supply",
-          "memberCount": 1,
+          "memberCount": 2,
           "coreCount": 1,
-          "watchCount": 0
+          "watchCount": 1
         }
       },
       "note": "Glass-core substrates for [[advanced-packaging]] \u2014 a natural extension of the packaging wave as chips grow larger and run hotter, and still the thinnest layer on this map.\n\nOn 17 Aug 2026 the desk moved [[lpk-de]] here from [[materials]], where it had been filed as an equipment name, and gave it its first verdict. That makes two names in the layer alongside Corning (GLW), which has surfaced only inside broader semis-selloff baskets. SKC Absolics and TSMC's CoPoS effort remain tracked as candidates rather than positions.\n\nThe layer's problem this week is timing rather than technology. [[aleabitoreddit]] reported Samsung Electro-Mechanics delaying its glass-substrate investment on customer reliability-evaluation bottlenecks, revising the start of operations to 2028, with SKC also pushing back \u2014 a delay in his own theme, which is the kind of disclosure worth weighting heavily precisely because it cuts against the poster's book. For an equipment supplier that pushes the revenue event out with it.\n\nGlass stays a 2028-2029 layer on current evidence. Watch for the first disclosed tool order with a delivery year attached; that is what converts this page from a theme into a position.",
@@ -261,8 +263,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 11,
-          "lastMentioned": "2026-09-01T08:30:14Z",
+          "mentions": 15,
+          "lastMentioned": "2026-09-07T07:09:05Z",
           "category": "memory",
           "market": "KR",
           "marketCapTier": "Mega",
@@ -283,8 +285,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 94,
-          "lastMentioned": "2026-09-01T13:55:24Z",
+          "mentions": 102,
+          "lastMentioned": "2026-09-09T12:16:07Z",
           "category": "photonics",
           "market": "US",
           "marketCapTier": "Small",
@@ -327,8 +329,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 12,
-          "lastMentioned": "2026-08-30T06:24:05Z",
+          "mentions": 13,
+          "lastMentioned": "2026-09-07T04:14:23Z",
           "category": "materials",
           "market": "US",
           "marketCapTier": "Small",
@@ -371,8 +373,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 43,
-          "lastMentioned": "2026-09-01T08:30:14Z",
+          "mentions": 45,
+          "lastMentioned": "2026-09-09T07:27:01Z",
           "category": "accelerators",
           "market": "US",
           "marketCapTier": "Mega",
@@ -415,8 +417,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 28,
-          "lastMentioned": "2026-09-01T08:30:14Z",
+          "mentions": 33,
+          "lastMentioned": "2026-09-09T22:31:28Z",
           "category": "hyperscalers",
           "market": "US",
           "marketCapTier": "Mega",
@@ -436,9 +438,9 @@
           "aleabitoreddit"
         ],
         "stats": {
-          "tier": "watch",
-          "mentions": 3,
-          "lastMentioned": "2026-08-30T06:24:05Z",
+          "tier": "core",
+          "mentions": 5,
+          "lastMentioned": "2026-09-09T07:27:01Z",
           "category": "accelerators",
           "market": "",
           "marketCapTier": "",
@@ -459,8 +461,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 17,
-          "lastMentioned": "2026-09-01T08:30:14Z",
+          "mentions": 24,
+          "lastMentioned": "2026-09-09T07:27:01Z",
           "category": "networking",
           "market": "",
           "marketCapTier": "",
@@ -481,8 +483,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 37,
-          "lastMentioned": "2026-09-01T16:57:19Z",
+          "mentions": 40,
+          "lastMentioned": "2026-09-07T10:11:36Z",
           "category": "materials",
           "market": "US",
           "marketCapTier": "Small",
@@ -503,8 +505,8 @@
         ],
         "stats": {
           "tier": "watch",
-          "mentions": 6,
-          "lastMentioned": "2026-08-24T18:27:08Z",
+          "mentions": 7,
+          "lastMentioned": "2026-09-02T09:54:21Z",
           "category": "power",
           "market": "US",
           "marketCapTier": "Mid",
@@ -525,8 +527,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 33,
-          "lastMentioned": "2026-08-30T06:24:05Z",
+          "mentions": 34,
+          "lastMentioned": "2026-09-07T04:14:23Z",
           "category": "robotics",
           "market": "US",
           "marketCapTier": "Mid",
@@ -547,8 +549,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 36,
-          "lastMentioned": "2026-08-31T05:35:30Z",
+          "mentions": 39,
+          "lastMentioned": "2026-09-09T12:16:07Z",
           "category": "photonics",
           "market": "US",
           "marketCapTier": "Large",
@@ -557,6 +559,27 @@
       },
       "note": "Coherent is the vertically integrated one. Where [[aaoi]] and [[lite]] assemble modules around lasers they largely buy, Coherent grows its own indium phosphide \u2014 it doubled six-inch InP capacity ahead of plan and took datacenter and communications to 79% of Q4 revenue. In a [[photonics]] layer where the binding constraint is laser and substrate supply, keeping InP in-house is an allocation decision that makes merchant supply scarcer for everyone else on this page.\n\nThe desk upgraded it to accumulate in the 21 Aug 2026 review, and it is the desk's own call rather than [[aleabitoreddit]]'s \u2014 he referenced Coherent only as a back-reference that week, listing it among the names $NVDA invested in directly. The trigger was a disconnect: record fiscal Q4 revenue of $2.05B and FY26 revenue up 22.5% with EPS up 59%, and the shares de-rated anyway, alongside [[mtsi]] and [[sive]], while [[memory]] names ran. The market is repricing this group on gross margin rather than growth.\n\nThat margin gap is the whole bear case and it is real \u2014 Coherent guides roughly ten points below [[lite]]. The bet is that owning the [[chokepoint]] is worth more in a shortage than the module margin it gives up, and the falsifier is clean: datacenter gross margin has to actually expand, or vertical integration is just a lower-margin version of the peers.",
       "noteUpdatedAt": "2026-08-21T00:00:00Z"
+    },
+    {
+      "slug": "cost",
+      "type": "ticker",
+      "title": "COST",
+      "auto": {
+        "refs": [
+          "aleabitoreddit"
+        ],
+        "stats": {
+          "tier": "watch",
+          "mentions": 1,
+          "lastMentioned": "2026-09-08T15:37:00Z",
+          "category": "unsorted",
+          "market": "",
+          "marketCapTier": "",
+          "company": ""
+        }
+      },
+      "note": "",
+      "noteUpdatedAt": null
     },
     {
       "slug": "crwv",
@@ -569,8 +592,8 @@
         ],
         "stats": {
           "tier": "watch",
-          "mentions": 8,
-          "lastMentioned": "2026-08-31T13:26:03Z",
+          "mentions": 9,
+          "lastMentioned": "2026-09-02T09:54:21Z",
           "category": "neoclouds",
           "market": "US",
           "marketCapTier": "Large",
@@ -603,6 +626,27 @@
       "noteUpdatedAt": null
     },
     {
+      "slug": "esmt",
+      "type": "ticker",
+      "title": "ESMT",
+      "auto": {
+        "refs": [
+          "aleabitoreddit"
+        ],
+        "stats": {
+          "tier": "watch",
+          "mentions": 1,
+          "lastMentioned": "2026-09-08T15:37:00Z",
+          "category": "unsorted",
+          "market": "",
+          "marketCapTier": "",
+          "company": ""
+        }
+      },
+      "note": "",
+      "noteUpdatedAt": null
+    },
+    {
       "slug": "ewy",
       "type": "ticker",
       "title": "EWY \u00b7 iShares MSCI South Korea ETF",
@@ -613,8 +657,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 14,
-          "lastMentioned": "2026-08-30T18:27:51Z",
+          "mentions": 15,
+          "lastMentioned": "2026-09-07T04:14:23Z",
           "category": "memory",
           "market": "US",
           "marketCapTier": "",
@@ -657,12 +701,34 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 29,
-          "lastMentioned": "2026-08-30T09:04:08Z",
+          "mentions": 30,
+          "lastMentioned": "2026-09-02T08:22:38Z",
           "category": "fabs",
           "market": "",
           "marketCapTier": "",
           "company": "GlobalFoundries"
+        }
+      },
+      "note": "",
+      "noteUpdatedAt": null
+    },
+    {
+      "slug": "glw",
+      "type": "ticker",
+      "title": "GLW \u00b7 Corning",
+      "auto": {
+        "refs": [
+          "glass",
+          "aleabitoreddit"
+        ],
+        "stats": {
+          "tier": "watch",
+          "mentions": 6,
+          "lastMentioned": "2026-09-09T12:16:07Z",
+          "category": "glass",
+          "market": "",
+          "marketCapTier": "",
+          "company": "Corning"
         }
       },
       "note": "",
@@ -679,8 +745,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 28,
-          "lastMentioned": "2026-09-01T08:30:14Z",
+          "mentions": 31,
+          "lastMentioned": "2026-09-09T22:31:28Z",
           "category": "hyperscalers",
           "market": "US",
           "marketCapTier": "Mega",
@@ -689,6 +755,27 @@
       },
       "note": "Alphabet joined the verdict roster in the 16 Jul 2026 review on tier math alone \u2014 and the desk verdict says so: every mention in the corpus is contextual, never a mispricing argument. [[aleabitoreddit]] uses Google as the demand gauge of the AI buildout: the compute-constrained hyperscaler, the party that cut Meta off and taught the industry the cost of renting, and (this week) the counterfactual he believes pushed $AAPL toward AI-chip acquisitions. Watch stance; the upgrade trigger is a dedicated TPU-supply-chain thesis with named suppliers.\n\nRotated off the verdict roster in the 22 Jul 2026 review, one week after entering: the contextual mentions decayed and [[intc]] took the tier-math slot with the same context-name treatment. The demand-gauge framing survives the rotation \u2014 the desk still reads his Google mentions as evidence of structural compute hunger, just without a standing verdict attached.",
       "noteUpdatedAt": "2026-07-22T00:00:00Z"
+    },
+    {
+      "slug": "hood",
+      "type": "ticker",
+      "title": "HOOD",
+      "auto": {
+        "refs": [
+          "aleabitoreddit"
+        ],
+        "stats": {
+          "tier": "watch",
+          "mentions": 6,
+          "lastMentioned": "2026-09-04T12:29:30Z",
+          "category": "unsorted",
+          "market": "",
+          "marketCapTier": "",
+          "company": ""
+        }
+      },
+      "note": "",
+      "noteUpdatedAt": null
     },
     {
       "slug": "intc",
@@ -701,8 +788,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 25,
-          "lastMentioned": "2026-09-01T08:30:14Z",
+          "mentions": 28,
+          "lastMentioned": "2026-09-09T07:27:01Z",
           "category": "fabs",
           "market": "US",
           "marketCapTier": "Large",
@@ -723,8 +810,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 16,
-          "lastMentioned": "2026-08-30T06:24:05Z",
+          "mentions": 19,
+          "lastMentioned": "2026-09-07T10:11:36Z",
           "category": "photonics",
           "market": "",
           "marketCapTier": "",
@@ -745,8 +832,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 18,
-          "lastMentioned": "2026-09-01T16:57:19Z",
+          "mentions": 20,
+          "lastMentioned": "2026-09-06T14:23:02Z",
           "category": "neoclouds",
           "market": "",
           "marketCapTier": "",
@@ -789,8 +876,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 88,
-          "lastMentioned": "2026-08-31T05:35:30Z",
+          "mentions": 95,
+          "lastMentioned": "2026-09-09T12:16:07Z",
           "category": "photonics",
           "market": "US",
           "marketCapTier": "Mid",
@@ -811,8 +898,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 18,
-          "lastMentioned": "2026-08-30T06:24:05Z",
+          "mentions": 19,
+          "lastMentioned": "2026-09-07T04:14:23Z",
           "category": "glass",
           "market": "DE",
           "marketCapTier": "Small",
@@ -833,8 +920,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 36,
-          "lastMentioned": "2026-08-08T18:27:18Z",
+          "mentions": 38,
+          "lastMentioned": "2026-09-09T22:31:28Z",
           "category": "hyperscalers",
           "market": "US",
           "marketCapTier": "Mega",
@@ -855,8 +942,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 32,
-          "lastMentioned": "2026-09-01T08:30:14Z",
+          "mentions": 37,
+          "lastMentioned": "2026-09-09T07:27:01Z",
           "category": "networking",
           "market": "US",
           "marketCapTier": "Large",
@@ -877,8 +964,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 13,
-          "lastMentioned": "2026-08-31T10:02:55Z",
+          "mentions": 15,
+          "lastMentioned": "2026-09-04T14:31:24Z",
           "category": "hyperscalers",
           "market": "US",
           "marketCapTier": "Mega",
@@ -899,8 +986,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 17,
-          "lastMentioned": "2026-08-25T15:24:55Z",
+          "mentions": 19,
+          "lastMentioned": "2026-09-09T12:16:07Z",
           "category": "photonics",
           "market": "US",
           "marketCapTier": "Mid",
@@ -921,8 +1008,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 36,
-          "lastMentioned": "2026-08-30T06:24:05Z",
+          "mentions": 41,
+          "lastMentioned": "2026-09-07T07:09:05Z",
           "category": "memory",
           "market": "US",
           "marketCapTier": "Large",
@@ -943,8 +1030,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 42,
-          "lastMentioned": "2026-08-31T18:28:51Z",
+          "mentions": 45,
+          "lastMentioned": "2026-09-08T14:14:13Z",
           "category": "neoclouds",
           "market": "US",
           "marketCapTier": "Mid",
@@ -987,8 +1074,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 90,
-          "lastMentioned": "2026-09-01T08:30:14Z",
+          "mentions": 99,
+          "lastMentioned": "2026-09-09T07:27:01Z",
           "category": "accelerators",
           "market": "US",
           "marketCapTier": "Mega",
@@ -1043,6 +1130,28 @@
       "noteUpdatedAt": "2026-08-28T19:50:00Z"
     },
     {
+      "slug": "qcom",
+      "type": "ticker",
+      "title": "QCOM \u00b7 Qualcomm",
+      "auto": {
+        "refs": [
+          "accelerators",
+          "aleabitoreddit"
+        ],
+        "stats": {
+          "tier": "watch",
+          "mentions": 5,
+          "lastMentioned": "2026-09-09T07:27:20Z",
+          "category": "accelerators",
+          "market": "",
+          "marketCapTier": "",
+          "company": "Qualcomm"
+        }
+      },
+      "note": "",
+      "noteUpdatedAt": null
+    },
+    {
       "slug": "sive",
       "type": "ticker",
       "title": "SIVE \u00b7 Sivers Semiconductors",
@@ -1053,8 +1162,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 130,
-          "lastMentioned": "2026-08-31T05:35:30Z",
+          "mentions": 141,
+          "lastMentioned": "2026-09-09T12:16:07Z",
           "category": "photonics",
           "market": "SE",
           "marketCapTier": "Small",
@@ -1119,8 +1228,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 31,
-          "lastMentioned": "2026-08-28T08:20:47Z",
+          "mentions": 37,
+          "lastMentioned": "2026-09-08T15:37:00Z",
           "category": "memory",
           "market": "",
           "marketCapTier": "",
@@ -1141,8 +1250,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 16,
-          "lastMentioned": "2026-09-01T08:30:14Z",
+          "mentions": 19,
+          "lastMentioned": "2026-09-09T07:27:20Z",
           "category": "materials",
           "market": "FR",
           "marketCapTier": "Mid",
@@ -1163,8 +1272,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 21,
-          "lastMentioned": "2026-08-30T06:24:05Z",
+          "mentions": 22,
+          "lastMentioned": "2026-09-07T04:14:23Z",
           "category": "fabs",
           "market": "US",
           "marketCapTier": "Mid",
@@ -1207,8 +1316,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 30,
-          "lastMentioned": "2026-08-31T10:56:00Z",
+          "mentions": 35,
+          "lastMentioned": "2026-09-09T07:27:01Z",
           "category": "fabs",
           "market": "TW",
           "marketCapTier": "Mega",
@@ -1251,8 +1360,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 30,
-          "lastMentioned": "2026-08-30T06:24:05Z",
+          "mentions": 31,
+          "lastMentioned": "2026-09-07T04:14:23Z",
           "category": "photonics",
           "market": "",
           "marketCapTier": "",

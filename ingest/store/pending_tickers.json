@@ -39,13 +39,13 @@
     "candidate": "JX",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:37:23Z",
-    "count": 4
+    "count": 5
   },
   {
     "candidate": "MC",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:37:23Z",
-    "count": 39
+    "count": 40
   },
   {
     "candidate": "MF",
@@ -57,7 +57,7 @@
     "candidate": "MLCC",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:37:23Z",
-    "count": 15
+    "count": 16
   },
   {
     "candidate": "MOCVD",
@@ -117,7 +117,7 @@
     "candidate": "IV",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:38:26Z",
-    "count": 2
+    "count": 3
   },
   {
     "candidate": "NAV",
@@ -159,7 +159,7 @@
     "candidate": "NAND",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:39:49Z",
-    "count": 22
+    "count": 25
   },
   {
     "candidate": "OP",
@@ -195,13 +195,13 @@
     "candidate": "COUPE",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:41:05Z",
-    "count": 7
+    "count": 8
   },
   {
     "candidate": "TSMC",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:41:05Z",
-    "count": 4
+    "count": 5
   },
   {
     "candidate": "SV",
@@ -225,7 +225,7 @@
     "candidate": "GS",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:42:10Z",
-    "count": 10
+    "count": 11
   },
   {
     "candidate": "PCL",
@@ -249,7 +249,7 @@
     "candidate": "IR",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:42:40Z",
-    "count": 1
+    "count": 2
   },
   {
     "candidate": "MR",
@@ -285,19 +285,19 @@
     "candidate": "ELS",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:44:22Z",
-    "count": 17
+    "count": 18
   },
   {
     "candidate": "EML",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:44:22Z",
-    "count": 24
+    "count": 27
   },
   {
     "candidate": "QD",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:44:22Z",
-    "count": 2
+    "count": 3
   },
   {
     "candidate": "MBE",
@@ -315,7 +315,7 @@
     "candidate": "ASIC",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:45:35Z",
-    "count": 13
+    "count": 16
   },
   {
     "candidate": "LPO",
@@ -333,7 +333,7 @@
     "candidate": "TPU",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:45:35Z",
-    "count": 3
+    "count": 5
   },
   {
     "candidate": "USDC",
@@ -345,7 +345,7 @@
     "candidate": "DFB",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:54:29Z",
-    "count": 16
+    "count": 20
   },
   {
     "candidate": "FMCW",
@@ -381,7 +381,7 @@
     "candidate": "BOM",
     "sourceUrl": "",
     "firstSeen": "2026-06-30T07:36:46Z",
-    "count": 9
+    "count": 10
   },
   {
     "candidate": "LEO",
@@ -411,7 +411,7 @@
     "candidate": "CW",
     "sourceUrl": "",
     "firstSeen": "2026-06-30T07:39:56Z",
-    "count": 52
+    "count": 63
   },
   {
     "candidate": "ERIC",
@@ -591,7 +591,7 @@
     "candidate": "JP",
     "sourceUrl": "",
     "firstSeen": "2026-06-30T07:46:58Z",
-    "count": 5
+    "count": 6
   },
   {
     "candidate": "LNG",
@@ -603,7 +603,7 @@
     "candidate": "OFC",
     "sourceUrl": "",
     "firstSeen": "2026-06-30T07:46:58Z",
-    "count": 2
+    "count": 3
   },
   {
     "candidate": "LIDAR",
@@ -633,13 +633,13 @@
     "candidate": "AGI",
     "sourceUrl": "",
     "firstSeen": "2026-06-30T07:49:19Z",
-    "count": 1
+    "count": 4
   },
   {
     "candidate": "FAU",
     "sourceUrl": "",
     "firstSeen": "2026-06-30T07:49:19Z",
-    "count": 8
+    "count": 9
   },
   {
     "candidate": "HBF",
@@ -657,7 +657,7 @@
     "candidate": "NPO",
     "sourceUrl": "",
     "firstSeen": "2026-06-30T07:49:19Z",
-    "count": 21
+    "count": 24
   },
   {
     "candidate": "SKC",
@@ -669,13 +669,13 @@
     "candidate": "AWS",
     "sourceUrl": "",
     "firstSeen": "2026-06-30T07:51:20Z",
-    "count": 2
+    "count": 3
   },
   {
     "candidate": "LLM",
     "sourceUrl": "",
     "firstSeen": "2026-06-30T07:51:20Z",
-    "count": 4
+    "count": 5
   },
   {
     "candidate": "LG",
@@ -687,7 +687,7 @@
     "candidate": "ASP",
     "sourceUrl": "",
     "firstSeen": "2026-06-30T07:53:06Z",
-    "count": 18
+    "count": 21
   },
   {
     "candidate": "RF",
@@ -705,13 +705,13 @@
     "candidate": "EDA",
     "sourceUrl": "",
     "firstSeen": "2026-07-01T14:55:33Z",
-    "count": 1
+    "count": 2
   },
   {
     "candidate": "EUV",
     "sourceUrl": "",
     "firstSeen": "2026-07-01T14:55:33Z",
-    "count": 1
+    "count": 2
   },
   {
     "candidate": "VWAP",
@@ -867,7 +867,7 @@
     "candidate": "GPT",
     "sourceUrl": "",
     "firstSeen": "2026-07-03T10:08:17Z",
-    "count": 1
+    "count": 2
   },
   {
     "candidate": "HASN",
@@ -1023,7 +1023,7 @@
     "candidate": "YTD",
     "sourceUrl": "",
     "firstSeen": "2026-07-03T13:24:50Z",
-    "count": 2
+    "count": 3
   },
   {
     "candidate": "ACMR",
@@ -1221,7 +1221,7 @@
     "candidate": "KOSPI",
     "sourceUrl": "",
     "firstSeen": "2026-07-08T13:04:04Z",
-    "count": 3
+    "count": 4
   },
   {
     "candidate": "NYT",
@@ -1245,7 +1245,7 @@
     "candidate": "UHP",
     "sourceUrl": "",
     "firstSeen": "2026-07-11T17:59:31Z",
-    "count": 3
+    "count": 5
   },
   {
     "candidate": "XPU",
@@ -1323,7 +1323,7 @@
     "candidate": "ER",
     "sourceUrl": "",
     "firstSeen": "2026-07-14T09:36:28Z",
-    "count": 18
+    "count": 19
   },
   {
     "candidate": "CPI",
@@ -1335,7 +1335,7 @@
     "candidate": "SLC",
     "sourceUrl": "",
     "firstSeen": "2026-07-16T06:23:28Z",
-    "count": 3
+    "count": 5
   },
   {
     "candidate": "GW",
@@ -1353,7 +1353,7 @@
     "candidate": "ABF",
     "sourceUrl": "",
     "firstSeen": "2026-07-22T15:26:50Z",
-    "count": 3
+    "count": 5
   },
   {
     "candidate": "AVX",
@@ -1437,7 +1437,7 @@
     "candidate": "VP",
     "sourceUrl": "",
     "firstSeen": "2026-07-26T08:59:47Z",
-    "count": 2
+    "count": 3
   },
   {
     "candidate": "BGA",
@@ -1515,7 +1515,7 @@
     "candidate": "FCF",
     "sourceUrl": "",
     "firstSeen": "2026-07-30T04:01:39Z",
-    "count": 4
+    "count": 5
   },
   {
     "candidate": "LFG",
@@ -1551,7 +1551,7 @@
     "candidate": "AH",
     "sourceUrl": "https://x.com/aleabitoreddit/status/2085217487864643658",
     "firstSeen": "2026-08-07T14:31:05Z",
-    "count": 1
+    "count": 2
   },
   {
     "candidate": "JDA",
@@ -1689,7 +1689,7 @@
     "candidate": "PC",
     "sourceUrl": "https://x.com/aleabitoreddit/status/2089183484556480536",
     "firstSeen": "2026-08-17T09:19:55Z",
-    "count": 1
+    "count": 2
   },
   {
     "candidate": "SUB",
@@ -1761,7 +1761,7 @@
     "candidate": "ESMT",
     "sourceUrl": "",
     "firstSeen": "2026-08-26T06:44:12Z",
-    "count": 10
+    "count": 15
   },
   {
     "candidate": "FX",
@@ -1797,7 +1797,7 @@
     "candidate": "NOR",
     "sourceUrl": "",
     "firstSeen": "2026-08-26T09:26:54Z",
-    "count": 4
+    "count": 6
   },
   {
     "candidate": "THIS",
@@ -1863,7 +1863,7 @@
     "candidate": "HPS",
     "sourceUrl": "https://x.com/aleabitoreddit/status/2094027369648681284",
     "firstSeen": "2026-09-01T06:02:18Z",
-    "count": 1
+    "count": 2
   },
   {
     "candidate": "MI",
@@ -1911,6 +1911,180 @@
     "candidate": "TVS",
     "sourceUrl": "",
     "firstSeen": "2026-09-01T22:20:42Z",
+    "count": 1
+  },
+  {
+    "candidate": "MCU",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2095087925822190023",
+    "firstSeen": "2026-09-03T15:44:57Z",
+    "count": 1
+  },
+  {
+    "candidate": "SVP",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2095102771418845551",
+    "firstSeen": "2026-09-03T15:45:29Z",
+    "count": 2
+  },
+  {
+    "candidate": "AX",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2095802636876619928",
+    "firstSeen": "2026-09-05T17:21:20Z",
+    "count": 1
+  },
+  {
+    "candidate": "LYC",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2095802636876619928",
+    "firstSeen": "2026-09-05T17:21:20Z",
+    "count": 1
+  },
+  {
+    "candidate": "AGC",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2095823005595439615",
+    "firstSeen": "2026-09-09T07:19:03Z",
+    "count": 1
+  },
+  {
+    "candidate": "HOYA",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2095823005595439615",
+    "firstSeen": "2026-09-09T07:19:03Z",
+    "count": 1
+  },
+  {
+    "candidate": "JSR",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2095823005595439615",
+    "firstSeen": "2026-09-09T07:19:03Z",
+    "count": 1
+  },
+  {
+    "candidate": "RISC",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2095823005595439615",
+    "firstSeen": "2026-09-09T07:19:03Z",
+    "count": 1
+  },
+  {
+    "candidate": "SMT",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2095823005595439615",
+    "firstSeen": "2026-09-09T07:19:03Z",
+    "count": 1
+  },
+  {
+    "candidate": "TOK",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2095823005595439615",
+    "firstSeen": "2026-09-09T07:19:03Z",
+    "count": 1
+  },
+  {
+    "candidate": "CAR",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2096605093986787380",
+    "firstSeen": "2026-09-09T07:19:12Z",
+    "count": 1
+  },
+  {
+    "candidate": "COPD",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2096605093986787380",
+    "firstSeen": "2026-09-09T07:19:12Z",
+    "count": 1
+  },
+  {
+    "candidate": "KRAS",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2096605093986787380",
+    "firstSeen": "2026-09-09T07:19:12Z",
+    "count": 1
+  },
+  {
+    "candidate": "MASH",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2096605093986787380",
+    "firstSeen": "2026-09-09T07:19:12Z",
+    "count": 1
+  },
+  {
+    "candidate": "PDUFA",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2096605093986787380",
+    "firstSeen": "2026-09-09T07:19:12Z",
+    "count": 1
+  },
+  {
+    "candidate": "RNA",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2096605093986787380",
+    "firstSeen": "2026-09-09T07:19:12Z",
+    "count": 1
+  },
+  {
+    "candidate": "KB",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2096858276290015563",
+    "firstSeen": "2026-09-09T07:19:27Z",
+    "count": 1
+  },
+  {
+    "candidate": "SED",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2096858276290015563",
+    "firstSeen": "2026-09-09T07:19:27Z",
+    "count": 1
+  },
+  {
+    "candidate": "BRK",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2096933313785242098",
+    "firstSeen": "2026-09-09T07:19:37Z",
+    "count": 1
+  },
+  {
+    "candidate": "CIG",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2097200456090952096",
+    "firstSeen": "2026-09-09T07:19:54Z",
+    "count": 1
+  },
+  {
+    "candidate": "CIOE",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2097200456090952096",
+    "firstSeen": "2026-09-09T07:19:54Z",
+    "count": 3
+  },
+  {
+    "candidate": "CHAT",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2097348486635368686",
+    "firstSeen": "2026-09-09T07:26:10Z",
+    "count": 1
+  },
+  {
+    "candidate": "FACT",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2097348486635368686",
+    "firstSeen": "2026-09-09T07:26:10Z",
+    "count": 1
+  },
+  {
+    "candidate": "FUN",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2097348486635368686",
+    "firstSeen": "2026-09-09T07:26:10Z",
+    "count": 1
+  },
+  {
+    "candidate": "LCSC",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2097348486635368686",
+    "firstSeen": "2026-09-09T07:26:10Z",
+    "count": 1
+  },
+  {
+    "candidate": "SOI",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2097365614402969638",
+    "firstSeen": "2026-09-09T07:26:13Z",
+    "count": 1
+  },
+  {
+    "candidate": "TMT",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2097660318369697875",
+    "firstSeen": "2026-09-10T11:36:35Z",
+    "count": 1
+  },
+  {
+    "candidate": "GDP",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2097815176838017066",
+    "firstSeen": "2026-09-10T11:36:39Z",
+    "count": 1
+  },
+  {
+    "candidate": "GG",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2097815176838017066",
+    "firstSeen": "2026-09-10T11:36:39Z",
     "count": 1
   }
 ]
