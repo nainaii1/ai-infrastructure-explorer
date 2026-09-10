@@ -1,35 +1,53 @@
 {
   "meta": {
-    "generatedAt": "2026-09-01T14:30:00Z",
-    "model": "weekly desk review",
-    "thesesConsidered": 608,
+    "generatedAt": "2026-09-10T00:30:00Z",
+    "model": "mid-week brain refresh",
+    "thesesConsidered": 655,
     "categoriesSynthesized": 8,
     "schemaVersion": 1
   },
   "digests": [
     {
       "category": "photonics",
-      "narrative": "The demand case for photonics got its best independent confirmation of the year, and the desk downgraded two names inside it anyway. TSMC's VP of advanced packaging said foundries can scale the optical engine but the real bottlenecks to large-scale CPO deployment lie elsewhere, naming lasers, optical fibre, connectors and test. That is the customer of the whole silicon-photonics stack saying the scarce input is what the laser makers sell, not what the foundry sells. TSMC separately sees silicon photonics taking more than half the optical transceiver market in 2027, and Soitec described more than ten capacity reservation agreements with $200m of photonics-SOI revenue as an absolute floor. Against that, the sector de-rated for a third consecutive week, and the desk's own reading of the filings found problems the feed had not. MACOM's CW laser turns out to be a 75mW part with a potential production start in late calendar 2027 and NPO revenue from 2028, which moved it to pass. AXT's indium phosphide pricing has landed spectacularly, taking gross margin from 8.0% to 44.9%, but 66% of its revenue is China and its InP exports depend on Chinese permits it names as a live uncertainty. Sivers' opportunity pipeline tripled to $1.2bn while its net sales fell 12% and its EBITDA loss widened. Applied Optoelectronics raised $1.03bn in six months against $343m of revenue, at an average price four percent below where the stock now trades. The theme's demand has never been better evidenced; its financing, timing and jurisdiction risks have never been more visible. The two positions that survive that scrutiny cleanly are Coherent, which keeps its indium phosphide lasers for itself, and Jabil, which now has a dated H1 2027 order from a named counterparty.",
+      "narrative": "The theme got a number this week, and it came from the sell side rather than from the companies. Goldman Sachs raised its global optical module forecast to $67.7bn for 2026 (+33%), $131.4bn for 2027 (+81%) and $148.5bn for 2028 (+115%), lifted its 1.6T-and-above 2027 forecast by 61%, and modelled 80% silicon photonics penetration. The mechanism matters more than the total: it raised optical modules per GPU on Rubin Ultra, 1.6T from zero to two and 3.2T from three to five, so more optical content ships per chip regardless of how many chips ship. Per that report a 1.6T silicon photonics module carries four 70mW CW lasers at roughly $3.75-5 each, which is precisely the part the shortage is in. Citi went further and called lasers and optical fibre the next HBM, with tight supply supporting a scarcity premium. Then the confirmation arrived from the ground rather than from a model. A crowdsourced channel check at CIOE Shenzhen reported Sivers actively engaged with Chinese pluggable makers and, more importantly, raising laser prices, with 70mW parts the tightest because they sit in 800G pluggables. Chinese pluggable maker CIG's own filings describe substantially longer delivery times and deposits required to secure capacity; Innolight is signing multi-supplier laser LTAs. Sivers separately announced Glasgow InP expansion targeting over 100m CW DFB lasers a year from Q4 2027 — which the analyst models at $625m-$1.25bn of capacity revenue at historical ASPs, explicitly illustrative rather than guidance. The structural point he makes about Lumentum is the one to hold: Cloud Light expanded its served datacentre opportunity more than fivefold, so a laser company does not have to stay a laser company. Against all that, the desk's own reservations from 1 Sep are unchanged — Lumentum's $7.76bn convertible extinguishment, AAOI's $1.03bn of ATM issuance, and Sivers' shrinking reported sales. Better TAM does not fix a share count or a cash burn.",
       "conviction": "high",
       "keyPoints": [
-        "TSMC's advanced packaging VP names lasers, fibre, connectors and test — not the optical engine — as the CPO bottleneck",
-        "TSMC sees silicon photonics above 50% of the optical transceiver market in 2027; Soitec calls $200m photonics-SOI revenue a floor",
-        "MACOM's CW laser is 75mW with a potential late-2027 production start and NPO revenue from 2028 — moved to pass",
-        "AXT's InP pricing landed (gross margin 8.0% to 44.9%) but 66% of revenue is China and exports need Chinese permits",
-        "Sivers: pipeline $1.2bn up 268%, net sales down 12%, adjusted EBITDA worse at SEK -35.5m",
-        "Applied Optoelectronics raised $1.03bn in H1 against $343m of revenue, averaging $103.51 a share"
+        "Goldman raised optical module TAM to $131.4bn for 2027 (+81%) and $148.5bn for 2028 (+115%)",
+        "Optical content per GPU raised on Rubin Ultra: 1.6T modules 0 to 2, 3.2T 3 to 5",
+        "A 1.6T silicon photonics module carries four 70mW CW lasers — the exact part in shortage",
+        "Citi TMT: lasers and optical fibre are the next HBM, with a scarcity premium on tight supply",
+        "CIOE Shenzhen channel check: Sivers has raised laser prices; 70mW is the tightest part",
+        "CIG's filings describe longer lead times and deposits to secure laser capacity"
       ],
       "tickers": [
         "LITE",
-        "SIVE",
         "AAOI",
         "COHR",
+        "SIVE",
         "MTSI",
         "JBL",
         "POET",
-        "IQE"
+        "IQE",
+        "XFAB"
       ],
       "sourceThesisIds": [
+        "x_2097660318369697875",
+        "h_5e7cee84e412357d",
+        "x_2097563877273989456",
+        "x_2097321349555306512",
+        "x_2097200456090952096",
+        "x_2096904209371427277",
+        "x_2096890295128625153",
+        "x_2096814311306129776",
+        "x_2096749796023538032",
+        "x_2096122640465645937",
+        "x_2095802636876619928",
+        "x_2095546138510459218",
+        "x_2095460499769155944",
+        "x_2095453263613341938",
+        "x_2095102771418845551",
+        "x_2095064848031678648",
+        "x_2094786201605808566",
         "r_3f697c87a50f0e6c",
         "r_8c6715b297366cad",
         "r_6af2b0712ccbfd87",
@@ -52,48 +70,41 @@
         "x_2094027369648681284",
         "x_2093988125144207710",
         "x_2093947848580858123",
-        "x_2093678493335011831",
-        "x_2093652781928448279",
-        "x_2093230562261823905",
-        "x_2093087267594314182",
-        "x_2093054882282651723",
-        "x_2093014569279189295",
-        "x_2092517102339162263",
-        "x_2092408620277457255",
-        "h_6c43446068975dda",
-        "x_2092186856792506435",
-        "r_fa81e088bcaa6727",
-        "r_e1733242bf2fbff2",
-        "r_a79ec4f20030590b",
-        "r_0972846c8b959818",
-        "r_fe60bb2fe79c77b3",
-        "r_273375686245c947",
-        "r_b46ab3235f4abdf2",
-        "r_9b6a2ea5d3eb8b2c"
+        "x_2093678493335011831"
       ],
       "thesesCount": 40,
-      "lastSynthesized": "2026-09-01T14:30:00Z"
+      "lastSynthesized": "2026-09-10T00:30:00Z"
     },
     {
       "category": "memory",
-      "narrative": "The memory thesis now has the longest visibility of anything this desk tracks, and that is precisely what makes the entry price the hard question. Samsung is reported to have reserved around 70% of its memory production capacity through 2031 via long-term agreements with NVIDIA, Microsoft and Google as counterparties — five years of contracted demand. SK hynix's CEO expects shortage through the end of 2030; SanDisk describes structurally huge NAND demand to 2030 with non-GAAP gross margin around 80%; Winbond is negotiating quotas into 2029-2030; and NVIDIA's own supply commitments more than doubled to $279bn largely on memory procurement, with its CFO describing pricing conditions as extreme. The buyer is confirming the sellers' shortage. The filed accounts show what that has already delivered and why the desk is not chasing it. SanDisk's revenue rose from $7.36bn to $20.25bn and gross margin from 30.1% to 71.5% in one fiscal year, attributed to higher sales and higher pricing — revenue tripled on price, not on bits, and 71.5% is a cycle peak in a business that earned 16.1% two years ago. Its top ten customers are 44% of revenue with none above 10%, so no contracted volume protects that margin. SK hynix posted a 76% operating margin with revenue up 257%, but net profit of KRW 93.9tn exceeded operating profit of KRW 60.5tn, so a third of headline earnings is non-operating and any trailing multiple built on it understates the price. Its new capacity — Yongin Phase 1 in early 2027, M15X still ramping — arrives after the tight window. Separately he has found the cycle's next leg in legacy DRAM and NAND, where DDR2, DDR3, NOR and SLC pricing is rising 35% to 170% as the majors shift capacity to HBM.",
+      "narrative": "Memory spent the week producing the tightest supply data this desk has recorded, and the two stocks that own it spent it 38% below their peaks. SED reports Samsung and SK hynix stockpiles have fallen below ten days of supply. KB Securities expects the tightest supply conditions in history next year and projects memory's share of AI infrastructure cost rising from 40% this year to 57% next; TrendForce puts that figure at 68%. Japanese distributors quoted in Nikkei put the demand deficit at 40-60%, meaning demand running 67-150% above supply, with general prices up 50% by year end. The legacy tier is where this is already showing up in reported revenue rather than forecast: August revenues came in at ESMT +605% year on year, Etron +525%, Winbond +289% and Macronix +218.5%, with Etron's chairman seeing momentum extending through 2028 and possibly 2030, and Winbond's president expecting 2027 tighter than 2026. The analyst's framing is the useful one — this is the only industry where every investor cheers for shortages — and his arithmetic on why legacy pricing sticks is the sharpest thing in the file: a DDR2 chip at roughly $0.96 tripling in price adds about $2 to the bill of materials of a $33 security camera, which no buyer refuses, while being transformative to the supplier. The desk's position is unchanged and is about price, not demand. SanDisk's 71.5% gross margin is a cycle peak against 16.1% two years ago, its top ten customers are 44% of revenue with none above 10%, and no contracted volume defends that margin. Both stocks falling 38% while the shortage data got better is either the market pricing a peak or the same duration unwind visible across the book.",
       "conviction": "high",
       "keyPoints": [
-        "Samsung reportedly reserved ~70% of memory capacity through 2031 with NVIDIA, Microsoft and Google",
-        "SK hynix CEO expects shortage to end-2030; HBM4 entered mass shipment with LTAs across ~10 customers",
-        "SanDisk fiscal 2026: revenue $7.36bn to $20.25bn, gross margin 30.1% to 71.5%, on price rather than bits",
-        "SanDisk top-ten customers are 44% of revenue with none above 10% — no contracted volume defends the margin",
-        "SK hynix net profit KRW 93.9tn exceeded operating profit KRW 60.5tn; a third of earnings is non-operating",
-        "Legacy memory is the next leg: SLC NAND +120-170% H2, DDR2 +35-40%, NOR +60-65%"
+        "Samsung and SK hynix stockpiles reported below ten days of supply",
+        "KB Securities: tightest memory supply in history next year; memory rises to 57% of AI infra cost",
+        "Nikkei-quoted distributors put the demand deficit at 40-60%, prices up 50% by year end",
+        "Legacy August revenue: ESMT +605%, Etron +525%, Winbond +289%, Macronix +218.5% year on year",
+        "Winbond expects 2027 tighter than 2026; Etron sees momentum to 2028-2030",
+        "MU and SK hynix fell 38% from peaks while every supply datapoint improved"
       ],
       "tickers": [
         "SNDK",
         "MU",
         "000660.KS",
-        "CXMT",
-        "EWY"
+        "SIMO",
+        "EWY",
+        "CXMT"
       ],
       "sourceThesisIds": [
+        "x_2097348486635368686",
+        "x_2096858276290015563",
+        "x_2096814311306129776",
+        "x_2096149203278037407",
+        "x_2095851749127188691",
+        "x_2095823005595439615",
+        "x_2095580088620449880",
+        "x_2095087925822190023",
+        "h_309ea227f9567699",
         "r_ba2ef3fde3ff6fc1",
         "r_d1c1e71dc4d80de7",
         "r_299e20f1d147fa06",
@@ -124,44 +135,50 @@
         "r_7275cf4db297df5b",
         "r_4347c21804cf872a",
         "x_2089183484556480536",
-        "x_2088850910529323315",
-        "x_2088457278928412812",
-        "x_2088226398708338889",
-        "r_c89a729f6ef07c1b",
-        "r_ba203e9dad4ea35e",
-        "r_1300d026219d841e",
-        "x_2086148557187461412",
-        "x_2085974141501612461",
-        "x_2084468063228060092",
-        "r_7a8c6a3fefa8cfae"
+        "x_2088850910529323315"
       ],
       "thesesCount": 40,
-      "lastSynthesized": "2026-09-01T14:30:00Z"
+      "lastSynthesized": "2026-09-10T00:30:00Z"
     },
     {
       "category": "fabs",
-      "narrative": "TSMC spent the week telling the market that its own step is not the constraint, which is unusually useful information. Its VP of advanced packaging said foundries can scale the optical engine but the real bottlenecks lie in lasers, fibre, connectors and test, and TSMC separately guided to silicon photonics going mainstream in 2027 with more than 50% share of the optical transceiver market. A foundry saying both that it is not the bottleneck and that its technology takes the majority of a large market inside eighteen months is a strong statement about where the value accrues. GlobalFoundries' role sharpened in the same week: its SCALE platform is confirmed as a reference design across CPO, NPO and pluggable architectures with Sivers supplying the reference laser, and likely AMD and other hyperscalers as customers on an H2 2027 to 2028 horizon. That makes GF the photonic foundry layer rather than a leading-edge logic story, which is a more durable position and a longer-dated one — the stock fell 16% over the month with no SCALE revenue yet attached. A separate and less-watched constraint appeared upstream: OSAT providers have warned that traditional packaging capacity could face a deficit exceeding 20% by 2027, with wire bonding equipment the primary bottleneck, as AI server shipments absorb mature capacity. That is the same cascading pattern already visible in legacy DRAM, and it puts Amkor and the wire-bonding equipment makers into a shortage nobody was modelling.",
+      "narrative": "The week's framing was geopolitical rather than operational, and it favours the incumbents. The analyst laid out where the genuine monopolies actually sit, and almost none are American: ASML in EUV with Zeiss and Trumpf beneath it, Soitec in photonics-SOI, and a Japanese cluster holding 90-100% share across EUV photoresist, coat and develop, actinic mask inspection, mask blanks and specialty glass. The United States holds EDA, some equipment and the downstream giants; Taiwan and Korea hold the manufacturing. Read against China halting some rare earth shipments, the point is that chokepoints are distributed across allies rather than concentrated in one country, and that every participant has something to withhold. TSMC remains the centre of it and the analyst maintains his bullish stance despite Intel and Samsung competition, on the argument that everyone including Marvell and all of big tech is reliant on it and that it has demonstrated the ability to raise prices, which flows to margin. TSMC's own guidance that silicon photonics goes mainstream in 2027 with more than half the optical transceiver market is the specific claim to hold it for. GlobalFoundries' SCALE platform is the photonic foundry layer of the same shift, still with no attached revenue and an H2 2027 to 2028 horizon. Intel adds a small near-term item, reportedly raising PC CPU prices 10% in October, which is pricing power in a business nobody credits with any.",
       "conviction": "medium",
       "keyPoints": [
-        "TSMC's advanced packaging VP: foundries can scale the optical engine, the bottleneck is elsewhere",
-        "TSMC guides silicon photonics to over 50% of the optical transceiver market in 2027",
-        "GlobalFoundries SCALE confirmed as a CPO/NPO/pluggable reference design, H2 2027-28, likely AMD",
-        "OSATs warn traditional packaging capacity could face a deficit above 20% by 2027",
-        "Wire bonding equipment is the named primary bottleneck in mature packaging"
+        "The real monopolies are mostly non-US: ASML in EUV, Soitec in photonics-SOI, a Japanese cluster at 90-100% share",
+        "China halting some rare earth shipments underlines that every bloc holds something to withhold",
+        "TSMC guides silicon photonics mainstream in 2027 at over half the optical transceiver market",
+        "TSMC has demonstrated price increases, which flow straight to margin",
+        "GF SCALE remains the photonic foundry layer with no revenue attached yet",
+        "Intel reportedly raising PC CPU prices 10% in October"
       ],
       "tickers": [
         "TSM",
         "GFS",
         "INTC",
-        "TSEM"
+        "ASML",
+        "TSEM",
+        "KLIC",
+        "AIXA"
       ],
       "sourceThesisIds": [
+        "h_1a497b02efae06ff",
+        "x_2097232588796780856",
+        "x_2096814311306129776",
+        "x_2095823005595439615",
+        "x_2095102771418845551",
+        "x_2095087925822190023",
+        "x_2095064848031678648",
+        "x_2095012962360828314",
+        "h_309ea227f9567699",
         "x_2094378666927239596",
         "x_2094298008955535500",
         "x_2093988125144207710",
         "x_2093947848580858123",
+        "x_2093712497949950242",
         "x_2093678493335011831",
         "x_2093087267594314182",
+        "h_6c43446068975dda",
         "x_2092186856792506435",
         "x_2091955482613486028",
         "h_66aa14a680b9c2c7",
@@ -184,39 +201,34 @@
         "x_2082720873908494456",
         "h_72746de6df4b3dce",
         "h_a3fbe3dfa6304803",
-        "h_442d898389c4471f",
-        "h_0c8b779e5549fefc",
-        "h_ab7eca244c2c4d4d",
-        "h_9e7879b77bd2930a",
-        "h_d4bbd6bc8c2ad2da",
-        "h_77894599004bff7e",
-        "h_aab4fe4860f13d29",
-        "h_f25655e483d8ec8c",
-        "h_5c4c066a84ad116a",
-        "h_4cced3fb7690d2aa",
-        "h_c730cd89e4be221f",
-        "h_6c2c47820fd61d59"
+        "h_442d898389c4471f"
       ],
       "thesesCount": 40,
-      "lastSynthesized": "2026-09-01T14:30:00Z"
+      "lastSynthesized": "2026-09-10T00:30:00Z"
     },
     {
       "category": "neoclouds",
-      "narrative": "The category kept signing contracts and the stocks kept falling, which is the clearest statement available about what is actually pricing these assets. Anthropic signed a $35bn AI compute deal with NVIDIA-backed Lambda, which the analyst reads as frontier-model demand outpacing the ecosystem's ability to build capacity — he asks openly which neocloud or colocation operator is next. Riot's earlier $9.1bn Anthropic deal, extendable to $16.1bn over twenty years, is the same pattern. His framing of why these companies can raise capital against hyperscaler competition is the sharpest thing written about the category, and it cuts both ways: NVIDIA helps create the next leaders, then makes them financially and strategically aligned with itself. That explains the funding and concedes that the strategic position is granted rather than earned. The offsetting force is the macro he documented this week and which the desk treats as the dominant variable here. Warsh says the Fed has more work to do if underlying inflation is not clearly returning to 2%, July PCE printed 3.7%, payrolls fell 23k with unemployment at 4.1%, the 30-year yield is at its highest since 2007, and near-term odds sit around 40/60 in favour of a further hike. Neoclouds are financed assets whose value is a discounted stream of contracted revenue, so rates hit both the discount rate and the cost of the capital that builds the capacity. Nebius fell 6.3% on the week into exactly that.",
+      "narrative": "Nebius got the company-specific catalyst the desk said was missing. Palantir named it a preferred sovereign AI infrastructure partner, which routes Palantir's existing US government and enterprise relationships toward Nebius capacity rather than toward the hyperscalers. On 1 Sep the desk held at wait explicitly because the week's neocloud news had been good for the category and specific to a competitor — Anthropic's $35bn compute deal with NVIDIA-backed Lambda. This is the opposite case, and it is the kind of contract the desk said would justify revisiting. Two things temper it. The partnership is a preferred-partner designation rather than a disclosed contract value, so there is no revenue number to underwrite, and the analyst's own framing of the category still applies: NVIDIA helps create the next leaders then aligns them financially and strategically, which explains why neoclouds raise capital against hyperscaler competition and concedes that the position is granted rather than earned. The macro that dominated the last fortnight has eased rather than resolved. Anthropic's own economic scenario work, which he read this week, puts almost all of the divergence after 2027 — buildout years first, acceleration in 2028-2030 — which is a reasonable description of why the most rate-sensitive assets in this book move hardest in both directions.",
       "conviction": "medium",
       "keyPoints": [
-        "Anthropic signs a $35bn compute deal with NVIDIA-backed Lambda",
-        "NVIDIA's neocloud playbook — create the leaders, then align them — now visible in ASIC deals too",
-        "30-year Treasury yield at its highest since 2007 with July PCE at 3.7%",
-        "Near-term rate odds around 40/60 in favour of a hike, against the longest-duration assets in the book",
-        "Contracts are going to a handful of operators; being next is not a thesis"
+        "Palantir names Nebius its preferred sovereign AI infrastructure partner",
+        "This is the company-specific catalyst the 1 Sep verdict said was missing",
+        "No disclosed contract value yet — a designation, not a revenue number",
+        "NVIDIA's sponsorship still explains the funding and concedes the position is granted",
+        "Anthropic's scenario work puts the divergence after 2027 — buildout first, acceleration 2028-2030"
       ],
       "tickers": [
         "NBIS",
         "CRWV",
-        "IREN"
+        "IREN",
+        "WULF"
       ],
       "sourceThesisIds": [
+        "x_2097327653116363127",
+        "x_2096814311306129776",
+        "x_2096605093986787380",
+        "x_2095087925822190023",
+        "x_2094831983306440746",
         "x_2094585395224981709",
         "x_2094492628758999451",
         "x_2094416430032896428",
@@ -251,33 +263,41 @@
         "h_84ce5ffca9362385",
         "h_43deb65515cd551f",
         "h_be293065b456ea4e",
-        "h_098ca847a325e671",
-        "h_6bf88df291b0d0c8",
-        "h_de3112b196491491",
-        "h_79f9aaff84f7f697",
-        "h_574cc87d7e028236",
-        "h_ed35af2a69e57256"
+        "h_098ca847a325e671"
       ],
       "thesesCount": 40,
-      "lastSynthesized": "2026-09-01T14:30:00Z"
+      "lastSynthesized": "2026-09-10T00:30:00Z"
     },
     {
       "category": "materials",
-      "narrative": "The materials theme delivered its clearest proof and its clearest warning in the same filing. AXT's indium phosphide pricing — the fourth consecutive substrate hike, with suppliers telling buyers that money alone will not get them material — has landed in the accounts: quarterly revenue up 164.8% to $47.6m and gross margin from 8.0% to 44.9%. That is a chokepoint monetising, and it validates a thesis the analyst has held since early in the year. The warning is where the material comes from. China is 66% of AXT's revenue, the substrates are manufactured there by its Tongmei subsidiary, and AXT names the receipt and timing of Chinese export permits for indium phosphide wafers as a live uncertainty rather than boilerplate; Chinese private equity holders separately retain redemption rights over Tongmei, which is pursuing a Hong Kong listing. The company that solves the West's indium phosphide shortage ships out of the jurisdiction the shortage is about, and its export channel is its growth channel. The desk stepped the position down from accumulate to wait on that basis, after two consecutive weeks of double-digit falls on no company news. Upstream of substrates, the packaging constraint identified this week — a warned deficit above 20% in traditional packaging capacity by 2027, with wire bonding the bottleneck — extends the same scarcity logic into assembly, where Amkor is a named beneficiary and trades 22% below where it stood a month ago.",
-      "conviction": "medium",
+      "narrative": "The substrate layer had the week the desk was braced for, in both directions. Bloomberg reported that indium phosphide substrates are emerging as a key risk for the semiconductor industry — the exact chokepoint the analyst identified a year early through AXT. That is third-party validation of the thesis. It arrived alongside the risk that made the desk step AXT down to wait on 1 Sep: China reportedly halted some rare earth shipments to the United States, and Reuters' account named indium phosphide among the historical examples of what gets targeted, while Japan's imports of gallium, dysprosium, terbium and yttrium from China stood at zero in June. Shin-Etsu has suspended new orders for dysprosium magnets and Proterial had received no Chinese dysprosium export licences as of last month. Those are the mechanics of exactly the export-permit dependency AXT names in its own filings, being demonstrated on adjacent materials in real time. The read is that scarcity pricing and jurisdiction risk are the same story rather than competing ones: the material gets more valuable and harder to move at the same time, which is why the desk holds AXT at wait despite gross margin moving from 8.0% to 44.9%. The cleanest expression may be the non-Chinese supply — IQE sits in photonics in this book but is the epiwafer half of the same shortage, and Soitec's photonics-SOI benefits directly from the 80% silicon photonics penetration Goldman now models. Amkor's separate constraint is unchanged and under-discussed: OSATs warn traditional packaging capacity could face a deficit above 20% by 2027, with wire bonding the bottleneck, and Powertech is reported fully booked into 2030.",
+      "conviction": "high",
       "keyPoints": [
-        "AXT quarterly revenue +164.8% to $47.6m with gross margin moving from 8.0% to 44.9%",
-        "China is 66% of AXT revenue; InP exports depend on Chinese permits AXT names as a live uncertainty",
-        "Chinese private equity holders retain redemption rights over Tongmei, which is seeking a Hong Kong listing",
-        "AXT stepped down to wait on jurisdiction rather than on operating performance",
-        "Traditional packaging capacity deficit warned above 20% by 2027, wire bonding the primary bottleneck"
+        "Bloomberg: indium phosphide substrates emerging as a key risk for the semiconductor industry",
+        "China reportedly halted some rare earth shipments to the US; Reuters named InP among historical targets",
+        "Japan's gallium, dysprosium, terbium and yttrium imports from China stood at zero in June",
+        "AXT's own filings name Chinese export permits for InP wafers as a live uncertainty",
+        "Scarcity and jurisdiction risk are the same story — the material gets dearer and harder to move at once",
+        "Powertech advanced packaging reported fully booked into 2030; OSAT deficit above 20% warned by 2027"
       ],
       "tickers": [
         "AXTI",
         "AMKR",
-        "SOI.PA"
+        "SOI.PA",
+        "AEHR",
+        "FORM",
+        "KEYS"
       ],
       "sourceThesisIds": [
+        "h_5e7cee84e412357d",
+        "x_2096904209371427277",
+        "x_2096814311306129776",
+        "x_2095823005595439615",
+        "x_2095802636876619928",
+        "x_2095102771418845551",
+        "x_2095087925822190023",
+        "x_2094831983306440746",
+        "h_309ea227f9567699",
         "r_6b6d454a11183af2",
         "r_c43390178534d64c",
         "r_5a35a1f639a091b6",
@@ -308,43 +328,49 @@
         "x_2082720873908494456",
         "h_2d636896cf0553c2",
         "x_2082578803189268855",
-        "h_69684ea60ee93290",
-        "h_442d898389c4471f",
-        "h_d4bbd6bc8c2ad2da",
-        "h_0bb1061a13b64f17",
-        "h_f25655e483d8ec8c",
-        "h_a6fae9c6faa10221",
-        "h_abafede3f1b850bd",
-        "h_c0e79065f90fc60c",
-        "h_061b5ccd49c3a139",
-        "h_6110d0e1ccf98f98"
+        "h_69684ea60ee93290"
       ],
       "thesesCount": 40,
-      "lastSynthesized": "2026-09-01T14:30:00Z"
+      "lastSynthesized": "2026-09-10T00:30:00Z"
     },
     {
       "category": "networking",
-      "narrative": "Networking widened from a transceiver story into a physical-infrastructure one. The analyst pulled a list from Elon Musk's stated failure points for AI compute buildout — transformers, wiring, liquid cooling, massive chillers and complex networking — and noted these are described as harder than finding power. That reframes the constraint set: the scarce things are increasingly the unglamorous ones. Semtech's quarter fits the pattern rather than leading it. Net sales rose 32.7% to $341.9m at a 53.8% gross margin, with the prior year's $42.0m goodwill impairment not repeating, and management's line that availability currently matters more than pricing is a clean statement of a supply-constrained market with no near-term erosion expected on booked optical orders. The desk's caveat is that Semtech reports three segments — Signal Integrity, Analog Mixed Signal and Wireless, and IoT Systems and Connectivity — and breaks out no data-centre revenue line, so the CopperEdge and FiberEdge contribution cannot be sized from disclosure. It entered the Core tier this week on seven analyst posts, one of which says outright that he has no strong directional view and has not modelled the company. Coverage genuinely precedes conviction here. TSMC's bottleneck list added connectors and test alongside lasers and fibre, which points at a set of names — Corning, Fujikura, Keysight, FormFactor — that this book has barely mapped.",
-      "conviction": "medium",
+      "narrative": "Broadcom did two things this week that pull in opposite directions for this theme. It guided AI revenue to roughly $115bn in FY27 and $230bn in FY28, both near 100% growth and far above a street modelling about $180bn, and said it is on target to exceed $30 of earnings per share in fiscal 2028 — which at the current price is under twelve times forward. It also said AI networking revenue is expected to grow just as fast as XPUs over the next few years, which is the part this theme owns. Set against the desk's 1 Sep framing, that matters: coverage was opened at wait on the argument that NVIDIA's MediaTek investment was building rival ASIC sponsors and eroding Broadcom's incumbency. The competitive point stands, but a company guiding to double revenue twice does not have a demand problem, and the desk should stop leaning on erosion as the main reason to wait. The second thing Broadcom did is more useful to the rest of the book than to itself: its CEO said demand for lasers, whether EML or CW, is far surpassing supply across the industry, and said it while tripling its own laser capacity. That is one of the largest laser suppliers in the world confirming the shortage, which is why it appears in the photonics digest as well. Marvell's optical engineering CTO separately named Europe and Japan as examples for laser sourcing for silicon photonics modules, notably not the United States, where Lumentum, Coherent and AAOI are redirecting capacity internally. Amazon's warrant structure over roughly $4bn of Qualcomm, tied to as much as $60bn of custom silicon milestone revenue, sits alongside its existing positions in Marvell, Astera and AAOI.",
+      "conviction": "high",
       "keyPoints": [
-        "Musk's stated AI buildout failure points: transformers, wiring, liquid cooling, chillers, complex networking",
-        "Semtech net sales +32.7% to $341.9m at 53.8% gross margin; availability matters more than pricing",
-        "Semtech discloses no data-centre revenue line, so the CopperEdge contribution is not sizeable from filings",
-        "SMTC entered Core rank 13 on seven posts, one saying he has not modelled it",
-        "TSMC's bottleneck list adds fibre connectors and CPO test to lasers"
+        "Broadcom guides AI revenue to about $115bn FY27 and $230bn FY28, against a street near $180bn",
+        "On target to exceed $30 EPS in fiscal 2028 — under twelve times forward at the current price",
+        "AI networking expected to grow as fast as XPUs over the next few years",
+        "Broadcom's CEO: laser demand far surpasses supply, said while tripling its own laser capacity",
+        "Marvell's optical CTO named Europe and Japan for laser sourcing, not the US",
+        "Amazon takes warrants over roughly $4bn of Qualcomm, tied to up to $60bn of custom silicon revenue"
       ],
       "tickers": [
-        "SMTC",
+        "AVGO",
         "MRVL",
-        "NOK"
+        "SMTC",
+        "CRDO",
+        "ALAB",
+        "PRY.MI"
       ],
       "sourceThesisIds": [
+        "h_1a497b02efae06ff",
+        "x_2097321349555306512",
+        "x_2096814311306129776",
+        "x_2095882424932766163",
+        "x_2095546138510459218",
+        "x_2095453263613341938",
+        "x_2095279986701951461",
+        "x_2095261816767283663",
+        "x_2095102771418845551",
+        "h_309ea227f9567699",
         "r_d9902663dd6b8935",
         "r_2b02f8450a6057c0",
         "r_e8f118b3bd505aee",
         "x_2094416430032896428",
         "x_2094405648293482965",
         "x_2094353950040592854",
+        "x_2094027369648681284",
         "x_2093988125144207710",
         "x_2093947848580858123",
         "x_2093652781928448279",
@@ -367,21 +393,10 @@
         "h_061b5ccd49c3a139",
         "h_f97b00cbf156655b",
         "h_574cc87d7e028236",
-        "h_0ecb33baa79a6b44",
-        "h_65385721915ebae2",
-        "h_fd9505c4ad92bce4",
-        "h_15c7a1a2cc1c7180",
-        "h_0235e573a41f2c62",
-        "h_7797b5894b3bb34e",
-        "h_e4cc0612983c7052",
-        "h_bebbef0482f407da",
-        "h_29e60f0da3d1925a",
-        "h_076a7bf5684e1f29",
-        "h_fbc83c0f2773fa23",
-        "h_d2558834bea09c9f"
+        "h_0ecb33baa79a6b44"
       ],
       "thesesCount": 40,
-      "lastSynthesized": "2026-09-01T14:30:00Z"
+      "lastSynthesized": "2026-09-10T00:30:00Z"
     },
     {
       "category": "glass",
@@ -620,21 +635,37 @@
     },
     {
       "category": "accelerators",
-      "narrative": "NVIDIA stopped defending against the custom-silicon threat and started sponsoring it. A $3.5bn investment into MediaTek, read alongside the Marvell relationship, is NVIDIA paying to decide which ASIC designers win — the same playbook already run on the neoclouds, where it helped create the leaders and then aligned them financially and strategically. The analyst's read is that this erodes Broadcom's position as the default beneficiary of hyperscaler diversification, and may push AMD, Broadcom and certain hyperscalers into a defensive alliance. It also disposes of the one durable long-term bear case on NVIDIA, since hyperscaler ASICs are now partly NVIDIA-aligned. The numbers underneath are still accelerating: management projects roughly $1.3T of hyperscaler capex in 2027 against about $800bn this year, with around 70% revenue growth on a supply-constrained outlook, and the supply behind it is contracted rather than aspirational — $92bn of commitments falls in the rest of fiscal 2027, $87bn in 2028 and $88bn in 2029. AMD's Data Center segment reached 58.2% of revenue with operating income swinging to $2.1bn from a loss, though its consumer half grew 6% with gaming down 31%. The desk's caution sits where the feed does not look: NVIDIA's receivables are $63.1bn against $96.2bn of quarterly revenue, five customers hold 70% of that balance against three at 56% in January, and the company now extends 90-day to one-year payment terms to investment-grade buyers. Total commitments are $366bn once cloud agreements, equity investments and uncommenced leases are counted. Demand is not the question. How much of it NVIDIA is financing might be.",
+      "narrative": "The demand side kept escalating and the leader stopped going up, which is the week in one line. NVIDIA's position is that 70% growth is what it can supply and that unconstrained growth would exceed 100%, with roughly $1.3T of hyperscaler capex projected for 2027 — and the analyst notes that figure excludes SpaceX, so the true total may surprise. Its moat argument has shifted from architecture to procurement: long-term agreements across lasers and memory plus ecosystem equity investments, now including $3.5bn into MediaTek and the $12.93bn acquisition of Hugging Face, which he reads as the GitHub playbook applied to 18m developers and 3m models. Inference is now larger than training, having been roughly even eighteen months ago, which matters because inference is the workload hyperscaler ASICs were supposed to take. On the numbers this is the strongest set the theme has produced: Broadcom guiding AI revenue from the mid $50bn range to $230bn across two years, Microsoft, Google and Amazon all describing compute imbalances into next year, and Powertech packaging booked into 2030. The desk's caution is where it was on 1 Sep and nothing this week addressed it. NVIDIA's receivables are $63.1bn against $96.2bn of quarterly revenue with five customers holding 70%, terms now run 90 days to a year, and total commitments reach $366bn once cloud agreements, equity stakes and uncommenced leases are counted. A vendor financing its own buyers is a different risk from a vendor that cannot make enough.",
       "conviction": "high",
       "keyPoints": [
-        "NVIDIA invests $3.5bn in MediaTek — reads as picking ASIC winners and eroding Broadcom's incumbency",
-        "Hyperscaler capex projected at $1.3T for 2027 against roughly $800bn in 2026",
-        "Supply commitments contracted three years out: $92bn, $87bn and $88bn across fiscal 2027-29",
-        "NVIDIA receivables $63.1bn on $96.2bn quarterly revenue, five customers holding 70% of the balance",
-        "Payment terms of 90 days to one year now offered to investment-grade buyers on large builds",
-        "AMD Data Center at 58.2% of revenue, segment operating income $2.1bn from a $155m loss"
+        "NVIDIA: 70% growth is supply-constrained; unconstrained would exceed 100%",
+        "Roughly $1.3T hyperscaler capex projected for 2027, and that figure excludes SpaceX",
+        "Inference is now larger than training, having been roughly even eighteen months ago",
+        "$3.5bn into MediaTek and $12.93bn for Hugging Face — procurement and ecosystem as the moat",
+        "Receivables $63.1bn on $96.2bn quarterly revenue, five customers holding 70%",
+        "Total commitments reach $366bn once cloud, equity and uncommenced leases are counted"
       ],
       "tickers": [
         "NVDA",
-        "AMD"
+        "AMD",
+        "QCOM",
+        "ARM",
+        "SMCI"
       ],
       "sourceThesisIds": [
+        "h_5e7cee84e412357d",
+        "h_1a497b02efae06ff",
+        "x_2097365614402969638",
+        "x_2097321349555306512",
+        "x_2097200456090952096",
+        "x_2096814311306129776",
+        "x_2095882424932766163",
+        "x_2095823005595439615",
+        "x_2095490725412733092",
+        "x_2095261816767283663",
+        "x_2095153855818547571",
+        "x_2095012962360828314",
+        "h_309ea227f9567699",
         "r_5eaae5589b9aa648",
         "r_d6dcde76ab894523",
         "r_b7de03d2ec2c5792",
@@ -661,34 +692,22 @@
         "r_61965e0669622956",
         "r_1634b9e3ba46c6f7",
         "r_344c2aed15b35d36",
-        "r_e4b9bde4336ccf79",
-        "x_2091955482613486028",
-        "x_2091909391238979970",
-        "x_2091851831718879660",
-        "x_2091488091110531106",
-        "x_2089908198694351064",
-        "x_2089766053274661143",
-        "h_46c927b8e8e6582f",
-        "r_177cc7abd695e018",
-        "r_38f0ce8728dd7282",
-        "r_2319826fe767a14e",
-        "r_020df90c96ddf765",
-        "r_95e6f060751b9516",
-        "r_fd7f012b5ff37e9f"
+        "r_e4b9bde4336ccf79"
       ],
       "thesesCount": 40,
-      "lastSynthesized": "2026-09-01T14:30:00Z"
+      "lastSynthesized": "2026-09-10T00:30:00Z"
     },
     {
       "category": "hyperscalers",
-      "narrative": "The hyperscalers spent the week locking up inputs rather than announcing models, and that is the more informative behaviour. NVIDIA, Microsoft and Google are named as counterparties in the reported Samsung arrangement reserving roughly 70% of memory production capacity through 2031 — a five-year commitment that only makes sense if internal silicon roadmaps are funded well into the next decade. NVIDIA separately projects around $1.3T of hyperscaler capex in 2027 against about $800bn this year, and its own cloud service agreement commitments have risen to $29bn from $13.7bn a year earlier, which is the accelerator vendor buying cloud from its own customers. The competitive picture beneath them shifted too: NVIDIA's $3.5bn MediaTek investment reads as an attempt to shape which custom-silicon designers the hyperscalers can turn to, which cuts against the diversification leverage they have been accumulating. Amazon's mention this week was incidental but telling — Anthropic renting Apple Mac mini units from AWS while OpenAI hoards Mac minis and Studios for reinforcement learning — a reminder that frontier-lab demand is broader than GPUs and that AWS remains the default place non-GPU capacity is bought. Alphabet is the cleanest expression of the group: its own models, its own silicon, and now its own contracted memory.",
+      "narrative": "The buyers spent the week locking up silicon and inputs rather than announcing models, and Amazon was the most active. It took warrants over roughly $4bn of Qualcomm tied to as much as $60bn of milestone revenue from a custom silicon partnership, adding to existing equity and warrant positions across AlChip, Marvell, Astera and AAOI. The analyst's observation is fair and slightly uncomfortable: Amazon is accumulating semiconductor exposure at a rate that makes it look more like a sector fund than a customer. Read alongside the reported Samsung arrangement reserving around 70% of memory capacity through 2031 with NVIDIA, Microsoft and Google as counterparties, the pattern across this group is buyers converting cash into contracted supply and supplier equity — which is rational when the constraint is supply, and which also means their capex figures understate their commitment. Microsoft, Google and Amazon have all described compute imbalances running into next year. The timing question is the one worth holding. Anthropic's economic scenario publication, which he read closely, shows little separation through 2026-2027 and sharp divergence into 2028-2030, mapping onto the free-cash-flow headwinds these companies are absorbing now against projected profitability later. Alphabet's TPU v9 is named as another substantial source of optical demand, which is the same story arriving from the demand side.",
       "conviction": "medium",
       "keyPoints": [
-        "Samsung reportedly reserves ~70% of memory capacity through 2031 with NVIDIA, Microsoft and Google",
-        "NVIDIA projects $1.3T of hyperscaler capex in 2027 against roughly $800bn in 2026",
-        "NVIDIA's cloud service commitments rose to $29bn from $13.7bn a year earlier",
-        "NVIDIA's MediaTek investment cuts against hyperscaler custom-silicon leverage",
-        "Frontier labs renting Mac mini fleets from AWS shows demand beyond GPUs"
+        "Amazon takes warrants over roughly $4bn of Qualcomm, tied to up to $60bn of milestone revenue",
+        "Amazon now holds equity or warrants across AlChip, Marvell, Astera and AAOI",
+        "Samsung reportedly reserved about 70% of memory capacity to 2031 with NVIDIA, Microsoft and Google",
+        "Microsoft, Google and Amazon all describe compute imbalances running into next year",
+        "Google's TPU v9 named as another substantial source of optical demand",
+        "Anthropic's scenarios put little separation through 2027, sharp divergence into 2028-2030"
       ],
       "tickers": [
         "AMZN",
@@ -698,6 +717,13 @@
         "AAPL"
       ],
       "sourceThesisIds": [
+        "x_2097815176838017066",
+        "h_5e7cee84e412357d",
+        "h_1a497b02efae06ff",
+        "x_2097321349555306512",
+        "x_2095882424932766163",
+        "x_2095490725412733092",
+        "h_309ea227f9567699",
         "x_2094365307876040857",
         "x_2094306322812666156",
         "x_2094129989071536351",
@@ -730,17 +756,10 @@
         "r_e7719032b9eab138",
         "r_543fb777dbee09c4",
         "r_5bda4d82c87ddc63",
-        "x_2086157318065168490",
-        "r_46d90a3c41fa7f93",
-        "r_6b73ca707c56ac89",
-        "r_b9c57108d30b1cbd",
-        "r_a0a2f978090bcf1b",
-        "r_2d7fdbea2e10e3d8",
-        "r_b2d92e73dc38aa13",
-        "x_2083270545320386734"
+        "x_2086157318065168490"
       ],
       "thesesCount": 40,
-      "lastSynthesized": "2026-09-01T14:30:00Z"
+      "lastSynthesized": "2026-09-10T00:30:00Z"
     },
     {
       "category": "power",
