@@ -218,31 +218,30 @@ _Last updated: 2026-08-29 (weekly review run, view extraction complete, exposure
 
 ## Current snapshot
 
-_Read live from `ingest/store/*.json` and `data.js` on **1 Sep 2026**. These
+_Read live from `ingest/store/*.json` and `data.js` on **11 Sep 2026**. These
 numbers move every week — when this file and the store disagree, the store is
 right._
 
 | | |
 |---|---|
-| Companies tracked | **148** — 37 Core / 9 Watch / 102 Radar |
-| Captured posts | **612** — 420 from the analyst, 192 from the desk's own expert seats |
-| Arguments extracted | **1,330** — what he actually argued, per post per company. **Extraction is complete: 0 pending** |
-| Desk verdicts | **21** names, reviewed **1 Sep** (7 accumulate / 11 wait / 3 pass) |
-| Coverage memos | 78 · **Vault** 65 pages, 31 with written notes · **Brain** 11 theme digests |
-| Calls ledger | **16** — 12 open, 4 closed (1 win / 2 losses / 1 wash). Oldest call 12 Jul |
-| Claims ledger | **77** — 3 judged correct, **13 unfalsifiable**, 61 open (2 ripe, awaiting `/judge-claims`) |
+| Companies tracked | **178** — 38 Core / 13 Watch / 127 Radar |
+| Captured posts | **656** — 464 from the analyst, 192 from the desk's own expert seats |
+| Arguments extracted | **1,330** — what he actually argued, per post per company |
+| Desk verdicts | **21** names, last full review **1 Sep** (7 accumulate / 11 wait / 3 pass) |
+| Coverage memos | 80 · **Vault** 70 pages, 31 with written notes · **Brain** 11 digests, refreshed 10 Sep |
+| Calls ledger | **16** — 12 open, 4 closed (1 win / 2 losses / 1 wash) |
+| Claims ledger | **77** — 3 correct, **13 unfalsifiable**, 61 open (2 ripe, awaiting `/judge-claims`) |
 | SEC revenue | 37 companies covered, 9 gaps recorded with reasons |
-| AI exposure | 45 assessed — **4 from company disclosure, 41 desk estimates**. AXTI and AMD bases now stale (see issue 2) |
-| Telegram queue | **0 pending** |
-| Tests | 506, green |
+| AI exposure | 45 assessed — 4 from company disclosure, 41 desk estimates |
+| Triage backlog | **71 unsorted**, of which 3 are Core/Watch: HOOD, COST, ESMT. 348 pending candidates |
+| Tests | 511, green |
 | GitHub | Public — github.com/nainaii1/ai-infrastructure-explorer, branch `main` |
 
-**1 Sep pass in one line:** `/pre-review` and `/weekly-review` ran the same
-day for the first time — 36 seat findings, all verified against primary
-sources, drove both stance moves (AXTI accumulate→wait on China export-permit
-risk, MTSI wait→pass on MACOM's own later laser date). MRVL and AVGO
-initiated. 14 names triaged out of the unsorted backlog, `GM` rejected, and
-three out-of-scope names (RDDT, RKLB, RPI) removed from the universe.
+**Where things stand.** The verdicts date from the 1 Sep review; the Brain was
+refreshed mid-week on 10 Sep, and AVGO and LITE were rewritten on 10-11 Sep off
+their latest filings. A full `/weekly-review` is due. ESMT is the notable gap —
+it is the legacy-memory name his own thesis is built on and it is still sitting
+untriaged.
 
 ## The operating loop (v5 — this is the product now)
 
@@ -385,7 +384,7 @@ Small jobs, if there is appetite for one:
   cite nothing, be marked unverified, and score exactly zero by the desk's own
   rules. Revisit only if a data source appears first.
 - **More roles generally** (macro, PM, ops, investors). The tool has one user
-  and already produces 78 memos, 65 vault pages, 21 verdicts and 192 research
+  and already produces 80 memos, 70 vault pages, 21 verdicts and 192 research
   findings. Output already exceeds one person's reading. Adding producers makes
   that worse, not better.
 

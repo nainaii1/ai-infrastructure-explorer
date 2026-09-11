@@ -504,8 +504,9 @@ so newly-ingested tickers and theses surface. Categories / center / countries
   All Radar, all zero-to-one analyst mentions — the category still illustrates
   its own caveat.
   A ticker with `category: "unsorted"` and tier `core`/`watch` is a triage
-  backlog item and should be cleared each weekly review; as of 1 Sep there are
-  none, and `unsorted` holds only Radar noise.
+  backlog item and should be cleared each weekly review. As of 11 Sep there
+  are three — HOOD, COST and ESMT — and ESMT is the one that matters: it is
+  the legacy-memory name his own thesis is built on.
 - `tier` → conviction tier from `scorer.assign_tiers()`. The UI treats
   `radar` as hidden-by-default (map card grid, watchlist "Signal" filter).
   **Tiering is mention-driven, which cuts both ways.** A name the analyst never
@@ -576,8 +577,13 @@ ai-supply-desk/
 ├── data.js                     window.AIE_DATA — GENERATED, never hand-edit
 ├── CLAUDE.md                   this file — build spec + current status
 ├── README.md                   quick start + project map
-├── .claude/skills/weekly-review/SKILL.md   the /weekly-review desk procedure
-├── .claude/skills/assess-exposure/SKILL.md the /assess-exposure worklist procedure
+├── .claude/skills/           the six routines — the operator does not use a terminal,
+│   ├── pre-review/             so anything he needs repeatedly becomes a skill
+│   ├── weekly-review/          and Claude runs the commands on his behalf
+│   ├── judge-claims/
+│   ├── assess-exposure/
+│   ├── coverage-note/
+│   └── vault-note/
 ├── docs/
 │   ├── EXECUTION.md             v7 "Private Coverage" upgrade — phased prompt guide (the to-do doc)
 │   ├── GUIDE.md                 how to run everything + FAQ / troubleshooting (read first if stuck)
@@ -603,10 +609,41 @@ ai-supply-desk/
 ```
 
 ## When starting a fresh session on this project
+
 1. Read this file's **Current status** section above.
-2. Skim `docs/ROADMAP.md` for open issues and next steps.
-3. Check `git log --oneline -10` for what's landed since the roadmap was last touched.
-4. If something in this file conflicts with the actual code (`index.html`,
-   `desk.html`, `shared/*`, `ingest/store/base.json`), **trust the code** and fix
-   this file — it drifts. For the v7 upgrade's remaining phases, `docs/EXECUTION.md`
-   is the authoritative to-do doc.
+2. Skim `docs/ROADMAP.md` — the snapshot at the top, then the open issues.
+3. Run `git log --oneline -10` to see what landed since the roadmap was written.
+4. **If this file disagrees with the code, the code is right.** Fix the file.
+   It drifts. The same goes for any number in any doc: read
+   `ingest/store/*.json` or `data.js` instead.
+
+### Where things stood on 11 Sep 2026 (the last session)
+
+Read this before starting anything — it is the handover, not history.
+
+**Done recently, so don't redo it:**
+- `/pre-review` and `/weekly-review` both ran 1 Sep. 36 seat findings, all
+  sourced. Two stance moves: AXTI accumulate → wait (China export-permit risk
+  on indium phosphide), MTSI wait → pass (MACOM's own laser date moved out).
+- The Brain was refreshed mid-week on 10 Sep, against 45 new posts.
+- AVGO and LITE were dug into properly on 10-11 Sep off their latest filings,
+  and their `view`, `execution` and `changesMind` fields were rewritten. Both
+  have fresh memos. **The other 19 verdicts still date from 1 Sep.**
+
+**What is waiting:**
+- **A full `/weekly-review` is due.** It has not run since 1 Sep.
+- **`/judge-claims`** — two NVDA claims went ripe on 31 Aug and are unjudged.
+- **Triage.** 71 unsorted tickers. Three are Core/Watch and should be cleared
+  first: HOOD, COST and **ESMT** — ESMT matters, it is the legacy-memory name
+  his own thesis is built on and it is not in the universe yet.
+- **`/assess-exposure`** — 41 of 45 figures are still desk estimates.
+
+**Two traps that have already caught someone:**
+- Coverage ranks on `analystScore`, never `score`. See invariant 2b in
+  `docs/EXECUTION-EXPERT-REVIEW.md`. Ranking on `score` lets a bear finding
+  push a name out of its own coverage.
+- A price written into a verdict as a *description* ("no add at $915") rots
+  and then misleads. A *trigger* ("add below $290") does not. Write triggers.
+
+Read `docs/EXECUTION-EXPERT-REVIEW.md` "Invariants" before touching
+`ingest/scorer.py`, `ingest/seats.py` or `ingest/pre_review.py`.

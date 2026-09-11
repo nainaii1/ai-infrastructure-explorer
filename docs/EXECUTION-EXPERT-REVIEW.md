@@ -78,11 +78,36 @@ reintroduce.
 1. **`assign_tiers` never reads `score`.** It gates on `weightedMentions` and
    `convictionHits` only. Retiring the conviction multiplier therefore moved no
    ticker between tiers, and that is intentional.
-2. **Research can subtract but never add.** All three paths are guarded: the
-   score (`_direction_weight` returns 0.0 for a research bull), `weightedMentions`
-   (skipped entirely), and `convictionHits` (skipped entirely). The second and
-   third were each found *after* the first was fixed — if you add a fourth
+2. **Research can subtract but never add.** Four paths are guarded now: the
+   score (`_direction_weight` returns 0.0 for a research bull),
+   `weightedMentions` (skipped entirely), `convictionHits` (skipped entirely),
+   and `netAnalyst`/`analystScore` (research excluded outright). The second and
+   third were each found *after* the first was fixed — if you add a fifth
    aggregate, guard it too.
+
+   **2b. Research must not REMOVE coverage either** (added 11 Sep 2026). The
+   rule above is only half the asymmetry, and the other half went unwritten for
+   six weeks. Because the verdict roster and the pre-review shortlist were
+   ranked by `score`, and `score` carries research's downward correction, a
+   bearish finding could push a name off the list the desk writes verdicts on.
+   The desk stopped covering exactly the name it had just found a problem with:
+   MTSI went from rank 13 to 148 on 1 Sep from the desk's own findings, with no
+   analyst input at all.
+
+   `analystScore` exists for this and nothing else. Coverage ranks on it;
+   everything else still ranks on `score`, so the corrective asymmetry is
+   untouched. Do **not** "fix" a future version of this by letting research
+   raise `score` — that breaks invariant 2 and is the trap the original wording
+   invited. `select_coverage` sorts on `analystScore` itself rather than
+   trusting the caller's list order, because a caller ordering the list wrongly
+   is how this happened.
+
+   The regression test is `BearResearchMustNotRemoveCoverage`. Its first draft
+   was worthless and passed against the unfixed code: with fewer names than the
+   cap, the remainder fill takes them all and ordering cannot matter. The
+   committed version supplies more names than the cap and carries a
+   `test_the_cap_actually_bites` guard. **Any test of ranking behaviour here
+   must make the cap bite, and must be checked against the unfixed code.**
 3. **An unreadable value fails inert, never toward a vote.** A typo'd
    `"bearish"` scores 0.0 rather than falling back to `neutral` (+1.0). A
    miscased `"Research"` still counts as research rather than reverting to full
