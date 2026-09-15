@@ -1,7 +1,7 @@
 {
   "meta": {
     "schemaVersion": 1,
-    "updatedAt": "2026-09-01T14:30:00Z",
+    "updatedAt": "2026-09-15T05:00:00Z",
     "author": "claude-desk",
     "benchmark": "SMH",
     "disclaimer": "The calls ledger tracks the desk's own dated suggestions against a buy-the-index benchmark. Stamped forward-only, never retro-fitted. Personal research tool - not investment advice."
@@ -373,6 +373,30 @@
       "benchmark": {
         "symbol": "SMH",
         "priceAtCall": 556.63
+      }
+    },
+    {
+      "id": "c_COHR_2026-09-15",
+      "ticker": "COHR",
+      "source": "desk",
+      "kind": "trim",
+      "calledAt": "2026-09-15",
+      "entryPrice": 272.67,
+      "entryCurrency": "USD",
+      "stanceAtCall": "watch",
+      "memoId": "m_COHR_2026w38",
+      "thesisIds": [
+        "x_2098306366167535766",
+        "x_2097660318369697875",
+        "x_2097200456090952096",
+        "x_2095102771418845551"
+      ],
+      "closedAt": null,
+      "exitPrice": null,
+      "outcome": "open",
+      "benchmark": {
+        "symbol": "SMH",
+        "priceAtCall": 545.2
       }
     }
   ]

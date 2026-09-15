@@ -117,7 +117,7 @@
     "candidate": "IV",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:38:26Z",
-    "count": 3
+    "count": 4
   },
   {
     "candidate": "NAV",
@@ -153,13 +153,13 @@
     "candidate": "DRAM",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:39:49Z",
-    "count": 17
+    "count": 18
   },
   {
     "candidate": "NAND",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:39:49Z",
-    "count": 25
+    "count": 26
   },
   {
     "candidate": "OP",
@@ -291,7 +291,7 @@
     "candidate": "EML",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:44:22Z",
-    "count": 27
+    "count": 28
   },
   {
     "candidate": "QD",
@@ -333,7 +333,7 @@
     "candidate": "TPU",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:45:35Z",
-    "count": 5
+    "count": 6
   },
   {
     "candidate": "USDC",
@@ -411,7 +411,7 @@
     "candidate": "CW",
     "sourceUrl": "",
     "firstSeen": "2026-06-30T07:39:56Z",
-    "count": 63
+    "count": 65
   },
   {
     "candidate": "ERIC",
@@ -687,7 +687,7 @@
     "candidate": "ASP",
     "sourceUrl": "",
     "firstSeen": "2026-06-30T07:53:06Z",
-    "count": 21
+    "count": 22
   },
   {
     "candidate": "RF",
@@ -2085,6 +2085,12 @@
     "candidate": "GG",
     "sourceUrl": "https://x.com/aleabitoreddit/status/2097815176838017066",
     "firstSeen": "2026-09-10T11:36:39Z",
+    "count": 1
+  },
+  {
+    "candidate": "WSJ",
+    "sourceUrl": "https://x.com/aleabitoreddit/status/2098306366167535766",
+    "firstSeen": "2026-09-11T16:06:21Z",
     "count": 1
   }
 ]

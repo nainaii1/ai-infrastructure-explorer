@@ -54,6 +54,28 @@ def good_call(system, user):
 
 
 class TestGrouping(unittest.TestCase):
+    def test_research_theses_never_reach_a_digest(self):
+        """The Brain summarises what the ANALYST believes.
+
+        build_prompt names @aleabitoreddit explicitly, so a research thesis in
+        the pool makes the digest attribute the desk's own seat findings to
+        him. Regression for 15 Sep 2026, when a /pre-review pass had put 36
+        research records into the store — all newer than anything else, so the
+        40-most-recent cap made them 52% of the photonics window.
+        """
+        his = thesis("t1", ["AAOI"], posted_at="2026-06-01T00:00:00Z")
+        ours = thesis("r_1", ["AAOI"], posted_at="2026-06-25T00:00:00Z")
+        ours["source"] = "research"
+        groups = synthesize.group_theses_by_category([his, ours], TICKERS, CATEGORIES)
+        self.assertEqual(groups["photonics"], [his])
+
+    def test_research_is_excluded_even_when_it_is_the_only_thesis(self):
+        """A theme with nothing but research is empty, not research-flavoured."""
+        ours = thesis("r_2", ["MU"])
+        ours["source"] = "research"
+        groups = synthesize.group_theses_by_category([ours], TICKERS, CATEGORIES)
+        self.assertEqual(groups["memory"], [])
+
     def test_thesis_lands_in_every_category_its_tickers_touch(self):
         theses = [thesis("t1", ["AAOI", "MU"])]
         groups = synthesize.group_theses_by_category(theses, TICKERS, CATEGORIES)

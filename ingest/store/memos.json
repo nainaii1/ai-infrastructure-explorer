@@ -1,7 +1,7 @@
 {
   "meta": {
     "schemaVersion": 1,
-    "updatedAt": "2026-09-10T01:40:00Z",
+    "updatedAt": "2026-09-15T05:00:00Z",
     "author": "claude-desk",
     "disclaimer": "Coverage memos are second-opinion research notes on @aleabitoreddit's ideas. Personal research tool — not investment advice."
   },
@@ -3132,6 +3132,205 @@
         {
           "heading": "Bottom line",
           "body": "Hold at **wait**. This is the safest operating business in the [[photonics]] book and it is not the cheapest way to own the thesis, which is the same conclusion as two weeks ago reached by a better route.\n\nThe change: the falsifier is no longer only gross-margin compression. It is now **the conversion process** — read the share count and the extinguishment line in the next filing before anything else, and size any position against a count that is still moving.\n\nTo accumulate: the conversion requests clearing with the share count settling, and the ultra-high-power ramp appearing as filed revenue rather than deck capacity. To pass: further conversions on the same terms with no disclosed end to them."
+        }
+      ]
+    },
+    {
+      "id": "m_GOOGL_2026w38",
+      "ticker": "GOOGL",
+      "kind": "update",
+      "title": "Alphabet: the anchor started borrowing",
+      "dek": "Downgraded to wait. Long-term debt doubled in six months and $98.0bn of the quarter's profit is a mark, not an operation.",
+      "publishedAt": "2026-09-15T05:00:00Z",
+      "updatedAt": "2026-09-15T05:00:00Z",
+      "rating": "watch",
+      "basedOnVerdict": true,
+      "sourceThesisIds": [
+        "x_2099126746390139042",
+        "x_2098306366167535766",
+        "x_2097815176838017066",
+        "h_5e7cee84e412357d",
+        "r_34fc5b1695e05f37",
+        "r_ee54242836bcd04e",
+        "r_52669eb7be8dc9dc"
+      ],
+      "sections": [
+        {
+          "heading": "Snapshot",
+          "body": "$GOOGL steps down from **accumulate** to **wait**. Nothing is wrong with the business. What changed is how the buildout is being paid for, and it is not in any thesis on file.\n\n[[aleabitoreddit]] holds this personally and treats it as the demand anchor under the whole chain. He is right about the demand. He has never mentioned the financing."
+        },
+        {
+          "heading": "Thesis",
+          "body": "Read the Q2 release past the headline and three things sit in the supplementary notes.\n\nIn June, Alphabet issued **$49.6bn** of Class A and Class C stock together with mandatory convertible preferred, stated as being for general corporate purposes **including capital expenditures to scale AI infrastructure**. In the same quarter it issued **$20.3bn** of senior unsecured notes. It also entered an equity distribution agreement to sell up to **$40.0bn** under an at-the-market programme, undrawn as of 30 June.\n\nThe balance sheet shows where that lands. Long-term debt went from **$46,547m** at December 2025 to **$98,165m** at June 2026 — a double in two quarters, at a company that spent the last decade retiring shares rather than issuing them."
+        },
+        {
+          "heading": "Why own it",
+          "body": "The operating business is as good as it has been. Revenue rose **24% to $119,796m**. Google Cloud grew **82% to $24,768m** with segment operating income more than tripling to **$8,814m**. Net property and equipment rose from **$246,597m to $321,212m** in six months — $74.6bn of real capacity added, which is the shells-and-power constraint being cleared rather than a paper commitment.\n\nThat capacity is what every name in this book ultimately sells into, and it is being built."
+        },
+        {
+          "heading": "Risks",
+          "body": "**The reported profit describes a portfolio, not an operation.** Q2 net income was **$112,107m** and **$97,983m** of it is other income, net — chiefly unrealised gains on equity securities. Operating income was **$40,770m**. The 298% earnings growth and the $9.11 per share both describe a revaluation of stakes in other companies.\n\nAn investor reading the headline is reading a mark. A mark reverses. And it reverses in the same conditions that would make the debt raised against the buildout expensive — the equity stakes being marked up are largely in the same AI complex the capex is serving, so the asset and the funding are correlated in the wrong direction."
+        },
+        {
+          "heading": "Bottom line",
+          "body": "**Wait.** Hold what is on; add nothing. This is a sizing decision, not a thesis decision — the capacity is real and the Cloud franchise is compounding.\n\nBack to **accumulate** on a quarter with free cash flow above zero and no fresh equity or notes. To **pass** if the $40bn ATM is drawn for anything beyond employee tax obligations, which would say the notes and the June raise were not enough."
+        }
+      ]
+    },
+    {
+      "id": "m_COHR_2026w38",
+      "ticker": "COHR",
+      "kind": "update",
+      "title": "Coherent: from selling the bottleneck to buying it",
+      "dek": "Downgraded to wait on the company's own transcript. It has withdrawn from merchant lasers into the tightest laser market in years.",
+      "publishedAt": "2026-09-15T05:00:00Z",
+      "updatedAt": "2026-09-15T05:00:00Z",
+      "rating": "watch",
+      "basedOnVerdict": true,
+      "sourceThesisIds": [
+        "x_2098306366167535766",
+        "x_2097660318369697875",
+        "x_2097200456090952096",
+        "x_2095102771418845551"
+      ],
+      "sections": [
+        {
+          "heading": "Snapshot",
+          "body": "$COHR steps down from **accumulate** to **wait**, on evidence [[aleabitoreddit]] surfaced himself and read the other way round.\n\nHis 8 September post on the laser landscape quotes Coherent management saying they do not see any time in the near future where they would sell indium phosphide lasers externally, having rerouted that capacity internally, and that over the long term some portion of datacom will be bought in."
+        },
+        {
+          "heading": "Thesis",
+          "body": "He reads that as bullish, and for the merchant suppliers it is: one of the larger sources of external indium phosphide laser supply has left the market, which tightens it for everyone still selling. That part is correct and it supports [[sive]], [[lite]] and [[aaoi]].\n\nIt is a different fact for Coherent. In a market that Broadcom's own chief executive describes as demand far surpassing supply, Coherent has moved from being a seller of the scarce input to being, at the margin, a buyer of it. The scarcity premium the rest of the [[photonics]] book collects becomes Coherent's cost line."
+        },
+        {
+          "heading": "Why own it",
+          "body": "The datacom franchise is intact and the transition to internal routing is a defensible strategic choice: captive laser supply is worth more inside a module business than sold to competitors, provided the internal capacity actually covers internal demand.\n\nThe shares also rose **3.1% on the week** against a falling tape, so this is not a name in distress. It is a name whose reason for being held has narrowed."
+        },
+        {
+          "heading": "Risks",
+          "body": "The falsifier is now a margin line rather than a product date. If internal capacity does not cover internal demand, Coherent buys lasers at shortage prices and books the difference against its own gross margin, in the exact quarters when the merchant suppliers are reporting their best ever.\n\nDown **16.1% in a month**, the second-worst on the roster after [[sive]], which suggests the market has read the same transcript. Note that Coherent lost the pre-review cap this week, so no independent seat research sits behind this call — it rests on his captured quote and the tape."
+        },
+        {
+          "heading": "Bottom line",
+          "body": "**Wait**, and trim rather than exit. The 21 August position at $289.67 comes down in size; the merchant-laser exposure it was partly held for belongs in [[lite]] instead.\n\nBack to **accumulate** if Coherent re-enters the merchant market with disclosed external volumes. To **pass** on gross-margin compression attributed to bought-in laser cost."
+        }
+      ]
+    },
+    {
+      "id": "m_MU_2026w38",
+      "ticker": "MU",
+      "kind": "coverage",
+      "title": "Micron: 86% is a price, not a margin",
+      "dek": "Initiated at wait. The position has been open in the ledger since August with no verdict behind it — that gap closes here.",
+      "publishedAt": "2026-09-15T05:00:00Z",
+      "updatedAt": "2026-09-15T05:00:00Z",
+      "rating": "watch",
+      "basedOnVerdict": true,
+      "sourceThesisIds": [
+        "x_2099229447304122410",
+        "x_2098306366167535766",
+        "x_2097937708178186303",
+        "x_2096858276290015563",
+        "r_ecd566e41f5ecc76",
+        "r_64c4ea925a55d409",
+        "r_454191fa3ee074c7"
+      ],
+      "sections": [
+        {
+          "heading": "Snapshot",
+          "body": "$MU is initiated at **wait**. This memo exists partly to correct a process failure: the calls ledger has carried an open Micron position since 17 August, and a trim since 25 August, with no verdict written against either. A position without a stated view is not a position, it is a drift."
+        },
+        {
+          "heading": "Thesis",
+          "body": "[[aleabitoreddit]]'s memory argument is the most developed thing in his feed and the numbers carry it. Fiscal Q3 revenue was **$41.5bn**, up 346% year on year, with gross margin at **84.9%** and fiscal Q4 guided to about **$50bn** at roughly **86%**. HBM4 for Vera Rubin began shipping in March and is ramping at roughly twice the pace of HBM3E 12-high with yields ahead of plan.\n\nHe supports it with forecasts rather than filings — KB Securities on the tightest supply conditions in history, TrendForce placing DRAM and NAND at 68% of hyperscaler capex in 2027. Those are forecasts about an ASP."
+        },
+        {
+          "heading": "Why own it",
+          "body": "The execution claim is not in doubt. Yield learning ahead of plan on HBM4 at the pace described is genuine engineering, and Micron is one of three suppliers in a market where the fourth does not exist. If the shortage runs to 2027 as he argues, this is where the money is made."
+        },
+        {
+          "heading": "Risks",
+          "body": "**At 86% gross margin, nearly all incremental revenue is price rather than volume.** The earnings base is therefore a spot-price artefact and a single-digit ASP decline removes a disproportionate share of profit. The same yield learning that makes the ramp impressive is what makes the following year's supply response fast.\n\nAnd the supply response has started. [[000660-ks]]'s own results release pairs capital discipline language with **accelerating M15X mass production** and a Yongin Phase 1 cleanroom opening in **early 2027**. A shortage forecast for 2027 and that capex plan cannot both be right.\n\nNear term, fiscal Q4 lands **30 September** against a bar Micron set itself."
+        },
+        {
+          "heading": "Bottom line",
+          "body": "**Wait.** No capital before the 30 September print: the company has guided $50bn and $31 per share, the stock sits below the 17 August entry, and the asymmetry into a self-set bar is poor.\n\nTo **accumulate** on a 2027 HBM book locked at current pricing with capex discipline holding across Samsung and SK hynix. To **pass** on gross margin guided below 75%, or 2027 HBM pricing disclosed lower."
+        }
+      ]
+    },
+    {
+      "id": "m_SIVE_2026w38",
+      "ticker": "SIVE",
+      "kind": "update",
+      "title": "Sivers: the desk was wrong about the number",
+      "dek": "Held at wait. The 100 million laser figure is disclosed, dated and company-stated — a pre-review finding said otherwise and has been retracted.",
+      "publishedAt": "2026-09-15T05:00:00Z",
+      "updatedAt": "2026-09-15T05:00:00Z",
+      "rating": "watch",
+      "basedOnVerdict": true,
+      "sourceThesisIds": [
+        "x_2098358633960726788",
+        "x_2098306366167535766",
+        "x_2097660318369697875",
+        "h_5e7cee84e412357d",
+        "r_8c9e2bf327eadfda",
+        "r_272584f8546c2728",
+        "r_1bc816c612d806c1"
+      ],
+      "sections": [
+        {
+          "heading": "Snapshot",
+          "body": "$SIVE holds at **wait**, and this note leads with a correction against the desk rather than against [[aleabitoreddit]].\n\nToday's pre-review pass produced a finding asserting that the 100 million CW DFB laser figure the thesis rests on had never appeared in a filing or release and had reached the desk through call commentary. **That was wrong.** The finding has been retracted from the thesis feed and replaced with a corrected one."
+        },
+        {
+          "heading": "Thesis",
+          "body": "Sivers issued a press release on **3 September 2026** committing **USD 30m** to expand the Glasgow indium phosphide facility, stating the expanded site is expected to support annual production of **more than 100 million CW DFB lasers**. The programme begins in the second half of 2026 and is expected to be operational in the **fourth quarter of 2027**. The release frames it as the step from a Fab-Lite model to a Hybrid Manufacturing strategy.\n\nSo the number is real, dated and company-stated. It is the strongest evidence this thesis has ever had, and he called it the same day."
+        },
+        {
+          "heading": "Why own it",
+          "body": "Independent confirmation arrived from several directions this fortnight. Broadcom's chief executive described EML and CW laser demand far surpassing supply. Channel checks at CIOE Shenzhen confirmed Sivers has raised laser prices and that the 70mW to 200mW range is tight. Marvell's optical engineering lead named Europe as a laser sourcing geography, and there is no other listed European merchant laser supplier of scale."
+        },
+        {
+          "heading": "Risks",
+          "body": "**A capacity target is not an order book.** The 3 September release states no customer commitments, and Q4 2027 is five quarters out.\n\nMeanwhile the operating record moves the other way: Q2 net sales fell **12% to SEK 53.8m**, adjusted EBITDA worsened to **SEK -35.5m** from SEK -20.9m, operating loss was **SEK -116.9m** and cash flow from operations **SEK -70.0m**.\n\nAnd the financing fact is the hardest one on the roster. On **1 July** Sivers placed **12,280,701 shares at SEK 57**, multiple times oversubscribed by Swedish and international institutions buying this same capacity story. The shares are near half that ten weeks later. Those buyers had better access than this desk and are down by half."
+        },
+        {
+          "heading": "Bottom line",
+          "body": "**Wait.** No add. The SEK 57 placement is the reference level, not the recent high.\n\nTo **accumulate** on a named customer commitment or long-term agreement against the Glasgow line — the thing that turns capacity into revenue. To **pass** on a further equity raise below SEK 57, or the Q4 2027 date slipping."
+        }
+      ]
+    },
+    {
+      "id": "m_AMKR_2026w38",
+      "ticker": "AMKR",
+      "kind": "exit-note",
+      "title": "Amkor: coverage ends, quietly",
+      "dek": "Dropped from Core tier and removed from the verdict roster. He stopped writing about it on 29 August.",
+      "publishedAt": "2026-09-15T05:00:00Z",
+      "updatedAt": "2026-09-15T05:00:00Z",
+      "rating": "watch",
+      "basedOnVerdict": true,
+      "sourceThesisIds": [],
+      "sections": [
+        {
+          "heading": "Snapshot",
+          "body": "$AMKR leaves the verdict roster. It has fallen out of **Core** tier to **watch**, with an analyst score of 0.48 and a last mention on **29 August 2026**. No verdict is carried for names outside Core, so coverage ends here rather than continuing on stale reasoning."
+        },
+        {
+          "heading": "Thesis",
+          "body": "The position was held at **accumulate** as a sticky holdover — advanced packaging as the capacity constraint behind every accelerator. That argument has not been disproved. It has been abandoned by the source this desk follows, which is a different thing and worth recording plainly."
+        },
+        {
+          "heading": "Why own it",
+          "body": "Nothing in the week argues against the packaging bottleneck. He noted Powertech advanced packaging capacity booked to 2030, which is the same constraint seen through a different name. If the operator holds Amkor on his own reasoning, this note is not an argument to sell."
+        },
+        {
+          "heading": "Risks",
+          "body": "The real risk here is procedural rather than financial. **No call was ever stamped for Amkor**, so nothing in the ledger closes and no outcome is graded. The accumulate stance existed for weeks without a dated entry behind it. That is the same gap [[mu]] had until today, and it is the one to watch for elsewhere."
+        },
+        {
+          "heading": "Bottom line",
+          "body": "Coverage ends at **wait**. No call to close, no outcome to grade. Amkor re-enters the roster automatically if his mention volume returns it to Core tier; until then it is tracked by tier badge only.\n\nIf the operator wants Amkor covered regardless of his posting behaviour, that is a coverage decision to make explicitly rather than let the tiering make silently."
         }
       ]
     }

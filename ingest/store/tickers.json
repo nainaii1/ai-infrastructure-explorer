@@ -2029,19 +2029,6 @@
     "addedDate": "2026-09-05"
   },
   {
-    "ticker": "HOOD",
-    "company": "",
-    "category": "unsorted",
-    "market": "",
-    "exchange": "",
-    "whatTheyDo": "",
-    "whyNVDA": "",
-    "marketCapTier": "",
-    "rating": "watch",
-    "sourceTweetUrl": "https://x.com/aleabitoreddit/status/2095851749127188691",
-    "addedDate": "2026-09-05"
-  },
-  {
     "ticker": "AMPX",
     "company": "",
     "category": "unsorted",
@@ -2289,20 +2276,20 @@
     "addedDate": "2026-09-09"
   },
   {
-    "ticker": "COST",
-    "company": "",
-    "category": "unsorted",
-    "market": "",
-    "exchange": "",
-    "whatTheyDo": "",
-    "whyNVDA": "",
-    "marketCapTier": "",
+    "ticker": "ESMT",
+    "company": "Elite Semiconductor Microelectronics Technology",
+    "category": "memory",
+    "market": "TW",
+    "exchange": "TWSE",
+    "whatTheyDo": "Taiwanese supplier of legacy-node memory: DDR2, DDR3, DDR4, SLC NAND and NOR flash, sold into industrial, networking, consumer and automotive boards.",
+    "whyNVDA": "Second-order beneficiary of the AI memory squeeze. As Micron, SK hynix and Samsung reallocate wafers to HBM and DDR5, older-generation supply tightens and ASPs rise. August 2026 revenue was up roughly 605% year on year on broadly flat wafer allocation, which is price, not volume.",
+    "marketCapTier": "Mid",
     "rating": "watch",
     "sourceTweetUrl": "https://x.com/aleabitoreddit/status/2097348486635368686",
     "addedDate": "2026-09-09"
   },
   {
-    "ticker": "ESMT",
+    "ticker": "BWET",
     "company": "",
     "category": "unsorted",
     "market": "",
@@ -2311,7 +2298,20 @@
     "whyNVDA": "",
     "marketCapTier": "",
     "rating": "watch",
-    "sourceTweetUrl": "https://x.com/aleabitoreddit/status/2097348486635368686",
-    "addedDate": "2026-09-09"
+    "sourceTweetUrl": "https://x.com/aleabitoreddit/status/2098470900823916940",
+    "addedDate": "2026-09-13"
+  },
+  {
+    "ticker": "EQR",
+    "company": "",
+    "category": "unsorted",
+    "market": "",
+    "exchange": "",
+    "whatTheyDo": "",
+    "whyNVDA": "",
+    "marketCapTier": "",
+    "rating": "watch",
+    "sourceTweetUrl": "https://x.com/aleabitoreddit/status/2099126746390139042",
+    "addedDate": "2026-09-14"
   }
 ]

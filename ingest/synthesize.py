@@ -84,10 +84,22 @@ def group_theses_by_category(theses, tickers, categories):
     Returns {category_id: [thesis, ...]} seeded with all category ids (so empty
     themes survive as []). Orphan symbols (not in `tickers`) and categories not
     present in `categories` (e.g. 'unsorted') are skipped. Pure/deterministic.
+
+    RESEARCH IS EXCLUDED. build_prompt frames every digest as "what a single
+    retail investor, @aleabitoreddit, believes", so a research thesis reaching
+    the pool makes the Brain attribute the desk's OWN seat findings to him —
+    the same misattribution scorer.py guards against by deriving
+    analystMentions rather than reading `mentions`. This is not cosmetic: each
+    category is capped at the 40 most RECENT theses, and a /pre-review pass
+    writes up to 36 research records at once, all newer than anything else in
+    the store. Measured 15 Sep 2026, before this filter, research was 52% of
+    the photonics window, 45% of memory and 40% of hyperscalers.
     """
     cat_of = {t["ticker"].upper(): t.get("category") for t in tickers}
     groups = {cid: [] for cid in categories}
     for th in theses:
+        if scorer.is_research(th):
+            continue
         seen = set()
         for sym in th.get("tickers", []):
             cid = cat_of.get(str(sym).upper())
