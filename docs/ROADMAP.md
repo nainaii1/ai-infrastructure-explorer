@@ -1,6 +1,6 @@
 # Roadmap & Status — AI Infrastructure Explorer
 
-_Last updated: 2026-08-29 (weekly review run, view extraction complete, exposure filled, exposure-vs-price chart shipped). Living document — update as things ship or change._
+_Last updated: 2026-09-16 (pre-review and weekly review 15 Sep, Brain attribution bug fixed, Core/Watch triage cleared, prices refreshed 16 Sep). Living document — update as things ship or change._
 
 > **Expert review team, Phase 1 — direction-aware scoring (✅ 2026-07-26).**
 > Theses carry an optional `direction` (`bull`/`bear`/`neutral`), and
@@ -218,30 +218,31 @@ _Last updated: 2026-08-29 (weekly review run, view extraction complete, exposure
 
 ## Current snapshot
 
-_Read live from `ingest/store/*.json` and `data.js` on **11 Sep 2026**. These
+_Read live from `ingest/store/*.json` and `data.js` on **16 Sep 2026**. These
 numbers move every week — when this file and the store disagree, the store is
 right._
 
 | | |
 |---|---|
-| Companies tracked | **178** — 38 Core / 13 Watch / 127 Radar |
-| Captured posts | **656** — 464 from the analyst, 192 from the desk's own expert seats |
+| Companies tracked | **178** — 39 Core / 11 Watch / 128 Radar |
+| Captured posts | **705** — 477 from the analyst, 228 from the desk's own expert seats |
 | Arguments extracted | **1,330** — what he actually argued, per post per company |
-| Desk verdicts | **21** names, last full review **1 Sep** (7 accumulate / 11 wait / 3 pass) |
-| Coverage memos | 80 · **Vault** 70 pages, 31 with written notes · **Brain** 11 digests, refreshed 10 Sep |
-| Calls ledger | **16** — 12 open, 4 closed (1 win / 2 losses / 1 wash) |
-| Claims ledger | **77** — 3 correct, **13 unfalsifiable**, 61 open (2 ripe, awaiting `/judge-claims`) |
+| Desk verdicts | **21** names, last full review **15 Sep** (4 accumulate / 14 wait / 3 pass) |
+| Coverage memos | 85 · **Vault** 69 pages, 33 with written notes · **Brain** 11 digests, 9 re-synthesised 15 Sep |
+| Calls ledger | **17** — 13 open, 4 closed (1 win / 2 losses / 1 wash) |
+| Claims ledger | **86** — 3 correct, **13 unfalsifiable**, 70 open (7 ripe, awaiting `/judge-claims`) |
 | SEC revenue | 37 companies covered, 9 gaps recorded with reasons |
 | AI exposure | 45 assessed — 4 from company disclosure, 41 desk estimates |
-| Triage backlog | **71 unsorted**, of which 3 are Core/Watch: HOOD, COST, ESMT. 348 pending candidates |
-| Tests | 511, green |
+| Triage backlog | **70 unsorted**, none Core/Watch. 349 pending candidates |
+| Tests | 513, green |
 | GitHub | Public — github.com/nainaii1/ai-infrastructure-explorer, branch `main` |
 
-**Where things stand.** The verdicts date from the 1 Sep review; the Brain was
-refreshed mid-week on 10 Sep, and AVGO and LITE were rewritten on 10-11 Sep off
-their latest filings. A full `/weekly-review` is due. ESMT is the notable gap —
-it is the legacy-memory name his own thesis is built on and it is still sitting
-untriaged.
+**Where things stand.** All 21 verdicts date from the 15 Sep review, run the
+same day as `/pre-review`. Two downgrades (GOOGL, COHR), MU initiated, AMKR
+retired, and upgrades to LITE and AVGO considered and rejected against their
+own memo conditions. Next scheduled test: Micron's fiscal Q4 on 30 Sep. Seven
+claims are ripe and unjudged. ESMT is now in the universe but still has no
+price, because it is missing from the Google Sheet.
 
 ## The operating loop (v5 — this is the product now)
 
@@ -280,12 +281,13 @@ He tweets → you forward to the Telegram bot (or backfill from signal bots)
 
 ## Current issues to fix
 
-_Rewritten 29 Aug 2026, re-cut 11 Sep 2026. Only genuinely open items are
-listed; everything fixed has been removed rather than left ticked. Cleared on
-11 Sep: the coverage/scoring conflict (now `analystScore`, pinned by a
+_Rewritten 29 Aug 2026, re-cut 11 and 16 Sep 2026. Only genuinely open items
+are listed; everything fixed has been removed rather than left ticked. Cleared
+on 11 Sep: the coverage/scoring conflict (now `analystScore`, pinned by a
 regression test), the localStorage seed keeping removed tickers, and the two
-stale AI-exposure bases (AXTI re-cut 40% → 65%, AMD 48% → 58% on filed
-figures)._
+stale AI-exposure bases. Cleared on 15 Sep: the Brain presenting desk research
+as the analyst's views (see EXECUTION-EXPERT-REVIEW invariant 10), and the
+Core/Watch triage backlog._
 
 **1. Recorded daily closes are stamped one day late.** `record_prices` takes
 the row's date from the FETCH timestamp, and both scheduled fetches run outside
@@ -299,10 +301,12 @@ prices in `prices.json` are unaffected — only the saved history. Blocks the
 `CEST`, `UTC`, `EML`, `NAND`, `NPO`, `DRAM`, `MLCC`, most seen once. Same
 cause as `$GM` from "Elazr GM" and `$ASX` from "SRL (ASX)". Harmless —
 nothing auto-promotes — but it is why every symbol needs hand-triage. Partly
-mitigated 1 Sep: `themeTags` and the new `outOfScope` list now block the known
-offenders from ever re-adding themselves.
+mitigated 1 Sep, when `themeTags` and the new `outOfScope` list began blocking
+known offenders, and again 15 Sep, when the 22 most frequent acronyms and
+abbreviations went into `themeTags`. The root cause, a parser with no notion of
+jargon, is unchanged.
 
-**3. 43 of 45 AI-exposure figures are desk estimates, not research.** They
+**3. 41 of 45 AI-exposure figures are desk estimates, not research.** They
 render an `est.` chip and sit at low or medium confidence so they cannot be
 mistaken for measurements, but they are guesses. The four sourced from company
 disclosure (NVDA, AMD, AVGO, MU) show a `reported` chip instead.
@@ -317,6 +321,10 @@ Cosmetic, open since July.
 **6. Eight orphan views** point at tickers no longer in the universe (ASTS 5,
 MELI 3). They render nowhere because the ticker cards that would show them do
 not exist. Deleting them is a decision nobody has taken.
+
+**7. ESMT has no price.** Triaged into the universe on 15 Sep, but the price
+refresh reads the operator's Google Sheet, which does not carry it. Add it to
+the sheet as `3006.TW` (or `TPE:3006`); nothing in code needs to change.
 
 ### Decisions taken (2026-07-03) — deliberate non-actions
 
@@ -344,7 +352,7 @@ _Rewritten 29 Aug 2026 after the weekly review. Items 2, 3 and 5 of the
 previous list shipped; the rest is below._
 
 **The main focus is not on this list.** It is to run the weekly loop and let
-the calls ledger fill. 14 calls, 1 closed. Until roughly 20 have closed there
+the calls ledger fill. 17 calls, 4 closed. Until roughly 20 have closed there
 is no evidence this desk beats simply buying the index, and that single fact
 gates every larger question — publishing, product, all of it. Nothing below is
 more valuable than letting a few months pass.
@@ -364,11 +372,10 @@ Small jobs, if there is appetite for one:
 3. **Upgrade the hyperscaler exposures.** AMZN, MSFT and GOOGL are still desk
    estimates and *are* derivable from segment reporting, the way NVDA, AMD,
    AVGO and MU were on 29 Aug.
-4. **Parser stop-list.** 306 candidate symbols have accumulated and the most
-   frequent are jargon, not companies: `CW` 50x, `MC` 39x, `CEST` 35x, `UTC`
-   29x, `EML`, `NAND`, `NPO`, `DRAM`, `MLCC`. Same root cause as `$GM` from
-   "Elazr GM" and `$ASX` from "SRL (ASX)". Cosmetic but it is the source of
-   every hand-triage so far.
+4. **Parser stop-list, properly.** The 22 most frequent jargon candidates
+   went into `themeTags` on 15 Sep, which stops them counting. It does not stop
+   the parser proposing the next acronym he uses. A real fix teaches the parser
+   what jargon is, rather than listing it by hand. 349 candidates are queued.
 5. **Step 1b — wire direction into scoring.** Still deliberately not done, and
    still low-value: only 30 bear views out of 1,330 would move anything, and
    the per-post vs per-ticker mismatch has to be resolved first. See

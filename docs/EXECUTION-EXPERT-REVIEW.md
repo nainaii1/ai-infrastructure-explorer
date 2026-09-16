@@ -144,6 +144,19 @@ reintroduce.
     2026-07-27: the ticker tooltip, the priority strip, the watchlist ordering
     and the vault ticker pages were all crediting desk findings to him, and
     `attention` was being incremented by research outright.
+
+    **A fifth attribution path, found 15 Sep 2026: the Brain.**
+    `synthesize.build_prompt` tells the model it is summarising what
+    @aleabitoreddit believes, but `group_theses_by_category` fed it research
+    too. Because each theme reads its 40 most RECENT theses and a pre-review
+    writes up to 36 at once, the desk's findings made up 52% of the photonics
+    digest input and were published as his views. Research is now dropped in
+    `group_theses_by_category`, pinned by
+    `test_research_theses_never_reach_a_digest` and
+    `test_research_is_excluded_even_when_it_is_the_only_thesis`, both checked
+    against the unfixed code. The general rule: **any prompt, summary or label
+    that speaks for the analyst reads analyst theses only.** Recency caps make
+    a leak far worse than its share of the store suggests.
 11. **A timestamp being rewritten is not a change.** `/weekly-review` stamps a
     fresh `updatedAt` on every Core verdict whether or not the call moved, so
     "stance changed since `since`" cannot be inferred from it — on the live

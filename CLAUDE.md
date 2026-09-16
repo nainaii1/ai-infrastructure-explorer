@@ -85,9 +85,14 @@ Everything below is shipped and live:
     `LPKF`→`LPK.DE`). Remapped, then counted.
   - `themeTags` — pseudo-tickers that name a theme or are false positives, not
     a tradable stock in this universe (`DRAM`, `SPCX`, and `GM`, which comes
-    from "Elazr GM", a job title). Dropped from counting entirely.
+    from "Elazr GM", a job title). Dropped from counting entirely. On 15 Sep
+    2026 it also took the 22 technical acronyms and abbreviations the symbol
+    parser kept offering as tickers (`CW`, `EML`, `NAND`, `DFB`, `NPO`, `ASIC`,
+    `MLCC`, `UTC`, `CEST` and the rest), each checked first against every
+    tracked ticker and alias so none could erase a real name.
   - `outOfScope` (added 1 Sep 2026) — **real listed companies he posts about
-    that are not in the AI hardware chain** (`RDDT`, `RKLB`, `RPI`). Kept
+    that are not in the AI hardware chain** (`RDDT`, `RKLB`, `RPI`, and from
+    15 Sep `HOOD` and `COST`). Kept
     separate from `themeTags` because these ARE tradable stocks; collapsing
     the two would misdescribe both. Each entry carries a written reason.
 
@@ -277,6 +282,34 @@ Everything below is shipped and live:
   backend removed — a rejected symbol, an out-of-scope name, a typo folded into
   an alias. A stub is told apart by having no `category`, because nothing
   client-side ever writes one.
+
+- **Pre-review + weekly review 15 Sep 2026** — both same day again. 36 seat
+  findings over 12 names, all sourced, 9 dated claims. **One finding was wrong
+  and retracted before any verdict read it**: it said Sivers had never
+  disclosed its 100m CW DFB laser figure, and Sivers had, on 3 Sep. Two stance
+  moves, both downgrades on filings rather than posts: GOOGL accumulate → wait
+  (a $49.6bn June equity raise, $20.3bn of notes and a $40bn ATM; long-term
+  debt doubled in six months) and COHR accumulate → wait (withdrawn from
+  merchant InP lasers, so it now buys the scarce input; trim stamped). MU
+  initiated at wait — the calls ledger had carried an open MU position since
+  17 Aug with no verdict behind it. AMKR retired on leaving Core. **LITE and
+  AVGO upgrades were drafted and rejected**: each name's 10 Sep memo set an
+  accumulate condition, and neither was met. Week's measured finding: memory
+  and neoclouds up double digits over the month while photonics and materials
+  fell 16-18%, and three upstream names (SIVE, AXTI, AAOI) sit below the price
+  they raised equity at in 2026. Written up for an outside reader as the W38
+  note "The Funding Gap" (an Artifact, prices as of 14 Sep).
+
+- **FIXED 15 Sep 2026 — the Brain attributed the desk's research to him.**
+  `synthesize.group_theses_by_category` never excluded research, while
+  `build_prompt` frames every digest as what @aleabitoreddit believes. Each
+  theme takes its 40 MOST RECENT theses and a pre-review pass writes up to 36
+  research records at once, so research was 52% of the photonics window, 45%
+  of memory and 40% of hyperscalers. Research is now filtered out there; nine
+  digests were re-synthesised. Pinned by two tests in `test_synthesize.py`,
+  both verified to fail without the fix. This is an attribution path, so it is
+  recorded under EXECUTION-EXPERT-REVIEW invariant 10 — any new prompt or
+  summary that speaks for the analyst must exclude research the same way.
 
 - **KNOWN BUG — recorded daily closes are stamped one day late.**
   `record_prices` takes the row date from the FETCH timestamp, and both
@@ -504,9 +537,9 @@ so newly-ingested tickers and theses surface. Categories / center / countries
   All Radar, all zero-to-one analyst mentions — the category still illustrates
   its own caveat.
   A ticker with `category: "unsorted"` and tier `core`/`watch` is a triage
-  backlog item and should be cleared each weekly review. As of 11 Sep there
-  are three — HOOD, COST and ESMT — and ESMT is the one that matters: it is
-  the legacy-memory name his own thesis is built on.
+  backlog item and should be cleared each weekly review. Cleared on 15 Sep
+  2026 — ESMT triaged into `memory`, HOOD and COST moved to `outOfScope` — so
+  none remain; the ~70 unsorted names left are all Radar.
 - `tier` → conviction tier from `scorer.assign_tiers()`. The UI treats
   `radar` as hidden-by-default (map card grid, watchlist "Signal" filter).
   **Tiering is mention-driven, which cuts both ways.** A name the analyst never
@@ -617,33 +650,53 @@ ai-supply-desk/
    It drifts. The same goes for any number in any doc: read
    `ingest/store/*.json` or `data.js` instead.
 
-### Where things stood on 11 Sep 2026 (the last session)
+### Where things stood on 16 Sep 2026 (the last session)
 
 Read this before starting anything — it is the handover, not history.
 
 **Done recently, so don't redo it:**
-- `/pre-review` and `/weekly-review` both ran 1 Sep. 36 seat findings, all
-  sourced. Two stance moves: AXTI accumulate → wait (China export-permit risk
-  on indium phosphide), MTSI wait → pass (MACOM's own laser date moved out).
-- The Brain was refreshed mid-week on 10 Sep, against 45 new posts.
-- AVGO and LITE were dug into properly on 10-11 Sep off their latest filings,
-  and their `view`, `execution` and `changesMind` fields were rewritten. Both
-  have fresh memos. **The other 19 verdicts still date from 1 Sep.**
+- `/pre-review` and `/weekly-review` both ran 15 Sep (commit `b673382`,
+  pushed). All 21 verdicts date from that pass. Stances: 4 accumulate
+  (NVDA, AMZN, TSM, JBL), 14 wait, 3 pass (MTSI, POET, TSLA).
+- LITE and AVGO were considered for accumulate and deliberately held at wait.
+  Do not re-open that on price action; the conditions are in each name's
+  latest memo.
+- Triage of Core/Watch names is clear. Brain digests re-synthesised 15 Sep
+  with research excluded; glass and power were untouched and did not need it.
+- Prices refreshed 16 Sep by the operator; the bot ingested 4 posts.
+- The operator asked on 16 Sep whether two weeks of downgrades had been
+  vindicated. The measured answer was: mixed and too early. The AXTI trim and
+  MTSI exit ran ahead of SMH, the MU trim behind it, and SK hynix and Nebius
+  were the costly misses at wait. That NBIS "miss" leaned on a stale +19%
+  month: its recorded closes fell about 15% between 9 and 16 Sep, which is the
+  noise point in miniature. Re-score after Micron, not before.
 
 **What is waiting:**
-- **A full `/weekly-review` is due.** It has not run since 1 Sep.
-- **`/judge-claims`** — two NVDA claims went ripe on 31 Aug and are unjudged.
-- **Triage.** 71 unsorted tickers. Three are Core/Watch and should be cleared
-  first: HOOD, COST and **ESMT** — ESMT matters, it is the legacy-memory name
-  his own thesis is built on and it is not in the universe yet.
+- **`/judge-claims`** — 7 ripe: 2 NVDA (judgeBy 31 Aug), 5 SIVE (5 Sep).
+- **Micron fiscal Q4 on 30 Sep.** The largest scheduled event in the book and
+  the test of the MU wait. Two claims settle on it (judgeBy 5 Oct).
+- **ESMT has no price.** It is not in the Google Sheet; add it as `3006.TW`
+  (or `TPE:3006`) and the next refresh picks it up.
 - **`/assess-exposure`** — 41 of 45 figures are still desk estimates.
+- **An outside-reader note after each weekly review.** The operator wants the
+  week written up the way W38 "The Funding Gap" was — see the project memory
+  for the format.
 
-**Two traps that have already caught someone:**
+**Traps that have already caught someone:**
 - Coverage ranks on `analystScore`, never `score`. See invariant 2b in
   `docs/EXECUTION-EXPERT-REVIEW.md`. Ranking on `score` lets a bear finding
   push a name out of its own coverage.
 - A price written into a verdict as a *description* ("no add at $915") rots
   and then misleads. A *trigger* ("add below $290") does not. Write triggers.
+  The same goes for returns: the NBIS verdict says "a 19% month", and two days
+  later the sheet's one-month figure read -20%. Rewrite it as a trigger next
+  pass.
+- **Read a name's latest memo before moving its stance.** The Bottom line
+  section names what moves it. On 15 Sep two upgrades were written before
+  anyone checked, and both contradicted conditions set nine days earlier.
+- **A seat finding that says "not disclosed" needs a search, not a read of one
+  document.** The retracted Sivers finding checked the Q2 report and missed a
+  separate release. Absence claims are the easiest ones to get wrong.
 
 Read `docs/EXECUTION-EXPERT-REVIEW.md` "Invariants" before touching
 `ingest/scorer.py`, `ingest/seats.py` or `ingest/pre_review.py`.
