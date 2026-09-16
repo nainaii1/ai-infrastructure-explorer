@@ -159,7 +159,7 @@
     "candidate": "NAND",
     "sourceUrl": "",
     "firstSeen": "2026-06-27T15:39:49Z",
-    "count": 26
+    "count": 27
   },
   {
     "candidate": "OP",
@@ -687,7 +687,7 @@
     "candidate": "ASP",
     "sourceUrl": "",
     "firstSeen": "2026-06-30T07:53:06Z",
-    "count": 22
+    "count": 23
   },
   {
     "candidate": "RF",
@@ -1335,7 +1335,7 @@
     "candidate": "SLC",
     "sourceUrl": "",
     "firstSeen": "2026-07-16T06:23:28Z",
-    "count": 5
+    "count": 6
   },
   {
     "candidate": "GW",
@@ -1797,7 +1797,7 @@
     "candidate": "NOR",
     "sourceUrl": "",
     "firstSeen": "2026-08-26T09:26:54Z",
-    "count": 6
+    "count": 7
   },
   {
     "candidate": "THIS",

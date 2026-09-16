@@ -1,7 +1,7 @@
 {
   "meta": {
     "schemaVersion": 1,
-    "syncedAt": "2026-09-14T18:21:20Z",
+    "syncedAt": "2026-09-16T03:50:49Z",
     "pageCount": 69,
     "linkCount": 241
   },
@@ -529,8 +529,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 34,
-          "lastMentioned": "2026-09-07T04:14:23Z",
+          "mentions": 35,
+          "lastMentioned": "2026-09-15T12:00:00Z",
           "category": "robotics",
           "market": "US",
           "marketCapTier": "Mid",
@@ -617,8 +617,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 2,
-          "lastMentioned": "2026-09-11T07:03:16Z",
+          "mentions": 3,
+          "lastMentioned": "2026-09-14T08:15:51Z",
           "category": "memory",
           "market": "TW",
           "marketCapTier": "Mid",
@@ -727,8 +727,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 33,
-          "lastMentioned": "2026-09-13T13:23:10Z",
+          "mentions": 34,
+          "lastMentioned": "2026-09-14T11:20:27Z",
           "category": "hyperscalers",
           "market": "US",
           "marketCapTier": "Mega",
@@ -793,8 +793,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 21,
-          "lastMentioned": "2026-09-13T08:11:41Z",
+          "mentions": 22,
+          "lastMentioned": "2026-09-14T11:20:27Z",
           "category": "neoclouds",
           "market": "",
           "marketCapTier": "",
@@ -1035,8 +1035,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 103,
-          "lastMentioned": "2026-09-13T20:11:16Z",
+          "mentions": 104,
+          "lastMentioned": "2026-09-14T11:20:27Z",
           "category": "accelerators",
           "market": "US",
           "marketCapTier": "Mega",

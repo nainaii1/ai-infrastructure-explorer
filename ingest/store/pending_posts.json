@@ -2841,9 +2841,10 @@
     "text": "Man Ray: are you long Samsung?\n\nPatrick: Yup.\n\nMan Ray: Samsung has memory LTAs extending to 2031?\n\nPatrick: Yup.\n\nMan Ray: And it’s trading at ~2.8× 2027E P/E?\n\nPatrick: Yup.\n\nMan Ray: So you’re buying Samsung?\n\nPatrick: No, I’m selling on a 4% drop because X said memory will crash from AI slowdown",
     "postedAt": "2026-09-14T06:57:22Z",
     "verifiedAuthor": "aleabitoreddit",
-    "status": "pending",
+    "status": "skipped",
     "queuedAt": "2026-09-14T08:05:13Z",
-    "notifiedAt": "2026-09-14T16:05:14Z"
+    "notifiedAt": "2026-09-14T16:05:14Z",
+    "decidedAt": "2026-09-15T04:51:05Z"
   },
   {
     "id": "2099458250240618861",
@@ -2853,9 +2854,11 @@
     "text": "$IREN CEO on Anthropic call for frontier slowdown:\n\n“Even if models never improved from here…\n\njust rolling out what they can already do would take more compute than the world can build for years”\n\nI agree, and current narrative is reminiscent of the $NVDA DeepSeek selloff or the $GOOGL TurboQuant scare. \n\nGuess what happened? \n\nThese scares once or twice a year all turn out to be immaterial to the overall AI buildout.\n\nEspecially when we have contracted demand all the way into the 2030’s now from advanced packaging to memory procurement.",
     "postedAt": "2026-09-14T11:20:27Z",
     "verifiedAuthor": "aleabitoreddit",
-    "status": "pending",
+    "status": "ingested",
     "queuedAt": "2026-09-14T12:12:06Z",
-    "notifiedAt": "2026-09-14T16:05:14Z"
+    "notifiedAt": "2026-09-14T16:05:14Z",
+    "decidedAt": "2026-09-15T04:51:15Z",
+    "thesisId": "x_2099458250240618861"
   },
   {
     "id": "2099411795131924487",
@@ -2865,8 +2868,86 @@
     "text": "NOR flash “Severe Supply Shortage” with high density continued increases of 90-110% for H2.\n\nI wonder who sells both high density NOR and SLC NAND? *cough cough, $ESMT*\n\nFor H1 hikes:\nNOR: +100–120%\nSLC NAND: +130–150%\n\nFor H2 hikes:\nHigh-density NOR: 90-110% in H2\nSLC NAND: ~70–75%.\n\nObviously there’s others from Winbond / Macronix / Gigadevice, but my idea and position with ESMT is that it’s the largest beneficiary of the shortage relative to size. (they sell NOR: >256Mb)\n\nThe moderate bearish part is: \n\n“For mid- and low-capacity products of 128Mb and below, additional capacity from Chinese suppliers is gradually coming online. \n\nPrice increases for consumer-grade products are therefore expected to moderate”\n\nHowever, this update is overwhelmingly bullish for earnings of legacy memory players.\n\nLet the ASP hike games continue.",
     "postedAt": "2026-09-14T08:15:51Z",
     "verifiedAuthor": "aleabitoreddit",
-    "status": "pending",
+    "status": "ingested",
     "queuedAt": "2026-09-14T12:12:06Z",
-    "notifiedAt": "2026-09-14T16:05:14Z"
+    "notifiedAt": "2026-09-14T16:05:14Z",
+    "decidedAt": "2026-09-15T04:51:09Z",
+    "thesisId": "x_2099411795131924487"
+  },
+  {
+    "id": "2099674926697545849",
+    "url": "https://x.com/aleabitoreddit/status/2099674926697545849",
+    "author": "aleabitoreddit",
+    "isRepost": false,
+    "text": "Some color on current memory environments for the $MU / $SKHY bros:\n\n\"There is zero risk of memory prices dropping\" per Team Group GM Gerry Chen. \n\n- Memory module makers have received notices warning of drastic cuts to their 2027 supply allocations. Some could receive 50% or less of their 2026 allocation.\n\n- Upstream manufacturers have reportedly sold out nearly all of their 2027–2028 capacity.\n\n- DDR5 supply, in particular, is projected to come in at less than 80% of previous expectations.\n\n- Chen expects prices to continue rising 20–30% quarter-over-quarter into 2027 (source Digitimes)\n\n- Chen's commentary on $MU is that even before their new MegaFab capacity comes online Q4 2027 at the earliest, orders for 2028 through 2029 are already fully booked. \n\nSo that there's virtually no relief in sight to current shortages.  \n\nSharply lower allocations, fully booked capacity into 2029, and future price hikes doesn't quite sound like the AI buildout is slowing down.",
+    "postedAt": "2026-09-15T01:41:27Z",
+    "verifiedAuthor": "aleabitoreddit",
+    "status": "pending",
+    "queuedAt": "2026-09-15T04:05:14Z",
+    "notifiedAt": "2026-09-15T04:05:16Z"
+  },
+  {
+    "id": "2099659874892386678",
+    "url": "https://x.com/aleabitoreddit/status/2099659874892386678",
+    "author": "aleabitoreddit",
+    "isRepost": false,
+    "text": "I've seen comments from Jim Cramer today supporting hedge funds that short Leopold's \"nonsense\" $SNDK / $DRAM / SK Hynix type calls.  \n\nAs well Cramer calling $CRWD a \"Must Buy\".   \n\nI'm not sure if Jim Cramer sees a $241B company  labelled \"Cybersecurity\" and thinks of it as safe... while ignoring all their fundamentals. \n\nBut with Crowdstrike, you have a ~145x FY2028 fwd P/E company, growing revenue 26% Y/Y. That Cramer thinks is a \"must buy\". \n\nAnd then you turn your eyes to the AI capex beneficiary theme that Leopold is long on. \n\nWith names like $SKHY / Samsung in $DRAM... Both FY2027 ~2.8-3x fwd P/E off analyst projections.  \n\n-> Samsung LTAs to 2031 (70% capacity) for durability...  -> Minimum price floor + no price ceiling type contracts from SK Hynix.  \n-> Memory shortage much tigher for the next year.  \n-> DRAM/NAND % of hyperscaler capex goes higher (est. 68% per Trendforce)  \n-> 2027 hyperscaler capex projections all hiked.  \n\nThen with $SNDK, 50% FCF margins, 80% gross margin projections into 2030.   \n\nOnly Situational Awareness position I'm in disagreement with is $CRWV due to debt interest eating FCF, but I can make a similar bullish argument with $BE, $INTC, $AMD, and others. \n\nNot quite sure about short-term, but over the medium run: \n\nIt's hard to not see Leopold's positions pulling an Inverse Cramer due to overwhelming fundamentals.",
+    "postedAt": "2026-09-15T00:41:38Z",
+    "verifiedAuthor": "aleabitoreddit",
+    "status": "pending",
+    "queuedAt": "2026-09-15T04:05:14Z",
+    "notifiedAt": "2026-09-15T04:05:16Z"
+  },
+  {
+    "id": "2099830591663513642",
+    "url": "https://x.com/aleabitoreddit/status/2099830591663513642",
+    "author": "aleabitoreddit",
+    "isRepost": false,
+    "text": "$CCXI releases their Digit 5 next-generation humanoid.\n\nThoughts?",
+    "postedAt": "2026-09-15T12:00:00Z",
+    "verifiedAuthor": "aleabitoreddit",
+    "status": "ingested",
+    "queuedAt": "2026-09-15T12:05:15Z",
+    "notifiedAt": "2026-09-15T16:05:08Z",
+    "decidedAt": "2026-09-16T03:50:49Z",
+    "thesisId": "x_2099830591663513642"
+  },
+  {
+    "id": "2099784954444210243",
+    "url": "https://x.com/aleabitoreddit/status/2099784954444210243",
+    "author": "aleabitoreddit",
+    "isRepost": false,
+    "text": "哇,中国的 AI 视频生成能力可能已经是世界第一了吧？字节跳动的 Seedance 也太强了, 强到让我开始担心…\n\n日本的动画师会不会很快就被 AI 取代？\n\n但想象一下你可以随时生成新的剧情,让故事一直延续下去, 想看多久就看多久\n\n这还挺酷的",
+    "postedAt": "2026-09-15T08:58:39Z",
+    "verifiedAuthor": "aleabitoreddit",
+    "status": "ingested",
+    "queuedAt": "2026-09-15T12:05:15Z",
+    "notifiedAt": "2026-09-15T16:05:08Z",
+    "decidedAt": "2026-09-16T03:50:47Z",
+    "thesisId": "x_2099784954444210243"
+  },
+  {
+    "id": "2100008575229976995",
+    "url": "https://x.com/aleabitoreddit/status/2100008575229976995",
+    "author": "aleabitoreddit",
+    "isRepost": false,
+    "text": "$SIVE has its own piece in Digitimes btw, which is appreciated industry recognition outside of Sweden. \n\nI think Sivers 100M+ CW DFB laser capacity buildout forced the industry to revisit its models and generated considerably more coverage. \n\nBC it puts Sivers into T1 laser capacity convo w/ $COHR, Sumitomo, Furukawa, $AVGO, Landmark, and $LITE if it executes on its ramp. \n\nBut outside of that, CIOE 2026 channel checks were really meaningful since the community found Sivers is working with Chinese pluggable players + setting up an office locally. \n\nI'm getting dejavu to the time I pointed out $SIVE + $JBL at OFC for their 1.6T LRO, but nobody believed the link until there was an actual press release. \n\nAnyway, proud to see this little company growing up",
+    "postedAt": "2026-09-15T23:47:15Z",
+    "verifiedAuthor": "aleabitoreddit",
+    "status": "pending",
+    "queuedAt": "2026-09-16T00:05:12Z",
+    "notifiedAt": "2026-09-16T04:06:12Z"
+  },
+  {
+    "id": "2099999510898577543",
+    "url": "https://x.com/aleabitoreddit/status/2099999510898577543",
+    "author": "aleabitoreddit",
+    "isRepost": false,
+    "text": "Just as a pep-talk statistic ahead of Fed decisions tomorrow.\n\n50% of $NVDA employees are reportedly now worth over $25 Million.\n\nThey didn’t get to that number paperhanding shares ahead of every macro scare or rate hike.",
+    "postedAt": "2026-09-15T23:11:14Z",
+    "verifiedAuthor": "aleabitoreddit",
+    "status": "pending",
+    "queuedAt": "2026-09-16T00:05:12Z",
+    "notifiedAt": "2026-09-16T04:06:12Z"
   }
 ]
