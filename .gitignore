@@ -1,48 +1,6 @@
-# --- Secrets (never commit) ---
-.env
-ingest/.env
-
-# --- Local tooling / editor state ---
-# Ignore Claude session state but keep the project skills (they're the
-# desk's documented procedures) in the repo.
-.claude/*
-!.claude/skills/
-.gstack/
 .DS_Store
-
-# --- Python ---
 __pycache__/
 *.pyc
-.pytest_cache/
-
-# --- Bot runtime state ---
-ingest/store/.bot_offset
-
-# --- Session artifacts ---
-# Stray screenshots etc. are ignored everywhere EXCEPT docs/images/, which
-# holds the deliberate documentation assets the README embeds.
-.playwright-mcp/
-*.jpeg
-*.jpg
-*.png
-!docs/images/*.png
-!docs/images/*.jpg
-!docs/images/*.jpeg
-
-# --- Watcher runtime state ---
-ingest/store/.watcher_state.json
-
-# --- Store backups ---
-# The weekly-review / pre-review passes copy a store file to
-# <name>.json.bak-<pass>-<yyyymmdd> before a bulk edit. They're local
-# rollback points; git history is the real record.
-ingest/store/*.json.bak-*
-
-# --- View-extraction scratch batch ---
-# `extract_views.py --emit` writes this for the in-session manual pass; it is
-# regenerated every batch and holds no state worth keeping.
-ingest/store/.views_batch.json
-
-# --- SEC ticker->CIK map cache ---
-# ~800KB, refetched monthly by fetch_fundamentals.py. Derived data, not state.
-ingest/store/.cik_map.json
+# Claude session state stays local; the skill is part of the project.
+.claude/*
+!.claude/skills/
