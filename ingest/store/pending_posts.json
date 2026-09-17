@@ -2949,5 +2949,31 @@
     "status": "pending",
     "queuedAt": "2026-09-16T00:05:12Z",
     "notifiedAt": "2026-09-16T04:06:12Z"
+  },
+  {
+    "id": "2100290486569505223",
+    "url": "https://x.com/aleabitoreddit/status/2100290486569505223",
+    "author": "aleabitoreddit",
+    "isRepost": false,
+    "text": "Reminiscent of $NVDA w/ $LITE + $COHR:\n\nFoxconn is now considering joint investments to avoid upstream material shortages.\n\nFoxconn Interconnect Chairman identifies CW lasers and fiber as the biggest bottleneck in photonics.\n\nVery interesting to see these two themes reiterated across industry commentary.\n\nAlmost like a certain Anime character on X was right about CW laser bottlenecks.",
+    "postedAt": "2026-09-16T18:27:28Z",
+    "verifiedAuthor": "aleabitoreddit",
+    "status": "ingested",
+    "queuedAt": "2026-09-16T20:05:11Z",
+    "notifiedAt": "2026-09-17T04:05:11Z",
+    "decidedAt": "2026-09-17T05:14:47Z",
+    "thesisId": "x_2100290486569505223"
+  },
+  {
+    "id": "2100530507549425704",
+    "url": "https://x.com/aleabitoreddit/status/2100530507549425704",
+    "author": "aleabitoreddit",
+    "isRepost": false,
+    "text": "Just in case you're wondering why I'm so bullish on legacy memory...\n\nTheir hikes seem a lot extreme than $NBIS reported +17-21% GPU rentals today or Taiyo-Murata type MLCC hikes. \n\nPrice hikes projections expected for H2:\n\n- SLC NAND: +120-170% in H2 vs H1\n- High-capacity NOR: +90-110% in H2 vs H1\n- ~DDR3/DDR4: +50% Q3\n- DDR2: +35-40% in Q3\n- LPDDR: +20% or more in Q3\n- DDR1, older LPDDR and PSRAM: also rising\n\nAs a consolidated view... \n\nLot of these are stacked off existing hikes H1, (eg. 130-150% for H1 SLC NAND), so you get +406%-575% cumulative throughout 2026.\n\nWhich impacts blended net income overall more than upstream wafer COGS hikes (eg. +45% DRAM wafers from $PSMC)\n\nSo I'd expect Q3 earnings for a lot of the legacy memory fabless companies to cook",
+    "postedAt": "2026-09-17T10:21:13Z",
+    "verifiedAuthor": "aleabitoreddit",
+    "status": "pending",
+    "queuedAt": "2026-09-17T12:19:03Z",
+    "notifiedAt": "2026-09-17T16:09:14Z"
   }
 ]

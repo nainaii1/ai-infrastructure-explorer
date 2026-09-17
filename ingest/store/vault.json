@@ -1,7 +1,7 @@
 {
   "meta": {
     "schemaVersion": 1,
-    "syncedAt": "2026-09-16T03:50:49Z",
+    "syncedAt": "2026-09-17T05:14:47Z",
     "pageCount": 69,
     "linkCount": 241
   },
@@ -551,8 +551,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 40,
-          "lastMentioned": "2026-09-11T07:03:16Z",
+          "mentions": 41,
+          "lastMentioned": "2026-09-16T18:27:28Z",
           "category": "photonics",
           "market": "US",
           "marketCapTier": "Large",
@@ -837,8 +837,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 96,
-          "lastMentioned": "2026-09-11T07:03:16Z",
+          "mentions": 97,
+          "lastMentioned": "2026-09-16T18:27:28Z",
           "category": "photonics",
           "market": "US",
           "marketCapTier": "Mid",
@@ -1035,8 +1035,8 @@
         ],
         "stats": {
           "tier": "core",
-          "mentions": 104,
-          "lastMentioned": "2026-09-14T11:20:27Z",
+          "mentions": 105,
+          "lastMentioned": "2026-09-16T18:27:28Z",
           "category": "accelerators",
           "market": "US",
           "marketCapTier": "Mega",
