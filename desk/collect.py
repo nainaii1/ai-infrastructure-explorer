@@ -173,10 +173,13 @@ def handle_message(msg, uid, tg, state):
         dest = MEDIA_DIR / "tg-{}.jpg".format(uid)
         tg.download(big["file_id"], dest)
         m = re.search(r"@([A-Za-z0-9_]+)", text)
-        rec = dict(base, id="tg-{}".format(uid), url=None, author=m.group(1) if m else None,
-                   postedAt=None, text=text.strip(), kind="screenshot", paid=True,
+        author = pairs[0][0] if pairs else (m.group(1) if m else None)
+        url = "https://x.com/{}/status/{}".format(*pairs[0]) if pairs else None
+        rec = dict(base, id="tg-{}".format(uid), url=url, author=author,
+                   postedAt=None, text=STATUS_RE.sub("", text).strip(), kind="screenshot", paid=True,
                    media=[str(dest.relative_to(DESK.parent))])
-        return [rec], "Saved screenshot. I'll read it at the next memo."
+        return [rec], "Saved screenshot{}. I'll read it at the next memo.".format(
+            " of @" + author + "'s post" if author else "")
 
     if not pairs:
         if not text.strip():
@@ -204,12 +207,59 @@ def handle_message(msg, uid, tg, state):
     return recs, "\n".join(lines)
 
 
+PAIR_WINDOW = 120   # seconds: a link and the text/screenshot sent with it
+
+
+def _is_bare_link(msg):
+    pairs, text = _urls(msg)
+    rest = re.sub(r"https?://\S*", "", STATUS_RE.sub("", text)).strip()
+    return bool(pairs) and len(rest) <= 20 and not msg.get("photo")
+
+
+def _is_companion(msg):
+    pairs, text = _urls(msg)
+    return not pairs and (msg.get("photo") or len(text.strip()) > 20)
+
+
+def pair_messages(updates):
+    """Sharing from the X app often sends the link and the pasted text (or a
+    screenshot) as two Telegram messages. Join a bare link with the text or
+    photo sent right before or after it, so the post keeps its author and URL."""
+    msgs = [u for u in updates if u.get("message")]
+    used, out = set(), []
+    for i, u in enumerate(msgs):
+        if i in used:
+            continue
+        m = u["message"]
+        if _is_bare_link(m):
+            for j in (i + 1, i - 1):
+                if 0 <= j < len(msgs) and j not in used:
+                    n = msgs[j]["message"]
+                    if (n.get("from") or {}).get("id") == (m.get("from") or {}).get("id") \
+                            and abs(n.get("date", 0) - m.get("date", 0)) <= PAIR_WINDOW and _is_companion(n):
+                        merged = dict(n)
+                        key = "caption" if n.get("photo") else "text"
+                        merged[key] = (m.get("text") or "") + "\n" + (n.get(key) or "")
+                        merged["message_id"] = m.get("message_id")
+                        used.update({i, j})
+                        if j == i - 1:
+                            out = [x for x in out if x is not msgs[j]]
+                        out.append(dict(msgs[j] if j > i else u, message=merged))
+                        break
+            else:
+                out.append(u)
+            continue
+        out.append(u)
+    return out
+
+
 def collect_telegram(tg, state):
     recs = []
     offset = state.get("tgOffset")
     updates = tg.call("getUpdates", offset=offset, timeout=0, allowed_updates=["message"])
-    for u in updates:
-        state["tgOffset"] = u["update_id"] + 1
+    if updates:
+        state["tgOffset"] = updates[-1]["update_id"] + 1
+    for u in pair_messages(updates):
         msg = u.get("message")
         if not msg:
             continue
