@@ -326,6 +326,15 @@ def main():
             print("telegram: FAILED ({})".format(e))
 
     added = save_posts(collected, state)
+
+    if not args.no_telegram:
+        try:
+            import alerts
+            alerts.run(tg=tg, state=state)       # price zones from the latest memo
+        except Exception as e:
+            print("alerts: FAILED ({})".format(e))
+            problems.append("price alerts could not run: {}".format(e))
+
     state["lastRun"] = now_iso()
     state["lastAdded"] = len(added)
     save_json(STATE_FILE, state)

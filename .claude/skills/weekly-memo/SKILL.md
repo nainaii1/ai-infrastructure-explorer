@@ -5,7 +5,7 @@ description: Write the weekly fund-desk memo from the analysts' X posts: supply-
 
 # Weekly desk memo
 
-The desk turns eight X analysts (`desk/analysts.json`) into a fund desk. They
+The desk turns the X analysts (`desk/analysts.json`) into a fund desk. They
 pitch; you are the research head who reads everything, checks the claims that
 matter, and writes the memo; the operator decides and trades. Research support,
 not advice.
@@ -59,6 +59,7 @@ Valid JSON, this shape (`desk/build.py` validates it):
     "catalyst": "Dated or datable event that forces the re-rate.",
     "zone": "Where to accumulate and the logic, e.g. 'below US$X, which is Yx forward earnings'",
     "invalidation": "The fact that kills the idea (a trigger, not a price).",
+    "levels": { "currency": "USD", "buyBelow": 1171, "addBelow": 965, "stopAbove": 1171 },
     "analysts": ["handle"], "sources": ["https://x.com/...", "https://..."]
   }],
   "board": [{
@@ -69,7 +70,7 @@ Valid JSON, this shape (`desk/build.py` validates it):
   "market": {
     "summary": ["para"],
     "movers": [{ "ticker": "ALAB", "chg1w": 40.2, "why": "reason", "source": "https://..." }],
-    "calendar": [{ "date": "YYYY-MM-DD", "event": "MU FQ1 earnings", "source": "https://..." }]
+    "calendar": [{ "date": "YYYY-MM-DD", "ticker": "MU", "event": "MU FQ1 earnings", "source": "https://..." }]
   },
   "pushback": ["The strongest bear case against this week's consensus."],
   "flags": ["Gaps: unconfirmed claims, missing prices, collector failures."]
@@ -89,12 +90,28 @@ Valid JSON, this shape (`desk/build.py` validates it):
   companies plus any ticker an analyst argues for. Carry last week's names
   forward unless the reading changed; say why when an action changes. Removing
   an `accumulate` closes its scorecard call, so do it on purpose.
-- **Zone.** Derived from the sheet price and a valuation anchor, stated as the
-  logic. Never invent a price the sheet or a source doesn't give you.
+- **Zone and levels.** The zone is derived from the sheet price and a
+  valuation anchor, stated as the logic. `levels` carries the same numbers for
+  the price alerts: `buyBelow` (top of the accumulate zone), `addBelow` (the
+  add-on-a-drop level), `stopAbove` (stop adding; defaults to `buyBelow`),
+  in the sheet's currency for that ticker. Required for every `accumulate`
+  name; optional for `watch` names with a revisit level. The numbers must
+  appear in the zone text too. Never invent a price the sheet or a source
+  doesn't give you.
+- **Events since the last memo.** Read `desk/memos/events/`. An event marked
+  `breaks` means that call should close this week unless you explain why not.
 - **Board.** Tickers where an analyst took a clear stance in the window; each
-  view links the post. 8–15 rows. Put disagreements first.
+  view links the post. 8–15 rows. Put disagreements first. Every view feeds the
+  analyst track record (`desk/store/stances.json`, built by `build.py`), so
+  record a stance only when the post actually takes one.
+- **Track record.** From the fourth memo on, read the track record in
+  `desk.js` (`track`). If an analyst's scored calls trail SMH badly over 8+
+  calls, say so in `flags` and suggest a replacement; the operator decides.
 - **Market.** `chg1w` comes only from `desk/store/prices/<today>.json`. A
-  mover's `why` needs a source or is left out. Calendar: next ~3 weeks.
+  mover's `why` needs a source or is left out. Calendar: next ~3 weeks. Give
+  every calendar item for a name on the list its `ticker`: the daily digest
+  uses it to trigger an event update the day after. Mark unconfirmed dates as
+  "expected" in the event text.
 - **Pushback.** Every analyst on the roster leans bull. Write the other side
   so it could be believed: valuation, capex digestion, double-ordering,
   supply catching up.

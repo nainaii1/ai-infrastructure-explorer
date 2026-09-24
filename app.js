@@ -110,6 +110,32 @@
   function link(url, label) { return url ? `<a href="${esc(url)}" target="_blank" rel="noopener">${esc(label || host(url))} ↗</a>` : ''; }
   function paras(list) { return (list || []).map(p => `<p>${esc(p)}</p>`).join(''); }
 
+  const ZONE = { add: 'In the add zone', buy: 'In the zone', hold: 'Above the zone: hold', above: "Above the zone: don't add" };
+  function zoneOf(price, lv) {
+    const top = lv.stopAbove || lv.buyBelow;
+    if (lv.addBelow != null && price <= lv.addBelow) return 'add';
+    if (price <= lv.buyBelow) return 'buy';
+    return price <= top ? 'hold' : 'above';
+  }
+  // A horizontal ladder: add zone, accumulate zone, hold band, stop-adding, with today's price marked.
+  function ladder(t, lv, action) {
+    const watch = action && action !== 'accumulate';
+    const q = (K.quotes || {})[t]; const price = q && q.price;
+    const top = lv.stopAbove || lv.buyBelow;
+    const pts = [lv.addBelow, lv.buyBelow, top, price].filter(v => v != null);
+    const lo = Math.min(...pts) * 0.92, hi = Math.max(...pts) * 1.08, w = v => ((v - lo) / (hi - lo) * 100).toFixed(2);
+    const seg = (a, b, cls, label) => b > a ? `<span class="lz ${cls}" style="left:${w(a)}%;width:${(w(b) - w(a)).toFixed(2)}%" title="${esc(label)}"></span>` : '';
+    const add = lv.addBelow != null ? lv.addBelow : lv.buyBelow;
+    const z = price != null ? zoneOf(price, lv) : null;
+    return `<div class="ladder" role="img" aria-label="Price ${price != null ? num(price) : 'unknown'} against the zones">
+      <div class="lbar">${seg(lo, add, 'z-add', 'add zone')}${seg(add, lv.buyBelow, 'z-buy', 'accumulate zone')}${seg(lv.buyBelow, top, 'z-hold', 'hold')}${seg(top, hi, 'z-above', 'stop adding')}
+        ${[add, lv.buyBelow, top].map(v => `<span class="ltick" style="left:${w(v)}%"></span>`).join('')}
+        ${price != null ? `<span class="lmark" style="left:${w(price)}%"></span>` : ''}</div>
+      <div class="llegend">${watch ? `<span class="k z-buy"></span>revisit ≤ ${num(lv.buyBelow)}` : `<span class="k z-add"></span>add ≤ ${num(add)} <span class="k z-buy"></span>buy ≤ ${num(lv.buyBelow)} <span class="k z-above"></span>stop adding &gt; ${num(top)}`}</div>
+      <div class="lnow">${price != null ? `Now ${num(price)} ${esc(lv.currency)} · <b class="zn ${watch ? (z === 'add' || z === 'buy' ? 'buy' : 'hold') : z}">${watch ? (z === 'add' || z === 'buy' ? 'At the revisit level' : 'Above the revisit level') : ZONE[z]}</b> · alerts on` : 'No price in the sheet'}</div>
+    </div>`;
+  }
+
   function renderDesk() {
     if (!K || !K.memos || !K.memos.length) {
       $('#memo').innerHTML = '<p class="empty">No desk memo yet. The collector is gathering posts; the first memo appears after the weekly run.</p>';
@@ -129,7 +155,7 @@
           <dt>Why it's cheap</dt><dd>${esc(a.whyCheap)}</dd>
           <dt>Valuation</dt><dd>${esc(a.valuation.text)} ${link(a.valuation.source)}</dd>
           <dt>Catalyst</dt><dd>${esc(a.catalyst)}</dd>
-          <dt>Accumulate zone</dt><dd>${esc(a.zone)}</dd>
+          <dt>Accumulate zone</dt><dd>${esc(a.zone)}${a.levels ? ladder(a.ticker, a.levels, a.action) : ''}</dd>
           <dt>Kills the idea</dt><dd>${esc(a.invalidation)}</dd>
           ${c ? `<dt>Scorecard</dt><dd>Opened ${fmtDate(c.opened)} at ${num(c.refPrice)} ${esc(c.currency || '')} · now ${num(c.lastPrice)} · ${pct(c.ret)} vs ${esc(K.bench)} ${pct(c.benchRet)}</dd>` : ''}
         </dl>
@@ -145,6 +171,32 @@
         return v ? `<td><a class="st ${esc(v.stance)}" href="${esc(v.url)}" target="_blank" rel="noopener" title="${esc(v.note)}">${STANCE[v.stance]}</a><div class="note">${esc(v.note)}</div></td>` : '<td class="muted">·</td>';
       }).join('')}<td class="read">${esc(b.read)}</td></tr>`).join('')}</tbody></table></div>` : '<p class="muted">No stances this week.</p>';
 
+    const TR = (K.track || []).filter(a => a.calls);
+    const track = TR.length ? `<div class="scroll"><table class="track"><thead><tr><th>Analyst</th><th>Stances</th><th>Scored</th><th>Avg edge vs ${esc(K.bench)}</th><th>Hit rate</th><th>Best / worst call so far</th></tr></thead><tbody>${
+      TR.map(a => {
+        const sc = a.rows.filter(r => r.edge != null).sort((x, y) => y.edge - x.edge);
+        const bw = sc.length ? `${esc(sc[0].ticker)} ${pct(sc[0].edge)}${sc.length > 1 ? ` · ${esc(sc[sc.length - 1].ticker)} ${pct(sc[sc.length - 1].edge)}` : ''}` : '<span class="muted">—</span>';
+        return `<tr><td>@${esc(a.handle)}</td><td class="num">${a.calls}</td><td class="num">${a.scored}</td><td class="num">${pct(a.avgEdge)}</td><td class="num">${a.hitRate == null ? '—' : a.hitRate + '%'}</td><td>${bw}</td></tr>`;
+      }).join('')}</tbody></table></div>` : '<p class="muted">No stances recorded yet.</p>';
+    const young = !TR.some(a => a.rows.some(r => r.since < m.date));
+
+    const next = K.memos[Math.max(deskIdx - 1, 0)];
+    const evs = (K.events || []).filter(e => e.date >= m.date && (deskIdx === 0 || e.date < next.date)).sort((x, y) => y.date.localeCompare(x.date));
+    const VER = { confirms: 'Confirms the call', mixed: 'Mixed', breaks: 'Breaks the call' };
+    const events = evs.map(e => `<article class="event ${esc(e.verdict)}">
+        <div class="idea-head">${tick(e.ticker)}<h3>${esc(e.event)}</h3><span class="pill ver-${esc(e.verdict)}">${VER[e.verdict]}</span><time>${fmtDate(e.date)}</time></div>
+        <p class="thesis">${esc(e.headline)}</p>${paras(e.summary)}
+        ${(e.numbers || []).length ? `<ul class="nums">${e.numbers.map(n => `<li>${esc(n.text)} ${link(n.source)}</li>`).join('')}</ul>` : ''}
+        ${e.callImpact ? `<p><b>Call:</b> ${esc(e.callImpact)}</p>` : ''}
+        ${e.levels ? ladder(e.ticker, e.levels, 'accumulate') : ''}
+        <div class="idea-foot">${(e.sources || []).map(u => link(u)).join(' ')}</div></article>`).join('');
+
+    const alerts = deskIdx === 0 ? (K.alerts || []).slice(0, 6) : [];
+    const changes = deskIdx === 0 && (K.changes || []).length ? `<section class="dsec changed"><h2>What changed</h2>
+        <ul class="chg">${K.changes.map(c => `<li class="k-${esc(c.kind)}">${esc(c.text)}</li>`).join('')}</ul>
+        ${alerts.length ? `<h4 class="sub">Price alerts</h4><ul class="chg">${alerts.map(a => `<li class="k-alert"><time>${esc((a.at || '').slice(0, 10))}</time> ${esc(a.text)}</li>`).join('')}</ul>` : ''}
+      </section>` : '';
+
     const mk = m.market;
     const movers = (mk.movers || []).length ? `<table class="movers"><tbody>${mk.movers.map(x => `<tr><td>${tick(x.ticker)}</td><td class="num">${pct(x.chg1w)}</td><td>${esc(x.why || '')} ${link(x.source)}</td></tr>`).join('')}</tbody></table>` : '';
     const cal = (mk.calendar || []).length ? `<ul class="devlist">${mk.calendar.map(x => `<li><time>${fmtDate(x.date)}</time>${esc(x.event)} ${link(x.source)}</li>`).join('')}</ul>` : '';
@@ -155,11 +207,14 @@
     $('#memo').innerHTML = `
       <div class="memo-meta">Weekly memo · ${fmtDate(m.date)} · posts ${fmtDate(m.window.from)} to ${fmtDate(m.window.to)} ${pick}</div>
       <h1 class="headline">${esc(m.headline)}</h1>
+      ${changes}
+      ${events ? `<section class="dsec"><h2>Since this memo</h2><p class="muted small">Event updates between weekly memos. They can move the alert levels; only the weekly memo opens or closes calls.</p>${events}</section>` : ''}
       <section class="dsec"><h2>1 · The supply-chain picture</h2>
         <div class="two"><div><h4>Now</h4>${paras(m.picture.now)}</div><div><h4>Next</h4>${paras(m.picture.next)}</div></div></section>
       <section class="dsec"><h2>2 · Accumulate list</h2>
         <p class="muted small">Research support, not advice. Prices from your Google Sheet${K.pricesAsOf ? ' as of ' + esc(K.pricesAsOf.slice(0, 10)) : ''}.</p>${acc}</section>
       <section class="dsec"><h2>3 · Analyst board</h2><p class="muted small">Each cell links to the post. Hover or read the note for the reason.</p>${board}</section>
+      <section class="dsec"><h2>Analyst track record</h2><p class="muted small">Every stance on the board, from the day it was first recorded, against ${esc(K.bench)}. A bull call earns the stock's move minus ${esc(K.bench)}'s; a bear call the reverse; mixed calls are not scored. Local-currency returns.${young ? ' Everything was recorded this week, so it all reads 0% for now; it fills in as prices move.' : ''}</p>${track}</section>
       <section class="dsec"><h2>4 · Market wrap</h2>${paras(mk.summary)}${movers}${cal ? '<h4 class="sub">Coming up</h4>' + cal : ''}</section>
       <section class="dsec pushback"><h2>The desk's pushback</h2><p class="muted small">Every analyst on the roster leans bullish. This is the other side.</p>${paras(m.pushback)}</section>
       <section class="dsec"><h2>Scorecard</h2><p class="muted small">Every accumulate call, marked to the latest price against ${esc(K.bench)}. Calls are never edited after the fact.</p>${score}</section>

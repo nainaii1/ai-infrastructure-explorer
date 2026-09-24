@@ -16,6 +16,16 @@ python3 desk/prep.py --hours 24
 Read `desk/store/reading.md` (open any screenshot files it lists). Read the
 latest `desk/memos/*.json` for the current accumulate list.
 
+**Event check first.** Look at the latest memo's `market.calendar`. For any
+item with a `ticker` whose date is today or in the last 3 days, and with no
+file yet in `desk/memos/events/` for that ticker on or after that date, run the
+`event-update` skill for it before writing the digest, and mention it in one
+line in the digest. If a company's results are not out yet (a delayed or
+expected date), say so and check again tomorrow.
+
+**Price alerts.** Read `desk/store/alerts.json`; mention any alert from the
+last 24 hours in one line (the alert itself was already sent).
+
 Write `desk/store/digest.txt`, plain text, under ~1,500 characters:
 
 ```

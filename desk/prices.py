@@ -55,12 +55,20 @@ def guide_tickers():
     return [c["ticker"] for c in d["companies"] if c.get("listed", True)]
 
 
-def main():
+def save_snapshot():
+    """Fetch the sheet and save today's snapshot (one file per day; a later run
+    the same day replaces it). Returns (snapshot, path)."""
     rows = snapshot()
     out = {"asOf": now_iso(), "source": "Google Sheet (GOOGLEFINANCE), public CSV export",
            "prices": rows}
     path = PRICES_DIR / "{}.json".format(date.today().isoformat())
     save_json(path, out)
+    return out, path
+
+
+def main():
+    out, path = save_snapshot()
+    rows = out["prices"]
     if "--quiet" not in sys.argv:
         missing = [t for t in guide_tickers() if t not in rows]
         print("saved {} prices to {}".format(len(rows), path.relative_to(ROOT)))
