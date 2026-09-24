@@ -81,8 +81,22 @@ SMH, and calls cannot be edited after the fact.
 Everything the desk collects or writes stays on this Mac (it is gitignored),
 because this repo is public and some forwarded posts are subscriber-only.
 
-Setup, once: put the Telegram bot token in `desk/.env` as
-`TELEGRAM_BOT_TOKEN=...`, then send `/start` to the bot.
+**When things happen (Malaysia time)**
+
+| What | When |
+|---|---|
+| Collector reads timelines and the bot's inbox | every 6 hours |
+| Daily digest on Telegram | Sun–Fri 11:00 |
+| Weekly memo on the page + summary on Telegram | Saturday 10:00 |
+
+**Forwarding to @ai_infra_desk_bot**: a free post needs only its link. A
+subscriber post or reply needs the link plus the pasted text or a screenshot,
+in one message or two sent within two minutes. The bot replies "Saved" at the
+next collector run.
+
+Setup (done 24 Sep 2026): the bot token lives in `desk/.env` as
+`TELEGRAM_BOT_TOKEN=...` (the whole line from BotFather, digits and colon
+included), and `/start` links the chat.
 
 ## What it deliberately does not do
 

@@ -61,6 +61,29 @@ no bot process to crash.
 The operator does not use a terminal. Run the commands for him and describe the
 change in plain language.
 
+## Current status (handover, 24 Sep 2026)
+
+- **Running:** collector every 6h (last exit 0); Telegram bot
+  @ai_infra_desk_bot linked to the operator's chat and tested both ways
+  (sending, and receiving a forwarded subscriber post). 617 posts stored.
+- **Roster:** 7 analysts. @dylan522p removed on 24 Sep (no market content).
+- **Scheduled (Claude Desktop, runs only while the app is open):**
+  `ai-desk-weekly-memo` Sat 10:00 MYT; `ai-desk-daily-digest` Sun–Fri 11:00 MYT.
+  Neither has run yet; the operator should click "Run now" once on each so
+  the tool approvals are stored.
+- **Scorecard:** four calls opened 24 Sep from the trial memo: SK hynix
+  (₩1,862,000), Micron ($1,071.88), Sandisk ($1,816.57), Coherent ($300.60).
+- **Price sheet:** rows for 005930.KS, CRDO, SMCI, ANET and ENR.DE added
+  24 Sep. Only CXMT is unpriced. The Drive connector cannot edit the sheet;
+  edits go through Claude in Chrome with the operator's permission.
+- **Next up:** first scheduled memo Sat 26 Sep (Samsung can open as a call if
+  the reading holds). Micron reports 30 Sep, the first test of the memory calls.
+  After 4 weekly memos, check whether Serenity's paid posts changed any call,
+  which decides whether a @pequityresearch subscription is worth it.
+- **Known limits:** first backfill of @pequityresearch only reached 21 Sep.
+  Subscriber posts need the text or a screenshot; fxtwitter cannot read them.
+  A forwarded link and its text are joined only if sent within 2 minutes.
+
 ## Desk files
 
 ```
