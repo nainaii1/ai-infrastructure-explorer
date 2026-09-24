@@ -2,7 +2,7 @@
 
 Rebuilt from scratch on 18 Sep 2026 as a static guide. On 24 Sep 2026 the
 operator asked for the automation back in a narrower form: a **fund desk** that
-follows eight X analysts, collects their posts automatically, and turns them
+follows seven X analysts, collects their posts automatically, and turns them
 into a weekly memo. The old v1 system (scoring, tiers, expert seats, claims
 ledger, vault, price plumbing) stays archived at git tag `v1-archive` and is not
 to be revived; the desk replaces it with something much smaller. Read
@@ -15,7 +15,7 @@ Two parts, one page:
 - **The guide** (`index.html`, `style.css`, `app.js`, `data.js`, `check.py`): a
   static, offline-first field guide to the AI hardware supply chain. `data.js`
   is the curated product.
-- **The desk** (`desk/`): collects the analysts' posts every hour, and a weekly
+- **The desk** (`desk/`): collects the analysts' posts every six hours, and a weekly
   memo turns them into four things the operator asked for: the supply-chain
   picture now and next, an accumulate list, the analyst bull/bear board, and a
   market wrap. It renders in the page's **Desk** tab from `desk.js`.
@@ -49,10 +49,10 @@ Two parts, one page:
 | Skill | When | What |
 |---|---|---|
 | `weekly-memo` | Saturday 10:00 MYT (scheduled), or "run the desk" | Collect, price snapshot, read everything, check claims, write the memo, update scorecard and guide, Telegram summary |
-| `daily-digest` | Sun–Fri 08:00 MYT (scheduled) | Short Telegram digest of the last 24h |
+| `daily-digest` | Sun–Fri 11:00 MYT (scheduled) | Short Telegram digest of the last 24h |
 | `log-development` | Operator shares a filing, release or post | One dated, sourced entry in `data.js` |
 
-The collector runs on its own every hour (launchd `com.aie.desk-collect`, log at
+The collector runs on its own every six hours (launchd `com.aie.desk-collect`, log at
 `~/Library/Logs/desk-collect.log`). It reads timelines through the free
 fxtwitter API and picks up whatever the operator forwarded to the Telegram bot
 (subscriber posts, replies, screenshots). It exits after each run, so there is
@@ -65,7 +65,7 @@ change in plain language.
 
 ```
 desk/analysts.json    the roster (edit to add/drop an analyst)
-desk/collect.py       hourly: timelines + Telegram inbox -> desk/store/posts/
+desk/collect.py       every 6h: timelines + Telegram inbox -> desk/store/posts/
 desk/prices.py        price snapshot from the Google Sheet -> desk/store/prices/
 desk/prep.py          bundle a window of posts -> desk/store/reading.md
 desk/build.py         validate memos, keep the scorecard, write desk.js

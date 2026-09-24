@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <!--
-  Runs the desk collector once an hour. It starts, reads the analysts' X
+  Runs the desk collector every six hours. It starts, reads the analysts' X
   timelines and the Telegram inbox, saves, and exits; nothing stays running,
-  so sleep/wake cannot wedge it. If the Mac was asleep at the hour, launchd
+  so sleep/wake cannot wedge it. If the Mac was asleep when a run was due, launchd
   runs it on wake.
   Install:   cp desk/com.aie.desk-collect.plist ~/Library/LaunchAgents/ &&
              launchctl load ~/Library/LaunchAgents/com.aie.desk-collect.plist
@@ -19,7 +19,7 @@
     <string>/Users/mikembp/Documents/Claude/ai-supply-desk/desk/collect.py</string>
   </array>
   <key>WorkingDirectory</key><string>/Users/mikembp/Documents/Claude/ai-supply-desk/desk</string>
-  <key>StartInterval</key><integer>3600</integer>
+  <key>StartInterval</key><integer>21600</integer>
   <key>RunAtLoad</key><true/>
   <key>StandardOutPath</key><string>/Users/mikembp/Library/Logs/desk-collect.log</string>
   <key>StandardErrorPath</key><string>/Users/mikembp/Library/Logs/desk-collect.log</string>

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""The collector. Runs every hour on its own (launchd) and does two things:
+"""The collector. Runs every six hours on its own (launchd) and does two things:
 
 1. Reads each analyst's public X timeline (desk/analysts.json) through the
    free fxtwitter API and saves any new posts.
@@ -26,7 +26,7 @@ TIMELINE = "https://api.fxtwitter.com/2/profile/{h}/statuses"
 STATUS = "https://api.fxtwitter.com/{u}/status/{i}"
 STATUS_RE = re.compile(r"(?:twitter\.com|x\.com|fxtwitter\.com|fixupx\.com)/([A-Za-z0-9_]+)/status/(\d+)")
 MAX_PAGES = 6
-FAIL_ALERT_AFTER = 6      # consecutive failed runs (~6 hours) before a Telegram alert
+FAIL_ALERT_AFTER = 2      # consecutive failed runs (~12 hours) before a Telegram alert
 SEEN_CAP = 20000
 
 
@@ -219,7 +219,7 @@ def collect_telegram(tg, state):
             if (msg.get("text") or "").startswith("/start"):
                 state["ownerId"], state["chatId"] = sender, chat
                 tg.send(chat, "Linked. Forward me X posts, subscriber posts with the text pasted, "
-                              "replies, or screenshots. I pick them up every hour.")
+                              "replies, or screenshots. I pick them up every six hours; replies come back when they are saved.")
             continue
         if sender != state["ownerId"]:
             continue              # only the operator can feed the desk
