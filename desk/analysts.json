@@ -1,0 +1,45 @@
+{
+  "_note": "The analysts the desk follows. Edit this list to add or drop someone; the collector picks it up on its next run. Subscriber-only posts are invisible to the collector; forward them to the Telegram bot.",
+  "analysts": [
+    {
+      "handle": "aleabitoreddit",
+      "name": "Serenity",
+      "focus": "AI and semiconductor supply-chain research"
+    },
+    {
+      "handle": "jukan05",
+      "name": "Jukan (Citrini)",
+      "focus": "Korea and Asia supply-chain news: memory, substrates"
+    },
+    {
+      "handle": "dylan522p",
+      "name": "Dylan Patel",
+      "focus": "SemiAnalysis founder: deep technical supply chain"
+    },
+    {
+      "handle": "SemiAnalysis_",
+      "name": "SemiAnalysis",
+      "focus": "SemiAnalysis house account: data and report teasers"
+    },
+    {
+      "handle": "pequityresearch",
+      "name": "P Equity Research",
+      "focus": "Semiconductor and tech deep dives"
+    },
+    {
+      "handle": "ren_stocks",
+      "name": "Ren",
+      "focus": "AI buildout stock picks with entry prices"
+    },
+    {
+      "handle": "damnang2",
+      "name": "Damnang",
+      "focus": "Semiconductor engineer in Silicon Valley"
+    },
+    {
+      "handle": "PhotonCap",
+      "name": "Photon Capital",
+      "focus": "Photonics and optics research"
+    }
+  ]
+}

@@ -4,3 +4,11 @@ __pycache__/
 # Claude session state stays local; the skill is part of the project.
 .claude/*
 !.claude/skills/
+
+# The desk is private. The repo is public (GitHub Pages), so nothing the desk
+# collects or writes is ever committed: forwarded subscriber posts, screenshots,
+# the memos, the scorecard and the Telegram token all stay on this Mac.
+desk/.env
+desk/store/
+desk/memos/
+desk.js

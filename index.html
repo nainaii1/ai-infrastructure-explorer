@@ -11,8 +11,9 @@
 
 <header class="top">
   <div class="wrap top-row">
-    <a class="brand" href="#map">AI Infrastructure Explorer</a>
+    <a class="brand" href="#desk">AI Infrastructure Explorer</a>
     <nav class="tabs" aria-label="Views">
+      <a href="#desk" data-view="desk">Desk</a>
       <a href="#map" data-view="map">Map</a>
       <a href="#narratives" data-view="narratives">Narratives</a>
       <a href="#timeline" data-view="timeline">Timeline</a>
@@ -25,6 +26,10 @@
 </header>
 
 <main class="wrap">
+  <section id="view-desk" class="view" hidden>
+    <div id="memo"></div>
+  </section>
+
   <section id="view-map" class="view" hidden>
     <p class="lede">The chain from the buyers of compute at the top to the physical inputs at the bottom. Each layer names its current constraint. Click a company for its dossier.</p>
     <div id="map"></div>
@@ -48,6 +53,7 @@
 <footer class="wrap foot" id="foot"></footer>
 
 <script src="data.js"></script>
+<script src="desk.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

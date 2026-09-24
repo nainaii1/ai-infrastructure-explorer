@@ -1,5 +1,5 @@
-// AI Infrastructure Explorer — all page logic. Reads window.DATA (data.js), renders
-// three views (map, narratives, timeline) and a company drawer. Hash-routed so
+// AI Infrastructure Explorer — all page logic. Reads window.DATA (data.js) and
+// window.DESK (desk.js), renders four views (desk, map, narratives, timeline) and a company drawer. Hash-routed so
 // every company and narrative has a link that works from file://.
 (function () {
   'use strict';
@@ -100,6 +100,75 @@
     $('#timeline').innerHTML = out.join('') || '<p class="empty">Nothing matches.</p>';
   }
 
+  // ---------- desk (weekly memo, generated into desk.js by desk/build.py) ----------
+  const K = window.DESK || null;
+  let deskIdx = 0;
+  const STANCE = { bull: '▲ Bull', bear: '▼ Bear', mixed: '◆ Mixed' };
+  function tick(t) { return byTicker[t] ? chip(byTicker[t], true) : `<span class="tkr">${esc(t)}</span>`; }
+  function pct(v) { return v == null ? '—' : `<span class="${v >= 0 ? 'up' : 'dn'}">${v >= 0 ? '+' : ''}${v.toFixed(1)}%</span>`; }
+  function num(v) { return v == null ? '—' : v.toLocaleString('en-US', { maximumFractionDigits: 2 }); }
+  function link(url, label) { return url ? `<a href="${esc(url)}" target="_blank" rel="noopener">${esc(label || host(url))} ↗</a>` : ''; }
+  function paras(list) { return (list || []).map(p => `<p>${esc(p)}</p>`).join(''); }
+
+  function renderDesk() {
+    if (!K || !K.memos || !K.memos.length) {
+      $('#memo').innerHTML = '<p class="empty">No desk memo yet. The collector is gathering posts; the first memo appears after the weekly run.</p>';
+      return;
+    }
+    const m = K.memos[Math.min(deskIdx, K.memos.length - 1)];
+    const open = {}; K.calls.filter(c => !c.closed).forEach(c => { open[c.ticker] = c; });
+    const handles = K.analysts.map(a => a.handle);
+    const pick = K.memos.length > 1 ? `<select id="memo-pick" aria-label="Memo date">${K.memos.map((x, i) => `<option value="${i}"${i === deskIdx ? ' selected' : ''}>${fmtDate(x.date)}</option>`).join('')}</select>` : '';
+
+    const acc = m.accumulate.map(a => {
+      const c = open[a.ticker];
+      return `<article class="idea ${esc(a.action)}">
+        <div class="idea-head">${tick(a.ticker)}<h3>${esc(a.name)}</h3><span class="pill act-${esc(a.action)}">${esc(a.action)}</span><span class="conf">${esc(a.confidence)} confidence</span></div>
+        <p class="thesis">${esc(a.thesis)}</p>
+        <dl class="kv">
+          <dt>Why it's cheap</dt><dd>${esc(a.whyCheap)}</dd>
+          <dt>Valuation</dt><dd>${esc(a.valuation.text)} ${link(a.valuation.source)}</dd>
+          <dt>Catalyst</dt><dd>${esc(a.catalyst)}</dd>
+          <dt>Accumulate zone</dt><dd>${esc(a.zone)}</dd>
+          <dt>Kills the idea</dt><dd>${esc(a.invalidation)}</dd>
+          ${c ? `<dt>Scorecard</dt><dd>Opened ${fmtDate(c.opened)} at ${num(c.refPrice)} ${esc(c.currency || '')} · now ${num(c.lastPrice)} · ${pct(c.ret)} vs ${esc(K.bench)} ${pct(c.benchRet)}</dd>` : ''}
+        </dl>
+        <div class="idea-foot">${(a.analysts || []).map(h => `<span class="who">@${esc(h)}</span>`).join('')}${(a.sources || []).map(u => link(u)).join(' ')}</div>
+      </article>`;
+    }).join('') || '<p class="muted">Nothing meets the bar this week.</p>';
+
+    const cols = handles.filter(h => m.board.some(b => b.views.some(v => v.handle === h)));
+    const board = m.board.length ? `<div class="scroll"><table class="board">
+      <thead><tr><th>Ticker</th>${cols.map(h => `<th>@${esc(h)}</th>`).join('')}<th>Desk read</th></tr></thead>
+      <tbody>${m.board.map(b => `<tr><td>${tick(b.ticker)}</td>${cols.map(h => {
+        const v = b.views.find(x => x.handle === h);
+        return v ? `<td><a class="st ${esc(v.stance)}" href="${esc(v.url)}" target="_blank" rel="noopener" title="${esc(v.note)}">${STANCE[v.stance]}</a><div class="note">${esc(v.note)}</div></td>` : '<td class="muted">·</td>';
+      }).join('')}<td class="read">${esc(b.read)}</td></tr>`).join('')}</tbody></table></div>` : '<p class="muted">No stances this week.</p>';
+
+    const mk = m.market;
+    const movers = (mk.movers || []).length ? `<table class="movers"><tbody>${mk.movers.map(x => `<tr><td>${tick(x.ticker)}</td><td class="num">${pct(x.chg1w)}</td><td>${esc(x.why || '')} ${link(x.source)}</td></tr>`).join('')}</tbody></table>` : '';
+    const cal = (mk.calendar || []).length ? `<ul class="devlist">${mk.calendar.map(x => `<li><time>${fmtDate(x.date)}</time>${esc(x.event)} ${link(x.source)}</li>`).join('')}</ul>` : '';
+
+    const score = K.calls.length ? `<div class="scroll"><table class="score"><thead><tr><th>Ticker</th><th>Opened</th><th>Ref</th><th>Now / exit</th><th>Return</th><th>${esc(K.bench)}</th><th>Status</th></tr></thead><tbody>${
+      K.calls.slice().reverse().map(c => `<tr><td>${tick(c.ticker)}</td><td>${fmtDate(c.opened)}</td><td class="num">${num(c.refPrice)} ${esc(c.currency || '')}</td><td class="num">${num(c.lastPrice)}</td><td class="num">${pct(c.ret)}</td><td class="num">${pct(c.benchRet)}</td><td>${c.closed ? 'closed ' + fmtDate(c.closed.date) : 'open'}</td></tr>`).join('')}</tbody></table></div>` : '<p class="muted">No calls yet.</p>';
+
+    $('#memo').innerHTML = `
+      <div class="memo-meta">Weekly memo · ${fmtDate(m.date)} · posts ${fmtDate(m.window.from)} to ${fmtDate(m.window.to)} ${pick}</div>
+      <h1 class="headline">${esc(m.headline)}</h1>
+      <section class="dsec"><h2>1 · The supply-chain picture</h2>
+        <div class="two"><div><h4>Now</h4>${paras(m.picture.now)}</div><div><h4>Next</h4>${paras(m.picture.next)}</div></div></section>
+      <section class="dsec"><h2>2 · Accumulate list</h2>
+        <p class="muted small">Research support, not advice. Prices from your Google Sheet${K.pricesAsOf ? ' as of ' + esc(K.pricesAsOf.slice(0, 10)) : ''}.</p>${acc}</section>
+      <section class="dsec"><h2>3 · Analyst board</h2><p class="muted small">Each cell links to the post. Hover or read the note for the reason.</p>${board}</section>
+      <section class="dsec"><h2>4 · Market wrap</h2>${paras(mk.summary)}${movers}${cal ? '<h4 class="sub">Coming up</h4>' + cal : ''}</section>
+      <section class="dsec pushback"><h2>The desk's pushback</h2><p class="muted small">Every analyst on the roster leans bullish. This is the other side.</p>${paras(m.pushback)}</section>
+      <section class="dsec"><h2>Scorecard</h2><p class="muted small">Every accumulate call, marked to the latest price against ${esc(K.bench)}. Calls are never edited after the fact.</p>${score}</section>
+      ${m.flags.length ? `<section class="dsec"><h2>Flags</h2><ul>${m.flags.map(f => `<li>${esc(f)}</li>`).join('')}</ul></section>` : ''}
+      <p class="muted small">Collector last ran ${K.collectorLastRun ? esc(K.collectorLastRun.replace('T', ' ').slice(0, 16)) + ' UTC' : 'never'} · following ${K.analysts.map(a => '@' + esc(a.handle)).join(', ')}</p>`;
+    const sel = $('#memo-pick');
+    if (sel) sel.addEventListener('change', () => { deskIdx = +sel.value; renderDesk(); window.scrollTo(0, 0); });
+  }
+
   // ---------- drawer ----------
   function openCompany(t) {
     const c = byTicker[t]; if (!c) return;
@@ -136,29 +205,31 @@
   }
 
   // ---------- routing ----------
-  let view = 'map';
+  let view = 'desk';
   function showView(v) {
     if (v !== view) window.scrollTo(0, 0);
     view = v;
-    ['map', 'narratives', 'timeline'].forEach(id => { $('#view-' + id).hidden = id !== v; });
+    ['desk', 'map', 'narratives', 'timeline'].forEach(id => { $('#view-' + id).hidden = id !== v; });
     document.querySelectorAll('.tabs a').forEach(a => a.classList.toggle('on', a.dataset.view === v));
     render();
   }
   function render() {
     const q = $('#q').value.trim();
-    if (view === 'map') renderMap(q);
+    if (view === 'desk') renderDesk();
+    else if (view === 'map') renderMap(q);
     else if (view === 'narratives') renderNarratives(pendingNarr);
     else renderTimeline(q);
   }
   let pendingNarr = '';
   function route() {
     const h = location.hash.replace(/^#/, '');
-    if (h.startsWith('c/')) { if ($('#view-' + view).hidden) showView('map'); openCompany(decodeURIComponent(h.slice(2))); return; }
+    if (h.startsWith('c/')) { if ($('#view-' + view).hidden) showView(view); openCompany(decodeURIComponent(h.slice(2))); return; }
     closeDrawer(true);
     if (h.startsWith('n/')) { pendingNarr = decodeURIComponent(h.slice(2)); showView('narratives'); pendingNarr = ''; const el = $('#narr-' + CSS.escape(h.slice(2))); if (el) el.scrollIntoView({ block: 'start' }); return; }
     if (h.startsWith('timeline')) { tlNarr = h.includes('/') ? decodeURIComponent(h.split('/')[1]) : ''; showView('timeline'); return; }
     if (h === 'narratives') { showView('narratives'); return; }
-    showView('map');
+    if (h === 'map') { showView('map'); return; }
+    showView('desk');
   }
 
   // ---------- events ----------
@@ -177,7 +248,7 @@
     if (e.key === 'Escape' && !$('#drawer').hidden) closeDrawer();
     if (e.key === '/' && document.activeElement !== $('#q')) { e.preventDefault(); $('#q').focus(); }
   });
-  $('#q').addEventListener('input', () => { if (view === 'narratives') showView('map'); else render(); });
+  $('#q').addEventListener('input', () => { if (view === 'narratives' || view === 'desk') showView('map'); else render(); });
   $('#q').addEventListener('keydown', e => {
     if (e.key !== 'Enter') return;
     const q = $('#q').value.trim(); if (!q) return;
