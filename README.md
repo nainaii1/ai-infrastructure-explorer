@@ -78,8 +78,24 @@ valuation, zone and what would kill each idea, the analyst bull/bear board,
 and a market wrap. Every accumulate call goes on a scorecard marked against
 SMH, and calls cannot be edited after the fact.
 
+Between memos the desk keeps working:
+
+- **Price alerts.** Each accumulate name has numeric levels (add below, buy
+  below, stop adding above). The collector checks your price sheet every run
+  and sends a Telegram alert when a name moves into a different zone. The Desk
+  tab draws each zone as a ladder with today's price on it.
+- **Event updates.** The morning after results for a listed name, Claude
+  reads the company's release and sends a short verdict: confirms, mixed, or
+  breaks the call.
+- **Analyst track record.** Every bull or bear stance on the board is
+  tracked from the day it was recorded, against SMH, so over time you can see
+  whose calls actually work.
+- **What changed.** The top of each memo lists calls opened or closed, zone
+  changes, stance flips and events.
+
 Everything the desk collects or writes stays on this Mac (it is gitignored),
-because this repo is public and some forwarded posts are subscriber-only.
+because this repo is public and some forwarded posts are subscriber-only. A
+nightly copy goes to the private repo `nainaii1/ai-desk-private`.
 
 **When things happen (Malaysia time)**
 
@@ -88,6 +104,9 @@ because this repo is public and some forwarded posts are subscriber-only.
 | Collector reads timelines and the bot's inbox | every 6 hours |
 | Daily digest on Telegram | Sun–Fri 11:00 |
 | Weekly memo on the page + summary on Telegram | Saturday 10:00 |
+| Price alerts | whenever a name changes zone (checked every 6 hours) |
+| Event update after results | the morning after (Micron: 1 Oct) |
+| Private backup | nightly 23:30 |
 
 **Forwarding to @ai_infra_desk_bot**: a free post needs only its link. A
 subscriber post or reply needs the link plus the pasted text or a screenshot,

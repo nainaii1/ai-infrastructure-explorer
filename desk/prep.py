@@ -74,7 +74,7 @@ def main():
             key = "Forwarded to the bot"
         groups.setdefault(key, []).append(p)
 
-    order = ["Forwarded to the bot"] + roster + sorted(k for k in groups if k not in roster)
+    order = ["Forwarded to the bot"] + roster + sorted(k for k in groups if k not in roster and k != "Forwarded to the bot")
     out = ["# Posts since {} ({} total)\n".format(since, len(posts))]
     for k in order:
         if k in groups:
