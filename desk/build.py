@@ -294,8 +294,9 @@ def what_changed(memos, calls, events):
                         v["handle"], b["ticker"], old, v["stance"])})
     else:
         items.append({"kind": "new", "text": "First memo: the list, the board and the scorecard start here."})
+    since = prev["date"] if prev else latest["date"]          # events between the last memo and now
     for ev in sorted(events, key=lambda x: x["date"]):
-        if ev["date"] >= latest["date"]:
+        if ev["date"] >= since:
             items.append({"kind": "event", "text": "{} {}: {} ({})".format(ev["date"], ev["ticker"], ev["headline"], ev["verdict"])})
     return items
 
