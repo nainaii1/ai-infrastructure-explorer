@@ -13,6 +13,15 @@ not advice.
 Work from the project root. Commands are run for the operator; he does not use
 a terminal.
 
+## 0. Too soon?
+
+If the latest `desk/memos/*.json` is less than 4 days old (for example a
+memo was run by hand mid-week), do not write a new one: a one-day memo would
+churn calls and the track record for no new information. Instead run
+`python3 desk/collect.py` and `python3 desk/build.py`, send a one-line
+Telegram note ("Weekly memo skipped: the last memo was <date>; next one on
+<next Saturday>"), and stop.
+
 ## 1. Gather
 
 ```bash

@@ -67,32 +67,26 @@ no bot process to crash.
 The operator does not use a terminal. Run the commands for him and describe the
 change in plain language.
 
-## Current status (handover, 24 Sep 2026, evening)
+## Current status (handover, 2 Oct 2026)
 
-- **Running:** collector every 6h with price alerts inside it (last run exit
-  0); nightly private backup (first two pushes verified); Telegram bot
-  @ai_infra_desk_bot linked and tested (send, receive, forward pairing).
-  First real daily digest sent 24 Sep.
-- **Roster:** 7 analysts (@dylan522p removed 24 Sep).
-- **Scheduled (Claude Desktop, only while the app is open):** weekly memo Sat
-  10:00 MYT; daily digest Sun–Fri 11:00 MYT; one-off Micron event update
-  1 Oct 09:30 MYT. The operator still needs to click "Run now" once on the two
-  recurring tasks so tool approvals are stored.
-- **Scorecard:** SK hynix (₩1,862,000), Micron ($1,071.88), Sandisk
-  ($1,816.57), Coherent ($300.60), opened 24 Sep. Alert levels on those four
-  plus Intel (watch, revisit ≤ $98). Starting zones: SK hynix/Micron/Sandisk
-  in the zone; Coherent and Intel above.
-- **Track record:** 34 stance records from the first memo; all read 0% until
-  prices move. The weekly memo reviews it from the fourth memo on.
-- **Tested end to end (24 Sep) in a scratch copy:** second memo (open/close
-  calls, zone changes, stance flips), an event between memos (levels
-  override), ladder layout on desktop and phone.
-- **Next up:** Sat 26 Sep first scheduled memo (Samsung can open a call);
-  Micron 30 Sep → event update 1 Oct; SK hynix Q3 expected 27 Oct (not yet
-  confirmed by the company).
-- **Known limits:** subscriber posts need text or a screenshot; a link and its
-  text pair only within 2 minutes; CXMT has no price; returns are in local
-  currency against USD SMH.
+- **Memos:** 24 Sep (trial) and 2 Oct (run by hand). The scheduled 26 Sep
+  run failed: the account hit its monthly spend limit mid-run (not a desk
+  bug). Tomorrow's scheduled run will skip itself (memo under 4 days old).
+- **Events:** Micron 1 Oct update ran on schedule and confirmed the call.
+- **Scorecard (open):** SK hynix ₩1,862,000, Micron $1,071.88, Sandisk
+  $1,816.57, Coherent $300.60 (all 24 Sep), Samsung ₩276,000 (2 Oct). Micron's
+  zone reset to ≤ $1,443 (8x forward after estimates rose). Four of five calls
+  are memory: one risk bucket.
+- **Alerts:** Coherent went into and out of its zone 28–29 Sep (both alerts
+  sent). Levels re-baseline silently from the 2 Oct memo.
+- **Track record:** 54 stance records; one week of data, too early to judge.
+- **Running:** collector every 6h (alerts inside), nightly private backup,
+  Telegram bot linked, daily digest Sun–Fri 11:00 MYT running.
+- **Next up:** SK hynix Q3 ~27 Oct (expected), Fed 28 Oct, Samsung Q3 ~29 Oct
+  (expected); first full scheduled memo Sat 10 Oct.
+- **Known limits:** subscriber posts need text or a screenshot and a link
+  (two 28 Sep forwards arrived without one); Vicor, FormFactor, Cerebras and
+  CXMT have no sheet price; returns are local currency against USD SMH.
 
 ## Desk files
 
