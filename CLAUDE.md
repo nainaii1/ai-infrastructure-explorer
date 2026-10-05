@@ -111,9 +111,9 @@ change in plain language.
    "now" prices read that. Dated files before 6 Oct were overwritten by the
    collector and cannot be recovered; scorecard opening prices were frozen at
    first build, so they are unaffected.
-4. **Latent bug, not urgent:** `collect.py` trims the seen-posts list with
-   `list(set)[-20000:]`, which drops random IDs, not the oldest. It holds 1,544
-   now, so it bites in months, as duplicate posts.
+4. **FIXED 6 Oct: the seen-posts list now drops the oldest.** `save_posts` keeps
+   the IDs in the order they arrived and trims from the front at 20,000
+   (it used to drop random IDs, which would have caused duplicate posts).
 5. **Backup failure message is vague.** `backup.py` reports "exit status 1",
    not git's reason. It does refuse to push unless the repo is private.
 6. **Clean:** nothing private is tracked by git; the sheet's public CSV holds
@@ -121,8 +121,8 @@ change in plain language.
 
 ### Direction
 
-- Near term: items 1 and 2 are fixed; item 3 is fixed on 6 Oct; next is the seen-posts
-  trim (item 4).
+- Near term: items 1 and 2 are fixed; items 3 and 4 are fixed on 6 Oct; the open one is the vague
+  backup failure message (item 5).
 - Watch the 10 Oct memo as the first real test of the schedule and the skip
   rule, then judge whether the 4-day rule suits a Saturday cadence.
 - Concentration: four of five calls are memory. A non-memory name on the

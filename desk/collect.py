@@ -145,13 +145,15 @@ def attach_parent(rec):
 
 def save_posts(recs, state):
     """Append new records to the month file of their post date. Dedupe on id."""
-    seen = set(state.get("seen", []))
+    order = list(state.get("seen", []))        # oldest first, so the trim drops the oldest
+    seen = set(order)
     by_month = {}
     added = []
     for r in recs:
         if r["id"] in seen:
             continue
         seen.add(r["id"])
+        order.append(r["id"])
         month = (r.get("postedAt") or r["collectedAt"])[:7]
         by_month.setdefault(month, []).append(r)
         added.append(r)
@@ -161,7 +163,7 @@ def save_posts(recs, state):
         cur.extend(items)
         cur.sort(key=lambda x: x.get("postedAt") or x["collectedAt"])
         save_json(path, cur)
-    state["seen"] = list(seen)[-SEEN_CAP:]
+    state["seen"] = order[-SEEN_CAP:]
     return added
 
 
