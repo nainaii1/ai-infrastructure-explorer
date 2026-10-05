@@ -109,13 +109,13 @@ def check(snapshot, state, levels):
 
 
 def run(tg=None, state=None, save_state=False, dry=False):
-    from prices import save_snapshot, snapshot as fetch
+    from prices import save_latest, snapshot as fetch
     levels = load_json(LEVELS, {}).get("levels", {})
     if not levels:
         return []
     own_state = state is None
     state = load_json(STATE_FILE, {}) if own_state else state
-    snap = {"prices": fetch()} if dry else save_snapshot()[0]
+    snap = {"prices": fetch()} if dry else save_latest()
     if dry:
         for t, lv in levels.items():
             row = snap["prices"].get(t) or {}

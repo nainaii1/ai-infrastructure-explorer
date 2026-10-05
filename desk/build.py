@@ -25,7 +25,7 @@ import re
 import sys
 from pathlib import Path
 
-from common import DESK, PRICES_DIR, ROOT, STATE_FILE, STORE, load_json, now_iso, save_json
+from common import DESK, LATEST_PRICES, PRICES_DIR, ROOT, STATE_FILE, STORE, load_json, now_iso, save_json
 
 MEMOS = DESK / "memos"
 EVENTS = MEMOS / "events"
@@ -139,6 +139,11 @@ def snap(day):
     return load_json(files[-1], {}) if files else {}
 
 
+def newest():
+    """The freshest prices: the collector's latest file, else the newest memo snapshot."""
+    return load_json(LATEST_PRICES, None) or snap("9999-12-31")
+
+
 def px(s, t):
     return ((s.get("prices") or {}).get(t) or {}).get("price")
 
@@ -155,7 +160,7 @@ def pct(a, b):
 
 def update_calls(latest, calls):
     changes = []
-    s_memo, s_now = snap(latest["date"]), snap("9999-12-31")
+    s_memo, s_now = snap(latest["date"]), newest()
     want = {a["ticker"] for a in latest["accumulate"] if a["action"] == "accumulate"}
     open_by = {c["ticker"]: c for c in calls if not c.get("closed")}
     for a in latest["accumulate"]:
@@ -324,7 +329,7 @@ def main():
         return 1
     memos.sort(key=lambda m: m["date"], reverse=True)
     events.sort(key=lambda m: m["date"], reverse=True)
-    s_now = snap("9999-12-31")
+    s_now = newest()
     roster = load_json(DESK / "analysts.json", {"analysts": []})["analysts"]
 
     calls = load_json(CALLS, [])

@@ -15,7 +15,8 @@ ROOT = DESK.parent
 STORE = DESK / "store"
 POSTS_DIR = STORE / "posts"      # posts-YYYY-MM.json, one file per month
 MEDIA_DIR = STORE / "media"      # screenshots forwarded to the bot
-PRICES_DIR = STORE / "prices"    # one snapshot per memo run
+PRICES_DIR = STORE / "prices"    # one snapshot per memo run, frozen once written
+LATEST_PRICES = STORE / "prices_latest.json"   # newest prices; the collector refreshes it every run
 STATE_FILE = STORE / "state.json"
 ENV_FILE = DESK / ".env"
 

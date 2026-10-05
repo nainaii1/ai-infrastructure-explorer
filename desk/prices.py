@@ -1,12 +1,20 @@
 #!/usr/bin/env python3
 """Snapshot prices from the operator's Google Sheet (GOOGLEFINANCE formulas,
-public CSV export, no key) into desk/store/prices/YYYY-MM-DD.json.
+public CSV export, no key). Two kinds of file:
 
-Run by the memo, not on a timer: prices are context for a dated memo and for
-marking the accumulate scorecard, never stored in data.js. A ticker the sheet
-does not carry is listed as missing, never guessed.
+    desk/store/prices/YYYY-MM-DD.json   the memo's snapshot. Written only by a
+                                        memo run of this script, never by the
+                                        collector, so the price a memo was
+                                        written at stays what it was.
+    desk/store/prices_latest.json       the newest prices. The collector
+                                        replaces it every run (alerts, and the
+                                        scorecard's "now" prices read it).
 
-    python3 desk/prices.py            snapshot today, print a summary
+Prices are context for a dated memo and for marking the accumulate scorecard,
+never stored in data.js. A ticker the sheet does not carry is listed as
+missing, never guessed.
+
+    python3 desk/prices.py            memo snapshot for today, print a summary
     python3 desk/prices.py --quiet    snapshot only
 """
 import csv
@@ -14,7 +22,7 @@ import io
 import sys
 from datetime import date
 
-from common import PRICES_DIR, ROOT, http_get, now_iso, save_json
+from common import LATEST_PRICES, PRICES_DIR, ROOT, http_get, now_iso, save_json
 
 SHEET_CSV = ("https://docs.google.com/spreadsheets/d/"
              "1Zeqqq01H1KiSvJnNArm0kr2rcn-F3FV8uxYjjX8mihA/export?format=csv")
@@ -55,14 +63,26 @@ def guide_tickers():
     return [c["ticker"] for c in d["companies"] if c.get("listed", True)]
 
 
+def _fetch():
+    return {"asOf": now_iso(), "source": "Google Sheet (GOOGLEFINANCE), public CSV export",
+            "prices": snapshot()}
+
+
+def save_latest():
+    """Refresh the newest prices only. Used by the collector; never touches a
+    memo snapshot. Returns the snapshot."""
+    out = _fetch()
+    save_json(LATEST_PRICES, out)
+    return out
+
+
 def save_snapshot():
-    """Fetch the sheet and save today's snapshot (one file per day; a later run
-    the same day replaces it). Returns (snapshot, path)."""
-    rows = snapshot()
-    out = {"asOf": now_iso(), "source": "Google Sheet (GOOGLEFINANCE), public CSV export",
-           "prices": rows}
+    """The memo's snapshot: today's dated file (a second memo run the same day
+    replaces it), and the newest prices too. Returns (snapshot, path)."""
+    out = _fetch()
     path = PRICES_DIR / "{}.json".format(date.today().isoformat())
     save_json(path, out)
+    save_json(LATEST_PRICES, out)
     return out, path
 
 

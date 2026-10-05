@@ -105,10 +105,12 @@ change in plain language.
    forwarded messages.
 2. **FIXED 5 Oct: alerts have a 1.5% buffer.** A name changes zone only once it
    is 1.5% past the line it crossed (`BUFFER` in `desk/alerts.py`).
-3. **Price snapshots are overwritten.** `prices.py` keeps one file per day and
-   every collector run replaces it, so "the price the memo used" can drift
-   a few hours. Its docstring still says "run by the memo, not on a timer".
-   Scorecard opening prices are frozen at first build, so past calls are safe.
+3. **FIXED 6 Oct: memo price snapshots are frozen.** `desk/store/prices/<date>.json`
+   is now written only by a memo run of `prices.py`; the collector refreshes
+   `desk/store/prices_latest.json` instead, and alerts plus the scorecard's
+   "now" prices read that. Dated files before 6 Oct were overwritten by the
+   collector and cannot be recovered; scorecard opening prices were frozen at
+   first build, so they are unaffected.
 4. **Latent bug, not urgent:** `collect.py` trims the seen-posts list with
    `list(set)[-20000:]`, which drops random IDs, not the oldest. It holds 1,544
    now, so it bites in months, as duplicate posts.
@@ -119,8 +121,8 @@ change in plain language.
 
 ### Direction
 
-- Near term: items 1 and 2 are fixed; next is the snapshot overwrite (item 3),
-  then the seen-posts trim (item 4).
+- Near term: items 1 and 2 are fixed; item 3 is fixed on 6 Oct; next is the seen-posts
+  trim (item 4).
 - Watch the 10 Oct memo as the first real test of the schedule and the skip
   rule, then judge whether the 4-day rule suits a Saturday cadence.
 - Concentration: four of five calls are memory. A non-memory name on the
@@ -134,7 +136,7 @@ change in plain language.
 ```
 desk/analysts.json    the roster (edit to add/drop an analyst)
 desk/collect.py       every 6h: timelines + Telegram inbox -> desk/store/posts/
-desk/prices.py        price snapshot from the Google Sheet -> desk/store/prices/
+desk/prices.py        price snapshot from the Google Sheet -> desk/store/prices/ (memo) and prices_latest.json (collector)
 desk/prep.py          bundle a window of posts -> desk/store/reading.md
 desk/build.py         validate memos, keep the scorecard, write desk.js
 desk/send.py          send a text file to the operator's Telegram
