@@ -10,7 +10,9 @@ written by build.py from the latest memo and any event update since):
     hold   up to stopAbove        above the zone but not stretched
     above  price >  stopAbove     stop adding
 
-An alert goes to Telegram only when a name moves from one zone to another.
+An alert goes to Telegram only when a name moves from one zone to another, and
+only once it is more than 1.5% past the line it crossed (so a price sitting on a
+line does not alert every run).
 The first check after new levels records the starting zone silently (the memo
 already said where it stood). Every alert is logged to desk/store/alerts.json
 and shows on the Desk page.
@@ -24,6 +26,8 @@ from common import STATE_FILE, STORE, Telegram, load_env, load_json, now_iso, sa
 
 LEVELS = STORE / "levels.json"
 ALERT_LOG = STORE / "alerts.json"
+BUFFER = 0.015
+ORDER = ["add", "buy", "hold", "above"]
 SYMBOL = {"USD": "$", "KRW": "₩", "EUR": "€", "GBP": "£", "SEK": "SEK ", "JPY": "¥", "TWD": "NT$"}
 
 
@@ -41,6 +45,20 @@ def zone_of(price, lv):
     if price <= top:
         return "hold"
     return "above"
+
+
+def settled_zone(price, lv, prev):
+    """The zone to report, given the zone last recorded. Leaving `prev` needs the
+    price to clear the line it crossed by BUFFER; otherwise it stays in `prev`."""
+    raw = zone_of(price, lv)
+    if prev not in ORDER or raw == prev:
+        return raw
+    top = lv.get("stopAbove") or lv["buyBelow"]
+    bounds = [lv["addBelow"] if lv.get("addBelow") is not None else float("-inf"), lv["buyBelow"], top]
+    i = ORDER.index(prev)
+    if ORDER.index(raw) > i:                        # moving up, out of prev
+        return raw if price > bounds[i] * (1 + BUFFER) else prev
+    return raw if price < bounds[i - 1] * (1 - BUFFER) else prev    # moving down
 
 
 def message(lv, zone, price):
@@ -75,10 +93,11 @@ def check(snapshot, state, levels):
         if ccy and lv.get("currency") and ccy != lv["currency"]:
             out.append({"ticker": t, "error": "currency mismatch: sheet {} vs levels {}".format(ccy, lv["currency"])})
             continue
-        z = zone_of(price, lv)
         prev = zones.get(t)
+        same = bool(prev) and prev.get("source") == lv.get("source")
+        z = settled_zone(price, lv, prev["zone"]) if same else zone_of(price, lv)
         zones[t] = {"zone": z, "source": lv.get("source"), "price": price, "at": now_iso()}
-        if not prev or prev.get("source") != lv.get("source"):
+        if not same:
             continue                      # new levels: record the starting zone silently
         if prev["zone"] != z:
             out.append({"ticker": t, "name": lv["name"], "from": prev["zone"], "to": z, "price": price,

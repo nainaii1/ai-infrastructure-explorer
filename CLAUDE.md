@@ -67,26 +67,67 @@ no bot process to crash.
 The operator does not use a terminal. Run the commands for him and describe the
 change in plain language.
 
-## Current status (handover, 2 Oct 2026)
+## Current status (handover, 5 Oct 2026)
 
-- **Memos:** 24 Sep (trial) and 2 Oct (run by hand). The scheduled 26 Sep
-  run failed: the account hit its monthly spend limit mid-run (not a desk
-  bug). Tomorrow's scheduled run will skip itself (memo under 4 days old).
-- **Events:** Micron 1 Oct update ran on schedule and confirmed the call.
-- **Scorecard (open):** SK hynix ₩1,862,000, Micron $1,071.88, Sandisk
-  $1,816.57, Coherent $300.60 (all 24 Sep), Samsung ₩276,000 (2 Oct). Micron's
-  zone reset to ≤ $1,443 (8x forward after estimates rose). Four of five calls
-  are memory: one risk bucket.
-- **Alerts:** Coherent went into and out of its zone 28–29 Sep (both alerts
-  sent). Levels re-baseline silently from the 2 Oct memo.
-- **Track record:** 54 stance records; one week of data, too early to judge.
+- **Checks:** `check.py` 0 errors (9 warnings: FN, ANET, CRDO, ASX, LRCX, KLAC,
+  CEG, VRT, ETN have no sourced facts yet); `build.py` no errors.
+- **Memos:** 24 Sep (trial) and 2 Oct (by hand). The 3 Oct scheduled run
+  skipped itself (memo under 4 days old), as designed. The 26 Sep run had
+  failed on the account's monthly spend limit, not a desk bug. **First full
+  scheduled memo: Sat 10 Oct, 10:04 MYT.** If the spend limit is hit again it
+  fails again, so check the limit before Friday.
+- **Scorecard (5 open, against the sheet on 5 Oct, vs the price at opening):**
+  Micron $1,074.89 (+0.3%), SK hynix ₩1,841,000 (-1.1%), Sandisk $1,719.99
+  (-5.3%), Samsung ₩276,000 (0.0%, opened 2 Oct), Coherent $337.04 (+12.1%).
+  Four of five are memory: one risk bucket. Returns are not compared with SMH
+  here; the Desk tab does that.
+- **Alert zones now:** Micron, SK hynix, Samsung, Sandisk are all inside the
+  accumulate zone (none in the "add" zone). Coherent is above its stop-adding
+  level of $283 (since 29 Sep). Intel is a watch name at $119.33, above its
+  $98 revisit level.
+- **Events:** Micron 1 Oct update confirmed the call. Next: SK hynix Q3 ~27 Oct
+  (expected), Fed 28 Oct, Samsung Q3 ~29 Oct (expected).
 - **Running:** collector every 6h (alerts inside), nightly private backup,
-  Telegram bot linked, daily digest Sun–Fri 11:00 MYT running.
-- **Next up:** SK hynix Q3 ~27 Oct (expected), Fed 28 Oct, Samsung Q3 ~29 Oct
-  (expected); first full scheduled memo Sat 10 Oct.
-- **Known limits:** subscriber posts need text or a screenshot and a link
-  (two 28 Sep forwards arrived without one); Vicor, FormFactor, Cerebras and
-  CXMT have no sheet price; returns are local currency against USD SMH.
+  daily digest Sun-Fri 11:00 MYT, weekly memo Sat 10:04 MYT. Both launchd jobs
+  loaded and last exited 0.
+- **Known limits:** subscriber posts need text or a screenshot and a link;
+  Vicor, FormFactor, Cerebras and CXMT have no sheet price; the Mac must be
+  awake for the collector (no price file for 4 Oct, so no run that day).
+
+### Review of 5 Oct (what to know, in order of weight)
+
+1. **FIXED 5 Oct: a hung collector used to block every later run.** `collect.py`
+   now has a 3-minute limit per step (one timeline, the Telegram inbox, the
+   alert check) and a 15-minute backstop that ends the whole process, so
+   launchd can start the next run. If the backstop fires nothing is saved and
+   the next run collects the same posts again. The Telegram read position now
+   moves only after the inbox is fully handled, so a cut-short run loses no
+   forwarded messages.
+2. **FIXED 5 Oct: alerts have a 1.5% buffer.** A name changes zone only once it
+   is 1.5% past the line it crossed (`BUFFER` in `desk/alerts.py`).
+3. **Price snapshots are overwritten.** `prices.py` keeps one file per day and
+   every collector run replaces it, so "the price the memo used" can drift
+   a few hours. Its docstring still says "run by the memo, not on a timer".
+   Scorecard opening prices are frozen at first build, so past calls are safe.
+4. **Latent bug, not urgent:** `collect.py` trims the seen-posts list with
+   `list(set)[-20000:]`, which drops random IDs, not the oldest. It holds 1,544
+   now, so it bites in months, as duplicate posts.
+5. **Backup failure message is vague.** `backup.py` reports "exit status 1",
+   not git's reason. It does refuse to push unless the repo is private.
+6. **Clean:** nothing private is tracked by git; the sheet's public CSV holds
+   prices only (no holdings or balances); page text is escaped on render.
+
+### Direction
+
+- Near term: items 1 and 2 are fixed; next is the snapshot overwrite (item 3),
+  then the seen-posts trim (item 4).
+- Watch the 10 Oct memo as the first real test of the schedule and the skip
+  rule, then judge whether the 4-day rule suits a Saturday cadence.
+- Concentration: four of five calls are memory. A non-memory name on the
+  list, or a stated cap, would make the book less one-bet.
+- Guide: fill the 9 sourced-fact gaps only when a development earns it
+  (`log-development`); do not pad.
+- Track record is still one week of data: do not read the analyst scores yet.
 
 ## Desk files
 

@@ -15,8 +15,12 @@ long-running bot to crash.
     python3 desk/collect.py --days 14  backfill further on a first run
 """
 import argparse
+import os
 import re
+import signal
 import sys
+import threading
+from contextlib import contextmanager
 from datetime import datetime, timedelta, timezone
 
 from common import (MEDIA_DIR, POSTS_DIR, STATE_FILE, DESK, Telegram,
@@ -28,6 +32,38 @@ STATUS_RE = re.compile(r"(?:twitter\.com|x\.com|fxtwitter\.com|fixupx\.com)/([A-
 MAX_PAGES = 6
 FAIL_ALERT_AFTER = 2      # consecutive failed runs (~12 hours) before a Telegram alert
 SEEN_CAP = 20000
+RUN_LIMIT = 15 * 60       # whole run; past this the process exits so launchd can start the next one
+STAGE_LIMIT = 180         # one timeline, the Telegram inbox, or the alert check
+
+
+# ---------------------------------------------------------------- time limits
+
+@contextmanager
+def stage_limit(seconds, what):
+    """Raise TimeoutError if the block runs longer than `seconds`, so one stuck
+    step is skipped like any other failure and the rest of the run goes on."""
+    def on_alarm(signum, frame):
+        raise TimeoutError("{} took over {}s".format(what, seconds))
+    old = signal.signal(signal.SIGALRM, on_alarm)
+    signal.alarm(seconds)
+    try:
+        yield
+    finally:
+        signal.alarm(0)
+        signal.signal(signal.SIGALRM, old)
+
+
+def start_watchdog():
+    """Last resort: a call stuck below Python's reach (a DNS lookup after the Mac
+    wakes) cannot be interrupted by a signal. launchd will not start a second
+    copy while this one lives, so after RUN_LIMIT the process ends itself.
+    Nothing is saved on this path; the next run collects the same posts again."""
+    def stop():
+        print("collector ran over {}s and was stopped; nothing saved this run".format(RUN_LIMIT), flush=True)
+        os._exit(3)
+    t = threading.Timer(RUN_LIMIT, stop)
+    t.daemon = True
+    t.start()
 
 
 # ---------------------------------------------------------------- shaping
@@ -257,8 +293,6 @@ def collect_telegram(tg, state):
     recs = []
     offset = state.get("tgOffset")
     updates = tg.call("getUpdates", offset=offset, timeout=0, allowed_updates=["message"])
-    if updates:
-        state["tgOffset"] = updates[-1]["update_id"] + 1
     for u in pair_messages(updates):
         msg = u.get("message")
         if not msg:
@@ -280,6 +314,8 @@ def collect_telegram(tg, state):
         recs.extend(new)
         if reply:
             tg.send(chat, reply, reply_to=msg.get("message_id"))
+    if updates:                   # only now: a run cut short re-reads the same messages next time
+        state["tgOffset"] = updates[-1]["update_id"] + 1
     return recs
 
 
@@ -292,6 +328,7 @@ def main():
     ap.add_argument("--no-telegram", action="store_true")
     args = ap.parse_args()
 
+    start_watchdog()
     state = load_json(STATE_FILE, {})
     first_run = not state.get("seen")
     days = max(args.days, 14 if first_run else 0)
@@ -307,7 +344,8 @@ def main():
     for a in roster:
         h = a["handle"]
         try:
-            got = collect_timeline(h, cutoff, seen)
+            with stage_limit(STAGE_LIMIT, "@" + h):
+                got = collect_timeline(h, cutoff, seen)
             collected.extend(got)
             fails[h] = 0
             print("@{}: {} new".format(h, len(got)))
@@ -319,7 +357,8 @@ def main():
 
     if tg and not args.no_telegram:
         try:
-            got = collect_telegram(tg, state)
+            with stage_limit(STAGE_LIMIT, "telegram inbox"):
+                got = collect_telegram(tg, state)
             collected.extend(got)
             print("telegram: {} saved".format(len(got)))
         except Exception as e:
@@ -330,7 +369,8 @@ def main():
     if not args.no_telegram:
         try:
             import alerts
-            alerts.run(tg=tg, state=state)       # price zones from the latest memo
+            with stage_limit(STAGE_LIMIT, "price alerts"):
+                alerts.run(tg=tg, state=state)   # price zones from the latest memo
         except Exception as e:
             print("alerts: FAILED ({})".format(e))
             problems.append("price alerts could not run: {}".format(e))
