@@ -6,7 +6,7 @@ window.DATA =
 {
   "meta": {
     "title": "AI Infrastructure Explorer",
-    "updated": "2026-10-10",
+    "updated": "2026-10-15",
     "disclaimer": "Research notes, not investment advice. Figures are as reported by the cited source on the stated date."
   },
 
@@ -195,7 +195,8 @@ window.DATA =
       "watch": "Backlog growth, debt terms, and customer concentration.",
       "facts": [
         {"text": "Backlog around $104bn plus more than $25bn of new agreements signed in early Q3.", "asOf": "2026-08-11", "source": "https://x.com/aleabitoreddit/status/2091909391238979970"},
-        {"text": "Signing contracts for six-year-old A100 GPUs.", "asOf": "2026-08-16", "source": "https://x.com/aleabitoreddit/status/2091909391238979970"}
+        {"text": "Signing contracts for six-year-old A100 GPUs.", "asOf": "2026-08-16", "source": "https://x.com/aleabitoreddit/status/2091909391238979970"},
+        {"text": "Unsecured bonds touched a 15% yield and closed at a record high yield on 13 Oct.", "asOf": "2026-10-13", "source": "https://finance.yahoo.com/markets/stocks/articles/coreweave-falls-10-bond-yield-133340821.html"}
       ]
     },
     {
@@ -459,9 +460,10 @@ window.DATA =
       "role": "The standing bear case against the memory trade: capacity added here is what would relieve the allocation squeeze the Korean and US makers' pricing depends on.",
       "bull": "Domestic demand and state support give it a protected market to scale in.",
       "bear": "Listed at a valuation that priced years of growth on day one.",
-      "watch": "HBM qualification with Chinese accelerator makers; DRAM output growth.",
+      "watch": "HBM qualification with Chinese accelerator makers; DRAM output growth; whether its 4F² server DDR5 ships at volume with customer qualification.",
       "facts": [
-        {"text": "IPO day-one move of about 470%, to roughly $487bn from $85.5bn.", "asOf": "2026-07-29", "source": "https://x.com/aleabitoreddit/status/2092723047107355133"}
+        {"text": "IPO day-one move of about 470%, to roughly $487bn from $85.5bn.", "asOf": "2026-07-29", "source": "https://x.com/aleabitoreddit/status/2092723047107355133"},
+        {"text": "Says it has made key progress on a 4F² DRAM cell (about 33% smaller cell area than 6F²) and plans a server DDR5 RDIMM using it by end-2026; yields and volumes undisclosed.", "asOf": "2026-10-10", "source": "https://www.ibtimes.com.au/micron-sk-hynix-shares-fall-cxmt-denser-dram-1876576"}
       ]
     },
 
@@ -530,7 +532,8 @@ window.DATA =
       "bear": "China revenue exposure to export controls; orders are lumpy.",
       "watch": "High-NA adoption and export-control changes.",
       "facts": [
-        {"text": "Mapped as a European monopoly in EUV alongside Zeiss SMT and Trumpf; a Japanese cluster holds 90-100% share in EUV photoresist, coat and develop, mask inspection and blanks.", "asOf": "2026-09-04", "source": "https://x.com/aleabitoreddit/status/2095823005595439615"}
+        {"text": "Mapped as a European monopoly in EUV alongside Zeiss SMT and Trumpf; a Japanese cluster holds 90-100% share in EUV photoresist, coat and develop, mask inspection and blanks.", "asOf": "2026-09-04", "source": "https://x.com/aleabitoreddit/status/2095823005595439615"},
+        {"text": "Q3 2026 net sales €11.7bn, gross margin 57.5%; full-year 2026 guided to €44-45bn. Planned supply for 2027 and 2028 will not fully meet customer demand; studying capacity for 2028 beyond the 30% increase already announced.", "asOf": "2026-10-14", "source": "https://www.sec.gov/Archives/edgar/data/0000937966/000162828026065813/pressreleasefinancialresul.htm"}
       ]
     },
     {
@@ -769,6 +772,9 @@ window.DATA =
   ],
 
   "developments": [
+    {"date": "2026-10-14", "title": "ASML: record Q3 at €11.7bn; planned 2027 and 2028 supply will not fully meet demand", "summary": "Gross margin was 57.5% and full-year 2026 sales were narrowed to €44-45bn; ASML is studying capacity for 2028 beyond the 30% increase already planned. Lithography joins memory and lasers as a constraint that runs into 2028, yet chip stocks fell the same week.", "companies": ["ASML", "TSM", "005930.KS", "000660.KS"], "narratives": ["memory-squeeze"], "sourceType": "filing", "source": "https://www.sec.gov/Archives/edgar/data/0000937966/000162828026065813/pressreleasefinancialresul.htm"},
+    {"date": "2026-10-13", "title": "CoreWeave's unsecured bonds touch a 15% yield and close at a record", "summary": "The reference neocloud's unsecured debt now prices like distressed credit, and Nebius and Oracle fell in sympathy. The cost of funding the build-out, not demand for it, is now the visible risk at the edge.", "companies": ["CRWV", "NBIS", "ORCL"], "narratives": ["financing"], "sourceType": "press", "source": "https://finance.yahoo.com/markets/stocks/articles/coreweave-falls-10-bond-yield-133340821.html"},
+    {"date": "2026-10-10", "title": "CXMT claims key progress on 4F² DRAM and targets a server DDR5 module by end-2026", "summary": "The denser cell cuts cell area by about 33% versus today's 6F² layout; yields, volumes and qualification are undisclosed. Memory stocks fell 3-4% on the day, though CXMT is moving to 4F² partly because it cannot buy EUV tools.", "companies": ["CXMT", "MU", "000660.KS", "005930.KS"], "narratives": ["memory-squeeze", "china"], "sourceType": "press", "source": "https://www.ibtimes.com.au/micron-sk-hynix-shares-fall-cxmt-denser-dram-1876576"},
     {"date": "2026-10-09", "title": "Lumentum CEO: optical components effectively sold out through early 2029", "summary": "On Bloomberg TV the CEO said some products will be about 70% short of demand next year and others about 30% short through 2028, with new capacity taking years to qualify. The laser shortage now runs a year further out than the April comment of sold out through 2028.", "companies": ["LITE", "COHR", "AAOI"], "narratives": ["laser-shortage"], "sourceType": "press", "source": "https://www.benzinga.com/trading-ideas/movers/26/10/62270069/lumentum-stock-rises-after-ceo-says-ai-demand-has-the-company-sold-out-through-early-2029"},
     {"date": "2026-10-08", "title": "Samsung guides Q3 operating profit to about 107.4 trillion won on 195 trillion won of sales", "summary": "A record, about 20% above the April-June quarter, led by memory including HBM. The largest memory maker's profit confirms the squeeze, though sales came in a little under consensus.", "companies": ["005930.KS", "000660.KS", "MU"], "narratives": ["memory-squeeze"], "sourceType": "company", "source": "https://news.samsung.com/global/samsung-electronics-announces-earnings-guidance-for-third-quarter-2026"},
     {"date": "2026-10-07", "title": "Micron's Taoyuan union wins strike authorisation: 1,994 of 2,012 votes", "summary": "The dispute is over bonuses against Samsung and SK hynix profit-sharing; no strike date is set. Taiwan makes much of Micron's DRAM and HBM, so a stoppage would be a new supply risk.", "companies": ["MU"], "narratives": ["memory-squeeze"], "sourceType": "press", "source": "https://www.thestar.com.my/tech/tech-news/2026/10/07/micron039s-taoyuan-union-in-taiwan-secures-authorisation-to-strike"},
