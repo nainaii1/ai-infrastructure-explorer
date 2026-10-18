@@ -99,14 +99,25 @@ Valid JSON, this shape (`desk/build.py` validates it):
   companies plus any ticker an analyst argues for. Carry last week's names
   forward unless the reading changed; say why when an action changes. Removing
   an `accumulate` closes its scorecard call, so do it on purpose.
-- **Zone and levels.** The zone is derived from the sheet price and a
-  valuation anchor, stated as the logic. `levels` carries the same numbers for
+- **Zone and levels (support + valuation, since 18 Oct 2026).** Run
+  `python3 desk/support.py` for daily swing-low floors from the sheet's
+  `price_history` tab (add a six-column block there for any new name). The
+  buy line sits 3% above the floor the stock is testing; the add line is the
+  next floor down; stop adding at the valuation ceiling (a sourced forward
+  multiple). Take the lower of support and valuation; when the nearest floor
+  is far away (a gap), valuation sets the buy line. State a "support broken"
+  close in the zone text. The zone is stated as the logic. `levels` carries the same numbers for
   the price alerts: `buyBelow` (top of the accumulate zone), `addBelow` (the
   add-on-a-drop level), `stopAbove` (stop adding; defaults to `buyBelow`),
   in the sheet's currency for that ticker. Required for every `accumulate`
   name; optional for `watch` names with a revisit level. The numbers must
   appear in the zone text too. Never invent a price the sheet or a source
   doesn't give you.
+- **Holdings.** `desk/store/holdings.json` (private) lists names the operator
+  already holds. Each gets an accumulate-list row with action `holding`:
+  support-based levels and alerts, a short thesis and invalidation, no
+  scorecard call, and no four-test requirement. Never name holdings in
+  `data.js`, commit messages or anything public.
 - **Events since the last memo.** Read `desk/memos/events/`. An event marked
   `breaks` means that call should close this week unless you explain why not.
 - **Board.** Tickers where an analyst took a clear stance in the window; each

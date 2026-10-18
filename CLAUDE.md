@@ -137,6 +137,7 @@ change in plain language.
 desk/analysts.json    the roster (edit to add/drop an analyst)
 desk/collect.py       every 6h: timelines + Telegram inbox -> desk/store/posts/
 desk/prices.py        price snapshot from the Google Sheet -> desk/store/prices/ (memo) and prices_latest.json (collector)
+desk/support.py       chart floors from the sheet's price_history tab (gid 175825543) for support-based levels
 desk/prep.py          bundle a window of posts -> desk/store/reading.md
 desk/build.py         validate memos, keep the scorecard, write desk.js
 desk/send.py          send a text file to the operator's Telegram
@@ -149,6 +150,7 @@ desk/memos/events/    event updates between memos (<date>-<ticker>.json)
 desk/store/calls.json the scorecard: opened/closed only by build.py, never by hand
 desk/store/stances.json analyst track record: one row per stance run, never by hand
 desk/store/levels.json  alert levels (latest memo + later events), built by build.py
+desk/store/holdings.json the operator's holdings (tickers only, private): action "holding", levels + alerts, never scored
 desk/store/alerts.json  every alert sent
 ```
 

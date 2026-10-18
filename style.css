@@ -174,7 +174,7 @@ main { padding: 24px 16px 48px; }
 .conf { font-size: 12px; color: var(--muted); }
 .pill.act-accumulate { color: var(--bull); border-color: var(--bull); }
 .pill.act-trim, .pill.act-avoid { color: var(--bear); border-color: var(--bear); }
-.pill.act-watch { color: var(--accent); border-color: var(--accent); }
+.pill.act-watch, .pill.act-holding { color: var(--accent); border-color: var(--accent); }
 .thesis { color: var(--ink); }
 .kv { display: grid; grid-template-columns: 140px 1fr; gap: 4px 14px; margin: 0 0 8px; font-size: 14px; }
 .kv dt { color: var(--muted); font-size: 12.5px; padding-top: 1px; }
