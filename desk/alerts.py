@@ -64,7 +64,7 @@ def settled_zone(price, lv, prev):
 def message(lv, zone, price):
     n, c, act = lv["name"], lv["currency"], lv.get("action")
     p = money(price, c)
-    if act != "accumulate":
+    if act not in ("accumulate", "holding"):
         if zone in ("add", "buy"):
             return "{} is at {}, at or below the memo's revisit level of {}. It is a watch name, not a call: the next memo decides.".format(
                 n, p, money(lv["buyBelow"], c))
