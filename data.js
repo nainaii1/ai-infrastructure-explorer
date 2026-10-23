@@ -6,7 +6,7 @@ window.DATA =
 {
   "meta": {
     "title": "AI Infrastructure Explorer",
-    "updated": "2026-10-15",
+    "updated": "2026-10-24",
     "disclaimer": "Research notes, not investment advice. Figures are as reported by the cited source on the stated date."
   },
 
@@ -475,6 +475,7 @@ window.DATA =
       "bear": "Geopolitics, and an upstream chokepoint of its own in Japanese and Chinese materials such as tungsten hexafluoride.",
       "watch": "Intel 18A or Samsung winning a named AI customer; a capex cut, which would say TSMC doubts the 2027 demand its customers guide to.",
       "facts": [
+        {"text": "Q3 2026 revenue NT$1,494.24bn (US$46.72bn), up 50.9% year on year in NT$; gross margin 66.4%. Q4 guided to US$52.3-54.3bn at a 65-67% gross margin.", "asOf": "2026-10-15", "source": "https://www.sec.gov/Archives/edgar/data/0001046179/000104617926000726/a3q26e_withguidancexfinal.htm"},
         {"text": "VP of Advanced Packaging: foundries can scale the optical engine, but the real bottlenecks to large-scale deployment are lasers, optical fibre, fibre-optic connectors and test.", "asOf": "2026-08-31", "source": "https://x.com/aleabitoreddit/status/2094298008955535500"},
         {"text": "Price increases of about 10% cited at a market value near $1.9T.", "asOf": "2026-06-27", "source": "https://x.com/aleabitoreddit/status/2092723047107355133"}
       ]
@@ -510,6 +511,7 @@ window.DATA =
       "bear": "OSAT margins; the capacity arrives in 2027-2028, not now.",
       "watch": "Arizona line timing and utilisation.",
       "facts": [
+        {"text": "Plans a more than 300% increase in interposer wafer capacity, plus new facilities in South Korea, by the end of 2028 under its NVIDIA agreement.", "asOf": "2026-10-21", "source": "https://nvidianews.nvidia.com/news/nvidia-and-supply-chain-partners-expand-capacity-to-accelerate-ai-infrastructure-buildout"},
         {"text": "OSAT providers have warned clients that traditional packaging capacity could face a deficit exceeding 20% by 2027.", "asOf": "2026-08-29", "source": "https://x.com/aleabitoreddit/status/2093712497949950242"},
         {"text": "NVIDIA committed $1.5bn in prepayments for US capacity including Arizona; ten-year TSMC packaging partnership.", "asOf": "2026-08-03", "source": "https://x.com/aleabitoreddit/status/2092723047107355133"}
       ]
@@ -521,7 +523,9 @@ window.DATA =
       "bull": "Packaging is the binding constraint on accelerator supply and ASE has the most of it.",
       "bear": "Capital-intensive, and the highest-value packaging stays inside TSMC.",
       "watch": "Advanced packaging capacity additions and pricing.",
-      "facts": []
+      "facts": [
+        {"text": "Subsidiary SPIL targets a 15x increase in co-packaged optics engine capacity by mid-2027 for NVIDIA, and aims to double it again by end-2028.", "asOf": "2026-10-21", "source": "https://nvidianews.nvidia.com/news/nvidia-and-supply-chain-partners-expand-capacity-to-accelerate-ai-infrastructure-buildout"}
+      ]
     },
 
     {
@@ -772,6 +776,9 @@ window.DATA =
   ],
 
   "developments": [
+    {"date": "2026-10-21", "title": "NVIDIA signs capacity deals across substrates, packaging, test and optics: substrates 2.5x in three years, CPO engines 15x by mid-2027", "summary": "IBIDEN, Samsung Electro-Mechanics and Unimicron expand substrates, Amkor adds more than 300% interposer capacity by end-2028, KYEC takes a $1.1bn advance for US test, and ASE's SPIL scales co-packaged optics engines 15x. NVIDIA is prepaying for the steps after the wafer, which says those, not GPUs, now set how fast it can ship.", "companies": ["NVDA", "AMKR", "ASX", "TSM"], "narratives": ["packaging", "copper-to-optics"], "sourceType": "company", "source": "https://nvidianews.nvidia.com/news/nvidia-and-supply-chain-partners-expand-capacity-to-accelerate-ai-infrastructure-buildout"},
+    {"date": "2026-10-21", "title": "Meta narrows 2026 capex to $135-145bn and creates a non-voting Class C stock that it can use to raise capital", "summary": "Q3 revenue was $64.6bn, up 26%, but capex of $34.9bn left free cash flow at negative $2.1bn, and the new share class gives Meta a way to raise equity without diluting control. A hyperscaler preparing to fund the build-out with stock moves the financing question from neoclouds to the top of the buyer list.", "companies": ["META"], "narratives": ["financing"], "sourceType": "press", "source": "https://siliconangle.com/2026/10/21/meta-beats-on-revenue-and-splits-its-stock-two-for-one-with-non-voting-class-c-shares/"},
+    {"date": "2026-10-15", "title": "TSMC Q3 revenue US$46.72bn, up 41% in dollars; Q4 guided to US$52.3-54.3bn", "summary": "Gross margin was 66.4% and net income rose 68.7% year on year; the Q4 guide implies another step up. The foundry every accelerator passes through reported no sign of the slowdown the market sold on that week.", "companies": ["TSM", "NVDA", "AVGO", "AMD"], "narratives": ["packaging"], "sourceType": "filing", "source": "https://www.sec.gov/Archives/edgar/data/0001046179/000104617926000726/a3q26e_withguidancexfinal.htm"},
     {"date": "2026-10-14", "title": "ASML: record Q3 at €11.7bn; planned 2027 and 2028 supply will not fully meet demand", "summary": "Gross margin was 57.5% and full-year 2026 sales were narrowed to €44-45bn; ASML is studying capacity for 2028 beyond the 30% increase already planned. Lithography joins memory and lasers as a constraint that runs into 2028, yet chip stocks fell the same week.", "companies": ["ASML", "TSM", "005930.KS", "000660.KS"], "narratives": ["memory-squeeze"], "sourceType": "filing", "source": "https://www.sec.gov/Archives/edgar/data/0000937966/000162828026065813/pressreleasefinancialresul.htm"},
     {"date": "2026-10-13", "title": "CoreWeave's unsecured bonds touch a 15% yield and close at a record", "summary": "The reference neocloud's unsecured debt now prices like distressed credit, and Nebius and Oracle fell in sympathy. The cost of funding the build-out, not demand for it, is now the visible risk at the edge.", "companies": ["CRWV", "NBIS", "ORCL"], "narratives": ["financing"], "sourceType": "press", "source": "https://finance.yahoo.com/markets/stocks/articles/coreweave-falls-10-bond-yield-133340821.html"},
     {"date": "2026-10-10", "title": "CXMT claims key progress on 4F² DRAM and targets a server DDR5 module by end-2026", "summary": "The denser cell cuts cell area by about 33% versus today's 6F² layout; yields, volumes and qualification are undisclosed. Memory stocks fell 3-4% on the day, though CXMT is moving to 4F² partly because it cannot buy EUV tools.", "companies": ["CXMT", "MU", "000660.KS", "005930.KS"], "narratives": ["memory-squeeze", "china"], "sourceType": "press", "source": "https://www.ibtimes.com.au/micron-sk-hynix-shares-fall-cxmt-denser-dram-1876576"},
