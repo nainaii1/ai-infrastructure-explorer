@@ -38,7 +38,7 @@ WORTH KNOWING
 ON THE LIST
 • MU: two analysts more bullish after … / nothing new
 
-QUIET: @dylan522p, @damnang2
+QUIET: @SemiAnalysis_, @damnang2
 ```
 
 Skip reposts of news everyone has. Prefer new numbers, stance changes, and

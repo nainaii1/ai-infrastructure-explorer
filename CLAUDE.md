@@ -67,69 +67,83 @@ no bot process to crash.
 The operator does not use a terminal. Run the commands for him and describe the
 change in plain language.
 
-## Current status (handover, 5 Oct 2026)
+## Current status (handover, 24 Oct 2026)
 
-- **Checks:** `check.py` 0 errors (9 warnings: FN, ANET, CRDO, ASX, LRCX, KLAC,
-  CEG, VRT, ETN have no sourced facts yet); `build.py` no errors.
-- **Memos:** 24 Sep (trial) and 2 Oct (by hand). The 3 Oct scheduled run
-  skipped itself (memo under 4 days old), as designed. The 26 Sep run had
-  failed on the account's monthly spend limit, not a desk bug. **First full
-  scheduled memo: Sat 10 Oct, 10:04 MYT.** If the spend limit is hit again it
-  fails again, so check the limit before Friday.
-- **Scorecard (5 open, against the sheet on 5 Oct, vs the price at opening):**
-  Micron $1,074.89 (+0.3%), SK hynix ₩1,841,000 (-1.1%), Sandisk $1,719.99
-  (-5.3%), Samsung ₩276,000 (0.0%, opened 2 Oct), Coherent $337.04 (+12.1%).
-  Four of five are memory: one risk bucket. Returns are not compared with SMH
-  here; the Desk tab does that.
-- **Alert zones now:** Micron, SK hynix, Samsung, Sandisk are all inside the
-  accumulate zone (none in the "add" zone). Coherent is above its stop-adding
-  level of $283 (since 29 Sep). Intel is a watch name at $119.33, above its
-  $98 revisit level.
-- **Events:** Micron 1 Oct update confirmed the call. Next: SK hynix Q3 ~27 Oct
-  (expected), Fed 28 Oct, Samsung Q3 ~29 Oct (expected).
-- **Running:** collector every 6h (alerts inside), nightly private backup,
-  daily digest Sun-Fri 11:00 MYT, weekly memo Sat 10:04 MYT. Both launchd jobs
-  loaded and last exited 0.
+- **Checks:** `check.py` 0 errors (8 warnings: FN, ANET, CRDO, LRCX, KLAC, CEG,
+  VRT, ETN have no sourced facts yet; ASX got its first on 24 Oct); `build.py`
+  no errors.
+- **Memos:** 24 Sep (trial), 2 Oct, 10 Oct (scheduled), 15 Oct and 24 Oct (both
+  by hand). The 3 Oct and 17 Oct scheduled runs skipped themselves (memo under
+  4 days old), as designed. The 24 Oct memo ran at 02:30 MYT, so that day's
+  10:04 scheduled run skips too. **Next scheduled memo: Sat 31 Oct, 10:04
+  MYT**, after SK hynix, Sandisk, Intel and Samsung have reported. The 26 Sep
+  run failed on the account's monthly spend limit, so check the limit before
+  Friday.
+- **Scorecard (vs the price at opening; sheet snapshot of 23 Oct; SMH -12.2%
+  since 24 Sep):** Micron $883.44 (-17.6%), Sandisk $1,260.13 (-30.6%),
+  Coherent $210.01 (-30.1%), Samsung ₩215,500 (-21.9%, opened 2 Oct; SMH
+  -14.5% since then). TSMC opened 24 Oct at $416.87. **Closed:** SK hynix on
+  24 Oct at ₩1,277,000 (-31.4%), moved to watch until its 28 Oct results (the
+  list keeps at most five accumulate names). Every open call trails SMH.
+- **Alert levels (buy / add / stop adding, 24 Oct memo):** Micron $880 / $804
+  / $1,411; Samsung ₩210,600 / ₩189,200 / ₩316,000; Sandisk $1,290 / $998 /
+  $1,934; Coherent $211 / $175 / $282; TSMC $420 / $386 / $469; SK hynix is a
+  watch name with a ₩1,283,000 revisit level. Sandisk and Coherent broke their
+  chart floors on 22 Oct and their lines were reset. Holdings have their own
+  levels in the memo (never name them here).
+- **Events ahead:** SK hynix 28 Oct (results before 9:00 Seoul, call at 9:00),
+  Fed 28 Oct, Microsoft and Alphabet 28 Oct (expected), Sandisk and Intel 29
+  Oct, Amazon 29 Oct (expected), Samsung about 30 Oct (expected), Coherent 4
+  Nov, Lumentum 5 Nov. A holding has a decision deadline on 29 Oct (see the
+  24 Oct memo's flags). The daily digest triggers event updates from the
+  memo's calendar.
+- **Running:** collector every 6h (alerts inside; last launchd run 19:24 MYT on
+  23 Oct, plus a manual run at 02:24 MYT on 24 Oct), daily digest Sun-Fri
+  11:00 MYT, weekly memo Sat 10:04 MYT. The nightly backup **failed at 23:33
+  on 23 Oct** at `gh repo view` (exit 1, no reason logged); `gh` was logged in
+  fine at 03:45 and a manual run on 24 Oct pushed. Check that night's run.
+- **Sheet:** TSMC was added to the `price_history` tab on 24 Oct (columns
+  BS-BX). The tab has 80 columns, so the next block needs columns added first.
+  The main tab's `Chg1W` column currently measures from about 12 days back
+  (the 12 Oct close at the 23 Oct snapshot), not 7; the memo text uses the
+  change since the last memo's snapshot instead.
 - **Known limits:** subscriber posts need text or a screenshot and a link;
-  Vicor, FormFactor, Cerebras and CXMT have no sheet price; the Mac must be
-  awake for the collector (no price file for 4 Oct, so no run that day).
+  CXMT has no sheet price; the Mac must be awake for the collector; fxtwitter
+  returns occasional 404s (four accounts failed once on 23 Oct, then
+  recovered). In Claude's browser pane a `file://` page is a static snapshot
+  with no scripts, so check the page through the `explorer` preview server
+  (port 8791, `.claude/launch.json`).
 
-### Review of 5 Oct (what to know, in order of weight)
+### Open issues (24 Oct)
 
-1. **FIXED 5 Oct: a hung collector used to block every later run.** `collect.py`
-   now has a 3-minute limit per step (one timeline, the Telegram inbox, the
-   alert check) and a 15-minute backstop that ends the whole process, so
-   launchd can start the next run. If the backstop fires nothing is saved and
-   the next run collects the same posts again. The Telegram read position now
-   moves only after the inbox is fully handled, so a cut-short run loses no
-   forwarded messages.
-2. **FIXED 5 Oct: alerts have a 1.5% buffer.** A name changes zone only once it
-   is 1.5% past the line it crossed (`BUFFER` in `desk/alerts.py`).
-3. **FIXED 6 Oct: memo price snapshots are frozen.** `desk/store/prices/<date>.json`
-   is now written only by a memo run of `prices.py`; the collector refreshes
-   `desk/store/prices_latest.json` instead, and alerts plus the scorecard's
-   "now" prices read that. Dated files before 6 Oct were overwritten by the
-   collector and cannot be recovered; scorecard opening prices were frozen at
-   first build, so they are unaffected.
-4. **FIXED 6 Oct: the seen-posts list now drops the oldest.** `save_posts` keeps
-   the IDs in the order they arrived and trims from the front at 20,000
-   (it used to drop random IDs, which would have caused duplicate posts).
-5. **Backup failure message is vague.** `backup.py` reports "exit status 1",
-   not git's reason. It does refuse to push unless the repo is private.
-6. **Clean:** nothing private is tracked by git; the sheet's public CSV holds
-   prices only (no holdings or balances); page text is escaped on render.
+1. **Backup failure message is vague.** `backup.py` prints the command and
+   "exit status 1", not the reason from `gh` or git (seen again on 23 Oct). It
+   does refuse to push unless the repo is private.
+2. **Sheet `Chg1W` column** covers about 12 days, not 7 (see Sheet above). Fix
+   the formula in the sheet's main tab.
+3. **Clean:** nothing private is tracked by git; the sheet's public CSV holds
+   prices only (no quantities or balances); page text is escaped on render.
+
+Fixed on 5-6 Oct and still holding: the collector's time limits and watchdog,
+the 1.5% alert buffer (`BUFFER` in `desk/alerts.py`), frozen memo price
+snapshots (the collector writes `prices_latest.json`), and the seen-posts list
+trimming its oldest IDs.
 
 ### Direction
 
-- Near term: items 1 and 2 are fixed; items 3 and 4 are fixed on 6 Oct; the open one is the vague
-  backup failure message (item 5).
-- Watch the 10 Oct memo as the first real test of the schedule and the skip
-  rule, then judge whether the 4-day rule suits a Saturday cadence.
-- Concentration: four of five calls are memory. A non-memory name on the
-  list, or a stated cap, would make the book less one-bet.
-- Guide: fill the 9 sourced-fact gaps only when a development earns it
+- The 28-30 Oct results decide the memory book: SK hynix's HBM4 share at
+  Nvidia into 2027 (re-open its call if the share holds), and the
+  hyperscalers' 2027 capex.
+- Concentration: three of five calls are memory, plus Coherent (optics) and
+  TSMC (foundry). TSMC dilutes the memory bet but does not hedge it.
+- Track record, first read (five memos): the four analysts with 8+ scored
+  calls all trail SMH on average (-5.5 to -9.1 points), mostly beta in a
+  falling month. Not yet a reason to drop anyone; the roster still has no
+  sceptic (two candidates in the 24 Oct memo). The operator decides.
+- Guide: fill the 8 sourced-fact gaps only when a development earns it
   (`log-development`); do not pad.
-- Track record is still one week of data: do not read the analyst scores yet.
+- On request, a management slide deck is built from the latest memo as a
+  private Slides artifact (24 Oct: 10 slides, holdings left out).
 
 ## Desk files
 

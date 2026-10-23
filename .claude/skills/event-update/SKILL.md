@@ -9,7 +9,10 @@ The weekly memo sets the calls. Results land midweek, and the operator should
 not wait until Saturday to know whether a result confirmed or broke a call.
 This is a short, sourced read on one event. It does **not** open or close
 scorecard calls: that stays with the weekly memo. It may reset the alert levels
-if the valuation anchor moved.
+if the valuation anchor moved or the stock broke the support floor its zone
+was built on (`python3 desk/support.py <ticker>`). For a `holding` (the
+operator's own position, private), the update covers its levels and any
+decision it faces, never a scorecard call.
 
 Work from the project root.
 

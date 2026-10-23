@@ -75,15 +75,19 @@ reads their public timelines and anything forwarded to the Telegram bot, and
 saves the posts. Once a week Claude reads them, checks the claims that matter,
 and writes the memo: the supply-chain picture, an accumulate list with
 valuation, zone and what would kill each idea, the analyst bull/bear board,
-and a market wrap. Every accumulate call goes on a scorecard marked against
-SMH, and calls cannot be edited after the fact.
+and a market wrap. The list holds at most five accumulate names. Every
+accumulate call goes on a scorecard marked against SMH, and calls cannot be
+edited after the fact.
 
 Between memos the desk keeps working:
 
-- **Price alerts.** Each accumulate name has numeric levels (add below, buy
-  below, stop adding above). The collector checks your price sheet every run
-  and sends a Telegram alert when a name moves into a different zone. The Desk
-  tab draws each zone as a ladder with today's price on it.
+- **Price alerts.** Each accumulate name has numeric levels (buy below, add
+  below, stop adding above). Since 18 Oct 2026 they sit at chart support (a
+  year of daily lows from the sheet's `price_history` tab), checked against
+  valuation. Names you already hold get levels and alerts too, but never a
+  scorecard call. The collector checks your price sheet every run and sends a
+  Telegram alert when a name moves into a different zone. The Desk tab draws
+  each zone as a ladder with today's price on it.
 - **Event updates.** The morning after results for a listed name, Claude
   reads the company's release and sends a short verdict: confirms, mixed, or
   breaks the call.
@@ -92,6 +96,8 @@ Between memos the desk keeps working:
   whose calls actually work.
 - **What changed.** The top of each memo lists calls opened or closed, zone
   changes, stance flips and events.
+- **Slides on request.** Claude can turn the latest memo into a short private
+  slide deck for management (holdings left out).
 
 Everything the desk collects or writes stays on this Mac (it is gitignored),
 because this repo is public and some forwarded posts are subscriber-only. A
@@ -105,7 +111,7 @@ nightly copy goes to the private repo `nainaii1/ai-desk-private`.
 | Daily digest on Telegram | Sun–Fri 11:00 |
 | Weekly memo on the page + summary on Telegram | Saturday 10:00 |
 | Price alerts | whenever a name changes zone (checked every 6 hours) |
-| Event update after results | the morning after (Micron: 1 Oct) |
+| Event update after results | the morning after (next: SK hynix results, 28 Oct) |
 | Private backup | nightly 23:30 |
 
 **Forwarding to @ai_infra_desk_bot**: a free post needs only its link. A

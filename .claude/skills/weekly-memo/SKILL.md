@@ -101,7 +101,11 @@ Valid JSON, this shape (`desk/build.py` validates it):
   an `accumulate` closes its scorecard call, so do it on purpose.
 - **Zone and levels (support + valuation, since 18 Oct 2026).** Run
   `python3 desk/support.py` for daily swing-low floors from the sheet's
-  `price_history` tab (add a six-column block there for any new name). The
+  `price_history` tab (add a six-column block there for any new name: the
+  ticker in row 1 and `=GOOGLEFINANCE("EXCH:TICKER","all",TODAY()-380,TODAY(),"DAILY")`
+  under it, seven columns after the last block; the Google Sheets connector
+  can write it. The tab has 80 columns and is full after TSM at BS, so add
+  columns first). The
   buy line sits 3% above the floor the stock is testing; the add line is the
   next floor down; stop adding at the valuation ceiling (a sourced forward
   multiple). Take the lower of support and valuation; when the nearest floor
@@ -127,8 +131,12 @@ Valid JSON, this shape (`desk/build.py` validates it):
 - **Track record.** From the fourth memo on, read the track record in
   `desk.js` (`track`). If an analyst's scored calls trail SMH badly over 8+
   calls, say so in `flags` and suggest a replacement; the operator decides.
-- **Market.** `chg1w` comes only from `desk/store/prices/<today>.json`. A
-  mover's `why` needs a source or is left out. Calendar: next ~3 weeks. Give
+- **Market.** `chg1w` comes only from `desk/store/prices/<today>.json`.
+  Check what period it covers before calling it "the week": on 24 Oct 2026
+  the sheet's `Chg1W` measured from the 12 Oct close (about 12 days). In the
+  text, prefer the change since the last memo's snapshot (compare the two
+  dated price files), and flag the gap. A mover's `why` needs a source or is
+  left out. Calendar: next ~3 weeks. Give
   every calendar item for a name on the list its `ticker`: the daily digest
   uses it to trigger an event update the day after. Mark unconfirmed dates as
   "expected" in the event text.
@@ -149,7 +157,10 @@ For the 1–4 developments that change the guide's picture, follow the
 `log-development` skill (free, primary sources only), bump `meta.updated`,
 then `python3 check.py` (0 errors).
 
-Open `index.html#desk` in the browser pane and confirm the memo renders.
+Open `index.html#desk` in the browser pane and confirm the memo renders. Use
+the `explorer` preview server (`.claude/launch.json`, port 8791): the pane
+shows a `file://` page as a static snapshot without its scripts. Stop the
+server afterwards.
 
 ## 5. Send the Telegram summary
 
