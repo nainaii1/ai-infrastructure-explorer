@@ -6,7 +6,7 @@ window.DATA =
 {
   "meta": {
     "title": "AI Infrastructure Explorer",
-    "updated": "2026-10-24",
+    "updated": "2026-10-28",
     "disclaimer": "Research notes, not investment advice. Figures are as reported by the cited source on the stated date."
   },
 
@@ -426,7 +426,8 @@ window.DATA =
       "facts": [
         {"text": "Q2 2026 revenue 79.3tn won with operating profit 60.5tn won, a 76% margin; net profit 93.9tn won; net cash 69.4tn won. HBM4 in mass shipment; long-term agreements with about ten major customers; M15X accelerating and Yongin Phase 1 cleanroom opening early 2027.", "asOf": "Q2 2026", "source": "https://news.skhynix.com/en/q2-2026-business-results/"},
         {"text": "CEO expects the memory shortage to last until the end of 2030.", "asOf": "2026-08-28", "source": "https://x.com/aleabitoreddit/status/2093252439973777674"},
-        {"text": "Samsung and SK hynix stockpiles reported below ten days of supply; KB Securities forecasts the tightest supply conditions in history next year.", "asOf": "2026-09-07", "source": "https://x.com/aleabitoreddit/status/2096858276290015563"}
+        {"text": "Samsung and SK hynix stockpiles reported below ten days of supply; KB Securities forecasts the tightest supply conditions in history next year.", "asOf": "2026-09-07", "source": "https://x.com/aleabitoreddit/status/2096858276290015563"},
+        {"text": "Q3 2026 revenue 104.6tn won with operating profit 83.3tn won, an 80% margin; net profit 39.8tn won; net cash 98.7tn won. Long-term agreements with 14 customers cover more than 50% of 2027 and 2028 capacity; HBM4 expected to pass HBM3E in volume and revenue in Q4.", "asOf": "Q3 2026", "source": "https://news.skhynix.com/en/q3-2026-business-results/"}
       ]
     },
     {
@@ -776,6 +777,7 @@ window.DATA =
   ],
 
   "developments": [
+    {"date": "2026-10-28", "title": "SK hynix Q3: 80% operating margin, and contracts with 14 customers cover more than half of 2027-28 capacity", "summary": "Revenue rose 32% on the quarter to 104.6tn won and operating profit to 83.3tn won; the five-year contracts float within agreed price ranges and carry deposits. The largest HBM maker now has its next two years half-booked, but the release names no customer and gives no HBM share, which is the question the market moves to next.", "companies": ["000660.KS", "005930.KS", "MU"], "narratives": ["memory-squeeze"], "sourceType": "company", "source": "https://news.skhynix.com/en/q3-2026-business-results/"},
     {"date": "2026-10-21", "title": "NVIDIA signs capacity deals across substrates, packaging, test and optics: substrates 2.5x in three years, CPO engines 15x by mid-2027", "summary": "IBIDEN, Samsung Electro-Mechanics and Unimicron expand substrates, Amkor adds more than 300% interposer capacity by end-2028, KYEC takes a $1.1bn advance for US test, and ASE's SPIL scales co-packaged optics engines 15x. NVIDIA is prepaying for the steps after the wafer, which says those, not GPUs, now set how fast it can ship.", "companies": ["NVDA", "AMKR", "ASX", "TSM"], "narratives": ["packaging", "copper-to-optics"], "sourceType": "company", "source": "https://nvidianews.nvidia.com/news/nvidia-and-supply-chain-partners-expand-capacity-to-accelerate-ai-infrastructure-buildout"},
     {"date": "2026-10-21", "title": "Meta narrows 2026 capex to $135-145bn and creates a non-voting Class C stock that it can use to raise capital", "summary": "Q3 revenue was $64.6bn, up 26%, but capex of $34.9bn left free cash flow at negative $2.1bn, and the new share class gives Meta a way to raise equity without diluting control. A hyperscaler preparing to fund the build-out with stock moves the financing question from neoclouds to the top of the buyer list.", "companies": ["META"], "narratives": ["financing"], "sourceType": "press", "source": "https://siliconangle.com/2026/10/21/meta-beats-on-revenue-and-splits-its-stock-two-for-one-with-non-voting-class-c-shares/"},
     {"date": "2026-10-15", "title": "TSMC Q3 revenue US$46.72bn, up 41% in dollars; Q4 guided to US$52.3-54.3bn", "summary": "Gross margin was 66.4% and net income rose 68.7% year on year; the Q4 guide implies another step up. The foundry every accelerator passes through reported no sign of the slowdown the market sold on that week.", "companies": ["TSM", "NVDA", "AVGO", "AMD"], "narratives": ["packaging"], "sourceType": "filing", "source": "https://www.sec.gov/Archives/edgar/data/0001046179/000104617926000726/a3q26e_withguidancexfinal.htm"},
