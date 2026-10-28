@@ -13,14 +13,30 @@ not advice.
 Work from the project root. Commands are run for the operator; he does not use
 a terminal.
 
-## 0. Too soon?
+## 0. When to run (set 28 Oct 2026)
 
-If the latest `desk/memos/*.json` is less than 4 days old (for example a
-memo was run by hand mid-week), do not write a new one: a one-day memo would
-churn calls and the track record for no new information. Instead run
-`python3 desk/collect.py` and `python3 desk/build.py`, send a one-line
-Telegram note ("Weekly memo skipped: the last memo was <date>; next one on
-<next Saturday>"), and stop.
+**Saturday 10:00 MYT is the main run, and it always runs.** By then every
+market is shut, so the sheet holds closing prices everywhere (no intraday mix).
+The week's US results (Tue–Thu after the close), Korean and Taiwanese results
+and the Friday close are all in, and the operator has the weekend to read it.
+Between Saturdays, results reach the desk through `event-update`, triggered by
+the daily digest the morning after.
+
+- **Scheduled Saturday run:** skip only if a memo was already written on
+  Friday or Saturday (under 2 days old). A mid-week memo run by hand does
+  **not** block Saturday. To skip: run `python3 desk/collect.py` and
+  `python3 desk/build.py`, send a one-line Telegram note ("Weekly memo
+  skipped: the last memo was <date>; next one on <next Saturday>"), and stop.
+- **By hand, Monday to Friday:** first read the latest memo's calendar. If a
+  list name reports, or a hyperscaler gives capex guidance, within the next
+  48 hours, tell the operator: a memo now would be overtaken before he reads
+  it, so the better move is an `event-update` after the print and the full
+  memo on Saturday. If he still wants it, run it; flag in `flags` which prints
+  it lands before.
+- Calendar dates for list names come from the company's own IR page or
+  release. A date from a tracker alone is written "expected" and re-checked by
+  the daily digest the day before (on 24 Oct a tracker gave Samsung 30 Oct; it
+  was 29 Oct).
 
 ## 1. Gather
 
@@ -68,7 +84,8 @@ Valid JSON, this shape (`desk/build.py` validates it):
     "catalyst": "Dated or datable event that forces the re-rate.",
     "zone": "Where to accumulate and the logic, e.g. 'below US$X, which is Yx forward earnings'",
     "invalidation": "The fact that kills the idea (a trigger, not a price).",
-    "levels": { "currency": "USD", "buyBelow": 1171, "addBelow": 965, "stopAbove": 1171 },
+    "levels": { "currency": "USD", "buyBelow": 1171, "addBelow": 965, "stopAbove": 1171, "trimAbove": 1562 },
+    "test": { "metric": "SK hynix share of HBM revenue", "threshold": "holds at or above 45% in Q3", "sourceName": "Counterpoint HBM tracker", "source": "https://...", "by": "YYYY-MM-DD" },
     "analysts": ["handle"], "sources": ["https://x.com/...", "https://..."]
   }],
   "board": [{
@@ -79,6 +96,7 @@ Valid JSON, this shape (`desk/build.py` validates it):
   "market": {
     "summary": ["para"],
     "movers": [{ "ticker": "ALAB", "chg1w": 40.2, "why": "reason", "source": "https://..." }],
+    "positioning": [{ "text": "Korean retail bought $300m of leveraged memory products in 1-23 Oct", "source": "https://..." }],
     "calendar": [{ "date": "YYYY-MM-DD", "ticker": "MU", "event": "MU FQ1 earnings", "source": "https://..." }]
   },
   "pushback": ["The strongest bear case against this week's consensus."],
@@ -117,6 +135,25 @@ Valid JSON, this shape (`desk/build.py` validates it):
   name; optional for `watch` names with a revisit level. The numbers must
   appear in the zone text too. Never invent a price the sheet or a source
   doesn't give you.
+- **No chasing (since 28 Oct 2026).** A buy line moves up only when the stock
+  has built a new, higher floor and is testing it. When `support.py` prints
+  `STRETCHED` (more than 8% up in five sessions), the nearest floor below is an
+  old one the stock just reclaimed: keep the last memo's lines and say "hold
+  zone, no chasing" in the zone text.
+- **Trim level (since 28 Oct 2026).** Every `accumulate` and `holding` row
+  carries `levels.trimAbove`: the lower of (a) the consensus price target on
+  the same valuation page and (b) the forward multiple 25% above the
+  stop-adding multiple (8x → 10x). Where the stop-adding line is a chart level,
+  not a multiple, use a stated multiple and show it. Write it in the zone text
+  ("trim above $X, the consensus target"). The alert says "take some profit,
+  if you hold it"; it is a plan, not an instruction.
+- **Named test (since 28 Oct 2026).** Every `watch` row needs `test`: the
+  metric, the number that passes, the named source that will report it (a
+  company release, or a named tracker such as Counterpoint, TrendForce or
+  Bernstein, with a URL), and a date if one is known. Use it on `accumulate`
+  rows too when one data point decides the call. Never set a test a company
+  will not disclose (for example a customer's share) unless a named tracker
+  publishes it. The event update judges the result against this test.
 - **Holdings.** `desk/store/holdings.json` (private) lists names the operator
   already holds. Each gets an accumulate-list row with action `holding`:
   support-based levels and alerts, a short thesis and invalidation, no
@@ -138,9 +175,22 @@ Valid JSON, this shape (`desk/build.py` validates it):
   dated price files), and flag the gap. A mover's `why` needs a source or is
   left out. Calendar: next ~3 weeks. Give
   every calendar item for a name on the list its `ticker`: the daily digest
-  uses it to trigger an event update the day after. Mark unconfirmed dates as
-  "expected" in the event text.
-- **Pushback.** Every analyst on the roster leans bull. Write the other side
+  uses it to trigger an event update the day after. Give the hyperscalers'
+  results (MSFT, GOOGL, AMZN, META, ORCL) a `ticker` too: their capex guide
+  moves every call on the list, so they get a "capex read" event update. Mark
+  unconfirmed dates as "expected" in the event text.
+- **Positioning (since 28 Oct 2026).** Answer one question: is the move
+  positioning or fundamentals? List 3-5 sourced items in
+  `market.positioning`: fund flows or de-grossing (Goldman Prime and similar,
+  via posts), retail leverage (Korean leveraged products, SOXL), credit
+  (CDS, neocloud bond yields), short interest where reported, and the stretch
+  lines from `support.py` (five-session move against SMH, distance from the
+  50-day). No flow data feed exists in the desk; every item needs a source,
+  and the sheet-based stretch lines cite the sheet.
+- **Sceptic seats.** @FundaAI and @insane_analyst joined the roster on 28 Oct
+  2026 to argue the other side. Read their posts first when writing the
+  pushback, and put their views on the board like anyone else's.
+- **Pushback.** Most of the roster leans bull. Write the other side
   so it could be believed: valuation, capex digestion, double-ordering,
   supply catching up.
 - **Paid content.** Posts tagged PAID/forwarded or SCREENSHOT are

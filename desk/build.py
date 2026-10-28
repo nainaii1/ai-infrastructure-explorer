@@ -39,6 +39,7 @@ ACTIONS = {"accumulate", "watch", "trim", "avoid", "holding"}
 STANCES = {"bull", "bear", "mixed"}
 CONF = {"low", "medium", "high"}
 VERDICTS = {"confirms", "mixed", "breaks"}
+RULES_FROM = "2026-10-28"     # memos from here on need a named test on watch names and a positioning section
 
 
 # ---------------------------------------------------------------- validation
@@ -53,7 +54,7 @@ def validate_levels(lv, where):
         return ["{}: levels must be an object".format(where)]
     if not lv.get("currency"):
         e.append("{}: levels.currency missing".format(where))
-    nums = {k: lv.get(k) for k in ("buyBelow", "addBelow", "stopAbove")}
+    nums = {k: lv.get(k) for k in ("buyBelow", "addBelow", "stopAbove", "trimAbove")}
     for k, v in nums.items():
         if v is not None and not isinstance(v, (int, float)):
             e.append("{}: levels.{} must be a number".format(where, k))
@@ -63,6 +64,8 @@ def validate_levels(lv, where):
         e.append("{}: addBelow must be at or below buyBelow".format(where))
     elif isinstance(nums["stopAbove"], (int, float)) and nums["stopAbove"] < nums["buyBelow"]:
         e.append("{}: stopAbove must be at or above buyBelow".format(where))
+    elif isinstance(nums["trimAbove"], (int, float)) and nums["trimAbove"] <= (nums["stopAbove"] or nums["buyBelow"]):
+        e.append("{}: trimAbove must be above stopAbove".format(where))
     return e
 
 
@@ -97,6 +100,16 @@ def validate(m, name):
             e.append("{}: {} is 'accumulate' but has no numeric levels for alerts".format(name, t))
         if "levels" in a:
             e += validate_levels(a["levels"], "{}: {}".format(name, t))
+        if "test" in a or (a.get("action") == "watch" and m["date"] >= RULES_FROM):
+            ts = a.get("test") or {}
+            if not (ts.get("metric") and ts.get("threshold") and _url(ts.get("source"))):
+                e.append("{}: {} needs a test with metric, threshold and a source URL".format(name, t))
+    pos = m["market"].get("positioning")
+    if pos is None and m["date"] >= RULES_FROM:
+        e.append("{}: market.positioning missing".format(name))
+    for p in pos or []:
+        if not p.get("text") or not _url(p.get("source")):
+            e.append("{}: every positioning item needs text and a source".format(name))
     for b in m["board"]:
         for v in b.get("views", []):
             if v.get("stance") not in STANCES:

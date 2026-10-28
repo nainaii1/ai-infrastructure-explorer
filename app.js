@@ -110,28 +110,30 @@
   function link(url, label) { return url ? `<a href="${esc(url)}" target="_blank" rel="noopener">${esc(label || host(url))} ↗</a>` : ''; }
   function paras(list) { return (list || []).map(p => `<p>${esc(p)}</p>`).join(''); }
 
-  const ZONE = { add: 'In the add zone', buy: 'In the zone', hold: 'Above the zone: hold', above: "Above the zone: don't add" };
+  const ZONE = { add: 'In the add zone', buy: 'In the zone', hold: 'Above the zone: hold', above: "Above the zone: don't add", trim: 'Above the trim level' };
   function zoneOf(price, lv) {
     const top = lv.stopAbove || lv.buyBelow;
     if (lv.addBelow != null && price <= lv.addBelow) return 'add';
     if (price <= lv.buyBelow) return 'buy';
-    return price <= top ? 'hold' : 'above';
+    if (price <= top) return 'hold';
+    return lv.trimAbove != null && price > lv.trimAbove ? 'trim' : 'above';
   }
-  // A horizontal ladder: add zone, accumulate zone, hold band, stop-adding, with today's price marked.
+  // A horizontal ladder: add zone, accumulate zone, hold band, stop-adding, trim, with today's price marked.
   function ladder(t, lv, action) {
-    const watch = action && action !== 'accumulate';
+    const watch = action && action !== 'accumulate' && action !== 'holding';
     const q = (K.quotes || {})[t]; const price = q && q.price;
     const top = lv.stopAbove || lv.buyBelow;
-    const pts = [lv.addBelow, lv.buyBelow, top, price].filter(v => v != null);
+    const trim = lv.trimAbove;
+    const pts = [lv.addBelow, lv.buyBelow, top, trim, price].filter(v => v != null);
     const lo = Math.min(...pts) * 0.92, hi = Math.max(...pts) * 1.08, w = v => ((v - lo) / (hi - lo) * 100).toFixed(2);
     const seg = (a, b, cls, label) => b > a ? `<span class="lz ${cls}" style="left:${w(a)}%;width:${(w(b) - w(a)).toFixed(2)}%" title="${esc(label)}"></span>` : '';
     const add = lv.addBelow != null ? lv.addBelow : lv.buyBelow;
     const z = price != null ? zoneOf(price, lv) : null;
     return `<div class="ladder" role="img" aria-label="Price ${price != null ? num(price) : 'unknown'} against the zones">
-      <div class="lbar">${seg(lo, add, 'z-add', 'add zone')}${seg(add, lv.buyBelow, 'z-buy', 'accumulate zone')}${seg(lv.buyBelow, top, 'z-hold', 'hold')}${seg(top, hi, 'z-above', 'stop adding')}
-        ${[add, lv.buyBelow, top].map(v => `<span class="ltick" style="left:${w(v)}%"></span>`).join('')}
+      <div class="lbar">${seg(lo, add, 'z-add', 'add zone')}${seg(add, lv.buyBelow, 'z-buy', 'accumulate zone')}${seg(lv.buyBelow, top, 'z-hold', 'hold')}${seg(top, trim != null ? trim : hi, 'z-above', 'stop adding')}${trim != null ? seg(trim, hi, 'z-trim', 'trim') : ''}
+        ${[add, lv.buyBelow, top, trim].filter(v => v != null).map(v => `<span class="ltick" style="left:${w(v)}%"></span>`).join('')}
         ${price != null ? `<span class="lmark" style="left:${w(price)}%"></span>` : ''}</div>
-      <div class="llegend">${watch ? `<span class="k z-buy"></span>revisit ≤ ${num(lv.buyBelow)}` : `<span class="k z-add"></span>add ≤ ${num(add)} <span class="k z-buy"></span>buy ≤ ${num(lv.buyBelow)} <span class="k z-above"></span>stop adding &gt; ${num(top)}`}</div>
+      <div class="llegend">${watch ? `<span class="k z-buy"></span>revisit ≤ ${num(lv.buyBelow)}` : `<span class="k z-add"></span>add ≤ ${num(add)} <span class="k z-buy"></span>buy ≤ ${num(lv.buyBelow)} <span class="k z-above"></span>stop adding &gt; ${num(top)}${trim != null ? ` <span class="k z-trim"></span>trim &gt; ${num(trim)}` : ''}`}</div>
       <div class="lnow">${price != null ? `Now ${num(price)} ${esc(lv.currency)} · <b class="zn ${watch ? (z === 'add' || z === 'buy' ? 'buy' : 'hold') : z}">${watch ? (z === 'add' || z === 'buy' ? 'At the revisit level' : 'Above the revisit level') : ZONE[z]}</b> · alerts on` : 'No price in the sheet'}</div>
     </div>`;
   }
@@ -157,6 +159,7 @@
           <dt>Catalyst</dt><dd>${esc(a.catalyst)}</dd>
           <dt>Accumulate zone</dt><dd>${esc(a.zone)}${a.levels ? ladder(a.ticker, a.levels, a.action) : ''}</dd>
           <dt>Kills the idea</dt><dd>${esc(a.invalidation)}</dd>
+          ${a.test ? `<dt>${a.action === 'watch' ? 'Re-entry test' : 'What decides it'}</dt><dd>${esc(a.test.metric)}: ${esc(a.test.threshold)}${a.test.by ? ' · by ' + fmtDate(a.test.by) : ''} ${link(a.test.source, a.test.sourceName)}</dd>` : ''}
           ${c ? `<dt>Scorecard</dt><dd>Opened ${fmtDate(c.opened)} at ${num(c.refPrice)} ${esc(c.currency || '')} · now ${num(c.lastPrice)} · ${pct(c.ret)} vs ${esc(K.bench)} ${pct(c.benchRet)}</dd>` : ''}
         </dl>
         <div class="idea-foot">${(a.analysts || []).map(h => `<span class="who">@${esc(h)}</span>`).join('')}${(a.sources || []).map(u => link(u)).join(' ')}</div>
@@ -199,6 +202,7 @@
 
     const mk = m.market;
     const movers = (mk.movers || []).length ? `<table class="movers"><tbody>${mk.movers.map(x => `<tr><td>${tick(x.ticker)}</td><td class="num">${pct(x.chg1w)}</td><td>${esc(x.why || '')} ${link(x.source)}</td></tr>`).join('')}</tbody></table>` : '';
+    const posn = (mk.positioning || []).length ? `<ul class="devlist">${mk.positioning.map(x => `<li>${esc(x.text)} ${link(x.source)}</li>`).join('')}</ul>` : '';
     const cal = (mk.calendar || []).length ? `<ul class="devlist">${mk.calendar.map(x => `<li><time>${fmtDate(x.date)}</time>${esc(x.event)} ${link(x.source)}</li>`).join('')}</ul>` : '';
 
     const score = K.calls.length ? `<div class="scroll"><table class="score"><thead><tr><th>Ticker</th><th>Opened</th><th>Ref</th><th>Now / exit</th><th>Return</th><th>${esc(K.bench)}</th><th>Status</th></tr></thead><tbody>${
@@ -215,7 +219,7 @@
         <p class="muted small">Research support, not advice. Prices from your Google Sheet${K.pricesAsOf ? ' as of ' + esc(K.pricesAsOf.slice(0, 10)) : ''}.</p>${acc}</section>
       <section class="dsec"><h2>3 · Analyst board</h2><p class="muted small">Each cell links to the post. Hover or read the note for the reason.</p>${board}</section>
       <section class="dsec"><h2>Analyst track record</h2><p class="muted small">Every stance on the board, from the day it was first recorded, against ${esc(K.bench)}. A bull call earns the stock's move minus ${esc(K.bench)}'s; a bear call the reverse; mixed calls are not scored. Local-currency returns.${young ? ' Everything was recorded this week, so it all reads 0% for now; it fills in as prices move.' : ''}</p>${track}</section>
-      <section class="dsec"><h2>4 · Market wrap</h2>${paras(mk.summary)}${movers}${cal ? '<h4 class="sub">Coming up</h4>' + cal : ''}</section>
+      <section class="dsec"><h2>4 · Market wrap</h2>${paras(mk.summary)}${movers}${posn ? '<h4 class="sub">Positioning: squeeze or re-rating?</h4>' + posn : ''}${cal ? '<h4 class="sub">Coming up</h4>' + cal : ''}</section>
       <section class="dsec pushback"><h2>The desk's pushback</h2><p class="muted small">Every analyst on the roster leans bullish. This is the other side.</p>${paras(m.pushback)}</section>
       <section class="dsec"><h2>Scorecard</h2><p class="muted small">Every accumulate call, marked to the latest price against ${esc(K.bench)}. Calls are never edited after the fact.</p>${score}</section>
       ${m.flags.length ? `<section class="dsec"><h2>Flags</h2><ul>${m.flags.map(f => `<li>${esc(f)}</li>`).join('')}</ul></section>` : ''}

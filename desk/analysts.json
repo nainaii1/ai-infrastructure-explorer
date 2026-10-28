@@ -35,6 +35,16 @@
       "handle": "PhotonCap",
       "name": "Photon Capital",
       "focus": "Photonics and optics research"
+    },
+    {
+      "handle": "FundaAI",
+      "name": "Funda",
+      "focus": "Sceptic seat: AI funding, credit and CDS risk (added 28 Oct 2026)"
+    },
+    {
+      "handle": "insane_analyst",
+      "name": "Irrational Analysis",
+      "focus": "Sceptic seat: engineering-driven contrarian semis analysis (added 28 Oct 2026)"
     }
   ]
 }

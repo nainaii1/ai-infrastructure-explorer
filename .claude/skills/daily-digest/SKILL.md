@@ -21,7 +21,13 @@ item with a `ticker` whose date is today or in the last 3 days, and with no
 file yet in `desk/memos/events/` for that ticker on or after that date, run the
 `event-update` skill for it before writing the digest, and mention it in one
 line in the digest. If a company's results are not out yet (a delayed or
-expected date), say so and check again tomorrow.
+expected date), say so and check again tomorrow. Hyperscaler tickers (MSFT,
+GOOGL, AMZN, META, ORCL) get a "capex read" event update. Several
+hyperscalers on the same day share one file, named after the first ticker.
+
+**Tomorrow's dates.** For any calendar item tomorrow whose event text says
+"expected", check the company's IR page and say in one line whether the date
+is confirmed or has moved.
 
 **Price alerts.** Read `desk/store/alerts.json`; mention any alert from the
 last 24 hours in one line (the alert itself was already sent).

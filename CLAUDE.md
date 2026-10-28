@@ -2,7 +2,7 @@
 
 Rebuilt from scratch on 18 Sep 2026 as a static guide. On 24 Sep 2026 the
 operator asked for the automation back in a narrower form: a **fund desk** that
-follows seven X analysts, collects their posts automatically, and turns them
+follows nine X analysts (two of them sceptic seats), collects their posts automatically, and turns them
 into a weekly memo. The old v1 system (scoring, tiers, expert seats, claims
 ledger, vault, price plumbing) stays archived at git tag `v1-archive` and is not
 to be revived; the desk replaces it with something much smaller. Read
@@ -48,9 +48,9 @@ Two parts, one page:
 
 | Skill | When | What |
 |---|---|---|
-| `weekly-memo` | Saturday 10:00 MYT (scheduled), or "run the desk" | Collect, price snapshot, read everything, check claims, write the memo, update scorecard and guide, Telegram summary |
-| `daily-digest` | Sun–Fri 11:00 MYT (scheduled) | Short Telegram digest of the last 24h |
-| `event-update` | Day after a calendar event for a listed name (triggered by the daily digest or a one-off scheduled task) | Short sourced read: confirms / mixed / breaks the call; may reset alert levels |
+| `weekly-memo` | Saturday 10:00 MYT (scheduled, always runs unless a memo was written Fri/Sat), or "run the desk" | Collect, price snapshot, read everything, check claims, write the memo, update scorecard and guide, Telegram summary. Mid-week by hand: warn if a list result or hyperscaler capex print is under 48h away |
+| `daily-digest` | Sun–Fri 11:00 MYT (scheduled) | Short Telegram digest of the last 24h; triggers event updates; re-checks tomorrow's "expected" dates |
+| `event-update` | Day after a calendar event for a listed name or a hyperscaler (triggered by the daily digest or a one-off scheduled task) | Short sourced read: confirms / mixed / breaks the call, judged against the memo's named `test`; hyperscalers get a "capex read"; may reset alert levels |
 | `log-development` | Operator shares a filing, release or post | One dated, sourced entry in `data.js` |
 
 **Also automatic:** price alerts run inside every collector pass (`desk/alerts.py`
@@ -72,13 +72,21 @@ change in plain language.
 - **Checks:** `check.py` 0 errors (8 warnings: FN, ANET, CRDO, LRCX, KLAC, CEG,
   VRT, ETN have no sourced facts yet; ASX got its first on 24 Oct); `build.py`
   no errors.
-- **Memos:** 24 Sep (trial), 2 Oct, 10 Oct (scheduled), 15 Oct and 24 Oct (both
-  by hand). The 3 Oct and 17 Oct scheduled runs skipped themselves (memo under
-  4 days old), as designed. The 24 Oct memo ran at 02:30 MYT, so that day's
-  10:04 scheduled run skips too. **Next scheduled memo: Sat 31 Oct, 10:04
-  MYT**, after SK hynix, Sandisk, Intel and Samsung have reported. The 26 Sep
-  run failed on the account's monthly spend limit, so check the limit before
-  Friday.
+- **Memos:** 24 Sep (trial), 2 Oct, 10 Oct (scheduled), 15 Oct, 24 Oct and
+  28 Oct (all by hand). **New timing rule (28 Oct):** the Saturday memo always
+  runs unless one was written Friday or Saturday; a mid-week memo no longer
+  blocks it (the old 4-day rule skipped 3, 17 and 24 Oct). **Next memo: Sat 31
+  Oct, 10:04 MYT**, after Microsoft, Alphabet, Samsung, Sandisk, Intel and
+  Amazon have reported. The 26 Sep run failed on the account's monthly spend
+  limit, so check the limit before Friday.
+- **Desk rules added 28 Oct (operator's decision):** `watch` rows need a named
+  `test` (metric, number, source; `build.py` enforces it from 28 Oct);
+  accumulate and holding rows carry `levels.trimAbove` (lower of the
+  consensus target and a multiple 25% above stop-adding) and alerts have a
+  `trim` zone; `market.positioning` asks "squeeze or re-rating?" (required
+  from 28 Oct); `support.py` prints a stretch line and flags `STRETCHED`
+  names (over 8% in five sessions) so buy lines are not chased up. Roster is
+  nine: @FundaAI and @insane_analyst joined as sceptic seats.
 - **Scorecard (vs the price at opening; sheet snapshot of 23 Oct; SMH -12.2%
   since 24 Sep):** Micron $883.44 (-17.6%), Sandisk $1,260.13 (-30.6%),
   Coherent $210.01 (-30.1%), Samsung ₩215,500 (-21.9%, opened 2 Oct; SMH

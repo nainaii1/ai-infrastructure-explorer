@@ -210,12 +210,13 @@ td.num { font-family: var(--mono); font-size: 12.5px; white-space: nowrap; font-
 .z-buy { background: color-mix(in srgb, var(--bull) 35%, transparent); }
 .z-hold { background: var(--line-strong); }
 .z-above { background: color-mix(in srgb, var(--bear) 30%, transparent); }
+.z-trim { background: color-mix(in srgb, var(--bear) 65%, transparent); }
 .lmark { position: absolute; top: -3px; bottom: -3px; width: 3px; margin-left: -1.5px; background: var(--ink); border-radius: 2px; }
 .ltick { position: absolute; top: 0; bottom: 0; width: 1px; background: var(--card); opacity: .9; }
 .llegend { font-family: var(--mono); font-size: 11px; color: var(--muted); margin-top: 5px; display: flex; flex-wrap: wrap; gap: 2px 12px; align-items: center; }
 .llegend .k { display: inline-block; width: 10px; height: 8px; border-radius: 2px; margin-right: 4px; vertical-align: -1px; }
 .lnow { font-size: 12.5px; color: var(--muted); margin-top: 2px; }
-.zn.add, .zn.buy { color: var(--bull); } .zn.hold { color: var(--muted); } .zn.above { color: var(--bear); }
+.zn.add, .zn.buy { color: var(--bull); } .zn.hold { color: var(--muted); } .zn.above, .zn.trim { color: var(--bear); }
 .changed { border-left: 4px solid var(--accent); }
 .chg { list-style: none; padding: 0; margin: 0; }
 .chg li { padding: 5px 0; border-top: 1px solid var(--line); font-size: 14px; }

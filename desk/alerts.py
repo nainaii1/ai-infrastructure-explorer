@@ -9,6 +9,7 @@ written by build.py from the latest memo and any event update since):
     buy    price <= buyBelow      inside the accumulate zone
     hold   up to stopAbove        above the zone but not stretched
     above  price >  stopAbove     stop adding
+    trim   price >  trimAbove     the memo's take-some-profit level (optional)
 
 An alert goes to Telegram only when a name moves from one zone to another, and
 only once it is more than 1.5% past the line it crossed (so a price sitting on a
@@ -27,7 +28,7 @@ from common import STATE_FILE, STORE, Telegram, load_env, load_json, now_iso, sa
 LEVELS = STORE / "levels.json"
 ALERT_LOG = STORE / "alerts.json"
 BUFFER = 0.015
-ORDER = ["add", "buy", "hold", "above"]
+ORDER = ["add", "buy", "hold", "above", "trim"]
 SYMBOL = {"USD": "$", "KRW": "₩", "EUR": "€", "GBP": "£", "SEK": "SEK ", "JPY": "¥", "TWD": "NT$"}
 
 
@@ -44,6 +45,8 @@ def zone_of(price, lv):
         return "buy"
     if price <= top:
         return "hold"
+    if lv.get("trimAbove") is not None and price > lv["trimAbove"]:
+        return "trim"
     return "above"
 
 
@@ -54,7 +57,8 @@ def settled_zone(price, lv, prev):
     if prev not in ORDER or raw == prev:
         return raw
     top = lv.get("stopAbove") or lv["buyBelow"]
-    bounds = [lv["addBelow"] if lv.get("addBelow") is not None else float("-inf"), lv["buyBelow"], top]
+    bounds = [lv["addBelow"] if lv.get("addBelow") is not None else float("-inf"), lv["buyBelow"], top,
+              lv["trimAbove"] if lv.get("trimAbove") is not None else float("inf")]
     i = ORDER.index(prev)
     if ORDER.index(raw) > i:                        # moving up, out of prev
         return raw if price > bounds[i] * (1 + BUFFER) else prev
@@ -77,6 +81,9 @@ def message(lv, zone, price):
     if zone == "hold":
         return "{} is at {}: above the accumulate zone, below the stop-adding level of {}. Hold; no new buying.".format(
             n, p, money(lv["stopAbove"], c))
+    if zone == "trim":
+        return "{} is at {}: above the memo's trim level of {}. The plan was to take some profit here, if you hold it.".format(
+            n, p, money(lv["trimAbove"], c))
     return "{} is at {}: above the stop-adding level of {}. The memo says stop adding here.".format(
         n, p, money(lv.get("stopAbove") or lv["buyBelow"], c))
 

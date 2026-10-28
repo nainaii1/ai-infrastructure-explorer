@@ -69,8 +69,8 @@ without a reason to be on the map.
 
 ## The desk
 
-The **Desk** tab is a private weekly memo built from seven X analysts
-(`desk/analysts.json`). A small collector (`desk/collect.py`) runs every six hours,
+The **Desk** tab is a private weekly memo built from nine X analysts
+(`desk/analysts.json`), two of them sceptic seats that argue the other side. A small collector (`desk/collect.py`) runs every six hours,
 reads their public timelines and anything forwarded to the Telegram bot, and
 saves the posts. Once a week Claude reads them, checks the claims that matter,
 and writes the memo: the supply-chain picture, an accumulate list with
@@ -87,10 +87,16 @@ Between memos the desk keeps working:
   valuation. Names you already hold get levels and alerts too, but never a
   scorecard call. The collector checks your price sheet every run and sends a
   Telegram alert when a name moves into a different zone. The Desk tab draws
-  each zone as a ladder with today's price on it.
+  each zone as a ladder with today's price on it. Since 28 Oct 2026 there is
+  also a trim level (take some profit) above the stop-adding line, and buy
+  lines are not raised after a sharp bounce (no chasing).
 - **Event updates.** The morning after results for a listed name, Claude
   reads the company's release and sends a short verdict: confirms, mixed, or
-  breaks the call.
+  breaks the call, judged against the test the memo named in advance (a
+  metric, a number and who reports it). Hyperscaler results get a "capex
+  read" across the whole list.
+- **Positioning.** Each memo asks whether a move is positioning (fund flows,
+  retail leverage, credit, a stretched chart) or fundamentals.
 - **Analyst track record.** Every bull or bear stance on the board is
   tracked from the day it was recorded, against SMH, so over time you can see
   whose calls actually work.

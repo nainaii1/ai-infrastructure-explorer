@@ -41,8 +41,18 @@ python3 desk/collect.py        # fresh posts, prices, alerts
   the weekly memo will close the call.
 
 Compare against what the memo said mattered (for Micron, the next-quarter
-guide mattered more than the beat). Never write a number you did not read in
-the release or a cited source.
+guide mattered more than the beat). If the memo row has a `test`, judge
+against it first: name the metric, the number reported, and whether it passed.
+If the named source has not reported yet, say so; do not fill the gap from
+another source. Never write a number you did not read in the release or a
+cited source.
+
+**Capex read (hyperscalers).** For MSFT, GOOGL, AMZN, META or ORCL results,
+the ticker is not on the list; the event is their capex. Read the release and
+call for this year's capex, the next year's outlook and any word on
+"digestion". The verdict is about the list as a whole: `confirms` if next
+year's capex outlook rose or held, `breaks` if it was cut, `mixed` otherwise.
+`callImpact` names which calls it touches (TSMC, memory, Coherent).
 
 ## 3. Write `desk/memos/events/<today>-<ticker>.json`
 
