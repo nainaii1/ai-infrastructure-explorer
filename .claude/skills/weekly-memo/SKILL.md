@@ -254,6 +254,20 @@ Full memo: open index.html → Desk
 python3 desk/send.py desk/memos/<today>-telegram.txt
 ```
 
+## 5b. Refresh the phone copy (since 2 Nov 2026)
+
+```bash
+python3 desk/snapshot.py      # writes desk/store/snapshot/desk.html (private, gitignored)
+```
+
+Then publish that file with the Artifact tool to the SAME private artifact,
+passing as `url` the link in `desk/store/snapshot/artifact-url.txt` (first read it
+with `action: "read"` if this session has not), no `icon`, and
+`label: "Memo <date>"`. Never publish it anywhere else or make it public: it
+holds holdings and levels. If the Artifact tool is not available in this run,
+say so at the top of the Telegram note and carry on. Add the link to the
+Telegram summary's last line ("Phone: <url>").
+
 ## 6. Commit
 
 Only the guide changes are committed (`data.js`); desk files are gitignored

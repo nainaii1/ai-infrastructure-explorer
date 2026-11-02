@@ -121,7 +121,10 @@ change in plain language.
   last 66 sessions drawn over its zones, calls vs SMH, next-up countdown, the
   book by layer); memo cards carry real price charts; the Map has lenses (My
   book, Analyst mood, News flow); company dossiers include the desk's view.
-  `build.py` now writes `desk/store/history.json` (daily closes from the
+  A **Hide holdings** switch (cockpit header) hides every holding for screen
+  sharing. A private phone copy is published after each memo (weekly-memo
+  step 5b; link in the private memory, not here). `build.py` now writes
+  `desk/store/history.json` (daily closes from the
   sheet's `price_history` tab, cached if the fetch fails) into `desk.js`.
 - **Sheet:** the main tab's `Chg1W` covers about 12 days, not 7. One
   holding's main-tab price disagrees with its `price_history` close by about
@@ -184,6 +187,7 @@ desk/store/holdings.json the operator's holdings (tickers only, private): action
 desk/store/alerts.json  every alert sent
 desk/store/history.json daily closes from the sheet's price_history tab (build.py), for the page's charts
 desk/store/cloud-reports/ local copies of the cloud reports (originals on ai-desk-private, branch claude/desk-reports)
+desk/snapshot.py      one-file copy of the page -> desk/store/snapshot/desk.html, published weekly as a PRIVATE artifact for the phone
 CLOUD_BRIEF.md        the prompt for a hand-started cloud daily brief (public: no holdings, no data)
 ```
 

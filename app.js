@@ -328,7 +328,7 @@
       const watch = a.action === 'watch', z = zoneOf(price, lv), d = (price / lv.buyBelow - 1) * 100, st = stretchOf(a.ticker);
       const zl = watch ? (price <= lv.buyBelow ? 'At revisit' : 'Above revisit') : ZSHORT[z];
       const zc = watch ? (price <= lv.buyBelow ? 'buy' : 'hold') : z;
-      return { a, d, html: `<a class="cp-row" href="#c/${encodeURIComponent(a.ticker)}">
+      return { a, d, html: `<a class="cp-row act-${esc(a.action)}" href="#c/${encodeURIComponent(a.ticker)}">
         <div class="cp-id"><b>${esc(shortT(a.ticker))}</b><span>${esc(a.name)}</span></div>
         <div class="cp-chart">${zoneChart(a.ticker, lv, { w: 200, h: 44, days: 66, tight: true })}</div>
         <div class="cp-now"><b>${num(price)}</b><span class="zn ${zc}">${zl}</span></div>
@@ -338,7 +338,7 @@
     });
     const zones = GROUPS.map(([act, label]) => {
       const g = rows.filter(r => r.a.action === act && r.html).sort((p, q) => p.d - q.d);
-      return g.length ? `<div class="cp-group">${label}</div>${g.map(r => r.html).join('')}` : '';
+      return g.length ? `<div class="cp-group g-${act}">${label}</div>${g.map(r => r.html).join('')}` : '';
     }).join('');
     const bench = stretchOf(K.bench);
 
@@ -347,7 +347,8 @@
     m.accumulate.forEach(a => { if (a.test && a.test.by && a.test.by >= todayMYT) up.push({ date: a.test.by, text: `Test due: ${a.test.metric}`, t: a.ticker, src: a.test.source }); });
     up.sort((p, q) => p.date.localeCompare(q.date));
     const listed = new Set(m.accumulate.map(a => a.ticker));
-    const next = up.length ? `<ol class="next">${up.slice(0, 7).map(x => { const n = dayDiff(todayMYT, x.date); return `<li${x.t && listed.has(x.t) ? ' class="mine"' : ''}><span class="cd"><b>${n === 0 ? 'today' : n === 1 ? '1 day' : n + ' days'}</b>${fmtDate(x.date)}</span><span>${x.t ? `<b class="tkr">${esc(shortT(x.t))}</b> ` : ''}${esc(x.text)} ${link(x.src)}</span></li>`; }).join('')}</ol>`
+    const held = new Set(m.accumulate.filter(a => a.action === 'holding').map(a => a.ticker));
+    const next = up.length ? `<ol class="next">${up.slice(0, 7).map(x => { const n = dayDiff(todayMYT, x.date); return `<li class="${x.t && listed.has(x.t) ? 'mine' : ''}${x.t && held.has(x.t) ? ' h' : ''}"><span class="cd"><b>${n === 0 ? 'today' : n === 1 ? '1 day' : n + ' days'}</b>${fmtDate(x.date)}</span><span>${x.t ? `<b class="tkr">${esc(shortT(x.t))}</b> ` : ''}${esc(x.text)} ${link(x.src)}</span></li>`; }).join('')}</ol>`
       : '<p class="muted small">Nothing dated after today in this memo. The next memo sets the calendar.</p>';
 
     const book = {};
@@ -361,7 +362,7 @@
       .map(l => `<div class="bk" data-stage="${esc(l.stage)}"><span class="bk-l">${esc(l.name)}</span><span class="bk-u">${book[l.id].map(a => `<i class="u-${esc(a.action)}" title="${esc(a.name)} (${esc(a.action)})">${esc(shortT(a.ticker))}</i>`).join('')}</span><span class="bk-n">${Math.round(book[l.id].length / total * 100)}%</span></div>`).join('');
 
     return `<section class="cockpit" id="d-cockpit">
-      <div class="cp-main dsec"><div class="cp-title"><h2>Where every name sits</h2><span class="muted small">Last ${66} sessions against the memo's zones · closest to its buy line first · prices ${esc(fmtMYT(K.pricesAsOf))}</span></div>
+      <div class="cp-main dsec"><div class="cp-title"><h2>Where every name sits</h2><span class="muted small">Last ${66} sessions against the memo's zones · closest to its buy line first · prices ${esc(fmtMYT(K.pricesAsOf))}</span><button class="hold-toggle" data-hold aria-pressed="${hideHold}">${hideHold ? 'Show holdings' : 'Hide holdings'}</button></div>
         <div class="cp-key"><span><i class="k z-add"></i>add</span><span><i class="k z-buy"></i>buy</span><span><i class="k z-hold"></i>hold</span><span><i class="k z-above"></i>stop adding</span><span><i class="k z-trim"></i>trim</span>${bench ? `<span class="muted">${esc(K.bench)} 5 sessions ${bench.m5 >= 0 ? '+' : ''}${bench.m5.toFixed(1)}%</span>` : ''}</div>
         ${zones}</div>
       <div class="cp-side">
@@ -370,6 +371,11 @@
         <div class="dsec"><h2>Where the book sits</h2><p class="muted small">Calls and holdings by layer of the chain, by count of names (not money). <span class="u-key u-accumulate">call</span> <span class="u-key u-holding">holding</span></p>${bookRows}</div>
       </div></section>`;
   }
+
+  // "Hide holdings": one switch for screen sharing; remembered per browser.
+  let hideHold = false;
+  try { hideHold = localStorage.getItem('aie-hide-holdings') === '1'; } catch (e) { /* storage blocked */ }
+  function applyHold() { document.body.classList.toggle('hide-holdings', hideHold); }
 
   // A horizontal ladder: add zone, accumulate zone, hold band, stop-adding, trim, with today's price marked.
   // With `chartOpt` the bar becomes a real price chart (zoneChart) above the same legend.
@@ -441,7 +447,8 @@
     const next = K.memos[Math.max(deskIdx - 1, 0)];
     const evs = (K.events || []).filter(e => e.date >= m.date && (deskIdx === 0 || e.date < next.date)).sort((x, y) => y.date.localeCompare(x.date));
     const VER = { confirms: 'Confirms the call', mixed: 'Mixed', breaks: 'Breaks the call' };
-    const events = evs.map(e => `<article class="event ${esc(e.verdict)}">
+    const heldNow = new Set(m.accumulate.filter(a => a.action === 'holding').map(a => a.ticker));
+    const events = evs.map(e => `<article class="event ${esc(e.verdict)}${heldNow.has(e.ticker) ? ' ev-holding' : ''}">
         <div class="idea-head">${tick(e.ticker)}<h3>${esc(e.event)}</h3><span class="pill ver-${esc(e.verdict)}">${VER[e.verdict]}</span><time>${fmtDate(e.date)}</time></div>
         <p class="thesis">${esc(e.headline)}</p>${paras(e.summary)}
         ${(e.numbers || []).length ? `<ul class="nums">${e.numbers.map(n => `<li>${esc(n.text)} ${link(n.source)}</li>`).join('')}</ul>` : ''}
@@ -450,11 +457,14 @@
         <div class="idea-foot">${(e.sources || []).map(u => link(u)).join(' ')}</div></article>`).join('');
 
     const alerts = deskIdx === 0 ? (K.alerts || []).slice(0, 6) : [];
+    // A change line mentions a holding if it names one (ticker or name) or says "holding".
+    const heldNames = m.accumulate.filter(a => a.action === 'holding').flatMap(a => [a.ticker, a.name.split(' (')[0]]);
+    const heldText = t => /holding/i.test(t) || heldNames.some(n => t.includes(n));
     const kinds = {}; (K.changes || []).forEach(c => { kinds[c.kind] = (kinds[c.kind] || 0) + 1; });
     const KIND = { open: 'opened', close: 'closed', new: 'new', drop: 'dropped', move: 'level moves', flip: 'flips', event: 'event updates' };
     const changes = deskIdx === 0 && (K.changes || []).length ? `<details class="dsec changed" id="d-changed"><summary><h2>What changed</h2><span class="chg-sum">${Object.keys(kinds).map(k => `<b class="k-${esc(k)}">${kinds[k]} ${KIND[k] || k}</b>`).join('')}${alerts.length ? `<b class="k-alert">${alerts.length} price alerts</b>` : ''}</span></summary>
-        <ul class="chg">${K.changes.map(c => `<li class="k-${esc(c.kind)}">${esc(c.text)}</li>`).join('')}</ul>
-        ${alerts.length ? `<h4 class="sub">Price alerts</h4><ul class="chg">${alerts.map(a => `<li class="k-alert"><time>${esc(fmtMYT(a.at))}</time> ${esc(a.text)}</li>`).join('')}</ul>` : ''}
+        <ul class="chg">${K.changes.map(c => `<li class="k-${esc(c.kind)}${heldText(c.text) ? ' h' : ''}">${esc(c.text)}</li>`).join('')}</ul>
+        ${alerts.length ? `<h4 class="sub">Price alerts</h4><ul class="chg">${alerts.map(a => `<li class="k-alert${heldNow.has(a.ticker) ? ' h' : ''}"><time>${esc(fmtMYT(a.at))}</time> ${esc(a.text)}</li>`).join('')}</ul>` : ''}
       </details>` : '';
 
     const mk = m.market;
@@ -589,6 +599,7 @@
 
   // ---------- events ----------
   document.addEventListener('click', e => {
+    if (e.target.closest('[data-hold]')) { hideHold = !hideHold; try { localStorage.setItem('aie-hide-holdings', hideHold ? '1' : '0'); } catch (err) { /* not remembered */ } applyHold(); render(); return; }
     const lb = e.target.closest('[data-lens]');
     if (lb) { lens = lb.dataset.lens; try { localStorage.setItem('aie-lens', lens); } catch (err) { /* not remembered */ } render(); return; }
     const cell = e.target.closest('.cell[data-layer]');
@@ -627,5 +638,6 @@
   $('#meta').textContent = `${D.companies.length} companies · ${D.layers.length} layers · ${D.narratives.length} narratives · ${D.developments.length} dated developments · updated ${fmtDate(D.meta.updated)}${K && K.pricesAsOf ? ` · desk prices ${fmtMYT(K.pricesAsOf)}` : ''}`;
   $('#foot').textContent = D.meta.disclaimer;
   document.title = D.meta.title;
+  applyHold();
   route();
 })();

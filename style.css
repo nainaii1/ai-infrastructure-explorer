@@ -385,3 +385,13 @@ svg.zc, svg.rc { display: block; width: 100%; height: auto; overflow: visible; }
   .cp-id { grid-area: id; } .cp-now { grid-area: now; } .cp-dist { grid-area: dist; } .cp-chart { grid-area: chart; } .cp-5d { display: none; }
   .bk { grid-template-columns: 110px 1fr 36px; }
 }
+
+/* ---------- hide holdings (screen sharing) ---------- */
+.hold-toggle { margin-left: auto; border: 1px solid var(--line-strong); background: var(--bg); color: var(--muted); border-radius: 999px; padding: 3px 10px; font-size: 12px; cursor: pointer; }
+.hold-toggle:hover { color: var(--ink); }
+.hide-holdings .cp-row.act-holding, .hide-holdings .cp-group.g-holding, .hide-holdings .idea.holding,
+.hide-holdings .event.ev-holding, .hide-holdings .next li.h, .hide-holdings .bk-u .u-holding,
+.hide-holdings .u-key.u-holding, .hide-holdings .bk-n { display: none; }
+.hide-holdings .chip.lz-holding { border-color: var(--line-strong); box-shadow: none; opacity: .45; }
+.hide-holdings .chip.lz-holding .lb { display: none; }
+.hide-holdings .chg li.h { display: none; }
