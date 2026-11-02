@@ -10,12 +10,23 @@ Open `index.html` by double-clicking it. No server, no build, no dependencies.
 
 Four views. The Desk (below) is the weekly memo; the other three sit over one dataset:
 
+- **Desk.** Opens on a cockpit: every name on the list with its last three
+  months of prices drawn over its buy, add, stop-adding and trim zones, sorted
+  by how close each is to its buy line; each call's return against SMH since
+  it opened; a countdown to the next events; and where the book sits in the
+  chain. Hover a chart for the date and price. The memo follows, with a bar of
+  section buttons to jump around it.
+
 - **Map.** Eleven layers from the buyers of compute at the top (labs,
   hyperscalers, neoclouds) down through accelerators, systems, networking,
   optics, memory, foundry, equipment, materials and power. Each layer states its
-  current constraint and what to watch. Click a company for its dossier: what it
+  current constraint and what to watch. Lenses lay the desk over the chain:
+  **My book** (where your calls and holdings sit), **Analyst mood** (the
+  roster's live bull and bear stances per company) and **News flow** (logged
+  developments in the last 90 days). Click a company for its dossier: what it
   does, why it matters in the chain, the bull and bear case, what would change
-  the picture, and every sourced fact on file.
+  the picture, every sourced fact on file, and, when the desk has a view, its
+  call, a price chart against its zones and every analyst's current stance.
 - **Narratives.** The nine storylines (the memory squeeze, the laser shortage,
   who is paying for the buildout, and so on), each with the case, the counter,
   and the signposts that would settle it.
@@ -119,6 +130,13 @@ nightly copy goes to the private repo `nainaii1/ai-desk-private`.
 | Price alerts | whenever a name changes zone (checked every 6 hours) |
 | Event update after results | the morning after (next: SK hynix results, 28 Oct) |
 | Private backup | nightly 23:30 |
+
+**Cloud analysis (optional).** A cloud session can run the same analysis
+without the Mac: it reads the private repo, refreshes prices from the sheet,
+and saves a report to the private repo's `claude/desk-reports` branch, never
+to `main` (the nightly backup pushes `main`). `CLOUD_BRIEF.md` holds the
+prompt to paste into a cloud session. The cloud never reads the Telegram
+inbox, so forwarded posts stay with the Mac.
 
 **Forwarding to @ai_infra_desk_bot**: a free post needs only its link. A
 subscriber post or reply needs the link plus the pasted text or a screenshot,
