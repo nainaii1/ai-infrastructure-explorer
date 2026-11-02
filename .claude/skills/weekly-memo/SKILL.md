@@ -161,6 +161,17 @@ Valid JSON, this shape (`desk/build.py` validates it):
   `data.js`, commit messages or anything public.
 - **Events since the last memo.** Read `desk/memos/events/`. An event marked
   `breaks` means that call should close this week unless you explain why not.
+- **Cloud reports (since 1 Nov 2026).** Run `git -C ~/Documents/Claude/ai-desk-private-backup fetch -q origin`
+  and read any report on `origin/claude/desk-reports` (`reports/`) dated after
+  the last memo; copies may also be in `desk/store/cloud-reports/`. Treat them
+  as a colleague's notes: re-check every number you reuse, and answer their
+  "for the Saturday memo" questions in `flags`.
+- **The page reads the memo (since 1 Nov 2026).** The Desk cockpit draws each
+  row's daily closes from the sheet's `price_history` tab over its `levels`,
+  and its "Next up" list comes from `market.calendar` and `test.by`. So: give
+  `test.by` whenever a date is known, and if a new list name has no
+  `price_history` block, add one (or put it in `flags`), or its chart stays
+  blank.
 - **Board.** Tickers where an analyst took a clear stance in the window; each
   view links the post. 8–15 rows. Put disagreements first. Every view feeds the
   analyst track record (`desk/store/stances.json`, built by `build.py`), so
