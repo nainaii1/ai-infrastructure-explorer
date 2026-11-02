@@ -108,16 +108,15 @@ change in plain language.
 - **Running:** collector every 6h (launchd, alerts inside), daily digest
   Sun-Fri 11:00 MYT, weekly memo Sat 10:04 MYT, backup nightly 23:30 (pushing
   fine since 24 Oct).
-- **Cloud routines (1-5 Nov only, Opus 5.5, no connectors):** "AI desk: daily
-  deep-dive" 08:00 MYT 2-5 Nov and "AI desk: sceptic research" 20:00 MYT 2-4
-  Nov (memory, optics, capex funding). They read `ai-desk-private` and push
+- **Cloud routines (switched off 2 Nov, kept for reference):** "AI desk:
+  daily deep-dive" (ran 1 and 2 Nov) and "AI desk: sceptic research" (never
+  ran). Switched off because the cloud credit did not move, so they may bill
+  to the plan's usage. They read `ai-desk-private` and push
   reports to its branch `claude/desk-reports`, never `main` (`backup.py`
   pushes `main` without pulling, so a cloud commit there would break the
-  backup). They never call Telegram. The prompts stop themselves after 5 Nov;
-  delete both at claude.ai/code/routines. Open question: the $100 cloud
-  credit (expires 5 Nov 15:59 MYT) did not move after the first run, so
-  routines may bill to the plan's usage instead. `CLOUD_BRIEF.md` is a
-  self-contained prompt for a cloud session the operator starts by hand.
+  backup). They never call Telegram. Delete both at claude.ai/code/routines.
+  From now on the operator runs cloud analysis by hand: `CLOUD_BRIEF.md` is
+  the prompt (`MODE: brief | sceptic <topic> | event <ticker>`).
 - **Page (rebuilt 1 Nov):** the Desk tab opens on a cockpit (every name's
   last 66 sessions drawn over its zones, calls vs SMH, next-up countdown, the
   book by layer); memo cards carry real price charts; the Map has lenses (My
