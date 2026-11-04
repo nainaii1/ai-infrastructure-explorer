@@ -174,7 +174,7 @@ def collect_timeline(handle, cutoff, seen):
     the first page that holds nothing new."""
     out, cursor = [], None
     for _ in range(MAX_PAGES):
-        url = TIMELINE.format(h=handle) + ("?cursor=" + cursor if cursor else "")
+        url = TIMELINE.format(h=handle) + "?with_replies=true" + ("&cursor=" + cursor if cursor else "")
         d = get_json(url)
         if d.get("code") != 200:
             raise RuntimeError("fxtwitter answered {} {}".format(d.get("code"), d.get("message")))

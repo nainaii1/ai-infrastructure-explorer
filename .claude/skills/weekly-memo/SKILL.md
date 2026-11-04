@@ -199,7 +199,8 @@ Valid JSON, this shape (`desk/build.py` validates it):
   50-day). No flow data feed exists in the desk; every item needs a source,
   and the sheet-based stretch lines cite the sheet.
 - **Sceptic seats.** @FundaAI and @insane_analyst joined the roster on 28 Oct
-  2026 to argue the other side. Read their posts first when writing the
+  2026, and @labubu_trader (a bearish semis trader, short SOXX, macro-led, short
+  trade calls rather than research) on 5 Nov 2026, to argue the other side. Read their posts first when writing the
   pushback, and put their views on the board like anyone else's.
 - **Pushback.** Most of the roster leans bull. Write the other side
   so it could be believed: valuation, capex digestion, double-ordering,

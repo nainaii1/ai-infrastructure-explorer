@@ -2,7 +2,7 @@
 
 Rebuilt from scratch on 18 Sep 2026 as a static guide. On 24 Sep 2026 the
 operator asked for the automation back in a narrower form: a **fund desk** that
-follows nine X analysts (two of them sceptic seats), collects their posts automatically, and turns them
+follows ten X analysts (three of them sceptic seats), collects their posts automatically, and turns them
 into a weekly memo. The old v1 system (scoring, tiers, expert seats, claims
 ledger, vault, price plumbing) stays archived at git tag `v1-archive` and is not
 to be revived; the desk replaces it with something much smaller. Read
@@ -80,7 +80,7 @@ change in plain language.
   `test`; accumulate and holding rows carry `levels.trimAbove`;
   `market.positioning` asks "squeeze or re-rating?"; `support.py` flags
   `STRETCHED` names (over 8% in five sessions) so buy lines are not chased up.
-  Roster is nine, two of them sceptic seats (@FundaAI, @insane_analyst).
+  Roster is ten, three of them sceptic seats (@FundaAI, @insane_analyst, @labubu_trader added 5 Nov).
 - **Scorecard (sheet, 2 Nov; closes of 30 Oct):** Micron $884.74 (-17.5%),
   Sandisk $1,150.89 (-36.6%), Coherent $210.32 (-30.0%), all opened 24 Sep (SMH
   -13.1% since); Samsung ₩225,750 (-18.2%, opened 2 Oct; SMH -15.5%); TSMC

@@ -95,6 +95,83 @@
     if (lens === 'news') { const n = ts.reduce((s, t) => s + (L.news[t] || 0), 0); return { v: n, text: `${n} in 90 days` }; }
     return { v: ts.length, text: `${ts.length} companies` };
   }
+
+  // ---------- pictograms, flow map and motion (Nov 2026) ----------
+  const REDUCED = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const ICON = {
+    demand: '<path d="M7 18h10a4 4 0 0 0 .5-7.97A5.5 5.5 0 0 0 7 9.5 4.25 4.25 0 0 0 7 18z"/>',
+    neoclouds: '<rect x="4" y="5" width="16" height="5" rx="1"/><rect x="4" y="14" width="16" height="5" rx="1"/><path d="M7 7.5h.01M7 16.5h.01"/>',
+    accelerators: '<rect x="7" y="7" width="10" height="10" rx="1"/><rect x="10" y="10" width="4" height="4"/><path d="M9 3v4M15 3v4M9 17v4M15 17v4M3 9h4M3 15h4M17 9h4M17 15h4"/>',
+    systems: '<rect x="4" y="4" width="16" height="16" rx="1.5"/><path d="M4 9h16M4 14h16M7 6.5h.01M7 11.5h.01M7 16.5h.01"/>',
+    networking: '<circle cx="12" cy="5" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="19" cy="18" r="2"/><path d="M12 7v4M12 11l-6 5M12 11l6 5"/>',
+    optics: '<path d="M3 12h8M13 12l8-6M13 12h8M13 12l8 6"/><circle cx="12" cy="12" r="1.6"/>',
+    memory: '<rect x="4" y="4" width="16" height="4" rx="1"/><rect x="4" y="10" width="16" height="4" rx="1"/><rect x="4" y="16" width="16" height="4" rx="1"/>',
+    foundry: '<circle cx="12" cy="12" r="8.5"/><path d="M12 3.5v17M3.5 12h17M6 6l12 12"/>',
+    equipment: '<path d="M12 3v6M8 9h8l-2 4h-4zM12 13v8M8 21h8"/>',
+    materials: '<path d="M12 3l7 6-3 12H8L5 9z"/><path d="M5 9h14M12 3l-3 6 3 12 3-12z"/>',
+    power: '<path d="M13 3L5 14h6l-1 7 8-11h-6z"/>'
+  };
+  const icon = (id, size) => `<svg class="ico" width="${size || 20}" height="${size || 20}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICON[id] || ''}</svg>`;
+  const FLOW_NODES = {
+    demand: [100, 110, 'Labs & hyperscalers'], neoclouds: [100, 250, 'Neoclouds'],
+    accelerators: [380, 70, 'Accelerators'], systems: [380, 180, 'Systems'], networking: [380, 290, 'Networking'],
+    foundry: [640, 70, 'Foundry & packaging'], memory: [640, 180, 'Memory'], optics: [640, 290, 'Optics & lasers'],
+    equipment: [830, 70, 'Fab equipment'], materials: [830, 180, 'Substrates'], power: [830, 290, 'Power & cooling']
+  };
+  const FLOW_EDGES = [['demand', 'accelerators'], ['demand', 'networking'], ['neoclouds', 'accelerators'], ['neoclouds', 'systems'],
+    ['accelerators', 'foundry'], ['accelerators', 'memory'], ['systems', 'memory'], ['networking', 'optics'], ['systems', 'power'],
+    ['foundry', 'equipment'], ['foundry', 'materials'], ['memory', 'materials'], ['optics', 'power']];
+  function flowMap(stats, heat) {
+    const R = 27;
+    const paths = FLOW_EDGES.map(([a, b], i) => {
+      const [x1, y1] = FLOW_NODES[a], [x2, y2] = FLOW_NODES[b], mx = (x1 + x2) / 2;
+      return { d: `M${x1 + R} ${y1} C${mx} ${y1} ${mx} ${y2} ${x2 - R} ${y2}`, i, st: (D.layers.find(l => l.id === b) || {}).stage };
+    });
+    const edges = paths.map(p => `<path class="fedge" id="fe${p.i}" d="${p.d}"/>`).join('');
+    const dots = REDUCED ? '' : paths.map(p => `<circle class="fdot" r="2.6"><animateMotion dur="${(5 + (p.i % 4) * 1.1).toFixed(1)}s" begin="-${(p.i * 0.9).toFixed(1)}s" repeatCount="indefinite"><mpath href="#fe${p.i}"/></animateMotion></circle>`).join('');
+    const nodes = D.layers.map(l => {
+      const n = FLOW_NODES[l.id]; if (!n) return '';
+      const s = stats[l.id], h = heat(s), tone = lens === 'mood' && s.v ? (s.net > 0 ? 'bull' : s.net < 0 ? 'bear' : 'split') : '';
+      return `<g class="fnode${tone ? ' t-' + tone : ''}" data-layer="${esc(l.id)}" data-stage="${esc(l.stage)}" tabindex="0" role="button" aria-label="${esc(l.name)}: ${esc(s.text)}" transform="translate(${n[0]} ${n[1]})">
+        ${lens !== 'plain' ? `<circle class="fheat" r="${(R + 5 + h * 15).toFixed(1)}" style="opacity:${(0.15 + h * 0.55).toFixed(2)}"/>` : ''}
+        <circle class="fbody" r="${R}"/><g transform="translate(-12 -12)" class="fico" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${ICON[l.id] || ''}</g>
+        <text class="fname" y="${R + 15}" text-anchor="middle">${esc(n[2])}</text><text class="fstat" y="${R + 28}" text-anchor="middle">${esc(s.text)}</text></g>`;
+    }).join('');
+    const cols = [['DEMAND', 100, 'demand'], ['COMPUTE', 380, 'compute'], ['SUPPLY', 735, 'supply']].map(([t, x, st]) => `<text class="fcol" data-stage="${st}" x="${x}" y="16" text-anchor="middle">${t}</text>`).join('');
+    return `<div class="flowmap"><svg viewBox="0 0 940 372" role="group" aria-label="Flow map of the AI supply chain: spending flows from demand through compute to supply">
+      ${cols}${edges}${dots}${nodes}</svg>
+      <div class="flow-cap" id="flow-cap" aria-live="polite"><span class="muted">Dots show capex flowing from the buyers of compute down to the physical inputs. Hover or focus a layer to read its constraint; click to jump to it.</span></div></div>`;
+  }
+  // Reveal on scroll and draw price lines in as they come into view. Everything is visible without JS motion.
+  let revealIO = null, drawIO = null;
+  function motion(root) {
+    if (REDUCED || !('IntersectionObserver' in window)) return;
+    if (revealIO) revealIO.disconnect(); if (drawIO) drawIO.disconnect();
+    revealIO = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); revealIO.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px' });
+    const below = [];
+    root.querySelectorAll('.dsec, .idea, .event, .layer, .cp-row').forEach(el => { if (el.getBoundingClientRect().top > window.innerHeight * 0.9) { el.classList.add('rv'); below.push(el); revealIO.observe(el); } });
+    setTimeout(() => below.forEach(el => el.classList.add('in')), 2500);
+    drawIO = new IntersectionObserver(es => es.forEach(e => {
+      if (!e.isIntersecting) return; const p = e.target; drawIO.unobserve(p);
+      let len = 0; try { len = p.getTotalLength(); } catch (err) { return; }
+      if (!len) return;
+      p.style.transition = 'none'; p.style.strokeDasharray = len; p.style.strokeDashoffset = len; p.getBoundingClientRect();
+      p.style.transition = 'stroke-dashoffset 1.3s cubic-bezier(.25,.6,.2,1)'; p.style.strokeDashoffset = 0;
+      setTimeout(() => { p.style.strokeDasharray = ''; p.style.strokeDashoffset = ''; p.style.transition = ''; }, 1500);
+    }), { threshold: 0.2 });
+    root.querySelectorAll('svg path.pl, svg path.cl').forEach(p => drawIO.observe(p));
+  }
+  // The tape: every name on the list, its last price and its zone, scrolling slowly.
+  function tape(m) {
+    const items = m.accumulate.map(a => {
+      const lv = LV[a.ticker] || (a.levels && Object.assign({ action: a.action }, a.levels)), q = (K.quotes || {})[a.ticker];
+      if (!lv || !q || q.price == null) return '';
+      const watch = a.action === 'watch', z = watch ? (q.price <= lv.buyBelow ? 'buy' : 'hold') : zoneOf(q.price, lv);
+      return `<span class="tp act-${esc(a.action)} z-${z}"><b>${esc(shortT(a.ticker))}</b> ${num(q.price)} <i>${watch ? (z === 'buy' ? 'at revisit' : 'watch') : ZSHORT[z]}</i></span>`;
+    }).join('');
+    return items ? `<div class="tape" aria-hidden="true"><div class="tape-in">${items}${items}</div></div>` : '';
+  }
+
   function renderMap(q) {
     const stats = {}; let max = 1;
     D.layers.forEach(l => { stats[l.id] = layerStat(l); max = Math.max(max, stats[l.id].v); });
@@ -104,6 +181,7 @@
       const s = stats[l.id], tone = lens === 'mood' && s.v ? (s.net > 0 ? 'bull' : s.net < 0 ? 'bear' : 'split') : '';
       return `<button class="cell${tone ? ' t-' + tone : ''}" data-layer="${esc(l.id)}" style="--h:${heat(s).toFixed(2)}" title="${esc(l.constraint)}"><b>${esc(l.name)}</b><span>${esc(s.text)}</span></button>`;
     }).join('')}</div></div>`).join('<div class="strip-arrow" aria-hidden="true">→</div>')}</div>`;
+    const flow = q ? '' : flowMap(stats, heat);
     const out = [];
     let lastStage = null;
     D.layers.forEach(l => {
@@ -112,22 +190,45 @@
       if (lastStage && lastStage !== l.stage && !q) out.push('<div class="flow">▼ feeds into ▼</div>');
       lastStage = l.stage;
       out.push(`<section class="layer" data-stage="${esc(l.stage)}" id="layer-${esc(l.id)}">
-        <div class="layer-head"><h2>${esc(l.name)}</h2><span class="stage-tag">${esc(l.stage)}</span>${lens !== 'plain' ? `<span class="layer-stat">${esc(stats[l.id].text)}</span>` : ''}</div>
+        <div class="layer-head">${icon(l.id, 22)}<h2>${esc(l.name)}</h2><span class="stage-tag">${esc(l.stage)}</span>${lens !== 'plain' ? `<span class="layer-stat">${esc(stats[l.id].text)}</span>` : ''}</div>
         <p class="layer-summary">${esc(l.summary)}</p>
         <p class="layer-constraint"><b>Constraint.</b> ${esc(l.constraint)}</p>
         <div class="chips">${cos.map(c => chip(c, false, lensDeco(c.ticker))).join('')}</div>
         <p class="layer-watch"><b>Watch:</b> ${esc(l.watch)}</p>
       </section>`);
     });
-    $('#map').innerHTML = bar + strip + (out.join('') || '<p class="empty">No company matches.</p>');
+    $('#map').innerHTML = bar + flow + strip + (out.join('') || '<p class="empty">No company matches.</p>');
+    motion($('#map'));
   }
 
   // ---------- narratives ----------
+  // Pulse: developments per week over the last 12 weeks, for one narrative.
+  const dayN = iso => Math.floor(Date.parse(iso) / 864e5);
+  function pulse(id) {
+    const t = dayN(today), wk = Array(12).fill(0);
+    devs.forEach(d => { if (!d.narratives.includes(id)) return; const k = Math.floor((t - dayN(d.date)) / 7); if (k >= 0 && k < 12) wk[11 - k]++; });
+    const mx = Math.max(1, ...wk), total = wk.reduce((a, b) => a + b, 0), last4 = wk.slice(8).reduce((a, b) => a + b, 0), prev4 = wk.slice(4, 8).reduce((a, b) => a + b, 0);
+    const bars = wk.map((v, i) => `<rect x="${i * 9}" y="${(26 - (v / mx) * 24).toFixed(1)}" width="6" height="${Math.max(v ? 2 : 1, (v / mx) * 24).toFixed(1)}" rx="1.5" class="${v ? 'pb' : 'pb0'}"/>`).join('');
+    const dir = last4 > prev4 ? 'up' : last4 < prev4 ? 'down' : 'flat';
+    return { total, dir, svg: `<svg class="pulse" width="106" height="28" viewBox="0 0 106 28" role="img" aria-label="${total} developments in the last 12 weeks">${bars}</svg>`, last4, prev4 };
+  }
+  const SHORTN = { 'memory-squeeze': 'Memory squeeze', 'laser-shortage': 'Laser shortage', 'copper-to-optics': 'Copper to optics', 'custom-silicon': 'Custom silicon', financing: 'Financing', 'power-constraint': 'Power', packaging: 'Packaging', 'gpu-residual': 'GPU residuals', china: 'China' };
+  function overlap() {
+    const cols = D.narratives, rows = D.companies.map(c => ({ c, ns: cols.filter(n => n.companies.includes(c.ticker)) })).filter(r => r.ns.length >= 2).sort((a, b) => b.ns.length - a.ns.length || a.c.name.localeCompare(b.c.name));
+    if (!rows.length) return '';
+    return `<section class="overlap"><h2>Who sits in several storylines</h2>
+      <p class="muted small">A company in many columns is exposed to many of these bets at once, so one development can move several stories. Click a name for its dossier.</p>
+      <div class="scroll"><table class="ovt"><thead><tr><th></th>${cols.map(n => `<th class="ovh"><span>${esc(SHORTN[n.id] || n.title)}</span></th>`).join('')}<th class="ovn">#</th></tr></thead>
+      <tbody>${rows.map(r => `<tr><td>${chip(r.c, true)}</td>${cols.map(n => `<td class="ovc">${r.ns.includes(n) ? `<i class="dot s-${esc(n.status)}" title="${esc(n.title)} · ${esc(n.status)}"></i>` : ''}</td>`).join('')}<td class="ovn">${r.ns.length}</td></tr>`).join('')}</tbody></table></div></section>`;
+  }
   function renderNarratives(openId) {
-    $('#narratives').innerHTML = D.narratives.map(n => {
-      const recent = devs.filter(d => d.narratives.includes(n.id)).slice(0, 6);
+    $('#narratives').innerHTML = `<p class="muted small ngrid-note">Bars count developments <b>this guide has logged</b> per week over 12 weeks. They show how much the guide has recorded on each storyline, not how much news exists; the latest entry is ${esc(fmtDate(devs[0].date))}.</p><div class="ngrid">${D.narratives.map(n => {
+      const p = pulse(n.id), lastDev = devs.find(d => d.narratives.includes(n.id));
+      return `<button class="ncard s-${esc(n.status)}" data-narr="${esc(n.id)}"><span class="pill ${esc(n.status)}">${esc(n.status)}</span><b>${esc(SHORTN[n.id] || n.title)}</b>${p.svg}<small>${p.total} logged in 12 weeks · ${p.dir === 'up' ? '▲ more logged lately' : p.dir === 'down' ? '▼ fewer logged lately' : '● steady'}</small><small class="muted">${n.companies.length} companies${lastDev ? ' · last ' + fmtDate(lastDev.date) : ''}</small></button>`;
+    }).join('')}</div>` + D.narratives.map(n => {
+      const recent = devs.filter(d => d.narratives.includes(n.id)).slice(0, 6), p = pulse(n.id);
       return `<details class="narr" id="narr-${esc(n.id)}"${openId === n.id ? ' open' : ''}>
-        <summary><h2>${esc(n.title)}</h2><span class="pill ${esc(n.status)}">${esc(n.status)}</span><p>${esc(n.summary)}</p></summary>
+        <summary><h2>${esc(n.title)}</h2><span class="pill ${esc(n.status)}">${esc(n.status)}</span><p>${esc(n.summary)}</p><div class="npulse">${p.svg}<span class="muted small">${p.total} logged in the last 12 weeks (${p.last4} in the last 4, ${p.prev4} in the 4 before)</span></div></summary>
         <div class="narr-body">
           <div class="two">
             <div class="case"><h4>The case</h4><p>${esc(n.case)}</p></div>
@@ -139,12 +240,34 @@
           <p style="margin-top:8px"><a href="#timeline/${esc(n.id)}">All developments in this narrative →</a></p></div>
         </div>
       </details>`;
-    }).join('');
+    }).join('') + overlap();
   }
 
   // ---------- timeline ----------
   let tlNarr = '';
+  // Lanes: one row per narrative, one dot per development, on a shared time axis. Click a dot to jump to it.
+  function lanes() {
+    const NS = D.narratives, W = 940, L = 150, R = 16, T = 22, ROW = 28, H = T + NS.length * ROW + 24;
+    const t0 = dayN(devs[devs.length - 1].date), tN = dayN(today), t1 = Math.max(tN, dayN(devs[0].date)) + 4;
+    const x = iso => L + (dayN(iso) - t0) / (t1 - t0) * (W - L - R);
+    let months = '';
+    for (let d = new Date(Date.UTC(+devs[devs.length - 1].date.slice(0, 4), +devs[devs.length - 1].date.slice(5, 7) - 1, 1)); dayN(d.toISOString().slice(0, 10)) <= t1; d.setUTCMonth(d.getUTCMonth() + 1)) {
+      const iso = d.toISOString().slice(0, 10), xx = x(iso); if (xx < L) continue;
+      months += `<line class="lg" x1="${xx.toFixed(1)}" x2="${xx.toFixed(1)}" y1="${T - 6}" y2="${H - 22}"/><text class="lm" x="${(xx + 4).toFixed(1)}" y="${T - 8}">${MONTHS[d.getUTCMonth()]}</text>`;
+    }
+    const rows = NS.map((n, i) => {
+      const y = T + i * ROW + ROW / 2, col = `var(--s${(i % 8) + 1})`, on = !tlNarr || tlNarr === n.id;
+      const mine = devs.map((d, k) => [d, k]).filter(([d]) => d.narratives.includes(n.id));
+      return `<g class="lane${on ? '' : ' dim'}"><text class="ll" x="${L - 10}" y="${y + 4}" text-anchor="end" data-n="${esc(n.id)}" role="button" tabindex="0">${esc(SHORTN[n.id] || n.title)}</text>
+        <line class="lrow" x1="${L}" x2="${W - R}" y1="${y}" y2="${y}"/>
+        ${mine.map(([d, k]) => `<circle class="ldot${d.date > today ? ' fut' : ''}" cx="${x(d.date).toFixed(1)}" cy="${y}" r="5" style="--c:${col}" data-dev="${k}" tabindex="0" role="button" aria-label="${esc(d.date + ': ' + d.title)}"><title>${esc(fmtDate(d.date) + ': ' + d.title)}</title></circle>`).join('')}</g>`;
+    }).join('');
+    const tx = x(today).toFixed(1);
+    return `<div class="scroll"><svg class="lanes" viewBox="0 0 ${W} ${H}" role="group" aria-label="Developments by narrative over time">${months}${rows}<line class="ltoday" x1="${tx}" x2="${tx}" y1="${T - 6}" y2="${H - 22}"/><text class="lm" x="${tx}" y="${H - 8}" text-anchor="middle">today</text></svg></div>
+      <p class="muted small lanes-note">Each dot is one dated development. Click a dot to jump to it, or a storyline name to filter the list.</p>`;
+  }
   function renderTimeline(q) {
+    $('#tl-lanes').innerHTML = q ? '' : lanes();
     $('#tl-filters').innerHTML = [`<button data-n="" class="${tlNarr ? '' : 'on'}">All</button>`]
       .concat(D.narratives.map(n => `<button data-n="${esc(n.id)}" class="${tlNarr === n.id ? 'on' : ''}">${esc(n.title)}</button>`)).join('');
     const list = devs.filter(d => (!tlNarr || d.narratives.includes(tlNarr)) &&
@@ -153,7 +276,7 @@
     list.forEach(d => {
       const m = d.date.slice(0, 7);
       if (m !== month) { month = m; out.push(`<div class="month">${d.date > today ? 'Upcoming · ' : ''}${fmtMonth(d.date)}</div>`); }
-      out.push(`<article class="dev${d.date > today ? ' future' : ''}">
+      out.push(`<article class="dev${d.date > today ? ' future' : ''}" id="dev-${devs.indexOf(d)}">
         <time datetime="${esc(d.date)}">${fmtDate(d.date)}</time>
         <div><h3>${esc(d.title)}</h3><p>${esc(d.summary)}</p>
           <div class="dev-meta">${d.companies.map(t => byTicker[t]).filter(Boolean).map(c => chip(c, true)).join('')}
@@ -252,7 +375,7 @@
     let lo = o.tight ? Math.min(...vs, buy) : Math.min(...vs, add), hi = o.tight ? Math.max(...vs) : Math.max(...vs, top);
     if (o.call && o.call.refPrice) { lo = Math.min(lo, o.call.refPrice); hi = Math.max(hi, o.call.refPrice); }
     const trimIn = !o.tight && trim != null && trim <= hi * 1.2;
-    if (trimIn) hi = trim;
+    if (trimIn) hi = Math.max(hi, trim);   // never let the line leave the frame
     const pad = (hi - lo) * 0.07; lo -= pad; hi += pad;
     const t0 = ts[0], t1 = ts[ts.length - 1];
     const x = tm => L + (tm - t0) / (t1 - t0 || 1) * (W - L - R);
@@ -399,6 +522,30 @@
     </div>`;
   }
 
+
+  // Zone history: where every name stood on each memo date, judged against that memo's own lines.
+  function zoneHistory(m) {
+    const memos = K.memos.slice().reverse();
+    if (memos.length < 2) return '';
+    const closeOn = (t, d) => { let v = null; for (const [hd, hv] of (HIST[t] || [])) { if (hd > d) break; v = hv; } return v; };
+    const short = d => `${+d.slice(8)} ${MONTHS[+d.slice(5, 7) - 1]}`;
+    const rows = m.accumulate.filter(a => a.levels).map(a => {
+      const cells = memos.map(mm => {
+        const b = mm.accumulate.find(x => x.ticker === a.ticker), p = b && b.levels ? closeOn(a.ticker, mm.date) : null;
+        if (!b || !b.levels) return '<span class="zc0" title="not on the list that week">·</span>';
+        if (p == null) return `<span class="zc0" title="no price history">${num(b.levels.buyBelow)}</span>`;
+        const watch = b.action === 'watch', z = watch ? (p <= b.levels.buyBelow ? 'buy' : 'hold') : zoneOf(p, b.levels);
+        return `<button class="zcell z-${z}${mm.date === m.date ? ' now' : ''}" data-memo="${memos.length - 1 - memos.indexOf(mm)}" title="${esc(shortT(a.ticker))} on ${esc(fmtDate(mm.date))}: ${num(p)}, ${esc(watch ? 'revisit ' : 'buy line ')}${num(b.levels.buyBelow)}, ${esc(ZSHORT[z])}">${num(b.levels.buyBelow)}</button>`;
+      }).join('');
+      return `<div class="zrow act-${esc(a.action)}"><span class="zname">${tick(a.ticker)}</span>${cells}</div>`;
+    }).join('');
+    return `<section class="dsec" id="d-history"><h2>Zone history</h2>
+      <p class="muted small">Where each name stood on each memo date, coloured by its zone against <b>that week's</b> lines. The number is that week's buy line, so you can see the lines move. Click a column to open that memo.</p>
+      <div class="zh" style="--cols:${memos.length}"><div class="zrow zhead"><span></span>${memos.map(mm => `<button class="zdate" data-memo="${memos.length - 1 - memos.indexOf(mm)}">${short(mm.date)}</button>`).join('')}</div>${rows}</div>
+      <div class="cp-key"><span class="k z-add"></span>add <span class="k z-buy"></span>buy <span class="k z-hold"></span>hold <span class="k z-above"></span>no adding <span class="k z-trim"></span>trim</div>
+    </section>`;
+  }
+  let stressId = null;
   function renderDesk() {
     if (!K || !K.memos || !K.memos.length) {
       $('#memo').innerHTML = '<p class="empty">No desk memo yet. The collector is gathering posts; the first memo appears after the weekly run.</p>';
@@ -420,6 +567,7 @@
           <dt>Catalyst</dt><dd>${esc(a.catalyst)}</dd>
           <dt>Accumulate zone</dt><dd>${a.levels ? ladder(a.ticker, a.levels, a.action, { w: 600, h: 190, days: 130, labels: true, call: c }) : ''}<details class="zone-text"><summary>The reasoning behind the lines</summary>${esc(a.zone)}</details></dd>
           <dt>Kills the idea</dt><dd>${esc(a.invalidation)}</dd>
+          ${a.premortem ? `<dt>How it loses money</dt><dd class="premortem">${esc(a.premortem)}</dd>` : ''}
           ${a.test ? `<dt>${a.action === 'watch' ? 'Re-entry test' : 'What decides it'}</dt><dd>${esc(a.test.metric)}: ${esc(a.test.threshold)}${a.test.by ? ' · by ' + fmtDate(a.test.by) : ''} ${link(a.test.source, a.test.sourceName)}</dd>` : ''}
           ${c ? `<dt>Scorecard</dt><dd>Opened ${fmtDate(c.opened)} at ${num(c.refPrice)} ${esc(c.currency || '')} · now ${num(c.lastPrice)} · ${pct(c.ret)} vs ${esc(K.bench)} ${pct(c.benchRet)}</dd>` : ''}
         </dl>
@@ -427,13 +575,24 @@
       </article>`;
     }).join('') || '<p class="muted">Nothing meets the bar this week.</p>';
 
+    // Trust weight: 1 until an analyst has 8+ scored calls, then 1 + average edge/20, held between 0.25 and 1.5.
+    const W8 = {}; (K.track || []).forEach(a => { W8[a.handle] = a.scored >= 8 && a.avgEdge != null ? Math.min(1.5, Math.max(0.25, 1 + a.avgEdge / 20)) : 1; });
+    const lean = b => {
+      let n = 0, w = 0, bu = 0, be = 0;
+      b.views.forEach(v => { const s = v.stance === 'bull' ? 1 : v.stance === 'bear' ? -1 : 0; n += s; w += s * (W8[v.handle] == null ? 1 : W8[v.handle]); bu += s > 0; be += s < 0; });
+      return { n, w, bu, be };
+    };
+    const leanCell = b => {
+      const l = lean(b), cls = l.w > 0.4 ? 'bull' : l.w < -0.4 ? 'bear' : 'mixed';
+      return `<td class="lean"><span class="st ${cls}">${l.bu}▲ ${l.be}▼</span><div class="note">record-weighted ${l.w >= 0 ? '+' : ''}${l.w.toFixed(1)}${l.n !== 0 && Math.sign(l.n) !== Math.sign(Math.round(l.w * 10) / 10) ? ' · <em class="flag">flips the headcount</em>' : ''}</div></td>`;
+    };
     const cols = handles.filter(h => m.board.some(b => b.views.some(v => v.handle === h)));
     const board = m.board.length ? `<div class="scroll"><table class="board">
-      <thead><tr><th>Ticker</th>${cols.map(h => `<th>@${esc(h)}</th>`).join('')}<th>Desk read</th></tr></thead>
+      <thead><tr><th>Ticker</th>${cols.map(h => `<th>@${esc(h)}</th>`).join('')}<th>Lean</th><th>Desk read</th></tr></thead>
       <tbody>${m.board.map(b => `<tr><td>${tick(b.ticker)}</td>${cols.map(h => {
         const v = b.views.find(x => x.handle === h);
         return v ? `<td><a class="st ${esc(v.stance)}" href="${esc(v.url)}" target="_blank" rel="noopener" title="${esc(v.note)}">${STANCE[v.stance]}</a><div class="note">${esc(v.note)}</div></td>` : '<td class="muted">·</td>';
-      }).join('')}<td class="read">${esc(b.read)}</td></tr>`).join('')}</tbody></table></div>` : '<p class="muted">No stances this week.</p>';
+      }).join('')}${leanCell(b)}<td class="read">${esc(b.read)}</td></tr>`).join('')}</tbody></table></div>` : '<p class="muted">No stances this week.</p>';
 
     const TR = (K.track || []).filter(a => a.calls);
     const track = TR.length ? `<div class="scroll"><table class="track"><thead><tr><th>Analyst</th><th>Stances</th><th>Scored</th><th>Avg edge vs ${esc(K.bench)}</th><th>Hit rate</th><th>Best / worst call so far</th></tr></thead><tbody>${
@@ -443,6 +602,28 @@
         return `<tr><td>@${esc(a.handle)}</td><td class="num">${a.calls}</td><td class="num">${a.scored}</td><td class="num">${pct(a.avgEdge)}</td><td class="num">${a.hitRate == null ? '—' : a.hitRate + '%'}</td><td>${bw}</td></tr>`;
       }).join('')}</tbody></table></div>` : '<p class="muted">No stances recorded yet.</p>';
     const young = !TR.some(a => a.rows.some(r => r.since < m.date));
+
+    // Stress test: the desk's 0-3 exposure of each name to one shock, with the room each has before its buy line.
+    const EX = K.exposures || {}, SH = EX.shocks || [];
+    if (stressId == null || !SH.some(x => x.id === stressId)) stressId = SH.length ? SH[0].id : null;
+    const stress = SH.length && deskIdx === 0 ? (() => {
+      const sh = SH.find(x => x.id === stressId);
+      const rows = m.accumulate.map(a => {
+        const e = (EX.rows || {})[a.ticker], lv = LV[a.ticker] || a.levels, p = ((K.quotes || {})[a.ticker] || {}).price;
+        if (!e) return null;
+        const d = lv && p != null ? (p / lv.buyBelow - 1) * 100 : null;
+        return { a, x: e[stressId] || 0, d, z: lv && p != null ? zoneOf(p, lv) : null };
+      }).filter(Boolean).sort((p, q) => q.x - p.x || (p.d == null) - (q.d == null) || p.d - q.d);
+      const hit = rows.filter(r => r.x >= 2 && r.a.action !== 'watch'), safe = rows.filter(r => r.x === 0 && r.a.action !== 'watch');
+      const calls = hit.filter(r => r.a.action === 'accumulate').length, openCalls = rows.filter(r => r.a.action === 'accumulate').length;
+      return `<section class="dsec" id="d-stress"><h2>Stress test</h2>
+        <p class="muted small">Pick a shock. Names are ordered by how directly it hits them (the desk's judgement, 0 to 3, not measured) and then by how close they already sit to their buy line. No return is forecast: it shows where the book is exposed and which named test would tell you first.</p>
+        <div class="shocks" role="tablist">${SH.map(x => `<button role="tab" data-shock="${esc(x.id)}" aria-selected="${x.id === stressId}">${esc(x.label)}</button>`).join('')}</div>
+        <p class="shock-text">${esc(sh.text)}</p>
+        <p class="shock-sum"><b>${calls} of ${openCalls}</b> open call${calls === 1 ? ' is' : 's are'} directly exposed (2 or 3), and <b>${safe.length}</b> row${safe.length === 1 ? '' : 's'} on the list ${safe.length === 1 ? 'is' : 'are'} untouched.</p>
+        <div class="scroll"><table class="stress"><tbody>${rows.map(r => `<tr class="st-row act-${esc(r.a.action)}"><td>${tick(r.a.ticker)}</td><td>${esc(r.a.name)}</td><td class="exp x${r.x}" title="exposure ${r.x} of 3">${'●'.repeat(r.x)}${'○'.repeat(3 - r.x)}</td><td class="num">${r.d == null ? '<span class="muted">no price</span>' : r.d <= 0 ? 'in zone' : '+' + r.d.toFixed(1) + '% to buy line'}</td><td class="muted small">${r.a.test ? esc(r.a.test.metric) : esc(r.a.invalidation)}</td></tr>`).join('')}</tbody></table></div>
+      </section>`;
+    })() : '';
 
     const next = K.memos[Math.max(deskIdx - 1, 0)];
     const evs = (K.events || []).filter(e => e.date >= m.date && (deskIdx === 0 || e.date < next.date)).sort((x, y) => y.date.localeCompare(x.date));
@@ -477,22 +658,26 @@
 
     $('#memo').innerHTML = `
       <div class="memo-meta">Weekly memo · ${fmtDate(m.date)} · posts ${fmtDate(m.window.from)} to ${fmtDate(m.window.to)} ${pick}</div>
+      ${deskIdx === 0 ? tape(m) : ''}
       <h1 class="headline">${esc(m.headline)}</h1>
-      <nav class="dnav" aria-label="Memo sections">${[deskIdx === 0 && ['d-cockpit', 'Cockpit'], changes && ['d-changed', 'Changes'], events && ['d-since', 'Since'], ['d-picture', 'Picture'], ['d-list', 'List'], ['d-board', 'Board'], ['d-track', 'Track record'], ['d-wrap', 'Market'], ['d-pushback', 'Pushback'], ['d-score', 'Scorecard']].filter(Boolean).map(([id, l]) => `<button data-jump="${id}">${l}</button>`).join('')}</nav>
+      <nav class="dnav" aria-label="Memo sections">${[deskIdx === 0 && ['d-cockpit', 'Cockpit'], deskIdx === 0 && ['d-history', 'History'], changes && ['d-changed', 'Changes'], events && ['d-since', 'Since'], ['d-picture', 'Picture'], ['d-list', 'List'], ['d-board', 'Board'], stress && ['d-stress', 'Stress test'], ['d-track', 'Track record'], ['d-wrap', 'Market'], ['d-pushback', 'Pushback'], ['d-score', 'Scorecard']].filter(Boolean).map(([id, l]) => `<button data-jump="${id}">${l}</button>`).join('')}</nav>
       ${deskIdx === 0 ? cockpit(m) : ''}
+      ${deskIdx === 0 ? zoneHistory(m) : ''}
       ${changes}
       ${events ? `<section class="dsec" id="d-since"><h2>Since this memo</h2><p class="muted small">Event updates between weekly memos. They can move the alert levels; only the weekly memo opens or closes calls.</p>${events}</section>` : ''}
       <section class="dsec" id="d-picture"><h2>1 · The supply-chain picture</h2>
         <div class="two"><div><h4>Now</h4>${paras(m.picture.now)}</div><div><h4>Next</h4>${paras(m.picture.next)}</div></div></section>
       <section class="dsec" id="d-list"><h2>2 · Accumulate list</h2>
         <p class="muted small">Research support, not advice. Prices from your Google Sheet${K.pricesAsOf ? ' as of ' + esc(K.pricesAsOf.slice(0, 10)) : ''}.</p>${acc}</section>
-      <section class="dsec" id="d-board"><h2>3 · Analyst board</h2><p class="muted small">Each cell links to the post. Hover or read the note for the reason.</p>${board}</section>
+      <section class="dsec" id="d-board"><h2>3 · Analyst board</h2><p class="muted small">Each cell links to the post. <b>Lean</b> counts the heads, then re-weights each by that analyst's record against ${esc(K.bench)}: weight 1 until 8 scored calls, then 1 + average edge ÷ 20, held between 0.25 and 1.5. A lean that flips the headcount means the track record disagrees with the crowd. It is a rule of thumb, not a forecast.</p>${board}</section>
+      ${stress}
       <section class="dsec" id="d-track"><h2>Analyst track record</h2><p class="muted small">Every stance on the board, from the day it was first recorded, against ${esc(K.bench)}. A bull call earns the stock's move minus ${esc(K.bench)}'s; a bear call the reverse; mixed calls are not scored. Local-currency returns.${young ? ' Everything was recorded this week, so it all reads 0% for now; it fills in as prices move.' : ''}</p>${track}</section>
       <section class="dsec" id="d-wrap"><h2>4 · Market wrap</h2>${paras(mk.summary)}${movers}${posn ? '<h4 class="sub">Positioning: squeeze or re-rating?</h4>' + posn : ''}${cal ? '<h4 class="sub">Coming up</h4>' + cal : ''}</section>
       <section class="dsec pushback" id="d-pushback"><h2>The desk's pushback</h2><p class="muted small">Every analyst on the roster leans bullish. This is the other side.</p>${paras(m.pushback)}</section>
       <section class="dsec" id="d-score"><h2>Scorecard</h2><p class="muted small">Every accumulate call, marked to the latest price against ${esc(K.bench)}. Calls are never edited after the fact.</p>${score}</section>
       ${m.flags.length ? `<section class="dsec"><h2>Flags</h2><ul>${m.flags.map(f => `<li>${esc(f)}</li>`).join('')}</ul></section>` : ''}
       <p class="muted small">Collector last ran ${K.collectorLastRun ? esc(fmtMYT(K.collectorLastRun)) : 'never'} · following ${K.analysts.map(a => '@' + esc(a.handle)).join(', ')}</p>`;
+    motion($('#memo'));
     const sel = $('#memo-pick');
     if (sel) sel.addEventListener('change', () => { deskIdx = +sel.value; renderDesk(); window.scrollTo(0, 0); });
   }
@@ -597,12 +782,27 @@
     showView('desk');
   }
 
+  function jumpDev(k) {
+    let el = document.getElementById('dev-' + k);
+    if (!el) { tlNarr = ''; renderTimeline($('#q').value.trim()); el = document.getElementById('dev-' + k); }
+    if (!el) return;
+    el.scrollIntoView({ block: 'center', behavior: REDUCED ? 'auto' : 'smooth' });
+    el.classList.remove('flash'); void el.offsetWidth; el.classList.add('flash');
+  }
   // ---------- events ----------
   document.addEventListener('click', e => {
+    const nc = e.target.closest('[data-narr]');
+    if (nc) { const el = document.getElementById('narr-' + nc.dataset.narr); if (el) { el.open = true; el.scrollIntoView({ block: 'start', behavior: 'smooth' }); } return; }
+    const dd = e.target.closest('[data-dev]');
+    if (dd) { jumpDev(dd.dataset.dev); return; }
+    const dm = e.target.closest('[data-memo]');
+    if (dm) { deskIdx = +dm.dataset.memo; renderDesk(); window.scrollTo(0, 0); return; }
+    const shk = e.target.closest('[data-shock]');
+    if (shk) { stressId = shk.dataset.shock; const y = window.scrollY; renderDesk(); window.scrollTo(0, y); return; }
     if (e.target.closest('[data-hold]')) { hideHold = !hideHold; try { localStorage.setItem('aie-hide-holdings', hideHold ? '1' : '0'); } catch (err) { /* not remembered */ } applyHold(); render(); return; }
     const lb = e.target.closest('[data-lens]');
     if (lb) { lens = lb.dataset.lens; try { localStorage.setItem('aie-lens', lens); } catch (err) { /* not remembered */ } render(); return; }
-    const cell = e.target.closest('.cell[data-layer]');
+    const cell = e.target.closest('.cell[data-layer], .fnode[data-layer]');
     if (cell) { const el = $('#layer-' + CSS.escape(cell.dataset.layer)); if (el) el.scrollIntoView({ block: 'start', behavior: 'smooth' }); return; }
     const jump = e.target.closest('[data-jump]');
     if (jump) { const el = document.getElementById(jump.dataset.jump); if (el) { if (el.tagName === 'DETAILS') el.open = true; el.scrollIntoView({ block: 'start', behavior: 'smooth' }); } return; }
@@ -616,7 +816,15 @@
     const ll = e.target.closest('a[data-layer]');
     if (ll) { closeDrawer(true); setTimeout(() => { const el = $('#layer-' + CSS.escape(ll.dataset.layer)); if (el) el.scrollIntoView({ block: 'start', behavior: 'smooth' }); }, 0); }
   });
+  function flowCap(e) {
+    const n = e.target.closest && e.target.closest('.fnode'), cap = $('#flow-cap'); if (!cap || !n) return;
+    const l = D.layers.find(x => x.id === n.dataset.layer); if (!l) return;
+    cap.innerHTML = `<b>${esc(l.name)}.</b> ${esc(l.constraint)}`;
+  }
+  document.addEventListener('mouseover', flowCap);
+  document.addEventListener('focusin', flowCap);
   document.addEventListener('keydown', e => {
+    if (e.key === 'Enter' && e.target.classList && e.target.classList.contains('fnode')) { const el = $('#layer-' + CSS.escape(e.target.dataset.layer)); if (el) el.scrollIntoView({ block: 'start', behavior: 'smooth' }); }
     if (e.key === 'Escape' && !$('#drawer').hidden) closeDrawer();
     if (e.key === '/' && document.activeElement !== $('#q')) { e.preventDefault(); $('#q').focus(); }
   });

@@ -80,8 +80,8 @@ without a reason to be on the map.
 
 ## The desk
 
-The **Desk** tab is a private weekly memo built from nine X analysts
-(`desk/analysts.json`), two of them sceptic seats that argue the other side. A small collector (`desk/collect.py`) runs every six hours,
+The **Desk** tab is a private weekly memo built from ten X analysts
+(`desk/analysts.json`), three of them sceptic seats that argue the other side. A small collector (`desk/collect.py`) runs every six hours,
 reads their public timelines and anything forwarded to the Telegram bot, and
 saves the posts. Once a week Claude reads them, checks the claims that matter,
 and writes the memo: the supply-chain picture, an accumulate list with
