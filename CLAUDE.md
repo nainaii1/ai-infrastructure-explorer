@@ -105,6 +105,7 @@ change in plain language.
   close (about 05:00 MYT 5 Nov); Lumentum 5 Nov; a possible Marvell-Lumentum
   deal; holdings' dates are in the memo. The daily digest triggers event
   updates.
+- Since 5 Nov 2026 the collector also saves each analyst's own replies (with_replies=true).
 - **Running:** collector every 6h (launchd, alerts inside), daily digest
   Sun-Fri 11:00 MYT, weekly memo Sat 10:04 MYT, backup nightly 23:30 (pushing
   fine since 24 Oct).

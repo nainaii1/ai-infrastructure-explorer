@@ -26,7 +26,7 @@ from datetime import datetime, timedelta, timezone
 from common import (MEDIA_DIR, POSTS_DIR, STATE_FILE, DESK, Telegram,
                     get_json, load_env, load_json, now_iso, save_json)
 
-TIMELINE = "https://api.fxtwitter.com/2/profile/{h}/statuses"
+TIMELINE = "https://api.fxtwitter.com/2/profile/{h}/statuses?with_replies=true"   # replies too (4 Nov 2026 fix)
 STATUS = "https://api.fxtwitter.com/{u}/status/{i}"
 STATUS_RE = re.compile(r"(?:twitter\.com|x\.com|fxtwitter\.com|fixupx\.com)/([A-Za-z0-9_]+)/status/(\d+)")
 MAX_PAGES = 6
@@ -171,22 +171,31 @@ def save_posts(recs, state):
 
 def collect_timeline(handle, cutoff, seen):
     """New posts from one public timeline, newest first, back to `cutoff` or
-    the first page that holds nothing new."""
+    the first page that holds nothing new. The feed includes replies (since
+    4 Nov 2026): the handle's own replies are kept, other people's replies in
+    the same threads are skipped."""
     out, cursor = [], None
+    me = handle.lower()
     for _ in range(MAX_PAGES):
-        url = TIMELINE.format(h=handle) + "?with_replies=true" + ("&cursor=" + cursor if cursor else "")
+        url = TIMELINE.format(h=handle) + ("&cursor=" + cursor if cursor else "")
         d = get_json(url)
         if d.get("code") != 200:
             raise RuntimeError("fxtwitter answered {} {}".format(d.get("code"), d.get("message")))
-        fresh = 0
+        newer = 0
         for t in d.get("results") or []:
             rec = shape(t, "timeline", handle)
-            if not rec["postedAt"] or rec["postedAt"] < cutoff or rec["id"] in seen:
-                continue          # old, pinned, or already stored
-            fresh += 1
+            if not rec["postedAt"] or rec["postedAt"] < cutoff:
+                continue          # old or pinned
+            newer += 1
+            if rec["id"] in seen:
+                continue          # already stored
+            by = (rec.get("author") or "").lower()
+            rp = (rec.get("repostedBy") or "").lower()
+            if by != me and rp != me:
+                continue          # someone else's reply in the thread
             out.append(attach_parent(rec))
         cursor = (d.get("cursor") or {}).get("bottom")
-        if not fresh or not cursor:
+        if not newer or not cursor:
             break
     return out
 
