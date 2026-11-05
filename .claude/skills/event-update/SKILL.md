@@ -5,6 +5,8 @@ description: Write a short update on the desk's call right after a company event
 
 # Event update
 
+**First, read `desk/store/HANDOVER.md`** (private status, zones, open issues and the checklist for the next memo). It is no longer in CLAUDE.md.
+
 The weekly memo sets the calls. Results land midweek, and the operator should
 not wait until Saturday to know whether a result confirmed or broke a call.
 This is a short, sourced read on one event. It does **not** open or close

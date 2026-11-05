@@ -5,6 +5,8 @@ description: Send the operator a short Telegram digest of the last 24 hours of a
 
 # Daily digest
 
+**First, read `desk/store/HANDOVER.md`** (private status, zones, open issues and the checklist for the next memo). It is no longer in CLAUDE.md.
+
 A five-minute read on the phone, not a memo. No guide edits, no scorecard
 changes, no commit.
 

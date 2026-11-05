@@ -64,106 +64,14 @@ fxtwitter API and picks up whatever the operator forwarded to the Telegram bot
 (subscriber posts, replies, screenshots). It exits after each run, so there is
 no bot process to crash.
 
+## Handover (read only for desk work)
+
+Dated status, zones, scorecard, the checklist for the next memo and open issues
+live in the private file `desk/store/HANDOVER.md` (gitignored). The desk skills
+read it first. Ordinary coding sessions do not need it.
+
 The operator does not use a terminal. Run the commands for him and describe the
 change in plain language.
-
-## Current status (handover, 2 Nov 2026)
-
-- **Checks:** `check.py` 0 errors (8 warnings: FN, ANET, CRDO, LRCX, KLAC, CEG,
-  VRT, ETN have no sourced facts yet); `build.py` no errors.
-- **Memos:** 24 Sep (trial), 2 Oct, 10 Oct, 15 Oct, 24 Oct, 28 Oct. **The
-  scheduled 31 Oct memo FAILED**: the account hit its weekly usage limit at
-  10:05 MYT (resets 13:00), so nothing after 28 Oct is in a memo. The cloud
-  deep-dives of 1 and 2 Nov (below) cover the gap. **Next memo: Sat 7 Nov,
-  10:04 MYT.** Check the usage limit on Friday.
-- **Desk rules from 28 Oct** (still in force): `watch` rows need a named
-  `test`; accumulate and holding rows carry `levels.trimAbove`;
-  `market.positioning` asks "squeeze or re-rating?"; `support.py` flags
-  `STRETCHED` names (over 8% in five sessions) so buy lines are not chased up.
-  Roster is ten, three of them sceptic seats (@FundaAI, @insane_analyst, @labubu_trader added 5 Nov).
-- **Scorecard (sheet, 2 Nov; closes of 30 Oct):** Micron $884.74 (-17.5%),
-  Sandisk $1,150.89 (-36.6%), Coherent $210.32 (-30.0%), all opened 24 Sep (SMH
-  -13.1% since); Samsung ₩225,750 (-18.2%, opened 2 Oct; SMH -15.5%); TSMC
-  $406.13 (-2.6%, opened 24 Oct; SMH -1.1%). Closed: SK hynix (-31.4%, 24 Oct).
-  Every open call trails SMH; Sandisk worst at -23.5 points.
-- **Zones now:** Sandisk, Coherent and TSMC sit inside their buy zones, Micron
-  0.5% above its $880 buy line, Samsung in hold. SK hynix (watch) is
-  STRETCHED above its ₩1,283,000 revisit level. Levels are the 28 Oct memo's:
-  Micron $880 / $804 / $1,417 / trim $1,562; Samsung ₩210,600 / ₩189,200 /
-  ₩316,000 / ₩395,000; Sandisk $1,290 / $998 / $1,934 / $2,144 (divide by 8
-  after the split, effective after the 19 Nov close); Coherent $211 / $175 /
-  $282 / $352; TSMC $420 / $386 / $475 / $584. Holdings have their own levels
-  in the memo (never name them here).
-- **For the 7 Nov memo** (from the cloud deep-dive): Sandisk's thesis weakened
-  (Kioxia guided the December quarter about flat; NAND price gains slowed from
-  about +70% to the mid-20s), so give it a named test and recheck its
-  valuation anchor; Micron and Samsung are unchanged or stronger; TSMC's capex
-  test passed but the market now punishes capex cash burn (Alphabet -13% on
-  negative free cash flow). Two holdings failed their named tests; the memo
-  must reassess them (see the private reports).
-- **Events ahead:** AMD 3 Nov after the US close; Coherent 4 Nov after the
-  close (about 05:00 MYT 5 Nov); Lumentum 5 Nov; a possible Marvell-Lumentum
-  deal; holdings' dates are in the memo. The daily digest triggers event
-  updates.
-- Since 5 Nov 2026 the collector also saves each analyst's own replies (with_replies=true).
-- **Running:** collector every 6h (launchd, alerts inside), daily digest
-  Sun-Fri 11:00 MYT, weekly memo Sat 10:04 MYT, backup nightly 23:30 (pushing
-  fine since 24 Oct).
-- **Cloud routines (switched off 2 Nov, kept for reference):** "AI desk:
-  daily deep-dive" (ran 1 and 2 Nov) and "AI desk: sceptic research" (never
-  ran). Switched off because the cloud credit did not move, so they may bill
-  to the plan's usage. They read `ai-desk-private` and push
-  reports to its branch `claude/desk-reports`, never `main` (`backup.py`
-  pushes `main` without pulling, so a cloud commit there would break the
-  backup). They never call Telegram. Delete both at claude.ai/code/routines.
-  From now on the operator runs cloud analysis by hand: `CLOUD_BRIEF.md` is
-  the prompt (`MODE: brief | sceptic <topic> | event <ticker>`).
-- **Page (rebuilt 1 Nov):** the Desk tab opens on a cockpit (every name's
-  last 66 sessions drawn over its zones, calls vs SMH, next-up countdown, the
-  book by layer); memo cards carry real price charts; the Map has lenses (My
-  book, Analyst mood, News flow); company dossiers include the desk's view.
-  A **Hide holdings** switch (cockpit header) hides every holding for screen
-  sharing. A private phone copy is published after each memo (weekly-memo
-  step 5b; link in the private memory, not here). `build.py` now writes
-  `desk/store/history.json` (daily closes from the
-  sheet's `price_history` tab, cached if the fetch fails) into `desk.js`.
-- **Sheet:** the main tab's `Chg1W` covers about 12 days, not 7. One
-  holding's main-tab price disagrees with its `price_history` close by about
-  5% (see the 1 Nov private report); one is stale. Lumentum has no
-  `price_history` block.
-- **Known limits:** subscriber posts need text or a screenshot and a link;
-  CXMT has no sheet price; the Mac must be awake for the collector; fxtwitter
-  returns frequent one-off 404s (most accounts recover next run). In Claude's
-  browser pane check the page through the `explorer` preview server (port
-  8791), and reload scripts with a cache bypass after edits.
-
-### Open issues (2 Nov)
-
-1. **Weekly usage limit** stopped the 31 Oct memo. Keep Friday free of heavy
-   runs, or check usage before Saturday.
-2. **Backup failure message is vague** (`backup.py` prints only "exit status
-   1"). It does refuse to push unless the repo is private.
-3. **Sheet:** fix `Chg1W`, the holding price mismatch, and add a Lumentum block.
-4. **Clean:** nothing private is tracked by git; page text is escaped on
-   render; the public site has no `desk.js`, so it hides the desk-only lenses.
-
-### Direction
-
-- The 28-30 Oct results came in: hyperscaler 2027 capex rises, memory says
-  sold out, but NAND pricing is cooling and the market now prices the cost of
-  capex. SK hynix's HBM4 share at Nvidia is still unconfirmed (re-open its
-  call only if the share holds).
-- Concentration: three of five calls are memory, plus Coherent (optics) and
-  TSMC (foundry). TSMC dilutes the memory bet but does not hedge it.
-- Track record, first read (five memos): the four analysts with 8+ scored
-  calls all trail SMH on average (-5.5 to -9.1 points), mostly beta in a
-  falling month. Not yet a reason to drop anyone. On the 28 Oct board memory
-  had 17 bull stances and 0 bear, where three of five calls sit: the sceptic
-  seats and the cloud sceptic reports exist to argue that side.
-- Guide: fill the 8 sourced-fact gaps only when a development earns it
-  (`log-development`); do not pad.
-- On request, a management slide deck is built from the latest memo as a
-  private Slides artifact (24 Oct: 10 slides, holdings left out).
 
 ## Desk files
 

@@ -5,6 +5,8 @@ description: Write the weekly fund-desk memo from the analysts' X posts: supply-
 
 # Weekly desk memo
 
+**First, read `desk/store/HANDOVER.md`** (private status, zones, open issues and the checklist for the next memo). It is no longer in CLAUDE.md.
+
 The desk turns the X analysts (`desk/analysts.json`) into a fund desk. They
 pitch; you are the research head who reads everything, checks the claims that
 matter, and writes the memo; the operator decides and trades. Research support,

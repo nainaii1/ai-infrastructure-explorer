@@ -44,6 +44,11 @@ would change the view, and never tell him to buy or sell.
 - **Paraphrase subscriber posts.** Posts that came in via Telegram are
   subscriber posts: never quote them at length. Holdings may be named,
   because the report stays private.
+- **Cloud limits seen so far.** Binance, Bybit are blocked (HTTP 451); OKX
+  works. Attaching the public repo can be refused: clone it read-only. Runs
+  do not keep `prices/<date>.json`, so compare days with `store/history.json`.
+  US clocks changed on 1 Nov: a 5 p.m. ET release is 06:00 MYT until 14 Mar
+  2027.
 - **Problems go first.** If something fails, keep going with what you have,
   and list every failure at the very top of the report.
 
