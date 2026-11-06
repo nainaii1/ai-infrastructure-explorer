@@ -80,6 +80,7 @@ desk/analysts.json    the roster (edit to add/drop an analyst)
 desk/collect.py       every 6h: timelines + Telegram inbox -> desk/store/posts/
 desk/prices.py        price snapshot from the Google Sheet -> desk/store/prices/ (memo) and prices_latest.json (collector)
 desk/support.py       chart floors from the sheet's price_history tab (gid 175825543) for support-based levels
+desk/ta.py            back-tests every moving average and floor on that history: how often each held, what followed -> desk/store/ta.json (build.py runs it)
 desk/prep.py          bundle a window of posts -> desk/store/reading.md
 desk/build.py         validate memos, keep the scorecard, write desk.js
 desk/send.py          send a text file to the operator's Telegram

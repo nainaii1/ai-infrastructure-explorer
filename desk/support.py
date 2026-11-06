@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Support floors for the accumulate list, from the Google Sheet's
-`price_history` tab (GOOGLEFINANCE daily bars, about a year, public CSV export,
+`price_history` tab (GOOGLEFINANCE daily bars, about four years since 6 Nov 2026, public CSV export,
 no key). Each name is a block of six columns (Date, Open, High, Low, Close,
 Volume) under a header cell holding the desk ticker; add a block to the tab to
 add a name.
@@ -35,6 +35,7 @@ SIDE = 5        # sessions either side for a swing low
 MERGE = 0.03    # floors within 3% are one band
 BAND = 0.03     # buy line sits this far above the floor being tested
 STRETCH = 0.08  # a five-session rise above this means "not testing a floor"
+YEAR = 252      # the tab holds about four years (for desk/ta.py); the memo's floors use the last year only
 
 
 def load():
@@ -86,7 +87,7 @@ def main():
     want = sys.argv[1:] or list(data)
     bench = move(data["SMH"]) if data.get("SMH") else None
     for key in want:
-        bars = data.get(key)
+        bars = (data.get(key) or [])[-YEAR:]
         if not bars:
             print("{}: not in the price_history tab".format(key))
             continue

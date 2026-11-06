@@ -376,6 +376,14 @@
     if (o.call && o.call.refPrice) { lo = Math.min(lo, o.call.refPrice); hi = Math.max(hi, o.call.refPrice); }
     const trimIn = !o.tight && trim != null && trim <= hi * 1.2;
     if (trimIn) hi = Math.max(hi, trim);   // never let the line leave the frame
+    const TA = o.labels && K && K.ta && K.ta.names ? K.ta.names[t] : null;
+    const d0 = bars[0][0];
+    const maRows = TA ? TA.support.concat(TA.resistance).filter(r => r.series && /^SMA (50|200)d$/.test(r.label)) : [];
+    const tested = TA ? TA.support.filter(r => r.n > 0).slice(0, 2) : [];
+    if (TA) {
+      maRows.forEach(r => r.series.forEach(([d, v]) => { if (d >= d0) { lo = Math.min(lo, v); hi = Math.max(hi, v); } }));
+      tested.forEach(r => { lo = Math.min(lo, r.value); hi = Math.max(hi, r.value); });
+    }
     const pad = (hi - lo) * 0.07; lo -= pad; hi += pad;
     const t0 = ts[0], t1 = ts[ts.length - 1];
     const x = tm => L + (tm - t0) / (t1 - t0 || 1) * (W - L - R);
@@ -401,21 +409,27 @@
         callMark = `<line class="cm" x1="${ox.toFixed(1)}" x2="${ox.toFixed(1)}" y1="${T}" y2="${H - B}"/><circle class="cmd" cx="${ox.toFixed(1)}" cy="${y(o.call.refPrice).toFixed(1)}" r="4"/><text class="lt cmt" x="${(ox + 6).toFixed(1)}" y="${H - B - 5}">call opened ${num(o.call.refPrice)}</text>`;
       }
     }
+    function taOverlay() {
+      if (!TA) return '';
+      const mas = maRows.map(r => { const pts = r.series.filter(([d]) => d >= d0); return pts.length > 1 ? `<path class="ma ma${r.label.match(/\d+/)[0]}" d="${pts.map(([d, v], i) => `${i ? 'L' : 'M'}${x(Date.parse(d)).toFixed(1)} ${y(v).toFixed(1)}`).join('')}"/><text class="mal" x="${(x(Date.parse(pts[pts.length - 1][0])) - 4).toFixed(1)}" y="${(y(pts[pts.length - 1][1]) - 5).toFixed(1)}" text-anchor="end">${esc(r.label.replace('SMA ', ''))} MA</text>` : ''; }).join('');
+      const tl = tested.map(r => `<line class="tl" x1="${L}" x2="${W - R}" y1="${y(r.value).toFixed(1)}" y2="${y(r.value).toFixed(1)}"/><text class="tlt" x="${L + 6}" y="${(y(r.value) - 5).toFixed(1)}">${esc(r.label)} ${num(r.value)} · held ${r.held}/${r.n}</text>`).join('');
+      return mas + tl;
+    }
     const id = regChart({ W, x0: L, x1: W - R, t0, t1, fmt: v => num(v) + ' ' + (lv.currency || ''), series: [{ label: shortT(t), pts: ts.map((tm, i) => [tm, vs[i]]) }] });
     return `<svg class="zc${o.labels ? ' big' : ''}" data-ch="${id}" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(nameOf(t))}: ${bars.length} daily closes against the desk's zones; last ${num(last)}">
-      ${bands}${ticks}${labels}${callMark}<path class="pl" d="${line}"/><circle class="pd" cx="${x(t1).toFixed(1)}" cy="${y(last).toFixed(1)}" r="${o.labels ? 4 : 3}"/>
+      ${bands}${ticks}${labels}${callMark}${taOverlay()}<path class="pl" d="${line}"/><circle class="pd" cx="${x(t1).toFixed(1)}" cy="${y(last).toFixed(1)}" r="${o.labels ? 4 : 3}"/>
       <line class="hair" x1="0" x2="0" y1="${T}" y2="${H - B}" opacity="0"/></svg>`;
   }
 
   // Each accumulate call's return minus SMH's, from the call's own reference prices, over daily closes.
   const SERIES = ['var(--s1)', 'var(--s2)', 'var(--s3)', 'var(--s4)', 'var(--s5)', 'var(--s6)', 'var(--s7)', 'var(--s8)'];
   function callsChart() {
-    const smh = HIST[K.bench]; if (!smh || !K.calls.length) return '';
+    const smh = closes(K.bench); if (!smh.length || !K.calls.length) return '';
     const smhAt = d => { let v = null; for (const [sd, sv] of smh) { if (sd > d) break; v = sv; } return v; };
     const series = K.calls.map((c, i) => {
       if (!c.refPrice || !c.benchRef) return null;
       const end = c.closed ? c.closed.date : '9999-12-31';
-      const pts = (HIST[c.ticker] || []).filter(([d]) => d >= c.opened && d <= end).map(([d, v]) => {
+      const pts = closes(c.ticker).filter(([d]) => d >= c.opened && d <= end).map(([d, v]) => {
         const b = smhAt(d); return b ? [Date.parse(d), ((v / c.refPrice) - (b / c.benchRef)) * 100] : null;
       }).filter(Boolean);
       return pts.length > 1 ? { c, pts, color: SERIES[i % SERIES.length], label: shortT(c.ticker) + (c.closed ? ' (closed)' : '') } : null;
@@ -545,6 +559,43 @@
       <div class="cp-key"><span class="k z-add"></span>add <span class="k z-buy"></span>buy <span class="k z-hold"></span>hold <span class="k z-above"></span>no adding <span class="k z-trim"></span>trim</div>
     </section>`;
   }
+
+  // The back-tested lines for one name (desk/ta.py): what held, how often, what followed.
+  function taBlock(t, compact) {
+    const TA = K && K.ta && K.ta.names ? K.ta.names[t] : null;
+    if (!TA) return '';
+    const rec = h => h.map(x => `<i class="tk ${x.held ? 'ok' : 'no'}" title="${esc(fmtDate(x.d))}: ${x.held ? 'held' : 'broke'} · 10 sessions later ${x.fwd == null ? 'n/a' : (x.fwd >= 0 ? '+' : '') + x.fwd + '%'} · worst ${x.mae}%">${x.held ? '✓' : '✗'}</i>`).join('');
+    const row = (r, side) => `<tr class="${side}"><td>${esc(r.label)}${r.kind === 'floor' && r.formed ? `<small>formed ${esc(r.formed.slice(-2).map(fmtDate).join(', '))}</small>` : ''}</td>
+      <td class="num">${num(r.value)}</td><td class="num">${r.dist > 0 ? '+' : ''}${r.dist}%</td>
+      <td>${r.n ? `<b>${r.held}/${r.n}</b> ${rec(r.hist || [])}${r.recent && r.recent.n ? `<small>last year ${r.recent.held}/${r.recent.n}</small>` : '<small>last year: not tested</small>'}` : '<span class="muted" title="No touch old enough to judge: a touch needs 5 sessions after it">no judged test</span>'}</td>
+      <td class="num">${side === 'sup' ? r.shrunk + '%' : ''}</td>
+      <td class="num">${r.fwd == null ? '—' : pct(r.fwd)}${r.edge == null ? '' : `<small>${r.edge >= 0 ? '+' : ''}${r.edge} vs trend</small>`}</td>
+      <td>${r.last ? fmtDate(r.last) : '—'}</td></tr>`;
+    const sup = TA.support.slice(0, compact ? 3 : 5), res = TA.resistance.slice(0, 2);
+    return `<div class="ta"><div class="ta-head"><b>Tested lines</b><span class="muted small">Every time the price came down to each line since ${esc(fmtDate(TA.from))} (${TA.bars} sessions; ✓✗ shows the latest eight). ✓ held: no close more than 2% below it in the next 5 sessions. Score: the hold rate, pulled towards the all-names rate for that kind of line when the sample is small.</span></div>
+      <div class="scroll"><table class="tat"><thead><tr><th>Line</th><th>Level</th><th>From price</th><th>Record</th><th>Score</th><th>10 sessions after</th><th>Last test</th></tr></thead>
+      <tbody>${sup.map(r => row(r, 'sup')).join('')}${res.map(r => row(r, 'res')).join('')}</tbody></table></div>
+      ${TA.best ? `<p class="small">Best-tested support with two or more tests: <b>${esc(TA.best)}</b>.</p>` : '<p class="small muted">No line below the price has been tested twice in this window, so the chart cannot vouch for any floor here.</p>'}</div>`;
+  }
+  function labVerdict(rows) {
+    const best = rows[0], ma200 = (rows.find(r => r[0] === 'SMA 200d') || [])[1];
+    const coin = rows.every(([, v]) => (v.rate || 0) < 60);
+    const shift = ma200 && ma200.recent && ma200.recent.n ? `The 200-day average held ${ma200.rate}% of ${ma200.n} touches over the whole history but only ${ma200.recent.rate}% of ${ma200.recent.n} in the last year: the line that worked in 2023-25 has not worked in this market.` : '';
+    return `<div class="watch"><b>What it says.</b> ${coin ? 'No kind of line held much more often than a coin flip.' : ''} The best record is <b>${esc(best[0])}</b> at ${best[1].rate}% of ${best[1].n} touches. ${shift} So a line on its own is not a reason to buy. A tested line is worth more when it has held before on this name, is still holding in the last year, and the stock's own named test still passes.</div>`;
+  }
+  // Level lab: the pooled record of each kind of line across every name, and what it means.
+  function levelLab() {
+    const P = K && K.ta && K.ta.pooled; if (!P) return '';
+    const rows = Object.entries(P).sort((a, b) => (b[1].rate || 0) - (a[1].rate || 0));
+    const rf = s => s && s.n ? `${s.rate}% of ${s.n}` : '—';
+    return `<section class="dsec" id="d-lab"><h2>Level lab</h2>
+      <p class="muted small">Do moving averages and chart floors actually hold? Every touch of every line on every name in the sheet's price history (about four years of daily bars), tested with no look-ahead. A touch holds if there is no close more than 2% below the line in the next 5 sessions. "vs trend" is the 10-session return after the touch minus that stock's own average 10-session return, so a positive number means the touch added something beyond the trend.</p>
+      <div class="scroll"><table class="tat lab"><thead><tr><th>Line</th><th>Touches</th><th>Held</th><th>Last year</th><th>10 sessions after</th><th>vs trend</th><th>Worst dip below</th><th>Line rising</th><th>Line falling</th></tr></thead>
+      <tbody>${rows.map(([k, s]) => `<tr><td><b>${esc(k)}</b></td><td class="num">${s.n}</td><td class="num"><span class="bar"><i style="width:${s.rate || 0}%"></i></span>${s.rate}%</td><td class="num">${rf(s.recent)}</td><td class="num">${pct(s.fwd)}</td><td class="num">${pct(s.edge)}</td><td class="num">${s.mae}%</td><td class="num">${rf(s.rising)}</td><td class="num">${rf(s.falling)}</td></tr>`).join('')}</tbody></table></div>
+      ${labVerdict(rows)}
+      <p class="muted small">Limits: about four years of daily bars (from late 2022; names listed more recently have less). Results are pooled across names that move together, so touches are not independent. Older years may not repeat: compare the "Last year" column with the full record.</p>
+    </section>`;
+  }
   let stressId = null;
   function renderDesk() {
     if (!K || !K.memos || !K.memos.length) {
@@ -565,7 +616,7 @@
           <dt>Why it's cheap</dt><dd>${esc(a.whyCheap)}</dd>
           <dt>Valuation</dt><dd>${esc(a.valuation.text)} ${link(a.valuation.source)}</dd>
           <dt>Catalyst</dt><dd>${esc(a.catalyst)}</dd>
-          <dt>Accumulate zone</dt><dd>${a.levels ? ladder(a.ticker, a.levels, a.action, { w: 600, h: 190, days: 130, labels: true, call: c }) : ''}<details class="zone-text"><summary>The reasoning behind the lines</summary>${esc(a.zone)}</details></dd>
+          <dt>Accumulate zone</dt><dd>${a.levels ? ladder(a.ticker, a.levels, a.action, { w: 600, h: 190, days: 130, labels: true, call: c }) : ''}${taBlock(a.ticker)}<details class="zone-text"><summary>The memo's reasoning behind the lines</summary>${esc(a.zone)}</details></dd>
           <dt>Kills the idea</dt><dd>${esc(a.invalidation)}</dd>
           ${a.premortem ? `<dt>How it loses money</dt><dd class="premortem">${esc(a.premortem)}</dd>` : ''}
           ${a.test ? `<dt>${a.action === 'watch' ? 'Re-entry test' : 'What decides it'}</dt><dd>${esc(a.test.metric)}: ${esc(a.test.threshold)}${a.test.by ? ' · by ' + fmtDate(a.test.by) : ''} ${link(a.test.source, a.test.sourceName)}</dd>` : ''}
@@ -660,7 +711,7 @@
       <div class="memo-meta">Weekly memo · ${fmtDate(m.date)} · posts ${fmtDate(m.window.from)} to ${fmtDate(m.window.to)} ${pick}</div>
       ${deskIdx === 0 ? tape(m) : ''}
       <h1 class="headline">${esc(m.headline)}</h1>
-      <nav class="dnav" aria-label="Memo sections">${[deskIdx === 0 && ['d-cockpit', 'Cockpit'], deskIdx === 0 && ['d-history', 'History'], changes && ['d-changed', 'Changes'], events && ['d-since', 'Since'], ['d-picture', 'Picture'], ['d-list', 'List'], ['d-board', 'Board'], stress && ['d-stress', 'Stress test'], ['d-track', 'Track record'], ['d-wrap', 'Market'], ['d-pushback', 'Pushback'], ['d-score', 'Scorecard']].filter(Boolean).map(([id, l]) => `<button data-jump="${id}">${l}</button>`).join('')}</nav>
+      <nav class="dnav" aria-label="Memo sections">${[deskIdx === 0 && ['d-cockpit', 'Cockpit'], deskIdx === 0 && ['d-history', 'History'], changes && ['d-changed', 'Changes'], events && ['d-since', 'Since'], ['d-picture', 'Picture'], ['d-list', 'List'], ['d-board', 'Board'], stress && ['d-stress', 'Stress test'], deskIdx === 0 && K.ta && ['d-lab', 'Level lab'], ['d-track', 'Track record'], ['d-wrap', 'Market'], ['d-pushback', 'Pushback'], ['d-score', 'Scorecard']].filter(Boolean).map(([id, l]) => `<button data-jump="${id}">${l}</button>`).join('')}</nav>
       ${deskIdx === 0 ? cockpit(m) : ''}
       ${deskIdx === 0 ? zoneHistory(m) : ''}
       ${changes}
@@ -671,6 +722,7 @@
         <p class="muted small">Research support, not advice. Prices from your Google Sheet${K.pricesAsOf ? ' as of ' + esc(K.pricesAsOf.slice(0, 10)) : ''}.</p>${acc}</section>
       <section class="dsec" id="d-board"><h2>3 · Analyst board</h2><p class="muted small">Each cell links to the post. <b>Lean</b> counts the heads, then re-weights each by that analyst's record against ${esc(K.bench)}: weight 1 until 8 scored calls, then 1 + average edge ÷ 20, held between 0.25 and 1.5. A lean that flips the headcount means the track record disagrees with the crowd. It is a rule of thumb, not a forecast.</p>${board}</section>
       ${stress}
+      ${deskIdx === 0 ? levelLab() : ''}
       <section class="dsec" id="d-track"><h2>Analyst track record</h2><p class="muted small">Every stance on the board, from the day it was first recorded, against ${esc(K.bench)}. A bull call earns the stock's move minus ${esc(K.bench)}'s; a bear call the reverse; mixed calls are not scored. Local-currency returns.${young ? ' Everything was recorded this week, so it all reads 0% for now; it fills in as prices move.' : ''}</p>${track}</section>
       <section class="dsec" id="d-wrap"><h2>4 · Market wrap</h2>${paras(mk.summary)}${movers}${posn ? '<h4 class="sub">Positioning: squeeze or re-rating?</h4>' + posn : ''}${cal ? '<h4 class="sub">Coming up</h4>' + cal : ''}</section>
       <section class="dsec pushback" id="d-pushback"><h2>The desk's pushback</h2><p class="muted small">Every analyst on the roster leans bullish. This is the other side.</p>${paras(m.pushback)}</section>
@@ -701,6 +753,7 @@
       <div class="db-head"><h4>On the desk</h4>${a ? `<span class="pill act-${esc(a.action)}">${esc(a.action)}</span><span class="conf">${esc(a.confidence)} confidence · memo ${fmtDate(m.date)}</span>` : '<span class="conf">not on the latest list</span>'}</div>
       ${a ? `<p class="thesis">${esc(a.thesis)}</p>` : ''}
       ${lv ? (hasHist ? ladder(t, lv, lv.action || (a && a.action), { w: 520, h: 200, days: 190, labels: true, call: open }) : ladder(t, lv, lv.action || (a && a.action))) : ''}
+      ${taBlock(t, true)}
       ${calls.map(c => `<p class="db-call">Call opened ${fmtDate(c.opened)} at ${num(c.refPrice)} ${esc(c.currency || '')}${c.closed ? `, closed ${fmtDate(c.closed.date)} at ${num(c.closed.price)}` : `, now ${num(c.lastPrice)}`} · ${pct(c.ret)} vs ${esc(K.bench)} ${pct(c.benchRet)}</p>`).join('')}
       ${a && a.test ? `<p class="db-call"><b>${a.action === 'watch' ? 'Re-entry test' : 'What decides it'}:</b> ${esc(a.test.metric)}: ${esc(a.test.threshold)} ${link(a.test.source, a.test.sourceName)}</p>` : ''}
       ${b ? `<div class="watch"><b>Desk read.</b> ${esc(b.read)}</div>` : ''}

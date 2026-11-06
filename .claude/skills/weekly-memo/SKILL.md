@@ -137,6 +137,17 @@ Valid JSON, this shape (`desk/build.py` validates it):
   name; optional for `watch` names with a revisit level. The numbers must
   appear in the zone text too. Never invent a price the sheet or a source
   doesn't give you.
+- **Tested lines (since 6 Nov 2026).** Run `python3 desk/ta.py <tickers>`
+  before setting levels. It back-tests each moving average and floor on the
+  same history: touches, how many held, the 10-session return after, and a
+  score pulled towards the all-names rate. Prefer a buy line at a line that has
+  held before on this name (two or more tests) and is rising; say in the zone
+  text which line it is and its record ("Floor 331.92, held 4 of 4"). A line
+  with no judged test is a guess, so say so. Each record also shows the last
+  year alone; prefer a line that is still holding in the last year. The pooled
+  result on 6 Nov 2026 (four years of bars): no kind of line held much more
+  than half the time; the 200-day held 57% overall but 25% in the last year.
+  A level is never the whole case. `support.py` floors use the last year only.
 - **No chasing (since 28 Oct 2026).** A buy line moves up only when the stock
   has built a new, higher floor and is testing it. When `support.py` prints
   `STRETCHED` (more than 8% up in five sessions), the nearest floor below is an
