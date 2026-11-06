@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  Refreshes the desk's prices before the US open, Monday to Friday at 21:00 MYT
+  (90 minutes before the open in winter, 30 in summer): a fresh sheet snapshot,
+  then build.py, which rewrites desk.js with the new prices, charts and tested
+  lines. It starts, runs and exits. If the Mac was asleep at 21:00, launchd
+  runs it on wake.
+  Install:   cp desk/com.aie.desk-preopen.plist ~/Library/LaunchAgents/ &&
+             launchctl load ~/Library/LaunchAgents/com.aie.desk-preopen.plist
+  Log:       ~/Library/Logs/desk-preopen.log
+-->
+<plist version="1.0">
+<dict>
+  <key>Label</key><string>com.aie.desk-preopen</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/sh</string>
+    <string>-c</string>
+    <string>date; /Library/Frameworks/Python.framework/Versions/3.14/bin/python3 -u prices.py &amp;&amp; /Library/Frameworks/Python.framework/Versions/3.14/bin/python3 -u build.py</string>
+  </array>
+  <key>WorkingDirectory</key><string>/Users/mikembp/Documents/Claude/ai-supply-desk/desk</string>
+  <key>StartCalendarInterval</key>
+  <array>
+    <dict><key>Weekday</key><integer>1</integer><key>Hour</key><integer>21</integer><key>Minute</key><integer>0</integer></dict>
+    <dict><key>Weekday</key><integer>2</integer><key>Hour</key><integer>21</integer><key>Minute</key><integer>0</integer></dict>
+    <dict><key>Weekday</key><integer>3</integer><key>Hour</key><integer>21</integer><key>Minute</key><integer>0</integer></dict>
+    <dict><key>Weekday</key><integer>4</integer><key>Hour</key><integer>21</integer><key>Minute</key><integer>0</integer></dict>
+    <dict><key>Weekday</key><integer>5</integer><key>Hour</key><integer>21</integer><key>Minute</key><integer>0</integer></dict>
+  </array>
+  <key>StandardOutPath</key><string>/Users/mikembp/Library/Logs/desk-preopen.log</string>
+  <key>StandardErrorPath</key><string>/Users/mikembp/Library/Logs/desk-preopen.log</string>
+</dict>
+</plist>

@@ -57,6 +57,10 @@ Two parts, one page:
 against `desk/store/levels.json`); a nightly backup at 23:30 MYT pushes
 `desk/store/` and `desk/memos/` to the PRIVATE repo `nainaii1/ai-desk-private`
 (launchd `com.aie.desk-backup`, log `~/Library/Logs/desk-backup.log`).
+Before the US open, Mon–Fri 21:00 MYT, a pre-open job refreshes the price
+snapshot and rebuilds `desk.js` (launchd `com.aie.desk-preopen`, plist in
+`desk/`, log `~/Library/Logs/desk-preopen.log`). Pre-open, US prices are the
+last close.
 
 The collector runs on its own every six hours (launchd `com.aie.desk-collect`, log at
 `~/Library/Logs/desk-collect.log`). It reads timelines through the free
