@@ -1,55 +1,71 @@
 {
-  "_note": "The analysts the desk follows. Edit this list to add or drop someone; the collector picks it up on its next run. Subscriber-only posts are invisible to the collector; forward them to the Telegram bot.",
+  "_note": "The analysts the desk follows. Edit this list to add or drop someone; the collector picks it up on its next run. Subscriber-only posts are invisible to the collector; forward them to the Telegram bot. Each seat has a role: idea source (original cases on names), relay (passes on sell-side notes, expert calls and local press), sentiment (how the crowd feels), sceptic (argues the other side), macro (positioning, flows, policy), data (industry numbers). @insane_analyst left the roster on 11 Nov 2026 (his X posts are short; the substance is on Substack); his past stances stay on record.",
   "analysts": [
     {
       "handle": "aleabitoreddit",
       "name": "Serenity",
-      "focus": "AI and semiconductor supply-chain research"
+      "focus": "AI and semiconductor supply-chain research",
+      "role": "idea source"
     },
     {
       "handle": "jukan05",
       "name": "Jukan (Citrini)",
-      "focus": "Korea and Asia supply-chain news: memory, substrates"
+      "focus": "Korea and Asia supply-chain news: memory, substrates",
+      "role": "relay"
     },
     {
       "handle": "SemiAnalysis_",
       "name": "SemiAnalysis",
-      "focus": "SemiAnalysis house account: data and report teasers"
+      "focus": "SemiAnalysis house account: data and report teasers",
+      "role": "data"
     },
     {
       "handle": "pequityresearch",
       "name": "P Equity Research",
-      "focus": "Semiconductor and tech deep dives"
+      "focus": "Semiconductor and tech deep dives",
+      "role": "relay"
     },
     {
       "handle": "ren_stocks",
       "name": "Ren",
-      "focus": "AI buildout stock picks with entry prices"
+      "focus": "AI buildout stock picks with entry prices",
+      "role": "sentiment"
     },
     {
       "handle": "damnang2",
       "name": "Damnang",
-      "focus": "Semiconductor engineer in Silicon Valley"
+      "focus": "Semiconductor engineer in Silicon Valley",
+      "role": "relay"
     },
     {
       "handle": "PhotonCap",
       "name": "Photon Capital",
-      "focus": "Photonics and optics research"
+      "focus": "Photonics and optics research",
+      "role": "idea source"
     },
     {
       "handle": "FundaAI",
       "name": "Funda",
-      "focus": "Sceptic seat: AI funding, credit and CDS risk (added 28 Oct 2026)"
-    },
-    {
-      "handle": "insane_analyst",
-      "name": "Irrational Analysis",
-      "focus": "Sceptic seat: engineering-driven contrarian semis analysis (added 28 Oct 2026)"
+      "focus": "Sceptic seat: AI funding, credit and CDS risk (added 28 Oct 2026)",
+      "role": "sceptic"
     },
     {
       "handle": "labubu_trader",
       "name": "Labubu Trader",
-      "focus": "Sceptic seat: bearish semis trader, short SOXX, macro and neocloud fragility (added 5 Nov 2026)"
+      "focus": "Sceptic seat: bearish semis trader, short SOXX, macro and neocloud fragility (added 5 Nov 2026)",
+      "role": "sceptic"
+    },
+    {
+      "handle": "GavinSBaker",
+      "name": "Gavin Baker",
+      "focus": "Technology fund manager: AI capex, semis and the buildout's economics (added 11 Nov 2026)",
+      "role": "macro"
+    },
+    {
+      "handle": "citrini",
+      "name": "Citrini",
+      "focus": "Macro, positioning and thematic research (added 11 Nov 2026)",
+      "role": "macro"
     }
   ]
 }

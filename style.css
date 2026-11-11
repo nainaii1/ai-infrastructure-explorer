@@ -520,3 +520,66 @@ svg.zc, svg.rc { display: block; width: 100%; height: auto; overflow: visible; }
 .tk.ok { color: var(--bull); } .tk.no { color: var(--bear); }
 .lab .bar { display: inline-block; width: 60px; height: 6px; background: var(--line); border-radius: 3px; margin-right: 6px; vertical-align: middle; overflow: hidden; }
 .lab .bar i { display: block; height: 100%; background: var(--accent); }
+
+
+/* ---------- desk: command centre (11 Nov 2026) ---------- */
+.cc { margin-bottom: 14px; }
+.cc-bar { display: grid; grid-template-columns: 1.1fr 1.5fr repeat(3, 1fr) 1fr auto; gap: 8px; align-items: stretch; margin-bottom: 6px; }
+.cc-bar > div { background: var(--card); border: 1px solid var(--line); border-radius: var(--r); padding: 10px 12px; min-width: 0; }
+.cc-bar .hold-toggle { align-self: start; }
+.tide b { display: block; font-size: 16px; color: var(--ink); }
+.tide small, .pot small { display: block; font-size: 11.5px; color: var(--muted); line-height: 1.35; }
+.tide.t-out { border-left: 4px solid var(--bear); } .tide.t-in { border-left: 4px solid var(--bull); } .tide.t-turning { border-left: 4px solid var(--demand); }
+.pot span { display: block; font: 11px var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.pot b { display: block; font: 600 16px var(--mono); color: var(--ink); font-variant-numeric: tabular-nums; margin: 2px 0; }
+.meter { display: block; height: 5px; border-radius: 3px; background: var(--line); margin: 4px 0; overflow: hidden; }
+.meter i { display: block; height: 100%; background: var(--accent); border-radius: 3px; }
+.cc-tide { margin: 0 2px 10px; }
+.cc-sec > h2 { font-size: 18px; }
+.today { list-style: none; margin: 0; padding: 0 !important; display: grid; gap: 6px; }
+.today li { padding: 8px 10px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); }
+.stt { font: 600 11px var(--mono); font-style: normal; letter-spacing: .04em; text-transform: uppercase; padding: 2px 7px; border-radius: 999px; border: 1px solid var(--line-strong); color: var(--muted); white-space: nowrap; }
+.st-buy .stt, .st-add .stt, .st-trigger .stt { color: var(--bull); border-color: var(--bull); }
+.st-frozen .stt, .st-exit1 .stt, .st-exit2 .stt { color: #fff; background: var(--bear); border-color: var(--bear); }
+.st-trim .stt, .st-above .stt { color: var(--demand); border-color: var(--demand); }
+.cc-flag { margin: 10px 0 0; }
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 10px; margin-top: 8px; }
+.nc, .vc { display: block; border: 1px solid var(--line); border-radius: var(--r); padding: 11px 12px; background: var(--bg); color: var(--text); min-width: 0; }
+.nc:hover { text-decoration: none; border-color: var(--line-strong); }
+.nc.st-frozen { border-color: var(--bear); } .nc.st-buy, .nc.st-add, .nc.st-trigger { border-color: var(--bull); }
+.nc-top { display: flex; align-items: baseline; gap: 8px; margin-bottom: 4px; }
+.nc-top b { font: 600 14px var(--mono); color: var(--ink); }
+.nc-top span { flex: 1; min-width: 0; font-size: 12.5px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.nc-px b { font: 600 15px var(--mono); color: var(--ink); font-variant-numeric: tabular-nums; }
+.nc-px small { margin-left: 8px; font-size: 11.5px; color: var(--muted); }
+.nc-chart { margin: 6px 0 4px; } .nc-chart svg { width: 100%; height: auto; display: block; }
+.nc-where { font-size: 13px; }
+.nc-room { margin-top: 6px; font-size: 13px; } .nc-room.go { font-weight: 600; color: var(--bull); }
+.nc-room small { display: block; font-weight: 400; font-size: 11.5px; color: var(--muted); }
+.nc-pos, .nc-note { margin-top: 6px; font-size: 12px; color: var(--muted); border-top: 1px dashed var(--line); padding-top: 6px; }
+.nc-next { margin-top: 6px; font-size: 12px; } .nc-next b { font-family: var(--mono); color: var(--accent); margin-right: 4px; }
+.vc p { margin: 4px 0 0; font-size: 13px; } .vc .flag { color: var(--bear); }
+.tat tr.no td { color: var(--muted); } .tat tr.ok td:last-child { color: var(--bull); font-weight: 600; } .tat tr.base td { font-style: italic; }
+.chat { display: flex; align-items: flex-end; gap: 8px; height: 96px; margin: 6px 0 4px; }
+.chat > div { flex: 1; max-width: 64px; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; }
+.chat i { display: block; width: 100%; min-height: 2px; background: var(--demand); border-radius: 3px 3px 0 0; }
+.chat b { font: 11px var(--mono); order: -1; } .chat small { font-size: 10.5px; color: var(--muted); white-space: nowrap; }
+.cc-tabs { display: none; }
+.fold-note { margin: 4px 2px 8px; }
+.fold > h2, .fold > .cp-title { cursor: pointer; margin-bottom: 0; }
+.fold > h2::after, .fold > .cp-title h2::after { content: " +"; color: var(--muted); font-weight: 400; }
+.fold.open > h2::after, .fold.open > .cp-title h2::after { content: " −"; }
+.fold:not(.open) > *:not(h2):not(.cp-title) { display: none; }
+.fold.open > h2 { margin-bottom: 10px; }
+.cockpit:has(.fold:not(.open)) { align-items: start; }
+.hide-holdings .cc .h, .hide-holdings .cc .amt { display: none; }
+@media (max-width: 1000px) { .cc-bar { grid-template-columns: repeat(3, minmax(0, 1fr)); } .cc-bar .tide, .cc-bar .pot.wide { grid-column: span 3; } .cc-bar .hold-toggle { grid-column: span 3; justify-self: start; } }
+@media (max-width: 640px) {
+  .cc-bar { grid-template-columns: repeat(2, minmax(0, 1fr)); } .cc-bar .tide, .cc-bar .pot.wide, .cc-bar .hold-toggle { grid-column: span 2; }
+  .cards { grid-template-columns: minmax(0, 1fr); }
+  .cc-tabs { display: flex; position: fixed; left: 0; right: 0; bottom: 0; z-index: 6; background: var(--card); border-top: 1px solid var(--line-strong); padding: 6px 8px calc(6px + env(safe-area-inset-bottom)); gap: 4px; }
+  .cc-tabs button { flex: 1; border: 0; background: none; padding: 9px 2px; font-size: 13px; font-weight: 600; color: var(--muted); border-radius: 8px; cursor: pointer; }
+  .cc-tabs button:active { background: var(--bg); color: var(--ink); }
+  body:has(.cc-tabs) main { padding-bottom: 90px; }
+  .scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; } .scroll table { min-width: 560px; }
+}

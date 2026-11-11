@@ -9,9 +9,12 @@ A floor is a daily swing low: the lowest low within five sessions either side.
 Floors within 3% of each other are merged into one band. The weekly memo uses
 them for the levels (see the weekly-memo skill):
 
-    buyBelow   3% above the floor the stock is testing now
-    addBelow   the next floor down
-    stopAbove  the valuation ceiling (from a sourced multiple, not the chart)
+    buyBelow    above the floor the stock is testing now, by the larger of 3%
+                or half a typical day's range (since 11 Nov 2026)
+    addBelow    the next floor down
+    breakBelow  half a typical day's range under that floor: a daily close
+                below it freezes buying (since 11 Nov 2026)
+    stopAbove   the valuation ceiling (from a sourced multiple, not the chart)
 
 Each name also gets a stretch line: its move over the last five sessions
 against SMH's, and its distance from the 50-day average. A name that rose
@@ -50,7 +53,7 @@ def load():
                 continue
             try:
                 d = datetime.strptime(r[c].split()[0], "%m/%d/%Y").date()
-                bars.append((d, float(r[c + 2]), float(r[c + 3]), float(r[c + 4])))   # date, high, low, close
+                bars.append((d, float(r[c + 2]), float(r[c + 3]), float(r[c + 4]), float(r[c + 1])))   # date, high, low, close, open
             except ValueError:
                 continue
         out[key] = bars
@@ -74,6 +77,18 @@ def floors(bars):
     return bands
 
 
+def swing(bars, n=20):
+    """A typical day's range as a share of the price: the average true range
+    over n sessions divided by the last close. Lines, alert buffers and position
+    sizes scale with it, so a stock that moves 10% a day is not held to the same
+    3% band as one that moves 4%."""
+    if len(bars) < n + 1:
+        return None
+    tr = [max(bars[i][1] - bars[i][2], abs(bars[i][1] - bars[i - 1][3]), abs(bars[i][2] - bars[i - 1][3]))
+          for i in range(len(bars) - n, len(bars))]
+    return sum(tr) / n / bars[-1][3]
+
+
 def avg(bars, n):
     return sum(b[3] for b in bars[-n:]) / n if len(bars) >= n else None
 
@@ -91,7 +106,7 @@ def main():
         if not bars:
             print("{}: not in the price_history tab".format(key))
             continue
-        d, _, _, px = bars[-1]
+        d, _, _, px = bars[-1][:4]
         hi = max(b[1] for b in bars)
         ma50, ma200 = avg(bars, 50), avg(bars, 200)
         print("\n{}  close {:,.2f} on {}  |  {:+.1f}% from 1y high {:,.2f}  |  50d {}  200d {}".format(
@@ -104,11 +119,16 @@ def main():
                 m5 * 100, " (SMH {:+.1f}%)".format(bench * 100) if bench is not None else "",
                 ", {:+.1f}% vs 50d".format((px / ma50 - 1) * 100) if ma50 else "",
                 "  STRETCHED: not testing a floor; keep the last memo's lines" if stretched else ""))
+        sw = swing(bars)
+        if sw:
+            print("   swing: a typical day moves {:.1f}% (20-session average true range)".format(sw * 100))
         bands = floors(bars)
         if not bands:
             print("   no floor below the close in the last year")
         for i, (lo, top, ds) in enumerate(bands[:5]):
-            note = ("  <- buy line {:,.2f}{}".format(top * (1 + BAND), " (only if it pulls back to test it)" if stretched else "")
+            half = max(BAND, (sw or 0) / 2)        # the larger of 3% or half a typical day's range
+            note = ("  <- buy line {:,.2f}, break line {:,.2f} (a daily close below it freezes buying){}".format(
+                        top * (1 + half), lo * (1 - (sw or 0.04) / 2), " (only if it pulls back to test it)" if stretched else "")
                     if i == 0 else ("  <- add line" if i == 1 else ""))
             print("   floor {:,.2f}-{:,.2f} ({:+.1f}%)  {}{}".format(
                 lo, top, (top / px - 1) * 100, ", ".join(x.strftime("%d %b %y") for x in sorted(ds)), note))

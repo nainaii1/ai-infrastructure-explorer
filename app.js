@@ -509,6 +509,93 @@
       </div></section>`;
   }
 
+  // ---------- command centre (desk.js `brain`, written by desk/build.py from desk/plan.py, money.py, setups.py) ----------
+  // Money, tide, one card per name with its state and room to add, the trade lab and the voices. Amounts are private:
+  // every RM figure sits in .amt and holdings carry .h, so "Hide holdings" removes both.
+  const B = (K && K.brain) || {};
+  const rm = v => v == null ? '—' : `<span class="amt">RM ${Math.round(v).toLocaleString('en-US')}</span>`;
+  const TIDE = { in: 'Tide in', turning: 'Tide turning', out: 'Tide out', unknown: 'Tide unknown' };
+  function ccCard(r) {
+    const lv = LV[r.ticker], L = r.levels || {}, held = !!r.pos, cur = r.currency || '';
+    let where = '';
+    if (r.state === 'frozen') where = `Closed at ${num(r.frozen.close)} on ${fmtDate(r.frozen.since)}, below the break line ${num(r.frozen.line)}. No buying until it closes back above.`;
+    else if (r.state === 'trigger') where = `Closed above the trigger ${num(L.buyAbove)}: the plan's buy-on-strength step.`;
+    else if (r.state === 'exit1' || r.state === 'exit2') where = `Closed below your exit step ${r.state.slice(-1)} line ${num(L[r.state])}.`;
+    else if (r.distBuy != null) where = r.distBuy <= 0 ? `In the zone: buy line ${num(L.buyBelow)}${L.addBelow != null ? `, add line ${num(L.addBelow)}` : ''}` : `${r.distBuy.toFixed(1)}% above its ${r.action === 'watch' ? 'revisit level' : 'buy line'} ${num(L.buyBelow)}`;
+    const room = r.room ? (r.room.now > 0
+      ? `<div class="nc-room go">Room now ${rm(r.room.now)} <span class="amt">· ${r.room.units} share${r.room.units === 1 ? '' : 's'}</span><small>step ${r.room.allowed} of ${r.room.steps} · ${esc(r.room.pot)} pot${r.room.ifBreaks ? ` · if it breaks: ${rm(r.room.ifBreaks)}` : ''}</small></div>`
+      : `<div class="nc-room"><small>${r.state === 'frozen' ? 'Frozen: no room until it thaws' : `One step is ${rm(r.room.step)} from the ${esc(r.room.pot)} pot, when it reaches the buy line`}</small></div>`) : '';
+    const pos = held ? `<div class="nc-pos amt">You hold ${num(r.pos.units)} at ${num(r.pos.avgCost)} · ${pct(r.pos.pl)} · worth ${rm(r.pos.value)}${r.pos.ofNetWorth != null ? ` (${r.pos.ofNetWorth}% of net worth)` : ''}${r.pos.toCost > 0 ? ` · needs +${r.pos.toCost}% to get back to cost` : ''}${r.pos.atUpside ? ` · at the upside case ${rm(r.pos.atUpside)} (+${r.pos.addsToNetWorth}% of net worth)` : ''}</div>` : '';
+    return `<a class="nc st-${esc(r.state)}${held || r.action === 'holding' ? ' h' : ''}" href="#c/${encodeURIComponent(r.ticker)}">
+      <div class="nc-top"><b>${esc(shortT(r.ticker))}</b><span>${esc(r.name.split(' (')[0])}</span><em class="stt">${esc(r.stateText)}</em></div>
+      <div class="nc-px"><b>${r.price == null ? 'no price' : num(r.price) + ' ' + esc(cur)}</b>${r.swing ? `<small>typical day ±${r.swing}%</small>` : ''}${r.priceFrom && r.priceFrom !== 'sheet' ? `<small>${esc(r.priceFrom)}</small>` : ''}</div>
+      ${lv && lv.buyBelow != null ? `<div class="nc-chart">${zoneChart(r.ticker, lv, { w: 280, h: 46, days: 66, tight: true })}</div>` : ''}
+      <div class="nc-where">${where}${L.breakBelow != null && r.state !== 'frozen' ? ` · break line ${num(L.breakBelow)}` : ''}</div>
+      ${room}${pos}
+      ${r.note ? `<div class="nc-note">${esc(r.note)}</div>` : ''}
+      ${r.next ? `<div class="nc-next"><b>${dayDiff(todayMYT, r.next.date) <= 0 ? 'today' : dayDiff(todayMYT, r.next.date) + 'd'}</b> ${esc(r.next.text)}</div>` : ''}
+    </a>`;
+  }
+  function commandCentre() {
+    if (!B.plan) return '';
+    const cap = B.capital, td = B.tide || {}, S = B.setups || {}, P = B.plan;
+    const pot = (k, label) => { const p = cap.pots[k], w = p.budget ? Math.round(p.free / p.budget * 100) : 0; return `<div class="pot"><span>${label}</span><b>${rm(p.free)}</b><i class="meter"><i style="width:${w}%"></i></i><small class="amt">free of ${Math.round(p.budget).toLocaleString('en-US')} · ${p.share}%</small></div>`; };
+    const nexts = P.filter(r => r.next).map(r => Object.assign({ t: r.ticker }, r.next)).sort((a, b) => a.date.localeCompare(b.date));
+    const bar = `<div class="cc-bar">
+      <div class="tide t-${esc(td.state)}"><b>${TIDE[td.state] || 'Tide'}</b><small>${esc(td.rule || '')}</small></div>
+      ${cap ? `<div class="pot wide"><span>Deployable</span><b>${rm(cap.deployable)}</b><small class="amt">liquid ${Math.round(cap.liquid).toLocaleString('en-US')} − ${cap.reserveMonths}-month reserve ${Math.round(cap.reserve).toLocaleString('en-US')} · runway ${cap.runwayMonths} months${cap.stale ? ' · <em class="flag">old figures</em>' : ''}</small></div>
+      ${pot('fund', 'Fund pot')}${pot('shots', 'Shots pot')}${pot('trades', 'Quick-trade pot')}` : '<div class="pot wide"><span>Money</span><small>No portfolio summary yet (desk/money.py).</small></div>'}
+      ${nexts.length ? `<div class="pot"><span>Next event</span><b>${dayDiff(todayMYT, nexts[0].date) <= 0 ? 'today' : dayDiff(todayMYT, nexts[0].date) + (dayDiff(todayMYT, nexts[0].date) === 1 ? ' day' : ' days')}</b><small>${esc(shortT(nexts[0].t))} · ${esc(nexts[0].text.slice(0, 60))}</small></div>` : ''}
+      <button class="hold-toggle" data-hold aria-pressed="${hideHold}">${hideHold ? 'Show holdings' : 'Hide holdings'}</button>
+    </div><p class="muted small cc-tide">${esc(td.text || '')}</p>`;
+
+    const act = P.filter(r => ['exit2', 'exit1', 'frozen', 'trigger', 'add', 'buy'].includes(r.state));
+    const soon = P.filter(r => r.next && dayDiff(todayMYT, r.next.date) <= 2);
+    const today = `<section class="dsec cc-sec" id="cc-today"><h2>Today</h2>
+      ${act.length || soon.length ? `<ul class="today">${act.map(r => `<li class="st-${esc(r.state)}${r.pos || r.action === 'holding' ? ' h' : ''}"><em class="stt">${esc(r.stateText)}</em> <b>${esc(r.name.split(' (')[0])}</b> at ${num(r.price)}${r.room && r.room.now ? ` · room ${rm(r.room.now)}` : ''}</li>`).join('')}
+        ${soon.map(r => `<li class="ev${r.pos || r.action === 'holding' ? ' h' : ''}"><em class="stt">${dayDiff(todayMYT, r.next.date) <= 0 ? 'Today' : 'In ' + dayDiff(todayMYT, r.next.date) + 'd'}</em> <b>${esc(r.name.split(' (')[0])}</b> ${esc(r.next.text)}</li>`).join('')}</ul>` : '<p class="muted">Nothing needs you today. Every name is waiting above its line.</p>'}
+      ${(B.bookFlags || []).map(f => `<p class="small amt cc-flag">${esc(f)}</p>`).join('')}</section>`;
+
+    const lane = (id, title, blurb, rows, extra) => `<section class="dsec cc-sec" id="${id}"><h2>${title}</h2><p class="muted small">${blurb}</p>
+      ${rows.length ? `<div class="cards">${rows.map(ccCard).join('')}</div>` : '<p class="muted small">No names in this lane yet. The next memo assigns them.</p>'}${extra || ''}</section>`;
+    const fundLab = (S.fund || []).map(f => `<div class="scroll"><table class="tat"><thead><tr><th>${esc(f.ticker)}: one unit of cash a month since ${esc(fmtDate(f.from))}</th><th>Return on money set aside</th><th>Share invested</th><th>Worst drop</th></tr></thead><tbody>
+      ${[['monthly', 'Buy every month, whatever happens'], ['above200', 'Buy only while above the 200-day'], ['washout', 'Buy only after a washout reversal']].map(([k, l]) => `<tr><td>${l}</td><td class="num">${pct(f.modes[k].ret)}</td><td class="num">${f.modes[k].invested}%</td><td class="num">${f.modes[k].worst}%</td></tr>`).join('')}</tbody></table></div>`).join('');
+    const others = (B.others || []);
+    const oth = others.length ? `<details class="zone-text h"><summary>Other holdings the desk does not cover (${others.length})</summary><div class="scroll"><table class="tat"><tbody>${others.map(o => `<tr><td><b>${esc(o.name)}</b></td><td class="num">${num(o.units)} at ${num(o.avgCost)} ${esc(o.currency)}</td><td class="num">now ${num(o.price)} <small>(${esc(o.priced)})</small></td><td class="num">${pct(o.pl)}</td><td class="num">${rm(o.value)}</td></tr>`).join('')}</tbody></table></div></details>` : '';
+
+    const lab = (S.lab || {}).rows || [], tk = S.lab ? S.lab.tide : 'out';
+    const good = lab.filter(r => r.tradable);
+    const orders = (S.orders || []).slice(0, 8), rec = S.record || {};
+    const trades = `<section class="dsec cc-sec" id="cc-trades"><h2>Quick trades</h2>
+      <div class="watch"><b>${good.length ? `${good.length} setup${good.length > 1 ? 's are' : ' is'} tradable today: ${good.map(r => esc(r.label)).join(', ')}.` : 'No setup is tradable today.'}</b> ${good.length ? '' : `With entries you can really get (an order resting at the line, or the next morning's open) none of the six setups beat simply buying on any day, over ${lab.length ? lab[lab.length - 1].all.n : 0} baseline trades on ${(S.lab || { pool: [] }).pool.length} names. The quick-trade pot stays unspent until one earns it.`} Every fill is logged to the paper record below so a setup can prove itself first.</div>
+      <div class="scroll"><table class="tat lab"><thead><tr><th>Setup</th><th>Entry</th><th>Trades</th><th>Wins</th><th>Average result</th><th>vs any day</th><th>Tide ${esc(tk)}</th><th>Verdict</th></tr></thead><tbody>
+      ${lab.map(r => `<tr class="${r.tradable ? 'ok' : r.setup === 'anyday' ? 'base' : 'no'}"><td title="${esc(r.what)}"><b>${esc(r.label)}</b></td><td>${esc(r.how)}</td><td class="num">${r.all.n}</td><td class="num">${r.all.winRate}%</td><td class="num">${r.all.avgR >= 0 ? '+' : ''}${r.all.avgR.toFixed(2)}R</td><td class="num">${r.all.edge == null ? '—' : (r.all.edge >= 0 ? '+' : '') + r.all.edge.toFixed(2) + 'R'}</td><td class="num">${r[tk] && r[tk].n ? (r[tk].avgR >= 0 ? '+' : '') + r[tk].avgR.toFixed(2) + 'R <small>of ' + r[tk].n + '</small>' : '—'}</td><td>${r.setup === 'anyday' ? 'the bar to beat' : r.tradable ? (r.thin ? 'tradable, thin edge' : 'tradable') : 'no edge'}</td></tr>`).join('')}</tbody></table></div>
+      <p class="muted small">One trade: stop one typical daily range below the entry, target two above (2 for 1), out after 15 sessions. R is the amount risked, so +0.10R means ten sen earned per ringgit risked, on average. A 2-for-1 trade needs to win more than 33% of the time just to break even. Four years of daily bars, no look-ahead, no costs.</p>
+      ${orders.length ? `<h4 class="sub">Order sheet: where a limit order would rest</h4><div class="scroll"><table class="tat"><thead><tr><th>Name</th><th>Limit at</th><th>From price</th><th>Stop</th><th>Target</th><th>Size for ${rm(cap ? cap.riskPerTrade : null)} at risk</th><th>Status</th></tr></thead><tbody>
+      ${orders.map(o => `<tr class="${o.tradable && !o.blocked ? 'ok' : 'no'}${(P.find(r => r.ticker === o.ticker) || {}).pos ? ' h' : ''}"><td><b>${esc(shortT(o.ticker))}</b> <small>${esc(o.kind)}</small></td><td class="num">${num(o.entry)}</td><td class="num">${o.away == null ? '—' : o.away + '%'}</td><td class="num">${num(o.stop)}</td><td class="num">${num(o.target)}</td><td class="num amt">${o.shares == null ? '—' : o.shares + ' sh · RM ' + o.sizeMYR.toLocaleString('en-US')}</td><td>${o.blocked ? 'blocked: ' + esc(o.blocked) : o.tradable ? 'tradable' : 'watch only: no edge'}</td></tr>`).join('')}</tbody></table></div>` : ''}
+      <p class="small"><b>Paper record</b> since ${rec.since ? esc(fmtDate(rec.since)) : 'today'}: ${rec.closed || 0} closed trade${rec.closed === 1 ? '' : 's'} on tradable setups (${rec.wins || 0} won, ${(rec.totalR || 0) >= 0 ? '+' : ''}${(rec.totalR || 0).toFixed(2)}R), ${rec.open || 0} open.</p></section>`;
+
+    const V = B.voices || [], ch = B.chatter || [], RH = B.rosterHealth || { seats: [], cited: [] };
+    const role = h => { const a = K.analysts.find(x => x.handle === h); return a && a.role ? a.role : ''; };
+    const mx = Math.max(1, ...ch.map(c => c.share));
+    const voices = `<section class="dsec cc-sec" id="cc-voices"><h2>Voices</h2>
+      ${V.length ? `<div class="cards v">${V.map(v => `<div class="vc"><div class="nc-top"><b>@${esc(v.handle)}</b><span>${esc(role(v.handle))}</span><em class="stt d-${esc(v.doing.replace(' ', '-'))}">${esc(v.doing)}</em></div><p>${esc(v.note)} ${link(v.url, 'post')}</p>${v.change ? `<p class="small"><b>Changed ${v.change.date ? fmtDate(v.change.date) : ''}:</b> ${esc(v.change.text)}</p>` : ''}${v.conflict ? `<p class="small flag">Conflict of interest: ${esc(v.conflict)}</p>` : ''}</div>`).join('')}</div>` : '<p class="muted small">What each seat is doing (long, hedged, adding, raising cash), with changes and conflicts of interest, is written by the weekly memo. The first one under the new rules is due 14 Nov 2026.</p>'}
+      <h4 class="sub">Hedge chatter</h4><p class="muted small">Share of the roster's own posts each week that talk about hedges, shorts or raising cash. A rising bar means the voices are getting defensive.</p>
+      <div class="chat">${ch.map(c => `<div title="${c.hedge} of ${c.posts} posts"><i style="height:${Math.round(c.share / mx * 100)}%"></i><b>${c.share}%</b><small>${esc(fmtDate(c.week).replace(/ \d{4}$/, ''))}</small></div>`).join('')}</div>
+      <h4 class="sub">Roster health, last 31 days</h4>
+      <div class="scroll"><table class="tat"><thead><tr><th>Seat</th><th>Role</th><th>Posts</th><th>Replies</th><th>Median length</th><th>On your names</th><th>Hedge talk</th><th>Hit rate</th><th>Edge vs ${esc(K.bench)}</th></tr></thead><tbody>
+      ${RH.seats.map(x => `<tr><td>@${esc(x.handle)}</td><td>${esc(role(x.handle))}</td><td class="num">${x.posts}</td><td class="num">${x.replies}</td><td class="num">${x.medianLen}</td><td class="num">${x.onYourNames}</td><td class="num">${x.hedgeTalk}</td><td class="num">${x.hitRate == null ? '—' : x.hitRate + '%'}</td><td class="num">${pct(x.avgEdge)}</td></tr>`).join('')}</tbody></table></div>
+      ${RH.cited.length ? `<p class="small muted">Outside accounts your roster cites most: ${RH.cited.map(c => `@${esc(c.handle)} (${c.bySeats} seats, ${c.times}×)`).join(' · ')}.</p>` : ''}</section>`;
+
+    const hunt = (B.hunt || []).length ? `<h4 class="sub">Hunt list: names you do not own yet</h4><div class="cards v">${B.hunt.map(h => `<div class="vc"><div class="nc-top"><b>${esc(h.ticker)}</b><span>${esc(h.name)}</span></div><p>${esc(h.why)}</p><p class="small"><b>Becomes a shot when:</b> ${esc(h.trigger)}</p><p class="small muted">${Object.entries(h.checks).map(([k, v]) => `<b>${esc(k)}</b>: ${esc(v)}`).join(' · ')}</p></div>`).join('')}</div>` : '';
+    return `<div class="cc" id="d-command">${bar}${today}
+      ${lane('cc-fund', 'Fund', 'The long-term ETF sleeve, bought in steps from the fund pot. The lab below it compares three ways of stepping in on the same history.', P.filter(r => r.sleeve === 'fund'), fundLab)}
+      ${lane('cc-shots', 'Shots', 'Names that could multiply. Each add is one of three steps: at the buy line, at the add line, and the last only after a milestone passes.', P.filter(r => r.sleeve === 'shot'), hunt + oth)}
+      ${lane('cc-core', 'Core list', 'The desk’s scored calls and large caps, sized from the fund pot.', P.filter(r => r.sleeve === 'core' || !r.sleeve))}
+      ${trades}${voices}
+      <nav class="cc-tabs" aria-label="Command centre">${[['cc-today', 'Today'], ['cc-fund', 'Fund'], ['cc-shots', 'Shots'], ['cc-trades', 'Trades'], ['cc-voices', 'Voices']].map(([id, l]) => `<button data-jump="${id}">${l}</button>`).join('')}</nav></div>`;
+  }
+
   // "Hide holdings": one switch for screen sharing; remembered per browser.
   let hideHold = false;
   try { hideHold = localStorage.getItem('aie-hide-holdings') === '1'; } catch (e) { /* storage blocked */ }
@@ -711,7 +798,9 @@
       <div class="memo-meta">Weekly memo · ${fmtDate(m.date)} · posts ${fmtDate(m.window.from)} to ${fmtDate(m.window.to)} ${pick}</div>
       ${deskIdx === 0 ? tape(m) : ''}
       <h1 class="headline">${esc(m.headline)}</h1>
-      <nav class="dnav" aria-label="Memo sections">${[deskIdx === 0 && ['d-cockpit', 'Cockpit'], deskIdx === 0 && ['d-history', 'History'], changes && ['d-changed', 'Changes'], events && ['d-since', 'Since'], ['d-picture', 'Picture'], ['d-list', 'List'], ['d-board', 'Board'], stress && ['d-stress', 'Stress test'], deskIdx === 0 && K.ta && ['d-lab', 'Level lab'], ['d-track', 'Track record'], ['d-wrap', 'Market'], ['d-pushback', 'Pushback'], ['d-score', 'Scorecard']].filter(Boolean).map(([id, l]) => `<button data-jump="${id}">${l}</button>`).join('')}</nav>
+      <nav class="dnav" aria-label="Memo sections">${[deskIdx === 0 && B.plan && ['d-command', 'Command centre'], deskIdx === 0 && ['d-cockpit', 'Charts'], deskIdx === 0 && ['d-history', 'History'], changes && ['d-changed', 'Changes'], events && ['d-since', 'Since'], ['d-picture', 'Picture'], ['d-list', 'List'], ['d-board', 'Board'], stress && ['d-stress', 'Stress test'], deskIdx === 0 && K.ta && ['d-lab', 'Level lab'], ['d-track', 'Track record'], ['d-wrap', 'Market'], ['d-pushback', 'Pushback'], ['d-score', 'Scorecard']].filter(Boolean).map(([id, l]) => `<button data-jump="${id}">${l}</button>`).join('')}</nav>
+      ${deskIdx === 0 ? commandCentre() : ''}
+      ${deskIdx === 0 && B.plan ? '<p class="fold-note muted small">The weekly memo and its records are below. Tap a heading to open it.</p>' : ''}
       ${deskIdx === 0 ? cockpit(m) : ''}
       ${deskIdx === 0 ? zoneHistory(m) : ''}
       ${changes}
@@ -729,6 +818,11 @@
       <section class="dsec" id="d-score"><h2>Scorecard</h2><p class="muted small">Every accumulate call, marked to the latest price against ${esc(K.bench)}. Calls are never edited after the fact.</p>${score}</section>
       ${m.flags.length ? `<section class="dsec"><h2>Flags</h2><ul>${m.flags.map(f => `<li>${esc(f)}</li>`).join('')}</ul></section>` : ''}
       <p class="muted small">Collector last ran ${K.collectorLastRun ? esc(fmtMYT(K.collectorLastRun)) : 'never'} · following ${K.analysts.map(a => '@' + esc(a.handle)).join(', ')}</p>`;
+    // With the command centre on top, the memo's own sections start folded: tap a heading to open one.
+    if (deskIdx === 0 && B.plan) document.querySelectorAll('#memo > section.dsec:not(.cc-sec), #memo > .cockpit .dsec').forEach(el => {
+      const h = el.querySelector('h2'); if (!h) return;
+      el.classList.add('fold'); h.setAttribute('role', 'button'); h.setAttribute('tabindex', '0'); h.setAttribute('aria-expanded', 'false');
+    });
     motion($('#memo'));
     const sel = $('#memo-pick');
     if (sel) sel.addEventListener('change', () => { deskIdx = +sel.value; renderDesk(); window.scrollTo(0, 0); });
@@ -857,8 +951,10 @@
     if (lb) { lens = lb.dataset.lens; try { localStorage.setItem('aie-lens', lens); } catch (err) { /* not remembered */ } render(); return; }
     const cell = e.target.closest('.cell[data-layer], .fnode[data-layer]');
     if (cell) { const el = $('#layer-' + CSS.escape(cell.dataset.layer)); if (el) el.scrollIntoView({ block: 'start', behavior: 'smooth' }); return; }
+    const fh = e.target.closest('.fold > h2, .fold > .cp-title');
+    if (fh && !e.target.closest('button')) { const f = fh.parentElement; f.classList.toggle('open'); const h2 = f.querySelector('h2'); if (h2) h2.setAttribute('aria-expanded', f.classList.contains('open')); return; }
     const jump = e.target.closest('[data-jump]');
-    if (jump) { const el = document.getElementById(jump.dataset.jump); if (el) { if (el.tagName === 'DETAILS') el.open = true; el.scrollIntoView({ block: 'start', behavior: 'smooth' }); } return; }
+    if (jump) { const el = document.getElementById(jump.dataset.jump); if (el) { if (el.tagName === 'DETAILS') el.open = true; el.classList.add('open'); el.querySelectorAll('.fold').forEach(f => f.classList.add('open')); el.scrollIntoView({ block: 'start', behavior: 'smooth' }); } return; }
     const chipEl = e.target.closest('.chip');
     if (chipEl) { location.hash = 'c/' + encodeURIComponent(chipEl.dataset.t); return; }
     const tag = e.target.closest('[data-n]');

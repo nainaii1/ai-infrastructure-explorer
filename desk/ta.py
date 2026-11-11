@@ -14,7 +14,9 @@ Candidate lines
     EMA 21 / 50               exponential moving averages of the close
     Floor                     a daily swing low (lowest low 5 sessions either
                               side), confirmed 5 sessions later, merged with
-                              swing lows within 3%
+                              swing lows within 3%. Bands are built walking
+                              forward (floor_walk), so a touch is only ever
+                              tested against a floor known on that day
 
 A touch
     The day's low comes within TOUCH (1%) of the line, the previous close sat
@@ -128,38 +130,46 @@ def touches_dynamic(bars, series, dr):
     return out
 
 
-def floor_bands(bars):
-    """Every confirmed swing-low band in the history: [{'lo','hi','formed':[(i,date)]}]."""
-    piv = []
-    for i in range(SIDE, len(bars) - SIDE):
-        w = bars[i - SIDE:i + SIDE + 1]
-        if bars[i][2] == min(b[2] for b in w):
-            piv.append((bars[i][2], i))
+def floor_walk(bars):
+    """Walk the bars forward once, so a floor only exists once it could have
+    been known. A swing low at day p is confirmed at the close of p + SIDE and
+    counts as a floor from the next session. Swing lows within MERGE of a band
+    join it. Each band records its touches as they happened, with the level the
+    band had on that day: [(day index, level)].
+
+    (Until 11 Nov 2026 the bands were built from the whole history first, so a
+    touch that later became a swing low had already raised the band it was
+    tested against. That flattered every floor's record; this walk removes it.)"""
+    lows = [b[2] for b in bars]
     bands = []
-    for low, i in sorted(piv):
+    for i in range(2 * SIDE + 1, len(bars)):
+        prev = bars[i - 1][3]
         for b in bands:
-            if abs(low / b["lo"] - 1) < MERGE or abs(low / b["hi"] - 1) < MERGE:
-                b["lo"], b["hi"] = min(b["lo"], low), max(b["hi"], low)
-                b["formed"].append(i)
-                break
-        else:
-            bands.append({"lo": low, "hi": low, "formed": [i]})
+            if lows[i] <= b["hi"] * (1 + TOUCH) and prev > b["hi"] * (1 + TOUCH) and i - b["last"] > COOLDOWN:
+                b["last"] = i
+                b["touches"].append((i, b["hi"]))
+        p = i - SIDE
+        if lows[p] == min(lows[p - SIDE:p + SIDE + 1]):
+            for b in bands:
+                if abs(lows[p] / b["lo"] - 1) < MERGE or abs(lows[p] / b["hi"] - 1) < MERGE:
+                    b["lo"], b["hi"] = min(b["lo"], lows[p]), max(b["hi"], lows[p])
+                    b["formed"].append(p)
+                    break
+            else:
+                bands.append({"lo": lows[p], "hi": lows[p], "formed": [p], "touches": [], "last": -99})
     return bands
 
 
 def touches_floor(bars, band, dr):
-    """Touches of a floor band after it was first confirmed (formed + SIDE sessions)."""
-    start = min(band["formed"]) + SIDE
-    top, out, last = band["hi"], [], -99
-    for i in range(max(start, 1), len(bars)):
-        if bars[i][2] <= top * (1 + TOUCH) and bars[i - 1][3] > top * (1 + TOUCH) and i - last > COOLDOWN:
-            last = i
-            o = outcome(bars, i, top)
-            if o:
-                o["lv"] = round(top, 2)
-                o["up"] = None
-                o["ex"] = None if o["fwd"] is None else round(o["fwd"] - dr, 1)
-                out.append(o)
+    """Outcomes of a band's touches, each judged against the level it had that day."""
+    out = []
+    for i, level in band["touches"]:
+        o = outcome(bars, i, level)
+        if o:
+            o["lv"] = round(level, 2)
+            o["up"] = None
+            o["ex"] = None if o["fwd"] is None else round(o["fwd"] - dr, 1)
+            out.append(o)
     return out
 
 
@@ -200,7 +210,7 @@ def analyse(data):
             pooled_raw.setdefault(label(kind, n), []).extend(t)
             lines.append({"kind": kind, "n": n, "label": label(kind, n), "value": round(s[-1], 2), "touches": t,
                           "series": [[bars[i][0].isoformat(), round(v, 2)] for i, v in enumerate(s) if v is not None][-MA_KEEP:]})
-        for b in floor_bands(bars):
+        for b in floor_walk(bars):
             t = touches_floor(bars, b, dr)
             for x in t:
                 x["recent"] = x["d"] >= cut[key]

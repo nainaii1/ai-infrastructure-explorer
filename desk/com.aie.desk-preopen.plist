@@ -17,7 +17,7 @@
   <array>
     <string>/bin/sh</string>
     <string>-c</string>
-    <string>date; /Library/Frameworks/Python.framework/Versions/3.14/bin/python3 -u prices.py &amp;&amp; /Library/Frameworks/Python.framework/Versions/3.14/bin/python3 -u build.py</string>
+    <string>date; /Library/Frameworks/Python.framework/Versions/3.14/bin/python3 -u prices.py --latest &amp;&amp; /Library/Frameworks/Python.framework/Versions/3.14/bin/python3 -u build.py &amp;&amp; /Library/Frameworks/Python.framework/Versions/3.14/bin/python3 -u alerts.py</string>
   </array>
   <key>WorkingDirectory</key><string>/Users/mikembp/Documents/Claude/ai-supply-desk/desk</string>
   <key>StartCalendarInterval</key>

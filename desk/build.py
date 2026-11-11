@@ -18,7 +18,13 @@
 5. "What changed": latest memo against the one before, plus event updates.
 6. Daily closes (desk/store/history.json) from the sheet's price_history tab,
    for the page's price charts. A failed fetch keeps the last good copy.
-7. Writes ../desk.js (window.DESK = {...}) so index.html works from file://.
+7. The brain (since 11 Nov 2026): capital and pots from the operator's own
+   portfolio file (desk/money.py, read-only), the tide, freezes on a close
+   below a break line, one decision row per name with room to add
+   (desk/plan.py), the setup lab, order sheet and paper record
+   (desk/setups.py), hedge chatter and roster health. Once-only Telegram lines
+   go to desk/store/notices.json and the decision sheet to decision.txt.
+8. Writes ../desk.js (window.DESK = {...}) so index.html works from file://.
 All steps are idempotent: running build twice changes nothing.
 """
 import glob
@@ -44,6 +50,14 @@ STANCES = {"bull", "bear", "mixed"}
 CONF = {"low", "medium", "high"}
 VERDICTS = {"confirms", "mixed", "breaks"}
 RULES_FROM = "2026-10-28"     # memos from here on need a named test on watch names and a positioning section
+RULES2_FROM = "2026-11-14"    # memos from here on need sleeves, break lines, upside cases on shots, and voices
+SLEEVES = {"fund", "shot", "core"}
+DOING = {"long", "adding", "hedged", "trimming", "raising cash", "short", "mixed", "quiet"}
+MILESTONE = {"pending", "hit", "missed"}
+HUNT_CHECKS = ("constraint", "size", "inflection", "funding", "analyst", "missed")
+FROZEN = STORE / "frozen.json"
+NOTICES = STORE / "notices.json"
+DECISION = STORE / "decision.txt"
 
 
 # ---------------------------------------------------------------- validation
@@ -70,6 +84,14 @@ def validate_levels(lv, where):
         e.append("{}: stopAbove must be at or above buyBelow".format(where))
     elif isinstance(nums["trimAbove"], (int, float)) and nums["trimAbove"] <= (nums["stopAbove"] or nums["buyBelow"]):
         e.append("{}: trimAbove must be above stopAbove".format(where))
+    for k in ("breakBelow", "buyAbove", "exit1", "exit2", "buyBack"):
+        if lv.get(k) is not None and not isinstance(lv[k], (int, float)):
+            e.append("{}: levels.{} must be a number".format(where, k))
+    low = nums["addBelow"] if isinstance(nums["addBelow"], (int, float)) else nums["buyBelow"]
+    if isinstance(lv.get("breakBelow"), (int, float)) and isinstance(low, (int, float)) and lv["breakBelow"] >= low:
+        e.append("{}: breakBelow must sit below the add line (or the buy line when there is no add line)".format(where))
+    if isinstance(lv.get("exit1"), (int, float)) and isinstance(lv.get("exit2"), (int, float)) and lv["exit2"] >= lv["exit1"]:
+        e.append("{}: exit2 must be below exit1".format(where))
     return e
 
 
@@ -108,6 +130,34 @@ def validate(m, name):
             ts = a.get("test") or {}
             if not (ts.get("metric") and ts.get("threshold") and _url(ts.get("source"))):
                 e.append("{}: {} needs a test with metric, threshold and a source URL".format(name, t))
+    new = m["date"] >= RULES2_FROM
+    for a in m["accumulate"]:
+        t, act = a.get("ticker", "?"), a.get("action")
+        if (new or "sleeve" in a) and a.get("sleeve") not in SLEEVES:
+            e.append("{}: {} needs sleeve: one of {}".format(name, t, sorted(SLEEVES)))
+        if new and act in ("accumulate", "holding") and not isinstance((a.get("levels") or {}).get("breakBelow"), (int, float)):
+            e.append("{}: {} needs levels.breakBelow (the close that freezes buying)".format(name, t))
+        if a.get("sleeve") == "shot" and act in ("accumulate", "holding") and (new or "upside" in a or "milestones" in a):
+            up = a.get("upside") or {}
+            if not (up.get("case") and isinstance(up.get("multiple"), (int, float)) and up.get("math")
+                    and up.get("sources") and all(_url(u) for u in up["sources"])):
+                e.append("{}: {} is a shot and needs upside: case, multiple (a number), math and source URLs".format(name, t))
+            ms = a.get("milestones") or []
+            if not ms or any(not x.get("what") or x.get("status", "pending") not in MILESTONE
+                             or (x.get("by") and not ISO.match(x["by"])) for x in ms):
+                e.append("{}: {} is a shot and needs milestones: what, by (ISO date or none), status pending|hit|missed".format(name, t))
+        if "reargued" in a and not ((a["reargued"] or {}).get("text") and _url((a["reargued"] or {}).get("source"))):
+            e.append("{}: {} reargued needs text (the new fact) and a source URL".format(name, t))
+    if new and not m.get("voices"):
+        e.append("{}: voices missing (what each seat is doing now)".format(name))
+    for v in m.get("voices", []):
+        if not v.get("handle") or v.get("doing") not in DOING or not v.get("note") or not _url(v.get("url")):
+            e.append("{}: voices @{} needs doing (one of {}), a note and the post URL".format(name, v.get("handle"), sorted(DOING)))
+    for h in m.get("hunt", []):
+        ck = h.get("checks") or {}
+        if not (h.get("ticker") and h.get("name") and h.get("why") and h.get("trigger") and h.get("sources")
+                and all(_url(u) for u in h["sources"]) and all(ck.get(k) for k in HUNT_CHECKS)):
+            e.append("{}: hunt {} needs name, why, trigger, source URLs and all six checks {}".format(name, h.get("ticker"), HUNT_CHECKS))
     pos = m["market"].get("positioning")
     if pos is None and m["date"] >= RULES_FROM:
         e.append("{}: market.positioning missing".format(name))
@@ -269,17 +319,38 @@ def score_analysts(log, roster, s_now):
 
 # ---------------------------------------------------------------- levels + what changed
 
-def current_levels(latest, events):
+def current_levels(latest, events, plans=None):
+    """Levels from the latest memo, then event updates since, then the operator's
+    own standing plans in book.json (for names the memo does not carry)."""
     lv = {}
     for a in latest["accumulate"]:
         if a.get("levels"):
             lv[a["ticker"]] = dict(a["levels"], ticker=a["ticker"], name=a["name"], action=a["action"],
-                                   source="memo " + latest["date"])
+                                   source="memo " + latest["date"], reargued=bool(a.get("reargued")))
     for ev in sorted(events, key=lambda x: x["date"]):
         if ev["date"] >= latest["date"] and ev.get("levels"):
             base = lv.get(ev["ticker"], {"ticker": ev["ticker"], "name": ev["ticker"], "action": "watch"})
             lv[ev["ticker"]] = dict(base, **ev["levels"], source="event " + ev["date"])
+    for t, pl in (plans or {}).items():
+        if t not in lv and isinstance(pl.get("buyBelow"), (int, float)):
+            lv[t] = dict({k: v for k, v in pl.items() if k != "source"}, ticker=t, action="plan", source="your plan", planSource=pl.get("source"))
     return {"memo": latest["date"], "built": now_iso(), "levels": lv}
+
+
+def frozen_errors(memos, frozen):
+    """A frozen name's lines may not move down unless the memo re-argues the case."""
+    if len(memos) < 2:
+        return []
+    new, old = memos[0], {a["ticker"]: a for a in memos[1]["accumulate"]}
+    e = []
+    for a in new["accumulate"]:
+        fz, o = frozen.get(a["ticker"]), old.get(a["ticker"])
+        if fz and o and new["date"] > fz["since"] and a.get("levels") and o.get("levels") \
+                and a["levels"]["buyBelow"] < o["levels"]["buyBelow"] and not a.get("reargued"):
+            e.append("{}.json: {} closed below its break line on {} and is frozen; its buy line cannot move down ({} -> {}) without "
+                     "`reargued` (a new sourced fact, not a lower price)".format(new["date"], a["ticker"], fz["since"],
+                                                                                o["levels"]["buyBelow"], a["levels"]["buyBelow"]))
+    return e
 
 
 def what_changed(memos, calls, events):
@@ -325,30 +396,81 @@ def what_changed(memos, calls, events):
 
 # ---------------------------------------------------------------- price history
 
-def tested_levels():
-    """Back-tested support lines (desk/ta.py); the cached copy if the sheet can't be read."""
+def load_bars():
+    """Daily bars for every block in the sheet's price_history tab, or {} if the
+    sheet cannot be read (everything built from bars then keeps its last copy)."""
     try:
         import support
-        import ta
-        res = ta.analyse(support.load())
-        save_json(STORE / "ta.json", res)
-        return res
+        return support.load()
     except Exception as ex:
-        print("WARNING: tested levels not refreshed ({}); using the cached copy".format(ex))
+        print("WARNING: price history not read ({}); charts, tide, freezes and the setup lab keep their last copy".format(ex))
+        return {}
+
+
+def tested_levels(data):
+    """Back-tested support lines (desk/ta.py); the cached copy if the sheet can't be read."""
+    if not data:
         return load_json(STORE / "ta.json", {})
+    import ta
+    res = ta.analyse(data)
+    save_json(STORE / "ta.json", res)
+    return res
 
 
-def price_history():
+def price_history(data):
     """{ticker: [[date, close], ...]} for every block in the price_history tab."""
-    try:
-        import support
-        hist = {t: [[d.isoformat(), c] for d, _, _, c in bars[-HISTORY_DAYS:]]
-                for t, bars in support.load().items() if bars}
-        save_json(HISTORY, hist)
-        return hist
-    except Exception as ex:          # offline or sheet error: the page keeps last good charts
-        print("WARNING: price history not refreshed ({}); using the cached copy".format(ex))
+    if not data:
         return load_json(HISTORY, {})
+    hist = {t: [[b[0].isoformat(), b[3]] for b in bars[-HISTORY_DAYS:]] for t, bars in data.items() if bars}
+    save_json(HISTORY, hist)
+    return hist
+
+
+def brain(memos, events, levels, calls, track, roster, s_now, data):
+    """Everything the command centre shows above the memo. Private: holds amounts."""
+    import money as money_mod
+    import plan
+    import setups
+    import support
+    latest = memos[0]
+    book = money_mod.load_book()
+    money = money_mod.refresh()
+    sleeves = plan.sleeve_map(book, latest)
+    cap = plan.capital(money, book, sleeves)
+    prices = s_now.get("prices") or {}
+    for t, lv in levels.items():
+        sw = support.swing(data[t]) if data.get(t) else None
+        if sw:
+            lv["swing"] = round(sw, 4)
+    prev = load_json(FROZEN, {})
+    cached = load_json(STORE / "brain.json", {})
+    if not data:                                   # no bars: keep the last picture rather than guess
+        return cached, prev
+    frozen = plan.freeze_state(levels, data, prev)
+    save_json(FROZEN, frozen)
+    tide = plan.tide(data, list(levels))
+    names = {t: lv.get("name", t).split(" (")[0] for t, lv in levels.items()}
+    names.update({c["ticker"]: c["name"] for c in calls})
+    calendar = (latest.get("market") or {}).get("calendar", [])
+    st = setups.build(data, prices, money, cap, names, calendar, tide["state"] if tide["state"] != "unknown" else "turning", frozen)
+    rows = plan.rows(levels, prices, data, frozen, plan.close_triggers(levels, data), tide, cap, money, book, latest, sleeves)
+    others = []
+    for t, r in ((money or {}).get("positions") or {}).items():
+        if t not in levels:
+            price = (prices.get(t) or {}).get("price") or r["filePrice"]
+            others.append({"ticker": t, "name": r["name"], "units": r["units"], "avgCost": r["avgCost"], "currency": r["currency"],
+                           "price": price, "priced": "sheet" if (prices.get(t) or {}).get("price") else "your file",
+                           "value": round(r["units"] * price * money["fx"].get(r["currency"], 1.0)),
+                           "pl": round((price / r["avgCost"] - 1) * 100, 1) if r["avgCost"] else None, "sleeve": sleeves.get(t)})
+    flags = plan.book_flags(rows, others)
+    save_json(NOTICES, plan.notices(rows, prev, frozen, st["orders"]))
+    DECISION.write_text(plan.decision_text(rows, tide, cap, st["orders"], flags), encoding="utf-8")
+    mine = set((money or {}).get("positions") or {}) | {t for t, s in sleeves.items()}
+    out = {"tide": tide, "capital": cap, "plan": rows, "frozen": frozen, "setups": st, "bookFlags": flags, "others": others,
+           "chatter": plan.chatter(roster), "rosterHealth": plan.roster_health(roster, track, mine),
+           "voices": latest.get("voices") or [], "hunt": latest.get("hunt") or []}
+    save_json(STORE / "brain.json", out)
+    return out, prev
 
 
 # ---------------------------------------------------------------- main
@@ -369,10 +491,11 @@ def load_dir(folder, check):
 def main():
     memos, e1 = load_dir(MEMOS, validate)
     events, e2 = load_dir(EVENTS, validate_event)
-    if e1 or e2:
-        print("ERRORS:\n  " + "\n  ".join(e1 + e2))
-        return 1
     memos.sort(key=lambda m: m["date"], reverse=True)
+    e3 = frozen_errors(memos, load_json(FROZEN, {})) if not e1 else []
+    if e1 or e2 or e3:
+        print("ERRORS:\n  " + "\n  ".join(e1 + e2 + e3))
+        return 1
     events.sort(key=lambda m: m["date"], reverse=True)
     s_now = newest()
     roster = load_json(DESK / "analysts.json", {"analysts": []})["analysts"]
@@ -386,17 +509,21 @@ def main():
     board_handles = {r["handle"] for r in log}
     track = score_analysts(log, roster + [{"handle": h} for h in sorted(board_handles - {a["handle"] for a in roster})], s_now)
 
-    levels = current_levels(memos[0], events) if memos else {"levels": {}}
+    import money as money_mod
+    levels = current_levels(memos[0], events, money_mod.load_book().get("plans")) if memos else {"levels": {}}
+    data = load_bars()
+    think, _ = brain(memos, events, levels["levels"], calls, track, roster, s_now, data) if memos else ({}, {})
     save_json(LEVELS, levels)
 
-    wanted = set(levels["levels"]) | {c["ticker"] for c in calls} | {r["ticker"] for r in log} | {BENCH}
+    wanted = set(levels["levels"]) | {c["ticker"] for c in calls} | {r["ticker"] for r in log} | {BENCH, "QQQ"}
     quotes = {t: {"price": px(s_now, t), "currency": cur(s_now, t)} for t in sorted(wanted) if px(s_now, t) is not None}
 
     state = load_json(STATE_FILE, {})
     desk = {"quotes": quotes, "built": now_iso(), "pricesAsOf": s_now.get("asOf"), "collectorLastRun": state.get("lastRun"),
             "analysts": roster, "memos": memos, "events": events, "calls": mark(calls, s_now), "bench": BENCH,
             "changes": what_changed(memos, calls, events) if memos else [],
-            "track": track, "levels": levels["levels"], "exposures": load_json(STORE / "exposures.json", {}), "history": price_history(), "ta": tested_levels(),
+            "track": track, "levels": levels["levels"], "exposures": load_json(STORE / "exposures.json", {}), "history": price_history(data), "ta": tested_levels(data),
+            "brain": think,
             "alerts": load_json(ALERT_LOG, [])[-20:][::-1]}
     (ROOT / "desk.js").write_text(
         "// Generated by desk/build.py from desk/memos and desk/store. Do not edit by hand.\n"
@@ -410,6 +537,11 @@ def main():
     unpriced = [c["ticker"] for c in calls if not c.get("closed") and c.get("refPrice") is None]
     if unpriced:
         print("WARNING: open calls with no price in the sheet:", ", ".join(unpriced))
+    if think.get("capital"):
+        c = think["capital"]
+        print("brain: tide {}, deployable RM {:,} (pots free: fund {:,} / shots {:,} / trades {:,}), {} frozen, {} order(s) on the sheet{}".format(
+            think["tide"]["state"], c["deployable"], c["pots"]["fund"]["free"], c["pots"]["shots"]["free"], c["pots"]["trades"]["free"],
+            len(think["frozen"]), len(think["setups"]["orders"]), " [portfolio figures are stale]" if c["stale"] else ""))
     print("wrote desk.js")
     return 0
 

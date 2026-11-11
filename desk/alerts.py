@@ -12,8 +12,15 @@ written by build.py from the latest memo and any event update since):
     trim   price >  trimAbove     the memo's take-some-profit level (optional)
 
 An alert goes to Telegram only when a name moves from one zone to another, and
-only once it is more than 1.5% past the line it crossed (so a price sitting on a
-line does not alert every run).
+only once it is past the line it crossed by the larger of 1.5% or a quarter of
+that stock's typical daily range (so a price sitting on a line, or a wild stock
+wobbling across it, does not alert every run).
+
+Since 11 Nov 2026:
+  * A name frozen by a daily close below its break line (desk/store/frozen.json,
+    written by build.py) sends no buy or add alerts until it thaws.
+  * desk/store/notices.json (also written by build.py) carries once-only lines:
+    freeze and thaw, buy-above triggers, exit steps and quick-trade setups.
 The first check after new levels records the starting zone silently (the memo
 already said where it stood). Every alert is logged to desk/store/alerts.json
 and shows on the Desk page.
@@ -27,7 +34,10 @@ from common import STATE_FILE, STORE, Telegram, load_env, load_json, now_iso, sa
 
 LEVELS = STORE / "levels.json"
 ALERT_LOG = STORE / "alerts.json"
+FROZEN = STORE / "frozen.json"
+NOTICES = STORE / "notices.json"
 BUFFER = 0.015
+NOTICE_DAYS = 4          # a notice older than this is never sent (no flood after a quiet spell)
 ORDER = ["add", "buy", "hold", "above", "trim"]
 SYMBOL = {"USD": "$", "KRW": "₩", "EUR": "€", "GBP": "£", "SEK": "SEK ", "JPY": "¥", "TWD": "NT$"}
 
@@ -60,15 +70,16 @@ def settled_zone(price, lv, prev):
     bounds = [lv["addBelow"] if lv.get("addBelow") is not None else float("-inf"), lv["buyBelow"], top,
               lv["trimAbove"] if lv.get("trimAbove") is not None else float("inf")]
     i = ORDER.index(prev)
+    buf = max(BUFFER, 0.25 * (lv.get("swing") or 0))      # a quarter of a typical day's range
     if ORDER.index(raw) > i:                        # moving up, out of prev
-        return raw if price > bounds[i] * (1 + BUFFER) else prev
-    return raw if price < bounds[i - 1] * (1 - BUFFER) else prev    # moving down
+        return raw if price > bounds[i] * (1 + buf) else prev
+    return raw if price < bounds[i - 1] * (1 - buf) else prev    # moving down
 
 
 def message(lv, zone, price):
     n, c, act = lv["name"], lv["currency"], lv.get("action")
     p = money(price, c)
-    if act not in ("accumulate", "holding"):
+    if act not in ("accumulate", "holding", "plan"):
         if zone in ("add", "buy"):
             return "{} is at {}, at or below the memo's revisit level of {}. It is a watch name, not a call: the next memo decides.".format(
                 n, p, money(lv["buyBelow"], c))
@@ -88,8 +99,10 @@ def message(lv, zone, price):
         n, p, money(lv.get("stopAbove") or lv["buyBelow"], c))
 
 
-def check(snapshot, state, levels):
-    """Return list of alert records; updates state["alertZones"] in place."""
+def check(snapshot, state, levels, frozen=None):
+    """Return list of alert records; updates state["alertZones"] in place.
+    A frozen name still has its zone tracked, but a move into buy or add is silent."""
+    frozen = frozen or {}
     zones = state.setdefault("alertZones", {})
     out = []
     for t, lv in levels.items():
@@ -106,12 +119,28 @@ def check(snapshot, state, levels):
         zones[t] = {"zone": z, "source": lv.get("source"), "price": price, "at": now_iso()}
         if not same:
             continue                      # new levels: record the starting zone silently
-        if prev["zone"] != z:
+        if prev["zone"] != z and not (t in frozen and z in ("add", "buy")):
             out.append({"ticker": t, "name": lv["name"], "from": prev["zone"], "to": z, "price": price,
                         "currency": lv["currency"], "at": now_iso(), "text": message(lv, z, price)})
     for t in list(zones):
         if t not in levels:
             zones.pop(t)
+    return out
+
+
+def pending_notices(state):
+    """Notices from build.py not yet sent, newest rules only. Marks them seen."""
+    from datetime import date, timedelta
+    cutoff = (date.today() - timedelta(days=NOTICE_DAYS)).isoformat()
+    seen = state.setdefault("noticed", [])
+    out = []
+    for n in load_json(NOTICES, []):
+        if n["key"] in seen:
+            continue
+        seen.append(n["key"])
+        if n.get("date", "9999") >= cutoff:
+            out.append(n)
+    state["noticed"] = seen[-400:]
     return out
 
 
@@ -123,12 +152,20 @@ def run(tg=None, state=None, save_state=False, dry=False):
     own_state = state is None
     state = load_json(STATE_FILE, {}) if own_state else state
     snap = {"prices": fetch()} if dry else save_latest()
+    frozen = load_json(FROZEN, {})
     if dry:
         for t, lv in levels.items():
             row = snap["prices"].get(t) or {}
-            print("{:10} {:>14} -> {}".format(t, row.get("price"), zone_of(row["price"], lv) if row.get("price") else "no price"))
+            print("{:10} {:>14} -> {}{}".format(t, str(row.get("price")), zone_of(row["price"], lv) if row.get("price") else "no price",
+                                              "  FROZEN since {}".format(frozen[t]["since"]) if t in frozen else ""))
+        seen = set(state.get("noticed", []))
+        for n in load_json(NOTICES, []):
+            print("notice{}: {}".format(" (already sent)" if n["key"] in seen else "", n["text"]))
         return []
-    alerts = check(snap, state, levels)
+    alerts = check(snap, state, levels, frozen)
+    for n in pending_notices(state):
+        alerts.append({"ticker": n.get("ticker"), "name": n.get("ticker"), "from": "notice", "to": n["key"].split("|")[0],
+                       "price": None, "currency": None, "at": now_iso(), "text": n["text"]})
     real = [a for a in alerts if "text" in a]
     if real:
         log = load_json(ALERT_LOG, [])

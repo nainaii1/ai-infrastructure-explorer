@@ -34,7 +34,13 @@ is confirmed or has moved.
 **Price alerts.** Read `desk/store/alerts.json`; mention any alert from the
 last 24 hours in one line (the alert itself was already sent).
 
-Write `desk/store/digest.txt`, plain text, under ~1,500 characters:
+**Decision sheet first (since 11 Nov 2026).** Run `python3 desk/build.py`,
+then start the digest with the top of `desk/store/decision.txt`: the TIDE,
+MONEY and POTS lines and the NEEDS YOU block (leave WAITING out unless a name
+is within 3% of its line). Note any voice whose behaviour changed today
+(started hedging, sold, began promoting something).
+
+Write `desk/store/digest.txt`, plain text, under ~1,800 characters:
 
 ```
 DESK DIGEST · 24 Sep 2026 · 57 posts

@@ -15,6 +15,75 @@ not advice.
 Work from the project root. Commands are run for the operator; he does not use
 a terminal.
 
+## The desk's job (set 11 Nov 2026)
+
+The operator's objective: **find and time a few AI-infrastructure names that
+can multiply, without a bad run eating the money he lives on.** He is the PM;
+the desk briefs, sizes and times; he places the trades. Every memo serves three
+lanes on the page's command centre:
+
+- **Fund**: the long-term ETF sleeve (SMH, QQQ), bought in steps.
+- **Shots**: inflection names that could multiply. His holdings sit here.
+- **Core list**: the scored large-cap calls against SMH.
+
+`python3 desk/build.py` computes the rest from his own settings in the private
+`desk/store/book.json` (reserve, pots, risk per quick trade): deployable money, the tide, freezes, room to add per name, the setup
+lab and order sheet. Read `desk/store/decision.txt` after the build: it is the
+decision sheet in plain text and opens the Telegram summary. Never write an
+amount from it, or any holding, into a tracked file.
+
+### Rules from the 14 Nov 2026 memo on (`build.py` enforces them)
+
+- **`sleeve`** on every accumulate, holding and watch row: `fund`, `shot` or
+  `core`. A shot is a name whose case rests on an inflection not yet in the
+  numbers. Holdings get the same full row as scored calls.
+- **`levels.breakBelow`** on every accumulate and holding row: half a typical
+  day's range under the floor the buy line rests on (`support.py` prints it).
+  A daily close below it **freezes buying** on that name. The buy line is the
+  floor plus the larger of 3% or half a typical day's range.
+- **No line-chasing.** `build.py` refuses a memo that lowers a frozen name's
+  buy line unless the row carries `"reargued": {"text": "...", "source":
+  "https://..."}`: a new sourced fact about the business, never "it is cheaper
+  now". Without one, keep last week's lines and say it is frozen.
+- **Shots need an upside case and milestones**, instead of "cheap against
+  peers":
+  `"upside": {"case": "what must be true for 3x or more", "multiple": 3,
+  "by": "2028", "math": "revenue x margin x multiple = price, shown",
+  "sources": ["https://..."]}` and
+  `"milestones": [{"what": "...", "by": "YYYY-MM-DD", "source": "https://...",
+  "status": "pending|hit|missed"}]`. Update each status every week. A `hit`
+  milestone unlocks the last third of that name's steps; a `missed` one is
+  said plainly in the thesis. `valuation` is still required: for a
+  pre-earnings name say what it is valued on.
+- **Optional levels**, all judged on the daily close: `buyAbove` (a
+  buy-on-strength trigger), and for a holding he has
+  chosen to cap, his two exit steps `exit1`, `exit2` and `buyBack`. Never add
+  exits he has not chosen; list holdings whose mode is undecided in `flags`
+  as one question.
+- **`voices`** (required): what each seat is DOING, not only saying.
+  `[{"handle": "ren_stocks", "doing": "long|adding|hedged|trimming|raising
+  cash|short|mixed|quiet", "note": "one sentence", "change": {"date":
+  "YYYY-MM-DD", "text": "what changed"}, "conflict": "paid promotion, a
+  referral code, a disclosed position", "url": "https://x.com/..."}]`.
+  `change` and `conflict` only when true. A seat selling something is a
+  conflict: say so.
+- **`hunt`** (optional, at most five): names he does not own that could become
+  shots. `[{"ticker", "name", "why", "trigger": "what makes it a shot row",
+  "checks": {"constraint", "size", "inflection", "funding", "analyst",
+  "missed"}, "sources": []}]`. `size` uses the sheet's market cap; `funding`
+  looks at the share count trend and cash; `missed` is what the crowd has not
+  priced.
+- **Tide.** When the page says the tide is out, every row's plan is first step
+  only. Do not argue a name into a bigger step because it fell.
+- **Quick trades.** The setup lab decides what is tradable; on 11 Nov 2026
+  nothing was (no setup beat buying on any day once entries were realistic).
+  Never present a level as a quick trade the lab has not passed.
+- **Reading.** `reading.md` now opens with "On your names first". Read that
+  block first, then the roster. Roles are in `desk/analysts.json`.
+- **Roster health** (first memo of each month): read `rosterHealth` in
+  `desk/store/brain.json` and suggest one add or drop in `flags`, with the
+  numbers. The operator decides.
+
 ## 0. When to run (set 28 Oct 2026)
 
 **Saturday 10:00 MYT is the main run, and it always runs.** By then every
@@ -228,9 +297,13 @@ Valid JSON, this shape (`desk/build.py` validates it):
 python3 desk/build.py     # must print no ERRORS; opens/closes scorecard calls
 ```
 
-For the 1–4 developments that change the guide's picture, follow the
-`log-development` skill (free, primary sources only), bump `meta.updated`,
-then `python3 check.py` (0 errors).
+The memo no longer edits the guide (operator's choice, 11 Nov 2026): `data.js`
+changes only when he asks, through the `log-development` skill. After the
+build, read `desk/store/decision.txt` and run `python3 desk/sync_theses.py`
+(a dry run: it prints which of his dashboard's level numbers differ from the
+desk's). In a session with the operator, show him the list and run it with
+`--write` only on his yes; in a scheduled run, put the list in the Telegram
+note and do not write.
 
 Open `index.html#desk` in the browser pane and confirm the memo renders. Use
 the `explorer` preview server (`.claude/launch.json`, port 8791): the pane
@@ -239,7 +312,9 @@ server afterwards.
 
 ## 5. Send the Telegram summary
 
-Write `desk/memos/<today>-telegram.txt`, plain text, under ~2,500 characters:
+Write `desk/memos/<today>-telegram.txt`, plain text, under ~3,200 characters.
+It opens with the decision sheet (copy `desk/store/decision.txt` as it is),
+then:
 
 ```
 DESK MEMO · 24 Sep 2026
@@ -284,10 +359,8 @@ Telegram summary's last line ("Phone: <url>").
 
 ## 6. Commit
 
-Only the guide changes are committed (`data.js`); desk files are gitignored
-because the repo is public. `git add data.js && git commit -m "data: <what
-changed> (weekly memo <date>)"` then `git push`. If `data.js` did not change,
-there is nothing to commit.
+Nothing to commit: the memo, the store and `desk.js` are gitignored because
+the repo is public, and the memo no longer edits `data.js`.
 
 ## Rules
 

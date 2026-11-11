@@ -16,6 +16,8 @@ missing, never guessed.
 
     python3 desk/prices.py            memo snapshot for today, print a summary
     python3 desk/prices.py --quiet    snapshot only
+    python3 desk/prices.py --latest   newest prices only (the pre-open job); never
+                                      touches a memo's dated snapshot
 """
 import csv
 import io
@@ -87,6 +89,9 @@ def save_snapshot():
 
 
 def main():
+    if "--latest" in sys.argv:
+        print("refreshed {} prices (latest only)".format(len(save_latest()["prices"])))
+        return 0
     out, path = save_snapshot()
     rows = out["prices"]
     if "--quiet" not in sys.argv:

@@ -80,6 +80,34 @@ without a reason to be on the map.
 
 ## The desk
 
+**What it is for (11 Nov 2026):** finding and timing a few AI-infrastructure
+names that can multiply, without a bad run eating the money you live on. The
+Desk tab now opens on a **command centre**:
+
+- **Top bar.** The tide (is the market helping or hurting), your deployable
+  money after the reserve you chose, what each of your three pots has left
+  (fund, shots, quick trades), and the next event.
+- **Today.** Only what needs you: a name in its buy zone with room to add, a
+  name frozen because it closed below its break line, results in the next two
+  days.
+- **Fund, Shots, Core list.** One card per name: its state, a small chart
+  against its lines, how much room you have to add in ringgit and shares, what
+  you hold and what it needs to get back to cost, and its next milestone.
+- **Quick trades.** A lab that tests six setups on four years of prices with
+  entries you could really get, against simply buying on any day. A setup is
+  marked tradable only if it passes. Below it: where a limit order would rest,
+  sized so a stop-out costs what you set, and a paper record of every fill.
+- **Voices.** What each analyst is doing (not only saying), changes of
+  behaviour, conflicts of interest, a hedge-chatter gauge and roster health.
+
+The weekly memo and its records sit underneath, folded: tap a heading to open
+one. "Hide holdings" hides your positions and every amount.
+
+A daily close below a name's **break line freezes buying** on it, and the memo
+cannot move a frozen name's lines down without a new sourced fact. Amounts come
+from your own portfolio file, which the desk only reads; the rules (reserve,
+pots, risk per trade) are yours and live in a private file.
+
 The **Desk** tab is a private weekly memo built from ten X analysts
 (`desk/analysts.json`), three of them sceptic seats that argue the other side. A small collector (`desk/collect.py`) runs every six hours,
 reads their public timelines and anything forwarded to the Telegram bot, and

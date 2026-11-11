@@ -73,6 +73,12 @@ year's capex outlook rose or held, `breaks` if it was cut, `mixed` otherwise.
 }
 ```
 
+**Frozen names (since 11 Nov 2026).** If `desk/store/frozen.json` lists the
+ticker, it closed below its break line and buying is frozen. An event update
+may not lower its lines; say "frozen, lines unchanged" and leave re-arguing to
+the weekly memo (which needs a new sourced fact). For a shot, say which
+milestone the event hit or missed.
+
 Include `levels` only if the valuation anchor moved (for example forward
 earnings estimates changed enough to move the zone). Show the arithmetic in
 `callImpact`. Otherwise leave `levels` out and the memo's levels stand.
@@ -83,7 +89,9 @@ earnings estimates changed enough to move the zone). Show the arithmetic in
 python3 desk/build.py          # must show no ERRORS; shows the event on the Desk page
 ```
 
-Write `desk/store/event.txt` (plain text, under ~1,200 characters):
+Write `desk/store/event.txt` (plain text, under ~1,200 characters). If the
+build changed the name's state or room to add, add the matching line from
+`desk/store/decision.txt`:
 
 ```
 DESK EVENT · MU · 1 Oct 2026 · CONFIRMS

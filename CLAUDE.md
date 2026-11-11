@@ -8,6 +8,15 @@ ledger, vault, price plumbing) stays archived at git tag `v1-archive` and is not
 to be revived; the desk replaces it with something much smaller. Read
 `README.md` first.
 
+## The objective (set 11 Nov 2026)
+
+The operator wants the desk to **find and time a few AI-infrastructure names
+that can multiply, without a bad run eating the money he lives on.** He is the
+PM; the desk briefs, sizes and times; he places the trades. It works in three
+lanes: a long-term ETF **fund**, **shots** (inflection names, where his
+holdings sit) and the scored **core list**. Judge every change by whether it
+helps him decide what to buy, how much, and when to stop.
+
 ## What this is
 
 Two parts, one page:
@@ -37,18 +46,30 @@ Two parts, one page:
    library, no long-running process. No scoring of posting frequency, no expert
    seats, no claims ledger, no extra pages.
 6. **The repo is public (GitHub Pages).** Everything the desk collects or writes
-   is gitignored: `desk/store/`, `desk/memos/`, `desk.js`, `desk/.env`. Never
+   is gitignored: `desk/store/`, `desk/memos/`, `desk.js`, `desk/.env`. Since
+   11 Nov 2026 the store also holds money (`book.json`, `money.json`,
+   `brain.json`, `decision.txt`): no amount, holding or level from them goes
+   into a tracked file, a commit message or anything public. The operator's
+   `portfolio.json` (another project) is read-only, always. Never
    commit or quote subscriber (paid) posts; `data.js` cites free sources only.
 7. **Curated, not exhaustive.** A company joins the guide only by sitting on a
    constraint. The accumulate list may name others; the guide does not have to.
 8. **Run `python3 check.py` (0 errors) and `python3 desk/build.py` (no ERRORS)**
    before committing.
+9. **Evidence before levels.** A level, setup or timing rule is shown as
+   tradable only when the lab says so (`desk/setups.py`: realistic entries, no
+   look-ahead, judged against buying on any day). On 11 Nov 2026 no quick-trade
+   setup passed and plain monthly buying beat both timing rules for the fund.
+   Say that plainly; never dress a line up as an edge.
+10. **Sizing is the operator's arithmetic.** Reserve, pots and risk per trade
+   are his numbers in `desk/store/book.json`. Change them only when he says so.
+   Research support, not advice.
 
 ## Routines (skills in `.claude/skills/`)
 
 | Skill | When | What |
 |---|---|---|
-| `weekly-memo` | Saturday 10:00 MYT (scheduled, always runs unless a memo was written Fri/Sat), or "run the desk" | Collect, price snapshot, read everything, check claims, write the memo, update scorecard and guide, Telegram summary. Mid-week by hand: warn if a list result or hyperscaler capex print is under 48h away |
+| `weekly-memo` | Saturday 10:00 MYT (scheduled, always runs unless a memo was written Fri/Sat), or "run the desk" | Collect, price snapshot, read everything, check claims, write the memo (sleeves, break lines, upside and milestones on shots, voices, hunt list), update scorecard, Telegram summary led by the decision sheet. No guide edits. Mid-week by hand: warn if a list result or hyperscaler capex print is under 48h away |
 | `daily-digest` | Sun–Fri 11:00 MYT (scheduled) | Short Telegram digest of the last 24h; triggers event updates; re-checks tomorrow's "expected" dates |
 | `event-update` | Day after a calendar event for a listed name or a hyperscaler (triggered by the daily digest or a one-off scheduled task) | Short sourced read: confirms / mixed / breaks the call, judged against the memo's named `test`; hyperscalers get a "capex read"; may reset alert levels |
 | `log-development` | Operator shares a filing, release or post | One dated, sourced entry in `data.js` |
@@ -57,8 +78,9 @@ Two parts, one page:
 against `desk/store/levels.json`); a nightly backup at 23:30 MYT pushes
 `desk/store/` and `desk/memos/` to the PRIVATE repo `nainaii1/ai-desk-private`
 (launchd `com.aie.desk-backup`, log `~/Library/Logs/desk-backup.log`).
-Before the US open, Mon–Fri 21:00 MYT, a pre-open job refreshes the price
-snapshot and rebuilds `desk.js` (launchd `com.aie.desk-preopen`, plist in
+Before the US open, Mon–Fri 21:00 MYT, a pre-open job refreshes the latest
+prices (never a memo's dated snapshot), rebuilds `desk.js` with the brain, and
+sends any once-only notice (freeze, thaw, trigger, exit step, tradable setup) (launchd `com.aie.desk-preopen`, plist in
 `desk/`, log `~/Library/Logs/desk-preopen.log`). Pre-open, US prices are the
 last close.
 
@@ -90,6 +112,12 @@ desk/build.py         validate memos, keep the scorecard, write desk.js
 desk/send.py          send a text file to the operator's Telegram
 desk/alerts.py        zone alerts: price vs the memo's levels, Telegram on a zone change
 desk/backup.py        nightly copy of store + memos to the private backup repo
+desk/money.py         reads the operator's portfolio file READ-ONLY -> desk/store/money.json (liquid money, positions)
+desk/plan.py          the brain: tide, freeze on a close below a break line, capital and pots, one decision row per name, notices, hedge chatter, roster health
+desk/setups.py        the trade brain: setup lab (resting-order and next-open entries, vs "any day"), order sheet, paper record, fund lab
+desk/sync_theses.py   copies changed level numbers to the dashboard's theses.json (dry run unless --write)
+desk/store/book.json  the operator's sizing rules (reserve, pots, risk per trade, sleeves, his own standing plans): private
+desk/store/brain.json, decision.txt, frozen.json, notices.json, setups.json, trades.json   written by build.py: private
 desk/common.py        shared plumbing
 desk/.env             TELEGRAM_BOT_TOKEN (never committed)
 desk/memos/           one JSON memo per week + its Telegram text (private)
@@ -119,7 +147,9 @@ developments[]:{ date (ISO), title, summary, companies[], narratives[],
 ```
 
 The memo shape is documented in `.claude/skills/weekly-memo/SKILL.md` and
-enforced by `desk/build.py`.
+enforced by `desk/build.py`. From the 14 Nov 2026 memo on it also needs a
+`sleeve` and `levels.breakBelow` per row, an `upside` case and `milestones` on
+shots, and a `voices` section; `hunt` is optional.
 
 Private companies use an uppercase slug as `ticker` (`OPENAI`) with
 `listed: false`; the page renders the name instead of the slug.
