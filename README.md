@@ -154,7 +154,7 @@ nightly copy goes to the private repo `nainaii1/ai-desk-private`.
 |---|---|
 | Collector reads timelines and the bot's inbox | every 6 hours |
 | Daily digest on Telegram | Sun–Fri 11:00 |
-| Weekly memo on the page + summary on Telegram | Saturday 10:00 |
+| Weekly memo on the page + summary on Telegram | Saturday 13:30 |
 | Price alerts | whenever a name changes zone (checked every 6 hours) |
 | Event update after results | the morning after (next: SK hynix results, 28 Oct) |
 | Private backup | nightly 23:30 |

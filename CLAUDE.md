@@ -69,7 +69,7 @@ Two parts, one page:
 
 | Skill | When | What |
 |---|---|---|
-| `weekly-memo` | Saturday 10:00 MYT (scheduled, always runs unless a memo was written Fri/Sat), or "run the desk" | Collect, price snapshot, read everything, check claims, write the memo (sleeves, break lines, upside and milestones on shots, voices, hunt list), update scorecard, Telegram summary led by the decision sheet. No guide edits. Mid-week by hand: warn if a list result or hyperscaler capex print is under 48h away |
+| `weekly-memo` | Saturday 13:30 MYT, after the weekly usage reset at 13:00 (scheduled, always runs unless a memo was written Fri/Sat), or "run the desk" | Collect, price snapshot, read everything, check claims, write the memo (sleeves, break lines, upside and milestones on shots, voices, hunt list), update scorecard, Telegram summary led by the decision sheet. No guide edits. Mid-week by hand: warn if a list result or hyperscaler capex print is under 48h away |
 | `daily-digest` | Sun–Fri 11:00 MYT (scheduled) | Short Telegram digest of the last 24h; triggers event updates; re-checks tomorrow's "expected" dates |
 | `event-update` | Day after a calendar event for a listed name or a hyperscaler (triggered by the daily digest or a one-off scheduled task) | Short sourced read: confirms / mixed / breaks the call, judged against the memo's named `test`; hyperscalers get a "capex read"; may reset alert levels |
 | `log-development` | Operator shares a filing, release or post | One dated, sourced entry in `data.js` |

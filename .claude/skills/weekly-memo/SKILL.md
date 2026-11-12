@@ -86,7 +86,7 @@ amount from it, or any holding, into a tracked file.
 
 ## 0. When to run (set 28 Oct 2026)
 
-**Saturday 10:00 MYT is the main run, and it always runs.** By then every
+**Saturday 13:30 MYT is the main run, and it always runs** (moved from 10:00 on 12 Nov 2026 so it starts after the weekly usage reset at 13:00). By then every
 market is shut, so the sheet holds closing prices everywhere (no intraday mix).
 The week's US results (Tue–Thu after the close), Korean and Taiwanese results
 and the Friday close are all in, and the operator has the weekend to read it.
