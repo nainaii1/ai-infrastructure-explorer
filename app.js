@@ -161,17 +161,6 @@
     }), { threshold: 0.2 });
     root.querySelectorAll('svg path.pl, svg path.cl').forEach(p => drawIO.observe(p));
   }
-  // The tape: every name on the list, its last price and its zone, scrolling slowly.
-  function tape(m) {
-    const items = m.accumulate.map(a => {
-      const lv = LV[a.ticker] || (a.levels && Object.assign({ action: a.action }, a.levels)), q = (K.quotes || {})[a.ticker];
-      if (!lv || !q || q.price == null) return '';
-      const watch = a.action === 'watch', z = watch ? (q.price <= lv.buyBelow ? 'buy' : 'hold') : zoneOf(q.price, lv);
-      return `<span class="tp act-${esc(a.action)} z-${z}"><b>${esc(shortT(a.ticker))}</b> ${num(q.price)} <i>${watch ? (z === 'buy' ? 'at revisit' : 'watch') : ZSHORT[z]}</i></span>`;
-    }).join('');
-    return items ? `<div class="tape" aria-hidden="true"><div class="tape-in">${items}${items}</div></div>` : '';
-  }
-
   function renderMap(q) {
     const stats = {}; let max = 1;
     D.layers.forEach(l => { stats[l.id] = layerStat(l); max = Math.max(max, stats[l.id].v); });
@@ -364,7 +353,8 @@
   }
 
   // Price against the desk's zones: bands for add / buy / hold / stop adding / trim, the close as a line.
-  // o = { w, h, days, labels, call, tight } · tight: scale to the closes and the buy line only (sparklines)
+  // o = { w, h, days, labels, call, tight, focus } · tight: scale to the closes and the buy line only (sparklines)
+  // focus (the issue's call sheets): closes, the buy zone and the break line; no averages, no far-off stop or trim
   function zoneChart(t, lv, o) {
     const bars = closes(t, o.days || 130);
     if (bars.length < 5 || !lv) return '';
@@ -372,11 +362,14 @@
     const W = o.w, H = o.h, L = 2, R = o.labels ? 96 : 3, T = 6, B = o.labels ? 18 : 3;
     const ts = bars.map(b => Date.parse(b[0])), vs = bars.map(b => b[1]);
     const buy = lv.buyBelow, add = lv.addBelow != null ? lv.addBelow : buy, top = lv.stopAbove || buy, trim = lv.trimAbove;
-    let lo = o.tight ? Math.min(...vs, buy) : Math.min(...vs, add), hi = o.tight ? Math.max(...vs) : Math.max(...vs, top);
-    if (o.call && o.call.refPrice) { lo = Math.min(lo, o.call.refPrice); hi = Math.max(hi, o.call.refPrice); }
-    const trimIn = !o.tight && trim != null && trim <= hi * 1.2;
+    const brk = o.focus ? lv.breakBelow : null;
+    let lo = o.tight ? Math.min(...vs, buy) : Math.min(...vs, add), hi = o.tight ? Math.max(...vs) : o.focus ? Math.max(...vs, buy) : Math.max(...vs, top);
+    if (brk != null) lo = Math.min(lo, brk);
+    const callRef = o.call && !o.focus ? (o.call.refAdj || o.call.refPrice) : null;
+    if (callRef) { lo = Math.min(lo, callRef); hi = Math.max(hi, callRef); }
+    const trimIn = !o.tight && !o.focus && trim != null && trim <= hi * 1.2;
     if (trimIn) hi = Math.max(hi, trim);   // never let the line leave the frame
-    const TA = o.labels && K && K.ta && K.ta.names ? K.ta.names[t] : null;
+    const TA = o.labels && !o.focus && K && K.ta && K.ta.names ? K.ta.names[t] : null;
     const d0 = bars[0][0];
     const maRows = TA ? TA.support.concat(TA.resistance).filter(r => r.series && /^SMA (50|200)d$/.test(r.label)) : [];
     const tested = TA ? TA.support.filter(r => r.n > 0).slice(0, 2) : [];
@@ -396,17 +389,17 @@
     const last = vs[vs.length - 1];
     let labels = '', ticks = '', callMark = '';
     if (o.labels) {
-      const lvls = (watch ? [['revisit', buy]] : [['add', add], ['buy', buy], ['stop', top]].concat(trimIn ? [['trim', trim]] : []))
+      const lvls = (watch ? [['revisit', buy]] : [['add', add], ['buy', buy]].concat(o.focus ? [] : [['stop', top]], trimIn ? [['trim', trim]] : [], brk != null ? [['break', brk]] : []))
         .filter((v, i, arr) => arr.findIndex(z => z[1] === v[1]) === i)
         .map(([k, v]) => ({ k, v, y: y(v) })).sort((a, b) => a.y - b.y);
       for (let i = 1; i < lvls.length; i++) if (lvls[i].y - lvls[i - 1].y < 12) lvls[i].y = lvls[i - 1].y + 12;
-      labels = lvls.map(l => `<line class="lvl" x1="${L}" x2="${W - R}" y1="${y(l.v).toFixed(1)}" y2="${y(l.v).toFixed(1)}"/><text class="lt" x="${W - R + 6}" y="${(l.y + 3.5).toFixed(1)}">${esc(l.k)} ${num(l.v)}</text>`).join('') +
-        (trim != null && !trimIn ? `<text class="lt" x="${W - R + 6}" y="${T + 8}">trim ${num(trim)} ↑</text>` : '');
+      labels = lvls.map(l => `<line class="lvl${l.k === 'break' ? ' brk' : ''}" x1="${L}" x2="${W - R}" y1="${y(l.v).toFixed(1)}" y2="${y(l.v).toFixed(1)}"/><text class="lt${l.k === 'break' ? ' brk' : ''}" x="${W - R + 6}" y="${(l.y + 3.5).toFixed(1)}">${esc(l.k)} ${num(l.v)}</text>`).join('') +
+        (trim != null && !trimIn && !o.focus ? `<text class="lt" x="${W - R + 6}" y="${T + 8}">trim ${num(trim)} ↑</text>` : '');
       let mo = '';
       bars.forEach((b, i) => { const m = b[0].slice(0, 7); if (m !== mo) { mo = m; if (i > 2) ticks += `<line class="mt" x1="${x(ts[i]).toFixed(1)}" x2="${x(ts[i]).toFixed(1)}" y1="${T}" y2="${H - B}"/><text class="xt" x="${x(ts[i]).toFixed(1)}" y="${H - 4}">${MONTHS[+m.slice(5) - 1]}</text>`; } });
-      if (o.call && o.call.refPrice && Date.parse(o.call.opened) >= t0) {
+      if (callRef && Date.parse(o.call.opened) >= t0) {
         const ox = x(Date.parse(o.call.opened));
-        callMark = `<line class="cm" x1="${ox.toFixed(1)}" x2="${ox.toFixed(1)}" y1="${T}" y2="${H - B}"/><circle class="cmd" cx="${ox.toFixed(1)}" cy="${y(o.call.refPrice).toFixed(1)}" r="4"/><text class="lt cmt" x="${(ox + 6).toFixed(1)}" y="${H - B - 5}">call opened ${num(o.call.refPrice)}</text>`;
+        callMark = `<line class="cm" x1="${ox.toFixed(1)}" x2="${ox.toFixed(1)}" y1="${T}" y2="${H - B}"/><circle class="cmd" cx="${ox.toFixed(1)}" cy="${y(callRef).toFixed(1)}" r="4"/><text class="lt cmt" x="${(ox + 6).toFixed(1)}" y="${H - B - 5}">call opened ${num(callRef)}</text>`;
       }
     }
     function taOverlay() {
@@ -427,10 +420,11 @@
     const smh = closes(K.bench); if (!smh.length || !K.calls.length) return '';
     const smhAt = d => { let v = null; for (const [sd, sv] of smh) { if (sd > d) break; v = sv; } return v; };
     const series = K.calls.map((c, i) => {
-      if (!c.refPrice || !c.benchRef) return null;
+      const ref = c.refAdj || c.refPrice;
+      if (!ref || !c.benchRef) return null;
       const end = c.closed ? c.closed.date : '9999-12-31';
       const pts = closes(c.ticker).filter(([d]) => d >= c.opened && d <= end).map(([d, v]) => {
-        const b = smhAt(d); return b ? [Date.parse(d), ((v / c.refPrice) - (b / c.benchRef)) * 100] : null;
+        const b = smhAt(d); return b ? [Date.parse(d), ((v / ref) - (b / c.benchRef)) * 100] : null;
       }).filter(Boolean);
       return pts.length > 1 ? { c, pts, color: SERIES[i % SERIES.length], label: shortT(c.ticker) + (c.closed ? ' (closed)' : '') } : null;
     }).filter(Boolean);
@@ -588,12 +582,13 @@
       ${RH.cited.length ? `<p class="small muted">Outside accounts your roster cites most: ${RH.cited.map(c => `@${esc(c.handle)} (${c.bySeats} seats, ${c.times}×)`).join(' · ')}.</p>` : ''}</section>`;
 
     const hunt = (B.hunt || []).length ? `<h4 class="sub">Hunt list: names you do not own yet</h4><div class="cards v">${B.hunt.map(h => `<div class="vc"><div class="nc-top"><b>${esc(h.ticker)}</b><span>${esc(h.name)}</span></div><p>${esc(h.why)}</p><p class="small"><b>Becomes a shot when:</b> ${esc(h.trigger)}</p><p class="small muted">${Object.entries(h.checks).map(([k, v]) => `<b>${esc(k)}</b>: ${esc(v)}`).join(' · ')}</p></div>`).join('')}</div>` : '';
-    return `<div class="cc" id="d-command">${bar}${today}
-      ${lane('cc-fund', 'Fund', 'The long-term ETF sleeve, bought in steps from the fund pot. The lab below it compares three ways of stepping in on the same history.', P.filter(r => r.sleeve === 'fund'), fundLab)}
-      ${lane('cc-shots', 'Shots', 'Names that could multiply. Each add is one of three steps: at the buy line, at the add line, and the last only after a milestone passes.', P.filter(r => r.sleeve === 'shot'), hunt + oth)}
-      ${lane('cc-core', 'Core list', 'The desk’s scored calls and large caps, sized from the fund pot.', P.filter(r => r.sleeve === 'core' || !r.sleeve))}
-      ${trades}${voices}
-      <nav class="cc-tabs" aria-label="Command centre">${[['cc-today', 'Today'], ['cc-fund', 'Fund'], ['cc-shots', 'Shots'], ['cc-trades', 'Trades'], ['cc-voices', 'Voices']].map(([id, l]) => `<button data-jump="${id}">${l}</button>`).join('')}</nav></div>`;
+    // My book shows bar, today, lanes and trades; Workings shows the voices.
+    return {
+      bar, today, trades, voices,
+      lanes: lane('cc-fund', 'Fund', 'The long-term ETF sleeve, bought in steps from the fund pot. The lab below it compares three ways of stepping in on the same history.', P.filter(r => r.sleeve === 'fund'), fundLab) +
+        lane('cc-shots', 'Shots', 'Names that could multiply. Each add is one of three steps: at the buy line, at the add line, and the last only after a milestone passes.', P.filter(r => r.sleeve === 'shot'), hunt + oth) +
+        lane('cc-core', 'Core list', 'The desk’s scored calls and large caps, sized from the fund pot.', P.filter(r => r.sleeve === 'core' || !r.sleeve))
+    };
   }
 
   // "Hide holdings": one switch for screen sharing; remembered per browser.
@@ -791,18 +786,12 @@
     const posn = (mk.positioning || []).length ? `<ul class="devlist">${mk.positioning.map(x => `<li>${esc(x.text)} ${link(x.source)}</li>`).join('')}</ul>` : '';
     const cal = (mk.calendar || []).length ? `<ul class="devlist">${mk.calendar.map(x => `<li><time>${fmtDate(x.date)}</time>${esc(x.event)} ${link(x.source)}</li>`).join('')}</ul>` : '';
 
-    const score = K.calls.length ? `<div class="scroll"><table class="score"><thead><tr><th>Ticker</th><th>Opened</th><th>Ref</th><th>Now / exit</th><th>Return</th><th>${esc(K.bench)}</th><th>Status</th></tr></thead><tbody>${
-      K.calls.slice().reverse().map(c => `<tr><td>${tick(c.ticker)}</td><td>${fmtDate(c.opened)}</td><td class="num">${num(c.refPrice)} ${esc(c.currency || '')}</td><td class="num">${num(c.lastPrice)}</td><td class="num">${pct(c.ret)}</td><td class="num">${pct(c.benchRet)}</td><td>${c.closed ? 'closed ' + fmtDate(c.closed.date) : 'open'}</td></tr>`).join('')}</tbody></table></div>` : '<p class="muted">No calls yet.</p>';
-
+    const cc = deskIdx === 0 ? commandCentre() : null;
     $('#memo').innerHTML = `
-      <div class="memo-meta">Weekly memo · ${fmtDate(m.date)} · posts ${fmtDate(m.window.from)} to ${fmtDate(m.window.to)} ${pick}</div>
-      ${deskIdx === 0 ? tape(m) : ''}
+      <header class="pg-head"><div class="memo-meta">Workings · the full memo of ${fmtDate(m.date)} · posts ${fmtDate(m.window.from)} to ${fmtDate(m.window.to)} ${pick}</div>
       <h1 class="headline">${esc(m.headline)}</h1>
-      <nav class="dnav" aria-label="Memo sections">${[deskIdx === 0 && B.plan && ['d-command', 'Command centre'], deskIdx === 0 && ['d-cockpit', 'Charts'], deskIdx === 0 && ['d-history', 'History'], changes && ['d-changed', 'Changes'], events && ['d-since', 'Since'], ['d-picture', 'Picture'], ['d-list', 'List'], ['d-board', 'Board'], stress && ['d-stress', 'Stress test'], deskIdx === 0 && K.ta && ['d-lab', 'Level lab'], ['d-track', 'Track record'], ['d-wrap', 'Market'], ['d-pushback', 'Pushback'], ['d-score', 'Scorecard']].filter(Boolean).map(([id, l]) => `<button data-jump="${id}">${l}</button>`).join('')}</nav>
-      ${deskIdx === 0 ? commandCentre() : ''}
-      ${deskIdx === 0 && B.plan ? '<p class="fold-note muted small">The weekly memo and its records are below. Tap a heading to open it.</p>' : ''}
-      ${deskIdx === 0 ? cockpit(m) : ''}
-      ${deskIdx === 0 ? zoneHistory(m) : ''}
+      <p class="dek">Everything behind This week: the memo in full, the analysts, the labs and the pushback. Each section starts folded; tap a heading or a button to open it.</p></header>
+      <nav class="dnav" aria-label="Memo sections">${[changes && ['d-changed', 'Changes'], events && ['d-since', 'Since'], ['d-picture', 'Picture'], ['d-list', 'Every name'], ['d-board', 'Analyst board'], cc && ['cc-voices', 'Voices'], ['d-track', 'Analyst record'], stress && ['d-stress', 'Stress test'], deskIdx === 0 && K.ta && ['d-lab', 'Level lab'], ['d-wrap', 'Market'], ['d-pushback', 'Pushback'], m.flags.length && ['d-flags', 'Flags']].filter(Boolean).map(([id, l]) => `<button data-jump="${id}">${l}</button>`).join('')}</nav>
       ${changes}
       ${events ? `<section class="dsec" id="d-since"><h2>Since this memo</h2><p class="muted small">Event updates between weekly memos. They can move the alert levels; only the weekly memo opens or closes calls.</p>${events}</section>` : ''}
       <section class="dsec" id="d-picture"><h2>1 · The supply-chain picture</h2>
@@ -810,22 +799,211 @@
       <section class="dsec" id="d-list"><h2>2 · Accumulate list</h2>
         <p class="muted small">Research support, not advice. Prices from your Google Sheet${K.pricesAsOf ? ' as of ' + esc(K.pricesAsOf.slice(0, 10)) : ''}.</p>${acc}</section>
       <section class="dsec" id="d-board"><h2>3 · Analyst board</h2><p class="muted small">Each cell links to the post. <b>Lean</b> counts the heads, then re-weights each by that analyst's record against ${esc(K.bench)}: weight 1 until 8 scored calls, then 1 + average edge ÷ 20, held between 0.25 and 1.5. A lean that flips the headcount means the track record disagrees with the crowd. It is a rule of thumb, not a forecast.</p>${board}</section>
+      ${cc ? cc.voices : ''}
+      <section class="dsec" id="d-track"><h2>Analyst track record</h2><p class="muted small">Every stance on the board, from the day it was first recorded, against ${esc(K.bench)}. A bull call earns the stock's move minus ${esc(K.bench)}'s; a bear call the reverse; mixed calls are not scored. Local-currency returns, adjusted for share splits.${young ? ' Everything was recorded this week, so it all reads 0% for now; it fills in as prices move.' : ''}</p>${track}</section>
       ${stress}
       ${deskIdx === 0 ? levelLab() : ''}
-      <section class="dsec" id="d-track"><h2>Analyst track record</h2><p class="muted small">Every stance on the board, from the day it was first recorded, against ${esc(K.bench)}. A bull call earns the stock's move minus ${esc(K.bench)}'s; a bear call the reverse; mixed calls are not scored. Local-currency returns.${young ? ' Everything was recorded this week, so it all reads 0% for now; it fills in as prices move.' : ''}</p>${track}</section>
       <section class="dsec" id="d-wrap"><h2>4 · Market wrap</h2>${paras(mk.summary)}${movers}${posn ? '<h4 class="sub">Positioning: squeeze or re-rating?</h4>' + posn : ''}${cal ? '<h4 class="sub">Coming up</h4>' + cal : ''}</section>
       <section class="dsec pushback" id="d-pushback"><h2>The desk's pushback</h2><p class="muted small">Every analyst on the roster leans bullish. This is the other side.</p>${paras(m.pushback)}</section>
-      <section class="dsec" id="d-score"><h2>Scorecard</h2><p class="muted small">Every accumulate call, marked to the latest price against ${esc(K.bench)}. Calls are never edited after the fact.</p>${score}</section>
-      ${m.flags.length ? `<section class="dsec"><h2>Flags</h2><ul>${m.flags.map(f => `<li>${esc(f)}</li>`).join('')}</ul></section>` : ''}
+      ${m.flags.length ? `<section class="dsec" id="d-flags"><h2>Flags</h2><ul>${m.flags.map(f => `<li>${esc(f)}</li>`).join('')}</ul></section>` : ''}
       <p class="muted small">Collector last ran ${K.collectorLastRun ? esc(fmtMYT(K.collectorLastRun)) : 'never'} · following ${K.analysts.map(a => '@' + esc(a.handle)).join(', ')}</p>`;
-    // With the command centre on top, the memo's own sections start folded: tap a heading to open one.
-    if (deskIdx === 0 && B.plan) document.querySelectorAll('#memo > section.dsec:not(.cc-sec), #memo > .cockpit .dsec').forEach(el => {
+    // Every section starts folded: tap a heading (or a button in the bar) to open one.
+    document.querySelectorAll('#memo > section.dsec, #memo > details.dsec').forEach(el => {
+      if (el.tagName === 'DETAILS') return;
       const h = el.querySelector('h2'); if (!h) return;
       el.classList.add('fold'); h.setAttribute('role', 'button'); h.setAttribute('tabindex', '0'); h.setAttribute('aria-expanded', 'false');
     });
     motion($('#memo'));
     const sel = $('#memo-pick');
     if (sel) sel.addEventListener('change', () => { deskIdx = +sel.value; renderDesk(); window.scrollTo(0, 0); });
+  }
+
+  // ---------- This week · Record · My book ----------
+  // This week is the issue: one verdict, what changed, the calls, the record, where the squeeze is, what is next.
+  // It shows only the desk's own calls and watch names: holdings, the fund plan and every amount live in My book.
+  const isCall = a => a.action === 'accumulate';
+  const isWatch = a => a.action === 'watch' && a.sleeve !== 'fund';
+  const isMine = (m, t) => m.accumulate.some(a => a.ticker === t && !isCall(a) && !isWatch(a));
+  function closeOn(t, d) { let v = null; for (const [hd, hv] of (HIST[t] || [])) { if (hd > d) break; v = hv; } return v; }
+  // "The binding constraint has not moved: memory ... are short." -> lead in bold, the rest plain.
+  function lead(p) { const x = /^(.{12,}?[.:])\s+(.+)$/.exec(p); return x ? `<b>${esc(x[1])}</b> ${esc(x[2])}` : esc(p); }
+  function money(v, cur) { return v == null ? '—' : `${num(v)} <small>${esc(cur || '')}</small>`; }
+
+  // The record in three numbers: calls ahead of the benchmark, average gap, timing setups that passed the lab.
+  function recordStats() {
+    const rows = (K.calls || []).filter(c => c.ret != null && c.benchRet != null).map(c => Object.assign({ edge: c.ret - c.benchRet }, c));
+    const S = B.setups || {}, lab = ((S.lab || {}).rows || []).filter(r => r.setup !== 'anyday');
+    return {
+      rows, n: rows.length, ahead: rows.filter(r => r.edge > 0).length,
+      avg: rows.length ? rows.reduce((s, r) => s + r.edge, 0) / rows.length : null,
+      labN: lab.length, labPassed: lab.filter(r => r.tradable).length,
+      fund: (S.fund || [])[0] || null, split: rows.some(r => r.refAdj)
+    };
+  }
+  function sgn(v, d) { return v == null ? '—' : `${v > 0 ? '+' : v < 0 ? '−' : ''}${Math.abs(v).toFixed(d == null ? 1 : d)}`; }
+  function bigNumbers(st) {
+    return `<div class="bignums">
+      <div><b class="serif">${st.ahead} of ${st.n}</b><span>calls ahead of ${esc(K.bench)}</span></div>
+      <div><b class="serif ${st.avg >= 0 ? 'up' : 'dn'}">${sgn(st.avg)}</b><span>points ${st.avg >= 0 ? 'ahead of' : 'behind'} ${esc(K.bench)}, on average</span></div>
+      ${st.labN ? `<div><b class="serif">${st.labPassed} of ${st.labN}</b><span>timing setups passed the back-test</span></div>` : ''}
+    </div>`;
+  }
+  function recordTable(rows, compact) {
+    return `<div class="scroll"><table class="rec"><thead><tr><th>Call</th><th class="op">Opened</th>${compact ? '' : '<th class="r">From</th><th class="r">Now / exit</th>'}<th class="r">Call</th><th class="r">${esc(K.bench)}</th><th class="r">Ahead / behind</th>${compact ? '' : '<th>Status</th>'}</tr></thead><tbody>
+      ${rows.slice().sort((a, b) => b.opened.localeCompare(a.opened)).map(c => `<tr><td><a href="#c/${encodeURIComponent(c.ticker)}">${esc(nameOf(c.ticker).split(' (')[0])}</a></td><td class="num op">${fmtDate(c.opened)}</td>
+        ${compact ? '' : `<td class="num r">${num(c.refAdj || c.refPrice)}${c.refAdj ? '<sup title="adjusted for a share split">s</sup>' : ''}</td><td class="num r">${num(c.closed ? c.closed.price : c.lastPrice)}</td>`}
+        <td class="num r ${c.ret >= 0 ? 'up' : 'dn'}">${sgn(c.ret)}%</td><td class="num r">${sgn(c.benchRet)}%</td><td class="num r ${c.edge > 0 ? 'up' : 'dn'}">${sgn(c.edge)}</td>
+        ${compact ? '' : `<td>${c.closed ? 'closed ' + fmtDate(c.closed.date) : 'open'}</td>`}</tr>`).join('')}</tbody></table></div>`;
+  }
+  function honesty(st) {
+    const f = st.fund, md = f && f.modes;
+    return [st.split ? 'Returns are adjusted for share splits.' : '',
+      md ? `In the fund lab, buying ${esc(f.ticker)} every month returned ${sgn(md.monthly.ret)}%, against ${sgn(md.above200.ret)}% and ${sgn(md.washout.ret)}% for the two timing rules, so the fund is bought in steps, not timed.` : '',
+      st.labN ? `${st.labPassed === 0 ? 'None' : st.labPassed} of the ${st.labN} quick-trade setups beat buying on any day with entries you could really get.` : '',
+      'Calls are opened and closed only by the weekly memo and are never edited after the fact.'].filter(Boolean).join(' ');
+  }
+
+  // A call's state for the issue: live from the brain on the latest issue, from that week's close on an old one.
+  const STAMP = { frozen: ['Frozen', 'f'], buy: ['Buy zone', 'l'], add: ['Add zone', 'l'], trigger: ['Trigger', 'l'], exit1: ['Exit step', 'f'], exit2: ['Exit step', 'f'] };
+  function callState(m, a, latest) {
+    const lv = a.levels || {}, cur = (lv.currency || '');
+    const r = latest && B.plan ? B.plan.find(x => x.ticker === a.ticker) : null;
+    if (r) {
+      const [label, cls] = STAMP[r.state] || ['Waiting', 'w'];
+      let text;
+      if (r.state === 'frozen') text = `Closed ${num(r.frozen.close)} ${esc(cur)} on ${fmtDate(r.frozen.since)}, under its ${num(r.frozen.line)} break line. No buying until it closes back above ${num(lv.buyBelow)}.`;
+      else if (r.state === 'buy' || r.state === 'add') text = `${num(r.price)} ${esc(cur)}, inside the buy zone (buy line ${num(lv.buyBelow)}${lv.addBelow != null ? `, add line ${num(lv.addBelow)}` : ''}).${B.tide && B.tide.state === 'out' ? ' Tide out: a first step only.' : ''}`;
+      else text = r.price == null ? 'No price in the sheet.' : `${num(r.price)} ${esc(cur)}, ${r.distBuy.toFixed(1)}% above the ${num(lv.buyBelow)} buy line. Nothing to do until it gets there.`;
+      return { label, cls, text, state: r.state };
+    }
+    const p = closeOn(a.ticker, m.date);
+    if (p == null || lv.buyBelow == null) return { label: 'On the list', cls: 'w', text: '', state: '' };
+    const z = zoneOf(p, lv);
+    return z === 'buy' || z === 'add' ? { label: z === 'add' ? 'Add zone' : 'Buy zone', cls: 'l', text: `Closed ${num(p)} ${esc(cur)} that week, inside the buy zone.`, state: z }
+      : { label: 'Waiting', cls: 'w', text: `Closed ${num(p)} ${esc(cur)} that week, ${((p / lv.buyBelow - 1) * 100).toFixed(1)}% above the buy line.`, state: 'wait' };
+  }
+  function callSheet(m, a, latest) {
+    const s = callState(m, a, latest), lv = LV[a.ticker] && latest ? LV[a.ticker] : a.levels && Object.assign({ action: a.action, currency: (a.levels || {}).currency }, a.levels);
+    const open = (K.calls || []).find(c => c.ticker === a.ticker && !c.closed);
+    const chart = lv ? zoneChart(a.ticker, lv, { w: 520, h: 130, days: 90, labels: true, focus: true }) : '';
+    return `<article class="sheet st-${esc(s.state)}">
+      <div class="sh-top"><span class="tkr">${esc(shortT(a.ticker))}</span><h3>${esc(a.name.split(' (')[0])}</h3><span class="stamp ${s.cls}">${esc(s.label)}</span></div>
+      ${s.text ? `<p class="sh-state ${s.cls}">${s.text}</p>` : ''}
+      <p class="sh-case">${esc(a.thesis)}</p>
+      ${chart ? `<div class="sh-chart">${chart}</div>` : ''}
+      <dl class="sh-kv">
+        <dt>Wrong if</dt><dd>${esc(a.invalidation)}</dd>
+        ${a.test ? `<dt>Tested by</dt><dd>${esc(a.test.metric)}: ${esc(a.test.threshold)}${a.test.by ? ` · due ${fmtDate(a.test.by)}` : ''} ${link(a.test.source, a.test.sourceName)}</dd>` : ''}
+        <dt>Valuation</dt><dd>${esc(a.valuation.text)} ${link(a.valuation.source)}</dd>
+      </dl>
+      <a class="sh-more" href="#c/${encodeURIComponent(a.ticker)}">The full case, the analysts and the tested lines →</a>
+    </article>`;
+  }
+  // The opening line. A memo may carry its own `verdict` (first sentence plain, the rest bold); otherwise the
+  // latest issue builds one from the tide and the calls' live states, and an old issue falls back to its headline.
+  const TIDE_LEAD = { out: 'The tide is out.', turning: 'The tide is turning.', in: 'The tide is in.' };
+  function verdict(m, latest, states) {
+    if (m.verdict) { const x = /^(.+?[.!?])\s+(.+)$/.exec(m.verdict); return x ? `${esc(x[1])} <strong>${esc(x[2])}</strong>` : `<strong>${esc(m.verdict)}</strong>`; }
+    if (!latest || !B.tide || !states.length) return null;
+    const n = k => states.filter(s => k.includes(s)).length, fz = n(['frozen']), inz = n(['buy', 'add', 'trigger']), wait = states.length - fz - inz;
+    const said = [fz && `${fz} frozen`, inz && `${inz} in the buy zone`, wait && `${wait} waiting`].filter(Boolean).join(', ');
+    return `${esc(TIDE_LEAD[B.tide.state] || 'No read on the tide.')} <strong>${states.length} call${states.length === 1 ? '' : 's'}: ${esc(said)}.</strong>`;
+  }
+  function issuePick(id) {
+    return K.memos.length > 1 ? `<select id="${id}" aria-label="Issue date">${K.memos.map((x, i) => `<option value="${i}"${i === deskIdx ? ' selected' : ''}>${fmtDate(x.date)}</option>`).join('')}</select>` : '';
+  }
+  function noDesk(el) { el.innerHTML = '<p class="empty">No desk memo yet. The collector is gathering posts; the first issue appears after the weekly run.</p>'; }
+
+  function renderWeek() {
+    const el = $('#week');
+    if (!K || !K.memos || !K.memos.length) { noDesk(el); return; }
+    const m = K.memos[Math.min(deskIdx, K.memos.length - 1)], latest = deskIdx === 0;
+    const calls = m.accumulate.filter(isCall), watch = m.accumulate.filter(isWatch);
+    const states = calls.map(a => callState(m, a, latest).state);
+    const v = verdict(m, latest, states);
+    const td = latest ? B.tide : null;
+    const nextMemo = deskIdx > 0 ? K.memos[deskIdx - 1].date : '9999-12-31';
+    const since = (K.events || []).filter(e => e.date > m.date && e.date < nextMemo && !isMine(m, e.ticker)).sort((a, b) => b.date.localeCompare(a.date));
+    const VER = { confirms: 'Confirms', mixed: 'Mixed', breaks: 'Breaks the call' };
+    const st = recordStats();
+    const from = latest ? todayMYT : m.date;
+    const up = [];
+    (m.market.calendar || []).forEach(x => { if (x.date >= from && !(x.ticker && isMine(m, x.ticker))) up.push({ date: x.date, text: x.event, t: x.ticker, src: x.source }); });
+    calls.concat(watch).forEach(a => { if (a.test && a.test.by && a.test.by >= from && !up.some(u => u.t === a.ticker && u.date === a.test.by)) up.push({ date: a.test.by, text: `${a.name.split(' (')[0]}'s test: ${a.test.metric}`, t: a.ticker, src: a.test.source }); });
+    up.sort((p, q) => p.date.localeCompare(q.date));
+    const layers = {};
+    calls.concat(watch).forEach(a => { const c = byTicker[a.ticker], l = c ? c.layer : '_'; (layers[l] = layers[l] || []).push(a); });
+    const squeeze = D.layers.filter(l => layers[l.id]).map(l => {
+      const [what, why] = l.constraint.split(/(?<=\.)\s/);
+      return `<a class="sq" href="#map" data-layer="${esc(l.id)}"><b>${esc(l.name)}</b><em>${esc(what)}</em>${why ? `<span>${esc(why)}</span>` : ''}<small>${layers[l.id].map(a => esc(a.name.split(' (')[0])).join(' · ')}</small></a>`;
+    }).join('');
+
+    el.innerHTML = `<article class="issue">
+      <header class="pg-head"><div class="memo-meta">Weekly note · ${fmtDate(m.date)} · posts ${fmtDate(m.window.from)} to ${fmtDate(m.window.to)} ${issuePick('issue-pick')}</div>
+        <p class="kicker"><span class="n">1</span>The verdict</p>
+        <h1 class="verdict">${v || esc(m.headline)}</h1>
+        ${v ? `<p class="dek">${esc(m.headline)}</p>` : ''}
+        ${td ? `<p class="tide-line"><span class="pill-dot t-${esc(td.state)}"><i></i>${esc(td.rule || '')}</span> <span class="muted small">${esc(td.text || '')}</span></p>` : ''}
+        ${since.length ? `<div class="since"><b>Since this issue</b><ul>${since.map(e => `<li><time>${fmtDate(e.date)}</time> <span class="tkr">${esc(shortT(e.ticker))}</span> <span class="vpill ver-${esc(e.verdict)}">${VER[e.verdict] || esc(e.verdict)}</span> ${esc(e.headline)}</li>`).join('')}</ul></div>` : ''}
+      </header>
+
+      <section class="isec"><h2><span class="n">2</span>What changed</h2>
+        <ul class="wlist">${m.picture.now.map(p => `<li>${lead(p)}</li>`).join('')}</ul></section>
+
+      <section class="isec" id="w-calls"><h2><span class="n">3</span>The calls</h2>
+        <p class="sec-note">${calls.length} name${calls.length === 1 ? '' : 's'}, at most five. ${latest ? `States are live at ${esc(fmtMYT(K.pricesAsOf))}; the case is the issue's.` : 'As written that week.'} Each one says what would prove it wrong.</p>
+        ${calls.map(a => callSheet(m, a, latest)).join('') || '<p class="muted">Nothing meets the bar this week.</p>'}
+        ${watch.length ? `<div class="also"><b>Also watching</b>${watch.map(a => `<p><a href="#c/${encodeURIComponent(a.ticker)}">${esc(a.name.split(' (')[0])}</a>: ${a.levels && a.levels.buyBelow != null ? `revisit at ${num(a.levels.buyBelow)} ${esc(a.levels.currency || '')}. ` : ''}${a.test ? `Back on the list only if ${esc(a.test.metric)}: ${esc(a.test.threshold)}.` : esc(a.invalidation)}</p>`).join('')}</div>` : ''}
+      </section>
+
+      <section class="isec rec-sec"><h2><span class="n">4</span>The record, losses included</h2>
+        <p class="sec-note">Every call since ${st.rows.length ? fmtDate(st.rows.map(r => r.opened).sort()[0]) : 'the start'}, marked against ${esc(K.bench)} at ${esc(fmtMYT(K.pricesAsOf))}.</p>
+        ${st.n ? bigNumbers(st) + recordTable(st.rows, true) : '<p class="muted">No calls yet.</p>'}
+        <p class="note">${honesty(st)}</p>
+        <a class="sh-more" href="#record">The full record, with the chart and every line the desk has drawn →</a></section>
+
+      <section class="isec"><h2><span class="n">5</span>Where the squeeze is</h2>
+        <p class="sec-note">The parts of the chain these calls rest on, and what is short in each. Tap one to open it on the map.</p>
+        <div class="squeeze">${squeeze}</div></section>
+
+      <section class="isec"><h2><span class="n">6</span>Coming up</h2>
+        <ul class="wlist next-p">${m.picture.next.map(p => `<li>${lead(p)}</li>`).join('')}</ul>
+        ${up.length ? `<table class="cal"><tbody>${up.slice(0, 8).map(x => `<tr><td class="num">${fmtDate(x.date).replace(/ \d{4}$/, '')}</td><td>${x.t ? `<span class="tkr">${esc(shortT(x.t))}</span> ` : ''}${esc(x.text)}</td><td class="r">${link(x.src, 'source')}</td></tr>`).join('')}</tbody></table>` : '<p class="muted small">Nothing dated after today in this issue.</p>'}
+      </section>
+      <footer class="issue-foot">Research support, not advice. Every figure links to its source; prices from the Google Sheet. Your holdings, pots and money are in My book and never appear on this page.</footer>
+    </article>`;
+    motion(el);
+    const sel = $('#issue-pick');
+    if (sel) sel.addEventListener('change', () => { deskIdx = +sel.value; renderWeek(); window.scrollTo(0, 0); });
+  }
+
+  function renderRecord() {
+    const el = $('#record');
+    if (!K || !K.memos || !K.memos.length) { noDesk(el); return; }
+    const st = recordStats(), m = K.memos[0];
+    const listed = Object.assign({}, m, { accumulate: m.accumulate.filter(a => isCall(a) || isWatch(a)) });
+    el.innerHTML = `<header class="pg-head"><p class="kicker">The record · marked at ${esc(fmtMYT(K.pricesAsOf))}</p>
+        <h1>Every call, <strong>losses included.</strong></h1>
+        <p class="dek">${st.n} call${st.n === 1 ? '' : 's'} since ${st.rows.length ? fmtDate(st.rows.map(r => r.opened).sort()[0]) : 'the start'}, each marked against ${esc(K.bench)} from the day it opened. A record you can check is the reason to read the rest.</p></header>
+      ${st.n ? bigNumbers(st) : ''}
+      <section class="isec"><h2>Each call against ${esc(K.bench)}</h2><p class="sec-note">Each call's return minus ${esc(K.bench)}'s since it opened, in points. Above the line is beating the index. Daily closes; hover for the date.</p>${callsChart() || '<p class="muted small">No price history yet.</p>'}</section>
+      <section class="isec"><h2>The scorecard</h2>${st.n ? recordTable(st.rows, false) : '<p class="muted">No calls yet.</p>'}<p class="note">${honesty(st)}</p></section>
+      ${zoneHistory(listed)}
+      <p class="muted small">Analysts' own records sit in Workings, under Analyst record.</p>`;
+    motion(el);
+  }
+
+  function renderBook() {
+    const el = $('#book');
+    if (!K || !K.memos || !K.memos.length) { noDesk(el); return; }
+    const cc = commandCentre(), m = K.memos[0];
+    el.innerHTML = `<header class="pg-head"><p class="kicker">Private to you · prices ${esc(fmtMYT(K.pricesAsOf))}</p>
+        <h1>My book</h1>
+        <p class="dek">Your money, your three pots and every name you hold or plan, against its lines. Nothing here appears in This week or Record. "Hide holdings" clears it for screen sharing.</p></header>
+      <nav class="dnav" aria-label="My book sections">${[cc && ['cc-today', 'Today'], cc && ['cc-fund', 'Fund'], cc && ['cc-shots', 'Shots'], cc && ['cc-core', 'Core list'], cc && ['cc-trades', 'Quick trades'], ['d-cockpit', 'Every chart']].filter(Boolean).map(([id, l]) => `<button data-jump="${id}">${l}</button>`).join('')}</nav>
+      ${cc ? `<div class="cc" id="d-command">${cc.bar}${cc.today}${cc.lanes}${cc.trades}</div>` : '<p class="muted">No portfolio summary yet (desk/money.py).</p>'}
+      ${cockpit(m)}`;
+    motion(el);
   }
 
   // ---------- drawer ----------
@@ -902,17 +1080,28 @@
   }
 
   // ---------- routing ----------
-  let view = 'desk';
+  // Desk views need desk.js (private); the public site has only the guide (map, narratives, timeline).
+  const HAS_DESK = !!(K && K.memos && K.memos.length);
+  const DESK_VIEWS = ['week', 'record', 'book', 'workings'], GUIDE_VIEWS = ['map', 'narratives', 'timeline'];
+  let view = HAS_DESK ? 'week' : 'map';
   function showView(v) {
+    if (!HAS_DESK && DESK_VIEWS.includes(v)) v = 'map';
     if (v !== view) window.scrollTo(0, 0);
     view = v;
-    ['desk', 'map', 'narratives', 'timeline'].forEach(id => { $('#view-' + id).hidden = id !== v; });
-    document.querySelectorAll('.tabs a').forEach(a => a.classList.toggle('on', a.dataset.view === v));
+    DESK_VIEWS.concat(GUIDE_VIEWS).forEach(id => { $('#view-' + id).hidden = id !== v; });
+    const guide = GUIDE_VIEWS.includes(v);
+    document.querySelectorAll('.tabs a').forEach(a => a.classList.toggle('on', a.dataset.view === v || (guide && a.dataset.view === 'map')));
+    $('#guide-nav').hidden = !guide;
+    document.querySelectorAll('#guide-nav a').forEach(a => a.classList.toggle('on', a.dataset.view === v));
+    $('#meta').hidden = !guide;
     render();
   }
   function render() {
     const q = $('#q').value.trim();
-    if (view === 'desk') renderDesk();
+    if (view === 'week') renderWeek();
+    else if (view === 'record') renderRecord();
+    else if (view === 'book') renderBook();
+    else if (view === 'workings') renderDesk();
     else if (view === 'map') renderMap(q);
     else if (view === 'narratives') renderNarratives(pendingNarr);
     else renderTimeline(q);
@@ -926,7 +1115,8 @@
     if (h.startsWith('timeline')) { tlNarr = h.includes('/') ? decodeURIComponent(h.split('/')[1]) : ''; showView('timeline'); return; }
     if (h === 'narratives') { showView('narratives'); return; }
     if (h === 'map') { showView('map'); return; }
-    showView('desk');
+    if (DESK_VIEWS.includes(h)) { showView(h); return; }
+    showView(HAS_DESK ? 'week' : 'map');   // '', '#desk' (old links) and anything unknown
   }
 
   function jumpDev(k) {
@@ -943,9 +1133,9 @@
     const dd = e.target.closest('[data-dev]');
     if (dd) { jumpDev(dd.dataset.dev); return; }
     const dm = e.target.closest('[data-memo]');
-    if (dm) { deskIdx = +dm.dataset.memo; renderDesk(); window.scrollTo(0, 0); return; }
+    if (dm) { deskIdx = +dm.dataset.memo; if (view === 'record') location.hash = 'workings'; else render(); window.scrollTo(0, 0); return; }
     const shk = e.target.closest('[data-shock]');
-    if (shk) { stressId = shk.dataset.shock; const y = window.scrollY; renderDesk(); window.scrollTo(0, y); return; }
+    if (shk) { stressId = shk.dataset.shock; const y = window.scrollY; renderDesk(); $('#d-stress').classList.add('open'); window.scrollTo(0, y); return; }
     if (e.target.closest('[data-hold]')) { hideHold = !hideHold; try { localStorage.setItem('aie-hide-holdings', hideHold ? '1' : '0'); } catch (err) { /* not remembered */ } applyHold(); render(); return; }
     const lb = e.target.closest('[data-lens]');
     if (lb) { lens = lb.dataset.lens; try { localStorage.setItem('aie-lens', lens); } catch (err) { /* not remembered */ } render(); return; }
@@ -977,7 +1167,7 @@
     if (e.key === 'Escape' && !$('#drawer').hidden) closeDrawer();
     if (e.key === '/' && document.activeElement !== $('#q')) { e.preventDefault(); $('#q').focus(); }
   });
-  $('#q').addEventListener('input', () => { if (view === 'narratives' || view === 'desk') showView('map'); else render(); });
+  $('#q').addEventListener('input', () => { if (view !== 'map' && view !== 'timeline') showView('map'); else render(); });
   $('#q').addEventListener('keydown', e => {
     if (e.key !== 'Enter') return;
     const q = $('#q').value.trim(); if (!q) return;
@@ -994,7 +1184,21 @@
   // ---------- boot ----------
   $('#meta').textContent = `${D.companies.length} companies · ${D.layers.length} layers · ${D.narratives.length} narratives · ${D.developments.length} dated developments · updated ${fmtDate(D.meta.updated)}${K && K.pricesAsOf ? ` · desk prices ${fmtMYT(K.pricesAsOf)}` : ''}`;
   $('#foot').textContent = D.meta.disclaimer;
-  document.title = D.meta.title;
+  // With desk.js present this is the private desk; without it, the public guide.
+  document.title = HAS_DESK ? 'AI Supply Desk' : D.meta.title;
+  $('.brand').textContent = HAS_DESK ? 'AI Supply Desk' : D.meta.title;
+  $('.brand').setAttribute('href', HAS_DESK ? '#week' : '#map');
+  document.querySelectorAll('.desk-tab').forEach(a => { a.hidden = !HAS_DESK; });
+  // Paper by default; a dark reading mode for night, remembered per browser.
+  const themeBtn = $('#theme');
+  function setThemeLabel() { const dark = document.documentElement.dataset.theme === 'dark'; themeBtn.textContent = dark ? 'Paper' : 'Dark'; themeBtn.setAttribute('aria-pressed', dark); }
+  themeBtn.addEventListener('click', () => {
+    const dark = document.documentElement.dataset.theme !== 'dark';
+    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+    try { localStorage.setItem('aie-theme', dark ? 'dark' : 'light'); } catch (e) { /* not remembered */ }
+    setThemeLabel();
+  });
+  setThemeLabel();
   applyHold();
   route();
 })();

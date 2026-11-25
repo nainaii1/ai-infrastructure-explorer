@@ -145,6 +145,7 @@ Valid JSON, this shape (`desk/build.py` validates it):
   "date": "YYYY-MM-DD",
   "window": { "from": "YYYY-MM-DD", "to": "YYYY-MM-DD" },
   "headline": "One sentence: the single most important thing this week.",
+  "verdict": "Optional (from 28 Nov 2026), under 120 characters: the issue's opening line on This week, two short sentences, the call then the reason (the second is set bold). No figure that is not elsewhere in the memo. Leave it out and the page builds one from the tide and the calls' states.",
   "picture": { "now": ["para", "para"], "next": ["para", "para"] },
   "accumulate": [{
     "ticker": "MU", "name": "Micron", "action": "accumulate|watch|trim|avoid",
@@ -305,7 +306,7 @@ desk's). In a session with the operator, show him the list and run it with
 `--write` only on his yes; in a scheduled run, put the list in the Telegram
 note and do not write.
 
-Open `index.html#desk` in the browser pane and confirm the memo renders. Use
+Open `index.html#week` in the browser pane and confirm the issue renders (then `#workings` for the full memo). Use
 the `explorer` preview server (`.claude/launch.json`, port 8791): the pane
 shows a `file://` page as a static snapshot without its scripts. Stop the
 server afterwards.

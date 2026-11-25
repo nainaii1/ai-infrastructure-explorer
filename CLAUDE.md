@@ -27,7 +27,10 @@ Two parts, one page:
 - **The desk** (`desk/`): collects the analysts' posts every six hours, and a weekly
   memo turns them into four things the operator asked for: the supply-chain
   picture now and next, an accumulate list, the analyst bull/bear board, and a
-  market wrap. It renders in the page's **Desk** tab from `desk.js`.
+  market wrap. It renders from `desk.js` in four tabs (since 25 Nov 2026):
+  **This week** (the issue: verdict, calls, record, squeeze, dates; no holdings
+  or amounts), **Record**, **My book** (private money and lanes) and
+  **Workings** (the full memo, folded). The guide sits under **Guide**.
 
 ## Hard rules
 

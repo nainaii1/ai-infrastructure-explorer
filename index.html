@@ -6,29 +6,38 @@
 <title>AI Infrastructure Explorer</title>
 <meta name="description" content="A map of the AI hardware supply chain: who sits where, what constrains each layer, and what has changed.">
 <link rel="stylesheet" href="style.css">
+<script>try { if (localStorage.getItem('aie-theme') === 'dark') document.documentElement.dataset.theme = 'dark'; } catch (e) { /* paper */ }</script>
 </head>
 <body>
 
 <header class="top">
   <div class="wrap top-row">
-    <a class="brand" href="#desk">AI Infrastructure Explorer</a>
-    <nav class="tabs" aria-label="Views">
-      <a href="#desk" data-view="desk">Desk</a>
-      <a href="#map" data-view="map">Map</a>
-      <a href="#narratives" data-view="narratives">Narratives</a>
-      <a href="#timeline" data-view="timeline">Timeline</a>
-    </nav>
+    <a class="brand" href="#map">AI Infrastructure Explorer</a>
     <label class="search">
       <input id="q" type="search" placeholder="Ticker or company" autocomplete="off" spellcheck="false" aria-label="Search companies">
     </label>
+    <button id="theme" class="theme" type="button" aria-pressed="false">Dark</button>
   </div>
-  <div class="wrap top-meta" id="meta"></div>
+  <nav class="wrap tabs" aria-label="Views">
+    <a href="#week" data-view="week" class="desk-tab" hidden>This week</a>
+    <a href="#record" data-view="record" class="desk-tab" hidden>Record</a>
+    <a href="#book" data-view="book" class="desk-tab" hidden>My book</a>
+    <a href="#workings" data-view="workings" class="desk-tab" hidden>Workings</a>
+    <a href="#map" data-view="map">Guide</a>
+  </nav>
+  <nav class="wrap subtabs" id="guide-nav" aria-label="Guide" hidden>
+    <a href="#map" data-view="map">Map</a>
+    <a href="#narratives" data-view="narratives">Narratives</a>
+    <a href="#timeline" data-view="timeline">Timeline</a>
+    <span class="top-meta" id="meta"></span>
+  </nav>
 </header>
 
 <main class="wrap">
-  <section id="view-desk" class="view" hidden>
-    <div id="memo"></div>
-  </section>
+  <section id="view-week" class="view" hidden><div id="week"></div></section>
+  <section id="view-record" class="view" hidden><div id="record"></div></section>
+  <section id="view-book" class="view" hidden><div id="book"></div></section>
+  <section id="view-workings" class="view" hidden><div id="memo"></div></section>
 
   <section id="view-map" class="view" hidden>
     <p class="lede">The chain from the buyers of compute at the top to the physical inputs at the bottom. Each layer names its current constraint. Click a company for its dossier.</p>

@@ -58,6 +58,10 @@ HUNT_CHECKS = ("constraint", "size", "inflection", "funding", "analyst", "missed
 FROZEN = STORE / "frozen.json"
 NOTICES = STORE / "notices.json"
 DECISION = STORE / "decision.txt"
+# Share splits: ticker -> [(first session on the new share count, new shares per old share)].
+# Reference prices recorded before a split are divided by the ratio when a return is worked
+# out, so the scorecard and track record compare like with like. The stored records stay as they were.
+SPLITS = {"SNDK": [("2026-11-20", 8.0)]}
 
 
 # ---------------------------------------------------------------- validation
@@ -105,6 +109,8 @@ def validate(m, name):
         return e
     if not ISO.match(m["date"]):
         e.append("{}: date not ISO".format(name))
+    if "verdict" in m and (not isinstance(m["verdict"], str) or not 0 < len(m["verdict"]) <= 120):
+        e.append("{}: verdict must be a sentence or two, 120 characters at most".format(name))
     for k in ("now", "next"):
         if not m["picture"].get(k):
             e.append("{}: picture.{} empty".format(name, k))
@@ -223,6 +229,15 @@ def pct(a, b):
     return round((a / b - 1) * 100, 1) if a and b else None
 
 
+def split_adj(t, price, start, end):
+    """A price recorded on `start`, restated in shares as they stood on `end`."""
+    f = 1.0
+    for day, ratio in SPLITS.get(t, []):
+        if start < day <= end:
+            f *= ratio
+    return price / f if price and f != 1.0 else price
+
+
 # ---------------------------------------------------------------- scorecard
 
 def update_calls(latest, calls):
@@ -251,7 +266,10 @@ def mark(calls, s):
     for c in calls:
         end = c["closed"]["price"] if c.get("closed") else px(s, c["ticker"])
         bend = c["closed"]["benchPrice"] if c.get("closed") else px(s, BENCH)
-        r = dict(c, lastPrice=end, ret=pct(end, c.get("refPrice")), benchRet=pct(bend, c.get("benchRef")))
+        ref = split_adj(c["ticker"], c.get("refPrice"), c["opened"], c["closed"]["date"] if c.get("closed") else "9999-12-31")
+        r = dict(c, lastPrice=end, ret=pct(end, ref), benchRet=pct(bend, c.get("benchRef")))
+        if ref != c.get("refPrice"):
+            r["refAdj"] = round(ref, 4)            # split-adjusted reference, for the page's charts
         out.append(r)
     return out
 
@@ -302,7 +320,8 @@ def score_analysts(log, roster, s_now):
         for r in [x for x in log if x["handle"] == h]:
             end = r["ended"]["price"] if r.get("ended") else px(s_now, r["ticker"])
             bend = r["ended"]["benchPrice"] if r.get("ended") else px(s_now, BENCH)
-            ret, bret = pct(end, r.get("price")), pct(bend, r.get("benchPrice"))
+            start = split_adj(r["ticker"], r.get("price"), r["since"], r["ended"]["date"] if r.get("ended") else "9999-12-31")
+            ret, bret = pct(end, start), pct(bend, r.get("benchPrice"))
             edge = None
             if ret is not None and bret is not None and r["stance"] != "mixed":
                 edge = round(ret - bret if r["stance"] == "bull" else bret - ret, 1)
