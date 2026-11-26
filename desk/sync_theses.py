@@ -35,9 +35,12 @@ def main():
     except Exception as ex:
         print("theses.json not read ({}); nothing changed".format(ex))
         return 1
+    # The dashboard may use a newer ticker than the desk's key (after a rename):
+    # book.json's aliases map the dashboard name to the desk's.
+    alias = load_json(STORE / "book.json", {}).get("aliases", {})
     changes = []
     for h in T.get("holdings", []):
-        lv = levels.get(h.get("ticker"))
+        lv = levels.get(h.get("ticker")) or levels.get(alias.get(h.get("ticker")))
         if not lv or lv.get("action") == "plan" or "levels" not in h:
             continue                                  # the operator's own plans are his to edit
         for k, f in FIELDS.items():
