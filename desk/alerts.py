@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Price alerts on the memo's zones. Called by the collector every run (every
-6 hours); safe to run by hand.
+twice a day, 10:00 and 23:00 MYT); safe to run by hand.
 
 Each name on the accumulate list carries numeric levels (desk/store/levels.json,
 written by build.py from the latest memo and any event update since):

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""The collector. Runs every six hours on its own (launchd) and does two things:
+"""The collector. Runs twice a day on its own, 10:00 and 23:00 MYT (launchd) and does two things:
 
 1. Reads each analyst's public X timeline (desk/analysts.json) through the
    free fxtwitter API and saves any new posts.
@@ -13,6 +13,7 @@ long-running bot to crash.
 
     python3 desk/collect.py            normal run
     python3 desk/collect.py --days 14  backfill further on a first run
+    python3 desk/collect.py --skip-if-recent 60   do nothing if a run finished in the last hour (the digest uses this)
 """
 import argparse
 import os
@@ -20,6 +21,8 @@ import re
 import signal
 import sys
 import threading
+import time
+import urllib.error
 from contextlib import contextmanager
 from datetime import datetime, timedelta, timezone
 
@@ -30,8 +33,9 @@ TIMELINE = "https://api.fxtwitter.com/2/profile/{h}/statuses?with_replies=true" 
 STATUS = "https://api.fxtwitter.com/{u}/status/{i}"
 STATUS_RE = re.compile(r"(?:twitter\.com|x\.com|fxtwitter\.com|fixupx\.com)/([A-Za-z0-9_]+)/status/(\d+)")
 MAX_PAGES = 6
-FAIL_ALERT_AFTER = 2      # consecutive failed runs (~12 hours) before a Telegram alert
+FAIL_ALERT_AFTER = 2      # consecutive failed runs (~24 hours at two runs a day) before a Telegram alert
 SEEN_CAP = 20000
+RETRIES = 4                # fxtwitter returns a random 404 on ~1 call in 4 (27 Nov 2026); retry before counting a failure
 RUN_LIMIT = 15 * 60       # whole run; past this the process exits so launchd can start the next one
 STAGE_LIMIT = 180         # one timeline, the Telegram inbox, or the alert check
 
@@ -117,7 +121,7 @@ def fetch_status(user, sid):
     """Single post via fxtwitter, or None if it can't be read (deleted,
     protected, or subscriber-only)."""
     try:
-        d = get_json(STATUS.format(u=user, i=sid))
+        d = get_json_retry(STATUS.format(u=user, i=sid), tries=2)   # a deleted post is a real 404
     except Exception as e:
         print("  fxtwitter failed for {}/{}: {}".format(user, sid, e))
         return None
@@ -169,6 +173,23 @@ def save_posts(recs, state):
 
 # ---------------------------------------------------------------- timelines
 
+def get_json_retry(url, tries=RETRIES):
+    """fxtwitter answers a working profile with a spurious 404 (or a 5xx)
+    on a fair share of calls. Try a few times with short pauses; only a
+    failure on every try counts against the handle."""
+    for n in range(tries):
+        try:
+            d = get_json(url)
+            if d.get("code") == 200 or n == tries - 1:
+                return d
+        except (urllib.error.HTTPError, urllib.error.URLError, TimeoutError, ValueError) as e:
+            if n == tries - 1:
+                raise
+            if isinstance(e, urllib.error.HTTPError) and e.code not in (404, 429, 500, 502, 503, 504):
+                raise
+        time.sleep(2 + 3 * n)
+
+
 def collect_timeline(handle, cutoff, seen):
     """New posts from one public timeline, newest first, back to `cutoff` or
     the first page that holds nothing new. The feed includes replies (since
@@ -178,7 +199,7 @@ def collect_timeline(handle, cutoff, seen):
     me = handle.lower()
     for _ in range(MAX_PAGES):
         url = TIMELINE.format(h=handle) + ("&cursor=" + cursor if cursor else "")
-        d = get_json(url)
+        d = get_json_retry(url)
         if d.get("code") != 200:
             raise RuntimeError("fxtwitter answered {} {}".format(d.get("code"), d.get("message")))
         newer = 0
@@ -314,7 +335,7 @@ def collect_telegram(tg, state):
             if (msg.get("text") or "").startswith("/start"):
                 state["ownerId"], state["chatId"] = sender, chat
                 tg.send(chat, "Linked. Forward me X posts, subscriber posts with the text pasted, "
-                              "replies, or screenshots. I pick them up every six hours; replies come back when they are saved.")
+                              "replies, or screenshots. I pick them up at 10:00 and 23:00 Malaysia time; replies come back when they are saved.")
             continue
         if sender != state["ownerId"]:
             continue              # only the operator can feed the desk
@@ -337,7 +358,16 @@ def main():
     ap.add_argument("--days", type=int, default=3,
                     help="how far back to read a timeline (first run uses 14)")
     ap.add_argument("--no-telegram", action="store_true")
+    ap.add_argument("--skip-if-recent", type=int, metavar="MINUTES",
+                    help="exit at once if the last run finished less than MINUTES ago")
     args = ap.parse_args()
+    if args.skip_if_recent:
+        last = load_json(STATE_FILE, {}).get("lastRun")
+        if last:
+            age = datetime.now(timezone.utc) - datetime.fromisoformat(last.replace("Z", "+00:00"))
+            if age < timedelta(minutes=args.skip_if_recent):
+                print("collector ran {} min ago; skipping".format(int(age.total_seconds() // 60)))
+                return 0
 
     start_watchdog()
     state = load_json(STATE_FILE, {})

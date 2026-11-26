@@ -32,7 +32,7 @@ python3 desk/collect.py        # fresh posts, prices, alerts
 - Run `python3 desk/prep.py --hours 36` and read what the analysts said about
   the result.
 - Today's price is in `desk/store/prices_latest.json` (the collector refreshes
-  it every six hours; check its `asOf`).
+  it at 10:00 and 23:00 MYT; check its `asOf`).
 
 ## 2. Judge
 

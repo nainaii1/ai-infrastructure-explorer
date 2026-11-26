@@ -1,67 +1,93 @@
 ---
 name: daily-digest
-description: Send the operator a short Telegram digest of the last 24 hours of analyst posts, flagging anything that touches the accumulate list. Use when the operator says "/daily-digest", "daily digest", "what did the analysts say today", or when the scheduled daily task fires.
+description: Send the operator a 60-second Telegram digest of the analyst posts since the last scan (about 12 hours), led by anything he needs to do. Runs after each scan, 10:20 and 23:20 MYT. Use when the operator says "/daily-digest", "daily digest", "what did the analysts say today", or when the scheduled digest task fires.
 ---
 
-# Daily digest
+# Digest (twice a day, since 27 Nov 2026)
 
-**First, read `desk/store/HANDOVER.md`** (private status, zones, open issues and the checklist for the next memo). It is no longer in CLAUDE.md.
+**First, read `desk/store/HANDOVER.md`** (private status, zones, open issues).
 
-A five-minute read on the phone, not a memo. No guide edits, no scorecard
-changes, no commit.
+The collector scans X at 10:00 and 23:00 MYT. This digest follows each scan
+at :20 and covers the posts since the previous one. It is a **60-second read
+on the phone**: about 800 characters, never over 1,000. No guide edits, no
+scorecard changes, no commit.
+
+**Saturday morning is skipped.** If it is Saturday before 13:30 MYT, stop: send
+nothing (the weekly memo at 13:30 covers it). Saturday night runs as normal.
 
 ```bash
-python3 desk/collect.py
-python3 desk/prep.py --hours 24
+python3 desk/collect.py --skip-if-recent 60
+python3 desk/prep.py --hours 13
+python3 desk/build.py
 ```
 
-Read `desk/store/reading.md` (open any screenshot files it lists). Read the
-latest `desk/memos/*.json` for the current accumulate list.
+The first line runs the scan only if the 10:00/23:00 scan has not already run
+(the Mac was asleep, say). `--hours 13` overlaps the last digest by an hour.
 
-**Event check first.** Look at the latest memo's `market.calendar`. For any
-item with a `ticker` whose date is today or in the last 3 days, and with no
-file yet in `desk/memos/events/` for that ticker on or after that date, run the
-`event-update` skill for it before writing the digest, and mention it in one
-line in the digest. If a company's results are not out yet (a delayed or
-expected date), say so and check again tomorrow. Hyperscaler tickers (MSFT,
-GOOGL, AMZN, META, ORCL) get a "capex read" event update. Several
-hyperscalers on the same day share one file, named after the first ticker.
+Read `desk/store/reading.md` (open any screenshot files it lists), the latest
+`desk/memos/*.json` (rows, sleeves, `market.calendar`), `desk/store/decision.txt`,
+`desk/store/notices.json`, `desk/store/alerts.json` and the roles in
+`desk/analysts.json`.
 
-**Tomorrow's dates.** For any calendar item tomorrow whose event text says
-"expected", check the company's IR page and say in one line whether the date
-is confirmed or has moved.
+**Morning run only (10:20):** the event check. For any `market.calendar` item
+with a `ticker` dated today or in the last 3 days and no file yet in
+`desk/memos/events/` for it on or after that date, run the `event-update` skill
+first. Hyperscalers (MSFT, GOOGL, AMZN, META, ORCL) get a "capex read"; several
+on one day share one file. For tomorrow's items marked "expected", check the IR
+page for whether the date is confirmed.
 
-**Price alerts.** Read `desk/store/alerts.json`; mention any alert from the
-last 24 hours in one line (the alert itself was already sent).
+## What goes in, in this order
 
-**Decision sheet first (since 11 Nov 2026).** Run `python3 desk/build.py`,
-then start the digest with the top of `desk/store/decision.txt`: the TIDE,
-MONEY and POTS lines and the NEEDS YOU block (leave WAITING out unless a name
-is within 3% of its line). Note any voice whose behaviour changed today
-(started hedging, sold, began promoting something).
+1. **ACTION** — only what changed or needs him now: a notice from
+   `notices.json` dated in the window (freeze, thaw, trigger, exit step), a price
+   alert from the window, a name that moved into a buy or add zone, a name
+   within 3% of its buy or break line, an event update just written. A name that
+   was already frozen or already in its zone yesterday is not news; leave it
+   out. Add the TIDE line only if the tide changed. Nothing → "Nothing to do."
+2. **BY NAME** — the window's news grouped under the ticker it touches, held
+   names and shots first, then core list, then the fund ETFs. One line each,
+   naming the analyst. At most 4 names; skip names with nothing new. Prefer new
+   numbers, guidance, stance changes. Mark anything you did not check
+   "unconfirmed".
+3. **BULLS vs SCEPTICS** — one line for the bull side, one for the sceptic
+   seats (`role: sceptic` in `analysts.json`), on the single biggest debate in
+   the window. If the sceptics were quiet, say so.
+4. **NEXT 7 DAYS** — earnings and hyperscaler capex prints from
+   `market.calendar`, date plus ticker, "(expected)" if not confirmed. Max 4.
 
-Write `desk/store/digest.txt`, plain text, under ~1,800 characters:
+Leave out reposts of news everyone has, hype with no number ("BUY BUY BUY"),
+and the money and pots lines (they are on the page). Never quote subscriber
+(PAID/SCREENSHOT) posts verbatim. If the collector reported failures, put one
+line at the very top.
+
+## Shape
+
+Write `desk/store/digest.txt`, plain text:
 
 ```
-DESK DIGEST · 24 Sep 2026 · 57 posts
+DESK · <date> AM · <n> posts
 
-WORTH KNOWING
-• @jukan05: Samsung to double HBM4 output next year (Korean press, unconfirmed)
-• … (3–6 bullets, each names the analyst, links nothing, says "unconfirmed" unless you checked it)
+ACTION
+• <name> within 3% of its buy line
+• (or: Nothing to do.)
 
-ON THE LIST
-• MU: two analysts more bullish after … / nothing new
+BY NAME
+• <ticker>: @<analyst>, <the news in one line>
+• <ticker>: @<analyst>, <the news> (unconfirmed)
 
-QUIET: @SemiAnalysis_, @damnang2
+BULLS vs SCEPTICS
+Bulls: <one line>.
+Sceptics: @<sceptic seat>, <one line>.
+
+NEXT 7 DAYS
+<date> <ticker> · <date> <ticker> (expected)
 ```
 
-Skip reposts of news everyone has. Prefer new numbers, stance changes, and
-disagreements between analysts. If nothing matters, say so in one line; a
-quiet day is a valid digest. Do not quote subscriber (PAID/SCREENSHOT) posts
-verbatim.
+(The lines above show the shape only; every name, number and date comes from
+the window's posts and the memo.)
+
+"AM" for the 10:20 run, "PM" for 23:20. Then send it:
 
 ```bash
 python3 desk/send.py desk/store/digest.txt
 ```
-
-If the collector reported failures, put that first.

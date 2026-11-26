@@ -24,7 +24,7 @@ Two parts, one page:
 - **The guide** (`index.html`, `style.css`, `app.js`, `data.js`, `check.py`): a
   static, offline-first field guide to the AI hardware supply chain. `data.js`
   is the curated product.
-- **The desk** (`desk/`): collects the analysts' posts every six hours, and a weekly
+- **The desk** (`desk/`): collects the analysts' posts twice a day (10:00 and 23:00 MYT), and a weekly
   memo turns them into four things the operator asked for: the supply-chain
   picture now and next, an accumulate list, the analyst bull/bear board, and a
   market wrap. It renders from `desk.js` in four tabs (since 25 Nov 2026):
@@ -73,7 +73,7 @@ Two parts, one page:
 | Skill | When | What |
 |---|---|---|
 | `weekly-memo` | Saturday 13:30 MYT, after the weekly usage reset at 13:00 (scheduled, always runs unless a memo was written Fri/Sat), or "run the desk" | Collect, price snapshot, read everything, check claims, write the memo (sleeves, break lines, upside and milestones on shots, voices, hunt list), update scorecard, Telegram summary led by the decision sheet. No guide edits. Mid-week by hand: warn if a list result or hyperscaler capex print is under 48h away |
-| `daily-digest` | Sun–Fri 11:00 MYT (scheduled) | Short Telegram digest of the last 24h; triggers event updates; re-checks tomorrow's "expected" dates |
+| `daily-digest` | 10:20 and 23:20 MYT daily, Saturday morning skipped (scheduled) | 60-second Telegram digest of the last ~12h: action box, by name, bulls vs sceptics, next 7 days; morning run triggers event updates |
 | `event-update` | Day after a calendar event for a listed name or a hyperscaler (triggered by the daily digest or a one-off scheduled task) | Short sourced read: confirms / mixed / breaks the call, judged against the memo's named `test`; hyperscalers get a "capex read"; may reset alert levels |
 | `log-development` | Operator shares a filing, release or post | One dated, sourced entry in `data.js` |
 
@@ -87,7 +87,7 @@ sends any once-only notice (freeze, thaw, trigger, exit step, tradable setup) (l
 `desk/`, log `~/Library/Logs/desk-preopen.log`). Pre-open, US prices are the
 last close.
 
-The collector runs on its own every six hours (launchd `com.aie.desk-collect`, log at
+The collector runs on its own at 10:00 and 23:00 MYT (launchd `com.aie.desk-collect`, log at
 `~/Library/Logs/desk-collect.log`). It reads timelines through the free
 fxtwitter API and picks up whatever the operator forwarded to the Telegram bot
 (subscriber posts, replies, screenshots). It exits after each run, so there is
@@ -106,7 +106,7 @@ change in plain language.
 
 ```
 desk/analysts.json    the roster (edit to add/drop an analyst)
-desk/collect.py       every 6h: timelines + Telegram inbox -> desk/store/posts/
+desk/collect.py       10:00 + 23:00 MYT: timelines + Telegram inbox -> desk/store/posts/
 desk/prices.py        price snapshot from the Google Sheet -> desk/store/prices/ (memo) and prices_latest.json (collector)
 desk/support.py       chart floors from the sheet's price_history tab (gid 175825543) for support-based levels
 desk/ta.py            back-tests every moving average and floor on that history: how often each held, what followed -> desk/store/ta.json (build.py runs it)
