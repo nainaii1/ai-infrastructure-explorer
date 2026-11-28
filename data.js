@@ -6,7 +6,7 @@ window.DATA =
 {
   "meta": {
     "title": "AI Infrastructure Explorer",
-    "updated": "2026-11-07",
+    "updated": "2026-11-28",
     "disclaimer": "Research notes, not investment advice. Figures are as reported by the cited source on the stated date."
   },
 
@@ -202,11 +202,12 @@ window.DATA =
     {
       "ticker": "NBIS", "name": "Nebius Group", "layer": "neoclouds", "hq": "NL", "listed": true,
       "what": "European-origin GPU cloud building large NVIDIA clusters, with NVIDIA as an investor.",
-      "role": "The example of neocloud economics in full: run-rate revenue of $3bn against capex of $20-25bn, funded by convertibles.",
+      "role": "The example of neocloud economics in full: Q3 2026 revenue of $980.8m against 2026 capex of about $27bn, funded by convertibles and, increasingly, customer prepayments.",
       "bull": "Palantir named it its preferred sovereign AI infrastructure partner, it was first to deploy NVIDIA's Groq3 LPX, and Oracle's resale disclosure supports the residual value of its fleet.",
       "bear": "First-half capex was 8.3 times revenue, debt exceeds cash after an upsized $5.75bn convertible, and reported profit came from a revaluation gain, not from renting compute. It is a bet on continued capital-market access.",
       "watch": "Conversion premium on the next convertible; sequential run-rate growth.",
       "facts": [
+        {"text": "Q3 2026 revenue $980.8m, up 571% on the year. 2026 capex now about $27bn; 2027 capex planned at $40-45bn, 75-85% covered by prepayments and financing against investment-grade contracts. More than 4 GW contracted.", "asOf": "2026-11-12", "source": "https://assets.nebius.com/assets/51f8e479-732f-4e56-bade-a6bde21024ab/SHL%20%282%29.pdf"},
         {"text": "First-half purchases of property, equipment and intangibles $8,130.3m against revenue of $981.3m. Debt $8.55bn against cash of $8.04bn after the August convertible.", "asOf": "H1 2026", "source": "https://www.sec.gov/Archives/edgar/data/0001513845/000110465926094844/nbis-20260812xex99d2.htm"},
         {"text": "First-half net income from continuing operations $430.8m includes a $780.6m equity revaluation gain. Annualised run-rate revenue $3bn at end-June against full-year capex guidance of $20-25bn.", "asOf": "H1 2026", "source": "https://nebius.com/newsroom/nebius-reports-second-quarter-2026-financial-results"},
         {"text": "Palantir named Nebius its preferred sovereign AI infrastructure partner. A designation, not a disclosed contract value.", "asOf": "2026-09-08", "source": "https://x.com/aleabitoreddit/status/2097327653116363127"}
@@ -232,6 +233,7 @@ window.DATA =
       "bear": "Gross margin guided down for the first time this cycle because memory content per package is rising and NVIDIA is absorbing it. Receivables are $63bn with five customers holding 70%, and total commitments to customers and suppliers reach $366bn. The company is increasingly funding the buyers of its chips.",
       "watch": "Gross margin below 72% would say memory cost is structural; China re-entering the outlook is the upside nobody is carrying.",
       "facts": [
+        {"text": "Q3 FY27 (to 25 Oct 2026) revenue $115.8bn, up 103% on the year; GAAP gross margin 74.8%. Q4 FY27 outlook $130.0bn plus or minus 3%, assuming no China data-center compute revenue.", "asOf": "2026-11-17", "source": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-third-quarter-fiscal-2027"},
         {"text": "Q2 FY27 revenue $96.2bn, up 106%; data centre $89.0bn, up 117%. Q3 guided to $108bn assuming no data-centre compute revenue from China. Gross margin guided to 74.0% from 75.0% delivered.", "asOf": "2026-08-26", "source": "https://www.sec.gov/Archives/edgar/data/0001045810/000104581026000073/q2fy27pr.htm"},
         {"text": "Expects to grow revenue by approximately 70% in fiscal 2028, described as a supply-constrained outlook; projects $1.3T of hyperscaler capex in 2027, up from about $800bn in 2026.", "asOf": "2026-08-26", "source": "https://x.com/aleabitoreddit/status/2092723047107355133"},
         {"text": "Supply commitments of $92bn for the rest of FY27, $87bn in FY28 and $88bn in FY29, against $119bn total a quarter earlier, described as memory and manufacturing capacity. Receivables $63.1bn with five customers holding 70%. Total commitments $366bn including $29bn of cloud service agreements, $25bn of equity investments and $25bn of leases not yet commenced.", "asOf": "Q2 FY27", "source": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000075/nvda-20260726.htm"},
@@ -307,7 +309,9 @@ window.DATA =
       "bull": "Volume grows with every optical forecast revision regardless of which brand wins.",
       "bear": "Contract-manufacturing margins; customer concentration in a few optics houses.",
       "watch": "Datacom revenue growth versus the optical module TAM revisions.",
-      "facts": []
+      "facts": [
+        {"text": "Fiscal Q1 2027 (to 25 Sep 2026) revenue $1,474.5m, up from $978.1m a year earlier, above its guidance range. Fiscal Q2 guided to $1.6-1.65bn.", "asOf": "2026-11-02", "source": "https://www.sec.gov/Archives/edgar/data/1408710/000140871026000034/fn-20261102xex991q127.htm"}
+      ]
     },
 
     {
@@ -317,7 +321,10 @@ window.DATA =
       "bull": "Hyperscalers building Ethernet-based AI back-ends buy Arista systems on top of Broadcom silicon.",
       "bear": "NVIDIA sells the fabric with the GPU; share depends on hyperscalers choosing open Ethernet over the bundle.",
       "watch": "AI back-end revenue disclosures and Ethernet share of new clusters.",
-      "facts": []
+      "facts": [
+        {"text": "Q3 2026 revenue $3.66bn, up 58.5% on the year (its fastest growth since the IPO) against guidance of $3.3bn. Q4 guided to $3.9-4.0bn.", "asOf": "2026-11-03", "source": "https://www.sec.gov/Archives/edgar/data/1596532/000159653226000252/ex991q326-earningsrelease.htm"},
+        {"text": "Launched open, standards-based rack-scale architectures for AI scale-up and scale-out networks with AMD, Arm, Broadcom, d-Matrix, Meta, Microsoft and Qualcomm.", "asOf": "2026-11-03", "source": "https://www.sec.gov/Archives/edgar/data/1596532/000159653226000252/ex991q326-earningsrelease.htm"}
+      ]
     },
     {
       "ticker": "ALAB", "name": "Astera Labs", "layer": "networking", "hq": "US", "listed": true,
@@ -337,7 +344,9 @@ window.DATA =
       "bull": "Copper in the rack lasts longer than the optics bulls expect, and AECs are the cheap way to stretch it.",
       "bear": "If optics moves into the package on schedule, the copper runway shortens.",
       "watch": "AEC volumes and the NPO and CPO timeline.",
-      "facts": []
+      "facts": [
+        {"text": "Fiscal Q1 2027 (to 1 Aug 2026) revenue $479.0m, up 114.7% on the year; non-GAAP gross margin 68.0%. Fiscal Q2 guided to $525-535m.", "asOf": "2026-09-01", "source": "https://www.sec.gov/Archives/edgar/data/1807794/000162828026059795/credoq12027ex-991.htm"}
+      ]
     },
 
     {
@@ -559,7 +568,9 @@ window.DATA =
       "bull": "Memory makers' 2027 capacity additions are its orders.",
       "bear": "If memory capex is disciplined, as SK hynix claims, the order cycle is muted.",
       "watch": "Memory equipment orders against the makers' capex guides.",
-      "facts": []
+      "facts": [
+        {"text": "September 2026 quarter revenue $8.22bn, up 22% on the quarter; GAAP gross margin 52.3%. December quarter guided to $8.60bn plus or minus $400m.", "asOf": "2026-10-21", "source": "https://www.sec.gov/Archives/edgar/data/707549/000070754926000052/lrcx_exhibitx991xq1x2027.htm"}
+      ]
     },
     {
       "ticker": "KLAC", "name": "KLA", "layer": "equipment", "hq": "US", "listed": true,
@@ -568,7 +579,9 @@ window.DATA =
       "bull": "Highest margins in equipment; content grows with process complexity.",
       "bear": "Same China and cycle exposure as the rest of the layer.",
       "watch": "Advanced packaging inspection orders.",
-      "facts": []
+      "facts": [
+        {"text": "Fiscal Q1 2027 (to 30 Sep 2026) revenue $4.14bn, above the $4.0bn guidance midpoint; free cash flow $1.34bn in the quarter. Management called process control critical to the AI build.", "asOf": "2026-10-28", "source": "https://www.sec.gov/Archives/edgar/data/319201/000031920126000032/exhibit991earningsrelease0.htm"}
+      ]
     },
 
     {
@@ -649,7 +662,9 @@ window.DATA =
       "bull": "Firm carbon-free capacity under long-term agreements at prices set by scarcity.",
       "bear": "Regulatory and political risk on co-location deals; limited ability to add capacity quickly.",
       "watch": "New direct power agreements with hyperscalers and their pricing.",
-      "facts": []
+      "facts": [
+        {"text": "Q3 2026: agreements adding more than 1,000 MW of new emissions-free generation, a long-term collaboration with Google supporting new nuclear capacity, and a conditional DOE loan commitment of up to $5bn for nuclear uprates.", "asOf": "2026-11-09", "source": "https://www.sec.gov/Archives/edgar/data/1868275/000186827526000116/ceg-20261109991.htm"}
+      ]
     },
     {
       "ticker": "BE", "name": "Bloom Energy", "layer": "power", "hq": "US", "listed": true,
@@ -670,7 +685,9 @@ window.DATA =
       "bull": "Content per megawatt rises with rack density.",
       "bear": "Competes with Schneider, Eaton and the hyperscalers' own designs.",
       "watch": "Orders and backlog against hyperscaler capex.",
-      "facts": []
+      "facts": [
+        {"text": "Q3 2026 net sales $4,313m, up 61% on the year, with organic orders up more than 100%. Full-year 2026 net sales guided to $14,650m at the midpoint, raised.", "asOf": "2026-10-28", "source": "https://www.sec.gov/Archives/edgar/data/1674101/000162828026067707/q32026exhibit991vrt10282026.htm"}
+      ]
     },
     {
       "ticker": "ETN", "name": "Eaton", "layer": "power", "hq": "IE", "listed": true,
@@ -679,7 +696,9 @@ window.DATA =
       "bull": "Electrical equipment is a capacity-constrained market with pricing power.",
       "bear": "Diversified industrial; data centre is one segment among many.",
       "watch": "Data-centre order growth and lead times.",
-      "facts": []
+      "facts": [
+        {"text": "Q3 2026 sales up 28%, organic up 19%; Electrical backlog up 46% on the year. Agreed to buy COL Group to add power-distribution capacity for data-center and utility markets in Europe.", "asOf": "2026-11-03", "source": "https://www.sec.gov/Archives/edgar/data/1551182/000155118226000037/etn09302026exhibit99.htm"}
+      ]
     }
   ],
 
@@ -777,6 +796,16 @@ window.DATA =
   ],
 
   "developments": [
+    {"date": "2026-11-27", "title": "TrendForce: conventional DRAM price rises narrow through 2027 and contract prices fall from 1Q28 in its base case", "summary": "Consumer electronics makers cannot absorb more increases and Chinese cloud providers cut server DRAM demand in early 4Q26, which North American providers absorbed. In its bear case, with lower neocloud investment and wider export controls, prices turn down in 4Q27. The forecaster now dates the end of the DRAM squeeze instead of extending it.", "companies": ["MU", "000660.KS", "005930.KS"], "narratives": ["memory-squeeze", "china"], "sourceType": "press", "source": "https://www.trendforce.com/presscenter/news/20261127-13327.html"},
+    {"date": "2026-11-25", "title": "TrendForce cuts its 2027 memory forecasts: NAND revenue to about $419.3bn, DRAM to $1.15tn", "summary": "Chinese cloud providers reduced their 2027 memory orders, so NAND is expected to enter a downward pricing cycle as supply grows. DRAM stays undersupplied, but quarterly price rises are set to moderate: the first big forecaster to say the memory squeeze is past its steepest point.", "companies": ["MU", "SNDK", "000660.KS", "005930.KS"], "narratives": ["memory-squeeze", "china"], "sourceType": "press", "source": "https://www.trendforce.com/presscenter/news/20261125-13321.html"},
+    {"date": "2026-11-23", "title": "NVIDIA's board unanimously reinstates Jensen Huang as CEO, eleven days after he resigned", "summary": "The board said it had input from senior US government officials and is confident his return poses no national security risk; Harvey Jones stays as chair. The leadership question is settled, but the regulatory inquiries are not.", "companies": ["NVDA"], "narratives": ["china"], "sourceType": "company", "source": "https://nvidianews.nvidia.com/news/nvidia-board-reinstates-jensen-huang-as-president-ceo-and-board-director"},
+    {"date": "2026-11-19", "title": "TrendForce: NAND contract prices to fall 0-5% in 1Q27, with every NAND category declining from 2Q27", "summary": "Chinese cloud providers cut their 2027 enterprise SSD orders by more than US providers added, and 2027 bit supply grows 25-30% as industry capex rises 26.7% to $29.9bn. It also cut its 4Q26 contract price rise to 8-13%. NAND is the first memory market to tip from shortage toward oversupply.", "companies": ["SNDK", "MU", "000660.KS", "005930.KS"], "narratives": ["memory-squeeze", "china"], "sourceType": "press", "source": "https://www.trendforce.com/presscenter/news/20261119-13314.html"},
+    {"date": "2026-11-17", "title": "NVIDIA Q3 FY27 revenue $115.8bn, up 103% on the year; Q4 guided to $130bn with no China data-center compute", "summary": "Gross margin held near 75%, and the company returned $28.1bn to shareholders in the quarter. Demand at the top of the chain is still rising, so the squeeze below it (memory, substrates, packaging) does not ease.", "companies": ["NVDA"], "narratives": ["china", "memory-squeeze"], "sourceType": "company", "source": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-third-quarter-fiscal-2027"},
+    {"date": "2026-11-17", "title": "NVIDIA signs long-term supply deals for substrates (Kinsus, Samsung Electro-Mechanics) and packaging (Amkor, SPIL)", "summary": "The agreements add substrate capacity and expand advanced packaging for current and next-generation platforms; Vera Rubin NVL72 began volume shipments in the quarter on TSMC 3nm and CoWoS. The buyer of compute is now paying to secure the physical inputs years ahead.", "companies": ["NVDA", "AMKR", "ASX", "TSM"], "narratives": ["packaging"], "sourceType": "company", "source": "https://nvidianews.nvidia.com/news/nvidia-expands-commitments-with-supply-chain-partners-to-support-ai-infrastructure-buildout"},
+    {"date": "2026-11-17", "title": "The SEC opens a civil probe into whether NVIDIA's disclosures misled investors (WSJ)", "summary": "The questions centre on Asia, including sales in Singapore and a firm suspected of rerouting chips to China. It adds a regulatory overhang to the largest buyer in the supply chain.", "companies": ["NVDA"], "narratives": ["china"], "sourceType": "press", "source": "https://www.investmentnews.com/equities/embattled-nvidia-faces-sec-probe-as-california-attorney-general-mulls-action/269054"},
+    {"date": "2026-11-16", "title": "US rule on remote access: data centers anywhere that sell set volumes of compute to Chinese firms need a license", "summary": "The Commerce Department's interim rule extends export controls to compute rented through overseas data centers and clouds; sites already serving such customers have 90 days to get a license. It closes the route Chinese labs used to train on US chips abroad.", "companies": ["NVDA", "AMD", "ORCL", "MSFT"], "narratives": ["china"], "sourceType": "press", "source": "https://www.pillsburylaw.com/en/news-and-insights/commerce-restricts-remote-access-advanced-chips.html"},
+    {"date": "2026-11-12", "title": "NVIDIA CEO Jensen Huang resigns; CFO Colette Kress named interim CEO", "summary": "The board also created the post of chair, filled by Harvey Jones, and began a search for a permanent CEO. The leadership of the chain's most important buyer became an open question for eleven days.", "companies": ["NVDA"], "narratives": ["china"], "sourceType": "company", "source": "https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition"},
+    {"date": "2026-11-12", "title": "Nebius Q3 revenue $980.8m, up 571%; December ARR target slips about two months as colocation sites move into 2027", "summary": "It now expects ARR above $7bn in February rather than $7-9bn by December, and plans $40-45bn of capex in 2027, 75-85% covered by customer prepayments and asset-backed financing. Power and site timing, not demand, set the pace.", "companies": ["NBIS"], "narratives": ["financing", "power-constraint"], "sourceType": "company", "source": "https://assets.nebius.com/assets/51f8e479-732f-4e56-bade-a6bde21024ab/SHL%20%282%29.pdf"},
     {"date": "2026-11-06", "title": "KYEC trims its Q4 outlook: a key customer's new GPU is delayed by HBM4 yield problems", "summary": "Taiwan's largest chip tester guided Q4 revenue up only about 7-10% on the quarter and gross margin to 36-37% from 37.6%, citing a slightly delayed ramp of a new-generation GPU tied to HBM4 yields in the memory supply chain. It names neither the GPU maker nor the memory supplier, but it is the first hard sign that HBM4 yields, not demand, could set the timing of the next GPU generation.", "companies": ["NVDA", "MU", "000660.KS", "005930.KS"], "narratives": ["memory-squeeze", "packaging"], "sourceType": "press", "source": "https://finance.technews.tw/2026/11/06/king-yuan-electrics-third-quarter-operations-met-market-expectations/"},
     {"date": "2026-11-05", "title": "Applied Optoelectronics Q3 revenue $269.9m, up from $118.6m; multi-year deal with a Tier 1 hyperscaler; Q4 guided to $385-420m", "summary": "Data-center revenue was $155.6m against $43.9m a year earlier. The Q4 guide assumes about 96 million shares, and the company says its 2027 US expansion may take longer because electrical power is slow to arrive. Optics demand is contracted; the limits now are power hook-ups and parts, not orders.", "companies": ["AAOI"], "narratives": ["copper-to-optics", "laser-shortage", "power-constraint"], "sourceType": "filing", "source": "https://www.sec.gov/Archives/edgar/data/0001158114/000168316826008351/aaoi_ex9901.htm"},
     {"date": "2026-11-04", "title": "Coherent fiscal Q1 revenue $2.37bn, top of its guide; Q2 guided to $2.55-2.75bn", "summary": "Non-GAAP EPS was $2.09 against a $1.85-2.05 guide and gross margin 40.6%; the Q2 guide calls for 40-42% gross margin. Two days after Marvell agreed to buy Lumentum, the largest independent laser maker raised its outlook rather than flagging any slowdown.", "companies": ["COHR", "LITE", "MRVL"], "narratives": ["laser-shortage", "copper-to-optics"], "sourceType": "filing", "source": "https://www.sec.gov/Archives/edgar/data/0000820318/000119312526447200/d176836dex991.htm"},
